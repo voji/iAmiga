@@ -28,6 +28,8 @@
     CADisplayLink		*_displayLink;
 }
 
+- (void)setPaused:(BOOL)value;
+
 - (id)initWithFrame:(CGRect)frame displaySize:(CGSize)displaySize;
 
 #ifdef __cplusplus

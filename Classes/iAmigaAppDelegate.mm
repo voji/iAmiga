@@ -63,6 +63,14 @@ static UaeDebugger *debugger;
 	
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application {
+    SDL_PauseOpenGL(1);
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    SDL_PauseOpenGL(0);
+}
+
 - (void)configureScreens {
 	if ([[UIScreen screens] count] == 1) {
 		NSLog(@"Device display");

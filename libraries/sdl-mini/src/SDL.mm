@@ -148,8 +148,18 @@ int SDL_ShowCursor(int a) {
 	return 0;
 }
 
-#pragma mark -
+#pragma mark
 #pragma mark Audio Handlers
+
+void SDL_PauseOpenGL(int paused)
+{
+    if(paused) {
+        [view setPaused:true];
+    } else {
+        [view setPaused:false];
+    }
+    
+}
 
 #if 0
 
@@ -175,5 +185,4 @@ void SDL_PauseAudio(int paused) {
 		g_audioQueue->resume();
 	}
 }
-
 #endif

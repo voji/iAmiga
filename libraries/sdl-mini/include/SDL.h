@@ -41,6 +41,7 @@ extern void SDL_FillRect(SDL_Surface*, void*, int);
 extern long int SDL_MapRGB(tagFormat*, int, int, int);
 extern int SDL_PollEvent(SDL_Event*);
 extern void SDL_VideoQuit();
+extern void SDL_PauseOpenGL(int);
 
 extern int SDL_Init(int);
 extern char* SDL_GetError();
