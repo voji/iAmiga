@@ -15,7 +15,7 @@
 
 
 
-<title>King of Chicago - iAmiga</title>
+<title>DefenderOfTheCrown - iAmiga</title>
 
 <script type="text/javascript">
 var from = "help";
@@ -59,6 +59,30 @@ function loaded() {
         document.getElementById('gamesbtnimg').src='images/icon_games.png';
         
 	});
+<<<<<<< HEAD
+=======
+	
+	$('#gamesbtn').click(function() {
+	//	loadpage('crosspromo','FADE');
+	  loadpage('crosspromoipad','FADE','http://www.cinemaware.com/mobile/promo');
+	document.getElementById('aboutbtnimg').src='images/icon_about.png';
+	document.getElementById('helpbtnimg').src='images/icon_help.png';
+	document.getElementById('gamesbtnimg').src='images/icon_games_over.png';
+	});
+	
+	var img = document.createElement('img');
+	img.src = "http://www.manomio.com/images/bullet.gif";
+	var isConnection = false;
+	img.onload = function() { isConnection = true; }
+	setTimeout(function() {
+		if(isConnection==true) {
+			$('#gamesbtn2').fadeOut('fast');
+			$('#gamesbtn').fadeIn('slow');
+		} else {
+			$('#gamesbtn').fadeOut('slow');
+		}
+	}, 3000);
+>>>>>>> parent of 8d622d9... User guide update, input update.
 }
 
 </script>
