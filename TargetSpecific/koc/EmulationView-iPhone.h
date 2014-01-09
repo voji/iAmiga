@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "EmulationViewController.h"
 
+<<<<<<< HEAD
 @class DynamicLandscapeControls;
 
 @interface EmulationViewiPhone : EmulationViewController <UIWebViewDelegate> {
+=======
+@interface EmulationViewiPhone : EmulationViewController {
+>>>>>>> parent of fa960e3... Configurable onscreen mouse buttons
     
     UIView *menuView;
     UIWebView *webView;
@@ -22,7 +26,6 @@
     UIButton *restartButton;
     CGFloat _menuViewStartY;
     CGFloat _bottomBarStartY;
-    DynamicLandscapeControls *inputController;
 }
 - (IBAction)hideMenu:(id)sender;
 - (IBAction)showMenu:(id)sender;
@@ -34,6 +37,5 @@
 @property (nonatomic, retain) IBOutlet UIButton *closeButton;
 @property (nonatomic, retain) IBOutlet UIButton *menuButton;
 @property (nonatomic, retain) IBOutlet UIButton *restartButton;
-@property (nonatomic, retain) IBOutlet DynamicLandscapeControls *inputController;
 
 @end

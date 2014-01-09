@@ -101,11 +101,9 @@ const int kButtonWidth = 200;
 		[_joystick removeFromSuperview];
 		[_joystick release];
 	}
-    
-    if (_currentStickClass) {
-        _joystick = [_currentStickClass isEqual:[MMFixedStickController class]] ? [self fixedJoystick] : [self landscapeJoystick];
-        [self addSubview:_joystick];
-    }
+	
+	_joystick = [_currentStickClass isEqual:[MMFixedStickController class]] ? [self fixedJoystick] : [self landscapeJoystick];
+	[self addSubview:_joystick];
 }
 
 - (void)actionClearButtons {
@@ -133,10 +131,6 @@ const int kButtonWidth = 200;
 		_isFixedOverride = YES;
 		_currentStickClass = [MMFixedStickController class];
 		[self createJoystick];
-    } else if ([stickMode isEqualToString:@"disabled"]) {
- 		_isFixedOverride = YES;
-		_currentStickClass = Nil;
-		[self createJoystick];       
 	} else {
 		_isFixedOverride = NO;
 		[self setCurrentStick];

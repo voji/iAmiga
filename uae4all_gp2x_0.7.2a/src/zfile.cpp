@@ -277,6 +277,7 @@ static void uae4all_disk_real_write(int num)
 						fwrite((void *)&sizecompressed,1,4,f);
 						fwrite(bc,1,sizecompressed,f);
 						fclose(f);
+                        
 					}
 				}
 			}
@@ -398,7 +399,15 @@ size_t uae4all_fwrite( void *ptr, size_t tam, size_t nmiemb, FILE *flujo)
 		return 0;
 	if (uae4all_disk_pos[i]>=uae4all_disk_len[i])
 		return 0;
-	memcpy((void *)(((unsigned)uae4all_disk_memory[i])+((unsigned)uae4all_disk_pos[i])),ptr,tam*nmiemb);
+	memcpy(
+           (void *) (
+             ((unsigned) uae4all_disk_memory[i])
+             +
+             ((unsigned)uae4all_disk_pos[i])
+           ),
+           ptr,
+           tam*nmiemb
+           );
 	uae4all_disk_pos[i]+=tam*nmiemb;
 	uae4all_disk_writed[i]=1;
 	return nmiemb;

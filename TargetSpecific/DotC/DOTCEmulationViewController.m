@@ -7,7 +7,6 @@
 //
 
 #import "DOTCEmulationViewController.h"
-#import "LambdaAlert.h"
 
 @interface DOTCEmulationViewController()
 
@@ -28,14 +27,14 @@
 extern void uae_reset();
 
 - (IBAction)restart:(id)sender {
-    LambdaAlert *alert = [[LambdaAlert alloc] initWithTitle:@"RESTART?" message:@"Are you sure you wish to restart?"];
+    /*LambdaAlert *alert = [[LambdaAlert alloc] initWithTitle:@"RESTART?" message:@"Are you sure you wish to restart?"];
     [alert addButtonWithTitle:@"No" block:nil];
-    [alert addButtonWithTitle:@"YES" block:^(void) {
+    [alert addButtonWithTitle:@"YES" block:^(void) {*/
         uae_reset();
         [self startIntroSequence];
-    }];
+    /*}];
     [alert show];
-    [alert release];
+    [alert release];*/
 }
 
 - (void)startIntroSequence {

@@ -7,8 +7,6 @@
 //
 
 #import "EmulationView-iPhone.h"
-#import "DynamicLandscapeControls.h"
-#import "JSON.h"
 
 @implementation EmulationViewiPhone
 @synthesize menuView;
@@ -18,7 +16,6 @@
 @synthesize closeButton;
 @synthesize menuButton;
 @synthesize restartButton;
-@synthesize inputController;
 
 #pragma mark - View lifecycle
 
@@ -27,11 +24,6 @@
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
     webView.delegate = self;
-    
-    //mouseHandler.hidden = YES;
-    NSString *controlLayout = [[NSBundle mainBundle] pathForResource:@"control-layout" ofType:@"json"];
-    inputController.layoutName = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? @"iphone" : @"ipad";
-    [inputController updateLayout:[[NSString stringWithContentsOfFile:controlLayout usedEncoding:NULL error:NULL] JSONValue]];
 }
 
 - (void)dealloc {
@@ -42,7 +34,6 @@
     [closeButton release];
     [menuButton release];
     [restartButton release];
-    [inputController release];
     [super dealloc];
 }
 
@@ -54,7 +45,6 @@
     [self setCloseButton:nil];
     [self setMenuButton:nil];
     [self setRestartButton:nil];
-    [self setInputController:nil];
     [super viewDidUnload];
 }
 
