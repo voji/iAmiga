@@ -32,9 +32,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
-	<string>MainWindow</string>
+	<string>MainWindow-Single</string>
 	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-iPad</string>
+	<string>MainWindow-Single-iPad</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>

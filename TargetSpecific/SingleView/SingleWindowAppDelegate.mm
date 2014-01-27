@@ -53,6 +53,14 @@
 	[self configureScreens];
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application {
+    SDL_PauseOpenGL(1);
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    SDL_PauseOpenGL(0);
+}
+
 - (void)screenDidConnect:(NSNotification*)aNotification {
 	[self configureScreens];
 }

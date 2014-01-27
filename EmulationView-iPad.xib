@@ -6,9 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmulationViewiPad">
             <connections>
-                <outlet property="closeButton" destination="12" id="14"/>
-                <outlet property="menuButton" destination="9" id="10"/>
-                <outlet property="menuView" destination="16" id="18"/>
                 <outlet property="mouseHandler" destination="4" id="19"/>
                 <outlet property="restartButton" destination="8" id="23"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -27,6 +24,23 @@
                 <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4" userLabel="Mouse handler" customClass="TouchHandlerView">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="chrome-top.png" id="7">
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="75"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V8T-7c-ONE">
+                            <rect key="frame" x="87" y="13" width="57" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Settings">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="controls:" destination="-1" eventType="touchUpInside" id="6PU-ea-U62"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view hidden="YES" opaque="NO" contentMode="scaleToFill" id="16" userLabel="Web handler">
@@ -46,11 +60,6 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="chrome-top.png" id="7">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="75"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8" userLabel="Reset button">
                     <rect key="frame" x="20" y="6" width="45" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,29 +75,7 @@
                         <action selector="restart:" destination="-1" eventType="touchUpInside" id="22"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="12" userLabel="Close button">
-                    <rect key="frame" x="959" y="6" width="45" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="btn_close.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="hideMenu:" destination="-1" eventType="touchUpInside" id="15"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9" userLabel="Menu button">
-                    <rect key="frame" x="959" y="6" width="45" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="btn_menu.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="showMenu:" destination="-1" eventType="touchUpInside" id="11"/>
-                    </connections>
-                </button>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="chrome-bottom.png" id="6">
+                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="chrome-bottom.png" id="6">
                     <rect key="frame" x="0.0" y="684" width="1024" height="84"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </imageView>
@@ -99,8 +86,6 @@
     </objects>
     <resources>
         <image name="bg_web.png" width="989" height="580"/>
-        <image name="btn_close.png" width="46" height="47"/>
-        <image name="btn_menu.png" width="45" height="47"/>
         <image name="btn_restart.png" width="45" height="47"/>
         <image name="chrome-bottom.png" width="1024" height="84"/>
         <image name="chrome-top.png" width="1024" height="75"/>
