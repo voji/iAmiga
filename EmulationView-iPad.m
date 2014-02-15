@@ -18,11 +18,47 @@
 
 #pragma mark - View lifecycle
 
+- (CGFloat) XposFloatPanel {
+    
+    CGRect screenRect = CGRectZero;
+    screenRect = [[UIScreen mainScreen] bounds];
+    //CGFloat screenHeight = screenRect.size.height;
+    
+    //Middle of the Screen assuming fullScreenPanel has a width of 700
+    CGFloat result = (self.screenHeight / 2) - 350;
+    
+    return result;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
     webView.delegate = self;
+
+    //---------------------------------------------------
+    // 12. Fullscreen Panel
+    //---------------------------------------------------
+    CGFloat xPos = [self XposFloatPanel];
+    
+    fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xPos,0,700,47)];
+    UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
+    btnExitFS.center=CGPointMake(63, 18);
+    [btnExitFS setImage:[UIImage imageNamed:@"exitfull~ipad.png"] forState:UIControlStateNormal];
+    [btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
+    [fullscreenPanel.contentView addSubview:btnExitFS];
+    
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
+    
+    UIButton *btnOpt = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
+    [btnOpt setImage:[UIImage imageNamed:@"options.png"] forState:UIControlStateNormal];
+    [btnOpt addTarget:self action:@selector(controls:) forControlEvents:UIControlEventTouchUpInside];
+    [items addObject:btnOpt];
+    
+    [fullscreenPanel setItems:items];
+    
+    [self.view addSubview:fullscreenPanel];
+    [fullscreenPanel showContent];
 }
 
 - (void)dealloc {
@@ -45,48 +81,5 @@
     [super viewDidUnload];
 }
 
-/*- (IBAction)hideMenu:(id)sender {
-    menuButton.hidden = NO;
-    closeButton.hidden = YES;
-    [UIView animateWithDuration:0.500f 
-                     animations:^(void) {
-                         CGRect frame = menuView.frame;
-                         frame.origin.y = -frame.size.height;
-                         menuView.frame = frame;                         
-                     } completion:^(BOOL finished) {
-                         [self resumeEmulator];
-                         mouseHandler.userInteractionEnabled = YES;
-                         restartButton.enabled = YES;
-                     }];
-
-}*/
-
-/*- (IBAction)showMenu:(id)sender {
-    [self pauseEmulator];
-    restartButton.enabled = NO;
-
-    menuButton.hidden = YES;
-    closeButton.hidden = NO;
-    menuView.hidden = NO;
-    mouseHandler.userInteractionEnabled = NO;
-    
-    NSString *userGuidePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/UserGuide~ipad.html"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:userGuidePath]) {
-        userGuidePath = [[NSBundle mainBundle] pathForResource:@"UserGuide~ipad" ofType:@"html"];
-    }
-    
-    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:userGuidePath]];
-	[webView loadRequest:req];
-    
-    [UIView animateWithDuration:0.500f animations:^(void) {
-        CGRect frame = menuView.frame;
-        frame.origin.y = 0 + self.displayTop - 2;
-        menuView.frame = frame;
-    }];
-}
-
-- (CGFloat)displayTop {
-    return 59.0f;
-}*/
 
 @end

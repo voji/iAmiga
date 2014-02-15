@@ -44,15 +44,19 @@
     SDL_Init(0);
 	SDL_Surface *surface = SDL_SetVideoMode(kDisplayWidth, kDisplayHeight, 16, 0);
 	UIView<DisplayViewSurface> *surfaceView = (UIView<DisplayViewSurface>*)surface->userdata;
+    surfaceView.contentMode = UIViewContentModeScaleToFill;
 	surfaceView.paused = YES;
 	surfaceView.frame = self.currentDisplayFrame;
+    surfaceView.backgroundColor = [UIColor blackColor];
+    /*UIView *testview = [[UIView alloc] initWithFrame:CGRectMake(500, 300, 200, 100)];
+    testview.backgroundColor = [UIColor blackColor];*/
     	
 	self.displayView = surfaceView;
 	if (displayViewWindow != nil) {
 		[displayViewWindow addSubview:self.displayView];
 	} else {
 		[view addSubview:self.displayView];
-	}
+    }
 }
 
 - (void)sendKeys:(SDLKey*)keys count:(size_t)count keyState:(SDL_EventType)keyState afterDelay:(NSTimeInterval)delayInSeconds {
@@ -198,8 +202,7 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	displayView.paused = NO;
 }
 
--(NSInteger)supportedInterfaceOrientations{
-    
+-(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskLandscape;
 }
 

@@ -207,6 +207,7 @@
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		7EA5AC5C18AAC5920072820E /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */; };
 		7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		7EAA03AC18902C6A0010C9F8 /* unsticky~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */; };
@@ -1635,6 +1636,8 @@
 		7E4D90F0188DB7C3000AD040 /* FloatPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FloatPanel.h; path = ../../Desktop/FloatPanel.h; sourceTree = "<group>"; };
 		7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainEmulationViewController.h; sourceTree = "<group>"; };
 		7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainEmulationViewController.m; sourceTree = "<group>"; };
+		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky~ipad.png"; path = "../../../../Desktop/untitled folder 2/unsticky~ipad.png"; sourceTree = "<group>"; };
 		7EAA037518902C6A0010C9F8 /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky@2x.png"; path = "../../../../Desktop/untitled folder 2/unsticky@2x.png"; sourceTree = "<group>"; };
 		7EAA037618902C6A0010C9F8 /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unsticky.png; path = "../../../../Desktop/untitled folder 2/unsticky.png"; sourceTree = "<group>"; };
@@ -2368,8 +2371,9 @@
 			children = (
 				053368B913B1D7400012D55A /* Resources-iPhone */,
 				053368AF13B1BDA40012D55A /* Resources-iPad */,
-				053368AE13B1BD950012D55A /* Resources */,
 				053368B013B1BDD60012D55A /* SingleWindowAppDelegate.h */,
+				7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */,
+				7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */,
 				053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */,
 				053368B513B1CC980012D55A /* BaseEmulationViewController.h */,
 				053368B613B1CC980012D55A /* BaseEmulationViewController.mm */,
@@ -2377,13 +2381,6 @@
 				055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */,
 			);
 			path = SingleView;
-			sourceTree = "<group>";
-		};
-		053368AE13B1BD950012D55A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		053368AF13B1BDA40012D55A /* Resources-iPad */ = {
@@ -4797,6 +4794,7 @@
 				7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */,
 				7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */,
 				051B23B012C994BB000C2800 /* DisaSupport.cpp in Sources */,
+				7EA5AC5C18AAC5920072820E /* BaseNavigationController.m in Sources */,
 				05D5D74C0FD5E38400B91C98 /* m68k_intrf.cpp in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* iAmigaAppDelegate.mm in Sources */,

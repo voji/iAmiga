@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MainEmulationViewController.h"
+#import "FloatPanel.h"
 
 @interface EmulationViewiPad : MainEmulationViewController {
     
@@ -17,6 +18,7 @@
     UIButton *restartButton;
     //UIView *menuView;
     UIWebView *webView;
+    FloatPanel *fullscreenPanel;
 }
 /*- (IBAction)hideMenu:(id)sender;
 - (IBAction)showMenu:(id)sender;*/

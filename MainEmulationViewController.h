@@ -10,12 +10,13 @@
 #import "BaseEmulationViewController.h"
 #import "AnimatedImageSequenceView.h"
 #import "SettingsController.h"
-#import "FloatPanel.h"
 
 @interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, UIWebViewDelegate> {
     //BOOL _introSequenceRunning;
-    FloatPanel *fullscreenPanel;
 }
+
+@property (readonly) CGFloat screenHeight;
+@property (readonly) CGFloat screenWidth;
 
 - (IBAction)restart:(id)sender;
 - (IBAction)controls:(id)sender;

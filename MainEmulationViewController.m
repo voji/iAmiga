@@ -16,22 +16,6 @@
 
 @implementation MainEmulationViewController
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-}
-
-- (void)viewDidLoad {
-    //---------------------------------------------------
-    // 12. Fullscreen Panel
-    //---------------------------------------------------
-    fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(0,0,700,47)];
-    UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
-    btnExitFS.center=CGPointMake(63, 18);
-    [btnExitFS setImage:[UIImage imageNamed:@"exitfull~ipad.png"] forState:UIControlStateNormal];
-    [btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
-    [fullscreenPanel.contentView addSubview:btnExitFS];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     //[self startIntroSequence];
 }
@@ -43,16 +27,11 @@ extern void uae_reset();
 }
 
 - (IBAction)controls:(id)sender {
-    /*HeadViewController *headViewController = [[HeadViewController alloc] initWithNibName:@"HeadViewController" bundle:nil];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 120)];
-    [view addSubview:headViewController.vew];
-    [self.view addSubview:view];*/
-    
-    //UIView *view = [[UIView alloc] initWithNibName:@"SettingsController" bundle:nil];
+
     SettingsController *viewController = [[SettingsController alloc] initWithNibName:@"SettingsController" bundle:nil];
-    viewController.view.frame = CGRectMake(0, 0, 320, 120);
-    [self.view addSubview:viewController.view];
-    
+    viewController.view.frame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
+    //[self.view addSubview:viewController.view];
+    [self pushViewController:viewController animated:YES];
     //view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
    
     //[view release];
@@ -62,6 +41,19 @@ extern void uae_reset();
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSString *fn = [NSString stringWithFormat:@"setVersion('%@');", self.bundleVersion];
     NSString *result = [webView stringByEvaluatingJavaScriptFromString:fn];
+}
+
+- (CGFloat) screenHeight {
+    CGRect screenRect = CGRectZero;
+    screenRect = [[UIScreen mainScreen] bounds];
+    return screenRect.size.height;
+}
+
+- (CGFloat) screenWidth {
+    CGRect screenRect = CGRectZero;
+    screenRect = [[UIScreen mainScreen] bounds];
+    return screenRect.size.width;
+
 }
 
 @end

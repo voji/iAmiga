@@ -13,8 +13,10 @@
 @interface SingleWindowAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow							*window;	
 	UIWindow							*externalWindow;
+    UINavigationController *navigationController;
 }
 
+@property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet BaseEmulationViewController *mainController;
 
