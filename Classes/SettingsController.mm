@@ -27,12 +27,21 @@ extern int mainMenu_ntsc;
 
 @implementation SettingsController
 
+
+static NSMutableArray *Filename;
 extern int do_disa;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+
+    if(!Filename)
+    {
+        Filename = [[NSMutableArray alloc] init];
+        [Filename addObject:[NSMutableString new]];
+        [Filename addObject:[NSMutableString new]];
+    }
+        
 	status.on = mainMenu_showStatus ? YES : NO;
 	displayModeNTSC.on = mainMenu_ntsc ? YES : NO;
     [controller setTitle:@"iCADE" forState:UIControlStateNormal];
@@ -48,6 +57,9 @@ extern int do_disa;
 #if DISASSEMBLER
 	logging.on = do_disa == 0 ? NO : YES;
 #endif
+    
+    [df0 setTitle:[Filename objectAtIndex:0] forState:UIControlStateNormal];
+    [df1 setTitle:[Filename objectAtIndex:1] forState:UIControlStateNormal];
 }
 
 - (IBAction)selectDrive:(UIButton*)sender {
@@ -55,7 +67,8 @@ extern int do_disa;
 	browser.delegate = self;
 	browser.context = sender;
 	[self presentModalViewController:browser animated:YES];
-	[browser release];
+	//[self.navigationController pushViewController:browser animated:YES];
+    [browser release];
 }
 
 - (IBAction)selectEffect:(id)sender {
@@ -90,6 +103,8 @@ extern void switch_joystick(int joynum);
 	NSString *path = [fileInfo path];
 	int df = sender.tag;
 	[sender setTitle:[fileInfo fileName] forState:UIControlStateNormal];
+    [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
+    
 	[path getCString:changed_df[df] maxLength:256 encoding:[NSString defaultCStringEncoding]];
     real_changed_df[df]=1;
 }

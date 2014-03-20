@@ -95,6 +95,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
         iCadeReaderView *view = [[iCadeReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
         SDL_Surface *surface = SDL_GetVideoSurface();
         UIView *display = (UIView *)surface->userdata;
+    
         [display performBlock:^(void) {
             // main thread
             [display addSubview:view];

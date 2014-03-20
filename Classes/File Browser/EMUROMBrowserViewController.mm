@@ -160,5 +160,8 @@
 	[super dealloc];
 }
 
+- (IBAction)abortview:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 @end

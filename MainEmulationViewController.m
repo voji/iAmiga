@@ -31,8 +31,8 @@ extern void uae_reset();
     SettingsController *viewController = [[SettingsController alloc] initWithNibName:@"SettingsController" bundle:nil];
     viewController.view.frame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
     //[self.view addSubview:viewController.view];
-    [self pushViewController:viewController animated:YES];
-    //view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.navigationController pushViewController:viewController animated:YES];
+     //view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
    
     //[view release];
 

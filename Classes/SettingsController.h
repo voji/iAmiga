@@ -19,6 +19,8 @@
 	IBOutlet UILabel		*loggingLabel;
 	IBOutlet UIButton		*effect;
     IBOutlet UIButton       *controller;
+    IBOutlet UIButton       *df0;
+    IBOutlet UIButton       *df1;
 }
 
 - (IBAction)selectDrive:(UIButton*)sender;

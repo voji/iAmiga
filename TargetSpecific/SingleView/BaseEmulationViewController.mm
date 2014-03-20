@@ -46,8 +46,9 @@
 	UIView<DisplayViewSurface> *surfaceView = (UIView<DisplayViewSurface>*)surface->userdata;
     surfaceView.contentMode = UIViewContentModeScaleToFill;
 	surfaceView.paused = YES;
-	surfaceView.frame = self.currentDisplayFrame;
-    surfaceView.backgroundColor = [UIColor blackColor];
+    surfaceView.backgroundColor = [UIColor redColor];
+    //surfaceView.frame = self.currentDisplayFrame;
+    
     /*UIView *testview = [[UIView alloc] initWithFrame:CGRectMake(500, 300, 200, 100)];
     testview.backgroundColor = [UIColor blackColor];*/
     	
@@ -104,8 +105,8 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
     return kDisplayTopOffset;
 }
 
-- (CGRect)currentDisplayFrame {	
-	if (_isExternal) {
+- (CGRect)currentDisplayFrame {
+    if (_isExternal) {
 		if (_integralSize) {
 			return CreateIntegralScaledView(displayViewWindow.bounds, NO);
 		}
@@ -131,7 +132,8 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	// full-screen, landscape mode
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
 		// assuming landscape width > height
-		return CGRectMake(0, self.displayTop, frameSize.width, frameSize.height);
+		//return CGRectMake(0, self.displayTop, frameSize.width, frameSize.height);
+        return CGRectMake(0, self.displayTop, 1024, 768);
 	}
 	
 	// aspect fill (portrait mode)
@@ -147,7 +149,6 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	self.displayViewWindow = window;
 	if (displayView == nil)
 		return;
-	
 	if (window) {
 		[window addSubview:displayView];
 	} else {

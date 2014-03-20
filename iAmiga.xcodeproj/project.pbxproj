@@ -48,7 +48,7 @@
 		0533691E13B1DEE90012D55A /* AudioQueueManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7F270FC3EDBF00DBFECF /* AudioQueueManager.cpp */; };
 		0533692213B1DEE90012D55A /* CocoaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0504156A0FCB4BD400F46828 /* CocoaUtility.m */; };
 		0533692313B1DEE90012D55A /* MMStopWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B0D4B0FD0D0ED00D549AD /* MMStopWatch.m */; };
-		0533692413B1DEE90012D55A /* fame_arm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2410636CBA0056A577 /* fame_arm.cpp */; settings = {COMPILER_FLAGS = "-frename-registers -Wno-unused"; }; };
+		0533692413B1DEE90012D55A /* fame_arm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2410636CBA0056A577 /* fame_arm.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		0533692513B1DEE90012D55A /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		0533692613B1DEE90012D55A /* Events2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0545257D106EBB590032FC41 /* Events2.c */; };
 		0533692713B1DEE90012D55A /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
@@ -145,7 +145,7 @@
 		059C0E2C13B99DEE00E89B35 /* btn_restart~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2613B99DEE00E89B35 /* btn_restart~ipad.png */; };
 		059C0E2D13B99DEE00E89B35 /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2713B99DEE00E89B35 /* chrome-bottom~ipad.png */; };
 		059C0E2E13B99DEE00E89B35 /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2813B99DEE00E89B35 /* chrome-top~ipad.png */; };
-		059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2410636CBA0056A577 /* fame_arm.cpp */; settings = {COMPILER_FLAGS = "-frename-registers -Wno-unused"; }; };
+		059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2410636CBA0056A577 /* fame_arm.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		059E3A2810636CBA0056A577 /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		05A1502913BDA852009A12B2 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 05A1501E13BDA852009A12B2 /* about.html */; };
 		05A1502B13BDA852009A12B2 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 05A1502013BDA852009A12B2 /* css */; };
@@ -190,6 +190,13 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		7E1921FB18D4ED620091CCD5 /* Monke1-1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921F718D4ED620091CCD5 /* Monke1-1.adf */; };
+		7E1921FC18D4ED620091CCD5 /* Monke1-2.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921F818D4ED620091CCD5 /* Monke1-2.adf */; };
+		7E1921FD18D4ED620091CCD5 /* Monke1-3.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921F918D4ED620091CCD5 /* Monke1-3.adf */; };
+		7E1921FE18D4ED620091CCD5 /* Monke1-4.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921FA18D4ED620091CCD5 /* Monke1-4.adf */; };
+		7E19220218D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */; };
+		7E19220318D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */; };
+		7E19220418D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -200,6 +207,7 @@
 		7E4B18E9188B1E450019E82B /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18E8188B1E450019E82B /* EmulationView-iPad.xib */; };
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4D90EF188DB7BC000AD040 /* FloatPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.m */; };
+		7E69F7DF18D4D3EC00591CAB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */; };
 		7EA2BC9C188B0C8C003DCE10 /* MainEmulationViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */; };
 		7EA2BC9E188B0CAE003DCE10 /* MainEmulationViewController.m in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */; };
 		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
@@ -1623,6 +1631,13 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iAmiga_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAmiga_Prefix.pch; sourceTree = "<group>"; };
+		7E1921F718D4ED620091CCD5 /* Monke1-1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-1.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-1.adf"; sourceTree = "<group>"; };
+		7E1921F818D4ED620091CCD5 /* Monke1-2.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-2.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-2.adf"; sourceTree = "<group>"; };
+		7E1921F918D4ED620091CCD5 /* Monke1-3.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-3.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-3.adf"; sourceTree = "<group>"; };
+		7E1921FA18D4ED620091CCD5 /* Monke1-4.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-4.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-4.adf"; sourceTree = "<group>"; };
+		7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf"; path = "../../../Documents/Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf"; sourceTree = "<group>"; };
+		7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf"; path = "../../../Documents/Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf"; sourceTree = "<group>"; };
+		7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf"; path = "../../../Documents/Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf"; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -1634,6 +1649,7 @@
 		7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom~ipad.png"; path = "TargetSpecific/DotC/chrome-bottom~ipad.png"; sourceTree = SOURCE_ROOT; };
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloatPanel.m; path = ../../../../Desktop/FloatPanel.m; sourceTree = "<group>"; };
 		7E4D90F0188DB7C3000AD040 /* FloatPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FloatPanel.h; path = ../../Desktop/FloatPanel.h; sourceTree = "<group>"; };
+		7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainEmulationViewController.h; sourceTree = "<group>"; };
 		7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainEmulationViewController.m; sourceTree = "<group>"; };
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
@@ -2685,6 +2701,13 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */,
+				7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */,
+				7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */,
+				7E1921F718D4ED620091CCD5 /* Monke1-1.adf */,
+				7E1921F818D4ED620091CCD5 /* Monke1-2.adf */,
+				7E1921F918D4ED620091CCD5 /* Monke1-3.adf */,
+				7E1921FA18D4ED620091CCD5 /* Monke1-4.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2885,6 +2908,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */,
 				7EBC1DD71896E8550084CE8E /* bg_web.png */,
 				7EBC1DD81896E8550084CE8E /* bg_web@2x.png */,
 				7E4B18E8188B1E450019E82B /* EmulationView-iPad.xib */,
@@ -3827,6 +3851,7 @@
 				053368C113B1DEE90012D55A /* Resources */,
 				0533690213B1DEE90012D55A /* Sources */,
 				0533694413B1DEE90012D55A /* Frameworks */,
+				50524F424C454D533F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4087,9 +4112,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1921FC18D4ED620091CCD5 /* Monke1-2.adf in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				057440D60FC2A4A7003BE251 /* kick.rom in Resources */,
 				0574432A0FC3C94F003BE251 /* kick13.rom in Resources */,
+				7E19220218D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
@@ -4117,7 +4144,9 @@
 				7EAA03BF18902C6A0010C9F8 /* modepiano@2x.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7EA2BC9E188B0CAE003DCE10 /* MainEmulationViewController.m in Resources */,
+				7E19220418D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf in Resources */,
 				7EAA03C018902C6A0010C9F8 /* modepiano.png in Resources */,
+				7E1921FD18D4ED620091CCD5 /* Monke1-3.adf in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7EAA03C718902C6A0010C9F8 /* modekeyon~ipad.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
@@ -4145,11 +4174,13 @@
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				7EAA03BD18902C6A0010C9F8 /* modepianopressed.png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
+				7E1921FB18D4ED620091CCD5 /* Monke1-1.adf in Resources */,
 				7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */,
 				7EAA03D618902C6A0010C9F8 /* modegamepad~ipad.png in Resources */,
 				7E4B18E9188B1E450019E82B /* EmulationView-iPad.xib in Resources */,
 				7EAA03B218902C6A0010C9F8 /* options~ipad.png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
+				7E69F7DF18D4D3EC00591CAB /* Default-568h@2x.png in Resources */,
 				9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
 				7EAA03C118902C6A0010C9F8 /* modenumpadpressed~ipad.png in Resources */,
 				97BE2AE115489E6600BF66CF /* firebutton-red-active.png in Resources */,
@@ -4170,6 +4201,7 @@
 				7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */,
 				7EAA03D918902C6A0010C9F8 /* landbariphon@2x.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
+				7E19220318D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7EAA03C918902C6A0010C9F8 /* modekeyon.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
@@ -4182,6 +4214,7 @@
 				7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */,
 				7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
+				7E1921FE18D4ED620091CCD5 /* Monke1-4.adf in Resources */,
 				7EAA03BA18902C6A0010C9F8 /* mouseoff.png in Resources */,
 				7EAA03B018902C6A0010C9F8 /* sticky@2x.png in Resources */,
 				7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */,
@@ -4705,6 +4738,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50524F424C454D533F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 
 /* Begin PBXSourcesBuildPhase section */
 		0533690213B1DEE90012D55A /* Sources */ = {
@@ -5410,12 +5460,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Manomio LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_NAME = DotC;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10A5AE46-6887-4FCD-9F60-1E8933A66B0E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5425,8 +5475,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
@@ -5542,12 +5592,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fungos bauux (9HTJRE2XX5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_NAME = sdi;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00DC73DB-FB57-47B5-B382-2B6CC3367226";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5582,12 +5632,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fungos bauux (9HTJRE2XX5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_NAME = lrs;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00DC73DB-FB57-47B5-B382-2B6CC3367226";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5622,12 +5672,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fungos bauux (9HTJRE2XX5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_NAME = koc;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00DC73DB-FB57-47B5-B382-2B6CC3367226";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5662,12 +5712,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fungos bauux (9HTJRE2XX5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_NAME = sinbad;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "00DC73DB-FB57-47B5-B382-2B6CC3367226";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5712,7 +5762,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fungos bauux (9HTJRE2XX5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
@@ -5722,7 +5772,7 @@
 					AMIGA_OPTIONS,
 				);
 				PRODUCT_NAME = p1;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A85F81E-D268-4418-8FE8-7CDDB7FBCA73";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5767,7 +5817,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fungos bauux (9HTJRE2XX5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
@@ -5777,7 +5827,7 @@
 					AMIGA_OPTIONS,
 				);
 				PRODUCT_NAME = stooges;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A85F81E-D268-4418-8FE8-7CDDB7FBCA73";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5787,8 +5837,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -5835,8 +5885,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;

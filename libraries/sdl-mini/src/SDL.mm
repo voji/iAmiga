@@ -111,7 +111,8 @@ SDL_Surface* SDL_SetVideoMode(int width, int height, int bitsPerPixel, int flags
 	s->pitch = width * fmt->BytesPerPixel;
 	s->pixels = view.pixels;
 	s->userdata = view;
-	
+    
+    
 	return s;
 }
 
