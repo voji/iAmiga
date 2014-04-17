@@ -218,6 +218,7 @@
 		7EA5AC5C18AAC5920072820E /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */; };
 		7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
+		7EA853F818F716690072050B /* extras13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EA853F718F716690072050B /* extras13.adf */; };
 		7EAA03AC18902C6A0010C9F8 /* unsticky~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */; };
 		7EAA03AD18902C6A0010C9F8 /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037518902C6A0010C9F8 /* unsticky@2x.png */; };
 		7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037618902C6A0010C9F8 /* unsticky.png */; };
@@ -274,11 +275,16 @@
 		7EAA03E118902C6A0010C9F8 /* cpuwindow~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */; };
 		7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */; };
 		7EAA03E318902C6A0010C9F8 /* cpuwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */; };
+		7EAAB95A18E7656E0047B5C1 /* wb13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EAAB95918E7656E0047B5C1 /* wb13.adf */; };
 		7EBC1DD91896E8550084CE8E /* bg_web.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBC1DD71896E8550084CE8E /* bg_web.png */; };
 		7EBC1DDA1896E8550084CE8E /* bg_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBC1DD81896E8550084CE8E /* bg_web@2x.png */; };
+		7EBFA2E0190053FC00C9326E /* EmulationView-iPhone.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EBFA2DF190053FC00C9326E /* EmulationView-iPhone.h */; };
+		7EBFA2E21900549800C9326E /* EmulationView-iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBFA2E11900549800C9326E /* EmulationView-iPhone.m */; };
+		7EBFA2E4190054BE00C9326E /* EmulationView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBFA2E3190054BE00C9326E /* EmulationView-iPhone.xib */; };
 		7EDCC51F188B1377009F9ABE /* EmulationView-iPad.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EDCC51E188B1377009F9ABE /* EmulationView-iPad.h */; };
 		7EDCC521188B13C3009F9ABE /* EmulationView-iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCC520188B13C3009F9ABE /* EmulationView-iPad.m */; };
 		7EDCC524188B1639009F9ABE /* MainEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */; };
+		7EFB8FAD18EC9D6C00820F9F /* IOSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFB8FAC18EC9D6C00820F9F /* IOSKeyboard.m */; };
 		9706D6541561817500073678 /* kick.rom in Resources */ = {isa = PBXBuildFile; fileRef = 057440D50FC2A4A7003BE251 /* kick.rom */; };
 		9706D6551561817500073678 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 057443290FC3C94F003BE251 /* kick13.rom */; };
 		9706D6561561817500073678 /* kick31.rom in Resources */ = {isa = PBXBuildFile; fileRef = 05F5F217112A54F1001530EC /* kick31.rom */; };
@@ -1654,6 +1660,7 @@
 		7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainEmulationViewController.m; sourceTree = "<group>"; };
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		7EA853F718F716690072050B /* extras13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = extras13.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Programme/extras13.adf; sourceTree = "<group>"; };
 		7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky~ipad.png"; path = "../../../../Desktop/untitled folder 2/unsticky~ipad.png"; sourceTree = "<group>"; };
 		7EAA037518902C6A0010C9F8 /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky@2x.png"; path = "../../../../Desktop/untitled folder 2/unsticky@2x.png"; sourceTree = "<group>"; };
 		7EAA037618902C6A0010C9F8 /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unsticky.png; path = "../../../../Desktop/untitled folder 2/unsticky.png"; sourceTree = "<group>"; };
@@ -1710,10 +1717,16 @@
 		7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow~ipad.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow~ipad.png"; sourceTree = "<group>"; };
 		7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow@2x.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow@2x.png"; sourceTree = "<group>"; };
 		7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cpuwindow.png; path = "../../../../Desktop/untitled folder 2/cpuwindow.png"; sourceTree = "<group>"; };
+		7EAAB95918E7656E0047B5C1 /* wb13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wb13.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Programme/wb13.adf; sourceTree = "<group>"; };
 		7EBC1DD71896E8550084CE8E /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
 		7EBC1DD81896E8550084CE8E /* bg_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web@2x.png"; sourceTree = "<group>"; };
+		7EBFA2DF190053FC00C9326E /* EmulationView-iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPhone.h"; sourceTree = "<group>"; };
+		7EBFA2E11900549800C9326E /* EmulationView-iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPhone.m"; sourceTree = "<group>"; };
+		7EBFA2E3190054BE00C9326E /* EmulationView-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EmulationView-iPhone.xib"; sourceTree = "<group>"; };
 		7EDCC51E188B1377009F9ABE /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPad.h"; sourceTree = "<group>"; };
 		7EDCC520188B13C3009F9ABE /* EmulationView-iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPad.m"; sourceTree = "<group>"; };
+		7EFB8FAB18EC9D6C00820F9F /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSKeyboard.h; sourceTree = "<group>"; };
+		7EFB8FAC18EC9D6C00820F9F /* IOSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSKeyboard.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
@@ -2440,8 +2453,8 @@
 				05BB085F13CC18FC00278699 /* DOTCEmulationViewController.h */,
 				05BB086013CC18FC00278699 /* DOTCEmulationViewController.m */,
 				055FD7E913B3F39800BB3F8B /* EmulationView-iPhone.h */,
-				055FD7EA13B3F39800BB3F8B /* EmulationView-iPhone.m */,
 				055FD7CE13B3E86E00BB3F8B /* EmulationView-iPhone.xib */,
+				055FD7EA13B3F39800BB3F8B /* EmulationView-iPhone.m */,
 				055FD7EC13B3FB0900BB3F8B /* EmulationView-iPad.h */,
 				055FD7ED13B3FB0900BB3F8B /* EmulationView-iPad.m */,
 				055FD7EE13B3FB0900BB3F8B /* EmulationView-iPad.xib */,
@@ -2701,6 +2714,8 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7EA853F718F716690072050B /* extras13.adf */,
+				7EAAB95918E7656E0047B5C1 /* wb13.adf */,
 				7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */,
 				7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */,
 				7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */,
@@ -2908,11 +2923,16 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				7EBFA2E3190054BE00C9326E /* EmulationView-iPhone.xib */,
+				7EBFA2E11900549800C9326E /* EmulationView-iPhone.m */,
+				7EBFA2DF190053FC00C9326E /* EmulationView-iPhone.h */,
 				7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */,
 				7EBC1DD71896E8550084CE8E /* bg_web.png */,
 				7EBC1DD81896E8550084CE8E /* bg_web@2x.png */,
 				7E4B18E8188B1E450019E82B /* EmulationView-iPad.xib */,
 				7EDCC520188B13C3009F9ABE /* EmulationView-iPad.m */,
+				7EFB8FAB18EC9D6C00820F9F /* IOSKeyboard.h */,
+				7EFB8FAC18EC9D6C00820F9F /* IOSKeyboard.m */,
 				7EDCC51E188B1377009F9ABE /* EmulationView-iPad.h */,
 				7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */,
 				7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */,
@@ -3987,7 +4007,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iAmiga" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4174,6 +4194,7 @@
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				7EAA03BD18902C6A0010C9F8 /* modepianopressed.png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
+				7EA853F818F716690072050B /* extras13.adf in Resources */,
 				7E1921FB18D4ED620091CCD5 /* Monke1-1.adf in Resources */,
 				7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */,
 				7EAA03D618902C6A0010C9F8 /* modegamepad~ipad.png in Resources */,
@@ -4210,6 +4231,7 @@
 				7EBC1DDA1896E8550084CE8E /* bg_web@2x.png in Resources */,
 				7EAA03D718902C6A0010C9F8 /* modegamepad@2x.png in Resources */,
 				7EAA03B618902C6A0010C9F8 /* mouseon@2x.png in Resources */,
+				7EBFA2E0190053FC00C9326E /* EmulationView-iPhone.h in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */,
 				7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */,
@@ -4226,9 +4248,11 @@
 				7EAA03C818902C6A0010C9F8 /* modekeyon@2x.png in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
+				7EAAB95A18E7656E0047B5C1 /* wb13.adf in Resources */,
 				7EAA03D218902C6A0010C9F8 /* modejoy.png in Resources */,
 				7EAA03B818902C6A0010C9F8 /* mouseoff~ipad.png in Resources */,
 				7EAA03DA18902C6A0010C9F8 /* landbariphon.png in Resources */,
+				7EBFA2E4190054BE00C9326E /* EmulationView-iPhone.xib in Resources */,
 				7EAA03DC18902C6A0010C9F8 /* landbarblank@2x.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
 				7EAA03B118902C6A0010C9F8 /* sticky.png in Resources */,
@@ -4755,7 +4779,6 @@
 		};
 /* End PBXShellScriptBuildPhase section */
 
-
 /* Begin PBXSourcesBuildPhase section */
 		0533690213B1DEE90012D55A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -4858,6 +4881,7 @@
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
 				0552BD450F3D797C005B30DF /* famec.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
+				7EBFA2E21900549800C9326E /* EmulationView-iPhone.m in Sources */,
 				0552BD490F3D797C005B30DF /* uae.cpp in Sources */,
 				0552BD4B0F3D797C005B30DF /* memory.cpp in Sources */,
 				0552BD4C0F3D797C005B30DF /* fade.cpp in Sources */,
@@ -4925,6 +4949,7 @@
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
+				7EFB8FAD18EC9D6C00820F9F /* IOSKeyboard.m in Sources */,
 				9785512D153A3F2E00580B91 /* SDL_UIKitVideo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5474,7 +5499,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -5836,7 +5860,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -5884,7 +5907,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;

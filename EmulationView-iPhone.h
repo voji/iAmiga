@@ -11,8 +11,8 @@
 #import "FloatPanel.h"
 #import "IOSKeyboard.h"
 
-@interface EmulationViewiPad : MainEmulationViewController {
-
+@interface EmulationViewiPhone : MainEmulationViewController {
+    
     UIButton *closeButton;
     UIView *mouseHandler;
     UIButton *restartButton;

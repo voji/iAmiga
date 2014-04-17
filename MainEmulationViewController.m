@@ -7,6 +7,7 @@
 //
 
 #import "MainEmulationViewController.h"
+#import "VirtualKeyboard.h"
 
 @interface MainEmulationViewController()
 
@@ -16,26 +17,16 @@
 
 @implementation MainEmulationViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    //[self startIntroSequence];
-}
-
 extern void uae_reset();
 
 - (IBAction)restart:(id)sender {
         uae_reset();
 }
 
-- (IBAction)controls:(id)sender {
-
+-(void) settings {
     SettingsController *viewController = [[SettingsController alloc] initWithNibName:@"SettingsController" bundle:nil];
     viewController.view.frame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
-    //[self.view addSubview:viewController.view];
     [self.navigationController pushViewController:viewController animated:YES];
-     //view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-   
-    //[view release];
-
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -53,7 +44,18 @@ extern void uae_reset();
     CGRect screenRect = CGRectZero;
     screenRect = [[UIScreen mainScreen] bounds];
     return screenRect.size.width;
-
 }
 
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    // virtual keyboard
+    
+	vKeyboard = [[VirtualKeyboard alloc] initWithFrame:CGRectMake(0, 568, 1024, 200)];
+    vKeyboard.autoresizingMask = UIViewAutoresizingNone;
+	//vKeyboard.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+    vKeyboard.backgroundColor = [UIColor redColor];
+	vKeyboard.hidden = YES;
+	[self.view addSubview:vKeyboard];
+}
 @end

@@ -30,22 +30,13 @@
 @synthesize navigationController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+
     // load disks into df0: and df1:
     NSString *path = [[NSBundle mainBundle] pathForResource:@"DISK1" ofType:@"ADF"];
     [path getCString:prefs_df[0] maxLength:256 encoding:[NSString defaultCStringEncoding]];
     fprintf(stdout, ">>>>>>> %s\n", prefs_df[0]);
     path = [[NSBundle mainBundle] pathForResource:@"DISK2" ofType:@"ADF"];
     [path getCString:prefs_df[1] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-
-    //[window setRootViewController:self.navigationController];
-    //navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainController];
-    
-    //[self.mainController pushViewController:mainController animated:YES];
-    /*[window setRootViewController:navigationController];"*/
-    //[window addSubview:self.mainController.view];
-    //[[[window subviews] objectAtIndex:0] addSubview:self.mainController.view];
-    /*self.mainController.view.frame = window.frame;
-    [self.mainController.view setNeedsLayout];*/
 	
     // Override point for customization after application launch
     [window makeKeyAndVisible];

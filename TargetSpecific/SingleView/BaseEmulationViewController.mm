@@ -46,12 +46,7 @@
 	UIView<DisplayViewSurface> *surfaceView = (UIView<DisplayViewSurface>*)surface->userdata;
     surfaceView.contentMode = UIViewContentModeScaleToFill;
 	surfaceView.paused = YES;
-    surfaceView.backgroundColor = [UIColor redColor];
-    //surfaceView.frame = self.currentDisplayFrame;
     
-    /*UIView *testview = [[UIView alloc] initWithFrame:CGRectMake(500, 300, 200, 100)];
-    testview.backgroundColor = [UIColor blackColor];*/
-    	
 	self.displayView = surfaceView;
 	if (displayViewWindow != nil) {
 		[displayViewWindow addSubview:self.displayView];
@@ -80,11 +75,19 @@
     return version;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
 	[self startEmulator];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+    
 	[self pauseEmulator];
 }
 

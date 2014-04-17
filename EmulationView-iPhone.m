@@ -6,9 +6,9 @@
 //  Copyright 2011 Manomio LLC. All rights reserved.
 //
 
-#import "EmulationView-iPad.h"
+#import "EmulationView-iPhone.h"
 
-@implementation EmulationViewiPad
+@implementation EmulationViewiPhone
 //@synthesize menuView;
 @synthesize webView;
 //@synthesize menuButton;
@@ -101,8 +101,8 @@ IOSKeyboard *ioskeyboard;
 {
     //Simulate Button press in Fullscreenpanel if Keyboard was closed by Keyboardclosebutton in Keyboard
     if(keyboardactive == TRUE //Keyboard was closed by regular button in Fullscreenpanel
-            && dummy_textfield.isFirstResponder == FALSE //Fkeypanel was deactivated this triggered the event
-            && dummy_textfield_f.isFirstResponder == FALSE //Fkeypanel was activated this triggered the event
+       && dummy_textfield.isFirstResponder == FALSE //Fkeypanel was deactivated this triggered the event
+       && dummy_textfield_f.isFirstResponder == FALSE //Fkeypanel was activated this triggered the event
        )
     {
         [btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];

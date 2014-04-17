@@ -11,14 +11,16 @@
 #import "AnimatedImageSequenceView.h"
 #import "SettingsController.h"
 
+@class VirtualKeyboard;
+
 @interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, UIWebViewDelegate> {
-    //BOOL _introSequenceRunning;
+    VirtualKeyboard				*vKeyboard;
 }
 
 @property (readonly) CGFloat screenHeight;
 @property (readonly) CGFloat screenWidth;
 
 - (IBAction)restart:(id)sender;
-- (IBAction)controls:(id)sender;
+- (void) settings;
 
 @end

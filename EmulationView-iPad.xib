@@ -6,8 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmulationViewiPad">
             <connections>
+                <outlet property="dummy_textfield" destination="Iis-uB-ySx" id="ftk-p3-mTi"/>
+                <outlet property="dummy_textfield_f" destination="7f7-a4-dv2" id="nKC-3E-uMa"/>
                 <outlet property="mouseHandler" destination="4" id="19"/>
-                <outlet property="restartButton" destination="8" id="23"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="webView" destination="20" id="21"/>
             </connections>
@@ -30,6 +31,18 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Iis-uB-ySx">
+                            <rect key="frame" x="641" y="493" width="0.0" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="7f7-a4-dv2">
+                            <rect key="frame" x="464" y="369" width="0.0" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
@@ -50,21 +63,6 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8" userLabel="Reset button">
-                    <rect key="frame" x="20" y="6" width="45" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="btn_restart.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="restart:" destination="-1" eventType="touchUpInside" id="22"/>
-                    </connections>
-                </button>
                 <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="chrome-bottom.png" id="6">
                     <rect key="frame" x="0.0" y="684" width="1024" height="84"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -76,7 +74,6 @@
     </objects>
     <resources>
         <image name="bg_web.png" width="989" height="580"/>
-        <image name="btn_restart.png" width="45" height="47"/>
         <image name="chrome-bottom.png" width="1024" height="84"/>
         <image name="chrome-top.png" width="1024" height="75"/>
     </resources>
