@@ -134,9 +134,13 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	
 	// full-screen, landscape mode
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+        
+        int width = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 1024 : 480;
+        int height = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 768 : 320;
+        
 		// assuming landscape width > height
 		//return CGRectMake(0, self.displayTop, frameSize.width, frameSize.height);
-        return CGRectMake(0, self.displayTop, 1024, 768);
+        return CGRectMake(0, self.displayTop, width, height);
 	}
 	
 	// aspect fill (portrait mode)

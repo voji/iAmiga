@@ -23,7 +23,7 @@
 		0533690113B1DEE90012D55A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		0533690513B1DEE90012D55A /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		0533690613B1DEE90012D55A /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		0533690713B1DEE90012D55A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		0533690713B1DEE90012D55A /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		0533690913B1DEE90012D55A /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		0533690A13B1DEE90012D55A /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		0533690B13B1DEE90012D55A /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -108,7 +108,7 @@
 		055FD7F013B3FB0900BB3F8B /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 055FD7EE13B3FB0900BB3F8B /* EmulationView-iPad.xib */; };
 		055FD7F313B4029900BB3F8B /* bg_web.png in Resources */ = {isa = PBXBuildFile; fileRef = 055FD7F113B4029900BB3F8B /* bg_web.png */; };
 		055FD7F413B4029900BB3F8B /* bg_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055FD7F213B4029900BB3F8B /* bg_web@2x.png */; };
-		055FD7F913B45AAA00BB3F8B /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		055FD7F913B45AAA00BB3F8B /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		056089BE13C2366000677A6C /* iscroll4.js in Resources */ = {isa = PBXBuildFile; fileRef = 056089BA13C235F200677A6C /* iscroll4.js */; };
 		05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 05619ED913ADE1AA00341DB0 /* SelectHardware.m */; };
 		05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */; };
@@ -135,7 +135,6 @@
 		057B977513CEC7D60065278D /* intro_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 057B976F13CEC7D60065278D /* intro_4@2x.png */; };
 		057B977613CEC7D60065278D /* intro_4~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 057B977013CEC7D60065278D /* intro_4~ipad.png */; };
 		058063D013B06DD800E00B04 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 058063CF13B06DD800E00B04 /* Icon-72.png */; };
-		0583DE5812D1A3AC000E97CE /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0585D55E1091640900C1E4C1 /* VirtualKeyboard.m */; };
 		0585D5621091653E00C1E4C1 /* KeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0585D5611091653E00C1E4C1 /* KeyView.m */; };
 		059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059A411C12697B33003B23C7 /* MainWindow-iPad.xib */; };
@@ -185,7 +184,7 @@
 		05F5F218112A54F1001530EC /* kick31.rom in Resources */ = {isa = PBXBuildFile; fileRef = 05F5F217112A54F1001530EC /* kick31.rom */; };
 		05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7F270FC3EDBF00DBFECF /* AudioQueueManager.cpp */; };
 		1D3623260D0F684500981E51 /* iAmigaAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iAmigaAppDelegate.mm */; };
-		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589B0D05DD56006BFB54 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -194,9 +193,6 @@
 		7E1921FC18D4ED620091CCD5 /* Monke1-2.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921F818D4ED620091CCD5 /* Monke1-2.adf */; };
 		7E1921FD18D4ED620091CCD5 /* Monke1-3.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921F918D4ED620091CCD5 /* Monke1-3.adf */; };
 		7E1921FE18D4ED620091CCD5 /* Monke1-4.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921FA18D4ED620091CCD5 /* Monke1-4.adf */; };
-		7E19220218D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */; };
-		7E19220318D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */; };
-		7E19220418D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -206,19 +202,25 @@
 		7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */; };
 		7E4B18E9188B1E450019E82B /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18E8188B1E450019E82B /* EmulationView-iPad.xib */; };
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
-		7E4D90EF188DB7BC000AD040 /* FloatPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.m */; };
+		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
 		7E69F7DF18D4D3EC00591CAB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */; };
+		7E7EB2D61909A85D00B01C50 /* Abree92a.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7EB2D41909A85D00B01C50 /* Abree92a.adf */; };
+		7E7EB2D71909A85D00B01C50 /* Abree92b.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7EB2D51909A85D00B01C50 /* Abree92b.adf */; };
+		7E7EB2DB1909A94E00B01C50 /* Alienb2a.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7EB2D81909A94E00B01C50 /* Alienb2a.adf */; };
+		7E7EB2DC1909A94E00B01C50 /* Alienb2b.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7EB2D91909A94E00B01C50 /* Alienb2b.adf */; };
+		7E7EB2DD1909A94E00B01C50 /* Alienb2c.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7EB2DA1909A94E00B01C50 /* Alienb2c.adf */; };
+		7E7EB7341909B35000B01C50 /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7EB7331909B35000B01C50 /* Northsou.adf */; };
 		7EA2BC9C188B0C8C003DCE10 /* MainEmulationViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */; };
-		7EA2BC9E188B0CAE003DCE10 /* MainEmulationViewController.m in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */; };
 		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
-		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
-		7EA5AC5C18AAC5920072820E /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */; };
+		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
+		7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */; };
 		7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		7EA853F818F716690072050B /* extras13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EA853F718F716690072050B /* extras13.adf */; };
+		7EA92ABC19083EEC00EF9A5D /* TouchHandlerViewClassic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA92ABB19083EEC00EF9A5D /* TouchHandlerViewClassic.m */; };
 		7EAA03AC18902C6A0010C9F8 /* unsticky~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */; };
 		7EAA03AD18902C6A0010C9F8 /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037518902C6A0010C9F8 /* unsticky@2x.png */; };
 		7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037618902C6A0010C9F8 /* unsticky.png */; };
@@ -276,14 +278,17 @@
 		7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */; };
 		7EAA03E318902C6A0010C9F8 /* cpuwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */; };
 		7EAAB95A18E7656E0047B5C1 /* wb13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EAAB95918E7656E0047B5C1 /* wb13.adf */; };
+		7EAABB381901BEED00D463E0 /* Lemmings2_1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EAABB351901BEED00D463E0 /* Lemmings2_1.adf */; };
+		7EAABB391901BEED00D463E0 /* Lemmings2_2.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EAABB361901BEED00D463E0 /* Lemmings2_2.adf */; };
+		7EAABB3A1901BEED00D463E0 /* Lemmings2_3.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EAABB371901BEED00D463E0 /* Lemmings2_3.adf */; };
 		7EBC1DD91896E8550084CE8E /* bg_web.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBC1DD71896E8550084CE8E /* bg_web.png */; };
 		7EBC1DDA1896E8550084CE8E /* bg_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBC1DD81896E8550084CE8E /* bg_web@2x.png */; };
-		7EBFA2E0190053FC00C9326E /* EmulationView-iPhone.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EBFA2DF190053FC00C9326E /* EmulationView-iPhone.h */; };
-		7EBFA2E21900549800C9326E /* EmulationView-iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBFA2E11900549800C9326E /* EmulationView-iPhone.m */; };
 		7EBFA2E4190054BE00C9326E /* EmulationView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBFA2E3190054BE00C9326E /* EmulationView-iPhone.xib */; };
+		7EBFA2E61900628B00C9326E /* EmulationView-iPhone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EBFA2E51900628B00C9326E /* EmulationView-iPhone.mm */; };
 		7EDCC51F188B1377009F9ABE /* EmulationView-iPad.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EDCC51E188B1377009F9ABE /* EmulationView-iPad.h */; };
-		7EDCC521188B13C3009F9ABE /* EmulationView-iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCC520188B13C3009F9ABE /* EmulationView-iPad.m */; };
-		7EDCC524188B1639009F9ABE /* MainEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */; };
+		7EDCC521188B13C3009F9ABE /* EmulationView-iPad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCC520188B13C3009F9ABE /* EmulationView-iPad.mm */; };
+		7EDCC524188B1639009F9ABE /* MainEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.mm */; };
+		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		7EFB8FAD18EC9D6C00820F9F /* IOSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFB8FAC18EC9D6C00820F9F /* IOSKeyboard.m */; };
 		9706D6541561817500073678 /* kick.rom in Resources */ = {isa = PBXBuildFile; fileRef = 057440D50FC2A4A7003BE251 /* kick.rom */; };
 		9706D6551561817500073678 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 057443290FC3C94F003BE251 /* kick13.rom */; };
@@ -319,7 +324,7 @@
 		9706D6731561817500073678 /* ls-joystick_rest.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AE015489E6600BF66CF /* ls-joystick_rest.png */; };
 		9706D6BB1561817500073678 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		9706D6BC1561817500073678 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		9706D6BD1561817500073678 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		9706D6BD1561817500073678 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		9706D6BE1561817500073678 /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		9706D6BF1561817500073678 /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		9706D6C01561817500073678 /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -354,7 +359,7 @@
 		9706D6DD1561817500073678 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		9706D6DE1561817500073678 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		9706D6DF1561817500073678 /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
-		9706D6E01561817500073678 /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		9706D6E01561817500073678 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		9706D6E11561817500073678 /* SDL_events.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507D153A3F2E00580B91 /* SDL_events.c */; };
 		9706D6E21561817500073678 /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		9706D6E31561817500073678 /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
@@ -494,7 +499,7 @@
 		97242C7E156177EC00B6D03C /* ls-joystick_rest.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AE015489E6600BF66CF /* ls-joystick_rest.png */; };
 		97242C80156177EC00B6D03C /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		97242C81156177EC00B6D03C /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		97242C82156177EC00B6D03C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		97242C82156177EC00B6D03C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		97242C83156177EC00B6D03C /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		97242C84156177EC00B6D03C /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		97242C85156177EC00B6D03C /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -529,7 +534,7 @@
 		97242CA2156177EC00B6D03C /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		97242CA3156177EC00B6D03C /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		97242CA4156177EC00B6D03C /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
-		97242CA7156177EC00B6D03C /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		97242CA7156177EC00B6D03C /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		97242CA9156177EC00B6D03C /* SDL_events.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507D153A3F2E00580B91 /* SDL_events.c */; };
 		97242CAA156177EC00B6D03C /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		97242CAB156177EC00B6D03C /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
@@ -788,7 +793,7 @@
 		9787FA201561882D00458A4A /* ls-joystick_rest.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AE015489E6600BF66CF /* ls-joystick_rest.png */; };
 		9787FA671561882D00458A4A /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		9787FA681561882D00458A4A /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		9787FA691561882D00458A4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		9787FA691561882D00458A4A /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		9787FA6A1561882D00458A4A /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		9787FA6B1561882D00458A4A /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		9787FA6C1561882D00458A4A /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -823,7 +828,7 @@
 		9787FA891561882D00458A4A /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		9787FA8A1561882D00458A4A /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		9787FA8B1561882D00458A4A /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
-		9787FA8C1561882D00458A4A /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		9787FA8C1561882D00458A4A /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		9787FA8D1561882D00458A4A /* SDL_events.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507D153A3F2E00580B91 /* SDL_events.c */; };
 		9787FA8E1561882D00458A4A /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		9787FA8F1561882D00458A4A /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
@@ -903,7 +908,7 @@
 		9787FB8215618A5E00458A4A /* ls-joystick_rest.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AE015489E6600BF66CF /* ls-joystick_rest.png */; };
 		9787FBCA15618A5E00458A4A /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		9787FBCB15618A5E00458A4A /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		9787FBCC15618A5E00458A4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		9787FBCC15618A5E00458A4A /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		9787FBCD15618A5E00458A4A /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		9787FBCE15618A5E00458A4A /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		9787FBCF15618A5E00458A4A /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -938,7 +943,7 @@
 		9787FBEC15618A5E00458A4A /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		9787FBED15618A5E00458A4A /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		9787FBEE15618A5E00458A4A /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
-		9787FBEF15618A5E00458A4A /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		9787FBEF15618A5E00458A4A /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		9787FBF015618A5E00458A4A /* SDL_events.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507D153A3F2E00580B91 /* SDL_events.c */; };
 		9787FBF115618A5E00458A4A /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		9787FBF215618A5E00458A4A /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
@@ -1199,7 +1204,7 @@
 		97C87559156E834100197738 /* ls-joystick_rest.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AE015489E6600BF66CF /* ls-joystick_rest.png */; };
 		97C8755F156E834100197738 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		97C87560156E834100197738 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		97C87561156E834100197738 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		97C87561156E834100197738 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		97C87562156E834100197738 /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		97C87563156E834100197738 /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		97C87564156E834100197738 /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -1234,7 +1239,7 @@
 		97C87581156E834100197738 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		97C87582156E834100197738 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		97C87583156E834100197738 /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
-		97C87584156E834100197738 /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		97C87584156E834100197738 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		97C87588156E834100197738 /* SDL_events.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507D153A3F2E00580B91 /* SDL_events.c */; };
 		97C87589156E834100197738 /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		97C8758A156E834100197738 /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
@@ -1302,7 +1307,7 @@
 		97EF9582153876CA001C01E6 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		97EF95BB153876CA001C01E6 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		97EF95BC153876CA001C01E6 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
-		97EF95BD153876CA001C01E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		97EF95BD153876CA001C01E6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		97EF95BE153876CA001C01E6 /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		97EF95BF153876CA001C01E6 /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		97EF95C0153876CA001C01E6 /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -1337,7 +1342,7 @@
 		97EF95EB153876CA001C01E6 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		97EF95EC153876CA001C01E6 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		97EF95ED153876CA001C01E6 /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
-		97EF95F0153876CA001C01E6 /* AnimatedImageSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */; };
+		97EF95F0153876CA001C01E6 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		97EF95F4153876CA001C01E6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		97EF95F5153876CA001C01E6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		97EF95F6153876CA001C01E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -1515,7 +1520,7 @@
 		055FD7F113B4029900BB3F8B /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
 		055FD7F213B4029900BB3F8B /* bg_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web@2x.png"; sourceTree = "<group>"; };
 		055FD7F713B45AAA00BB3F8B /* AnimatedImageSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedImageSequenceView.h; sourceTree = "<group>"; };
-		055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedImageSequenceView.m; sourceTree = "<group>"; };
+		055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimatedImageSequenceView.mm; sourceTree = "<group>"; };
 		056089BA13C235F200677A6C /* iscroll4.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = iscroll4.js; path = html/iscroll4.js; sourceTree = "<group>"; };
 		05619ED813ADE1AA00341DB0 /* SelectHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHardware.h; sourceTree = "<group>"; };
 		05619ED913ADE1AA00341DB0 /* SelectHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHardware.m; sourceTree = "<group>"; };
@@ -1635,15 +1640,12 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iAmiga_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAmiga_Prefix.pch; sourceTree = "<group>"; };
 		7E1921F718D4ED620091CCD5 /* Monke1-1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-1.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-1.adf"; sourceTree = "<group>"; };
 		7E1921F818D4ED620091CCD5 /* Monke1-2.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-2.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-2.adf"; sourceTree = "<group>"; };
 		7E1921F918D4ED620091CCD5 /* Monke1-3.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-3.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-3.adf"; sourceTree = "<group>"; };
 		7E1921FA18D4ED620091CCD5 /* Monke1-4.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Monke1-4.adf"; path = "../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Monke1-4.adf"; sourceTree = "<group>"; };
-		7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf"; path = "../../../Documents/Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf"; sourceTree = "<group>"; };
-		7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf"; path = "../../../Documents/Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf"; sourceTree = "<group>"; };
-		7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf"; path = "../../../Documents/Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf"; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -1653,14 +1655,22 @@
 		7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_restart~ipad.png"; path = "TargetSpecific/DotC/btn_restart~ipad.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18E8188B1E450019E82B /* EmulationView-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EmulationView-iPad.xib"; sourceTree = "<group>"; };
 		7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom~ipad.png"; path = "TargetSpecific/DotC/chrome-bottom~ipad.png"; sourceTree = SOURCE_ROOT; };
-		7E4D90EE188DB7BC000AD040 /* FloatPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloatPanel.m; path = ../../../../Desktop/FloatPanel.m; sourceTree = "<group>"; };
+		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../../../Desktop/FloatPanel.mm; sourceTree = "<group>"; };
 		7E4D90F0188DB7C3000AD040 /* FloatPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FloatPanel.h; path = ../../Desktop/FloatPanel.h; sourceTree = "<group>"; };
 		7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7E7EB2D41909A85D00B01C50 /* Abree92a.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Abree92a.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Abree92a.adf; sourceTree = "<group>"; };
+		7E7EB2D51909A85D00B01C50 /* Abree92b.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Abree92b.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Abree92b.adf; sourceTree = "<group>"; };
+		7E7EB2D81909A94E00B01C50 /* Alienb2a.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Alienb2a.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Alienb2a.adf; sourceTree = "<group>"; };
+		7E7EB2D91909A94E00B01C50 /* Alienb2b.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Alienb2b.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Alienb2b.adf; sourceTree = "<group>"; };
+		7E7EB2DA1909A94E00B01C50 /* Alienb2c.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Alienb2c.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Alienb2c.adf; sourceTree = "<group>"; };
+		7E7EB7331909B35000B01C50 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Gut/Northsou.adf; sourceTree = "<group>"; };
 		7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainEmulationViewController.h; sourceTree = "<group>"; };
-		7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainEmulationViewController.m; sourceTree = "<group>"; };
+		7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainEmulationViewController.mm; sourceTree = "<group>"; };
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
-		7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
 		7EA853F718F716690072050B /* extras13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = extras13.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Programme/extras13.adf; sourceTree = "<group>"; };
+		7EA92ABA19083EEC00EF9A5D /* TouchHandlerViewClassic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchHandlerViewClassic.h; sourceTree = "<group>"; };
+		7EA92ABB19083EEC00EF9A5D /* TouchHandlerViewClassic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchHandlerViewClassic.m; sourceTree = "<group>"; };
 		7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky~ipad.png"; path = "../../../../Desktop/untitled folder 2/unsticky~ipad.png"; sourceTree = "<group>"; };
 		7EAA037518902C6A0010C9F8 /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky@2x.png"; path = "../../../../Desktop/untitled folder 2/unsticky@2x.png"; sourceTree = "<group>"; };
 		7EAA037618902C6A0010C9F8 /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unsticky.png; path = "../../../../Desktop/untitled folder 2/unsticky.png"; sourceTree = "<group>"; };
@@ -1718,13 +1728,16 @@
 		7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow@2x.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow@2x.png"; sourceTree = "<group>"; };
 		7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cpuwindow.png; path = "../../../../Desktop/untitled folder 2/cpuwindow.png"; sourceTree = "<group>"; };
 		7EAAB95918E7656E0047B5C1 /* wb13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wb13.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Programme/wb13.adf; sourceTree = "<group>"; };
+		7EAABB351901BEED00D463E0 /* Lemmings2_1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Lemmings2_1.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Lemmings2_1.adf; sourceTree = "<group>"; };
+		7EAABB361901BEED00D463E0 /* Lemmings2_2.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Lemmings2_2.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Lemmings2_2.adf; sourceTree = "<group>"; };
+		7EAABB371901BEED00D463E0 /* Lemmings2_3.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Lemmings2_3.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Spiele/Lemmings2_3.adf; sourceTree = "<group>"; };
 		7EBC1DD71896E8550084CE8E /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
 		7EBC1DD81896E8550084CE8E /* bg_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web@2x.png"; sourceTree = "<group>"; };
-		7EBFA2DF190053FC00C9326E /* EmulationView-iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPhone.h"; sourceTree = "<group>"; };
-		7EBFA2E11900549800C9326E /* EmulationView-iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPhone.m"; sourceTree = "<group>"; };
 		7EBFA2E3190054BE00C9326E /* EmulationView-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EmulationView-iPhone.xib"; sourceTree = "<group>"; };
+		7EBFA2E51900628B00C9326E /* EmulationView-iPhone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "EmulationView-iPhone.mm"; sourceTree = "<group>"; };
+		7EBFA2E7190062B600C9326E /* EmulationView-iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPhone.h"; sourceTree = "<group>"; };
 		7EDCC51E188B1377009F9ABE /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPad.h"; sourceTree = "<group>"; };
-		7EDCC520188B13C3009F9ABE /* EmulationView-iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPad.m"; sourceTree = "<group>"; };
+		7EDCC520188B13C3009F9ABE /* EmulationView-iPad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "EmulationView-iPad.mm"; sourceTree = "<group>"; };
 		7EFB8FAB18EC9D6C00820F9F /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSKeyboard.h; sourceTree = "<group>"; };
 		7EFB8FAC18EC9D6C00820F9F /* IOSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSKeyboard.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2402,12 +2415,12 @@
 				053368AF13B1BDA40012D55A /* Resources-iPad */,
 				053368B013B1BDD60012D55A /* SingleWindowAppDelegate.h */,
 				7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */,
-				7EA5AC5B18AAC5920072820E /* BaseNavigationController.m */,
+				7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */,
 				053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */,
 				053368B513B1CC980012D55A /* BaseEmulationViewController.h */,
 				053368B613B1CC980012D55A /* BaseEmulationViewController.mm */,
 				055FD7F713B45AAA00BB3F8B /* AnimatedImageSequenceView.h */,
-				055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.m */,
+				055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */,
 			);
 			path = SingleView;
 			sourceTree = "<group>";
@@ -2714,11 +2727,17 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E7EB7331909B35000B01C50 /* Northsou.adf */,
+				7E7EB2D81909A94E00B01C50 /* Alienb2a.adf */,
+				7E7EB2D91909A94E00B01C50 /* Alienb2b.adf */,
+				7E7EB2DA1909A94E00B01C50 /* Alienb2c.adf */,
+				7E7EB2D41909A85D00B01C50 /* Abree92a.adf */,
+				7E7EB2D51909A85D00B01C50 /* Abree92b.adf */,
+				7EAABB351901BEED00D463E0 /* Lemmings2_1.adf */,
+				7EAABB361901BEED00D463E0 /* Lemmings2_2.adf */,
+				7EAABB371901BEED00D463E0 /* Lemmings2_3.adf */,
 				7EA853F718F716690072050B /* extras13.adf */,
 				7EAAB95918E7656E0047B5C1 /* wb13.adf */,
-				7E1921FF18D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf */,
-				7E19220018D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf */,
-				7E19220118D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf */,
 				7E1921F718D4ED620091CCD5 /* Monke1-1.adf */,
 				7E1921F818D4ED620091CCD5 /* Monke1-2.adf */,
 				7E1921F918D4ED620091CCD5 /* Monke1-3.adf */,
@@ -2923,18 +2942,20 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				7EA92ABA19083EEC00EF9A5D /* TouchHandlerViewClassic.h */,
+				7EA92ABB19083EEC00EF9A5D /* TouchHandlerViewClassic.m */,
 				7EBFA2E3190054BE00C9326E /* EmulationView-iPhone.xib */,
-				7EBFA2E11900549800C9326E /* EmulationView-iPhone.m */,
-				7EBFA2DF190053FC00C9326E /* EmulationView-iPhone.h */,
 				7E69F7DE18D4D3EC00591CAB /* Default-568h@2x.png */,
 				7EBC1DD71896E8550084CE8E /* bg_web.png */,
 				7EBC1DD81896E8550084CE8E /* bg_web@2x.png */,
 				7E4B18E8188B1E450019E82B /* EmulationView-iPad.xib */,
-				7EDCC520188B13C3009F9ABE /* EmulationView-iPad.m */,
+				7EDCC520188B13C3009F9ABE /* EmulationView-iPad.mm */,
+				7EBFA2E51900628B00C9326E /* EmulationView-iPhone.mm */,
 				7EFB8FAB18EC9D6C00820F9F /* IOSKeyboard.h */,
 				7EFB8FAC18EC9D6C00820F9F /* IOSKeyboard.m */,
 				7EDCC51E188B1377009F9ABE /* EmulationView-iPad.h */,
-				7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.m */,
+				7EBFA2E7190062B600C9326E /* EmulationView-iPhone.h */,
+				7EA2BC9D188B0CAE003DCE10 /* MainEmulationViewController.mm */,
 				7EA2BC9B188B0C8C003DCE10 /* MainEmulationViewController.h */,
 				7E4D90F0188DB7C3000AD040 /* FloatPanel.h */,
 				053D8B2E13B1B2C30002802F /* TargetSpecific */,
@@ -2954,7 +2975,7 @@
 				9785505F153A3F2E00580B91 /* libraries */,
 				0552BC9A0F3D7968005B30DF /* uae */,
 				32CA4F630368D1EE00C91783 /* iAmiga_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
+				29B97316FDCFA39411CA2CEA /* main.mm */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -3702,7 +3723,7 @@
 			children = (
 				97BE2AB51548702100BF66CF /* Landscape */,
 				97BE2AA81548702100BF66CF /* BaseControlsView.h */,
-				7E4D90EE188DB7BC000AD040 /* FloatPanel.m */,
+				7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */,
 				97BE2AA91548702100BF66CF /* BaseControlsView.m */,
 				97BE2AAA1548702100BF66CF /* BaseLeftRightAwareView.h */,
 				97BE2AAB1548702100BF66CF /* BaseLeftRightAwareView.m */,
@@ -4136,12 +4157,13 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				057440D60FC2A4A7003BE251 /* kick.rom in Resources */,
 				0574432A0FC3C94F003BE251 /* kick13.rom in Resources */,
-				7E19220218D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 1 of 3).adf in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				7EAA03AD18902C6A0010C9F8 /* unsticky@2x.png in Resources */,
 				7EAA03B518902C6A0010C9F8 /* mouseon~ipad.png in Resources */,
+				7E7EB7341909B35000B01C50 /* Northsou.adf in Resources */,
+				7E7EB2DB1909A94E00B01C50 /* Alienb2a.adf in Resources */,
 				7EAA03B718902C6A0010C9F8 /* mouseon.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7EAA03C518902C6A0010C9F8 /* modenumpad@2x.png in Resources */,
@@ -4154,6 +4176,7 @@
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
+				7EAABB381901BEED00D463E0 /* Lemmings2_1.adf in Resources */,
 				7EAA03E018902C6A0010C9F8 /* exitfull.png in Resources */,
 				7EAA03BC18902C6A0010C9F8 /* modepianopressed@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
@@ -4163,8 +4186,6 @@
 				7EAA03CD18902C6A0010C9F8 /* modejoypressed~ipad.png in Resources */,
 				7EAA03BF18902C6A0010C9F8 /* modepiano@2x.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
-				7EA2BC9E188B0CAE003DCE10 /* MainEmulationViewController.m in Resources */,
-				7E19220418D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 3 of 3).adf in Resources */,
 				7EAA03C018902C6A0010C9F8 /* modepiano.png in Resources */,
 				7E1921FD18D4ED620091CCD5 /* Monke1-3.adf in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
@@ -4179,6 +4200,7 @@
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
+				7E7EB2D61909A85D00B01C50 /* Abree92a.adf in Resources */,
 				7EAA03B918902C6A0010C9F8 /* mouseoff@2x.png in Resources */,
 				7EAA03DB18902C6A0010C9F8 /* landbarblank~iPad.png in Resources */,
 				7EBC1DD91896E8550084CE8E /* bg_web.png in Resources */,
@@ -4196,14 +4218,18 @@
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7EA853F818F716690072050B /* extras13.adf in Resources */,
 				7E1921FB18D4ED620091CCD5 /* Monke1-1.adf in Resources */,
+				7EAABB3A1901BEED00D463E0 /* Lemmings2_3.adf in Resources */,
 				7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */,
+				7E7EB2DD1909A94E00B01C50 /* Alienb2c.adf in Resources */,
 				7EAA03D618902C6A0010C9F8 /* modegamepad~ipad.png in Resources */,
 				7E4B18E9188B1E450019E82B /* EmulationView-iPad.xib in Resources */,
+				7E7EB2DC1909A94E00B01C50 /* Alienb2b.adf in Resources */,
 				7EAA03B218902C6A0010C9F8 /* options~ipad.png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
 				7E69F7DF18D4D3EC00591CAB /* Default-568h@2x.png in Resources */,
 				9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
 				7EAA03C118902C6A0010C9F8 /* modenumpadpressed~ipad.png in Resources */,
+				7EAABB391901BEED00D463E0 /* Lemmings2_2.adf in Resources */,
 				97BE2AE115489E6600BF66CF /* firebutton-red-active.png in Resources */,
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
@@ -4216,13 +4242,13 @@
 				7EAA03D818902C6A0010C9F8 /* modegamepad.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7EAA03C318902C6A0010C9F8 /* modenumpadpressed.png in Resources */,
+				7E7EB2D71909A85D00B01C50 /* Abree92b.adf in Resources */,
 				7EAA03CC18902C6A0010C9F8 /* modekeyoff.png in Resources */,
 				7EDCC51F188B1377009F9ABE /* EmulationView-iPad.h in Resources */,
 				7EAA03D018902C6A0010C9F8 /* modejoy~ipad.png in Resources */,
 				7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */,
 				7EAA03D918902C6A0010C9F8 /* landbariphon@2x.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
-				7E19220318D4EDEB0091CCD5 /* Lemmings 2 - The Tribes (1993)(Psygnosis)(Disk 2 of 3).adf in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7EAA03C918902C6A0010C9F8 /* modekeyon.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
@@ -4231,7 +4257,6 @@
 				7EBC1DDA1896E8550084CE8E /* bg_web@2x.png in Resources */,
 				7EAA03D718902C6A0010C9F8 /* modegamepad@2x.png in Resources */,
 				7EAA03B618902C6A0010C9F8 /* mouseon@2x.png in Resources */,
-				7EBFA2E0190053FC00C9326E /* EmulationView-iPhone.h in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */,
 				7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */,
@@ -4786,7 +4811,7 @@
 			files = (
 				0533690513B1DEE90012D55A /* DisaSupport.cpp in Sources */,
 				0533690613B1DEE90012D55A /* m68k_intrf.cpp in Sources */,
-				0533690713B1DEE90012D55A /* main.m in Sources */,
+				0533690713B1DEE90012D55A /* main.mm in Sources */,
 				0533690913B1DEE90012D55A /* autoconf.cpp in Sources */,
 				0533690A13B1DEE90012D55A /* blitfunc.cpp in Sources */,
 				0533690B13B1DEE90012D55A /* blittable.cpp in Sources */,
@@ -4823,7 +4848,7 @@
 				057B26B613B326A0006BB230 /* NSObject+Blocks.m in Sources */,
 				055FD7EB13B3F39800BB3F8B /* EmulationView-iPhone.m in Sources */,
 				055FD7EF13B3FB0900BB3F8B /* EmulationView-iPad.m in Sources */,
-				055FD7F913B45AAA00BB3F8B /* AnimatedImageSequenceView.m in Sources */,
+				055FD7F913B45AAA00BB3F8B /* AnimatedImageSequenceView.mm in Sources */,
 				05BB086113CC18FC00278699 /* DOTCEmulationViewController.m in Sources */,
 				978550C8153A3F2E00580B91 /* SDL_events.c in Sources */,
 				978550CB153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
@@ -4863,13 +4888,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EDCC524188B1639009F9ABE /* MainEmulationViewController.m in Sources */,
+				7EDCC524188B1639009F9ABE /* MainEmulationViewController.mm in Sources */,
 				7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */,
 				7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */,
 				051B23B012C994BB000C2800 /* DisaSupport.cpp in Sources */,
-				7EA5AC5C18AAC5920072820E /* BaseNavigationController.m in Sources */,
+				7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */,
 				05D5D74C0FD5E38400B91C98 /* m68k_intrf.cpp in Sources */,
-				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D60589B0D05DD56006BFB54 /* main.mm in Sources */,
 				1D3623260D0F684500981E51 /* iAmigaAppDelegate.mm in Sources */,
 				0552BD240F3D797C005B30DF /* autoconf.cpp in Sources */,
 				0552BD250F3D797C005B30DF /* blitfunc.cpp in Sources */,
@@ -4881,13 +4906,14 @@
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
 				0552BD450F3D797C005B30DF /* famec.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
-				7EBFA2E21900549800C9326E /* EmulationView-iPhone.m in Sources */,
+				7EBFA2E61900628B00C9326E /* EmulationView-iPhone.mm in Sources */,
 				0552BD490F3D797C005B30DF /* uae.cpp in Sources */,
 				0552BD4B0F3D797C005B30DF /* memory.cpp in Sources */,
 				0552BD4C0F3D797C005B30DF /* fade.cpp in Sources */,
 				0552BD4E0F3D797C005B30DF /* missing.cpp in Sources */,
 				0552BD4F0F3D797C005B30DF /* od-joy.cpp in Sources */,
 				0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */,
+				7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */,
 				0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */,
 				0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */,
 				0552BD550F3D797C005B30DF /* writelog.cpp in Sources */,
@@ -4900,8 +4926,9 @@
 				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
 				0504156B0FCB4BD400F46828 /* CocoaUtility.m in Sources */,
 				057B0D4C0FD0D0ED00D549AD /* MMStopWatch.m in Sources */,
-				7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.m in Sources */,
+				7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */,
 				059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */,
+				7EA92ABC19083EEC00EF9A5D /* TouchHandlerViewClassic.m in Sources */,
 				059E3A2810636CBA0056A577 /* m68k_interface.cpp in Sources */,
 				0545257E106EBB590032FC41 /* Events2.c in Sources */,
 				054525B0106EC5550032FC41 /* combined_modules.cpp in Sources */,
@@ -4914,13 +4941,12 @@
 				0585D5621091653E00C1E4C1 /* KeyView.m in Sources */,
 				050C393D12C31B24000CE512 /* Disa.c in Sources */,
 				050C3A9412C33D94000CE512 /* disassembler.m in Sources */,
-				0583DE5812D1A3AC000E97CE /* TouchHandlerView.m in Sources */,
 				0577C0DB12DED4A60040B77D /* AsyncSocket.m in Sources */,
 				0577C0F912DED4FD0040B77D /* UaeDebugger.m in Sources */,
 				05D5233712E8030E007912AE /* SelectEffectController.m in Sources */,
 				05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */,
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
-				7EDCC521188B13C3009F9ABE /* EmulationView-iPad.m in Sources */,
+				7EDCC521188B13C3009F9ABE /* EmulationView-iPad.mm in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
@@ -4934,7 +4960,7 @@
 				978550E5153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
 				978550E8153A3F2E00580B91 /* SDL_syscond.c in Sources */,
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
-				7E4D90EF188DB7BC000AD040 /* FloatPanel.m in Sources */,
+				7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */,
 				978550EE153A3F2E00580B91 /* SDL_syssem.c in Sources */,
 				978550F1153A3F2E00580B91 /* SDL_systhread.c in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
@@ -4960,7 +4986,7 @@
 			files = (
 				9706D6BB1561817500073678 /* DisaSupport.cpp in Sources */,
 				9706D6BC1561817500073678 /* m68k_intrf.cpp in Sources */,
-				9706D6BD1561817500073678 /* main.m in Sources */,
+				9706D6BD1561817500073678 /* main.mm in Sources */,
 				9706D6BE1561817500073678 /* autoconf.cpp in Sources */,
 				9706D6BF1561817500073678 /* blitfunc.cpp in Sources */,
 				9706D6C01561817500073678 /* blittable.cpp in Sources */,
@@ -4995,7 +5021,7 @@
 				9706D6DD1561817500073678 /* SingleWindowAppDelegate.mm in Sources */,
 				9706D6DE1561817500073678 /* BaseEmulationViewController.mm in Sources */,
 				9706D6DF1561817500073678 /* NSObject+Blocks.m in Sources */,
-				9706D6E01561817500073678 /* AnimatedImageSequenceView.m in Sources */,
+				9706D6E01561817500073678 /* AnimatedImageSequenceView.mm in Sources */,
 				9706D6E11561817500073678 /* SDL_events.c in Sources */,
 				9706D6E21561817500073678 /* SDL_mouse_c.c in Sources */,
 				9706D6E31561817500073678 /* ButtonStates.m in Sources */,
@@ -5036,7 +5062,7 @@
 			files = (
 				97242C80156177EC00B6D03C /* DisaSupport.cpp in Sources */,
 				97242C81156177EC00B6D03C /* m68k_intrf.cpp in Sources */,
-				97242C82156177EC00B6D03C /* main.m in Sources */,
+				97242C82156177EC00B6D03C /* main.mm in Sources */,
 				97242C83156177EC00B6D03C /* autoconf.cpp in Sources */,
 				97242C84156177EC00B6D03C /* blitfunc.cpp in Sources */,
 				97242C85156177EC00B6D03C /* blittable.cpp in Sources */,
@@ -5071,7 +5097,7 @@
 				97242CA2156177EC00B6D03C /* SingleWindowAppDelegate.mm in Sources */,
 				97242CA3156177EC00B6D03C /* BaseEmulationViewController.mm in Sources */,
 				97242CA4156177EC00B6D03C /* NSObject+Blocks.m in Sources */,
-				97242CA7156177EC00B6D03C /* AnimatedImageSequenceView.m in Sources */,
+				97242CA7156177EC00B6D03C /* AnimatedImageSequenceView.mm in Sources */,
 				97242CA9156177EC00B6D03C /* SDL_events.c in Sources */,
 				97242CAA156177EC00B6D03C /* SDL_mouse_c.c in Sources */,
 				97242CAB156177EC00B6D03C /* ButtonStates.m in Sources */,
@@ -5112,7 +5138,7 @@
 			files = (
 				9787FA671561882D00458A4A /* DisaSupport.cpp in Sources */,
 				9787FA681561882D00458A4A /* m68k_intrf.cpp in Sources */,
-				9787FA691561882D00458A4A /* main.m in Sources */,
+				9787FA691561882D00458A4A /* main.mm in Sources */,
 				9787FA6A1561882D00458A4A /* autoconf.cpp in Sources */,
 				9787FA6B1561882D00458A4A /* blitfunc.cpp in Sources */,
 				9787FA6C1561882D00458A4A /* blittable.cpp in Sources */,
@@ -5147,7 +5173,7 @@
 				9787FA891561882D00458A4A /* SingleWindowAppDelegate.mm in Sources */,
 				9787FA8A1561882D00458A4A /* BaseEmulationViewController.mm in Sources */,
 				9787FA8B1561882D00458A4A /* NSObject+Blocks.m in Sources */,
-				9787FA8C1561882D00458A4A /* AnimatedImageSequenceView.m in Sources */,
+				9787FA8C1561882D00458A4A /* AnimatedImageSequenceView.mm in Sources */,
 				9787FA8D1561882D00458A4A /* SDL_events.c in Sources */,
 				9787FA8E1561882D00458A4A /* SDL_mouse_c.c in Sources */,
 				9787FA8F1561882D00458A4A /* ButtonStates.m in Sources */,
@@ -5188,7 +5214,7 @@
 			files = (
 				9787FBCA15618A5E00458A4A /* DisaSupport.cpp in Sources */,
 				9787FBCB15618A5E00458A4A /* m68k_intrf.cpp in Sources */,
-				9787FBCC15618A5E00458A4A /* main.m in Sources */,
+				9787FBCC15618A5E00458A4A /* main.mm in Sources */,
 				9787FBCD15618A5E00458A4A /* autoconf.cpp in Sources */,
 				9787FBCE15618A5E00458A4A /* blitfunc.cpp in Sources */,
 				9787FBCF15618A5E00458A4A /* blittable.cpp in Sources */,
@@ -5223,7 +5249,7 @@
 				9787FBEC15618A5E00458A4A /* SingleWindowAppDelegate.mm in Sources */,
 				9787FBED15618A5E00458A4A /* BaseEmulationViewController.mm in Sources */,
 				9787FBEE15618A5E00458A4A /* NSObject+Blocks.m in Sources */,
-				9787FBEF15618A5E00458A4A /* AnimatedImageSequenceView.m in Sources */,
+				9787FBEF15618A5E00458A4A /* AnimatedImageSequenceView.mm in Sources */,
 				9787FBF015618A5E00458A4A /* SDL_events.c in Sources */,
 				9787FBF115618A5E00458A4A /* SDL_mouse_c.c in Sources */,
 				9787FBF215618A5E00458A4A /* ButtonStates.m in Sources */,
@@ -5269,7 +5295,7 @@
 			files = (
 				97C8755F156E834100197738 /* DisaSupport.cpp in Sources */,
 				97C87560156E834100197738 /* m68k_intrf.cpp in Sources */,
-				97C87561156E834100197738 /* main.m in Sources */,
+				97C87561156E834100197738 /* main.mm in Sources */,
 				97C87562156E834100197738 /* autoconf.cpp in Sources */,
 				97C87563156E834100197738 /* blitfunc.cpp in Sources */,
 				97C87564156E834100197738 /* blittable.cpp in Sources */,
@@ -5304,7 +5330,7 @@
 				97C87581156E834100197738 /* SingleWindowAppDelegate.mm in Sources */,
 				97C87582156E834100197738 /* BaseEmulationViewController.mm in Sources */,
 				97C87583156E834100197738 /* NSObject+Blocks.m in Sources */,
-				97C87584156E834100197738 /* AnimatedImageSequenceView.m in Sources */,
+				97C87584156E834100197738 /* AnimatedImageSequenceView.mm in Sources */,
 				97C87588156E834100197738 /* SDL_events.c in Sources */,
 				97C87589156E834100197738 /* SDL_mouse_c.c in Sources */,
 				97C8758A156E834100197738 /* ButtonStates.m in Sources */,
@@ -5362,7 +5388,7 @@
 			files = (
 				97EF95BB153876CA001C01E6 /* DisaSupport.cpp in Sources */,
 				97EF95BC153876CA001C01E6 /* m68k_intrf.cpp in Sources */,
-				97EF95BD153876CA001C01E6 /* main.m in Sources */,
+				97EF95BD153876CA001C01E6 /* main.mm in Sources */,
 				97EF95BE153876CA001C01E6 /* autoconf.cpp in Sources */,
 				97EF95BF153876CA001C01E6 /* blitfunc.cpp in Sources */,
 				97EF95C0153876CA001C01E6 /* blittable.cpp in Sources */,
@@ -5397,7 +5423,7 @@
 				97EF95EB153876CA001C01E6 /* SingleWindowAppDelegate.mm in Sources */,
 				97EF95EC153876CA001C01E6 /* BaseEmulationViewController.mm in Sources */,
 				97EF95ED153876CA001C01E6 /* NSObject+Blocks.m in Sources */,
-				97EF95F0153876CA001C01E6 /* AnimatedImageSequenceView.m in Sources */,
+				97EF95F0153876CA001C01E6 /* AnimatedImageSequenceView.mm in Sources */,
 				97EF966C1538771F001C01E6 /* EmulationView-iPad.m in Sources */,
 				97EF966E1538771F001C01E6 /* EmulationView-iPhone.m in Sources */,
 				97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */,
@@ -5499,6 +5525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -5541,6 +5568,7 @@
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = "Ad Hoc";
 		};
@@ -5860,6 +5888,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -5900,6 +5929,7 @@
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -5907,6 +5937,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -5948,6 +5979,7 @@
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

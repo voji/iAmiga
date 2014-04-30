@@ -47,14 +47,13 @@ UIButton *arrowup_btnd;
 UIButton *arrowdown_btnd;
 UIButton *arrowright_btnd;
 
-UIView *FkeyView;
-UIView *Accviewmain;
-
 UITextField        *dummy_textfield; // dummy text field used to display the keyboard
 UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
 
 -(void) toggleKeyboard {
     /* Turn Keyboard visibility on and off */
+    
+    keyboardactive = !keyboardactive;
     
     if (keyboardactive) {
         [dummy_textfield becomeFirstResponder];
@@ -393,14 +392,14 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     if(direction == KEYPRESS || direction == KEYDOWN)
     {
         SDL_Event ed = { SDL_KEYDOWN };
-        ed.key.keysym.sym = asciicode;
+        ed.key.keysym.sym = (SDLKey) asciicode;
         SDL_PushEvent(&ed);
     }
     
     if(direction == KEYPRESS || direction == KEYUP)
     {
         SDL_Event eu = { SDL_KEYUP };
-        eu.key.keysym.sym = asciicode;
+        eu.key.keysym.sym = (SDLKey) asciicode;
         SDL_PushEvent(&eu);
     }
 }
@@ -531,13 +530,12 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     UIBarButtonItem* F_btn = [[[UIBarButtonItem alloc] initWithCustomView:F_btnd] autorelease];
 	UIBarButtonItem* flex_spacer = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
     
+    UIBarButtonItem* shift_btn = [[[UIBarButtonItem alloc] initWithCustomView:shift_btnd] autorelease];
     
     // iPad gets a shift button, iphone doesn't (there's just not enough space ...)
     NSArray* items;
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        UIBarButtonItem* shift_btn = [[[UIBarButtonItem alloc] initWithCustomView:shift_btnd] autorelease];
-        items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
+
+    items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
                  shift_btn, flex_spacer,
                  ctrl_btn, flex_spacer,
                  alt_btn, flex_spacer,
@@ -546,11 +544,6 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
                  arrowleft_btn, arrowup_btn,
                  arrowdown_btn, arrowright_btn, flex_spacer,
                  F_btn, flex_spacer, nil];
-    }
-    else
-    {
-        items = [NSArray arrayWithObjects:esc_btn, flex_spacer, ctrl_btn, flex_spacer, alt_btn, flex_spacer, lA_btn, flex_spacer, rA_btn, flex_spacer, F_btn, flex_spacer, nil];
-    }
     
 	[keyboard_toolbar setItems:items];
     [keyboard_toolbar sizeToFit];
@@ -563,7 +556,7 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     [button setTitle:Name forState:UIControlStateNormal ];
     [button sizeToFit];
-    button.frame = CGRectMake(0, 0, button.frame.size.width+50, button.frame.size.height);
+    button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height);
     [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
     
     /*[[button layer] setBorderWidth: 1];

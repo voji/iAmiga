@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="dummy_textfield" destination="Iis-uB-ySx" id="ftk-p3-mTi"/>
                 <outlet property="dummy_textfield_f" destination="7f7-a4-dv2" id="nKC-3E-uMa"/>
+                <outlet property="joyController" destination="AHS-YK-CLT" id="Y8V-7P-kdP"/>
                 <outlet property="mouseHandler" destination="4" id="19"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="webView" destination="20" id="21"/>
@@ -22,7 +23,12 @@
                 <userLayoutGuide location="700" affinity="minY"/>
             </userGuides>
             <subviews>
-                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4" userLabel="Mouse handler" customClass="TouchHandlerView">
+                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="AHS-YK-CLT" userLabel="joycontroller" customClass="InputControllerView">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4" userLabel="Mouse handler" customClass="TouchHandlerViewClassic">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>

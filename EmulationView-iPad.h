@@ -10,6 +10,7 @@
 #import "MainEmulationViewController.h"
 #import "FloatPanel.h"
 #import "IOSKeyboard.h"
+#import "InputControllerView.h"
 
 @interface EmulationViewiPad : MainEmulationViewController {
 
@@ -17,14 +18,15 @@
     UIView *mouseHandler;
     UIButton *restartButton;
     UIWebView *webView;
-    FloatPanel *fullscreenPanel;
     IBOutlet UITextField        *dummy_textfield; // dummy text field used to display the keyboard
     IBOutlet UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
+    InputControllerView  *joyController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) IBOutlet UIButton *closeButton;
 @property (nonatomic, retain) IBOutlet UIView *mouseHandler;
 @property (nonatomic, retain) IBOutlet UIButton *restartButton;
+@property (nonatomic, retain) IBOutlet InputControllerView *joyController;
 
 @end

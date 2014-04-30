@@ -1,5 +1,5 @@
 //
-//  EmulationViewiPad.h
+//  EmulationViewiPhone.h
 //  iAmiga
 //
 //  Created by Stuart Carnie on 6/23/11.
@@ -10,14 +10,14 @@
 #import "MainEmulationViewController.h"
 #import "FloatPanel.h"
 #import "IOSKeyboard.h"
+#import "InputControllerView.h"
 
 @interface EmulationViewiPhone : MainEmulationViewController {
-    
+
     UIButton *closeButton;
     UIView *mouseHandler;
     UIButton *restartButton;
     UIWebView *webView;
-    FloatPanel *fullscreenPanel;
     IBOutlet UITextField        *dummy_textfield; // dummy text field used to display the keyboard
     IBOutlet UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
 }
