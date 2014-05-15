@@ -264,6 +264,29 @@
 		7EAA03E118902C6A0010C9F8 /* cpuwindow~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */; };
 		7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */; };
 		7EAA03E318902C6A0010C9F8 /* cpuwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */; };
+		7EAA9DB7192541D400541BE1 /* Keyboard_Blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Keyboard_Blank.png */; };
+		7EAA9DB8192541D400541BE1 /* Keyboard_Blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9D192541D400541BE1 /* Keyboard_Blank@2x.png */; };
+		7EAA9DB9192541D400541BE1 /* Keyboard_Blank_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9E192541D400541BE1 /* Keyboard_Blank_iOS7.png */; };
+		7EAA9DBA192541D400541BE1 /* Keyboard_Blank_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9F192541D400541BE1 /* Keyboard_Blank_iOS7@2x.png */; };
+		7EAA9DBB192541D400541BE1 /* Keyboard_Shift.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA0192541D400541BE1 /* Keyboard_Shift.png */; };
+		7EAA9DBC192541D400541BE1 /* Keyboard_Shift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA1192541D400541BE1 /* Keyboard_Shift@2x.png */; };
+		7EAA9DBD192541D400541BE1 /* Keyboard_Shift_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA2192541D400541BE1 /* Keyboard_Shift_iOS7.png */; };
+		7EAA9DBE192541D400541BE1 /* Keyboard_Shift_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA3192541D400541BE1 /* Keyboard_Shift_iOS7@2x.png */; };
+		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */; };
+		7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */; };
+		7EAA9DC1192541D400541BE1 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA9192541D400541BE1 /* delete.png */; };
+		7EAA9DC2192541D400541BE1 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAA192541D400541BE1 /* delete@2x.png */; };
+		7EAA9DC3192541D400541BE1 /* delete_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAB192541D400541BE1 /* delete_iOS7.png */; };
+		7EAA9DC4192541D400541BE1 /* delete_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAC192541D400541BE1 /* delete_iOS7@2x.png */; };
+		7EAA9DC5192541D400541BE1 /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAD192541D400541BE1 /* glow.png */; };
+		7EAA9DC6192541D400541BE1 /* iOS7_Keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAE192541D400541BE1 /* iOS7_Keyboard.png */; };
+		7EAA9DC7192541D400541BE1 /* iOS7_Keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAF192541D400541BE1 /* iOS7_Keyboard@2x.png */; };
+		7EAA9DC8192541D400541BE1 /* iOS_Keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB0192541D400541BE1 /* iOS_Keyboard.png */; };
+		7EAA9DC9192541D400541BE1 /* iOS_Keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB1192541D400541BE1 /* iOS_Keyboard@2x.png */; };
+		7EAA9DCA192541D400541BE1 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB2192541D400541BE1 /* return.png */; };
+		7EAA9DCB192541D400541BE1 /* return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB3192541D400541BE1 /* return@2x.png */; };
+		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
+		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
 		9706D6581561817500073678 /* Aperture (1x3 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B4153A3F2E00580B91 /* Aperture (1x3 RB).png */; };
@@ -1679,6 +1702,31 @@
 		7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow~ipad.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow~ipad.png"; sourceTree = "<group>"; };
 		7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow@2x.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow@2x.png"; sourceTree = "<group>"; };
 		7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cpuwindow.png; path = "../../../../Desktop/untitled folder 2/cpuwindow.png"; sourceTree = "<group>"; };
+		7EAA9D9C192541D400541BE1 /* Keyboard_Blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keyboard_Blank.png; sourceTree = "<group>"; };
+		7EAA9D9D192541D400541BE1 /* Keyboard_Blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keyboard_Blank@2x.png"; sourceTree = "<group>"; };
+		7EAA9D9E192541D400541BE1 /* Keyboard_Blank_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keyboard_Blank_iOS7.png; sourceTree = "<group>"; };
+		7EAA9D9F192541D400541BE1 /* Keyboard_Blank_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keyboard_Blank_iOS7@2x.png"; sourceTree = "<group>"; };
+		7EAA9DA0192541D400541BE1 /* Keyboard_Shift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keyboard_Shift.png; sourceTree = "<group>"; };
+		7EAA9DA1192541D400541BE1 /* Keyboard_Shift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keyboard_Shift@2x.png"; sourceTree = "<group>"; };
+		7EAA9DA2192541D400541BE1 /* Keyboard_Shift_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keyboard_Shift_iOS7.png; sourceTree = "<group>"; };
+		7EAA9DA3192541D400541BE1 /* Keyboard_Shift_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keyboard_Shift_iOS7@2x.png"; sourceTree = "<group>"; };
+		7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCustomKeyboard.h; sourceTree = "<group>"; };
+		7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCustomKeyboard.m; sourceTree = "<group>"; };
+		7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKCustomKeyboard.xib; sourceTree = "<group>"; };
+		7EAA9DA9192541D400541BE1 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		7EAA9DAA192541D400541BE1 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		7EAA9DAB192541D400541BE1 /* delete_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_iOS7.png; sourceTree = "<group>"; };
+		7EAA9DAC192541D400541BE1 /* delete_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_iOS7@2x.png"; sourceTree = "<group>"; };
+		7EAA9DAD192541D400541BE1 /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
+		7EAA9DAE192541D400541BE1 /* iOS7_Keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS7_Keyboard.png; sourceTree = "<group>"; };
+		7EAA9DAF192541D400541BE1 /* iOS7_Keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS7_Keyboard@2x.png"; sourceTree = "<group>"; };
+		7EAA9DB0192541D400541BE1 /* iOS_Keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Keyboard.png; sourceTree = "<group>"; };
+		7EAA9DB1192541D400541BE1 /* iOS_Keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS_Keyboard@2x.png"; sourceTree = "<group>"; };
+		7EAA9DB2192541D400541BE1 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
+		7EAA9DB3192541D400541BE1 /* return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return@2x.png"; sourceTree = "<group>"; };
+		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
+		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
+		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
@@ -2893,6 +2941,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7EAA9D99192541D400541BE1 /* CustomIOSKeyboard */,
 				9785505F153A3F2E00580B91 /* libraries */,
 				0552BC9A0F3D7968005B30DF /* uae */,
 				32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */,
@@ -2929,6 +2978,71 @@
 				0577C1D712DFF3910040B77D /* QuartzCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EAA9D99192541D400541BE1 /* CustomIOSKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7EAA9D9A192541D400541BE1 /* iPad */,
+				7EAA9DA7192541D400541BE1 /* iPhone:iPod */,
+			);
+			name = CustomIOSKeyboard;
+			path = OtherSources/CustomIOSKeyboard;
+			sourceTree = "<group>";
+		};
+		7EAA9D9A192541D400541BE1 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				7EAA9D9B192541D400541BE1 /* Images */,
+				7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */,
+				7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */,
+				7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		7EAA9D9B192541D400541BE1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7EAA9D9C192541D400541BE1 /* Keyboard_Blank.png */,
+				7EAA9D9D192541D400541BE1 /* Keyboard_Blank@2x.png */,
+				7EAA9D9E192541D400541BE1 /* Keyboard_Blank_iOS7.png */,
+				7EAA9D9F192541D400541BE1 /* Keyboard_Blank_iOS7@2x.png */,
+				7EAA9DA0192541D400541BE1 /* Keyboard_Shift.png */,
+				7EAA9DA1192541D400541BE1 /* Keyboard_Shift@2x.png */,
+				7EAA9DA2192541D400541BE1 /* Keyboard_Shift_iOS7.png */,
+				7EAA9DA3192541D400541BE1 /* Keyboard_Shift_iOS7@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7EAA9DA7192541D400541BE1 /* iPhone:iPod */ = {
+			isa = PBXGroup;
+			children = (
+				7EAA9DA8192541D400541BE1 /* Images */,
+				7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */,
+				7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */,
+				7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */,
+			);
+			path = "iPhone:iPod";
+			sourceTree = "<group>";
+		};
+		7EAA9DA8192541D400541BE1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7EAA9DA9192541D400541BE1 /* delete.png */,
+				7EAA9DAA192541D400541BE1 /* delete@2x.png */,
+				7EAA9DAB192541D400541BE1 /* delete_iOS7.png */,
+				7EAA9DAC192541D400541BE1 /* delete_iOS7@2x.png */,
+				7EAA9DAD192541D400541BE1 /* glow.png */,
+				7EAA9DAE192541D400541BE1 /* iOS7_Keyboard.png */,
+				7EAA9DAF192541D400541BE1 /* iOS7_Keyboard@2x.png */,
+				7EAA9DB0192541D400541BE1 /* iOS_Keyboard.png */,
+				7EAA9DB1192541D400541BE1 /* iOS_Keyboard@2x.png */,
+				7EAA9DB2192541D400541BE1 /* return.png */,
+				7EAA9DB3192541D400541BE1 /* return@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		9706D7101561827300073678 /* sdi */ = {
@@ -4072,6 +4186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAA9DC7192541D400541BE1 /* iOS7_Keyboard@2x.png in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
@@ -4084,6 +4199,7 @@
 				7EAA03C518902C6A0010C9F8 /* modenumpad@2x.png in Resources */,
 				7EAA03E118902C6A0010C9F8 /* cpuwindow~ipad.png in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
+				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
 				05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */,
 				7EAA03E318902C6A0010C9F8 /* cpuwindow.png in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
@@ -4099,6 +4215,7 @@
 				7EAA03BF18902C6A0010C9F8 /* modepiano@2x.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7EAA03C018902C6A0010C9F8 /* modepiano.png in Resources */,
+				7EAA9DB9192541D400541BE1 /* Keyboard_Blank_iOS7.png in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7EAA03C718902C6A0010C9F8 /* modekeyon~ipad.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
@@ -4113,6 +4230,7 @@
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
 				7EAA03B918902C6A0010C9F8 /* mouseoff@2x.png in Resources */,
+				7EAA9DC4192541D400541BE1 /* delete_iOS7@2x.png in Resources */,
 				7EAA03DB18902C6A0010C9F8 /* landbarblank~iPad.png in Resources */,
 				7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */,
 				97855109153A3F2E00580B91 /* Aperture (1x2 RB).png in Resources */,
@@ -4121,56 +4239,72 @@
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
 				7EAA03CE18902C6A0010C9F8 /* modejoypressed@2x.png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
+				7EAA9DCA192541D400541BE1 /* return.png in Resources */,
+				7EAA9DB7192541D400541BE1 /* Keyboard_Blank.png in Resources */,
+				7EAA9DBE192541D400541BE1 /* Keyboard_Shift_iOS7@2x.png in Resources */,
 				7EAA03C618902C6A0010C9F8 /* modenumpad.png in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
+				7EAA9DC8192541D400541BE1 /* iOS_Keyboard.png in Resources */,
 				7EAA03BD18902C6A0010C9F8 /* modepianopressed.png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */,
 				7EAA03D618902C6A0010C9F8 /* modegamepad~ipad.png in Resources */,
 				7EAA03B218902C6A0010C9F8 /* options~ipad.png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
+				7EAA9DCB192541D400541BE1 /* return@2x.png in Resources */,
 				9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
 				7EAA03C118902C6A0010C9F8 /* modenumpadpressed~ipad.png in Resources */,
 				97BE2AE115489E6600BF66CF /* firebutton-red-active.png in Resources */,
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
+				7EAA9DC3192541D400541BE1 /* delete_iOS7.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				7EAA03CA18902C6A0010C9F8 /* modekeyoff~ipad.png in Resources */,
 				7EAA03AC18902C6A0010C9F8 /* unsticky~ipad.png in Resources */,
 				7EAA03DD18902C6A0010C9F8 /* landbarblank.png in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
 				7EAA03BE18902C6A0010C9F8 /* modepiano~ipad.png in Resources */,
+				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
 				7EAA03D118902C6A0010C9F8 /* modejoy@2x.png in Resources */,
 				7EAA03D818902C6A0010C9F8 /* modegamepad.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7EAA03C318902C6A0010C9F8 /* modenumpadpressed.png in Resources */,
 				7EAA03CC18902C6A0010C9F8 /* modekeyoff.png in Resources */,
+				7EAA9DBD192541D400541BE1 /* Keyboard_Shift_iOS7.png in Resources */,
 				7EAA03D018902C6A0010C9F8 /* modejoy~ipad.png in Resources */,
 				7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */,
+				7EAA9DC5192541D400541BE1 /* glow.png in Resources */,
 				7EAA03D918902C6A0010C9F8 /* landbariphon@2x.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7EAA03C918902C6A0010C9F8 /* modekeyon.png in Resources */,
+				7EAA9DC1192541D400541BE1 /* delete.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
+				7EAA9DBB192541D400541BE1 /* Keyboard_Shift.png in Resources */,
 				7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */,
 				7EAA03D718902C6A0010C9F8 /* modegamepad@2x.png in Resources */,
 				7EAA03B618902C6A0010C9F8 /* mouseon@2x.png in Resources */,
+				7EAA9DC9192541D400541BE1 /* iOS_Keyboard@2x.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */,
 				7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
 				7EAA03BA18902C6A0010C9F8 /* mouseoff.png in Resources */,
 				7EAA03B018902C6A0010C9F8 /* sticky@2x.png in Resources */,
+				7EAA9DBA192541D400541BE1 /* Keyboard_Blank_iOS7@2x.png in Resources */,
 				7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */,
 				7EAA03D518902C6A0010C9F8 /* modegamepadpressed.png in Resources */,
 				7EAA03B318902C6A0010C9F8 /* options@2x.png in Resources */,
+				7EAA9DC6192541D400541BE1 /* iOS7_Keyboard.png in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
 				7EAA03C818902C6A0010C9F8 /* modekeyon@2x.png in Resources */,
+				7EAA9DC2192541D400541BE1 /* delete@2x.png in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
+				7EAA9DBC192541D400541BE1 /* Keyboard_Shift@2x.png in Resources */,
 				7EAA03D218902C6A0010C9F8 /* modejoy.png in Resources */,
 				7EAA03B818902C6A0010C9F8 /* mouseoff~ipad.png in Resources */,
 				7EAA03DA18902C6A0010C9F8 /* landbariphon.png in Resources */,
@@ -4178,6 +4312,7 @@
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
 				7EAA03B118902C6A0010C9F8 /* sticky.png in Resources */,
 				97BE2B0E15489E6600BF66CF /* ls-joystick_rest.png in Resources */,
+				7EAA9DB8192541D400541BE1 /* Keyboard_Blank@2x.png in Resources */,
 				7EAA03DE18902C6A0010C9F8 /* exitfull~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4816,6 +4951,7 @@
 				0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */,
 				050415610FCB475C00F46828 /* InputControllerView.mm in Sources */,
 				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
+				7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */,
 				0504156B0FCB4BD400F46828 /* CocoaUtility.m in Sources */,
 				057B0D4C0FD0D0ED00D549AD /* MMStopWatch.m in Sources */,
 				7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */,
@@ -4860,6 +4996,7 @@
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,
+				7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */,
 				97855100153A3F2E00580B91 /* NoEffect.m in Sources */,
 				97855103153A3F2E00580B91 /* OGLDisplay.m in Sources */,
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
@@ -5481,8 +5618,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.104;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5503,8 +5640,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.104;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5523,8 +5660,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.104;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
