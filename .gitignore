@@ -25,3 +25,5 @@ disks/*
 rgetSpecific/DotC/Info-DotC.plist
 
 libraries/sdl-mini
+roms/
+disks/

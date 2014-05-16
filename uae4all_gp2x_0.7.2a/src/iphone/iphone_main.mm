@@ -80,8 +80,17 @@ void sound_default_evtime(void) {
 
 char* get_rom_path() {
 	NSString *bp = [[NSBundle mainBundle] bundlePath];
-	bp = [bp stringByAppendingPathComponent:@"kick13.rom"];
+	//bp = [bp stringByAppendingPathComponent:@"kick.rom"];
 	
+    if([[NSFileManager defaultManager] fileExistsAtPath:[bp stringByAppendingPathComponent:@"kick.rom"]])
+    {
+        bp = [bp stringByAppendingPathComponent:@"kick.rom"];
+    }
+    else
+    {
+         bp = [bp stringByAppendingPathComponent:@"kick13.rom"];
+    }
+    
 	static char bundlePath[500];
 	
 	[bp getCString:bundlePath maxLength:sizeof(bundlePath) encoding:[NSString defaultCStringEncoding]];
