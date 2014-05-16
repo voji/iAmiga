@@ -1,6 +1,6 @@
 Package: com.emufreak.iUAE
 Name: iUAE
-Version: 1.0
+Version: 1.0.1b2
 Description: Amiga Emulator for Ipad - a Fork of iAmiga
 Section: System
 Depends: firmware (>= 5.0)
