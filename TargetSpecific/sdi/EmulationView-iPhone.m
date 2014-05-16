@@ -34,6 +34,7 @@
     [closeButton release];
     [menuButton release];
     [restartButton release];
+    [_joyController release];
     [super dealloc];
 }
 

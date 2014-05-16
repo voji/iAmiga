@@ -41,7 +41,7 @@ UIButton *btnKeyboard;
     [super viewDidLoad];
     
     mouseHandlermain = mouseHandler;
-    //[self initializeJoypad:joyController];
+    [self initializeJoypad:joyController];
     
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];

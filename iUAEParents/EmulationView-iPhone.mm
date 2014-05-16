@@ -15,6 +15,7 @@
 @synthesize closeButton;
 @synthesize mouseHandler;
 @synthesize restartButton;
+@synthesize joyController;
 
 #pragma mark - View lifecycle
 
@@ -31,6 +32,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    mouseHandlermain = mouseHandler;
+    [self initializeJoypad:joyController];
     
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];

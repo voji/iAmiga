@@ -19,12 +19,16 @@
     UIButton *restartButton;
     UIWebView *webView;
     IBOutlet UITextField        *dummy_textfield; // dummy text field used to display the keyboard
-    IBOutlet UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
+    IBOutlet UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with
+    InputControllerView *joyController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) IBOutlet UIButton *closeButton;
 @property (nonatomic, retain) IBOutlet UIView *mouseHandler;
 @property (nonatomic, retain) IBOutlet UIButton *restartButton;
+@property (retain, nonatomic) IBOutlet InputControllerView *joyController;
+
+
 
 @end
