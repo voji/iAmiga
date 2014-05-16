@@ -56,6 +56,7 @@
     [menuButton release];
     [restartButton release];
     [inputController release];
+    [joyControllerView release];
     [super dealloc];
 }
 
