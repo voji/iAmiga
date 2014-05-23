@@ -15,7 +15,7 @@
 
 #define kDisplayWidth							320.0f
 #define kDisplayHeight							240.0f
-#define kDisplayTopOffset                       7.0f
+#define kDisplayTopOffset                       20.0f
 
 
 @interface BaseEmulationViewController()
@@ -46,6 +46,7 @@
 	UIView<DisplayViewSurface> *surfaceView = (UIView<DisplayViewSurface>*)surface->userdata;
     surfaceView.contentMode = UIViewContentModeScaleToFill;
 	surfaceView.paused = YES;
+    //[surfaceView setBackgroundColor:[UIColor redColor]];
     
 	self.displayView = surfaceView;
 	if (displayViewWindow != nil) {
@@ -136,7 +137,7 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
         
         int width = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 1024 : 480;
-        int height = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 768 : 320;
+        int height = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 748 : 300;
         
 		// assuming landscape width > height
 		//return CGRectMake(0, self.displayTop, frameSize.width, frameSize.height);
