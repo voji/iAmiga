@@ -58,10 +58,10 @@ extern void uae_reset();
     
     // virtual keyboard
     
-	vKeyboard = [[VirtualKeyboard alloc] initWithFrame:CGRectMake(0, 568, 1024, 200)];
+	/*vKeyboard = [[VirtualKeyboard alloc] initWithFrame:CGRectMake(0, 568, 1024, 200)];
     vKeyboard.autoresizingMask = UIViewAutoresizingNone;
     vKeyboard.backgroundColor = [UIColor redColor];
-	vKeyboard.hidden = YES;
+	vKeyboard.hidden = YES;*/
     [self.view setMultipleTouchEnabled:TRUE];
 }
 

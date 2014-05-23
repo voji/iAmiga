@@ -11,16 +11,43 @@
 #import "SDL_events.h"
 #import "SDL_mouse_c.h"
 
-@implementation TouchHandlerViewClassic
-
-- (id)initWithFrame:(CGRect)frame {
+@implementation TouchHandlerViewClassic {
+    NSTimer *timer;
+    NSTimeInterval durationtouch;
+    bool draggingon;
+    NSDate *now;
+}
     
-    self = [super initWithFrame:frame];
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code.
 		self.multipleTouchEnabled = YES;
     }
+    
+    timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                          selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
+    
+    draggingon = FALSE;
+    
     return self;
+}
+
+-(void)timerEvent:(NSTimer*)timer{
+    //Press Left Mouse Button down and keep down if tab is pressed for more than one second without moving
+    
+    if(starttimetouch)
+    {
+        now = [NSDate date];
+        durationtouch = [now timeIntervalSinceDate:starttimetouch];
+    }
+    
+    if(durationtouch > 1 && draggingon == FALSE && didMove == FALSE)
+    {
+        SDL_SendMouseButton(NULL, SDL_PRESSED, SDL_BUTTON_LEFT);
+        draggingon = TRUE;
+    }
 }
 
 - (void)awakeFromNib {
@@ -41,8 +68,6 @@
     
     UITouch *touch = [touches anyObject];
     
-    /*for (UITouch *touch in touches)
-     {*/
     if (touch.phase == UITouchPhaseBegan)
     {
         if (touchCounts == 2)
@@ -55,22 +80,9 @@
             leadTouch = touch;
             previousMouseLocation = [touch locationInView: self];
             didMove = NO;
+            starttimetouch = [[NSDate alloc] init]; //Neccessary for dragging (long touch and then Move = Drag)
         }
-        
-        /*if (!leadTouch)
-         {
-         leadTouch = touch;
-         previousMouseLocation = [touch locationInView: self];
-         didMove = NO;
-         //printf("Move begin\n");
-         }
-         else if(!rightTouch)
-         {
-         
-         //printf("Right press\n");
-         }*/
     }
-    /*}*/
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -117,16 +129,28 @@
                 leadTouch = Nil;
                 //printf("Move End\n");
                 
-                if (didMove == NO)
+                if(draggingon == FALSE)
                 {
-                    SDL_SendMouseButton(NULL, SDL_PRESSED, SDL_BUTTON_LEFT);
-                    //printf("Left press\n");
-                    
-                    // 50ms after, push up
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 50 * 1000000), dispatch_get_main_queue(), ^{
-                        SDL_SendMouseButton(NULL, SDL_RELEASED, SDL_BUTTON_LEFT);
-                        //printf("Left release\n");
-                    });
+                    if (didMove == NO)
+                    {
+                        SDL_SendMouseButton(NULL, SDL_PRESSED, SDL_BUTTON_LEFT);
+                        //printf("Left press\n");
+                        
+                        // 50ms after, push up
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 50 * 1000000), dispatch_get_main_queue(), ^{
+                            SDL_SendMouseButton(NULL, SDL_RELEASED, SDL_BUTTON_LEFT);
+                            //printf("Left release\n");
+                        });
+                    }
+                }
+                else
+                //Left Mousebutton Down while Moving Mouse on (Allows Drag and Drop among others)
+                {
+                   SDL_SendMouseButton(NULL, SDL_RELEASED, SDL_BUTTON_LEFT);
+                    draggingon = FALSE;
+                    [starttimetouch release];
+                    starttimetouch = Nil;
+                    durationtouch = 0;
                 }
             }
             else if (touch == rightTouch)
@@ -139,8 +163,12 @@
     }
 }
 
+
+
 - (void)dealloc
 {
+    [starttimetouch release];
+    [timer release];
     [super dealloc];
 }
 

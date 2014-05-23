@@ -14,5 +14,6 @@
 	CGPoint			previousMouseLocation;
 	BOOL			didMove;
 	CGFloat			x_ratio, y_ratio;
+    NSDate *starttimetouch;
 }
 @end
