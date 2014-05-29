@@ -85,11 +85,11 @@ extern void uae_reset();
     int xpos = [self XposFloatPanel:barwidth];
     
     fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xpos,20,barwidth,barheight)];
-    UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
+    /*UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
     btnExitFS.center=CGPointMake(63, 18);
     [btnExitFS setImage:[UIImage imageNamed:@"exitfull~ipad.png"] forState:UIControlStateNormal];
     [btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
-    [fullscreenPanel.contentView addSubview:btnExitFS];
+    [fullscreenPanel.contentView addSubview:btnExitFS];"*/
     
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
     
