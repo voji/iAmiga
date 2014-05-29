@@ -16,6 +16,8 @@
     NSTimeInterval durationtouch;
     bool draggingon;
     NSDate *now;
+    UILabel *ldraggingon;
+    UILabel *ldurationtouch;
 }
     
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -31,19 +33,28 @@
     
     draggingon = FALSE;
     
+    ldraggingon = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 10)];
+    ldurationtouch = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 100, 10)];
+    
+    /*[self addSubview:ldraggingon];
+    [self addSubview:ldurationtouch];*/
+    
     return self;
 }
 
 -(void)timerEvent:(NSTimer*)timer{
     //Press Left Mouse Button down and keep down if tab is pressed for more than one second without moving
     
-    if(starttimetouch)
+    /*[ldraggingon setText: (draggingon ? @"YES" : @"NO")];
+    [ldurationtouch setText:[NSString stringWithFormat:@"%f", durationtouch]];*/
+    
+    if(starttimetouch && didMove == FALSE && draggingon == FALSE)
     {
         now = [NSDate date];
         durationtouch = [now timeIntervalSinceDate:starttimetouch];
     }
     
-    if(durationtouch > 1 && draggingon == FALSE && didMove == FALSE)
+    if(durationtouch > 1)
     {
         SDL_SendMouseButton(NULL, SDL_PRESSED, SDL_BUTTON_LEFT);
         draggingon = TRUE;
@@ -62,9 +73,10 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    
     NSSet *touchtype = [event allTouches];
     int touchCounts = [touchtype count];
-    
     
     UITouch *touch = [touches anyObject];
     
@@ -147,11 +159,12 @@
                 //Left Mousebutton Down while Moving Mouse on (Allows Drag and Drop among others)
                 {
                    SDL_SendMouseButton(NULL, SDL_RELEASED, SDL_BUTTON_LEFT);
-                    draggingon = FALSE;
-                    [starttimetouch release];
-                    starttimetouch = Nil;
-                    durationtouch = 0;
                 }
+                
+                draggingon = FALSE;
+                [starttimetouch release];
+                starttimetouch = Nil;
+                durationtouch = 0;
             }
             else if (touch == rightTouch)
             {
@@ -168,6 +181,8 @@
 - (void)dealloc
 {
     [starttimetouch release];
+    [ldraggingon release];
+    [ldurationtouch release];
     [timer release];
     [super dealloc];
 }
