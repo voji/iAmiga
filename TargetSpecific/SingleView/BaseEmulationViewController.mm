@@ -5,6 +5,21 @@
 //  Created by Stuart Carnie on 6/22/11.
 //  Copyright 2011 Manomio LLC. All rights reserved.
 //
+//  Changed by Emufr3ak on 29.05.14.
+//
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+//along with this program; if not, write to the Free Software
+//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "BaseEmulationViewController.h"
 #import "uae.h"
@@ -15,7 +30,7 @@
 
 #define kDisplayWidth							320.0f
 #define kDisplayHeight							240.0f
-#define kDisplayTopOffset                       7.0f
+#define kDisplayTopOffset                       20.0f
 
 
 @interface BaseEmulationViewController()
@@ -46,6 +61,7 @@
 	UIView<DisplayViewSurface> *surfaceView = (UIView<DisplayViewSurface>*)surface->userdata;
     surfaceView.contentMode = UIViewContentModeScaleToFill;
 	surfaceView.paused = YES;
+    //[surfaceView setBackgroundColor:[UIColor redColor]];
     
 	self.displayView = surfaceView;
 	if (displayViewWindow != nil) {
@@ -136,7 +152,7 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
         
         int width = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 1024 : 480;
-        int height = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 768 : 320;
+        int height = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 748 : 300;
         
 		// assuming landscape width > height
 		//return CGRectMake(0, self.displayTop, frameSize.width, frameSize.height);

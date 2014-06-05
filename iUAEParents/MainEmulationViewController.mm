@@ -5,6 +5,21 @@
 //  Created by Stuart Carnie on 7/11/11.
 //  Copyright 2011 Manomio LLC. All rights reserved.
 //
+//  Changed by Emufr3ak on 29.05.14.
+//
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+//along with this program; if not, write to the Free Software
+//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "MainEmulationViewController.h"
 #import "VirtualKeyboard.h"
@@ -58,10 +73,10 @@ extern void uae_reset();
     
     // virtual keyboard
     
-	vKeyboard = [[VirtualKeyboard alloc] initWithFrame:CGRectMake(0, 568, 1024, 200)];
+	/*vKeyboard = [[VirtualKeyboard alloc] initWithFrame:CGRectMake(0, 568, 1024, 200)];
     vKeyboard.autoresizingMask = UIViewAutoresizingNone;
     vKeyboard.backgroundColor = [UIColor redColor];
-	vKeyboard.hidden = YES;
+	vKeyboard.hidden = YES;*/
     [self.view setMultipleTouchEnabled:TRUE];
 }
 
@@ -69,12 +84,12 @@ extern void uae_reset();
     
     int xpos = [self XposFloatPanel:barwidth];
     
-    fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xpos,0,barwidth,barheight)];
-    UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
+    fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xpos,20,barwidth,barheight)];
+    /*UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
     btnExitFS.center=CGPointMake(63, 18);
     [btnExitFS setImage:[UIImage imageNamed:@"exitfull~ipad.png"] forState:UIControlStateNormal];
     [btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
-    [fullscreenPanel.contentView addSubview:btnExitFS];
+    [fullscreenPanel.contentView addSubview:btnExitFS];"*/
     
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
     
