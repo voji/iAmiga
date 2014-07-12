@@ -60,7 +60,7 @@ UIButton *btnKeyboard;
     webView.delegate = self;
     
     [self initializeFullScreenPanel];
-    [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f];
+    [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts: dummy_textfield_s];
 }
 
 - (void)dealloc {

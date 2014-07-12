@@ -37,26 +37,33 @@
 #define SDLK_RAMIGA 258
 
 
-@implementation IOSKeyboard
-
-bool keyboardactive;
-bool shiftselected;
-bool altselected;
-bool ctrlselected;
-bool lAselected;
-bool rAselected;
-bool fkeyselected;
-
-UIButton *btnKeyboard;
-UIButton *btnSettings;
-
-UIButton *arrowleft_btnd;
-UIButton *arrowup_btnd;
-UIButton *arrowdown_btnd;
-UIButton *arrowright_btnd;
-
-UITextField        *dummy_textfield; // dummy text field used to display the keyboard
-UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
+@implementation IOSKeyboard {
+    
+    bool keyboardactive;
+    bool shiftselected;
+    bool altselected;
+    bool ctrlselected;
+    bool lAselected;
+    bool rAselected;
+    bool fkeyselected;
+    bool skeyselected;
+    
+    UIButton *btnKeyboard;
+    UIButton *btnSettings;
+    
+    UIButton *arrowleft_btnd;
+    UIButton *arrowup_btnd;
+    UIButton *arrowdown_btnd;
+    UIButton *arrowright_btnd;
+    
+    UITextField        *dummy_textfield; // dummy text field used to display the keyboard
+    UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
+ 
+    UITextField *dummy_textfield_s;
+    
+    PKCustomKeyboard *specialkeyboardipad;
+    PMCustomKeyboard *specialckeyboardiphone;
+}
 
 -(void) toggleKeyboard {
     /* Turn Keyboard visibility on and off */
@@ -71,6 +78,7 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
         [dummy_textfield resignFirstResponder];
         [dummy_textfield_f resignFirstResponder];
         fkeyselected = FALSE;
+        skeyselected = FALSE;
     }
     
 }
@@ -89,6 +97,21 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     {
         fkeyselected = FALSE;
         [dummy_textfield_f resignFirstResponder];
+        [dummy_textfield becomeFirstResponder];
+    }
+}
+
+- (IBAction)toggleSpecialKey:(id)sender {
+    if (!skeyselected)
+    {
+        skeyselected = TRUE;
+        [dummy_textfield resignFirstResponder];
+        [dummy_textfield_s becomeFirstResponder];
+    }
+    else
+    {
+        fkeyselected = FALSE;
+        [dummy_textfield_s resignFirstResponder];
         [dummy_textfield becomeFirstResponder];
     }
 }
@@ -424,7 +447,7 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     /*[button setBackgroundColor:[UIColor whiteColor]];*/
 }
 
-- (id) initWithDummyFields:(UITextField *)dummyfield fieldf:(UITextField *)fieldf {
+- (id) initWithDummyFields:(UITextField *)dummyfield fieldf:(UITextField *)fieldf fieldspecial:(UITextField *)fieldspecial {
     
     self = [super init];
     
@@ -435,18 +458,23 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     lAselected = FALSE;
     rAselected = FALSE;
     fkeyselected = FALSE;
+    skeyselected = FALSE;
     
     dummy_textfield = dummyfield;
     dummy_textfield_f = fieldf;
+    dummy_textfield_s = fieldspecial;
     
     [dummy_textfield setInputAccessoryView:[self createkeyboardToolBar]];
     [dummy_textfield_f setInputAccessoryView:[self createFKeyToolbar]];
+    [dummy_textfield_s setInputAccessoryView:[self createkeyboardToolBar]];
     
-    [dummy_textfield setText:@"0"]; //Some characters needs to always be here.
-    [dummy_textfield_f setText:@"0"]; //Some characters needs to always be here.
+    [dummy_textfield setText:@"0"]; //Dummychar to dedect backspace.
+    [dummy_textfield_f setText:@"0"]; //Dummychar to dedect backspace.
+    [dummy_textfield_s setText:@"0"]; //Dummychar to dedect backspace.
     
     [dummy_textfield setDelegate: self];
     [dummy_textfield_f setDelegate:self];
+    [dummy_textfield_s setDelegate:self];
     
     [[NSNotificationCenter defaultCenter]   addObserver:self
                                                selector:@selector(keypressed:)
@@ -457,6 +485,21 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
                                                selector:@selector(keypressed:)
                                                    name:UITextFieldTextDidChangeNotification
                                                  object:dummy_textfield_f];
+   
+    [[NSNotificationCenter defaultCenter]   addObserver:self
+                                               selector:@selector(keypressed:)
+                                                   name:UITextFieldTextDidChangeNotification
+                                                 object:dummy_textfield_s];
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
+    {
+        specialckeyboardiphone = [[PMCustomKeyboard alloc] init];
+        [specialckeyboardiphone setTextView:dummy_textfield];
+    }
+    else {
+        specialkeyboardipad = [[PKCustomKeyboard alloc] init];
+        [specialkeyboardipad setTextView:dummy_textfield];
+    }
     
     return self;
 }
@@ -524,6 +567,8 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     
     UIButton *F_btnd = [self createKeyboardButton:@"F" action:@selector(toggleFKey:)];
     
+    UIButton *special_btnd = [self createKeyboardButton:@"Game" action:@selector(toggleSpecialKey:)];
+    
     UIBarButtonItem* esc_btn = [[[UIBarButtonItem alloc] initWithCustomView:esc_btnd] autorelease];
 	UIBarButtonItem* ctrl_btn = [[[UIBarButtonItem alloc] initWithCustomView:ctrl_btnd] autorelease];
 	UIBarButtonItem* alt_btn = [[[UIBarButtonItem alloc] initWithCustomView:alt_btnd] autorelease];
@@ -540,6 +585,8 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
     
     UIBarButtonItem* shift_btn = [[[UIBarButtonItem alloc] initWithCustomView:shift_btnd] autorelease];
     
+    UIBarButtonItem* special_btn = [[[UIBarButtonItem alloc] initWithCustomView:special_btnd] autorelease];
+    
     // iPad gets a shift button, iphone doesn't (there's just not enough space ...)
     NSArray* items;
 
@@ -551,7 +598,8 @@ UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard w
                  rA_btn, flex_spacer,
                  arrowleft_btn, arrowup_btn,
                  arrowdown_btn, arrowright_btn, flex_spacer,
-                 F_btn, flex_spacer, nil];
+                 F_btn, flex_spacer,
+                 special_btn, flex_spacer, nil];
     
 	[keyboard_toolbar setItems:items];
     [keyboard_toolbar sizeToFit];

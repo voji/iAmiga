@@ -153,11 +153,11 @@ extern void uae_reset();
     
 }
 
-- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:p_dummy_textfield_f {
+- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
     
     keyboardactive = FALSE;
     
-    ioskeyboard = [[IOSKeyboard alloc] initWithDummyFields:p_dummy_textfield fieldf:p_dummy_textfield_f];
+    ioskeyboard = [[IOSKeyboard alloc] initWithDummyFields:p_dummy_textfield fieldf:p_dummy_textfield_f fieldspecial:p_dummy_textfield_s];
     
     [[NSNotificationCenter defaultCenter]   addObserver:self
                                                selector:@selector(keyboardDidHide:)
