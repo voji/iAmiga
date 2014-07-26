@@ -36,6 +36,9 @@
 #define SDLK_LAMIGA 257
 #define SDLK_RAMIGA 258
 
+#define BFKEY 1
+#define BSKEY 2
+
 
 @implementation IOSKeyboard {
     
@@ -55,6 +58,9 @@
     UIButton *arrowup_btnd;
     UIButton *arrowdown_btnd;
     UIButton *arrowright_btnd;
+    
+    UIButton *fKey_btnd;
+    UIButton *sKey_btnd;
     
     UITextField        *dummy_textfield; // dummy text field used to display the keyboard
     UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
@@ -77,41 +83,34 @@
     {
         [dummy_textfield resignFirstResponder];
         [dummy_textfield_f resignFirstResponder];
+        [dummy_textfield_s resignFirstResponder];
         fkeyselected = FALSE;
         skeyselected = FALSE;
     }
     
 }
 
-- (IBAction)toggleFKey:(id)sender {
+- (IBAction)toggleKeyboardmode:(id)sender {
     
-    /* Show FkeyAccessory Bar on top of Normal Keyboard */
+    UIButton *button = sender;
     
-    if (!fkeyselected)
+    [dummy_textfield resignFirstResponder];
+    [dummy_textfield_f resignFirstResponder];
+    [dummy_textfield_s resignFirstResponder];
+    
+    fkeyselected = (button.tag == BFKEY) ? !fkeyselected : FALSE;
+    skeyselected = (button.tag == BSKEY) ? !skeyselected : FALSE;
+    
+    if (fkeyselected)
     {
-        fkeyselected = TRUE;
-        [dummy_textfield resignFirstResponder];
         [dummy_textfield_f becomeFirstResponder];
     }
-    else
+    else if (skeyselected)
     {
-        fkeyselected = FALSE;
-        [dummy_textfield_f resignFirstResponder];
-        [dummy_textfield becomeFirstResponder];
-    }
-}
-
-- (IBAction)toggleSpecialKey:(id)sender {
-    if (!skeyselected)
-    {
-        skeyselected = TRUE;
-        [dummy_textfield resignFirstResponder];
         [dummy_textfield_s becomeFirstResponder];
     }
     else
     {
-        fkeyselected = FALSE;
-        [dummy_textfield_s resignFirstResponder];
         [dummy_textfield becomeFirstResponder];
     }
 }
@@ -494,11 +493,11 @@
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
     {
         specialckeyboardiphone = [[PMCustomKeyboard alloc] init];
-        [specialckeyboardiphone setTextView:dummy_textfield];
+        [specialckeyboardiphone setTextView:dummy_textfield_s];
     }
     else {
         specialkeyboardipad = [[PKCustomKeyboard alloc] init];
-        [specialkeyboardipad setTextView:dummy_textfield];
+        [specialkeyboardipad setTextView:dummy_textfield_s];
     }
     
     return self;
@@ -518,7 +517,8 @@
     UIButton *f8_btnd = [self createKeyboardButton:@"F8" action:@selector(F8Key:)];
     UIButton *f9_btnd = [self createKeyboardButton:@"F9" action:@selector(F9Key:)];
     UIButton *f10_btnd = [self createKeyboardButton:@"F10" action:@selector(F10Key:)];
-    UIButton *done_btnd = [self createKeyboardButton:@"done" action:@selector(toggleFKey:)];
+    UIButton *done_btnd = [self createKeyboardButton:@"done" action:@selector(toggleKeyboardmode:)];
+    [done_btnd setTag:BFKEY];
     
     UIBarButtonItem* f1_btn = [[[UIBarButtonItem alloc] initWithCustomView:f1_btnd] autorelease];
     UIBarButtonItem* f2_btn = [[[UIBarButtonItem alloc] initWithCustomView:f2_btnd] autorelease];
@@ -565,9 +565,11 @@
     arrowdown_btnd = [self createKeyboardButton:@"v" action:@selector(CursorKeyPressed:)];
     arrowright_btnd = [self createKeyboardButton:@"->" action:@selector(CursorKeyPressed:)];
     
-    UIButton *F_btnd = [self createKeyboardButton:@"F" action:@selector(toggleFKey:)];
+    fKey_btnd = [self createKeyboardButton:@"F" action:@selector(toggleKeyboardmode:)];
+    [fKey_btnd setTag:BFKEY];
     
-    UIButton *special_btnd = [self createKeyboardButton:@"Game" action:@selector(toggleSpecialKey:)];
+    sKey_btnd = [self createKeyboardButton:@"Game" action:@selector(toggleKeyboardmode:)];
+    [sKey_btnd setTag:BSKEY];
     
     UIBarButtonItem* esc_btn = [[[UIBarButtonItem alloc] initWithCustomView:esc_btnd] autorelease];
 	UIBarButtonItem* ctrl_btn = [[[UIBarButtonItem alloc] initWithCustomView:ctrl_btnd] autorelease];
@@ -580,14 +582,13 @@
     UIBarButtonItem* arrowdown_btn = [[[UIBarButtonItem alloc] initWithCustomView:arrowdown_btnd] autorelease];
     UIBarButtonItem* arrowright_btn = [[[UIBarButtonItem alloc] initWithCustomView:arrowright_btnd] autorelease];
     
-    UIBarButtonItem* F_btn = [[[UIBarButtonItem alloc] initWithCustomView:F_btnd] autorelease];
+    UIBarButtonItem* F_btn = [[[UIBarButtonItem alloc] initWithCustomView:fKey_btnd] autorelease];
 	UIBarButtonItem* flex_spacer = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
     
     UIBarButtonItem* shift_btn = [[[UIBarButtonItem alloc] initWithCustomView:shift_btnd] autorelease];
     
-    UIBarButtonItem* special_btn = [[[UIBarButtonItem alloc] initWithCustomView:special_btnd] autorelease];
+    UIBarButtonItem* special_btn = [[[UIBarButtonItem alloc] initWithCustomView:sKey_btnd] autorelease];
     
-    // iPad gets a shift button, iphone doesn't (there's just not enough space ...)
     NSArray* items;
 
     items = [NSArray arrayWithObjects:esc_btn, flex_spacer,

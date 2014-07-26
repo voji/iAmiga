@@ -14,7 +14,9 @@
 
 @end
 
-@implementation PKCustomKeyboard
+@implementation PKCustomKeyboard {
+
+}
 @synthesize textView = _textView;
 
 #define kFont [UIFont fontWithName:@"GurmukhiMN" size:25]
@@ -25,7 +27,8 @@
 #define kChar_alt @[ @"੧", @"੨", @"੩", @"੪", @"੫", @"੬", @"੭", @"੮", @"੯", @"੦", @"ੴ", @"-", @"/", @":", @";", @"(", @")", @"$", @"£", @"₹", @"&", @"@", @"ਖ਼", @"ਗ਼", @"ੳ", @"ੲ", @".", @",", @"?", @"!", @"\'", @"\"", @" " ]
 
 - (id)init {
-	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+	/*UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
 	CGRect frame;
 
 	if(UIDeviceOrientationIsLandscape(orientation))
@@ -76,7 +79,9 @@
             b.layer.cornerRadius = 6.0;
             b.titleLabel.shadowOffset = CGSizeMake(0, 0);
         }
-    }
+    }*/
+    
+    
 	
 	return self;
 }
@@ -210,8 +215,8 @@
 	
 	[self.textView insertText:character];
 
-	if (self.isShifted)
-		[self unShift];
+	/*if (self.isShifted)
+		[self unShift];*/
 	
 	if ([self.textView isKindOfClass:[UITextView class]])
 		[[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self.textView];

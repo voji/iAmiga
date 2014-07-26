@@ -18,6 +18,35 @@
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
+@property (strong, nonatomic) IBOutlet UIButton *bDown;
+@property (strong, nonatomic) IBOutlet UIButton *bUp;
+@property (strong, nonatomic) IBOutlet UIButton *bLeft;
+@property (strong, nonatomic) IBOutlet UIButton *bRight;
+@property (strong, nonatomic) IBOutlet UIButton *b0;
+@property (strong, nonatomic) IBOutlet UIButton *b1;
+@property (strong, nonatomic) IBOutlet UIButton *b2;
+@property (strong, nonatomic) IBOutlet UIButton *b3;
+@property (strong, nonatomic) IBOutlet UIButton *b4;
+@property (strong, nonatomic) IBOutlet UIButton *b5;
+@property (strong, nonatomic) IBOutlet UIButton *b6;
+@property (strong, nonatomic) IBOutlet UIButton *b7;
+@property (strong, nonatomic) IBOutlet UIButton *b8;
+@property (strong, nonatomic) IBOutlet UIButton *b9;
+@property (strong, nonatomic) IBOutlet UIButton *bBracketleft;
+@property (strong, nonatomic) IBOutlet UIButton *bBracketright;
+@property (strong, nonatomic) IBOutlet UIButton *bDivide;
+@property (strong, nonatomic) IBOutlet UIButton *bMultiply;
+@property (strong, nonatomic) IBOutlet UIButton *bMinus;
+@property (strong, nonatomic) IBOutlet UIButton *bPlus;
+@property (strong, nonatomic) IBOutlet UIButton *bShiftfleft;
+@property (strong, nonatomic) IBOutlet UIButton *bShiftright;
+@property (strong, nonatomic) IBOutlet UIButton *bAltLeft;
+@property (strong, nonatomic) IBOutletUIButton *bAltRight;
+@property (strong, nonatomic) IBOutlet UIButton *bCtrlLeft;
+@property (strong, nonatomic) IBOutlet UIButton *bCtrlRight;
+@property (strong, nonatomic) IBOutlet UIButton *bAright;
+@property (strong, nonatomic) IBOutlet UIButton *bAleft;
+
 @property (strong) id<UITextInput> textView;
 
 - (IBAction)returnPressed:(id)sender;
