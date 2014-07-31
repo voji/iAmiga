@@ -14,10 +14,11 @@
 
 @end
 
-@implementation PKCustomKeyboard {
+@implementation PKCustomKeyboard
 
-}
 @synthesize textView = _textView;
+
+
 
 #define kFont [UIFont fontWithName:@"GurmukhiMN" size:25]
 #define kAltLabel @"!?੧੨੩"
@@ -28,9 +29,10 @@
 
 - (id)init {
     
-	/*UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
 	CGRect frame;
 
+    
 	if(UIDeviceOrientationIsLandscape(orientation))
         frame = CGRectMake(0, 0, 1024, 352);
     else 
@@ -44,7 +46,7 @@
         self = [nib objectAtIndex:0];
     }
 	
-	NSMutableArray *buttons = [NSMutableArray arrayWithArray:self.characterKeys];
+	/*NSMutableArray *buttons = [NSMutableArray arrayWithArray:self.characterKeys];
 	[buttons addObjectsFromArray:self.altButtons];
 	[buttons addObject:self.returnButton];
 	[buttons addObject:self.dismissButton];
@@ -205,23 +207,32 @@
 - (IBAction)characterPressed:(id)sender {
     [[UIDevice currentDevice] playInputClick];
 	UIButton *button = (UIButton *)sender;
-	NSString *character = [NSString stringWithString:button.titleLabel.text];
+    
+    int asciikeycode = (button ==  self.bLeft ? SDLK_LEFT :
+                                        SDLK_RIGHT );
+    
+    
+    NSString *character = [NSString stringWithFormat:@"%d", asciikeycode];
+    [self.textView insertText:character];
+    
+    
 	
-	if ([[character substringToIndex:1] isEqualToString:@"◌"])
+	/*if ([[character substringToIndex:1] isEqualToString:@"◌"])
 		character = [character substringFromIndex:1];
 	
 	else if ([[character substringFromIndex:character.length - 1] isEqualToString:@"◌"])
-		character = [character substringToIndex:character.length - 1];
+		character = [character substringToIndex:character.length - 1];*/
 	
+    
 	[self.textView insertText:character];
 
 	/*if (self.isShifted)
 		[self unShift];*/
 	
-	if ([self.textView isKindOfClass:[UITextView class]])
+	/*if ([self.textView isKindOfClass:[UITextView class]])
 		[[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self.textView];
 	else if ([self.textView isKindOfClass:[UITextField class]])
-		[[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.textView];
+		[[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.textView];*/
 }
 
 /* UI Utilities */

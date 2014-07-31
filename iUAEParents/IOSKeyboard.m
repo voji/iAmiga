@@ -263,6 +263,19 @@
 
 }
 
+- (IBAction)specialkeypressed:(id)sender
+{
+    UITextField *textfield = [sender object];
+    
+    int asciicodekey = [textfield.text intValue];
+    
+    if(asciicodekey == SDLK_LEFT)
+    {
+    }
+    
+    [textfield setText:@""];
+}
+
 - (IBAction)keypressed:(id)sender
 {
     /* Get String */
@@ -486,7 +499,7 @@
                                                  object:dummy_textfield_f];
    
     [[NSNotificationCenter defaultCenter]   addObserver:self
-                                               selector:@selector(keypressed:)
+                                               selector:@selector(specialkeypressed:)
                                                    name:UITextFieldTextDidChangeNotification
                                                  object:dummy_textfield_s];
     

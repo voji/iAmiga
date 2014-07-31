@@ -8,8 +8,39 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "SDL.h"
 
-@interface PKCustomKeyboard : UIView <UIInputViewAudioFeedback>
+@interface PKCustomKeyboard : UIView <UIInputViewAudioFeedback> /*{
+    UIImageView *keyboardBackground;
+    UIButton *bDown;
+    UIButton *bUp;
+    UIButton *bLeft;
+    UIButton *bRight;
+    UIButton *b0;
+    UIButton *b1;
+    UIButton *b2;
+    UIButton *b3;
+    UIButton *b4;
+    UIButton *b5;
+    UIButton *b6;
+    UIButton *b7;
+    UIButton *b8;
+    UIButton *b9;
+    UIButton *bBracketleft;
+    UIButton *bBracketright;
+    UIButton *bDivide;
+    UIButton *bMultiply;
+    UIButton *bMinus;
+    UIButton *bPlus;
+    UIButton *bShiftfleft;
+    UIButton *bShiftright;
+    UIButton *bAltLeft;
+    UIButton *bAltRight;
+    UIButton *bCtrlLeft;
+    UIButton *bCtrlRight;
+    UIButton *bAright;
+    UIButton *bAleft;
+}*/
 
 @property (strong, nonatomic) IBOutlet UIImageView *keyboardBackground;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *characterKeys;
@@ -41,12 +72,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *bShiftfleft;
 @property (strong, nonatomic) IBOutlet UIButton *bShiftright;
 @property (strong, nonatomic) IBOutlet UIButton *bAltLeft;
-@property (strong, nonatomic) IBOutletUIButton *bAltRight;
+@property (strong, nonatomic) IBOutlet UIButton *bAltRight;
 @property (strong, nonatomic) IBOutlet UIButton *bCtrlLeft;
 @property (strong, nonatomic) IBOutlet UIButton *bCtrlRight;
 @property (strong, nonatomic) IBOutlet UIButton *bAright;
 @property (strong, nonatomic) IBOutlet UIButton *bAleft;
-
 @property (strong) id<UITextInput> textView;
 
 - (IBAction)returnPressed:(id)sender;
