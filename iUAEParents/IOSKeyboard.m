@@ -267,10 +267,16 @@
 {
     UITextField *textfield = [sender object];
     
-    int asciicodekey = [textfield.text intValue];
+    NSString *keyflag = [textfield.text substringToIndex:1];
+    int asciicode = [[textfield.text substringFromIndex:1] intValue];
     
-    if(asciicodekey == SDLK_LEFT)
+    if([keyflag isEqual: @"D"])
     {
+        [self sendkey:asciicode direction:KEYDOWN];
+    }
+    else
+    {
+        [self sendkey:asciicode direction:KEYUP];
     }
     
     [textfield setText:@""];
@@ -482,7 +488,6 @@
     
     [dummy_textfield setText:@"0"]; //Dummychar to dedect backspace.
     [dummy_textfield_f setText:@"0"]; //Dummychar to dedect backspace.
-    [dummy_textfield_s setText:@"0"]; //Dummychar to dedect backspace.
     
     [dummy_textfield setDelegate: self];
     [dummy_textfield_f setDelegate:self];

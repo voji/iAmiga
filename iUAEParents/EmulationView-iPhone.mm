@@ -89,6 +89,7 @@
     if(keyboardactive == TRUE //Keyboard was closed by regular button in Fullscreenpanel
        && dummy_textfield.isFirstResponder == FALSE //Fkeypanel was deactivated this triggered the event
        && dummy_textfield_f.isFirstResponder == FALSE //Fkeypanel was activated this triggered the event
+       && dummy_textfield_s.isFirstResponder == FALSE //Special Keyboard view was activated this triggered the event
        )
     {
         [btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];

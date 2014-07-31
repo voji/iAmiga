@@ -183,6 +183,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -280,9 +281,6 @@
 		7EAA9DC4192541D400541BE1 /* delete_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAC192541D400541BE1 /* delete_iOS7@2x.png */; };
 		7EAA9DC5192541D400541BE1 /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAD192541D400541BE1 /* glow.png */; };
 		7EAA9DC6192541D400541BE1 /* iOS7_Keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAE192541D400541BE1 /* iOS7_Keyboard.png */; };
-		7EAA9DC7192541D400541BE1 /* iOS7_Keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DAF192541D400541BE1 /* iOS7_Keyboard@2x.png */; };
-		7EAA9DC8192541D400541BE1 /* iOS_Keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB0192541D400541BE1 /* iOS_Keyboard.png */; };
-		7EAA9DC9192541D400541BE1 /* iOS_Keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB1192541D400541BE1 /* iOS_Keyboard@2x.png */; };
 		7EAA9DCA192541D400541BE1 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB2192541D400541BE1 /* return.png */; };
 		7EAA9DCB192541D400541BE1 /* return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB3192541D400541BE1 /* return@2x.png */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
@@ -1619,6 +1617,7 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = iUAEParents/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
+		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -1719,9 +1718,6 @@
 		7EAA9DAC192541D400541BE1 /* delete_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_iOS7@2x.png"; sourceTree = "<group>"; };
 		7EAA9DAD192541D400541BE1 /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
 		7EAA9DAE192541D400541BE1 /* iOS7_Keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS7_Keyboard.png; sourceTree = "<group>"; };
-		7EAA9DAF192541D400541BE1 /* iOS7_Keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS7_Keyboard@2x.png"; sourceTree = "<group>"; };
-		7EAA9DB0192541D400541BE1 /* iOS_Keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS_Keyboard.png; sourceTree = "<group>"; };
-		7EAA9DB1192541D400541BE1 /* iOS_Keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS_Keyboard@2x.png"; sourceTree = "<group>"; };
 		7EAA9DB2192541D400541BE1 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
 		7EAA9DB3192541D400541BE1 /* return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return@2x.png"; sourceTree = "<group>"; };
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
@@ -3030,15 +3026,13 @@
 		7EAA9DA8192541D400541BE1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */,
 				7EAA9DA9192541D400541BE1 /* delete.png */,
 				7EAA9DAA192541D400541BE1 /* delete@2x.png */,
 				7EAA9DAB192541D400541BE1 /* delete_iOS7.png */,
 				7EAA9DAC192541D400541BE1 /* delete_iOS7@2x.png */,
 				7EAA9DAD192541D400541BE1 /* glow.png */,
 				7EAA9DAE192541D400541BE1 /* iOS7_Keyboard.png */,
-				7EAA9DAF192541D400541BE1 /* iOS7_Keyboard@2x.png */,
-				7EAA9DB0192541D400541BE1 /* iOS_Keyboard.png */,
-				7EAA9DB1192541D400541BE1 /* iOS_Keyboard@2x.png */,
 				7EAA9DB2192541D400541BE1 /* return.png */,
 				7EAA9DB3192541D400541BE1 /* return@2x.png */,
 			);
@@ -4186,7 +4180,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EAA9DC7192541D400541BE1 /* iOS7_Keyboard@2x.png in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
@@ -4245,7 +4238,6 @@
 				7EAA03C618902C6A0010C9F8 /* modenumpad.png in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
-				7EAA9DC8192541D400541BE1 /* iOS_Keyboard.png in Resources */,
 				7EAA03BD18902C6A0010C9F8 /* modepianopressed.png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */,
@@ -4274,6 +4266,7 @@
 				7EAA03D018902C6A0010C9F8 /* modejoy~ipad.png in Resources */,
 				7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */,
 				7EAA9DC5192541D400541BE1 /* glow.png in Resources */,
+				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
 				7EAA03D918902C6A0010C9F8 /* landbariphon@2x.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
@@ -4285,7 +4278,6 @@
 				7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */,
 				7EAA03D718902C6A0010C9F8 /* modegamepad@2x.png in Resources */,
 				7EAA03B618902C6A0010C9F8 /* mouseon@2x.png in Resources */,
-				7EAA9DC9192541D400541BE1 /* iOS_Keyboard@2x.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */,
 				7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */,
