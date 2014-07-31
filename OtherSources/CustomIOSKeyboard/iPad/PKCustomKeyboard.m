@@ -14,7 +14,36 @@
 
 @end
 
-@implementation PKCustomKeyboard
+@implementation PKCustomKeyboard {
+    IBOutlet UIButton *bDown;
+    IBOutlet UIButton *bUp;
+    IBOutlet UIButton *bLeft;
+    IBOutlet UIButton *bRight;
+    IBOutlet UIButton *b0;
+    IBOutlet UIButton *b1;
+    IBOutlet UIButton *b2;
+    IBOutlet UIButton *b3;
+    IBOutlet UIButton *b4;
+    IBOutlet UIButton *b5;
+    IBOutlet UIButton *b6;
+    IBOutlet UIButton *b7;
+    IBOutlet UIButton *b8;
+    IBOutlet UIButton *b9;
+    IBOutlet UIButton *bBracketleft;
+    IBOutlet UIButton *bBracketright;
+    IBOutlet UIButton *bDivide;
+    IBOutlet UIButton *bMultiply;
+    IBOutlet UIButton *bMinus;
+    IBOutlet UIButton *bPlus;
+    IBOutlet UIButton *bShiftfleft;
+    IBOutlet UIButton *bShiftright;
+    IBOutlet UIButton *bAltLeft;
+    IBOutlet UIButton *bAltRight;
+    IBOutlet UIButton *bCtrlLeft;
+    IBOutlet UIButton *bCtrlRight;
+    IBOutlet UIButton *bAright;
+    IBOutlet UIButton *bAleft;
+}
 
 @synthesize textView = _textView;
 
@@ -208,7 +237,7 @@
     [[UIDevice currentDevice] playInputClick];
 	UIButton *button = (UIButton *)sender;
     
-    int asciikeycode = (button ==  self.bLeft ? SDLK_LEFT :
+    int asciikeycode = (button ==  bLeft ? SDLK_LEFT :
                                         SDLK_RIGHT );
     
     
@@ -246,6 +275,37 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
+}
+
+- (void) dealloc {
+    [bDown dealloc];
+    [bUp dealloc];
+    [bLeft dealloc];
+    [bRight dealloc];
+    [b0 dealloc];
+    [b1 dealloc];
+    [b2 dealloc];
+    [b3 dealloc];
+    [b4 dealloc];
+    [b5 dealloc];
+    [b6 dealloc];
+    [b7 dealloc];
+    [b8 dealloc];
+    [b9 dealloc];
+    [bBracketleft dealloc];
+    [bBracketright dealloc];
+    [bDivide dealloc];
+    [bMultiply dealloc];
+    [bMinus dealloc];
+    [bPlus dealloc];
+    [bShiftfleft dealloc];
+    [bShiftright dealloc];
+    [bAltLeft dealloc];
+    [bAltRight dealloc];
+    [bCtrlLeft dealloc];
+    [bCtrlRight dealloc];
+    [bAright dealloc];
+    [bAleft dealloc];
 }
 
 @end
