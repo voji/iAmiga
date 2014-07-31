@@ -49,7 +49,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="162"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z7t-Et-RhM" userLabel="bAmigaR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z7t-Et-RhM" userLabel="bAmigaR">
                     <rect key="frame" x="443" y="113" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -68,7 +68,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="wuP-Ja-Uj4"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kPV-m1-v7f" userLabel="bAmigaL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kPV-m1-v7f" userLabel="bAmigaL">
                     <rect key="frame" x="410" y="114" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -87,7 +87,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="sQT-QU-Cc3"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TpL-ln-DgB" userLabel="bShiftR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TpL-ln-DgB" userLabel="bShiftR">
                     <rect key="frame" x="443" y="77" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -106,7 +106,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="gUd-oj-ArI"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8RB-vj-krP" userLabel="bShiftL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8RB-vj-krP" userLabel="bShiftL">
                     <rect key="frame" x="410" y="77" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -125,7 +125,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="hZf-XN-jev"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XLT-Y0-4Yg" userLabel="bAltL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XLT-Y0-4Yg" userLabel="bAltL">
                     <rect key="frame" x="410" y="40" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -144,7 +144,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="zfB-hy-OWN"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EBH-Sd-taw" userLabel="b0">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EBH-Sd-taw" userLabel="b0">
                     <rect key="frame" x="323" y="5" width="32" height="69"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -163,7 +163,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="ymi-EG-zCI"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gmd-Hg-iCF" userLabel="bEnter">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gmd-Hg-iCF" userLabel="bEnter">
                     <rect key="frame" x="323" y="77" width="32" height="69"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -182,7 +182,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="fxD-4o-9re"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Bg-8j-Jgy" userLabel="bPeriod">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Bg-8j-Jgy" userLabel="bPeriod">
                     <rect key="frame" x="289" y="114" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -201,7 +201,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="xpG-gf-LJT"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4J-6S-wEk" userLabel="bPlus">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4J-6S-wEk" userLabel="bPlus">
                     <rect key="frame" x="289" y="77" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -220,7 +220,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="czB-PS-O0h"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yPD-SB-bAE" userLabel="bMinus">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yPD-SB-bAE" userLabel="bMinus">
                     <rect key="frame" x="289" y="40" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -239,7 +239,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="wfo-Y1-IXG"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="db4-un-8nY" userLabel="b3">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="db4-un-8nY" userLabel="b3">
                     <rect key="frame" x="257" y="114" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -258,7 +258,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="uP1-DL-hCs"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6e-74-lQ2" userLabel="b6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6e-74-lQ2" userLabel="b6">
                     <rect key="frame" x="257" y="75" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -277,7 +277,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="yTI-Ym-Jxj"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="17" userLabel="bUp">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="17" userLabel="bUp">
                     <rect key="frame" x="44" y="78" width="32" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -296,7 +296,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="xhh-eR-ztl"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oCR-bg-q5Q" userLabel="bDown">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oCR-bg-q5Q" userLabel="bDown">
                     <rect key="frame" x="44" y="114" width="32" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -315,7 +315,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="MFk-iX-SGB"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qY1-Kh-gCB" userLabel="bLeft">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qY1-Kh-gCB" userLabel="bLeft">
                     <rect key="frame" x="10" y="114" width="32" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -334,7 +334,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="PhV-oL-vNT"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q0t-rr-99l" userLabel="bRight">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q0t-rr-99l" userLabel="bRight">
                     <rect key="frame" x="78" y="114" width="32" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -353,7 +353,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="O0Q-L3-bX8"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pbS-re-fho" userLabel="b1">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pbS-re-fho" userLabel="b1">
                     <rect key="frame" x="190" y="114" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -372,7 +372,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="Zz8-iH-u0w"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nKe-Uj-Iqw" userLabel="b4">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nKe-Uj-Iqw" userLabel="b4">
                     <rect key="frame" x="190" y="75" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -391,7 +391,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="U4i-tj-7zN"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zXx-qS-zLb" userLabel="b7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zXx-qS-zLb" userLabel="b7">
                     <rect key="frame" x="190" y="40" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -410,7 +410,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="xGI-IF-fAE"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z6e-II-edS" userLabel="bBracketL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z6e-II-edS" userLabel="bBracketL">
                     <rect key="frame" x="190" y="5" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -429,7 +429,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="k6E-Lg-g09"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FRv-Ic-P9E" userLabel="bAltR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FRv-Ic-P9E" userLabel="bAltR">
                     <rect key="frame" x="443" y="40" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -448,7 +448,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="rji-lJ-KG6"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t9M-YB-Fvs" userLabel="b9">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t9M-YB-Fvs" userLabel="b9">
                     <rect key="frame" x="257" y="40" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -467,7 +467,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="oua-pc-lyI"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QHo-CI-TcZ" userLabel="bBracketR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QHo-CI-TcZ" userLabel="bBracketR">
                     <rect key="frame" x="223" y="5" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -486,7 +486,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="z9M-ZK-Zbx"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gT6-3f-tzo" userLabel="b5">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gT6-3f-tzo" userLabel="b5">
                     <rect key="frame" x="223" y="75" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -505,7 +505,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="zmz-P0-ZZ4"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J9f-DG-KW1" userLabel="b8">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J9f-DG-KW1" userLabel="b8">
                     <rect key="frame" x="223" y="40" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -524,7 +524,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="uvb-kM-FfB"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bY1-oH-nQJ" userLabel="bDivide">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bY1-oH-nQJ" userLabel="bDivide">
                     <rect key="frame" x="257" y="5" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -543,7 +543,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="tS7-E8-T86"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qax-ki-7eg" userLabel="bMultiplier">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qax-ki-7eg" userLabel="bMultiplier">
                     <rect key="frame" x="289" y="5" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -562,7 +562,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpInside" id="kRQ-Lg-pGS"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Pn-NG-feC" userLabel="bctrl">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Pn-NG-feC" userLabel="bctrl">
                     <rect key="frame" x="443" y="5" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -581,8 +581,8 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="Qrf-7s-jkO"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9LI-q5-NRS" userLabel="b2">
-                    <rect key="frame" x="222" y="114" width="32" height="34"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9LI-q5-NRS" userLabel="b2">
+                    <rect key="frame" x="223" y="114" width="32" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                     <size key="titleShadowOffset" width="0.0" height="1"/>
@@ -600,7 +600,7 @@
                         <action selector="keyUp:" destination="-1" eventType="touchUpOutside" id="u4C-ME-gVz"/>
                     </connections>
                 </button>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hXO-k0-eVq" userLabel="bSpace">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hXO-k0-eVq" userLabel="bSpace">
                     <rect key="frame" x="111" y="114" width="77" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
