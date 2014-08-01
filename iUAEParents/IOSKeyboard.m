@@ -482,9 +482,9 @@
     dummy_textfield_f = fieldf;
     dummy_textfield_s = fieldspecial;
     
-    [dummy_textfield setInputAccessoryView:[self createkeyboardToolBar]];
+    [dummy_textfield setInputAccessoryView:[self createkeyboardToolBar:@"Custom"]];
     [dummy_textfield_f setInputAccessoryView:[self createFKeyToolbar]];
-    [dummy_textfield_s setInputAccessoryView:[self createkeyboardToolBar]];
+    [dummy_textfield_s setInputAccessoryView:[self createkeyboardToolBar:@"Standard"]];
     
     [dummy_textfield setText:@"0"]; //Dummychar to dedect backspace.
     [dummy_textfield_f setText:@"0"]; //Dummychar to dedect backspace.
@@ -565,7 +565,7 @@
     
 }
 
--(UIView *)createkeyboardToolBar {
+-(UIView *)createkeyboardToolBar:(NSString *)lastoptionname {
     /* This function was provided by freerdp at https://github.com/FreeRDP/FreeRDP/. Many thanks */
     
     UIToolbar* keyboard_toolbar = [[[UIToolbar alloc] initWithFrame:CGRectNull] autorelease];
