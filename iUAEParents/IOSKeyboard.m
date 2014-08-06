@@ -586,7 +586,7 @@
     fKey_btnd = [self createKeyboardButton:@"F" action:@selector(toggleKeyboardmode:)];
     [fKey_btnd setTag:BFKEY];
     
-    sKey_btnd = [self createKeyboardButton:@"Game" action:@selector(toggleKeyboardmode:)];
+    sKey_btnd = [self createKeyboardButton:lastoptionname action:@selector(toggleKeyboardmode:)];
     [sKey_btnd setTag:BSKEY];
     
     UIBarButtonItem* esc_btn = [[[UIBarButtonItem alloc] initWithCustomView:esc_btnd] autorelease];
