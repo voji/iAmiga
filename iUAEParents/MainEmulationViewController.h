@@ -49,7 +49,7 @@
 
 - (IBAction)restart:(id)sender;
 - (void) settings;
-- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:p_dummy_textfield_f;
+- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight;
 - (void)initializeJoypad:(InputControllerView *)joyController;
 
