@@ -7,6 +7,8 @@
 /* Based on the excellent FAMEC emulator by StËphane Dallongueville          */
 /****************************************************************************/
 
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1967,8 +1969,18 @@ static FAMEC_EXTRA_INLINE void execute_exception_group_0(s32 vect, u16 inst_reg,
 /*          -1 La CPU esta detenida debido a un ERROR DE BUS DOBLE (linea) */
 /*             El PC ha salido de los limites (bucle no en linea)          */
 /***************************************************************************/
+
+extern long breakpoint = 0;
+
 u32 m68k_emulate(s32 cycles)
 {
+  
+if(m68kcontext.pc == breakpoint)
+{
+    printf("Ciclos a ejecutar: %d\n",cycles);
+}
+    
+    
   if (initialised)
   {
 	  

@@ -241,6 +241,7 @@ static void uae4all_reset(void)
 
 static void m68k_run (void)
 {
+    
 	// uae4all_reset ();
 	unsigned cycles, cycles_actual=M68KCONTEXT.cycles_counter;
 	for (;;) {
@@ -282,7 +283,9 @@ static void m68k_run (void)
 			m68k_emulate(FAME_INTERRUPTS_PATCH);
 		else
 #endif
-			m68k_emulate(cycles);
+            
+            m68k_emulate(1);
+			//m68k_emulate(cycles);
 	
 		uae4all_prof_end(0);
 #endif
