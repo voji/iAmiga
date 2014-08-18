@@ -209,62 +209,6 @@
 		7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */; };
 		7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
-		7EAA03AC18902C6A0010C9F8 /* unsticky~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */; };
-		7EAA03AD18902C6A0010C9F8 /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037518902C6A0010C9F8 /* unsticky@2x.png */; };
-		7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037618902C6A0010C9F8 /* unsticky.png */; };
-		7EAA03AF18902C6A0010C9F8 /* sticky~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037718902C6A0010C9F8 /* sticky~ipad.png */; };
-		7EAA03B018902C6A0010C9F8 /* sticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037818902C6A0010C9F8 /* sticky@2x.png */; };
-		7EAA03B118902C6A0010C9F8 /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037918902C6A0010C9F8 /* sticky.png */; };
-		7EAA03B218902C6A0010C9F8 /* options~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037A18902C6A0010C9F8 /* options~ipad.png */; };
-		7EAA03B318902C6A0010C9F8 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037B18902C6A0010C9F8 /* options@2x.png */; };
-		7EAA03B418902C6A0010C9F8 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037C18902C6A0010C9F8 /* options.png */; };
-		7EAA03B518902C6A0010C9F8 /* mouseon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037D18902C6A0010C9F8 /* mouseon~ipad.png */; };
-		7EAA03B618902C6A0010C9F8 /* mouseon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037E18902C6A0010C9F8 /* mouseon@2x.png */; };
-		7EAA03B718902C6A0010C9F8 /* mouseon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA037F18902C6A0010C9F8 /* mouseon.png */; };
-		7EAA03B818902C6A0010C9F8 /* mouseoff~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038018902C6A0010C9F8 /* mouseoff~ipad.png */; };
-		7EAA03B918902C6A0010C9F8 /* mouseoff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038118902C6A0010C9F8 /* mouseoff@2x.png */; };
-		7EAA03BA18902C6A0010C9F8 /* mouseoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038218902C6A0010C9F8 /* mouseoff.png */; };
-		7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038318902C6A0010C9F8 /* modepianopressed~ipad.png */; };
-		7EAA03BC18902C6A0010C9F8 /* modepianopressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038418902C6A0010C9F8 /* modepianopressed@2x.png */; };
-		7EAA03BD18902C6A0010C9F8 /* modepianopressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038518902C6A0010C9F8 /* modepianopressed.png */; };
-		7EAA03BE18902C6A0010C9F8 /* modepiano~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038618902C6A0010C9F8 /* modepiano~ipad.png */; };
-		7EAA03BF18902C6A0010C9F8 /* modepiano@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038718902C6A0010C9F8 /* modepiano@2x.png */; };
-		7EAA03C018902C6A0010C9F8 /* modepiano.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038818902C6A0010C9F8 /* modepiano.png */; };
-		7EAA03C118902C6A0010C9F8 /* modenumpadpressed~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038918902C6A0010C9F8 /* modenumpadpressed~ipad.png */; };
-		7EAA03C218902C6A0010C9F8 /* modenumpadpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038A18902C6A0010C9F8 /* modenumpadpressed@2x.png */; };
-		7EAA03C318902C6A0010C9F8 /* modenumpadpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038B18902C6A0010C9F8 /* modenumpadpressed.png */; };
-		7EAA03C418902C6A0010C9F8 /* modenumpad~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038C18902C6A0010C9F8 /* modenumpad~ipad.png */; };
-		7EAA03C518902C6A0010C9F8 /* modenumpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038D18902C6A0010C9F8 /* modenumpad@2x.png */; };
-		7EAA03C618902C6A0010C9F8 /* modenumpad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038E18902C6A0010C9F8 /* modenumpad.png */; };
-		7EAA03C718902C6A0010C9F8 /* modekeyon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA038F18902C6A0010C9F8 /* modekeyon~ipad.png */; };
-		7EAA03C818902C6A0010C9F8 /* modekeyon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039018902C6A0010C9F8 /* modekeyon@2x.png */; };
-		7EAA03C918902C6A0010C9F8 /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039118902C6A0010C9F8 /* modekeyon.png */; };
-		7EAA03CA18902C6A0010C9F8 /* modekeyoff~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039218902C6A0010C9F8 /* modekeyoff~ipad.png */; };
-		7EAA03CB18902C6A0010C9F8 /* modekeyoff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039318902C6A0010C9F8 /* modekeyoff@2x.png */; };
-		7EAA03CC18902C6A0010C9F8 /* modekeyoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039418902C6A0010C9F8 /* modekeyoff.png */; };
-		7EAA03CD18902C6A0010C9F8 /* modejoypressed~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039518902C6A0010C9F8 /* modejoypressed~ipad.png */; };
-		7EAA03CE18902C6A0010C9F8 /* modejoypressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039618902C6A0010C9F8 /* modejoypressed@2x.png */; };
-		7EAA03CF18902C6A0010C9F8 /* modejoypressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039718902C6A0010C9F8 /* modejoypressed.png */; };
-		7EAA03D018902C6A0010C9F8 /* modejoy~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039818902C6A0010C9F8 /* modejoy~ipad.png */; };
-		7EAA03D118902C6A0010C9F8 /* modejoy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039918902C6A0010C9F8 /* modejoy@2x.png */; };
-		7EAA03D218902C6A0010C9F8 /* modejoy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039A18902C6A0010C9F8 /* modejoy.png */; };
-		7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039B18902C6A0010C9F8 /* modegamepadpressed~ipad.png */; };
-		7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039C18902C6A0010C9F8 /* modegamepadpressed@2x.png */; };
-		7EAA03D518902C6A0010C9F8 /* modegamepadpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039D18902C6A0010C9F8 /* modegamepadpressed.png */; };
-		7EAA03D618902C6A0010C9F8 /* modegamepad~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039E18902C6A0010C9F8 /* modegamepad~ipad.png */; };
-		7EAA03D718902C6A0010C9F8 /* modegamepad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA039F18902C6A0010C9F8 /* modegamepad@2x.png */; };
-		7EAA03D818902C6A0010C9F8 /* modegamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A018902C6A0010C9F8 /* modegamepad.png */; };
-		7EAA03D918902C6A0010C9F8 /* landbariphon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A118902C6A0010C9F8 /* landbariphon@2x.png */; };
-		7EAA03DA18902C6A0010C9F8 /* landbariphon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A218902C6A0010C9F8 /* landbariphon.png */; };
-		7EAA03DB18902C6A0010C9F8 /* landbarblank~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A318902C6A0010C9F8 /* landbarblank~iPad.png */; };
-		7EAA03DC18902C6A0010C9F8 /* landbarblank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A418902C6A0010C9F8 /* landbarblank@2x.png */; };
-		7EAA03DD18902C6A0010C9F8 /* landbarblank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A518902C6A0010C9F8 /* landbarblank.png */; };
-		7EAA03DE18902C6A0010C9F8 /* exitfull~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A618902C6A0010C9F8 /* exitfull~ipad.png */; };
-		7EAA03DF18902C6A0010C9F8 /* exitfull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A718902C6A0010C9F8 /* exitfull@2x.png */; };
-		7EAA03E018902C6A0010C9F8 /* exitfull.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A818902C6A0010C9F8 /* exitfull.png */; };
-		7EAA03E118902C6A0010C9F8 /* cpuwindow~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */; };
-		7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */; };
-		7EAA03E318902C6A0010C9F8 /* cpuwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */; };
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
 		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */; };
 		7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */; };
@@ -1630,62 +1574,6 @@
 		7EA4D6661923F20C00C58BB9 /* FloatPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloatPanel.h; path = iUAEParents/FloatPanel.h; sourceTree = "<group>"; };
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
-		7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky~ipad.png"; path = "../../../../Desktop/untitled folder 2/unsticky~ipad.png"; sourceTree = "<group>"; };
-		7EAA037518902C6A0010C9F8 /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unsticky@2x.png"; path = "../../../../Desktop/untitled folder 2/unsticky@2x.png"; sourceTree = "<group>"; };
-		7EAA037618902C6A0010C9F8 /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unsticky.png; path = "../../../../Desktop/untitled folder 2/unsticky.png"; sourceTree = "<group>"; };
-		7EAA037718902C6A0010C9F8 /* sticky~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sticky~ipad.png"; path = "../../../../Desktop/untitled folder 2/sticky~ipad.png"; sourceTree = "<group>"; };
-		7EAA037818902C6A0010C9F8 /* sticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sticky@2x.png"; path = "../../../../Desktop/untitled folder 2/sticky@2x.png"; sourceTree = "<group>"; };
-		7EAA037918902C6A0010C9F8 /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sticky.png; path = "../../../../Desktop/untitled folder 2/sticky.png"; sourceTree = "<group>"; };
-		7EAA037A18902C6A0010C9F8 /* options~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "options~ipad.png"; path = "../../../../Desktop/untitled folder 2/options~ipad.png"; sourceTree = "<group>"; };
-		7EAA037B18902C6A0010C9F8 /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "options@2x.png"; path = "../../../../Desktop/untitled folder 2/options@2x.png"; sourceTree = "<group>"; };
-		7EAA037C18902C6A0010C9F8 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options.png; path = "../../../../Desktop/untitled folder 2/options.png"; sourceTree = "<group>"; };
-		7EAA037D18902C6A0010C9F8 /* mouseon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mouseon~ipad.png"; path = "../../../../Desktop/untitled folder 2/mouseon~ipad.png"; sourceTree = "<group>"; };
-		7EAA037E18902C6A0010C9F8 /* mouseon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mouseon@2x.png"; path = "../../../../Desktop/untitled folder 2/mouseon@2x.png"; sourceTree = "<group>"; };
-		7EAA037F18902C6A0010C9F8 /* mouseon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mouseon.png; path = "../../../../Desktop/untitled folder 2/mouseon.png"; sourceTree = "<group>"; };
-		7EAA038018902C6A0010C9F8 /* mouseoff~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mouseoff~ipad.png"; path = "../../../../Desktop/untitled folder 2/mouseoff~ipad.png"; sourceTree = "<group>"; };
-		7EAA038118902C6A0010C9F8 /* mouseoff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mouseoff@2x.png"; path = "../../../../Desktop/untitled folder 2/mouseoff@2x.png"; sourceTree = "<group>"; };
-		7EAA038218902C6A0010C9F8 /* mouseoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mouseoff.png; path = "../../../../Desktop/untitled folder 2/mouseoff.png"; sourceTree = "<group>"; };
-		7EAA038318902C6A0010C9F8 /* modepianopressed~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modepianopressed~ipad.png"; path = "../../../../Desktop/untitled folder 2/modepianopressed~ipad.png"; sourceTree = "<group>"; };
-		7EAA038418902C6A0010C9F8 /* modepianopressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modepianopressed@2x.png"; path = "../../../../Desktop/untitled folder 2/modepianopressed@2x.png"; sourceTree = "<group>"; };
-		7EAA038518902C6A0010C9F8 /* modepianopressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modepianopressed.png; path = "../../../../Desktop/untitled folder 2/modepianopressed.png"; sourceTree = "<group>"; };
-		7EAA038618902C6A0010C9F8 /* modepiano~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modepiano~ipad.png"; path = "../../../../Desktop/untitled folder 2/modepiano~ipad.png"; sourceTree = "<group>"; };
-		7EAA038718902C6A0010C9F8 /* modepiano@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modepiano@2x.png"; path = "../../../../Desktop/untitled folder 2/modepiano@2x.png"; sourceTree = "<group>"; };
-		7EAA038818902C6A0010C9F8 /* modepiano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modepiano.png; path = "../../../../Desktop/untitled folder 2/modepiano.png"; sourceTree = "<group>"; };
-		7EAA038918902C6A0010C9F8 /* modenumpadpressed~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modenumpadpressed~ipad.png"; path = "../../../../Desktop/untitled folder 2/modenumpadpressed~ipad.png"; sourceTree = "<group>"; };
-		7EAA038A18902C6A0010C9F8 /* modenumpadpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modenumpadpressed@2x.png"; path = "../../../../Desktop/untitled folder 2/modenumpadpressed@2x.png"; sourceTree = "<group>"; };
-		7EAA038B18902C6A0010C9F8 /* modenumpadpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modenumpadpressed.png; path = "../../../../Desktop/untitled folder 2/modenumpadpressed.png"; sourceTree = "<group>"; };
-		7EAA038C18902C6A0010C9F8 /* modenumpad~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modenumpad~ipad.png"; path = "../../../../Desktop/untitled folder 2/modenumpad~ipad.png"; sourceTree = "<group>"; };
-		7EAA038D18902C6A0010C9F8 /* modenumpad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modenumpad@2x.png"; path = "../../../../Desktop/untitled folder 2/modenumpad@2x.png"; sourceTree = "<group>"; };
-		7EAA038E18902C6A0010C9F8 /* modenumpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modenumpad.png; path = "../../../../Desktop/untitled folder 2/modenumpad.png"; sourceTree = "<group>"; };
-		7EAA038F18902C6A0010C9F8 /* modekeyon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modekeyon~ipad.png"; path = "../../../../Desktop/untitled folder 2/modekeyon~ipad.png"; sourceTree = "<group>"; };
-		7EAA039018902C6A0010C9F8 /* modekeyon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modekeyon@2x.png"; path = "../../../../Desktop/untitled folder 2/modekeyon@2x.png"; sourceTree = "<group>"; };
-		7EAA039118902C6A0010C9F8 /* modekeyon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modekeyon.png; path = "../../../../Desktop/untitled folder 2/modekeyon.png"; sourceTree = "<group>"; };
-		7EAA039218902C6A0010C9F8 /* modekeyoff~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modekeyoff~ipad.png"; path = "../../../../Desktop/untitled folder 2/modekeyoff~ipad.png"; sourceTree = "<group>"; };
-		7EAA039318902C6A0010C9F8 /* modekeyoff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modekeyoff@2x.png"; path = "../../../../Desktop/untitled folder 2/modekeyoff@2x.png"; sourceTree = "<group>"; };
-		7EAA039418902C6A0010C9F8 /* modekeyoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modekeyoff.png; path = "../../../../Desktop/untitled folder 2/modekeyoff.png"; sourceTree = "<group>"; };
-		7EAA039518902C6A0010C9F8 /* modejoypressed~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modejoypressed~ipad.png"; path = "../../../../Desktop/untitled folder 2/modejoypressed~ipad.png"; sourceTree = "<group>"; };
-		7EAA039618902C6A0010C9F8 /* modejoypressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modejoypressed@2x.png"; path = "../../../../Desktop/untitled folder 2/modejoypressed@2x.png"; sourceTree = "<group>"; };
-		7EAA039718902C6A0010C9F8 /* modejoypressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modejoypressed.png; path = "../../../../Desktop/untitled folder 2/modejoypressed.png"; sourceTree = "<group>"; };
-		7EAA039818902C6A0010C9F8 /* modejoy~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modejoy~ipad.png"; path = "../../../../Desktop/untitled folder 2/modejoy~ipad.png"; sourceTree = "<group>"; };
-		7EAA039918902C6A0010C9F8 /* modejoy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modejoy@2x.png"; path = "../../../../Desktop/untitled folder 2/modejoy@2x.png"; sourceTree = "<group>"; };
-		7EAA039A18902C6A0010C9F8 /* modejoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modejoy.png; path = "../../../../Desktop/untitled folder 2/modejoy.png"; sourceTree = "<group>"; };
-		7EAA039B18902C6A0010C9F8 /* modegamepadpressed~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modegamepadpressed~ipad.png"; path = "../../../../Desktop/untitled folder 2/modegamepadpressed~ipad.png"; sourceTree = "<group>"; };
-		7EAA039C18902C6A0010C9F8 /* modegamepadpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modegamepadpressed@2x.png"; path = "../../../../Desktop/untitled folder 2/modegamepadpressed@2x.png"; sourceTree = "<group>"; };
-		7EAA039D18902C6A0010C9F8 /* modegamepadpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modegamepadpressed.png; path = "../../../../Desktop/untitled folder 2/modegamepadpressed.png"; sourceTree = "<group>"; };
-		7EAA039E18902C6A0010C9F8 /* modegamepad~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modegamepad~ipad.png"; path = "../../../../Desktop/untitled folder 2/modegamepad~ipad.png"; sourceTree = "<group>"; };
-		7EAA039F18902C6A0010C9F8 /* modegamepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "modegamepad@2x.png"; path = "../../../../Desktop/untitled folder 2/modegamepad@2x.png"; sourceTree = "<group>"; };
-		7EAA03A018902C6A0010C9F8 /* modegamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = modegamepad.png; path = "../../../../Desktop/untitled folder 2/modegamepad.png"; sourceTree = "<group>"; };
-		7EAA03A118902C6A0010C9F8 /* landbariphon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "landbariphon@2x.png"; path = "../../../../Desktop/untitled folder 2/landbariphon@2x.png"; sourceTree = "<group>"; };
-		7EAA03A218902C6A0010C9F8 /* landbariphon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landbariphon.png; path = "../../../../Desktop/untitled folder 2/landbariphon.png"; sourceTree = "<group>"; };
-		7EAA03A318902C6A0010C9F8 /* landbarblank~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "landbarblank~iPad.png"; path = "../../../../Desktop/untitled folder 2/landbarblank~iPad.png"; sourceTree = "<group>"; };
-		7EAA03A418902C6A0010C9F8 /* landbarblank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "landbarblank@2x.png"; path = "../../../../Desktop/untitled folder 2/landbarblank@2x.png"; sourceTree = "<group>"; };
-		7EAA03A518902C6A0010C9F8 /* landbarblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = landbarblank.png; path = "../../../../Desktop/untitled folder 2/landbarblank.png"; sourceTree = "<group>"; };
-		7EAA03A618902C6A0010C9F8 /* exitfull~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "exitfull~ipad.png"; path = "../../../../Desktop/untitled folder 2/exitfull~ipad.png"; sourceTree = "<group>"; };
-		7EAA03A718902C6A0010C9F8 /* exitfull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "exitfull@2x.png"; path = "../../../../Desktop/untitled folder 2/exitfull@2x.png"; sourceTree = "<group>"; };
-		7EAA03A818902C6A0010C9F8 /* exitfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exitfull.png; path = "../../../../Desktop/untitled folder 2/exitfull.png"; sourceTree = "<group>"; };
-		7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow~ipad.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow~ipad.png"; sourceTree = "<group>"; };
-		7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cpuwindow@2x.png"; path = "../../../../Desktop/untitled folder 2/cpuwindow@2x.png"; sourceTree = "<group>"; };
-		7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cpuwindow.png; path = "../../../../Desktop/untitled folder 2/cpuwindow.png"; sourceTree = "<group>"; };
 		7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Specialkeyboard.png; sourceTree = "<group>"; };
 		7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCustomKeyboard.m; sourceTree = "<group>"; };
@@ -3746,62 +3634,6 @@
 		97BE2ACE15489E6600BF66CF /* emulator */ = {
 			isa = PBXGroup;
 			children = (
-				7EAA037418902C6A0010C9F8 /* unsticky~ipad.png */,
-				7EAA037518902C6A0010C9F8 /* unsticky@2x.png */,
-				7EAA037618902C6A0010C9F8 /* unsticky.png */,
-				7EAA037718902C6A0010C9F8 /* sticky~ipad.png */,
-				7EAA037818902C6A0010C9F8 /* sticky@2x.png */,
-				7EAA037918902C6A0010C9F8 /* sticky.png */,
-				7EAA037A18902C6A0010C9F8 /* options~ipad.png */,
-				7EAA037B18902C6A0010C9F8 /* options@2x.png */,
-				7EAA037C18902C6A0010C9F8 /* options.png */,
-				7EAA037D18902C6A0010C9F8 /* mouseon~ipad.png */,
-				7EAA037E18902C6A0010C9F8 /* mouseon@2x.png */,
-				7EAA037F18902C6A0010C9F8 /* mouseon.png */,
-				7EAA038018902C6A0010C9F8 /* mouseoff~ipad.png */,
-				7EAA038118902C6A0010C9F8 /* mouseoff@2x.png */,
-				7EAA038218902C6A0010C9F8 /* mouseoff.png */,
-				7EAA038318902C6A0010C9F8 /* modepianopressed~ipad.png */,
-				7EAA038418902C6A0010C9F8 /* modepianopressed@2x.png */,
-				7EAA038518902C6A0010C9F8 /* modepianopressed.png */,
-				7EAA038618902C6A0010C9F8 /* modepiano~ipad.png */,
-				7EAA038718902C6A0010C9F8 /* modepiano@2x.png */,
-				7EAA038818902C6A0010C9F8 /* modepiano.png */,
-				7EAA038918902C6A0010C9F8 /* modenumpadpressed~ipad.png */,
-				7EAA038A18902C6A0010C9F8 /* modenumpadpressed@2x.png */,
-				7EAA038B18902C6A0010C9F8 /* modenumpadpressed.png */,
-				7EAA038C18902C6A0010C9F8 /* modenumpad~ipad.png */,
-				7EAA038D18902C6A0010C9F8 /* modenumpad@2x.png */,
-				7EAA038E18902C6A0010C9F8 /* modenumpad.png */,
-				7EAA038F18902C6A0010C9F8 /* modekeyon~ipad.png */,
-				7EAA039018902C6A0010C9F8 /* modekeyon@2x.png */,
-				7EAA039118902C6A0010C9F8 /* modekeyon.png */,
-				7EAA039218902C6A0010C9F8 /* modekeyoff~ipad.png */,
-				7EAA039318902C6A0010C9F8 /* modekeyoff@2x.png */,
-				7EAA039418902C6A0010C9F8 /* modekeyoff.png */,
-				7EAA039518902C6A0010C9F8 /* modejoypressed~ipad.png */,
-				7EAA039618902C6A0010C9F8 /* modejoypressed@2x.png */,
-				7EAA039718902C6A0010C9F8 /* modejoypressed.png */,
-				7EAA039818902C6A0010C9F8 /* modejoy~ipad.png */,
-				7EAA039918902C6A0010C9F8 /* modejoy@2x.png */,
-				7EAA039A18902C6A0010C9F8 /* modejoy.png */,
-				7EAA039B18902C6A0010C9F8 /* modegamepadpressed~ipad.png */,
-				7EAA039C18902C6A0010C9F8 /* modegamepadpressed@2x.png */,
-				7EAA039D18902C6A0010C9F8 /* modegamepadpressed.png */,
-				7EAA039E18902C6A0010C9F8 /* modegamepad~ipad.png */,
-				7EAA039F18902C6A0010C9F8 /* modegamepad@2x.png */,
-				7EAA03A018902C6A0010C9F8 /* modegamepad.png */,
-				7EAA03A118902C6A0010C9F8 /* landbariphon@2x.png */,
-				7EAA03A218902C6A0010C9F8 /* landbariphon.png */,
-				7EAA03A318902C6A0010C9F8 /* landbarblank~iPad.png */,
-				7EAA03A418902C6A0010C9F8 /* landbarblank@2x.png */,
-				7EAA03A518902C6A0010C9F8 /* landbarblank.png */,
-				7EAA03A618902C6A0010C9F8 /* exitfull~ipad.png */,
-				7EAA03A718902C6A0010C9F8 /* exitfull@2x.png */,
-				7EAA03A818902C6A0010C9F8 /* exitfull.png */,
-				7EAA03A918902C6A0010C9F8 /* cpuwindow~ipad.png */,
-				7EAA03AA18902C6A0010C9F8 /* cpuwindow@2x.png */,
-				7EAA03AB18902C6A0010C9F8 /* cpuwindow.png */,
 				7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */,
 				7E4B18DC188B1CD70019E82B /* btn_restart.png */,
 				7E4B18DD188B1CD70019E82B /* btn_restart@2x.png */,
@@ -3894,7 +3726,6 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				7E57D8A219119D9500648935 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4139,113 +3970,57 @@
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
-				7EAA03AD18902C6A0010C9F8 /* unsticky@2x.png in Resources */,
-				7EAA03B518902C6A0010C9F8 /* mouseon~ipad.png in Resources */,
-				7EAA03B718902C6A0010C9F8 /* mouseon.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7EA4D64D1923ECA200C58BB9 /* EmulationView-iPhone.xib in Resources */,
-				7EAA03C518902C6A0010C9F8 /* modenumpad@2x.png in Resources */,
-				7EAA03E118902C6A0010C9F8 /* cpuwindow~ipad.png in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
 				05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */,
-				7EAA03E318902C6A0010C9F8 /* cpuwindow.png in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
-				7EAA03E018902C6A0010C9F8 /* exitfull.png in Resources */,
-				7EAA03BC18902C6A0010C9F8 /* modepianopressed@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
-				7EAA03B418902C6A0010C9F8 /* options.png in Resources */,
-				7EAA03C418902C6A0010C9F8 /* modenumpad~ipad.png in Resources */,
-				7EAA03CD18902C6A0010C9F8 /* modejoypressed~ipad.png in Resources */,
-				7EAA03BF18902C6A0010C9F8 /* modepiano@2x.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
-				7EAA03C018902C6A0010C9F8 /* modepiano.png in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
-				7EAA03C718902C6A0010C9F8 /* modekeyon~ipad.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
-				7EAA03AF18902C6A0010C9F8 /* sticky~ipad.png in Resources */,
-				7EAA03CB18902C6A0010C9F8 /* modekeyoff@2x.png in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
-				7EAA03DF18902C6A0010C9F8 /* exitfull@2x.png in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
-				7EAA03CF18902C6A0010C9F8 /* modejoypressed.png in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
-				7EAA03B918902C6A0010C9F8 /* mouseoff@2x.png in Resources */,
-				7EAA03DB18902C6A0010C9F8 /* landbarblank~iPad.png in Resources */,
 				7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */,
 				97855109153A3F2E00580B91 /* Aperture (1x2 RB).png in Resources */,
-				7EAA03C218902C6A0010C9F8 /* modenumpadpressed@2x.png in Resources */,
 				7E4B18DB188B1CBE0019E82B /* chrome-bottom@2x.png in Resources */,
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
-				7EAA03CE18902C6A0010C9F8 /* modejoypressed@2x.png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
-				7EAA03C618902C6A0010C9F8 /* modenumpad.png in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
-				7EAA03BD18902C6A0010C9F8 /* modepianopressed.png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
-				7EAA03D318902C6A0010C9F8 /* modegamepadpressed~ipad.png in Resources */,
-				7EAA03D618902C6A0010C9F8 /* modegamepad~ipad.png in Resources */,
-				7EAA03B218902C6A0010C9F8 /* options~ipad.png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
 				9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
-				7EAA03C118902C6A0010C9F8 /* modenumpadpressed~ipad.png in Resources */,
 				97BE2AE115489E6600BF66CF /* firebutton-red-active.png in Resources */,
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
-				7EAA03CA18902C6A0010C9F8 /* modekeyoff~ipad.png in Resources */,
-				7EAA03AC18902C6A0010C9F8 /* unsticky~ipad.png in Resources */,
-				7EAA03DD18902C6A0010C9F8 /* landbarblank.png in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
-				7EAA03BE18902C6A0010C9F8 /* modepiano~ipad.png in Resources */,
 				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
-				7EAA03D118902C6A0010C9F8 /* modejoy@2x.png in Resources */,
-				7EAA03D818902C6A0010C9F8 /* modegamepad.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
-				7EAA03C318902C6A0010C9F8 /* modenumpadpressed.png in Resources */,
-				7EAA03CC18902C6A0010C9F8 /* modekeyoff.png in Resources */,
-				7EAA03D018902C6A0010C9F8 /* modejoy~ipad.png in Resources */,
-				7EAA03AE18902C6A0010C9F8 /* unsticky.png in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
-				7EAA03D918902C6A0010C9F8 /* landbariphon@2x.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
-				7EAA03C918902C6A0010C9F8 /* modekeyon.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
 				7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */,
-				7EAA03D718902C6A0010C9F8 /* modegamepad@2x.png in Resources */,
-				7EAA03B618902C6A0010C9F8 /* mouseon@2x.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
-				7EAA03D418902C6A0010C9F8 /* modegamepadpressed@2x.png in Resources */,
-				7EAA03BB18902C6A0010C9F8 /* modepianopressed~ipad.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
-				7EAA03BA18902C6A0010C9F8 /* mouseoff.png in Resources */,
-				7EAA03B018902C6A0010C9F8 /* sticky@2x.png in Resources */,
-				7EAA03E218902C6A0010C9F8 /* cpuwindow@2x.png in Resources */,
-				7EAA03D518902C6A0010C9F8 /* modegamepadpressed.png in Resources */,
-				7EAA03B318902C6A0010C9F8 /* options@2x.png in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
-				7EAA03C818902C6A0010C9F8 /* modekeyon@2x.png in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
-				7EAA03D218902C6A0010C9F8 /* modejoy.png in Resources */,
-				7EAA03B818902C6A0010C9F8 /* mouseoff~ipad.png in Resources */,
-				7EAA03DA18902C6A0010C9F8 /* landbariphon.png in Resources */,
-				7EAA03DC18902C6A0010C9F8 /* landbarblank@2x.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
-				7EAA03B118902C6A0010C9F8 /* sticky.png in Resources */,
 				97BE2B0E15489E6600BF66CF /* ls-joystick_rest.png in Resources */,
-				7EAA03DE18902C6A0010C9F8 /* exitfull~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4746,19 +4521,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
-		};
-		7E57D8A219119D9500648935 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5550,9 +5312,9 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.12;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = "Ad Hoc";
@@ -5572,9 +5334,9 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.12;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Debug;
@@ -5592,9 +5354,9 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.12;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
-				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Release;
