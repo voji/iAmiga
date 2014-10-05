@@ -2097,7 +2097,7 @@ void check_all_prefs(void)
 	
 	check_prefs_changed_audio ();
 	check_prefs_changed_custom ();
-	check_prefs_changed_cpu ();
+	//check_prefs_changed_cpu ();
 	if (check_prefs_changed_gfx ()) {
 	    init_row_map ();
 	    init_aspect_maps ();

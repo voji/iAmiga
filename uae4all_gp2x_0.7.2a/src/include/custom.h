@@ -9,6 +9,8 @@
 /* These are the masks that are ORed together in the chipset_mask option.
  * If CSMASK_AJA is set, the ECS bits are guaranteed to be set as well.  */
 
+//#include "m68k_intrf.h"
+
 #ifndef UAE_CUSTOM_H
 #define UAE_CUSTOM_H
 
@@ -68,6 +70,7 @@ extern void INTREQ (uae_u16);
 extern void INTREQ_0 (uae_u16);
 //extern uae_u16 INTREQR (void);
 uae_u16 __inline__ INTREQR (void) {
+    
     return intreq;
 }
 

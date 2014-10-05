@@ -29,7 +29,6 @@
 		0533690E13B1DEE90012D55A /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		0533690F13B1DEE90012D55A /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		0533691013B1DEE90012D55A /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		0533691113B1DEE90012D55A /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		0533691213B1DEE90012D55A /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		0533691313B1DEE90012D55A /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		0533691413B1DEE90012D55A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -66,7 +65,6 @@
 		0533695813B1DF650012D55A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 053D8B3313B1B9E20002802F /* icon.png */; };
 		0533695913B1DF650012D55A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 053D8B3413B1B9E20002802F /* icon@2x.png */; };
 		0545257E106EBB590032FC41 /* Events2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0545257D106EBB590032FC41 /* Events2.c */; };
-		054525B0106EC5550032FC41 /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
 		0552BD240F3D797C005B30DF /* autoconf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9D0F3D797C005B30DF /* autoconf.cpp */; };
 		0552BD250F3D797C005B30DF /* blitfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9E0F3D797C005B30DF /* blitfunc.cpp */; };
 		0552BD260F3D797C005B30DF /* blittable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BC9F0F3D797C005B30DF /* blittable.cpp */; };
@@ -75,7 +73,6 @@
 		0552BD2D0F3D797C005B30DF /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		0552BD2E0F3D797C005B30DF /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		0552BD450F3D797C005B30DF /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		0552BD490F3D797C005B30DF /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		0552BD4B0F3D797C005B30DF /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -140,7 +137,6 @@
 		059C0E2D13B99DEE00E89B35 /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2713B99DEE00E89B35 /* chrome-bottom~ipad.png */; };
 		059C0E2E13B99DEE00E89B35 /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2813B99DEE00E89B35 /* chrome-top~ipad.png */; };
 		059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2410636CBA0056A577 /* fame_arm.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
-		059E3A2810636CBA0056A577 /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		05A1502913BDA852009A12B2 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 05A1501E13BDA852009A12B2 /* about.html */; };
 		05A1502B13BDA852009A12B2 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 05A1502013BDA852009A12B2 /* css */; };
 		05A1502D13BDA852009A12B2 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 05A1502213BDA852009A12B2 /* help.html */; };
@@ -169,7 +165,6 @@
 		05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B1C10734C3B00EABC6E /* SettingsController.xib */; };
 		05D5233712E8030E007912AE /* SelectEffectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D5233512E8030E007912AE /* SelectEffectController.m */; };
 		05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D5233612E8030E007912AE /* SelectEffectController.xib */; };
-		05D5D74C0FD5E38400B91C98 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		05D6044B12AF2D620048E478 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D6044912AF2D620048E478 /* Icon.png */; };
 		05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D6044A12AF2D620048E478 /* Icon@2x.png */; };
 		05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8A04312B2C884005532AF /* amiga-beige-dark-center.png */; };
@@ -184,6 +179,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
+		7E1628C919E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1628C819E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -192,7 +188,11 @@
 		7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18DD188B1CD70019E82B /* btn_restart@2x.png */; };
 		7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */; };
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
+		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
+		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
+		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
+		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
 		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
@@ -255,7 +255,6 @@
 		9706D6C31561817500073678 /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		9706D6C41561817500073678 /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		9706D6C51561817500073678 /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		9706D6C61561817500073678 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		9706D6C71561817500073678 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		9706D6C81561817500073678 /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		9706D6C91561817500073678 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -427,7 +426,6 @@
 		97242C88156177EC00B6D03C /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		97242C89156177EC00B6D03C /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		97242C8A156177EC00B6D03C /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		97242C8B156177EC00B6D03C /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		97242C8C156177EC00B6D03C /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		97242C8D156177EC00B6D03C /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		97242C8E156177EC00B6D03C /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -718,7 +716,6 @@
 		9787FA6F1561882D00458A4A /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		9787FA701561882D00458A4A /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		9787FA711561882D00458A4A /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		9787FA721561882D00458A4A /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		9787FA731561882D00458A4A /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		9787FA741561882D00458A4A /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		9787FA751561882D00458A4A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -830,7 +827,6 @@
 		9787FBD215618A5E00458A4A /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		9787FBD315618A5E00458A4A /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		9787FBD415618A5E00458A4A /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		9787FBD515618A5E00458A4A /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		9787FBD615618A5E00458A4A /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		9787FBD715618A5E00458A4A /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		9787FBD815618A5E00458A4A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -1123,7 +1119,6 @@
 		97C87567156E834100197738 /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		97C87568156E834100197738 /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		97C87569156E834100197738 /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		97C8756A156E834100197738 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		97C8756B156E834100197738 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		97C8756C156E834100197738 /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		97C8756D156E834100197738 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -1223,7 +1218,6 @@
 		97EF95C3153876CA001C01E6 /* ersatz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA70F3D797C005B30DF /* ersatz.cpp */; };
 		97EF95C4153876CA001C01E6 /* gfxutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCA80F3D797C005B30DF /* gfxutil.cpp */; };
 		97EF95C5153876CA001C01E6 /* keybuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BCFA0F3D797C005B30DF /* keybuf.cpp */; };
-		97EF95C6153876CA001C01E6 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD060F3D797C005B30DF /* famec.cpp */; settings = {COMPILER_FLAGS = "-Wno-unused"; }; };
 		97EF95C7153876CA001C01E6 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD090F3D797C005B30DF /* m68k_intrf.cpp */; };
 		97EF95C8153876CA001C01E6 /* uae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0C0F3D797C005B30DF /* uae.cpp */; };
 		97EF95C9153876CA001C01E6 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
@@ -1380,8 +1374,6 @@
 		0552BD020F3D797C005B30DF /* memhandlers.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = memhandlers.s; sourceTree = "<group>"; };
 		0552BD030F3D797C005B30DF /* debug_m68k.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug_m68k.h; sourceTree = "<group>"; };
 		0552BD050F3D797C005B30DF /* fame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fame.h; sourceTree = "<group>"; };
-		0552BD060F3D797C005B30DF /* famec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = famec.cpp; sourceTree = "<group>"; };
-		0552BD070F3D797C005B30DF /* famec_debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = famec_debug.cpp; sourceTree = "<group>"; };
 		0552BD080F3D797C005B30DF /* famec_opcodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec_opcodes.h; sourceTree = "<group>"; };
 		0552BD090F3D797C005B30DF /* m68k_intrf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = m68k_intrf.cpp; sourceTree = "<group>"; };
 		0552BD0A0F3D797C005B30DF /* m68k_cmn_intrf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = m68k_cmn_intrf.cpp; sourceTree = "<group>"; };
@@ -1547,6 +1539,7 @@
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
+		7E1628C819E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rainbow Islands (1990)(Ocean).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Rainbow Islands (1990)(Ocean).adf"; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -1555,6 +1548,9 @@
 		7E4B18DD188B1CD70019E82B /* btn_restart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_restart@2x.png"; path = "TargetSpecific/DotC/btn_restart@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_restart~ipad.png"; path = "TargetSpecific/DotC/btn_restart~ipad.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom~ipad.png"; path = "TargetSpecific/DotC/chrome-bottom~ipad.png"; sourceTree = SOURCE_ROOT; };
+		7E4C6AF519DB0F7100D337D0 /* famec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = famec.cpp; sourceTree = "<group>"; };
+		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
+		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
@@ -1581,6 +1577,7 @@
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
+		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
@@ -2446,6 +2443,7 @@
 				0552BCF60F3D797C005B30DF /* uae.h */,
 				0552BCF80F3D797C005B30DF /* xwin.h */,
 				0552BCF90F3D797C005B30DF /* zfile.h */,
+				7E4C6AF819DB116B00D337D0 /* memory-uae.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -2484,10 +2482,11 @@
 			isa = PBXGroup;
 			children = (
 				0552BD050F3D797C005B30DF /* fame.h */,
-				0552BD060F3D797C005B30DF /* famec.cpp */,
-				0552BD070F3D797C005B30DF /* famec_debug.cpp */,
 				0552BD080F3D797C005B30DF /* famec_opcodes.h */,
 				0552BD090F3D797C005B30DF /* m68k_intrf.cpp */,
+				7E4C6AF519DB0F7100D337D0 /* famec.cpp */,
+				7E4C6AF619DB0F7100D337D0 /* famec.h */,
+				7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */,
 			);
 			path = fame;
 			sourceTree = "<group>";
@@ -2565,6 +2564,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E1628C819E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -4014,6 +4014,7 @@
 				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
 				7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
+				7E1628C919E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
@@ -4554,7 +4555,6 @@
 				0533690E13B1DEE90012D55A /* ersatz.cpp in Sources */,
 				0533690F13B1DEE90012D55A /* gfxutil.cpp in Sources */,
 				0533691013B1DEE90012D55A /* keybuf.cpp in Sources */,
-				0533691113B1DEE90012D55A /* famec.cpp in Sources */,
 				0533691213B1DEE90012D55A /* m68k_intrf.cpp in Sources */,
 				0533691313B1DEE90012D55A /* uae.cpp in Sources */,
 				0533691413B1DEE90012D55A /* memory.cpp in Sources */,
@@ -4622,11 +4622,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */,
+				7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */,
+				7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */,
 				7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */,
 				7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */,
 				051B23B012C994BB000C2800 /* DisaSupport.cpp in Sources */,
 				7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */,
-				05D5D74C0FD5E38400B91C98 /* m68k_intrf.cpp in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.mm in Sources */,
 				1D3623260D0F684500981E51 /* iAmigaAppDelegate.mm in Sources */,
 				0552BD240F3D797C005B30DF /* autoconf.cpp in Sources */,
@@ -4639,7 +4641,6 @@
 				0552BD2D0F3D797C005B30DF /* ersatz.cpp in Sources */,
 				0552BD2E0F3D797C005B30DF /* gfxutil.cpp in Sources */,
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
-				0552BD450F3D797C005B30DF /* famec.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
 				0552BD490F3D797C005B30DF /* uae.cpp in Sources */,
 				0552BD4B0F3D797C005B30DF /* memory.cpp in Sources */,
@@ -4664,10 +4665,8 @@
 				057B0D4C0FD0D0ED00D549AD /* MMStopWatch.m in Sources */,
 				7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */,
 				059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */,
-				059E3A2810636CBA0056A577 /* m68k_interface.cpp in Sources */,
 				7EA4D65A1923ECC100C58BB9 /* TouchHandlerViewClassic.m in Sources */,
 				0545257E106EBB590032FC41 /* Events2.c in Sources */,
-				054525B0106EC5550032FC41 /* combined_modules.cpp in Sources */,
 				05BC1AF51073448200EABC6E /* EMUBrowser.m in Sources */,
 				05BC1AF61073448200EABC6E /* EMUFileGroup.m in Sources */,
 				05BC1AF71073448200EABC6E /* EMUFileInfo.m in Sources */,
@@ -4676,6 +4675,7 @@
 				0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */,
 				0585D5621091653E00C1E4C1 /* KeyView.m in Sources */,
 				050C393D12C31B24000CE512 /* Disa.c in Sources */,
+				7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */,
 				050C3A9412C33D94000CE512 /* disassembler.m in Sources */,
 				7EA4D6591923ECC100C58BB9 /* MainEmulationViewController.mm in Sources */,
 				0577C0DB12DED4A60040B77D /* AsyncSocket.m in Sources */,
@@ -4732,7 +4732,6 @@
 				9706D6C31561817500073678 /* ersatz.cpp in Sources */,
 				9706D6C41561817500073678 /* gfxutil.cpp in Sources */,
 				9706D6C51561817500073678 /* keybuf.cpp in Sources */,
-				9706D6C61561817500073678 /* famec.cpp in Sources */,
 				9706D6C71561817500073678 /* m68k_intrf.cpp in Sources */,
 				9706D6C81561817500073678 /* uae.cpp in Sources */,
 				9706D6C91561817500073678 /* memory.cpp in Sources */,
@@ -4808,7 +4807,6 @@
 				97242C88156177EC00B6D03C /* ersatz.cpp in Sources */,
 				97242C89156177EC00B6D03C /* gfxutil.cpp in Sources */,
 				97242C8A156177EC00B6D03C /* keybuf.cpp in Sources */,
-				97242C8B156177EC00B6D03C /* famec.cpp in Sources */,
 				97242C8C156177EC00B6D03C /* m68k_intrf.cpp in Sources */,
 				97242C8D156177EC00B6D03C /* uae.cpp in Sources */,
 				97242C8E156177EC00B6D03C /* memory.cpp in Sources */,
@@ -4884,7 +4882,6 @@
 				9787FA6F1561882D00458A4A /* ersatz.cpp in Sources */,
 				9787FA701561882D00458A4A /* gfxutil.cpp in Sources */,
 				9787FA711561882D00458A4A /* keybuf.cpp in Sources */,
-				9787FA721561882D00458A4A /* famec.cpp in Sources */,
 				9787FA731561882D00458A4A /* m68k_intrf.cpp in Sources */,
 				9787FA741561882D00458A4A /* uae.cpp in Sources */,
 				9787FA751561882D00458A4A /* memory.cpp in Sources */,
@@ -4960,7 +4957,6 @@
 				9787FBD215618A5E00458A4A /* ersatz.cpp in Sources */,
 				9787FBD315618A5E00458A4A /* gfxutil.cpp in Sources */,
 				9787FBD415618A5E00458A4A /* keybuf.cpp in Sources */,
-				9787FBD515618A5E00458A4A /* famec.cpp in Sources */,
 				9787FBD615618A5E00458A4A /* m68k_intrf.cpp in Sources */,
 				9787FBD715618A5E00458A4A /* uae.cpp in Sources */,
 				9787FBD815618A5E00458A4A /* memory.cpp in Sources */,
@@ -5041,7 +5037,6 @@
 				97C87567156E834100197738 /* ersatz.cpp in Sources */,
 				97C87568156E834100197738 /* gfxutil.cpp in Sources */,
 				97C87569156E834100197738 /* keybuf.cpp in Sources */,
-				97C8756A156E834100197738 /* famec.cpp in Sources */,
 				97C8756B156E834100197738 /* m68k_intrf.cpp in Sources */,
 				97C8756C156E834100197738 /* uae.cpp in Sources */,
 				97C8756D156E834100197738 /* memory.cpp in Sources */,
@@ -5134,7 +5129,6 @@
 				97EF95C3153876CA001C01E6 /* ersatz.cpp in Sources */,
 				97EF95C4153876CA001C01E6 /* gfxutil.cpp in Sources */,
 				97EF95C5153876CA001C01E6 /* keybuf.cpp in Sources */,
-				97EF95C6153876CA001C01E6 /* famec.cpp in Sources */,
 				97EF95C7153876CA001C01E6 /* m68k_intrf.cpp in Sources */,
 				97EF95C8153876CA001C01E6 /* uae.cpp in Sources */,
 				97EF95C9153876CA001C01E6 /* memory.cpp in Sources */,
@@ -5307,7 +5301,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = "Ad Hoc";
@@ -5325,7 +5319,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.12;
+				iOSOpenDevDevice = 192.168.0.14;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5347,7 +5341,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.12;
+				iOSOpenDevDevice = 192.168.0.14;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5367,7 +5361,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.12;
+				iOSOpenDevDevice = 192.168.0.14;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5692,7 +5686,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = Debug;
@@ -5745,7 +5739,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = Release;
