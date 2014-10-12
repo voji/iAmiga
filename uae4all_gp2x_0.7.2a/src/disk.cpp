@@ -1346,7 +1346,7 @@ void DSKLEN (uae_u16 v, int hpos)
 		return;
     {
 		int dr;
-		uaecptr pc = _68k_getpc ();
+		uaecptr pc = m68k_get_pc ();
 		if ((pc & 0xF80000) != 0xF80000)
 			return;
 		for (dr = 0; dr < NUM_DRIVES; dr++) {
@@ -1606,7 +1606,7 @@ uae_u8 *restore_disk(int num,uae_u8 *src)
     else
     {
 	    m68k_speed=mfmpos;
-	    check_prefs_changed_cpu();
+	    //check_prefs_changed_cpu();
     }
     
     src = (uae_u8 *)(((unsigned)src)+strlen((char *)src) + 1);
@@ -1639,7 +1639,8 @@ uae_u8 *save_disk(int num,int *len)
         save_u8 (0);	/* cylinder */
         save_u8 (0);	/* dskready */
         save_u8 (0);	/* id mode position */
-        save_u32 (m68k_speed);	/* disk position */
+        save_u32(0);     /* disk position */
+        //save_u32 (m68k_speed);	/* disk position */
         save_u32 (0);	/* CRC of disk image */
         dst[0]=dst[1]=0;
     }

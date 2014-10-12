@@ -356,7 +356,7 @@ static int open_sound (void)
     have_sound = 1;
 
 //    sound_default_evtime(0);
-    scaled_sample_evtime_ok = 1;
+    scaled_sample_evtime = 1;
 
     sound_available = 1;
     write_log ("SDL sound driver found and configured for %d bits at %d Hz, buffer is %d samples\n",

@@ -8,7 +8,6 @@
   * Copyright 2000-2002 Toni Wilen
   */
 
-
 // #define USE_CUSTOM_EXTRA_INLINE
 #define USE_IMASK_TABLE
 #define UNROLL_LONG_FETCH
@@ -111,7 +110,7 @@ unsigned long int currcycle, nextevent;
 struct ev eventtab[ev_max];
 
 static int vpos;
-extern int next_vpos[512];
+//extern int next_vpos[512];
 static uae_u16 lof;
 static int next_lineno;
 static int lof_changed = 0;
@@ -1088,6 +1087,7 @@ static __inline__ void decide_fetch (int hpos)
 /* This function is responsible for turning on datafetch if necessary.  */
 static __inline__ void decide_line (int hpos)
 {
+    
     if (hpos <= last_decide_line_hpos)
 		return;
     if (fetch_state != fetch_not_started)
@@ -1878,7 +1878,7 @@ static _INLINE_ void SET_INTERRUPT(void)
 	else if (new_irqs == 0)
 	{
 		M68KCONTEXT.interrupts[0] = 0; // uae4all_go_interrupt = 0;
-		m68k_irq_update(0);
+		m68k_irq_update();
 	}
 	else
 	{
@@ -1888,7 +1888,7 @@ static _INLINE_ void SET_INTERRUPT(void)
 		end_timeslice = new_level > old_level && new_level > _68k_intmask;
 		
 		M68KCONTEXT.interrupts[0] = new_irqs;
-		m68k_irq_update(end_timeslice);
+		m68k_irq_update();
 		/*
 		 if (new_level > old_level && new_level > _68k_intmask)
 		 {
@@ -2089,9 +2089,18 @@ static _INLINE_ void SET_INTERRUPT(void)
 
 static __inline__ void INTENA (uae_u16 v)
 {
+    int intenaset = 0;
+    int intenasetnew = 0;
 #ifdef DEBUG_CUSTOM
     dbgf("INTENA 0x%X\n",v);
 #endif
+    int vblankbit = (intena & ( 1 << 5)) >> 5;
+    
+    if (vblankbit == 1)
+    {
+        intenaset = 1;
+    }
+    
     setclr (&intena,v);
     /* There's stupid code out there that does
 	 [some INTREQ bits at level 3 are set]
@@ -2104,6 +2113,18 @@ static __inline__ void INTENA (uae_u16 v)
 	 it needs to happen one insn later, when the new L3 handler has been
 	 installed.  */
 	
+     vblankbit = (intena & ( 1 << 5)) >> 5;
+    
+    if (vblankbit == 1)
+    {
+        intenasetnew = 1;
+    }
+    
+    if (intenasetnew != intenaset)
+    {
+         printf("VBLANK Intena Changed at: %x from %i to %i\n", m68kcontext.pc, intenaset, intenasetnew);
+    }
+    
 #if !defined(USE_FAME_CORE) && !defined(DEBUG_M68K)
     if (v & 0x8000)
 #endif
@@ -2705,6 +2726,7 @@ static _INLINE_ void predict_copper (void)
 					c_hpos = maxhpos;
 				} else if (vp > vcmp || hcmp <= c_hpos) {
 					state = COP_read1;
+                    
 					/* minimum wakeup time */
 					c_hpos += 2;
 				} else {
@@ -2924,7 +2946,8 @@ static _INLINE_ void update_copper (int until_hpos)
 				 at 0/0).  This can be seen in the Superfrog copper list.
 				 Things get monstrously complicated if we try to handle this "properly" by
 				 incrementing vpos and setting c_hpos to 0.  Especially the various speedup
-				 hacks really assume that vpos remains constant during one line.  Hence,
+				 hacks really assume that vpos remains constant during one line.  
+                 Hence,
 				 this hack: defer the entire decision until the next line if necessary.  */
 				if (c_hpos >= (maxhpos & ~1))
 					break;
@@ -3253,7 +3276,7 @@ static void vsync_handler (void)
 		if (joy0button!=back_joy0button)
 			back_joy0button= buttonstate[0]= joy0button;
     }
-	
+        
     INTREQ (0x8020);
 	
     if (bplcon0 & 4)
@@ -3331,7 +3354,9 @@ void hsync_handler (void)
 #ifdef DEBUG_CUSTOM
     dbgf("vpos=%i, maxvpos=%i, lof=%i\n",vpos,maxvpos,lof);
 #endif
-    vpos=next_vpos[vpos];
+    //printf("Vpos: %d Intreq: %x\n", vpos, intreq);
+    vpos++;
+    //vpos=next_vpos[vpos];
     if (vpos  >= (maxvpos + (lof != 0)))
     {
 		vpos=0;
@@ -3701,7 +3726,19 @@ static __inline__ uae_u32 REGPARAM2 custom_wget_1 (uaecptr addr)
 		case 0x018: v = 0; break;
 		case 0x01A: v = DSKBYTR (current_hpos ()); break;
 		case 0x01C: v = INTENAR (); break;
-		case 0x01E: v = INTREQR (); break;
+		case 0x01E: v = INTREQR ();
+        
+        if(m68kcontext.pc == 0x31082)
+        {
+            int vblank = (intreq & ( 1 << 5 )) >> 5;
+            
+            if(vblank == 1)
+            {
+                
+            }
+        }
+        break;
+            
 		case 0x07C: v = DENISEID (); break;
 			
 		case 0x180: case 0x182: case 0x184: case 0x186: case 0x188: case 0x18A:
@@ -3990,8 +4027,8 @@ extern SDLKey vkbd_button4;
 
 uae_u8 *restore_custom (uae_u8 *src)
 {
-    uae_u16 dsklen, dskbytr, dskdatr, u16;
-    uae_u32 u32;
+    uae_u16 dsklen, dskbytr, dskdatr, ru16;
+    //uae_u32 u32;
     int dskpt;
     int i;
 
@@ -4020,19 +4057,19 @@ uae_u8 *restore_custom (uae_u8 *src)
     RW;				/* 028 REFPTR */
     lof = RW;			/* 02A VPOSW */
     RW;				/* 02C VHPOSW */
-    u16=RW; COPCON(u16);	/* 02E COPCON */
+    ru16=RW; COPCON(ru16);	/* 02E COPCON */
     RW;				/* 030 SERDAT* */
     RW;				/* 032 SERPER* */
-    u16=RW; POTGO(u16);		/* 034 POTGO */
+    ru16=RW; POTGO(ru16);		/* 034 POTGO */
     RW;				/* 036 JOYTEST* */
     RW;				/* 038 STREQU */
     RW;				/* 03A STRVHBL */
     RW;				/* 03C STRHOR */
     RW;				/* 03E STRLONG */
-    u16=RW; BLTCON0(u16);	/* 040 BLTCON0 */
-    u16=RW; BLTCON1(u16);	/* 042 BLTCON1 */
-    u16=RW; BLTAFWM(u16);	/* 044 BLTAFWM */
-    u16=RW; BLTALWM(u16);	/* 046 BLTALWM */
+    ru16=RW; BLTCON0(ru16);	/* 040 BLTCON0 */
+    ru16=RW; BLTCON1(ru16);	/* 042 BLTCON1 */
+    ru16=RW; BLTAFWM(ru16);	/* 044 BLTAFWM */
+    ru16=RW; BLTALWM(ru16);	/* 046 BLTALWM */
     bltcpt=RL; // u32=RL; BLTCPTH(u32);	/* 048-04B BLTCPT */
     bltbpt=RL; // u32=RL; BLTBPTH(u32);	/* 04C-04F BLTBPT */
     bltapt=RL; // u32=RL; BLTAPTH(u32);	/* 050-053 BLTAPT */
@@ -4041,22 +4078,22 @@ uae_u8 *restore_custom (uae_u8 *src)
     RW;				/* 05A BLTCON0L */
     oldvblts = RW;		/* 05C BLTSIZV */
     RW;				/* 05E BLTSIZH */
-    u16=RW; BLTCMOD(u16);	/* 060 BLTCMOD */
-    u16=RW; BLTBMOD(u16);	/* 062 BLTBMOD */
-    u16=RW; BLTAMOD(u16);	/* 064 BLTAMOD */
-    u16=RW; BLTDMOD(u16);	/* 066 BLTDMOD */
+    ru16=RW; BLTCMOD(ru16);	/* 060 BLTCMOD */
+    ru16=RW; BLTBMOD(ru16);	/* 062 BLTBMOD */
+    ru16=RW; BLTAMOD(ru16);	/* 064 BLTAMOD */
+    ru16=RW; BLTDMOD(ru16);	/* 066 BLTDMOD */
     RW;				/* 068 ? */
     RW;				/* 06A ? */
     RW;				/* 06C ? */
     RW;				/* 06E ? */
-    u16=RW; BLTCDAT(u16);	/* 070 BLTCDAT */
-    u16=RW; BLTBDAT(u16);	/* 072 BLTBDAT */
-    u16=RW; BLTADAT(u16);	/* 074 BLTADAT */
+    ru16=RW; BLTCDAT(ru16);	/* 070 BLTCDAT */
+    ru16=RW; BLTBDAT(ru16);	/* 072 BLTBDAT */
+    ru16=RW; BLTADAT(ru16);	/* 074 BLTADAT */
     RW;				/* 076 ? */
     RW;				/* 078 ? */
     RW;				/* 07A ? */
     RW;				/* 07C LISAID */
-    u16=RW; DSKSYNC(u16);	/* 07E DSKSYNC */
+    ru16=RW; DSKSYNC(ru16);	/* 07E DSKSYNC */
     cop1lc =  RL;		/* 080/082 COP1LC */
     cop2lc =  RL;		/* 084/086 COP2LC */
     RW;				/* 088 ? */
@@ -4067,7 +4104,7 @@ uae_u8 *restore_custom (uae_u8 *src)
     ddfstrt = RW;		/* 092 DDFSTRT */
     ddfstop = RW;		/* 094 DDFSTOP */
     dmacon = RW & ~(0x2000|0x4000); /* 096 DMACON */
-    u16=RW; CLXCON(u16);	/* 098 CLXCON */
+    ru16=RW; CLXCON(ru16);	/* 098 CLXCON */
     intena = RW;		/* 09A INTENA */
     intreq = RW;		/* 09C INTREQ */
     adkcon = RW;		/* 09E ADKCON */

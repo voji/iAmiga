@@ -298,6 +298,7 @@ void REGPARAM2 rtarea_bput (uaecptr addr, uae_u32 value)
 }
 
 #ifdef USE_AUTOCONFIG
+
 static int trace_traps = 1;
 
 void REGPARAM2 call_calltrap(int func)

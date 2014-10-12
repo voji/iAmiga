@@ -50,7 +50,7 @@ int cloanto_rom = 0;
 
 struct gui_info gui_data;
 
-extern int timeslice_mode;
+//extern int timeslice_mode;
 
 void uae::default_prefs () {
 #ifdef NO_SOUND
@@ -92,12 +92,12 @@ void uae::default_prefs () {
 	// 1 = 75%
 	// 2 = 50%
 	// 3 = 25%
-	timeslice_mode = 1;
+	//timeslice_mode = 0;
 	
 	// 0 = 100%
 	// 2 = 83%
 	// 4 = 75%
-	m68k_speed = 2;
+	m68k_speed = 0;
 }
 
 void uae::uae_reset (void) {
@@ -211,7 +211,7 @@ void uae::real_main () {
     custom_init (); /* Must come after memory_init */
     DISK_init ();
 	
-    init_m68k();
+    m68k_init(0);
     gui_update ();
 	
     if (graphics_init ()) {
