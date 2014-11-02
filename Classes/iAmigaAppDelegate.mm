@@ -42,7 +42,7 @@
 
 static UaeDebugger *debugger;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	//_emulationView = [EmulationViewController new];
 	[window addSubview:self.mainController.view];	
 	

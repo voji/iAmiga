@@ -21,6 +21,7 @@
     IBOutlet UIButton       *controller;
     IBOutlet UIButton       *df0;
     IBOutlet UIButton       *df1;
+    IBOutlet UISwitch       *stretchscreen;
 }
 
 - (IBAction)selectDrive:(UIButton*)sender;
@@ -33,5 +34,6 @@
 - (IBAction)selectEffect:(id)sender;
 - (IBAction)integralSize:(id)sender;
 - (IBAction)selectController:(id)sender;
+- (IBAction)toggleStretchScreen:(id)sender;
 
 @end

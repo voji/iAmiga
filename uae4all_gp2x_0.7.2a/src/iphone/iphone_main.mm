@@ -21,6 +21,7 @@ int mainMenu_case=-1;
 int mainMenu_autosave=1;
 int mainMenu_ntsc=0;
 int drawfinished=0;
+int mainMenu_stretchscreen = 0;
 
 extern int vkbd_mode;
 

@@ -27,11 +27,13 @@
 #import "UIKitDisplayView.h"
 #import "TouchHandlerView.h"
 #import "NSObject+Blocks.h"
+#import "iAmigaAppDelegate.h"
 
 #define kDisplayWidth							320.0f
 #define kDisplayHeight							240.0f
 #define kDisplayTopOffset                       20.0f
 
+extern int mainMenu_stretchscreen;
 
 @interface BaseEmulationViewController()
 
@@ -98,6 +100,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 	[self startEmulator];
+    iAmigaAppDelegate *appDelegate = (iAmigaAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate configureScreens];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -151,12 +155,16 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	// full-screen, landscape mode
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
         
-        int width = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 1024 : 480;
-        int height = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 748 : 300;
+        int height = self.view.frame.size.height - self.displayTop;
         
-		// assuming landscape width > height
-		//return CGRectMake(0, self.displayTop, frameSize.width, frameSize.height);
-        return CGRectMake(0, self.displayTop, width, height);
+        //Stretch or keep 3/4 aspect radio for width
+        int width = mainMenu_stretchscreen ? self.view.frame.size.width : height / 3 * 4;
+        
+        //Center if aspect radio is stretched
+        int xpos = mainMenu_stretchscreen ? 0 : (self.view.frame.size.width - width) / 2;
+        
+        return CGRectMake(xpos, self.displayTop, width, height);
+        
 	}
 	
 	// aspect fill (portrait mode)

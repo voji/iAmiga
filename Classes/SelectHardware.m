@@ -46,7 +46,8 @@
 - (IBAction)done:(id)sender {
     int joystick = lastSelectedRow == 0 ? 3 : 2;
 	[delegate didSelectHardware:joystick name:[controllers objectAtIndex:lastSelectedRow]];
-	[self dismissModalViewControllerAnimated:YES];
+	//[self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setDelegate:(id<SelectHardwareDelegate>)aDelegate {

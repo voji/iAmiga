@@ -40,14 +40,7 @@
     UIImage *image = [UIImage imageNamed:@"landbarblank~iPad.png"];
     
     [image drawInRect:rect];
-    /*
-    CGContextRef c = UIGraphicsGetCurrentContext();
-    [[UIColor grayColor] set];
-    CGContextMoveToPoint(c, 0, 0);
-    CGContextAddLineToPoint(c, rect.size.width, 0);
-    CGContextAddLineToPoint(c, rect.size.width-rect.size.height, rect.size.height);
-    CGContextAddLineToPoint(c, rect.size.height, rect.size.height);
-    CGContextFillPath(c);*/
+    
 }
 
 @end
