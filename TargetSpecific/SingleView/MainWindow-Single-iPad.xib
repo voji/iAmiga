@@ -11,7 +11,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3">
+        <window autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3">
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
             </navigationBar>
             <viewControllers>
-                <viewController title="Emulation View" nibName="EmulationView-iPad" wantsFullScreenLayout="YES" id="6" userLabel="Emulation View" customClass="EmulationViewiPad">
+                <viewController title="Emulation View" nibName="EmulationView-iPad" id="6" userLabel="Emulation View" customClass="EmulationViewiPad">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Item" id="cGR-Az-8qU"/>
                 </viewController>

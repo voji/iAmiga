@@ -200,8 +200,6 @@
 		7E1B8C4E19FAE04700B6136B /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */; };
 		7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */; };
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
-		7E3C92CF1A06B4D200A818B6 /* Kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E3C92CE1A06B4D200A818B6 /* Kick13.rom */; };
-		7E3C92D11A06B50E00A818B6 /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E3C92D01A06B50E00A818B6 /* Northsou.adf */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -1583,8 +1581,6 @@
 		7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unsticky@2x.png"; sourceTree = "<group>"; };
 		7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsController-ipad.xib"; sourceTree = "<group>"; };
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
-		7E3C92CE1A06B4D200A818B6 /* Kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = Kick13.rom; path = ../../../Archiv/emus/amiga/Roms/Kick13.rom; sourceTree = "<group>"; };
-		7E3C92D01A06B50E00A818B6 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../Archiv/emus/amiga/Spiele/Northsou.adf; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -2603,7 +2599,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E3C92CE1A06B4D200A818B6 /* Kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2611,7 +2606,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7E3C92D01A06B50E00A818B6 /* Northsou.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -4066,14 +4060,12 @@
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
 				7E1B8C4619FADFD400B6136B /* options@2x.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
-				7E3C92CF1A06B4D200A818B6 /* Kick13.rom in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */,
 				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
-				7E3C92D11A06B50E00A818B6 /* Northsou.adf in Resources */,
 				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
@@ -5421,7 +5413,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5444,7 +5436,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5465,7 +5457,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;

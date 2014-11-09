@@ -102,6 +102,7 @@ extern int mainMenu_stretchscreen;
 	[self startEmulator];
     iAmigaAppDelegate *appDelegate = (iAmigaAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate configureScreens];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -236,6 +237,15 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 
 -(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskLandscape;
+}
+
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIBarStyleBlackOpaque;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
 }
 
 @end

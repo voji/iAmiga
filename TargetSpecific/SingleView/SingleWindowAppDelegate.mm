@@ -55,10 +55,13 @@
     // Override point for customization after application launch
     [window makeKeyAndVisible];
     
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
+    /*if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {*/
         window.frame = [[UIScreen mainScreen] bounds];
-    }
+    /*}*/
+    
+    //[window.rootViewController setNeedsStatusBarAppearanceUpdate];
+    
         
     OSStatus res = AudioSessionInitialize(NULL, NULL, NULL, NULL);
     UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
@@ -90,6 +93,8 @@
 }
 
 - (void)configureScreens {
+    
+    [window.rootViewController setNeedsStatusBarAppearanceUpdate];
     
 	if ([[UIScreen screens] count] == 1) {
 		NSLog(@"Device display");

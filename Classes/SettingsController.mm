@@ -60,8 +60,11 @@ extern int do_disa;
 	logging.on = do_disa == 0 ? NO : YES;
 #endif
     
-    [df0 setTitle:[Filename objectAtIndex:0] forState:UIControlStateNormal];
-    [df1 setTitle:[Filename objectAtIndex:1] forState:UIControlStateNormal];
+    NSString *df0title = [[Filename objectAtIndex:0] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
+    NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
+    
+    [df0 setTitle:df0title forState:UIControlStateNormal];
+    [df1 setTitle:df1title forState:UIControlStateNormal];
 }
 
 - (IBAction)selectDrive:(UIButton*)sender {

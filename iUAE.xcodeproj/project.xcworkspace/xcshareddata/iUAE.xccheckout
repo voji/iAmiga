@@ -14,7 +14,7 @@
 		<string>https://github.com/emufreak/iAmiga.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iUAE.xcodeproj/project.xcworkspace</string>
+	<string>iUAE.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BB077C81096E34247CCFED268F63A8050DE3ACEE</key>
