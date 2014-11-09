@@ -46,7 +46,11 @@ extern void uae_reset();
 }
 
 -(void) settings {
-    SettingsController *viewController = [[SettingsController alloc] initWithNibName:@"SettingsController" bundle:nil];
+    
+    NSString *xibfile = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"SettingsController-ipad" : @"SettingsController";
+    
+    SettingsController *viewController = [[SettingsController alloc] initWithNibName:xibfile bundle:nil];
+    
     viewController.view.frame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -71,12 +75,6 @@ extern void uae_reset();
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    // virtual keyboard
-    
-	/*vKeyboard = [[VirtualKeyboard alloc] initWithFrame:CGRectMake(0, 568, 1024, 200)];
-    vKeyboard.autoresizingMask = UIViewAutoresizingNone;
-    vKeyboard.backgroundColor = [UIColor redColor];
-	vKeyboard.hidden = YES;*/
     [self.view setMultipleTouchEnabled:TRUE];
 }
 
@@ -85,11 +83,6 @@ extern void uae_reset();
     int xpos = [self XposFloatPanel:barwidth];
     
     fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xpos,20,barwidth,barheight)];
-    /*UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    btnExitFS.center=CGPointMake(63, 18);
-    [btnExitFS setImage:[UIImage imageNamed:@"exitfull~ipad.png"] forState:UIControlStateNormal];
-    [btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
-    [fullscreenPanel.contentView addSubview:btnExitFS];"*/
     
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
     
@@ -127,8 +120,17 @@ extern void uae_reset();
     screenRect = [[UIScreen mainScreen] bounds];
     //CGFloat screenHeight = screenRect.size.height;
     
-    CGFloat result = (self.screenHeight / 2) - (barwidth/2);
+    CGFloat result;
     
+    if(self.screenWidth > self.screenHeight)
+    {
+        result = (self.screenWidth / 2) - (barwidth/2);
+    }
+    else
+    {
+        result = (self.screenHeight / 2) - (barwidth/2);
+    }
+        
     return result;
 }
 

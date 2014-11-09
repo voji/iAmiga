@@ -179,7 +179,27 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
-		7E1628C919E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1628C819E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf */; };
+		7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2919FAD4D000B6136B /* landbarblank.png */; };
+		7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */; };
+		7E1B8C3019FAD4D000B6136B /* landbarblank~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */; };
+		7E1B8C3119FAD4D000B6136B /* landbariphon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2C19FAD4D000B6136B /* landbariphon.png */; };
+		7E1B8C3219FAD4D000B6136B /* landbariphon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2D19FAD4D000B6136B /* landbariphon@2x.png */; };
+		7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3319FADFD400B6136B /* modejoy.png */; };
+		7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3419FADFD400B6136B /* modejoy@2x.png */; };
+		7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3519FADFD400B6136B /* modejoypressed.png */; };
+		7E1B8C4019FADFD400B6136B /* modejoypressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3619FADFD400B6136B /* modejoypressed@2x.png */; };
+		7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3719FADFD400B6136B /* modekeyoff.png */; };
+		7E1B8C4219FADFD400B6136B /* modekeyoff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3819FADFD400B6136B /* modekeyoff@2x.png */; };
+		7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3919FADFD400B6136B /* modekeyon.png */; };
+		7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */; };
+		7E1B8C4519FADFD400B6136B /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3B19FADFD400B6136B /* options.png */; };
+		7E1B8C4619FADFD400B6136B /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3C19FADFD400B6136B /* options@2x.png */; };
+		7E1B8C4B19FAE04700B6136B /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4719FAE04700B6136B /* sticky.png */; };
+		7E1B8C4C19FAE04700B6136B /* sticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4819FAE04700B6136B /* sticky@2x.png */; };
+		7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4919FAE04700B6136B /* unsticky.png */; };
+		7E1B8C4E19FAE04700B6136B /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */; };
+		7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */; };
+		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -214,6 +234,7 @@
 		7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
 		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
+		7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
 		9706D6581561817500073678 /* Aperture (1x3 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B4153A3F2E00580B91 /* Aperture (1x3 RB).png */; };
@@ -1539,7 +1560,27 @@
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
-		7E1628C819E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rainbow Islands (1990)(Ocean).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Rainbow Islands (1990)(Ocean).adf"; sourceTree = "<group>"; };
+		7E1B8C2919FAD4D000B6136B /* landbarblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landbarblank.png; sourceTree = "<group>"; };
+		7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank@2x.png"; sourceTree = "<group>"; };
+		7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank~iPad.png"; sourceTree = "<group>"; };
+		7E1B8C2C19FAD4D000B6136B /* landbariphon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landbariphon.png; sourceTree = "<group>"; };
+		7E1B8C2D19FAD4D000B6136B /* landbariphon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbariphon@2x.png"; sourceTree = "<group>"; };
+		7E1B8C3319FADFD400B6136B /* modejoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoy.png; sourceTree = "<group>"; };
+		7E1B8C3419FADFD400B6136B /* modejoy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modejoy@2x.png"; sourceTree = "<group>"; };
+		7E1B8C3519FADFD400B6136B /* modejoypressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoypressed.png; sourceTree = "<group>"; };
+		7E1B8C3619FADFD400B6136B /* modejoypressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modejoypressed@2x.png"; sourceTree = "<group>"; };
+		7E1B8C3719FADFD400B6136B /* modekeyoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyoff.png; sourceTree = "<group>"; };
+		7E1B8C3819FADFD400B6136B /* modekeyoff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modekeyoff@2x.png"; sourceTree = "<group>"; };
+		7E1B8C3919FADFD400B6136B /* modekeyon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyon.png; sourceTree = "<group>"; };
+		7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modekeyon@2x.png"; sourceTree = "<group>"; };
+		7E1B8C3B19FADFD400B6136B /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
+		7E1B8C3C19FADFD400B6136B /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options@2x.png"; sourceTree = "<group>"; };
+		7E1B8C4719FAE04700B6136B /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky.png; sourceTree = "<group>"; };
+		7E1B8C4819FAE04700B6136B /* sticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticky@2x.png"; sourceTree = "<group>"; };
+		7E1B8C4919FAE04700B6136B /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unsticky.png; sourceTree = "<group>"; };
+		7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unsticky@2x.png"; sourceTree = "<group>"; };
+		7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsController-ipad.xib"; sourceTree = "<group>"; };
+		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -1577,6 +1618,7 @@
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
+		7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iUAE/Images.xcassets; sourceTree = "<group>"; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2564,7 +2606,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7E1628C819E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2688,6 +2729,7 @@
 				05BC1AF01073448200EABC6E /* EMUFileInfo.h */,
 				05BC1AF11073448200EABC6E /* EMUFileInfo.m */,
 				05BC1AF21073448200EABC6E /* EMUROMBrowserView.xib */,
+				7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */,
 				05BC1AF31073448200EABC6E /* EMUROMBrowserViewController.h */,
 				05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */,
 			);
@@ -2700,6 +2742,7 @@
 				05BC1B1A10734C3B00EABC6E /* SettingsController.h */,
 				05BC1B1B10734C3B00EABC6E /* SettingsController.mm */,
 				05BC1B1C10734C3B00EABC6E /* SettingsController.xib */,
+				7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
 				05D5233512E8030E007912AE /* SelectEffectController.m */,
 				05D5233612E8030E007912AE /* SelectEffectController.xib */,
@@ -2807,6 +2850,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */,
 				05D6044912AF2D620048E478 /* Icon.png */,
 				05D6044A12AF2D620048E478 /* Icon@2x.png */,
 				057443530FC3CA04003BE251 /* disks */,
@@ -2880,6 +2924,32 @@
 				7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7EB5FBBC19F942AA0030920E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7E1B8C4719FAE04700B6136B /* sticky.png */,
+				7E1B8C4819FAE04700B6136B /* sticky@2x.png */,
+				7E1B8C4919FAE04700B6136B /* unsticky.png */,
+				7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */,
+				7E1B8C3319FADFD400B6136B /* modejoy.png */,
+				7E1B8C3419FADFD400B6136B /* modejoy@2x.png */,
+				7E1B8C3519FADFD400B6136B /* modejoypressed.png */,
+				7E1B8C3619FADFD400B6136B /* modejoypressed@2x.png */,
+				7E1B8C3719FADFD400B6136B /* modekeyoff.png */,
+				7E1B8C3819FADFD400B6136B /* modekeyoff@2x.png */,
+				7E1B8C3919FADFD400B6136B /* modekeyon.png */,
+				7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */,
+				7E1B8C3B19FADFD400B6136B /* options.png */,
+				7E1B8C3C19FADFD400B6136B /* options@2x.png */,
+				7E1B8C2919FAD4D000B6136B /* landbarblank.png */,
+				7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */,
+				7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */,
+				7E1B8C2C19FAD4D000B6136B /* landbariphon.png */,
+				7E1B8C2D19FAD4D000B6136B /* landbariphon@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		9706D7101561827300073678 /* sdi */ = {
@@ -3593,6 +3663,7 @@
 		97BE2AA71548702100BF66CF /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				7EB5FBBC19F942AA0030920E /* Images */,
 				97BE2AB51548702100BF66CF /* Landscape */,
 				97BE2AA81548702100BF66CF /* BaseControlsView.h */,
 				7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */,
@@ -3967,23 +4038,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				7E1B8C4E19FAE04700B6136B /* unsticky@2x.png in Resources */,
+				7E1B8C3119FAD4D000B6136B /* landbariphon.png in Resources */,
+				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
+				7E1B8C4B19FAE04700B6136B /* sticky.png in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7EA4D64D1923ECA200C58BB9 /* EmulationView-iPhone.xib in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
+				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
 				05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */,
+				7E1B8C3019FAD4D000B6136B /* landbarblank~iPad.png in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
+				7E1B8C4619FADFD400B6136B /* options@2x.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
+				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
+				7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */,
+				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
+				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
@@ -3994,30 +4077,39 @@
 				97855109153A3F2E00580B91 /* Aperture (1x2 RB).png in Resources */,
 				7E4B18DB188B1CBE0019E82B /* chrome-bottom@2x.png in Resources */,
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
+				7E1B8C4219FADFD400B6136B /* modekeyoff@2x.png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
+				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
+				7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
 				9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
+				7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */,
 				97BE2AE115489E6600BF66CF /* firebutton-red-active.png in Resources */,
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
+				7E1B8C4019FADFD400B6136B /* modejoypressed@2x.png in Resources */,
 				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
+				7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
+				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
+				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
 				7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
-				7E1628C919E1EA5A00C27F54 /* Rainbow Islands (1990)(Ocean).adf in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
+				7E1B8C3219FAD4D000B6136B /* landbariphon@2x.png in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
+				7E1B8C4C19FAE04700B6136B /* sticky@2x.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
@@ -5300,8 +5392,8 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
-				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = "Ad Hoc";
@@ -5310,6 +5402,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
@@ -5319,8 +5412,8 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.14;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5331,6 +5424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5341,8 +5435,8 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.14;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5353,6 +5447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
@@ -5361,8 +5456,8 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.14;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5685,8 +5780,8 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
-				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = Debug;
@@ -5738,8 +5833,8 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
-				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = Release;

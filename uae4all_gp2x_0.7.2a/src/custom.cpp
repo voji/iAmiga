@@ -2089,17 +2089,9 @@ static _INLINE_ void SET_INTERRUPT(void)
 
 static __inline__ void INTENA (uae_u16 v)
 {
-    int intenaset = 0;
-    int intenasetnew = 0;
 #ifdef DEBUG_CUSTOM
     dbgf("INTENA 0x%X\n",v);
 #endif
-    int vblankbit = (intena & ( 1 << 5)) >> 5;
-    
-    if (vblankbit == 1)
-    {
-        intenaset = 1;
-    }
     
     setclr (&intena,v);
     /* There's stupid code out there that does
@@ -2112,18 +2104,6 @@ static __inline__ void INTENA (uae_u16 v)
 	 we'll have SPCFLAG_DOINT set, and the interrupt happens immediately, but
 	 it needs to happen one insn later, when the new L3 handler has been
 	 installed.  */
-	
-     vblankbit = (intena & ( 1 << 5)) >> 5;
-    
-    if (vblankbit == 1)
-    {
-        intenasetnew = 1;
-    }
-    
-    if (intenasetnew != intenaset)
-    {
-         printf("VBLANK Intena Changed at: %x from %i to %i\n", m68kcontext.pc, intenaset, intenasetnew);
-    }
     
 #if !defined(USE_FAME_CORE) && !defined(DEBUG_M68K)
     if (v & 0x8000)

@@ -24,6 +24,7 @@
 
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
+extern int mainMenu_stretchscreen;
 
 @implementation SettingsController
 
@@ -41,7 +42,8 @@ extern int do_disa;
         [Filename addObject:[NSMutableString new]];
         [Filename addObject:[NSMutableString new]];
     }
-        
+    
+    stretchscreen.on = mainMenu_stretchscreen ? YES : NO;
 	status.on = mainMenu_showStatus ? YES : NO;
 	displayModeNTSC.on = mainMenu_ntsc ? YES : NO;
     [controller setTitle:@"iCADE" forState:UIControlStateNormal];
@@ -58,24 +60,31 @@ extern int do_disa;
 	logging.on = do_disa == 0 ? NO : YES;
 #endif
     
-    [df0 setTitle:[Filename objectAtIndex:0] forState:UIControlStateNormal];
-    [df1 setTitle:[Filename objectAtIndex:1] forState:UIControlStateNormal];
+    NSString *df0title = [[Filename objectAtIndex:0] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
+    NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
+    
+    [df0 setTitle:df0title forState:UIControlStateNormal];
+    [df1 setTitle:df1title forState:UIControlStateNormal];
 }
 
 - (IBAction)selectDrive:(UIButton*)sender {
-	EMUROMBrowserViewController *browser = [[EMUROMBrowserViewController alloc] initWithNibName:@"EMUROMBrowserView" bundle:nil];
+    
+    NSString *xibfile = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"EMUROMBrowserView-ipad" : @"EMUROMBrowserView";
+    
+	EMUROMBrowserViewController *browser = [[EMUROMBrowserViewController alloc] initWithNibName:xibfile bundle:nil];
 	browser.delegate = self;
 	browser.context = sender;
-	[self presentModalViewController:browser animated:YES];
-	//[self.navigationController pushViewController:browser animated:YES];
+	//[self presentModalViewController:browser animated:YES];
+	[self.navigationController pushViewController:browser animated:YES];
     [browser release];
 }
 
 - (IBAction)selectEffect:(id)sender {
 	SelectEffectController *ctl = [[SelectEffectController alloc] initWithNibName:@"SelectEffectController" bundle:nil];
 	[ctl setDelegate:self];
-	[self presentModalViewController:ctl animated:YES];
-	[ctl release];
+	//[self presentModalViewController:ctl animated:YES];
+	[self.navigationController pushViewController:ctl animated:YES];
+    [ctl release];
 }
 
 - (void)didSelectEffect:(int)aEffect name:(NSString*)name {
@@ -88,7 +97,8 @@ extern int do_disa;
 - (IBAction)selectController:(id)sender {
     SelectHardware *ctl = [[SelectHardware alloc] initWithNibName:@"SelectHardware" bundle:nil];
 	[ctl setDelegate:self];
-	[self presentModalViewController:ctl animated:YES];
+	//[self presentModalViewController:ctl animated:YES];
+    [self.navigationController pushViewController:ctl animated:YES];
 	[ctl release];
 }
 
@@ -121,6 +131,10 @@ extern "C" void uae_reset();
 
 - (IBAction)toggleStatus:(UISwitch*)sender {
 	mainMenu_showStatus = sender.on ? 1 : 0;
+}
+
+- (IBAction)toggleStretchScreen:(id)sender {
+    mainMenu_stretchscreen = stretchscreen.on ? 1 : 0;
 }
 
 - (IBAction)resetLog:(id)sender {

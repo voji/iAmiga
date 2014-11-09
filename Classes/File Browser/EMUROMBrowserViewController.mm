@@ -121,8 +121,9 @@
 		
 	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
 	EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
-	[self dismissModalViewControllerAnimated:YES];
-	if (self.delegate) {
+	//[self dismissModalViewControllerAnimated:YES];
+	[self.navigationController popViewControllerAnimated:YES];
+    if (self.delegate) {
 		[self.delegate didSelectROM:fi withContext:context];
 	}
 }
@@ -158,10 +159,6 @@
 	self.selectedIndexPath = nil;
 	self.context = nil;
 	[super dealloc];
-}
-
-- (IBAction)abortview:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

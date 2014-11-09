@@ -44,27 +44,36 @@
 @synthesize window, mainController;
 @synthesize navigationController;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
-
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     // load disks into df0: and df1:
     NSString *path = [[NSBundle mainBundle] pathForResource:@"DISK1" ofType:@"ADF"];
     [path getCString:prefs_df[0] maxLength:256 encoding:[NSString defaultCStringEncoding]];
     fprintf(stdout, ">>>>>>> %s\n", prefs_df[0]);
     path = [[NSBundle mainBundle] pathForResource:@"DISK2" ofType:@"ADF"];
     [path getCString:prefs_df[1] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-	
+    
     // Override point for customization after application launch
     [window makeKeyAndVisible];
-	    
-	OSStatus res = AudioSessionInitialize(NULL, NULL, NULL, NULL);
-	UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
-	res = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
-	res = AudioSessionSetActive(true);
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidConnect:) name:UIScreenDidConnectNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];
-	[self configureScreens];
+    
+    /*if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {*/
+        window.frame = [[UIScreen mainScreen] bounds];
+    /*}*/
+    
+    //[window.rootViewController setNeedsStatusBarAppearanceUpdate];
+    
+        
+    OSStatus res = AudioSessionInitialize(NULL, NULL, NULL, NULL);
+    UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
+    res = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
+    res = AudioSessionSetActive(true);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidConnect:) name:UIScreenDidConnectNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];
+    [self configureScreens];
 }
+
+
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     SDL_PauseOpenGL(1);
@@ -84,6 +93,9 @@
 }
 
 - (void)configureScreens {
+    
+    [window.rootViewController setNeedsStatusBarAppearanceUpdate];
+    
 	if ([[UIScreen screens] count] == 1) {
 		NSLog(@"Device display");
 		// disable extras		
