@@ -5,6 +5,21 @@
 //  Created by Stuart Carnie on 6/5/11.
 //  Copyright 2011 Manomio LLC. All rights reserved.
 //
+//  Changed by Emufr3ak on 17.11.14.
+//
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+//along with this program; if not, write to the Free Software
+//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #include "SDL_events.h"
 #include "SDL_joystick.h"
@@ -16,6 +31,7 @@
 #import "iCadeReaderView.h"
 #import "ButtonStates.h"
 #import "SDL_NSObject+Blocks.h"
+#import "MFIControllerReaderView.h"
 
 extern UIView *GetSharedOGLDisplayView();
 
@@ -23,10 +39,12 @@ extern UIView *GetSharedOGLDisplayView();
 #define kAccelerometer  1
 #define kiControlPad    2
 #define kiCade          3
+#define kOfficial       4
 
 const char *accelerometerName = "iPhone accelerometer";
 const char *iControlPadName = "iControlPad";
 const char *iCadeName = "iCADE";
+const char *officialName = "Official";
 
 typedef struct joystick_hwdata {
     UIView *view;
@@ -36,7 +54,7 @@ inline
 static int icp_getState(int button);
 
 int SDL_SYS_JoystickInit(void) {
-    return 4;
+    return 5;
 }
 
 /* Function to get the device-dependent name of a joystick */
@@ -53,9 +71,11 @@ const char *SDL_SYS_JoystickName(int index) {
             
         case kiCade:
             return iCadeName;
-            
+        
+        case kOfficial:
+            return officialName;
         default:
-			SDL_SetError("No joystick available with that index");
+			SDL_SetError("No joystick available with t index");
 			return NULL;
     }
 }
@@ -110,6 +130,24 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 		joystick->name  = accelerometerName;
 		[[SDLUIAccelerationDelegate sharedDelegate] startup];
 	}
+    else if (joystick->index == kOfficial) {
+        joystick->naxes = 0;
+        joystick->nhats = 1;
+        joystick->nballs = 0;
+        joystick->nbuttons = 1;
+        joystick->name = officialName;
+        joystick->hwdata = (joystick_hwdata *)SDL_malloc(sizeof(joystick_hwdata));
+        MFIControllerReaderView *view = [[MFIControllerReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+        SDL_Surface *surface = SDL_GetVideoSurface();
+        UIView *display = (UIView *)surface->userdata;
+        
+        [display performBlock:^(void) {
+            // main thread
+            [display addSubview:view];
+            
+        } afterDelay:0.0f];
+        joystick->hwdata->view = view;
+    }
 	else {
 		SDL_SetError("No joystick available with that index");
 		return (-1);
@@ -171,6 +209,24 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
             SDL_PrivateJoystickHat(joystick, 0, hat_state);
         }
     }
+    else if (joystick->index == kOfficial) {
+        
+        // buttons
+        MFIControllerReaderView *view = (MFIControllerReaderView *)joystick->hwdata->view;
+        
+        Uint8 pr = view.buttonpressed == true ? SDL_PRESSED : SDL_RELEASED;
+            
+        if (joystick->buttons[0] != pr)
+        {
+            SDL_PrivateJoystickButton(joystick, 0, pr);; // hasn't changed state, so don't pump and event
+        }
+        
+        Uint8 hat_state = [view hat_state];
+        if (joystick->hats[0] != hat_state) {
+            SDL_PrivateJoystickHat(joystick, 0, hat_state);
+        }
+    }
+
 }
 
 /* Function to close a joystick after use */
@@ -187,7 +243,14 @@ SDL_SYS_JoystickClose(SDL_Joystick * joystick)
         [joystick->hwdata->view removeFromSuperview];
         [joystick->hwdata->view release];
         SDL_free(joystick->hwdata);
-    } else {
+    }
+    else if (joystick->index == kOfficial)
+    {
+        [joystick->hwdata->view removeFromSuperview];
+        [joystick->hwdata->view release];
+        SDL_free(joystick->hwdata);
+    }
+    else {
         SDL_SetError("No joystick open with that index");
     }
     

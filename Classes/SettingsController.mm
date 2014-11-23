@@ -5,6 +5,21 @@
 //  Created by Stuart Carnie on 9/30/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
+//  Changed by Emufr3ak on 17.11.2014
+//
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "SettingsController.h"
 #import "EMUROMBrowserViewController.h"
@@ -25,6 +40,7 @@
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
+extern int joystickselected;
 
 @implementation SettingsController
 
@@ -46,7 +62,25 @@ extern int do_disa;
     stretchscreen.on = mainMenu_stretchscreen ? YES : NO;
 	status.on = mainMenu_showStatus ? YES : NO;
 	displayModeNTSC.on = mainMenu_ntsc ? YES : NO;
-    [controller setTitle:@"iCADE" forState:UIControlStateNormal];
+    
+    
+    
+    NSString *controllername;
+    
+    switch(joystickselected)
+    {
+        case 4:
+            controllername = @"MFI";
+            break;
+        case 3:
+            controllername = @"iCADE";
+            break;
+        default:
+            controllername = @"iControlPAD";
+            break;
+    }
+    
+    [controller setTitle:controllername forState:UIControlStateNormal];
 	
 #if DISASSEMBLER
 	resetLog.hidden = NO;

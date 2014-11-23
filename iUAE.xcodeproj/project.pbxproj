@@ -34,7 +34,7 @@
 		0533691413B1DEE90012D55A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		0533691513B1DEE90012D55A /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		0533691613B1DEE90012D55A /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		0533691713B1DEE90012D55A /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		0533691713B1DEE90012D55A /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		0533691813B1DEE90012D55A /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		0533691913B1DEE90012D55A /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		0533691A13B1DEE90012D55A /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -78,7 +78,7 @@
 		0552BD4B0F3D797C005B30DF /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		0552BD4C0F3D797C005B30DF /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		0552BD4E0F3D797C005B30DF /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		0552BD4F0F3D797C005B30DF /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		0552BD4F0F3D797C005B30DF /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -213,6 +213,8 @@
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
+		7E9482661A2277B200F254F6 /* Kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E9482651A2277B200F254F6 /* Kick13.rom */; };
+		7E9482681A2277C600F254F6 /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E9482671A2277C600F254F6 /* Northsou.adf */; };
 		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
@@ -234,6 +236,8 @@
 		7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
 		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
+		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
+		7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */; };
 		7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
@@ -281,7 +285,7 @@
 		9706D6C91561817500073678 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		9706D6CA1561817500073678 /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		9706D6CB1561817500073678 /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		9706D6CC1561817500073678 /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		9706D6CC1561817500073678 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		9706D6CD1561817500073678 /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		9706D6CE1561817500073678 /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		9706D6CF1561817500073678 /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -452,7 +456,7 @@
 		97242C8E156177EC00B6D03C /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		97242C8F156177EC00B6D03C /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		97242C90156177EC00B6D03C /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		97242C91156177EC00B6D03C /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		97242C91156177EC00B6D03C /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		97242C92156177EC00B6D03C /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		97242C93156177EC00B6D03C /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		97242C94156177EC00B6D03C /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -742,7 +746,7 @@
 		9787FA751561882D00458A4A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		9787FA761561882D00458A4A /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		9787FA771561882D00458A4A /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		9787FA781561882D00458A4A /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		9787FA781561882D00458A4A /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		9787FA791561882D00458A4A /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		9787FA7A1561882D00458A4A /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		9787FA7B1561882D00458A4A /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -853,7 +857,7 @@
 		9787FBD815618A5E00458A4A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		9787FBD915618A5E00458A4A /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		9787FBDA15618A5E00458A4A /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		9787FBDB15618A5E00458A4A /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		9787FBDB15618A5E00458A4A /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		9787FBDC15618A5E00458A4A /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		9787FBDD15618A5E00458A4A /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		9787FBDE15618A5E00458A4A /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -1145,7 +1149,7 @@
 		97C8756D156E834100197738 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		97C8756E156E834100197738 /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		97C8756F156E834100197738 /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		97C87570156E834100197738 /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		97C87570156E834100197738 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		97C87571156E834100197738 /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		97C87572156E834100197738 /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		97C87573156E834100197738 /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -1244,7 +1248,7 @@
 		97EF95C9153876CA001C01E6 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		97EF95CA153876CA001C01E6 /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		97EF95CB153876CA001C01E6 /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		97EF95CC153876CA001C01E6 /* od-joy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.cpp */; };
+		97EF95CC153876CA001C01E6 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		97EF95CD153876CA001C01E6 /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		97EF95CE153876CA001C01E6 /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		97EF95CF153876CA001C01E6 /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -1406,7 +1410,7 @@
 		0552BD120F3D797C005B30DF /* menu_load.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu_load.cpp; sourceTree = "<group>"; };
 		0552BD130F3D797C005B30DF /* msg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg.h; sourceTree = "<group>"; };
 		0552BD140F3D797C005B30DF /* missing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = missing.cpp; sourceTree = "<group>"; };
-		0552BD150F3D797C005B30DF /* od-joy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "od-joy.cpp"; sourceTree = "<group>"; };
+		0552BD150F3D797C005B30DF /* od-joy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "od-joy.mm"; sourceTree = "<group>"; };
 		0552BD160F3D797C005B30DF /* save_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = save_icon.h; sourceTree = "<group>"; };
 		0552BD170F3D797C005B30DF /* savedisk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = savedisk.cpp; sourceTree = "<group>"; };
 		0552BD180F3D797C005B30DF /* savedisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = savedisk.h; sourceTree = "<group>"; };
@@ -1593,6 +1597,8 @@
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
+		7E9482651A2277B200F254F6 /* Kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = Kick13.rom; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Roms/Kick13.rom; sourceTree = "<group>"; };
+		7E9482671A2277C600F254F6 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Northsou.adf; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64C1923ECA200C58BB9 /* EmulationView-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "EmulationView-iPhone.xib"; path = "iUAEParents/EmulationView-iPhone.xib"; sourceTree = "<group>"; };
@@ -1618,6 +1624,9 @@
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
+		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		7EB372EB1A0FFB0C001B460A /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
+		7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iUAE/Images.xcassets; sourceTree = "<group>"; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2119,6 +2128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */,
 				7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -2379,7 +2389,7 @@
 				0552BCFB0F3D797C005B30DF /* linetoscr.h */,
 				0552BD0E0F3D797C005B30DF /* memory.cpp */,
 				0552BD140F3D797C005B30DF /* missing.cpp */,
-				0552BD150F3D797C005B30DF /* od-joy.cpp */,
+				0552BD150F3D797C005B30DF /* od-joy.mm */,
 				0552BD160F3D797C005B30DF /* save_icon.h */,
 				0552BD180F3D797C005B30DF /* savedisk.h */,
 				0552BD170F3D797C005B30DF /* savedisk.cpp */,
@@ -2599,6 +2609,7 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7E9482651A2277B200F254F6 /* Kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2606,6 +2617,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E9482671A2277C600F254F6 /* Northsou.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2866,6 +2878,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EB372E91A0FC8DE001B460A /* GameController.framework */,
 				05084E4913D7FE7B0004617A /* libz.dylib */,
 				976877751534B2D20077B654 /* AudioToolbox.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -3289,6 +3302,8 @@
 				97855084153A3F2E00580B91 /* ButtonStates.h */,
 				97855085153A3F2E00580B91 /* ButtonStates.m */,
 				97855086153A3F2E00580B91 /* iCadeReaderView.h */,
+				7EB372EB1A0FFB0C001B460A /* MFIControllerReaderView.h */,
+				7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */,
 				97855087153A3F2E00580B91 /* iCadeReaderView.m */,
 				97855088153A3F2E00580B91 /* iCadeState.h */,
 				97855089153A3F2E00580B91 /* iControlPadReaderView.h */,
@@ -4060,12 +4075,14 @@
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
 				7E1B8C4619FADFD400B6136B /* options@2x.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
+				7E9482661A2277B200F254F6 /* Kick13.rom in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */,
 				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
+				7E9482681A2277C600F254F6 /* Northsou.adf in Resources */,
 				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
@@ -4652,7 +4669,7 @@
 				0533691413B1DEE90012D55A /* memory.cpp in Sources */,
 				0533691513B1DEE90012D55A /* fade.cpp in Sources */,
 				0533691613B1DEE90012D55A /* missing.cpp in Sources */,
-				0533691713B1DEE90012D55A /* od-joy.cpp in Sources */,
+				0533691713B1DEE90012D55A /* od-joy.mm in Sources */,
 				0533691813B1DEE90012D55A /* savedisk.cpp in Sources */,
 				0533691913B1DEE90012D55A /* sdlgfx.cpp in Sources */,
 				0533691A13B1DEE90012D55A /* vkbd.cpp in Sources */,
@@ -4739,7 +4756,7 @@
 				0552BD4C0F3D797C005B30DF /* fade.cpp in Sources */,
 				0552BD4E0F3D797C005B30DF /* missing.cpp in Sources */,
 				7EA4D64B1923EC9700C58BB9 /* BaseWebviewController.m in Sources */,
-				0552BD4F0F3D797C005B30DF /* od-joy.cpp in Sources */,
+				0552BD4F0F3D797C005B30DF /* od-joy.mm in Sources */,
 				0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */,
 				7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */,
 				0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */,
@@ -4804,6 +4821,7 @@
 				97855121153A3F2E00580B91 /* Simple.frag in Sources */,
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
+				7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
 				9785512D153A3F2E00580B91 /* SDL_UIKitVideo.m in Sources */,
 			);
@@ -4829,7 +4847,7 @@
 				9706D6C91561817500073678 /* memory.cpp in Sources */,
 				9706D6CA1561817500073678 /* fade.cpp in Sources */,
 				9706D6CB1561817500073678 /* missing.cpp in Sources */,
-				9706D6CC1561817500073678 /* od-joy.cpp in Sources */,
+				9706D6CC1561817500073678 /* od-joy.mm in Sources */,
 				9706D6CD1561817500073678 /* savedisk.cpp in Sources */,
 				9706D6CE1561817500073678 /* sdlgfx.cpp in Sources */,
 				9706D6CF1561817500073678 /* vkbd.cpp in Sources */,
@@ -4904,7 +4922,7 @@
 				97242C8E156177EC00B6D03C /* memory.cpp in Sources */,
 				97242C8F156177EC00B6D03C /* fade.cpp in Sources */,
 				97242C90156177EC00B6D03C /* missing.cpp in Sources */,
-				97242C91156177EC00B6D03C /* od-joy.cpp in Sources */,
+				97242C91156177EC00B6D03C /* od-joy.mm in Sources */,
 				97242C92156177EC00B6D03C /* savedisk.cpp in Sources */,
 				97242C93156177EC00B6D03C /* sdlgfx.cpp in Sources */,
 				97242C94156177EC00B6D03C /* vkbd.cpp in Sources */,
@@ -4979,7 +4997,7 @@
 				9787FA751561882D00458A4A /* memory.cpp in Sources */,
 				9787FA761561882D00458A4A /* fade.cpp in Sources */,
 				9787FA771561882D00458A4A /* missing.cpp in Sources */,
-				9787FA781561882D00458A4A /* od-joy.cpp in Sources */,
+				9787FA781561882D00458A4A /* od-joy.mm in Sources */,
 				9787FA791561882D00458A4A /* savedisk.cpp in Sources */,
 				9787FA7A1561882D00458A4A /* sdlgfx.cpp in Sources */,
 				9787FA7B1561882D00458A4A /* vkbd.cpp in Sources */,
@@ -5054,7 +5072,7 @@
 				9787FBD815618A5E00458A4A /* memory.cpp in Sources */,
 				9787FBD915618A5E00458A4A /* fade.cpp in Sources */,
 				9787FBDA15618A5E00458A4A /* missing.cpp in Sources */,
-				9787FBDB15618A5E00458A4A /* od-joy.cpp in Sources */,
+				9787FBDB15618A5E00458A4A /* od-joy.mm in Sources */,
 				9787FBDC15618A5E00458A4A /* savedisk.cpp in Sources */,
 				9787FBDD15618A5E00458A4A /* sdlgfx.cpp in Sources */,
 				9787FBDE15618A5E00458A4A /* vkbd.cpp in Sources */,
@@ -5134,7 +5152,7 @@
 				97C8756D156E834100197738 /* memory.cpp in Sources */,
 				97C8756E156E834100197738 /* fade.cpp in Sources */,
 				97C8756F156E834100197738 /* missing.cpp in Sources */,
-				97C87570156E834100197738 /* od-joy.cpp in Sources */,
+				97C87570156E834100197738 /* od-joy.mm in Sources */,
 				97C87571156E834100197738 /* savedisk.cpp in Sources */,
 				97C87572156E834100197738 /* sdlgfx.cpp in Sources */,
 				97C87573156E834100197738 /* vkbd.cpp in Sources */,
@@ -5226,7 +5244,7 @@
 				97EF95C9153876CA001C01E6 /* memory.cpp in Sources */,
 				97EF95CA153876CA001C01E6 /* fade.cpp in Sources */,
 				97EF95CB153876CA001C01E6 /* missing.cpp in Sources */,
-				97EF95CC153876CA001C01E6 /* od-joy.cpp in Sources */,
+				97EF95CC153876CA001C01E6 /* od-joy.mm in Sources */,
 				97EF95CD153876CA001C01E6 /* savedisk.cpp in Sources */,
 				97EF95CE153876CA001C01E6 /* sdlgfx.cpp in Sources */,
 				97EF95CF153876CA001C01E6 /* vkbd.cpp in Sources */,
@@ -5407,13 +5425,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Multimedia/emus/amiga/HDS/Work/Programme/xfrmaster,
+				);
 				PRODUCT_NAME = iUAE;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5431,12 +5453,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Multimedia/emus/amiga/HDS/Work/Programme/xfrmaster,
+				);
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5452,12 +5478,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Multimedia/emus/amiga/HDS/Work/Programme/xfrmaster,
+				);
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
