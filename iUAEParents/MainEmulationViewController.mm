@@ -78,6 +78,12 @@ extern void uae_reset();
     [self.view setMultipleTouchEnabled:TRUE];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    set_joystickactive();
+    
+}
+
 - (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight  {
     
     int xpos = [self XposFloatPanel:barwidth];
@@ -150,7 +156,9 @@ extern void uae_reset();
     mouseHandlermain.hidden = joyactive;
     
     if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
-        
+    
+    if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
+    
     if (button == btnSettings) { [self settings]; }
     
 }

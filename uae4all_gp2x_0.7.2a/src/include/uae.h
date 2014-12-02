@@ -27,7 +27,8 @@ public:
 	void reset_all_systems (void);
 	void uae_pause(void);
 	void uae_resume(void);
-	
+    void set_joystickactive(void);
+    
 public:
 	// state
 	tagUAERunState quit_program;
@@ -46,5 +47,6 @@ private:
 extern uae g_emulator;
 
 extern "C" void uae_reset();
+extern "C" void set_joystickactive();
 
 #endif

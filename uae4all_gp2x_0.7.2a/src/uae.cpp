@@ -219,3 +219,8 @@ void uae::real_main () {
 	}
     leave_program ();
 }
+
+void uae::set_joystickactive(void)
+{
+    set_joystickactive();
+}

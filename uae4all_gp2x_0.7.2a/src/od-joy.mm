@@ -142,3 +142,10 @@ void switch_joystick(int joynum) {
     uae4all_joy0 = newJoystick;
     SDL_JoystickClose(oldJoystick);
 }
+
+void set_joystickactive(void) {
+    if(uae4all_joy0)
+    {
+        SDL_JoystickSetActive(uae4all_joy0);
+    }
+}

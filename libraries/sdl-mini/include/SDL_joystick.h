@@ -31,6 +31,7 @@ extern const char * SDL_JoystickName(int device_index);
 extern SDL_Joystick* SDL_JoystickOpen(int);
 extern int SDL_JoystickNumButtons(SDL_Joystick*);
 extern void SDL_JoystickUpdate();
+extern void SDL_JoystickSetActive(SDL_Joystick * joystick);
     
 /**
  *  Enable/disable joystick event polling.
@@ -56,6 +57,7 @@ extern Sint16 SDL_JoystickGetAxis(SDL_Joystick*, int);
  * Get the current state of a POV hat on a joystick
  * The return value is one of the following positions:
  */
+    
 #define SDL_HAT_CENTERED	0x00
 #define SDL_HAT_UP			0x01
 #define SDL_HAT_RIGHT		0x02

@@ -263,6 +263,13 @@ SDL_SYS_JoystickQuit(void) {
     return;
 }
 
+void SDL_SYS_JoystickSetActive(SDL_Joystick * joystick) {
+    if(joystick->hwdata->view)
+    {
+        [joystick->hwdata->view becomeFirstResponder];
+    }
+}
+
 // iControlPad
 static int LEFT_BYTE[] = {ICP_BUTTON_UP, ICP_BUTTON_RIGHT, ICP_BUTTON_LEFT, ICP_BUTTON_DOWN, ICP_BUTTON_L, ICP_BUTTON_SELECT};
 static int RIGHT_BYTE[] = {ICP_BUTTON_START, ICP_BUTTON_Y, ICP_BUTTON_A, ICP_BUTTON_X, ICP_BUTTON_B, ICP_BUTTON_R};
