@@ -95,7 +95,7 @@ extern int do_disa;
 #endif
     
     NSString *df0title = [[Filename objectAtIndex:0] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
-    NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
+    NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:1];
     
     [df0 setTitle:df0title forState:UIControlStateNormal];
     [df1 setTitle:df1title forState:UIControlStateNormal];
@@ -145,6 +145,7 @@ extern void switch_joystick(int joynum);
 
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
 	NSString *path = [fileInfo path];
+    NSString *tst = [fileInfo fileName];
 	int df = sender.tag;
 	[sender setTitle:[fileInfo fileName] forState:UIControlStateNormal];
     [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
