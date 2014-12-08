@@ -176,6 +176,7 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	return CGRectMake(0, 0, kDisplayWidth * ratio, kDisplayHeight * ratio);
 }
 
+
 - (void)setDisplayViewWindow:(UIWindow*)window isExternal:(BOOL)isExternal {
 	_isExternal = isExternal;
 	self.displayViewWindow = window;

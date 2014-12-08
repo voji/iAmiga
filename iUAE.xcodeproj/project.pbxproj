@@ -179,6 +179,8 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
+		7E1073851A347455000D7269 /* SettingsControllerV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1073841A347455000D7269 /* SettingsControllerV2.xib */; };
+		7E10738B1A34E85E000D7269 /* StoryboardiPAD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */; };
 		7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2919FAD4D000B6136B /* landbarblank.png */; };
 		7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */; };
 		7E1B8C3019FAD4D000B6136B /* landbarblank~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */; };
@@ -1565,6 +1567,8 @@
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
+		7E1073841A347455000D7269 /* SettingsControllerV2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsControllerV2.xib; sourceTree = "<group>"; };
+		7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = StoryboardiPAD.storyboard; path = ../../StoryboardiPAD.storyboard; sourceTree = "<group>"; };
 		7E1B8C2919FAD4D000B6136B /* landbarblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landbarblank.png; sourceTree = "<group>"; };
 		7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank@2x.png"; sourceTree = "<group>"; };
 		7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank~iPad.png"; sourceTree = "<group>"; };
@@ -2303,9 +2307,11 @@
 		053368AD13B1BD740012D55A /* SingleView */ = {
 			isa = PBXGroup;
 			children = (
+				053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */,
 				053368B913B1D7400012D55A /* Resources-iPhone */,
 				053368AF13B1BDA40012D55A /* Resources-iPad */,
 				053368B013B1BDD60012D55A /* SingleWindowAppDelegate.h */,
+				7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */,
 				7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */,
 				7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */,
 				053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */,
@@ -2320,7 +2326,6 @@
 		053368AF13B1BDA40012D55A /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
-				053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -2764,6 +2769,7 @@
 				05619ED813ADE1AA00341DB0 /* SelectHardware.h */,
 				05619ED913ADE1AA00341DB0 /* SelectHardware.m */,
 				05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */,
+				7E1073841A347455000D7269 /* SettingsControllerV2.xib */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4083,10 +4089,12 @@
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
+				7E10738B1A34E85E000D7269 /* StoryboardiPAD.storyboard in Resources */,
 				7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */,
 				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
 				7E9482681A2277C600F254F6 /* Northsou.adf in Resources */,
 				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
+				7E1073851A347455000D7269 /* SettingsControllerV2.xib in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
@@ -5439,7 +5447,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5466,7 +5474,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5491,7 +5499,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;

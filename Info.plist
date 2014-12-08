@@ -2,12 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleBlackOpaque</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
-	<key>Initial Interface Orientation</key>
-	<string>Landscape (left home button)</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>StoryboardiPAD</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -27,13 +23,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.06</string>
+	<string>1.1.0.0</string>
+	<key>Initial Interface Orientation</key>
+	<string>Landscape (left home button)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSMainNibFile</key>
-	<string>MainWindow-Single</string>
-	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-Single-iPad</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
@@ -45,9 +39,13 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

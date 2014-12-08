@@ -42,9 +42,12 @@
 @implementation SingleWindowAppDelegate
 
 @synthesize window, mainController;
-@synthesize navigationController;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    //Get some view Specific properties
+    UINavigationController *navigationcontroller = self.window.rootViewController;
+    mainController = navigationcontroller.topViewController;
+    
     // load disks into df0: and df1:
     NSString *path = [[NSBundle mainBundle] pathForResource:@"DISK1" ofType:@"ADF"];
     [path getCString:prefs_df[0] maxLength:256 encoding:[NSString defaultCStringEncoding]];
@@ -102,7 +105,8 @@
 		if (externalWindow) {
 			externalWindow.hidden = YES;
 		}
-		[self.mainController setDisplayViewWindow:nil isExternal:NO];
+        
+		[mainController setDisplayViewWindow:nil isExternal:NO];
 	} else {
 		NSLog(@"External display");
 		UIScreen *secondary = [[UIScreen screens] objectAtIndex:1];
