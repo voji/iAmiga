@@ -7,6 +7,23 @@
  * Copyright 1997 Bernd Schmidt
  * Copyright 1998 Krister Walfridsson
  */
+//  Changed by Emufr3ak on 17.11.2014
+//
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+
 
 #include "sysconfig.h"
 #include "sysdeps.h"
@@ -17,7 +34,11 @@
 
 #include "vkbd.h"
 
+#import <UIKit/UIKit.h>
+#import <GameController/GameController.h>
+
 int nr_joysticks;
+int joystickselected;
 
 SDL_Joystick *uae4all_joy0, *uae4all_joy1;
 
@@ -95,8 +116,20 @@ void read_joystick(int nr, unsigned int *dir, int *button)
 }
 
 void init_joystick(void) {
+    
     nr_joysticks = 1;
-    uae4all_joy0 = SDL_JoystickOpen(3);  // iCADE by default
+    joystickselected = 3;
+    
+    if ([[GCController controllers] count] > 0)
+    {
+        uae4all_joy0 = SDL_JoystickOpen(4);  // MFI Controller detected
+        joystickselected = 4;
+    }
+    else
+    {
+        uae4all_joy0 = SDL_JoystickOpen(3);  // iCADE by default
+        joystickselected = 3;
+    }
 }
 
 void close_joystick(void) {
@@ -108,4 +141,11 @@ void switch_joystick(int joynum) {
     SDL_Joystick *oldJoystick = uae4all_joy0;
     uae4all_joy0 = newJoystick;
     SDL_JoystickClose(oldJoystick);
+}
+
+void set_joystickactive(void) {
+    if(uae4all_joy0)
+    {
+        SDL_JoystickSetActive(uae4all_joy0);
+    }
 }

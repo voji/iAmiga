@@ -523,3 +523,8 @@ SDL_JoystickEventState(int state)
     return (state);
 #endif /* SDL_EVENTS_DISABLED */
 }
+
+void SDL_JoystickSetActive(SDL_Joystick * joystick)
+{
+    SDL_SYS_JoystickSetActive(joystick);
+}

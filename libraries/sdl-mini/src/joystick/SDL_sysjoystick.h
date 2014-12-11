@@ -68,3 +68,5 @@ extern void SDL_SYS_JoystickClose(SDL_Joystick * joystick);
 
 /* Function to perform any system-specific joystick related cleanup */
 extern void SDL_SYS_JoystickQuit(void);
+
+extern void SDL_SYS_JoystickSetActive(SDL_Joystick * joystick);

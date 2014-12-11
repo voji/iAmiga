@@ -7,7 +7,7 @@
 //
 
 #import "SelectHardware.h"
-
+extern int joystickselected;
 
 @implementation SelectHardware
 
@@ -17,8 +17,9 @@
 	controllers = [[NSMutableArray alloc] initWithObjects:
                @"iCADE",
                @"iControlPad",
+               @"MFI Controller",
                nil];
-	lastSelectedRow = 0;
+	lastSelectedRow = joystickselected;
 }
 
 - (void)viewDidUnload {
@@ -44,7 +45,21 @@
 }
 
 - (IBAction)done:(id)sender {
-    int joystick = lastSelectedRow == 0 ? 3 : 2;
+    int joystick;
+    
+    switch(lastSelectedRow)
+    {
+        case 2:
+            joystick = 4;
+            break;
+        case 0:
+            joystick = 3;
+            break;
+        default:
+            joystick = 2;
+            break;
+    }
+    
 	[delegate didSelectHardware:joystick name:[controllers objectAtIndex:lastSelectedRow]];
 	//[self dismissModalViewControllerAnimated:YES];
     [self.navigationController popViewControllerAnimated:YES];

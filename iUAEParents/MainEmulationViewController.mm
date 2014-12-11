@@ -32,7 +32,12 @@
 
 @end
 
-@implementation MainEmulationViewController
+@implementation MainEmulationViewController {
+    
+    bool showalert;
+
+}
+
 @synthesize joyControllerMain;
 
 
@@ -74,8 +79,53 @@ extern void uae_reset();
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
     [self.view setMultipleTouchEnabled:TRUE];
+    [self showpopupfirstlaunch];
+}
+
+- (void)showpopupfirstlaunch {
+    //Popup MFI Controller
+    NSFileManager *filemgr;
+    
+    filemgr = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [paths objectAtIndex:0];
+    [filemgr changeCurrentDirectoryPath:docsDir];
+    
+    if ([filemgr fileExistsAtPath: @"firstlaunch.txt" ] == YES)
+    {
+        showalert = FALSE;
+    }
+    else
+    {
+        showalert = TRUE;
+        
+        NSMutableData *data;
+        const char *bytestring = "1.0.7";
+        
+        data = [NSMutableData dataWithBytes:bytestring length:strlen(bytestring)];
+        bool success = [filemgr createFileAtPath:@"./firstlaunch.txt" contents:data attributes:nil];
+        
+        [filemgr release];
+    }
+
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    set_joystickactive();
+    if(showalert)
+    {
+        showalert = FALSE;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MFI Game Controllers"
+                                                        message:@"This version supports MFI Game Controllers. I have no Idea if it works, because I don't own one. Feedback very welcome at emufr3ak@icloud.com or on my website www.iuae-emulator.net"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
 }
 
 - (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight  {
@@ -150,7 +200,9 @@ extern void uae_reset();
     mouseHandlermain.hidden = joyactive;
     
     if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
-        
+    
+    if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
+    
     if (button == btnSettings) { [self settings]; }
     
 }
