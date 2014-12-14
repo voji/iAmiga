@@ -141,11 +141,11 @@ extern void uae_reset();
     [btnSettings addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
     [items addObject:btnSettings];
     
-    btnKeyboard = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [btnKeyboard setImage:[UIImage imageNamed:@"modekeyoff.png"] forState:UIControlStateNormal];
-    [btnKeyboard setImage:[UIImage imageNamed:@"modekeyon.png"] forState:UIControlStateSelected];
-    [btnKeyboard addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:btnKeyboard];
+    _btnKeyboard = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
+    [_btnKeyboard setImage:[UIImage imageNamed:@"modekeyoff.png"] forState:UIControlStateNormal];
+    [_btnKeyboard setImage:[UIImage imageNamed:@"modekeyon.png"] forState:UIControlStateSelected];
+    [_btnKeyboard addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
+    [items addObject:_btnKeyboard];
     
     btnJoypad = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
     [btnJoypad setImage:[UIImage imageNamed:@"modejoy.png"] forState:UIControlStateNormal];
@@ -190,10 +190,10 @@ extern void uae_reset();
     
     UIButton *button = (UIButton *) sender;
     
-    keyboardactive = (button == btnKeyboard) ? !keyboardactive : FALSE;
+    keyboardactive = (button == _btnKeyboard) ? !keyboardactive : FALSE;
     joyactive = (button == btnJoypad) ? !joyactive : FALSE;
     
-    btnKeyboard.selected = (button == btnKeyboard) ? !btnKeyboard.selected : FALSE;
+    _btnKeyboard.selected = (button == _btnKeyboard) ? !_btnKeyboard.selected : FALSE;
     btnJoypad.selected = (button == btnJoypad) ? !btnJoypad.selected : FALSE;
     
     joyControllerMain.hidden = !joyactive;
@@ -217,6 +217,12 @@ extern void uae_reset();
                                                selector:@selector(keyboardDidHide:)
                                                    name:UIKeyboardDidHideNotification
                                                  object:nil];
+}
+
+- (void)dealloc
+{
+    [_btnKeyboard release];
+    [btnJoypad release];
 }
 
 @end

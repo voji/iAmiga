@@ -33,8 +33,6 @@
 
 bool keyboardactive;
 
-UIButton *btnKeyboard;
-
 - (CGFloat) XposFloatPanel {
     
     CGRect screenRect = CGRectZero;
@@ -59,7 +57,7 @@ UIButton *btnKeyboard;
     [webView setOpaque:NO];
     webView.delegate = self;
     
-    [self initializeFullScreenPanel];
+    //[self initializeFullScreenPanel];
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts: dummy_textfield_s];
 }
 
@@ -89,7 +87,7 @@ UIButton *btnKeyboard;
             && dummy_textfield_s.isFirstResponder == FALSE //Special Keyboard view was activated this triggered the event
        )
     {
-        [btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
+        [self.btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -97,6 +95,10 @@ UIButton *btnKeyboard;
     
     [super initializeFullScreenPanel:700 barheight:47 iconwidth:72 iconheight:36];
     
+}
+
+- (IBAction)toggleControls:(id)sender {
+    [super toggleControls:sender];
 }
 
 @end

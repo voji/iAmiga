@@ -5,54 +5,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Emulation Viewi Pad-->
+        <!--Emulation Viewi Phone-->
         <scene sceneID="oNt-ae-1rZ">
             <objects>
-                <viewController id="fEz-6J-9kJ" customClass="EmulationViewiPad" sceneMemberID="viewController">
+                <viewController id="fEz-6J-9kJ" customClass="EmulationViewiPhone" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cg3-Fc-rfO">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8JE-eY-9II" userLabel="joycontroller" customClass="InputControllerView">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mqn-Rz-0og">
-                                <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="KeyboardBarButtonItem" style="plain" id="Qx1-El-orP">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B2i-L0-Sxk">
-                                            <rect key="frame" x="44" y="6" width="32" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="options.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem enabled="NO" systemItem="flexibleSpace" id="td7-EP-gJl"/>
-                                    <barButtonItem title="Item" style="plain" id="0ww-56-t5b" userLabel="Keyboard">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RRL-QD-hcu">
-                                            <rect key="frame" x="331" y="2" width="32" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="keyboard.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="toggleControls:" destination="fEz-6J-9kJ" eventType="touchUpInside" id="hHa-TW-b87"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem enabled="NO" systemItem="flexibleSpace" id="CUV-mo-Zou" userLabel="Flexible space"/>
-                                    <barButtonItem enabled="NO" image="gamepad.png" id="PO9-Uy-dgs"/>
-                                    <barButtonItem enabled="NO" systemItem="flexibleSpace" id="uK8-wB-gnT" userLabel="Flexible space"/>
-                                    <barButtonItem enabled="NO" image="unsticky.png" id="Bdk-vL-Ovl"/>
-                                </items>
-                            </toolbar>
                             <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="7qW-dZ-P7e" userLabel="Mouse handler" customClass="TouchHandlerViewClassic">
-                                <rect key="frame" x="36" y="118" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="44g-VP-zUI">
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,12 +35,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8JE-eY-9II" userLabel="joycontroller" customClass="InputControllerView">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lji-m9-laD"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="btnKeyboard" destination="RRL-QD-hcu" id="qBK-2X-1Fi"/>
                         <outlet property="dummy_textfield" destination="44g-VP-zUI" id="SVa-uy-Jrx"/>
                         <outlet property="dummy_textfield_f" destination="gQf-EM-UOL" id="7RP-Cx-avv"/>
                         <outlet property="dummy_textfield_s" destination="YZd-03-fs2" id="4ME-rd-vfg"/>
@@ -87,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDn-Cn-zFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="247"/>
+            <point key="canvasLocation" x="1326.5" y="216.5"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="mIz-d5-tUR">
@@ -95,7 +64,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EnC-f2-lWs" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yct-qL-7M4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -110,12 +79,6 @@
             <point key="canvasLocation" x="470.93333333333334" y="211.10666666666665"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="gamepad.png" width="32" height="32"/>
-        <image name="keyboard.png" width="32" height="32"/>
-        <image name="options.png" width="32" height="32"/>
-        <image name="unsticky.png" width="48" height="24"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

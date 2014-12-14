@@ -92,7 +92,7 @@
        && dummy_textfield_s.isFirstResponder == FALSE //Special Keyboard view was activated this triggered the event
        )
     {
-        [btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
+        [self.btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
 }
 

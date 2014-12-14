@@ -58,7 +58,6 @@
 		0533694B13B1DEE90012D55A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C1C412DFF3610040B77D /* OpenGLES.framework */; };
 		0533694C13B1DEE90012D55A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C1D712DFF3910040B77D /* QuartzCore.framework */; };
 		0533695313B1DF500012D55A /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		0533695413B1DF580012D55A /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		0533695513B1DF5C0012D55A /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		0533695613B1DF5F0012D55A /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		0533695713B1DF650012D55A /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 053D8B3213B1B9E20002802F /* icon-72.png */; };
@@ -195,7 +194,6 @@
 		7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3919FADFD400B6136B /* modekeyon.png */; };
 		7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */; };
 		7E1B8C4519FADFD400B6136B /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3B19FADFD400B6136B /* options.png */; };
-		7E1B8C4619FADFD400B6136B /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3C19FADFD400B6136B /* options@2x.png */; };
 		7E1B8C4B19FAE04700B6136B /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4719FAE04700B6136B /* sticky.png */; };
 		7E1B8C4C19FAE04700B6136B /* sticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4819FAE04700B6136B /* sticky@2x.png */; };
 		7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4919FAE04700B6136B /* unsticky.png */; };
@@ -203,6 +201,8 @@
 		7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */; };
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E23240A1A2E4E9A00426A9D /* Roadras1.adf */; };
+		7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */; };
+		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
 		7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */; };
@@ -219,7 +219,6 @@
 		7E9482661A2277B200F254F6 /* Kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E9482651A2277B200F254F6 /* Kick13.rom */; };
 		7E9482681A2277C600F254F6 /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E9482671A2277C600F254F6 /* Northsou.adf */; };
 		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
@@ -242,6 +241,7 @@
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
 		7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */; };
 		7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */; };
+		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
 		9706D6581561817500073678 /* Aperture (1x3 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B4153A3F2E00580B91 /* Aperture (1x3 RB).png */; };
@@ -255,7 +255,6 @@
 		9706D6601561817500073678 /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		9706D6611561817500073678 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		9706D6621561817500073678 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		9706D6631561817500073678 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		9706D6641561817500073678 /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		9706D6651561817500073678 /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		9706D6661561817500073678 /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -426,7 +425,6 @@
 		97242C36156177EC00B6D03C /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97242C37156177EC00B6D03C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		97242C38156177EC00B6D03C /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		97242C39156177EC00B6D03C /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		97242C6F156177EC00B6D03C /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		97242C70156177EC00B6D03C /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		97242C71156177EC00B6D03C /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -716,7 +714,6 @@
 		9787FA0D1561882D00458A4A /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		9787FA0E1561882D00458A4A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		9787FA0F1561882D00458A4A /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		9787FA101561882D00458A4A /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		9787FA111561882D00458A4A /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		9787FA121561882D00458A4A /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		9787FA131561882D00458A4A /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -827,7 +824,6 @@
 		9787FB6F15618A5E00458A4A /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		9787FB7015618A5E00458A4A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		9787FB7115618A5E00458A4A /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		9787FB7215618A5E00458A4A /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		9787FB7315618A5E00458A4A /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		9787FB7415618A5E00458A4A /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		9787FB7515618A5E00458A4A /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -1119,7 +1115,6 @@
 		97C87512156E834100197738 /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97C87513156E834100197738 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		97C87514156E834100197738 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		97C87515156E834100197738 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		97C8754A156E834100197738 /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		97C8754B156E834100197738 /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		97C8754C156E834100197738 /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -1234,7 +1229,6 @@
 		97EE41631538A83B0072514D /* DISK2.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97EE415C1538A83B0072514D /* DISK2.ADF */; };
 		97EF9580153876CA001C01E6 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		97EF9581153876CA001C01E6 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
-		97EF9582153876CA001C01E6 /* MainWindow-Single-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */; };
 		97EF95BB153876CA001C01E6 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		97EF95BC153876CA001C01E6 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		97EF95BD153876CA001C01E6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
@@ -1318,7 +1312,6 @@
 		051B266012CB0A14000C2800 /* DisaLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisaLogging.h; sourceTree = "<group>"; };
 		053368B013B1BDD60012D55A /* SingleWindowAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWindowAppDelegate.h; sourceTree = "<group>"; };
 		053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SingleWindowAppDelegate.mm; sourceTree = "<group>"; };
-		053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-Single-iPad.xib"; sourceTree = "<group>"; };
 		053368B513B1CC980012D55A /* BaseEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEmulationViewController.h; sourceTree = "<group>"; };
 		053368B613B1CC980012D55A /* BaseEmulationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseEmulationViewController.mm; sourceTree = "<group>"; };
 		053368BA13B1D75E0012D55A /* MainWindow-Single.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-Single.xib"; sourceTree = "<group>"; };
@@ -1583,7 +1576,6 @@
 		7E1B8C3919FADFD400B6136B /* modekeyon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyon.png; sourceTree = "<group>"; };
 		7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modekeyon@2x.png"; sourceTree = "<group>"; };
 		7E1B8C3B19FADFD400B6136B /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
-		7E1B8C3C19FADFD400B6136B /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options@2x.png"; sourceTree = "<group>"; };
 		7E1B8C4719FAE04700B6136B /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky.png; sourceTree = "<group>"; };
 		7E1B8C4819FAE04700B6136B /* sticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticky@2x.png"; sourceTree = "<group>"; };
 		7E1B8C4919FAE04700B6136B /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unsticky.png; sourceTree = "<group>"; };
@@ -1591,6 +1583,8 @@
 		7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsController-ipad.xib"; sourceTree = "<group>"; };
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E23240A1A2E4E9A00426A9D /* Roadras1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roadras1.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Gut/Roadras1.adf; sourceTree = "<group>"; };
+		7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboardiphone.storyboard; path = "Resources-iPad/Storyboardiphone.storyboard"; sourceTree = SOURCE_ROOT; };
+		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D7188B1CAB0019E82B /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top~ipad.png"; path = "TargetSpecific/DotC/chrome-top~ipad.png"; sourceTree = SOURCE_ROOT; };
@@ -1635,6 +1629,7 @@
 		7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iUAE/Images.xcassets; sourceTree = "<group>"; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
+		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
@@ -2307,11 +2302,9 @@
 		053368AD13B1BD740012D55A /* SingleView */ = {
 			isa = PBXGroup;
 			children = (
-				053368B313B1BF910012D55A /* MainWindow-Single-iPad.xib */,
 				053368B913B1D7400012D55A /* Resources-iPhone */,
 				053368AF13B1BDA40012D55A /* Resources-iPad */,
 				053368B013B1BDD60012D55A /* SingleWindowAppDelegate.h */,
-				7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */,
 				7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */,
 				7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */,
 				053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */,
@@ -2326,6 +2319,7 @@
 		053368AF13B1BDA40012D55A /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
+				7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -2334,6 +2328,7 @@
 			isa = PBXGroup;
 			children = (
 				053368BA13B1D75E0012D55A /* MainWindow-Single.xib */,
+				7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -2951,6 +2946,8 @@
 		7EB5FBBC19F942AA0030920E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7E43484E1A3B7C6100C60BF1 /* keyboard.png */,
+				7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */,
 				7E1B8C4719FAE04700B6136B /* sticky.png */,
 				7E1B8C4819FAE04700B6136B /* sticky@2x.png */,
 				7E1B8C4919FAE04700B6136B /* unsticky.png */,
@@ -2964,7 +2961,6 @@
 				7E1B8C3919FADFD400B6136B /* modekeyon.png */,
 				7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */,
 				7E1B8C3B19FADFD400B6136B /* options.png */,
-				7E1B8C3C19FADFD400B6136B /* options@2x.png */,
 				7E1B8C2919FAD4D000B6136B /* landbarblank.png */,
 				7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */,
 				7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */,
@@ -3985,7 +3981,6 @@
 				97855133153A3FB200580B91 /* Simple.vert in Resources */,
 				0533690113B1DEE90012D55A /* Entitlements.plist in Resources */,
 				0533695313B1DF500012D55A /* MainWindow-Single.xib in Resources */,
-				0533695413B1DF580012D55A /* MainWindow-Single-iPad.xib in Resources */,
 				0533695713B1DF650012D55A /* icon-72.png in Resources */,
 				0533695813B1DF650012D55A /* icon.png in Resources */,
 				0533695913B1DF650012D55A /* icon@2x.png in Resources */,
@@ -4082,7 +4077,7 @@
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
-				7E1B8C4619FADFD400B6136B /* options@2x.png in Resources */,
+				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
 				7E9482661A2277B200F254F6 /* Kick13.rom in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
@@ -4098,6 +4093,7 @@
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
+				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
 				7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
@@ -4126,13 +4122,13 @@
 				7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
+				7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
-				7EA2BCA0188B0DF8003DCE10 /* MainWindow-Single-iPad.xib in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
 				7E1B8C3219FAD4D000B6136B /* landbariphon@2x.png in Resources */,
@@ -4163,7 +4159,6 @@
 				9706D6601561817500073678 /* Simple.vert in Resources */,
 				9706D6611561817500073678 /* Entitlements.plist in Resources */,
 				9706D6621561817500073678 /* MainWindow-Single.xib in Resources */,
-				9706D6631561817500073678 /* MainWindow-Single-iPad.xib in Resources */,
 				9706D6641561817500073678 /* firebutton-red-active.png in Resources */,
 				9706D6651561817500073678 /* firebutton-red-active@2x.png in Resources */,
 				9706D6661561817500073678 /* firebutton-red-active~ipad.png in Resources */,
@@ -4265,7 +4260,6 @@
 				97242C36156177EC00B6D03C /* Simple.vert in Resources */,
 				97242C37156177EC00B6D03C /* Entitlements.plist in Resources */,
 				97242C38156177EC00B6D03C /* MainWindow-Single.xib in Resources */,
-				97242C39156177EC00B6D03C /* MainWindow-Single-iPad.xib in Resources */,
 				97242C6F156177EC00B6D03C /* firebutton-red-active.png in Resources */,
 				97242C70156177EC00B6D03C /* firebutton-red-active@2x.png in Resources */,
 				97242C71156177EC00B6D03C /* firebutton-red-active~ipad.png in Resources */,
@@ -4368,7 +4362,6 @@
 				9787FA0D1561882D00458A4A /* Simple.vert in Resources */,
 				9787FA0E1561882D00458A4A /* Entitlements.plist in Resources */,
 				9787FA0F1561882D00458A4A /* MainWindow-Single.xib in Resources */,
-				9787FA101561882D00458A4A /* MainWindow-Single-iPad.xib in Resources */,
 				9787FA111561882D00458A4A /* firebutton-red-active.png in Resources */,
 				9787FA121561882D00458A4A /* firebutton-red-active@2x.png in Resources */,
 				9787FA131561882D00458A4A /* firebutton-red-active~ipad.png in Resources */,
@@ -4410,7 +4403,6 @@
 				9787FB6F15618A5E00458A4A /* Simple.vert in Resources */,
 				9787FB7015618A5E00458A4A /* Entitlements.plist in Resources */,
 				9787FB7115618A5E00458A4A /* MainWindow-Single.xib in Resources */,
-				9787FB7215618A5E00458A4A /* MainWindow-Single-iPad.xib in Resources */,
 				9787FB7315618A5E00458A4A /* firebutton-red-active.png in Resources */,
 				9787FB7415618A5E00458A4A /* firebutton-red-active@2x.png in Resources */,
 				9787FB7515618A5E00458A4A /* firebutton-red-active~ipad.png in Resources */,
@@ -4513,7 +4505,6 @@
 				97C87512156E834100197738 /* Simple.vert in Resources */,
 				97C87513156E834100197738 /* Entitlements.plist in Resources */,
 				97C87514156E834100197738 /* MainWindow-Single.xib in Resources */,
-				97C87515156E834100197738 /* MainWindow-Single-iPad.xib in Resources */,
 				97C8754A156E834100197738 /* firebutton-red-active.png in Resources */,
 				97C8754B156E834100197738 /* firebutton-red-active@2x.png in Resources */,
 				97C8754C156E834100197738 /* firebutton-red-active~ipad.png in Resources */,
@@ -4553,7 +4544,6 @@
 				97855136153A3FBE00580B91 /* Simple.vert in Resources */,
 				97EF9580153876CA001C01E6 /* Entitlements.plist in Resources */,
 				97EF9581153876CA001C01E6 /* MainWindow-Single.xib in Resources */,
-				97EF9582153876CA001C01E6 /* MainWindow-Single-iPad.xib in Resources */,
 				97EF966D1538771F001C01E6 /* EmulationView-iPad.xib in Resources */,
 				97EF966F1538771F001C01E6 /* EmulationView-iPhone.xib in Resources */,
 				97EF968B1538771F001C01E6 /* icon-72.png in Resources */,
