@@ -1,39 +1,19 @@
 //
 //  SettingsController.h
-//  iAmiga
+//  iUAE
 //
-//  Created by Stuart Carnie on 9/30/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Created by Urs on 30.12.14.
+//
 //
 
 #import <UIKit/UIKit.h>
-#import "EMUROMBrowserViewController.h"
-#import "SelectEffectController.h"
-#import "SelectHardware.h"
 
-@interface SettingsController : UIViewController<SelectRomDelegate, SelectEffectDelegate, SelectHardwareDelegate> {
-	IBOutlet UISwitch		*status;
-	IBOutlet UISwitch		*displayModeNTSC;
-	IBOutlet UIButton		*resetLog;
-	IBOutlet UISwitch		*logging;
-	IBOutlet UILabel		*loggingLabel;
-	IBOutlet UIButton		*effect;
-    IBOutlet UIButton       *controller;
-    IBOutlet UIButton       *df0;
-    IBOutlet UIButton       *df1;
-    IBOutlet UISwitch       *stretchscreen;
-}
+@protocol SettingsControllerDelegate
+- (void)loadSettings;
+@end
 
-- (IBAction)selectDrive:(UIButton*)sender;
-- (IBAction)resetAmiga:(id)sender;
-- (IBAction)toggleStatus:(id)sender;
-- (IBAction)otherAction:(id)sender;
-- (IBAction)toggleNTSC:(id)sender;
-- (IBAction)resetLog:(id)sender;
-- (IBAction)toggleLogging:(id)sender;
-- (IBAction)selectEffect:(id)sender;
-- (IBAction)integralSize:(id)sender;
-- (IBAction)selectController:(id)sender;
-- (IBAction)toggleStretchScreen:(id)sender;
+@interface SettingsController : UITabBarController
+
+@property (nonatomic, assign) id<SettingsControllerDelegate>	delegate;
 
 @end

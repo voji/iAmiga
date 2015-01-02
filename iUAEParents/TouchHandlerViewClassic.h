@@ -43,4 +43,7 @@
 	CGFloat			x_ratio, y_ratio;
     NSDate *starttimetouch;
 }
+
+@property (readwrite, assign) bool clickedscreen;
+
 @end

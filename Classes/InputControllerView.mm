@@ -80,6 +80,7 @@ extern CJoyStick g_touchStick;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
 	TheJoyStick->setButtonOneState(FireButtonUp);
 	[delegate fireButton:FireButtonUp];
 	if (showImage) {
@@ -175,6 +176,7 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    _clickedscreen = true;
 	_stickVector->x = _stickVector->y = 0;
 	[self setDPadState:DPadCenter];
 }

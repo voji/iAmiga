@@ -25,9 +25,7 @@
 @synthesize webView;
 //@synthesize menuButton;
 @synthesize closeButton;
-@synthesize mouseHandler;
 @synthesize restartButton;
-@synthesize joyController;
 
 #pragma mark - View lifecycle
 
@@ -37,7 +35,6 @@ bool keyboardactive;
     
     CGRect screenRect = CGRectZero;
     screenRect = [[UIScreen mainScreen] bounds];
-    //CGFloat screenHeight = screenRect.size.height;
     
     
     
@@ -50,9 +47,6 @@ bool keyboardactive;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    mouseHandlermain = mouseHandler;
-    [self initializeJoypad:joyController];
-    
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
     webView.delegate = self;
@@ -63,7 +57,6 @@ bool keyboardactive;
 
 - (void)dealloc {
     [closeButton release];
-    [mouseHandler release];
     [webView release];
     [restartButton release];
     [super dealloc];
@@ -89,16 +82,6 @@ bool keyboardactive;
     {
         [self.btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
-}
-
-- (void)initializeFullScreenPanel {
-    
-    [super initializeFullScreenPanel:700 barheight:47 iconwidth:72 iconheight:36];
-    
-}
-
-- (IBAction)toggleControls:(id)sender {
-    [super toggleControls:sender];
 }
 
 @end

@@ -160,7 +160,6 @@
 		05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */; };
 		05BC1B17107348E500EABC6E /* keys.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B15107348E500EABC6E /* keys.png */; };
 		05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B16107348E500EABC6E /* VKBD.PNG */; };
-		05BC1B1D10734C3B00EABC6E /* SettingsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1B1B10734C3B00EABC6E /* SettingsController.mm */; };
 		05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B1C10734C3B00EABC6E /* SettingsController.xib */; };
 		05D5233712E8030E007912AE /* SelectEffectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D5233512E8030E007912AE /* SelectEffectController.m */; };
 		05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D5233612E8030E007912AE /* SelectEffectController.xib */; };
@@ -178,7 +177,6 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
-		7E1073851A347455000D7269 /* SettingsControllerV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1073841A347455000D7269 /* SettingsControllerV2.xib */; };
 		7E10738B1A34E85E000D7269 /* StoryboardiPAD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */; };
 		7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2919FAD4D000B6136B /* landbarblank.png */; };
 		7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */; };
@@ -200,8 +198,10 @@
 		7E1B8C4E19FAE04700B6136B /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */; };
 		7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */; };
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
+		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
 		7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E23240A1A2E4E9A00426A9D /* Roadras1.adf */; };
 		7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */; };
+		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
 		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
@@ -213,6 +213,7 @@
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
+		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
@@ -1533,8 +1534,6 @@
 		05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EMUROMBrowserViewController.mm; sourceTree = "<group>"; };
 		05BC1B15107348E500EABC6E /* keys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keys.png; sourceTree = "<group>"; };
 		05BC1B16107348E500EABC6E /* VKBD.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VKBD.PNG; sourceTree = "<group>"; };
-		05BC1B1A10734C3B00EABC6E /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
-		05BC1B1B10734C3B00EABC6E /* SettingsController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsController.mm; sourceTree = "<group>"; };
 		05BC1B1C10734C3B00EABC6E /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		05D5233412E8030E007912AE /* SelectEffectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectEffectController.h; sourceTree = "<group>"; };
 		05D5233512E8030E007912AE /* SelectEffectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectEffectController.m; sourceTree = "<group>"; };
@@ -1560,7 +1559,6 @@
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
-		7E1073841A347455000D7269 /* SettingsControllerV2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsControllerV2.xib; sourceTree = "<group>"; };
 		7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = StoryboardiPAD.storyboard; path = ../../StoryboardiPAD.storyboard; sourceTree = "<group>"; };
 		7E1B8C2919FAD4D000B6136B /* landbarblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landbarblank.png; sourceTree = "<group>"; };
 		7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank@2x.png"; sourceTree = "<group>"; };
@@ -1582,8 +1580,11 @@
 		7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unsticky@2x.png"; sourceTree = "<group>"; };
 		7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsController-ipad.xib"; sourceTree = "<group>"; };
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
+		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
 		7E23240A1A2E4E9A00426A9D /* Roadras1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roadras1.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Gut/Roadras1.adf; sourceTree = "<group>"; };
 		7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboardiphone.storyboard; path = "Resources-iPad/Storyboardiphone.storyboard"; sourceTree = SOURCE_ROOT; };
+		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
+		7E3C13E41A51F16600534164 /* SettingsGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsGeneralController.m; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -1597,6 +1598,8 @@
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
+		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7E9482651A2277B200F254F6 /* Kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = Kick13.rom; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Roms/Kick13.rom; sourceTree = "<group>"; };
 		7E9482671A2277C600F254F6 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Northsou.adf; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
@@ -1608,7 +1611,6 @@
 		7EA4D6521923ECC100C58BB9 /* EmulationView-iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EmulationView-iPhone.h"; path = "iUAEParents/EmulationView-iPhone.h"; sourceTree = "<group>"; };
 		7EA4D6531923ECC100C58BB9 /* EmulationView-iPhone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "EmulationView-iPhone.mm"; path = "iUAEParents/EmulationView-iPhone.mm"; sourceTree = "<group>"; };
 		7EA4D6541923ECC100C58BB9 /* MainEmulationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MainEmulationViewController.mm; path = iUAEParents/MainEmulationViewController.mm; sourceTree = "<group>"; };
-		7EA4D6551923ECC100C58BB9 /* TouchHandlerViewClassic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchHandlerViewClassic.h; path = iUAEParents/TouchHandlerViewClassic.h; sourceTree = "<group>"; };
 		7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchHandlerViewClassic.m; path = iUAEParents/TouchHandlerViewClassic.m; sourceTree = "<group>"; };
 		7EA4D65F1923ED0800C58BB9 /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EmulationView-iPad.h"; path = "iUAEParents/EmulationView-iPad.h"; sourceTree = "<group>"; };
 		7EA4D6601923ED0800C58BB9 /* EmulationView-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "EmulationView-iPad.xib"; path = "iUAEParents/EmulationView-iPad.xib"; sourceTree = "<group>"; };
@@ -2754,8 +2756,8 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				05BC1B1A10734C3B00EABC6E /* SettingsController.h */,
-				05BC1B1B10734C3B00EABC6E /* SettingsController.mm */,
+				7E7E52281A533C8F003E03E7 /* SettingsController.h */,
+				7E7E52291A533C8F003E03E7 /* SettingsController.m */,
 				05BC1B1C10734C3B00EABC6E /* SettingsController.xib */,
 				7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
@@ -2764,7 +2766,8 @@
 				05619ED813ADE1AA00341DB0 /* SelectHardware.h */,
 				05619ED913ADE1AA00341DB0 /* SelectHardware.m */,
 				05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */,
-				7E1073841A347455000D7269 /* SettingsControllerV2.xib */,
+				7E3C13E31A51F16600534164 /* SettingsGeneralController.h */,
+				7E3C13E41A51F16600534164 /* SettingsGeneralController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2833,7 +2836,6 @@
 				7EA4D6531923ECC100C58BB9 /* EmulationView-iPhone.mm */,
 				7EA4D6661923F20C00C58BB9 /* FloatPanel.h */,
 				7EA4D6541923ECC100C58BB9 /* MainEmulationViewController.mm */,
-				7EA4D6551923ECC100C58BB9 /* TouchHandlerViewClassic.h */,
 				7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */,
 				7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */,
 				7EA4D64F1923ECB400C58BB9 /* IOSKeyboard.m */,
@@ -2946,6 +2948,7 @@
 		7EB5FBBC19F942AA0030920E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */,
 				7E43484E1A3B7C6100C60BF1 /* keyboard.png */,
 				7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */,
 				7E1B8C4719FAE04700B6136B /* sticky.png */,
@@ -4071,6 +4074,7 @@
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
+				7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */,
 				05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */,
 				7E1B8C3019FAD4D000B6136B /* landbarblank~iPad.png in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
@@ -4089,7 +4093,6 @@
 				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
 				7E9482681A2277C600F254F6 /* Northsou.adf in Resources */,
 				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
-				7E1073851A347455000D7269 /* SettingsControllerV2.xib in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
@@ -4782,7 +4785,6 @@
 				05BC1AF61073448200EABC6E /* EMUFileGroup.m in Sources */,
 				05BC1AF71073448200EABC6E /* EMUFileInfo.m in Sources */,
 				05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */,
-				05BC1B1D10734C3B00EABC6E /* SettingsController.mm in Sources */,
 				0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */,
 				0585D5621091653E00C1E4C1 /* KeyView.m in Sources */,
 				050C393D12C31B24000CE512 /* Disa.c in Sources */,
@@ -4815,6 +4817,7 @@
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,
+				7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */,
 				7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */,
 				97855100153A3F2E00580B91 /* NoEffect.m in Sources */,
 				97855103153A3F2E00580B91 /* OGLDisplay.m in Sources */,
@@ -4822,6 +4825,7 @@
 				97855118153A3F2E00580B91 /* CRT.frag in Sources */,
 				97855121153A3F2E00580B91 /* Simple.frag in Sources */,
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
+				7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
@@ -5412,7 +5416,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
-				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevDevice = 192.168.0.11;
 				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
@@ -5436,8 +5440,8 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5463,8 +5467,8 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5488,8 +5492,8 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.13;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5812,7 +5816,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
-				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevDevice = 192.168.0.11;
 				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
@@ -5865,7 +5869,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
-				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevDevice = 192.168.0.11;
 				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};

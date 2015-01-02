@@ -18,10 +18,8 @@
 //  General Public License for more details.
 //
 
-
 #import "BaseEmulationViewController.h"
 #import "AnimatedImageSequenceView.h"
-#import "SettingsController.h"
 #import "FloatPanel.h"
 #import "DynamicLandscapeControls.h"
 #import "TouchHandlerViewClassic.h"
@@ -29,27 +27,31 @@
 
 @class VirtualKeyboard;
 
-@interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, UIWebViewDelegate> {
+@interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
     VirtualKeyboard				*vKeyboard;
     FloatPanel *fullscreenPanel;
     bool keyboardactive;
     bool joyactive;
-    IBOutlet UIButton *btnJoypad;
     //JoystickViewLandscape *joyControllerMain;
-    UIView *mouseHandlermain;
 }
 
 @property (readwrite) bool keyboardactive;
 @property (readonly) CGFloat screenHeight;
 @property (readonly) CGFloat screenWidth;
 @property (readwrite, retain) UIButton *btnKeyboard;
-@property (nonatomic, retain) InputControllerView *joyControllerMain;
+@property (readwrite, retain) UIButton *menuBarEnabler;
+@property (readwrite, retain) UIButton *btnJoypad;
+@property (readwrite, retain) UIButton *btnPin;
+@property (readwrite, retain) UIToolbar *menuBar;
+@property (nonatomic, retain) InputControllerView *joyController;
+@property (nonatomic, retain) TouchHandlerViewClassic *mouseHandler;
 
 -(IBAction)toggleControls:(id)sender;
+-(IBAction)enableMenuBar:(id)sender;
+-(IBAction)togglePinstatus:(id)sender;
 - (IBAction)restart:(id)sender;
 - (void) settings;
 - (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
-- (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight;
 - (void)initializeJoypad:(InputControllerView *)joyController;
 
 @end

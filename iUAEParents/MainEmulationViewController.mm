@@ -25,6 +25,16 @@
 #import "VirtualKeyboard.h"
 #import "IOSKeyboard.h"
 #import "uae.h"
+/*#import "EMUROMBrowserViewController.h"
+#import "EmulationViewController.h"
+#import "SelectEffectController.h"
+#import "EMUFileInfo.h"*/
+#import "sysconfig.h"
+#import "sysdeps.h"
+#import "options.h"
+#import "SDL.h"
+#import "UIKitDisplayView.h"
+#import "savestate.h"
 
 @interface MainEmulationViewController()
 
@@ -35,10 +45,10 @@
 @implementation MainEmulationViewController {
     
     bool showalert;
+    NSTimer *timer;
+    bool firstappearance;
 
 }
-
-@synthesize joyControllerMain;
 
 
 UIButton *btnSettings;
@@ -48,16 +58,6 @@ extern void uae_reset();
 
 - (IBAction)restart:(id)sender {
         uae_reset();
-}
-
--(void) settings {
-    
-    NSString *xibfile = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"SettingsController-ipad" : @"SettingsController";
-    
-    SettingsController *viewController = [[SettingsController alloc] initWithNibName:xibfile bundle:nil];
-    
-    viewController.view.frame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
-    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -81,6 +81,20 @@ extern void uae_reset();
     [super viewDidLoad];
     [self.view setMultipleTouchEnabled:TRUE];
     [self showpopupfirstlaunch];
+    
+    [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                    forState:UIControlStateNormal];
+    [_btnJoypad setTintColor: [UIColor blackColor]];
+    
+    
+    [_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                forState:UIControlStateNormal];
+    [_btnPin setTintColor: [UIColor blackColor]];
+    
+    timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                           selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
+    
+    firstappearance = true;
 }
 
 - (void)showpopupfirstlaunch {
@@ -114,6 +128,8 @@ extern void uae_reset();
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     set_joystickactive();
+    [self loadSettings];
+    
     if(showalert)
     {
         showalert = FALSE;
@@ -123,45 +139,14 @@ extern void uae_reset();
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+        
         [alert show];
         [alert release];
     }
 }
 
-- (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight  {
-    
-    int xpos = [self XposFloatPanel:barwidth];
-    
-    fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xpos,20,barwidth,barheight)];
-    
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
-    
-    btnSettings = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [btnSettings setImage:[UIImage imageNamed:@"options.png"] forState:UIControlStateNormal];
-    [btnSettings addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:btnSettings];
-    
-    _btnKeyboard = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [_btnKeyboard setImage:[UIImage imageNamed:@"modekeyoff.png"] forState:UIControlStateNormal];
-    [_btnKeyboard setImage:[UIImage imageNamed:@"modekeyon.png"] forState:UIControlStateSelected];
-    [_btnKeyboard addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:_btnKeyboard];
-    
-    btnJoypad = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [btnJoypad setImage:[UIImage imageNamed:@"modejoy.png"] forState:UIControlStateNormal];
-    [btnJoypad setImage:[UIImage imageNamed:@"modejoypressed.png"] forState:UIControlStateSelected];
-    [btnJoypad addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:btnJoypad];
-    
-    [fullscreenPanel setItems:items];
-    
-    [self.view addSubview:fullscreenPanel];
-    [fullscreenPanel showContent];
-}
-
 -(void)initializeJoypad:(InputControllerView *)joyController {
-    joyControllerMain = joyController;
-    self.joyControllerMain.hidden = TRUE;
+    _joyController.hidden = TRUE;
     joyactive = FALSE;
 }
 
@@ -191,13 +176,16 @@ extern void uae_reset();
     UIButton *button = (UIButton *) sender;
     
     keyboardactive = (button == _btnKeyboard) ? !keyboardactive : FALSE;
-    joyactive = (button == btnJoypad) ? !joyactive : FALSE;
+    joyactive = (button == _btnJoypad) ? !joyactive : FALSE;
     
     _btnKeyboard.selected = (button == _btnKeyboard) ? !_btnKeyboard.selected : FALSE;
-    btnJoypad.selected = (button == btnJoypad) ? !btnJoypad.selected : FALSE;
+    _btnJoypad.selected = (button == _btnJoypad) ? !_btnJoypad.selected : FALSE;
     
-    joyControllerMain.hidden = !joyactive;
-    mouseHandlermain.hidden = joyactive;
+    _btnJoypad.tintColor = _btnJoypad.selected ? [UIColor blueColor] : [UIColor blackColor];
+    
+    _joyController.hidden = !joyactive;
+    _mouseHandler.hidden = joyactive;
+
     
     if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
     
@@ -205,6 +193,14 @@ extern void uae_reset();
     
     if (button == btnSettings) { [self settings]; }
     
+}
+
+-(IBAction)togglePinstatus:(id)sender {
+    
+    _btnPin.selected = !_btnPin.selected;
+    _btnPin.tintColor = _btnPin.selected ? [UIColor blueColor] : [UIColor blackColor];
+    _mouseHandler.clickedscreen = false;
+    _joyController.clickedscreen = false;
 }
 
 - (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
@@ -219,10 +215,54 @@ extern void uae_reset();
                                                  object:nil];
 }
 
+-(IBAction)enableMenuBar:(id)sender {
+    _menuBar.hidden = false;
+    _menuBarEnabler.hidden = true;
+    _mouseHandler.clickedscreen = false;
+    _joyController.clickedscreen = false;
+    timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                           selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
+}
+
+-(void)timerEvent:(NSTimer*)timer{
+    if((_mouseHandler || _joyController) && !_btnPin.selected && _menuBar.hidden == false)
+    {
+        if(_mouseHandler.clickedscreen || _joyController.clickedscreen)
+        {
+            _mouseHandler.clickedscreen = false;
+            _joyController.clickedscreen = false;
+            _menuBar.hidden = true;
+            _menuBarEnabler.hidden = false;
+            [timer invalidate];
+        }
+    }
+}
+
+- (void)loadSettings {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *olddf0string = [NSString stringWithCString:changed_df[0] encoding:[NSString defaultCStringEncoding]];
+    NSString *df0string = [defaults objectForKey:@"iUAEDF0"];
+    
+    if(![df0string isEqualToString:olddf0string])
+    {
+        [df0string getCString:changed_df[0] maxLength:256 encoding:[NSString defaultCStringEncoding]];
+        real_changed_df[0] = 1;
+    }
+}
+
+- (void)saveSettings {
+    
+}
+
 - (void)dealloc
 {
     [_btnKeyboard release];
-    [btnJoypad release];
+    [_menuBar release];
+    [_btnJoypad release];
+    [_btnPin release];
+    [_mouseHandler release];
+    [_menuBarEnabler release];
 }
 
 @end

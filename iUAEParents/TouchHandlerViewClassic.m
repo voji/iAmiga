@@ -57,6 +57,7 @@
     /*[self addSubview:ldraggingon];
     [self addSubview:ldurationtouch];*/
     
+    
     return self;
 }
 
@@ -150,6 +151,8 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    _clickedscreen = true;
+    
     for (UITouch *touch in touches)
     {
         if (touch.phase == UITouchPhaseEnded)

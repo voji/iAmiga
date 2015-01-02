@@ -44,6 +44,7 @@
 }
 
 @property (nonatomic, assign)		id<InputControllerChangedDelegate>	delegate;
+@property (readwrite, assign) bool clickedscreen;
 
 - (void)setStick;
 
