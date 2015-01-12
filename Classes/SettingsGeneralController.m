@@ -24,6 +24,7 @@
 @end
 
 @implementation SettingsGeneralController {
+    NSMutableArray *Filepath;
 }
 
 static NSMutableArray *Filename;
@@ -32,20 +33,33 @@ static NSMutableArray *Filename;
     [super viewDidLoad];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *filenamedf0 = [[defaults objectForKey:@"iUAEDF0"] lastPathComponent];
+    
+    Filepath = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
+    if(!Filepath)
+    {
+        Filepath = [[NSMutableArray alloc] init];
+        [Filepath addObject:[NSMutableString new]];
+        [Filepath addObject:[NSMutableString new]];
+    }
     
     if(!Filename)
     {
+        
         Filename = [[NSMutableArray alloc] init];
-        if(filenamedf0)
+        
+        for(int i=0;i<=1;i++)
         {
-            [Filename addObject:[filenamedf0 mutableCopy]];
+            NSString *curadf = [Filepath objectAtIndex:i];
+            
+            if(curadf)
+            {
+                [Filename addObject:[curadf lastPathComponent]];
+            }
+            else
+            {
+                    [Filename addObject:[NSMutableString new]];
+            }
         }
-        else
-        {
-            [Filename addObject:[NSMutableString new]];
-        }
-        [Filename addObject:[NSMutableString new]];
     }
 
 }
@@ -56,10 +70,11 @@ static NSMutableArray *Filename;
     NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:1];
     
     df0title = [df0title stringByAppendingString:@"  >"];
+    df1title = [df1title stringByAppendingString:@" >"];
     
     [_df0 setText:df0title];
-    
-    //[df1 setTitle:df1title forState:UIControlStateNormal];
+    [_df1 setText:df1title];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +84,7 @@ static NSMutableArray *Filename;
 - (void)dealloc
 {
     [_df0 release];
+    [_df1 release];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -84,13 +100,10 @@ static NSMutableArray *Filename;
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *path = [fileInfo path];
-    
     int df = sender.tag;
     
-    NSString *key = @"iUAEDF";
-    key = [key stringByAppendingString:[NSMutableString stringWithFormat:@"%d", df]];
-    
-    [defaults setObject:path forKey:key];
+    [Filepath replaceObjectAtIndex:df withObject:path];
+    [defaults setObject:Filepath forKey:@"insertedfloppies"];
     
     [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
     

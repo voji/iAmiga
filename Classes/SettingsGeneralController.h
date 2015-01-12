@@ -25,6 +25,7 @@
 @interface SettingsGeneralController : UITableViewController<SelectRomDelegate>
 
 @property (readwrite, retain) IBOutlet UILabel *df0;
+@property (readwrite, retain) IBOutlet UILabel *df1;
 
 @end
 

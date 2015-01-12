@@ -240,14 +240,18 @@ extern void uae_reset();
 
 - (void)loadSettings {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *insertedfloppies = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
     
-    NSString *olddf0string = [NSString stringWithCString:changed_df[0] encoding:[NSString defaultCStringEncoding]];
-    NSString *df0string = [defaults objectForKey:@"iUAEDF0"];
-    
-    if(![df0string isEqualToString:olddf0string])
+    for(int i=0;i<=1;i++)
     {
-        [df0string getCString:changed_df[0] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-        real_changed_df[0] = 1;
+        NSString *curadf = [insertedfloppies objectAtIndex:i];
+        NSString *oldadf = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];
+        
+        if(![curadf isEqualToString:oldadf])
+        {
+            [curadf getCString:changed_df[i] maxLength:256 encoding:[NSString defaultCStringEncoding]];
+            real_changed_df[i] = 1;
+        }
     }
 }
 
