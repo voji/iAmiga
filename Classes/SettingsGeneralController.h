@@ -24,8 +24,12 @@
 
 @interface SettingsGeneralController : UITableViewController<SelectRomDelegate>
 
+- (IBAction)toggleAutoloadconfig:(id)sender;
+
+@property (readwrite, retain) IBOutlet UISwitch *swautoloadconfig;
 @property (readwrite, retain) IBOutlet UILabel *df0;
 @property (readwrite, retain) IBOutlet UILabel *df1;
+
 
 @end
 

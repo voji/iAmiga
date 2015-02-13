@@ -24,7 +24,9 @@
 @end
 
 @implementation SettingsGeneralController {
+    NSUserDefaults *defaults;
     NSMutableArray *Filepath;
+    bool autoloadconfig;
 }
 
 static NSMutableArray *Filename;
@@ -32,9 +34,12 @@ static NSMutableArray *Filename;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+    defaults = [NSUserDefaults standardUserDefaults];
     Filepath = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
+    
+    autoloadconfig = [defaults boolForKey:@"autoloadconfig"];
+    [_swautoloadconfig setOn:autoloadconfig animated:TRUE];
+    
     if(!Filepath)
     {
         Filepath = [[NSMutableArray alloc] init];
@@ -85,6 +90,12 @@ static NSMutableArray *Filename;
 {
     [_df0 release];
     [_df1 release];
+    [Filepath release];
+}
+
+- (IBAction)toggleAutoloadconfig:(id)sender {
+    autoloadconfig = !autoloadconfig;
+    [defaults setBool:autoloadconfig forKey:@"autoloadconfig"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -98,7 +109,6 @@ static NSMutableArray *Filename;
 }
 
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *path = [fileInfo path];
     int df = sender.tag;
     

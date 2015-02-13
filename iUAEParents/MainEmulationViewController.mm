@@ -47,6 +47,7 @@
     bool showalert;
     NSTimer *timer;
     bool firstappearance;
+    NSUserDefaults *defaults;
 
 }
 
@@ -80,6 +81,8 @@ extern void uae_reset();
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self.view setMultipleTouchEnabled:TRUE];
+    
+    defaults = [NSUserDefaults standardUserDefaults];
     [self showpopupfirstlaunch];
     
     [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
@@ -99,28 +102,14 @@ extern void uae_reset();
 
 - (void)showpopupfirstlaunch {
     //Popup MFI Controller
-    NSFileManager *filemgr;
     
-    filemgr = [NSFileManager defaultManager];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [paths objectAtIndex:0];
-    [filemgr changeCurrentDirectoryPath:docsDir];
-    
-    if ([filemgr fileExistsAtPath: @"firstlaunch.txt" ] == YES)
+    if ([defaults boolForKey:@"appvariableinitialized"])
     {
         showalert = FALSE;
     }
     else
     {
         showalert = TRUE;
-        
-        NSMutableData *data;
-        const char *bytestring = "1.0.7";
-        
-        data = [NSMutableData dataWithBytes:bytestring length:strlen(bytestring)];
-        bool success = [filemgr createFileAtPath:@"./firstlaunch.txt" contents:data attributes:nil];
-        
-        [filemgr release];
     }
 
 }
@@ -239,8 +228,15 @@ extern void uae_reset();
 }
 
 - (void)loadSettings {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *insertedfloppies = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
+    
+    BOOL appvariableinitializied = [defaults boolForKey:@"appfirstload"];
+    
+    if(!appvariableinitializied)
+    {
+        [defaults setBool:TRUE forKey:@"appvariableinitialized"];
+        [defaults setBool:TRUE forKey:@"autoloadconfig"];
+    }
     
     for(int i=0;i<=1;i++)
     {
