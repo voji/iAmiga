@@ -159,29 +159,16 @@
     EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
     NSString *fileName = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
     
-    UILabel *namelabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0,160,50)];
-    namelabel.text = fileName;
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     /*Associated Configuration File*/
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    
-    UILabel *configlabel = [[UILabel alloc]initWithFrame:CGRectMake(200, 0, screenWidth - 250, 50)];
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", fileName];
+    NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@"Empty"];
     
-    NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@""];
-    
-    configlabel.text = [NSString stringWithFormat:@"%@ ->", configurationfile];
-    configlabel.textAlignment = NSTextAlignmentRight;
-    
-    /*Show Cell Content */
-    [cell.contentView addSubview:namelabel];
-    [cell.contentView addSubview:configlabel];
-    
-    /*--End Setup Cell Content */
+    /*Set Cell Labels */
+    cell.textLabel.text = fileName;
+    cell.detailTextLabel.text = configurationfile;
+
     
     return cell;
 
@@ -191,7 +178,7 @@
     if([segue.identifier isEqualToString:@"associateconfiguration"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
-        disktoassociate = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
+        disktoassociate = [[(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName] retain];
         
         SelectConfigurationViewController *controller = (SelectConfigurationViewController *)segue.destinationViewController;
         controller.delegate = self;
@@ -215,7 +202,13 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
     [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+}
+
+- (void)didDeleteConfiguration {
+    [self.tableView beginUpdates];
+    [self.tableView reloadData];
     [self.tableView endUpdates];
 }
 

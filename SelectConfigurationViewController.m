@@ -7,21 +7,24 @@
 //
 
 #import "SelectConfigurationViewController.h"
+#import "EMUBrowser.h"
+#import "EMUFileInfo.h"
 
 @interface SelectConfigurationViewController ()
 
 @end
 
 @implementation SelectConfigurationViewController {
-    NSArray *configurations;
+    NSMutableArray *configurations;
+    NSUserDefaults *defaults;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    defaults = [NSUserDefaults standardUserDefaults];
     configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
-    
+        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -30,7 +33,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
 }
 
@@ -83,35 +85,73 @@
     {
         NSString *configurationname = [configurations objectAtIndex:indexPath.row];
         
-        [self.delegate didSelectConfiguration:configurationname];
         [self.navigationController popViewControllerAnimated:YES];
+        [self.delegate didSelectConfiguration:configurationname];
     }
+}
+
+- (void)configurationAdded:(NSString *)configurationname {
+    if(!configurations)
+    {
+        configurations = [NSMutableArray arrayWithObjects:configurationname, nil];
+    }
+    else
+    {
+        [configurations addObject:configurationname];
+    }
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void) dealloc {
     [configurations release];
+    [super dealloc];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
+        [self deleteConfiguration:indexPath];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
+- (void)deleteConfiguration:(NSIndexPath *)indexPath {
+    EMUBrowser *browser = [[EMUBrowser alloc] initWithBasePath:@""];
+    NSArray *files = [browser getFiles];
+    NSString *configdeleted = [configurations objectAtIndex:indexPath.row];
+    
+    [configurations removeObjectAtIndex:indexPath.row];
+    [defaults setObject:configurations forKey:@"configurations"];
+    
+    NSString *recentconfig;
+    for (EMUFileInfo* f in files) {
+        
+        /*Associated Configuration File*/
+        NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [f fileName]];
+        NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@""];
+        if([configurationfile isEqualToString:configdeleted]) {
+            if(self.delegate)
+            {
+                [self.delegate didDeleteConfiguration];
+            }
+            [defaults removeObjectForKey:settingstring];
+        }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"addconfiguration"]) {
+        AddConfigurationViewController *controller = (AddConfigurationViewController *)segue.destinationViewController;
+        controller.delegate = self;
+    }
+}
+    
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
@@ -137,3 +177,5 @@
 */
 
 @end
+
+

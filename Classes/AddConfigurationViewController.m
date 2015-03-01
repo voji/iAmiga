@@ -52,6 +52,12 @@
     {
         [configurations addObject:[NSString stringWithString:_name.text]];
         [defaults setObject:configurations forKey:@"configurations"];
+        
+        if(self.delegate)
+        {
+            [self.delegate configurationAdded:_name.text];
+        }
+        
         [self.navigationController popViewControllerAnimated:YES];
     }
     

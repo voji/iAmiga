@@ -202,6 +202,8 @@
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
 		7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E23240A1A2E4E9A00426A9D /* Roadras1.adf */; };
 		7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */; };
+		7E3091D51A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E3091D31A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf */; };
+		7E3091D61A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E3091D41A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf */; };
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
 		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
@@ -242,6 +244,8 @@
 		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
 		7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */; };
+		7EB930F51AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB930F41AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf */; };
+		7EB930F71AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB930F61AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf */; };
 		7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
@@ -1588,6 +1592,8 @@
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
 		7E23240A1A2E4E9A00426A9D /* Roadras1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roadras1.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Gut/Roadras1.adf; sourceTree = "<group>"; };
 		7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboardiphone.storyboard; path = "Resources-iPad/Storyboardiphone.storyboard"; sourceTree = SOURCE_ROOT; };
+		7E3091D31A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf"; sourceTree = "<group>"; };
+		7E3091D41A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf"; sourceTree = "<group>"; };
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
 		7E3C13E41A51F16600534164 /* SettingsGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsGeneralController.m; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
@@ -1634,6 +1640,8 @@
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		7EB372EB1A0FFB0C001B460A /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
 		7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
+		7EB930F41AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf"; sourceTree = "<group>"; };
+		7EB930F61AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf"; sourceTree = "<group>"; };
 		7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iUAE/Images.xcassets; sourceTree = "<group>"; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
@@ -2630,6 +2638,10 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7EB930F61AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf */,
+				7EB930F41AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf */,
+				7E3091D31A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf */,
+				7E3091D41A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf */,
 				7E23240A1A2E4E9A00426A9D /* Roadras1.adf */,
 				7E9482671A2277C600F254F6 /* Northsou.adf */,
 			);
@@ -4096,6 +4108,7 @@
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
+				7E3091D61A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf in Resources */,
 				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
 				7E9482661A2277B200F254F6 /* Kick13.rom in Resources */,
@@ -4105,11 +4118,13 @@
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E10738B1A34E85E000D7269 /* StoryboardiPAD.storyboard in Resources */,
 				7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */,
+				7EB930F51AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf in Resources */,
 				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
 				7E9482681A2277C600F254F6 /* Northsou.adf in Resources */,
 				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
+				7E3091D51A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
 				7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */,
@@ -4145,6 +4160,7 @@
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
+				7EB930F71AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
@@ -5458,7 +5474,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevDevice = 192.168.0.13;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5485,7 +5501,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevDevice = 192.168.0.13;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5510,7 +5526,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevDevice = 192.168.0.13;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
