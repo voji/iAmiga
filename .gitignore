@@ -24,7 +24,6 @@ disks/*
 
 rgetSpecific/DotC/Info-DotC.plist
 
-libraries/sdl-mini
 disks/
 Packages/
 iUAE/
