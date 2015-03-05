@@ -13,6 +13,7 @@
 - (void)didSelectConfiguration:(NSString *)configurationname;
 - (BOOL)isRecentConfig:(NSString *)configurationname;
 - (void)didDeleteConfiguration;
+- (NSString *)getfirstoption;
 @end
 
 @interface SelectConfigurationViewController : UITableViewController <AddConfigurationDelegate>

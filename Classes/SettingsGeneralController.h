@@ -20,15 +20,18 @@
 
 #import <UIKit/UIKit.h>
 #import "EMUROMBrowserViewController.h"
+#import "SelectConfigurationViewController.h"
 
 
-@interface SettingsGeneralController : UITableViewController<SelectRomDelegate>
+@interface SettingsGeneralController : UITableViewController<SelectRomDelegate, SelectConfigurationDelegate>
 
 - (IBAction)toggleAutoloadconfig:(id)sender;
 
 @property (readwrite, retain) IBOutlet UISwitch *swautoloadconfig;
 @property (readwrite, retain) IBOutlet UILabel *df0;
 @property (readwrite, retain) IBOutlet UILabel *df1;
+@property (readwrite, retain) IBOutlet UILabel *configurationname;
+@property (readwrite, retain) IBOutlet UITableViewCell *cellconfiguration;
 
 
 @end

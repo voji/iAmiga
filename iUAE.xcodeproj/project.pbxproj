@@ -202,6 +202,8 @@
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
 		7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E23240A1A2E4E9A00426A9D /* Roadras1.adf */; };
 		7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */; };
+		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
+		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
 		7E3091D51A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E3091D31A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf */; };
 		7E3091D61A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E3091D41A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf */; };
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
@@ -216,6 +218,7 @@
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
+		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */; };
 		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
@@ -243,7 +246,6 @@
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
 		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
-		7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */; };
 		7EB930F51AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB930F41AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf */; };
 		7EB930F71AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB930F61AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf */; };
 		7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */; };
@@ -1592,6 +1594,9 @@
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
 		7E23240A1A2E4E9A00426A9D /* Roadras1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roadras1.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Gut/Roadras1.adf; sourceTree = "<group>"; };
 		7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboardiphone.storyboard; path = "Resources-iPad/Storyboardiphone.storyboard"; sourceTree = SOURCE_ROOT; };
+		7E27C39B1AA3A61900C00584 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
+		7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsDisplayController.h; sourceTree = "<group>"; };
+		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
 		7E3091D31A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 2 of 2).adf"; sourceTree = "<group>"; };
 		7E3091D41A9D0E2000BEF481 /* Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Another World (1991)(U. S. Gold)(Fr)[cr Company](Disk 1 of 2).adf"; sourceTree = "<group>"; };
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
@@ -1609,6 +1614,8 @@
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
+		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
+		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
 		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7E9482651A2277B200F254F6 /* Kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = Kick13.rom; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Roms/Kick13.rom; sourceTree = "<group>"; };
@@ -1638,8 +1645,6 @@
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
-		7EB372EB1A0FFB0C001B460A /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
-		7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7EB930F41AA0B63500880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Brutal Football (1994)(Millennium)[cr CSL](Disk 1 of 2).adf"; sourceTree = "<group>"; };
 		7EB930F61AA0B64400880C7B /* Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Brutal Football (1994)(Millennium)[cr CSL](Disk 2 of 2).adf"; sourceTree = "<group>"; };
 		7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iUAE/Images.xcassets; sourceTree = "<group>"; };
@@ -2794,6 +2799,8 @@
 				05619ED913ADE1AA00341DB0 /* SelectHardware.m */,
 				05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */,
 				7E3C13E31A51F16600534164 /* SettingsGeneralController.h */,
+				7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */,
+				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */,
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.m */,
 			);
 			name = Settings;
@@ -2975,6 +2982,7 @@
 		7EB5FBBC19F942AA0030920E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7E27C39B1AA3A61900C00584 /* display.png */,
 				7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */,
 				7E43484E1A3B7C6100C60BF1 /* keyboard.png */,
 				7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */,
@@ -3334,11 +3342,11 @@
 		97855083153A3F2E00580B91 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */,
+				7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */,
 				97855084153A3F2E00580B91 /* ButtonStates.h */,
 				97855085153A3F2E00580B91 /* ButtonStates.m */,
 				97855086153A3F2E00580B91 /* iCadeReaderView.h */,
-				7EB372EB1A0FFB0C001B460A /* MFIControllerReaderView.h */,
-				7EB372EC1A0FFB0C001B460A /* MFIControllerReaderView.m */,
 				97855087153A3F2E00580B91 /* iCadeReaderView.m */,
 				97855088153A3F2E00580B91 /* iCadeState.h */,
 				97855089153A3F2E00580B91 /* iControlPadReaderView.h */,
@@ -4147,6 +4155,7 @@
 				9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
 				7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */,
 				97BE2AE115489E6600BF66CF /* firebutton-red-active.png in Resources */,
+				7E27C39C1AA3A61900C00584 /* display.png in Resources */,
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
@@ -4798,6 +4807,7 @@
 				0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */,
 				0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */,
 				0552BD550F3D797C005B30DF /* writelog.cpp in Sources */,
+				7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */,
 				7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */,
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
@@ -4845,6 +4855,7 @@
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
 				7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */,
 				7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */,
+				7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */,
 				978550EE153A3F2E00580B91 /* SDL_syssem.c in Sources */,
 				978550F1153A3F2E00580B91 /* SDL_systhread.c in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
@@ -4861,7 +4872,6 @@
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
-				7EB372ED1A0FFB0C001B460A /* MFIControllerReaderView.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
 				9785512D153A3F2E00580B91 /* SDL_UIKitVideo.m in Sources */,
 			);

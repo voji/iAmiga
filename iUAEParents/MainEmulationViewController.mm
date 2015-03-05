@@ -231,11 +231,13 @@ extern void uae_reset();
     NSArray *insertedfloppies = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
     
     BOOL appvariableinitializied = [defaults boolForKey:@"appfirstload"];
+    NSString *configurationfile = nil;
     
     if(!appvariableinitializied)
     {
         [defaults setBool:TRUE forKey:@"appvariableinitialized"];
         [defaults setBool:TRUE forKey:@"autoloadconfig"];
+        [defaults setObject:@"General" forKey:@"configurationname"];
     }
     
     for(int i=0;i<=1;i++)
@@ -247,7 +249,16 @@ extern void uae_reset();
         {
             [curadf getCString:changed_df[i] maxLength:256 encoding:[NSString defaultCStringEncoding]];
             real_changed_df[i] = 1;
+            
+            NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [curadf lastPathComponent]];
+            
+            configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : configurationfile;
         }
+    }
+    
+    if(configurationfile)
+    {
+        [defaults setObject:configurationfile forKey:@"configurationname"];
     }
 }
 

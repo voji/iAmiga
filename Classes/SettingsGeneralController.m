@@ -66,7 +66,6 @@ static NSMutableArray *Filename;
             }
         }
     }
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,18 +78,15 @@ static NSMutableArray *Filename;
     
     [_df0 setText:df0title];
     [_df1 setText:df1title];
-
+    
+    if([defaults stringForKey:@"configurationname"])
+    {
+        [_configurationname setText:[defaults stringForKey:@"configurationname"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc
-{
-    [_df0 release];
-    [_df1 release];
-    [Filepath release];
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
@@ -106,6 +102,13 @@ static NSMutableArray *Filename;
         controller.delegate = self;
         controller.context = btnsender;
     }
+    
+    if([segue.identifier isEqualToString:@"loadconfiguration"]) {
+        UIButton *btnsender = (UIButton *) sender;
+        
+        SelectConfigurationViewController *controller = (SelectConfigurationViewController *) segue.destinationViewController;
+        controller.delegate = self;
+    }
 }
 
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
@@ -117,6 +120,45 @@ static NSMutableArray *Filename;
     
     [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
     
+}
+
+- (NSString *)getfirstoption {
+    return [[NSString alloc] initWithFormat:@"General"];
+}
+
+- (BOOL)isRecentConfig:(NSString *)configurationname {
+    
+    if([[_configurationname text] isEqual:configurationname])
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+- (void)didSelectConfiguration:(NSString *)configurationname {
+    [_configurationname setText:configurationname];
+    [defaults setObject:configurationname forKey:@"configurationname"];
+}
+
+- (void)didDeleteConfiguration {
+    NSMutableArray *configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
+    
+    if(![configurations indexOfObject:[_configurationname text]])
+    {
+        [_configurationname setText:@"General"];
+    }
+}
+
+- (void)dealloc
+{
+    [_df0 release];
+    [_df1 release];
+    [Filepath release];
+    [_configurationname release];
+    [_cellconfiguration release];
+    
+    [super dealloc];
 }
 
 @end

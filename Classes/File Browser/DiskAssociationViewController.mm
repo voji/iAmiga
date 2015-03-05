@@ -159,12 +159,7 @@
     EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
     NSString *fileName = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    /*Associated Configuration File*/
-    NSString *settingstring = [NSString stringWithFormat:@"cnf%@", fileName];
-    NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@"Empty"];
-    
+    NSString *configurationfile = [self getconfigforDisk:fileName];
     /*Set Cell Labels */
     cell.textLabel.text = fileName;
     cell.detailTextLabel.text = configurationfile;
@@ -172,6 +167,15 @@
     
     return cell;
 
+}
+
+- (NSString *) getconfigforDisk:(NSString *)fileName {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *settingstring = [NSString stringWithFormat:@"cnf%@", fileName];
+    NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@"None"];
+    
+    return configurationfile;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -187,7 +191,7 @@
 
 - (BOOL)isRecentConfig:(NSString *)configurationname {
     
-    if([disktoassociate isEqualToString:configurationname])
+    if([[self getconfigforDisk:disktoassociate] isEqual:configurationname])
     {
         return true;
     }
@@ -213,13 +217,28 @@
 }
 
 - (void)saveConfiguration:(NSString *)configurationname {
+    
+    
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
     NSString *fileName = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", fileName];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:configurationname forKey:settingstring];
+    
+    if([configurationname isEqual:@"None"]) {
+        if([defaults stringForKey:settingstring]) {
+            [defaults setObject:nil forKey:settingstring];
+        }
+    }
+    else
+    {
+        [defaults setObject:configurationname forKey:settingstring];
+    }
+}
+
+- (NSString *)getfirstoption {
+    return [[NSString alloc] initWithFormat:@"None"];
 }
 
 - (void)dealloc {

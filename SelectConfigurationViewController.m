@@ -17,14 +17,24 @@
 @implementation SelectConfigurationViewController {
     NSMutableArray *configurations;
     NSUserDefaults *defaults;
+    NSString *firstoption;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     defaults = [NSUserDefaults standardUserDefaults];
-    configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
-        
+    configurations = [defaults arrayForKey:@"configurations"] ? [[defaults arrayForKey:@"configurations"] mutableCopy] : [[NSMutableArray alloc] init];
+    
+    if(_delegate)
+    {
+        if ([_delegate respondsToSelector:@selector(getfirstoption)]) {
+            firstoption = [[NSString alloc] initWithFormat:[_delegate getfirstoption]];
+        }
+    }
+    if(!firstoption) { firstoption = [[NSString alloc] initWithFormat:@"None"]; }
+    
+    [configurations insertObject:firstoption atIndex:0];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -34,6 +44,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
+    [configurations insertObject:firstoption atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,18 +104,13 @@
 - (void)configurationAdded:(NSString *)configurationname {
     if(!configurations)
     {
-        configurations = [NSMutableArray arrayWithObjects:configurationname, nil];
+        configurations = [NSMutableArray arrayWithObjects: firstoption, configurationname, nil];
     }
     else
     {
         [configurations addObject:configurationname];
     }
     [self dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void) dealloc {
-    [configurations release];
-    [super dealloc];
 }
 
 
@@ -121,13 +127,22 @@
     }   
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    bool returnvalue = indexPath.row == 0 ? FALSE : TRUE;
+    return returnvalue;
+}
+
 - (void)deleteConfiguration:(NSIndexPath *)indexPath {
     EMUBrowser *browser = [[EMUBrowser alloc] initWithBasePath:@""];
     NSArray *files = [browser getFiles];
     NSString *configdeleted = [configurations objectAtIndex:indexPath.row];
     
     [configurations removeObjectAtIndex:indexPath.row];
-    [defaults setObject:configurations forKey:@"configurations"];
+    
+    NSMutableArray *configurationsforsave = [configurations mutableCopy];
+    [configurationsforsave removeObjectAtIndex:0]; //General or None is no real Configuration just a placeholder
+
+    [defaults setObject:configurationsforsave forKey:@"configurations"];
     
     NSString *recentconfig;
     for (EMUFileInfo* f in files) {
@@ -150,6 +165,12 @@
         AddConfigurationViewController *controller = (AddConfigurationViewController *)segue.destinationViewController;
         controller.delegate = self;
     }
+}
+
+- (void) dealloc {
+    [configurations release];
+    [firstoption release];
+    [super dealloc];
 }
     
 /*
