@@ -230,7 +230,6 @@
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		7EA4D64B1923EC9700C58BB9 /* BaseWebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */; };
-		7EA4D64D1923ECA200C58BB9 /* EmulationView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4D64C1923ECA200C58BB9 /* EmulationView-iPhone.xib */; };
 		7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D64F1923ECB400C58BB9 /* IOSKeyboard.m */; };
 		7EA4D6571923ECC100C58BB9 /* EmulationView-iPad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D6511923ECC100C58BB9 /* EmulationView-iPad.mm */; };
 		7EA4D6581923ECC100C58BB9 /* EmulationView-iPhone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D6531923ECC100C58BB9 /* EmulationView-iPhone.mm */; };
@@ -251,6 +250,7 @@
 		7EBD1A5A19FDB4FA00A0CEE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBD1A5919FDB4FA00A0CEE9 /* Images.xcassets */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
+		7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D0441AACF2090081DAA5 /* Settings.mm */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
@@ -1622,7 +1622,6 @@
 		7E9482671A2277C600F254F6 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Northsou.adf; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
-		7EA4D64C1923ECA200C58BB9 /* EmulationView-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "EmulationView-iPhone.xib"; path = "iUAEParents/EmulationView-iPhone.xib"; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
 		7EA4D64F1923ECB400C58BB9 /* IOSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOSKeyboard.m; path = iUAEParents/IOSKeyboard.m; sourceTree = "<group>"; };
 		7EA4D6511923ECC100C58BB9 /* EmulationView-iPad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "EmulationView-iPad.mm"; path = "iUAEParents/EmulationView-iPad.mm"; sourceTree = "<group>"; };
@@ -1652,6 +1651,8 @@
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
 		7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskAssociationViewController.mm; sourceTree = "<group>"; };
+		7EE0D0431AACF2090081DAA5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = iUAEParents/Settings.h; sourceTree = "<group>"; };
+		7EE0D0441AACF2090081DAA5 /* Settings.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Settings.mm; path = iUAEParents/Settings.mm; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectConfigurationViewController.m; path = ../SelectConfigurationViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2872,8 +2873,9 @@
 				7EA4D6541923ECC100C58BB9 /* MainEmulationViewController.mm */,
 				7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */,
 				7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */,
+				7EE0D0431AACF2090081DAA5 /* Settings.h */,
+				7EE0D0441AACF2090081DAA5 /* Settings.mm */,
 				7EA4D64F1923ECB400C58BB9 /* IOSKeyboard.m */,
-				7EA4D64C1923ECA200C58BB9 /* EmulationView-iPhone.xib */,
 				7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */,
 				7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */,
 				053D8B2E13B1B2C30002802F /* TargetSpecific */,
@@ -3974,7 +3976,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iUAE" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4105,7 +4107,6 @@
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
-				7EA4D64D1923ECA200C58BB9 /* EmulationView-iPhone.xib in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
@@ -4823,6 +4824,7 @@
 				7EA4D65A1923ECC100C58BB9 /* TouchHandlerViewClassic.m in Sources */,
 				0545257E106EBB590032FC41 /* Events2.c in Sources */,
 				05BC1AF51073448200EABC6E /* EMUBrowser.m in Sources */,
+				7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */,
 				05BC1AF61073448200EABC6E /* EMUFileGroup.m in Sources */,
 				05BC1AF71073448200EABC6E /* EMUFileInfo.m in Sources */,
 				05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */,
@@ -5416,7 +5418,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = $ARCHS_STANDARD_32_BIT;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -5818,7 +5819,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = $ARCHS_STANDARD_32_BIT;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -5870,7 +5870,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = $ARCHS_STANDARD_32_BIT;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;

@@ -35,6 +35,7 @@
 #import "SDL.h"
 #import "UIKitDisplayView.h"
 #import "savestate.h"
+#import "Settings.h"
 
 @interface MainEmulationViewController()
 
@@ -47,8 +48,7 @@
     bool showalert;
     NSTimer *timer;
     bool firstappearance;
-    NSUserDefaults *defaults;
-
+    Settings *settings;
 }
 
 
@@ -82,7 +82,6 @@ extern void uae_reset();
     [super viewDidLoad];
     [self.view setMultipleTouchEnabled:TRUE];
     
-    defaults = [NSUserDefaults standardUserDefaults];
     [self showpopupfirstlaunch];
     
     [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
@@ -98,10 +97,14 @@ extern void uae_reset();
                                            selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
     
     firstappearance = true;
+    
+    settings = [[Settings alloc] init];
 }
 
 - (void)showpopupfirstlaunch {
     //Popup MFI Controller
+    
+    if([settings])
     
     if ([defaults boolForKey:@"appvariableinitialized"])
     {
@@ -117,7 +120,7 @@ extern void uae_reset();
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     set_joystickactive();
-    [self loadSettings];
+    [self initializeSettings];
     
     if(showalert)
     {
@@ -227,11 +230,18 @@ extern void uae_reset();
     }
 }
 
-- (void)loadSettings {
+- (void)initializeSettings {
+    
+    NSString *configurationname = [self initializeCommonSettings];
+    [self initializespecificsettings:configurationname];
+    
+}
+
+-(NSString *)initializeCommonSettings {
+    
     NSArray *insertedfloppies = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
     
-    BOOL appvariableinitializied = [defaults boolForKey:@"appfirstload"];
-    NSString *configurationfile = nil;
+    BOOL appvariableinitializied = [defaults boolForKey:@"appvariableinitialized"];
     
     if(!appvariableinitializied)
     {
@@ -239,6 +249,8 @@ extern void uae_reset();
         [defaults setBool:TRUE forKey:@"autoloadconfig"];
         [defaults setObject:@"General" forKey:@"configurationname"];
     }
+    
+    NSString *configurationname = [defaults stringForKey:@"configurationname"];
     
     for(int i=0;i<=1;i++)
     {
@@ -252,17 +264,20 @@ extern void uae_reset();
             
             NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [curadf lastPathComponent]];
             
-            configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : configurationfile;
+            configurationname = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : configurationname;
+            [defaults setObject:configurationname forKey:@"configurationname"];
         }
     }
     
-    if(configurationfile)
-    {
-        [defaults setObject:configurationfile forKey:@"configurationname"];
-    }
+    return configurationname;
+    
 }
 
-- (void)saveSettings {
+-(void) initializespecificsettings:(NSString *)configurationname {
+    if(![defaults boolForKey:[NSString stringWithFormat:@"%@%@", configurationname, @"_initialized"]])
+    {
+        [defaults boolForKey:<#(NSString *)#>
+    }
     
 }
 
