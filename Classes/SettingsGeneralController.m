@@ -19,12 +19,13 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "SettingsGeneralController.h"
+#import "Settings.h"
 
 @interface SettingsGeneralController ()
 @end
 
 @implementation SettingsGeneralController {
-    NSUserDefaults *defaults;
+    Settings *settings;
     NSMutableArray *Filepath;
     bool autoloadconfig;
 }
@@ -34,10 +35,10 @@ static NSMutableArray *Filename;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    defaults = [NSUserDefaults standardUserDefaults];
-    Filepath = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
+    settings = [[Settings alloc] init];
+    Filepath = [[settings arrayForKey:@"insertedfloppies"] mutableCopy];
     
-    autoloadconfig = [defaults boolForKey:@"autoloadconfig"];
+    autoloadconfig = [settings boolForKey:@"autoloadconfig"];
     [_swautoloadconfig setOn:autoloadconfig animated:TRUE];
     
     if(!Filepath)
@@ -79,9 +80,9 @@ static NSMutableArray *Filename;
     [_df0 setText:df0title];
     [_df1 setText:df1title];
     
-    if([defaults stringForKey:@"configurationname"])
+    if([settings stringForKey:@"configurationname"])
     {
-        [_configurationname setText:[defaults stringForKey:@"configurationname"]];
+        [_configurationname setText:[settings stringForKey:@"configurationname"]];
     }
 }
 
@@ -91,7 +92,7 @@ static NSMutableArray *Filename;
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
     autoloadconfig = !autoloadconfig;
-    [defaults setBool:autoloadconfig forKey:@"autoloadconfig"];
+    [settings setBool:autoloadconfig forKey:@"autoloadconfig"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -116,7 +117,7 @@ static NSMutableArray *Filename;
     int df = sender.tag;
     
     [Filepath replaceObjectAtIndex:df withObject:path];
-    [defaults setObject:Filepath forKey:@"insertedfloppies"];
+    [settings setObject:Filepath forKey:@"insertedfloppies"];
     
     [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
     
@@ -138,11 +139,11 @@ static NSMutableArray *Filename;
 
 - (void)didSelectConfiguration:(NSString *)configurationname {
     [_configurationname setText:configurationname];
-    [defaults setObject:configurationname forKey:@"configurationname"];
+    [settings setObject:configurationname forKey:@"configurationname"];
 }
 
 - (void)didDeleteConfiguration {
-    NSMutableArray *configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
+    NSMutableArray *configurations = [[settings arrayForKey:@"configurations"] mutableCopy];
     
     if(![configurations indexOfObject:[_configurationname text]])
     {

@@ -82,6 +82,8 @@ extern void uae_reset();
     [super viewDidLoad];
     [self.view setMultipleTouchEnabled:TRUE];
     
+    settings = [[Settings alloc] init];
+    
     [self showpopupfirstlaunch];
     
     [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
@@ -97,16 +99,12 @@ extern void uae_reset();
                                            selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
     
     firstappearance = true;
-    
-    settings = [[Settings alloc] init];
 }
 
 - (void)showpopupfirstlaunch {
     //Popup MFI Controller
     
-    if([settings])
-    
-    if ([defaults boolForKey:@"appvariableinitialized"])
+    if([settings boolForKey:@"appvariableinitializied"])
     {
         showalert = FALSE;
     }
@@ -120,7 +118,7 @@ extern void uae_reset();
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     set_joystickactive();
-    [self initializeSettings];
+    [settings initializeSettings];
     
     if(showalert)
     {
@@ -230,57 +228,6 @@ extern void uae_reset();
     }
 }
 
-- (void)initializeSettings {
-    
-    NSString *configurationname = [self initializeCommonSettings];
-    [self initializespecificsettings:configurationname];
-    
-}
-
--(NSString *)initializeCommonSettings {
-    
-    NSArray *insertedfloppies = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
-    
-    BOOL appvariableinitializied = [defaults boolForKey:@"appvariableinitialized"];
-    
-    if(!appvariableinitializied)
-    {
-        [defaults setBool:TRUE forKey:@"appvariableinitialized"];
-        [defaults setBool:TRUE forKey:@"autoloadconfig"];
-        [defaults setObject:@"General" forKey:@"configurationname"];
-    }
-    
-    NSString *configurationname = [defaults stringForKey:@"configurationname"];
-    
-    for(int i=0;i<=1;i++)
-    {
-        NSString *curadf = [insertedfloppies objectAtIndex:i];
-        NSString *oldadf = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];
-        
-        if(![curadf isEqualToString:oldadf])
-        {
-            [curadf getCString:changed_df[i] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-            real_changed_df[i] = 1;
-            
-            NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [curadf lastPathComponent]];
-            
-            configurationname = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : configurationname;
-            [defaults setObject:configurationname forKey:@"configurationname"];
-        }
-    }
-    
-    return configurationname;
-    
-}
-
--(void) initializespecificsettings:(NSString *)configurationname {
-    if(![defaults boolForKey:[NSString stringWithFormat:@"%@%@", configurationname, @"_initialized"]])
-    {
-        [defaults boolForKey:<#(NSString *)#>
-    }
-    
-}
-
 - (void)dealloc
 {
     [_btnKeyboard release];
@@ -289,6 +236,9 @@ extern void uae_reset();
     [_btnPin release];
     [_mouseHandler release];
     [_menuBarEnabler release];
+    [Settings release];
+    
+    [super dealloc];
 }
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "AddConfigurationViewController.h"
+#import "Settings.h"
 
 @interface AddConfigurationViewController ()
 
 @end
 
 @implementation AddConfigurationViewController {
-    NSUserDefaults *defaults;
+    Settings *settings;
     NSMutableArray *configurations;
 }
 
@@ -22,8 +23,9 @@
     
     [_add setEnabled:false];
     
-    defaults = [NSUserDefaults standardUserDefaults];
-    configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
+    settings = [[Settings alloc] init];
+    
+    configurations = [[settings arrayForKey:@"configurations"] mutableCopy];
 
     if(!configurations)
     {
@@ -51,7 +53,7 @@
     else
     {
         [configurations addObject:[NSString stringWithString:_name.text]];
-        [defaults setObject:configurations forKey:@"configurations"];
+        [settings setObject:configurations forKey:@"configurations"];
         
         if(self.delegate)
         {
@@ -79,6 +81,7 @@
     [_add release];
     [_name release];
     [configurations release];
+    [settings release];
     [super dealloc];
 }
 

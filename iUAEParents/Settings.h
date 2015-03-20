@@ -12,9 +12,13 @@
 - (void)initializeSettings;
 -(void)initializeCommonSettings;
 -(void) initializespecificsettings;
-- (void) initializesettingitembool:(NSString *)settingitemname value:(BOOL)value;
-- (void) initializesettingitemstring:(NSString *)settingitemname value:(NSString *)value;
-- (bool) getsettingitembool:(NSString *)settingitemname;
-- (NSString *) getsettingitemstring:(NSString *)settingitemname;
+- (void) setBool:(BOOL)value forKey:(NSString *)settingitemname;
+- (void) setObject:(id)value forKey:(NSString *)settingitemname;
+- (bool) boolForKey:(NSString *)settingitemname;
+- (NSString *) stringForKey:(NSString *)settingitemname;
+- (NSArray *) arrayForKey:(NSString *)settingitemname;
+- (void) removeObjectForKey:(NSString *) settingitemname;
+- (NSString *) configForDisk:(NSString *)diskName;
+- (void) setConfig:(NSString *)configName forDisk:(NSString *)diskName;
 
 @end

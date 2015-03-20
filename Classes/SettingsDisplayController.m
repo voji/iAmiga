@@ -7,13 +7,14 @@
 //
 
 #import "SettingsDisplayController.h"
+#import "Settings.h"
 
 @interface SettingsDisplayController ()
 
 @end
 
 @implementation SettingsDisplayController {
-    NSUserDefaults *defaults;
+    Settings *settings;
 }
 
 
@@ -24,13 +25,12 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    defaults = [NSUserDefaults standardUserDefaults];
+    settings = [[Settings alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
-    NSString *configurationname = [[defaults stringForKey:@"configurationname"] copy];
-    NSString *NTSCStretchScreen = [[defaults stringForKey:[NSString stringWithFormat:@"%@%@", configurationname, @"_stretchscreen"];
+    NSString *NTSCStretchScreen = [[settings stringForKey:@"_stretchscreen"] copy];
                                     
 }
 

@@ -9,6 +9,7 @@
 #import "SelectConfigurationViewController.h"
 #import "EMUBrowser.h"
 #import "EMUFileInfo.h"
+#import "Settings.h"
 
 @interface SelectConfigurationViewController ()
 
@@ -16,15 +17,15 @@
 
 @implementation SelectConfigurationViewController {
     NSMutableArray *configurations;
-    NSUserDefaults *defaults;
+    Settings *settings;
     NSString *firstoption;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    defaults = [NSUserDefaults standardUserDefaults];
-    configurations = [defaults arrayForKey:@"configurations"] ? [[defaults arrayForKey:@"configurations"] mutableCopy] : [[NSMutableArray alloc] init];
+    settings = [[Settings alloc] init];
+    configurations = [settings arrayForKey:@"configurations"] ? [[settings arrayForKey:@"configurations"] mutableCopy] : [[NSMutableArray alloc] init];
     
     if(_delegate)
     {
@@ -43,7 +44,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    configurations = [[defaults arrayForKey:@"configurations"] mutableCopy];
+    configurations = [[settings arrayForKey:@"configurations"] mutableCopy];
     [configurations insertObject:firstoption atIndex:0];
 }
 
@@ -142,20 +143,19 @@
     NSMutableArray *configurationsforsave = [configurations mutableCopy];
     [configurationsforsave removeObjectAtIndex:0]; //General or None is no real Configuration just a placeholder
 
-    [defaults setObject:configurationsforsave forKey:@"configurations"];
+    [settings setObject:configurationsforsave forKey:@"configurations"];
     
-    NSString *recentconfig;
     for (EMUFileInfo* f in files) {
         
         /*Associated Configuration File*/
         NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [f fileName]];
-        NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@""];
+        NSString *configurationfile = [settings stringForKey:settingstring] ? [settings stringForKey:settingstring] : [NSString stringWithFormat:@""];
         if([configurationfile isEqualToString:configdeleted]) {
             if(self.delegate)
             {
                 [self.delegate didDeleteConfiguration];
             }
-            [defaults removeObjectForKey:settingstring];
+            [settings removeObjectForKey:settingstring];
         }
     }
 }

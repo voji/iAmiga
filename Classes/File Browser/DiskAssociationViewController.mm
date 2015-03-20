@@ -21,9 +21,11 @@
 #import "EMUBrowser.h"
 #import "EMUFileInfo.h"
 #import "EMUFileGroup.h"
+#import "Settings.h"
 
 @implementation DiskAssocationViewController {
     NSString *disktoassociate;
+    Settings *settings;
 }
 
 @synthesize roms, selectedIndexPath, indexTitles, context;
@@ -36,7 +38,9 @@
 }
 
 - (void)viewDidLoad {
-	self.title = @"Browser";
+	
+    settings = [[Settings alloc] init];
+    self.title = @"Browser";
 	
 	self.indexTitles = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", 
 						@"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
@@ -170,10 +174,8 @@
 }
 
 - (NSString *) getconfigforDisk:(NSString *)fileName {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *settingstring = [NSString stringWithFormat:@"cnf%@", fileName];
-    NSString *configurationfile = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : [NSString stringWithFormat:@"None"];
+    NSString *configurationfile = [settings configForDisk:fileName] ? [settings configForDisk:fileName]  : [NSString stringWithFormat:@"None"];
     
     return configurationfile;
 }
@@ -218,23 +220,12 @@
 
 - (void)saveConfiguration:(NSString *)configurationname {
     
-    
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
     NSString *fileName = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
-    NSString *settingstring = [NSString stringWithFormat:@"cnf%@", fileName];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [settings setConfig:configurationname forDisk:fileName];
     
-    if([configurationname isEqual:@"None"]) {
-        if([defaults stringForKey:settingstring]) {
-            [defaults setObject:nil forKey:settingstring];
-        }
-    }
-    else
-    {
-        [defaults setObject:configurationname forKey:settingstring];
-    }
 }
 
 - (NSString *)getfirstoption {
@@ -242,13 +233,13 @@
 }
 
 - (void)dealloc {
-	//if (prefs)
-	//	delete prefs;
 	
 	self.roms = nil;
 	self.indexTitles = nil;
 	self.selectedIndexPath = nil;
 	self.context = nil;
+    [settings release];
+    settings = nil;
 	[super dealloc];
 }
 

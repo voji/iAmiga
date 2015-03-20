@@ -33,9 +33,10 @@ extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
 extern int joystickselected;
 
+static NSString *configurationname;
+
 @implementation Settings {
      NSUserDefaults *defaults;
-     NSString *configurationname;
 }
 
 - (void)initializeSettings {
@@ -45,10 +46,10 @@ extern int joystickselected;
     
 }
 
-- init {
+-(id) init {
     [super init];
-    
-    defaults = [NSUserDefaults standardUserDefaults];
+    defaults = [[NSUserDefaults standardUserDefaults] retain];
+    return self;
 }
 
 -(void)initializeCommonSettings {
@@ -85,15 +86,15 @@ extern int joystickselected;
 }
 
 -(void) initializespecificsettings {
-    if(![self getsettingitembool:@"initialize"])
+    if(![self boolForKey:@"initialize"])
     {
-        [self initializesettingitembool:@"_ntsc" value:mainMenu_ntsc];
-        [self initializesettingitembool:@"_stretchscreeen" value:mainMenu_stretchscreen];
-        [self initializesettingitembool:@"_showstatus" value:mainMenu_stretchscreen];
+        [self setBool:mainMenu_ntsc forKey:@"_ntsc"];
+        [self setBool:mainMenu_stretchscreen forKey:@"_stretchscreen"];
+        [self setBool:mainMenu_showStatus forKey:@"_showstatus"];
     }
 }
 
-- (void) initializesettingitembool:(NSString *)settingitemname value:(BOOL)value {
+- (void) setBool:(BOOL)value forKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
     //Setting in own Configuration
     {
@@ -106,7 +107,7 @@ extern int joystickselected;
     }
 }
          
-- (void) initializesettingitemstring:(NSString *)settingitemname value:(NSString *)value {
+- (void) setObject:(id)value forKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
         //Setting in own Configuration
     {
@@ -118,8 +119,8 @@ extern int joystickselected;
         [defaults setObject:value forKey:[NSString stringWithFormat:@"%@", settingitemname ]];
     }
 }
-            
-- (bool) getsettingitembool:(NSString *)settingitemname {
+
+- (bool) boolForKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
     //Setting in own Configuration
     {
@@ -131,7 +132,7 @@ extern int joystickselected;
     }
 }
          
-- (NSString *) getsettingitemstring:(NSString *)settingitemname {
+- (NSString *) stringForKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
         //Setting in own Configuration
     {
@@ -143,9 +144,56 @@ extern int joystickselected;
     }
 }
 
+- (NSArray *) arrayForKey:(NSString *)settingitemname {
+    if([settingitemname hasPrefix:@"_"])
+        //Setting in own Configuration
+    {
+        return [defaults arrayForKey:[NSString stringWithFormat:@"%@%@", configurationname,  settingitemname]];
+    }
+    else
+    {
+        return [defaults arrayForKey:[NSString stringWithFormat:@"%@", settingitemname]];
+    }
+}
+
+- (void) removeObjectForKey:(NSString *) settingitemname {
+    if([settingitemname hasPrefix:@"_"])
+        //Setting in own Configuration
+    {
+        [defaults removeObjectForKey:[NSString stringWithFormat:@"%@%@", configurationname,  settingitemname]];
+    }
+    else
+    {
+        [defaults removeObjectForKey:[NSString stringWithFormat:@"%@", settingitemname]];
+    }
+}
+
+- (NSString *) configForDisk:(NSString *)diskName {
+
+    NSString *settingstring = [NSString stringWithFormat:@"cnf%@", diskName];
+    return [defaults stringForKey:settingstring];
+}
+
+- (void) setConfig:(NSString *)configName forDisk:(NSString *)diskName {
+    
+    NSString *configstring = [NSString stringWithFormat:@"cnf%@", diskName];
+    
+    if([configName isEqual:@"None"]) {
+        if([self configForDisk:diskName]) {
+            [defaults setObject:nil forKey:configstring];
+        }
+    }
+    else
+    {
+        [defaults setObject:configName forKey:configstring];
+    }
+}
+
 - (void)dealloc
 {
     [defaults release];
+    defaults = nil;
+    [super dealloc];
 }
          
 @end
