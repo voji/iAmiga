@@ -186,25 +186,29 @@ extern void uae_reset();
 
 - (IBAction)toggleControls:(id)sender {
     
-    bool keyboardactiveonstart = keyboardactive;
+    UIButton *button = sender;
     
-    UIButton *button = (UIButton *) sender;
-    
-    keyboardactive = (button == btnKeyboard) ? !keyboardactive : FALSE;
-    joyactive = (button == btnJoypad) ? !joyactive : FALSE;
-    
-    btnKeyboard.selected = (button == btnKeyboard) ? !btnKeyboard.selected : FALSE;
-    btnJoypad.selected = (button == btnJoypad) ? !btnJoypad.selected : FALSE;
-    
-    joyControllerMain.hidden = !joyactive;
-    mouseHandlermain.hidden = joyactive;
-    
-    if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
-    
-    if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
-    
-    if (button == btnSettings) { [self settings]; }
-    
+    if (button == btnSettings)
+    {
+        [self settings];
+    }
+    else
+    {
+        bool keyboardactiveonstart = keyboardactive;
+        keyboardactive = (button == btnKeyboard) ? !keyboardactive : FALSE;
+        
+        joyactive = (button == btnJoypad) ? !joyactive : FALSE;
+        
+        btnKeyboard.selected = (button == btnKeyboard) ? !btnKeyboard.selected : FALSE;
+        btnJoypad.selected = (button == btnJoypad) ? !btnJoypad.selected : FALSE;
+        
+        joyControllerMain.hidden = !joyactive;
+        mouseHandlermain.hidden = joyactive;
+        
+        if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
+        
+        if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
+    }
 }
 
 - (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
