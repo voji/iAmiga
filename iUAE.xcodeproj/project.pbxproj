@@ -1286,6 +1286,12 @@
 		97EF968C1538771F001C01E6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963E1538771F001C01E6 /* icon.png */; };
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
+		BE2765831AC91B16001BEDFD /* AdfImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2765821AC91B16001BEDFD /* AdfImporter.m */; };
+		BEEC460C1AC2E70800DEC32B /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BEEC46001AC2E70800DEC32B /* ioapi.c */; };
+		BEEC460D1AC2E70800DEC32B /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = BEEC46021AC2E70800DEC32B /* mztools.c */; };
+		BEEC460E1AC2E70800DEC32B /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEEC46041AC2E70800DEC32B /* unzip.c */; };
+		BEEC460F1AC2E70800DEC32B /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEEC46061AC2E70800DEC32B /* zip.c */; };
+		BEEC46101AC2E70800DEC32B /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEEC46091AC2E70800DEC32B /* ZipArchive.mm */; };
 		E18F65E7154CAD470073642F /* Bazooka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E6154CAD470073642F /* Bazooka.ttf */; };
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
@@ -2104,6 +2110,19 @@
 		97EF963F1538771F001C01E6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		97EF96561538771F001C01E6 /* StoogesEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoogesEmulationViewController.h; sourceTree = "<group>"; };
 		97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoogesEmulationViewController.m; sourceTree = "<group>"; };
+		BE2765811AC91B16001BEDFD /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
+		BE2765821AC91B16001BEDFD /* AdfImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfImporter.m; sourceTree = "<group>"; };
+		BEEC45FF1AC2E70800DEC32B /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		BEEC46001AC2E70800DEC32B /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		BEEC46011AC2E70800DEC32B /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		BEEC46021AC2E70800DEC32B /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		BEEC46031AC2E70800DEC32B /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		BEEC46041AC2E70800DEC32B /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		BEEC46051AC2E70800DEC32B /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		BEEC46061AC2E70800DEC32B /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		BEEC46071AC2E70800DEC32B /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		BEEC46081AC2E70800DEC32B /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		BEEC46091AC2E70800DEC32B /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		E18F65E6154CAD470073642F /* Bazooka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazooka.ttf; sourceTree = "<group>"; };
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
@@ -2257,6 +2276,9 @@
 		050415680FCB4BC300F46828 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BEEC45FD1AC2E6E700DEC32B /* Zip */,
+				BE2765811AC91B16001BEDFD /* AdfImporter.h */,
+				BE2765821AC91B16001BEDFD /* AdfImporter.m */,
 				050415690FCB4BD400F46828 /* CocoaUtility.h */,
 				0504156A0FCB4BD400F46828 /* CocoaUtility.m */,
 				0504156C0FCB4BE600F46828 /* debug.h */,
@@ -3787,6 +3809,32 @@
 			path = Stooges;
 			sourceTree = "<group>";
 		};
+		BEEC45FD1AC2E6E700DEC32B /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				BEEC45FE1AC2E70800DEC32B /* minizip */,
+				BEEC46081AC2E70800DEC32B /* ZipArchive.h */,
+				BEEC46091AC2E70800DEC32B /* ZipArchive.mm */,
+			);
+			name = Zip;
+			sourceTree = "<group>";
+		};
+		BEEC45FE1AC2E70800DEC32B /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				BEEC45FF1AC2E70800DEC32B /* crypt.h */,
+				BEEC46001AC2E70800DEC32B /* ioapi.c */,
+				BEEC46011AC2E70800DEC32B /* ioapi.h */,
+				BEEC46021AC2E70800DEC32B /* mztools.c */,
+				BEEC46031AC2E70800DEC32B /* mztools.h */,
+				BEEC46041AC2E70800DEC32B /* unzip.c */,
+				BEEC46051AC2E70800DEC32B /* unzip.h */,
+				BEEC46061AC2E70800DEC32B /* zip.c */,
+				BEEC46071AC2E70800DEC32B /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4751,7 +4799,9 @@
 				0552BD270F3D797C005B30DF /* blitter.cpp in Sources */,
 				7EA4D6571923ECC100C58BB9 /* EmulationView-iPad.mm in Sources */,
 				0552BD280F3D797C005B30DF /* cia.cpp in Sources */,
+				BEEC46101AC2E70800DEC32B /* ZipArchive.mm in Sources */,
 				0552BD2D0F3D797C005B30DF /* ersatz.cpp in Sources */,
+				BEEC460F1AC2E70800DEC32B /* zip.c in Sources */,
 				0552BD2E0F3D797C005B30DF /* gfxutil.cpp in Sources */,
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
@@ -4770,11 +4820,13 @@
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
 				05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */,
+				BE2765831AC91B16001BEDFD /* AdfImporter.m in Sources */,
 				0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */,
 				050415610FCB475C00F46828 /* InputControllerView.mm in Sources */,
 				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
 				7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */,
 				0504156B0FCB4BD400F46828 /* CocoaUtility.m in Sources */,
+				BEEC460C1AC2E70800DEC32B /* ioapi.c in Sources */,
 				057B0D4C0FD0D0ED00D549AD /* MMStopWatch.m in Sources */,
 				7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */,
 				059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */,
@@ -4812,7 +4864,9 @@
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
 				7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */,
 				978550EE153A3F2E00580B91 /* SDL_syssem.c in Sources */,
+				BEEC460E1AC2E70800DEC32B /* unzip.c in Sources */,
 				978550F1153A3F2E00580B91 /* SDL_systhread.c in Sources */,
+				BEEC460D1AC2E70800DEC32B /* mztools.c in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,

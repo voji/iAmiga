@@ -21,6 +21,7 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "AdfImporter.h"
 #import "SingleWindowAppDelegate.h"
 #import "BaseEmulationViewController.h"
 #import <AudioToolbox/AudioServices.h>
@@ -127,6 +128,22 @@
 		[self.mainController setDisplayViewWindow:externalWindow isExternal:YES];
 		externalWindow.hidden = NO;
 	}
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    AdfImporter *importer = [[AdfImporter alloc] init];
+    BOOL imported = [importer import:url.path];
+    NSString *message = [NSString stringWithFormat:(imported ? @"Successfully imported %@" : @"Failed to import %@"), [url.path lastPathComponent]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [importer release];
+    [alert release];
+    return imported;
 }
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window

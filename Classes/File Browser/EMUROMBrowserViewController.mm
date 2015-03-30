@@ -26,17 +26,13 @@
 
 @synthesize roms, selectedIndexPath, indexTitles, delegate, context;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-		// Initialization code
-	}
-	return self;
-}
-
 - (void)viewDidLoad {
 	self.title = @"Browser";
-	
-	self.indexTitles = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", 
+    [self reloadAdfs];
+}
+
+- (void)reloadAdfs {
+	self.indexTitles = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
 						@"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
 						@"W", @"X", @"Y", @"Z", @"#", nil];
 	
@@ -65,22 +61,9 @@
 	self.roms = sections;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-//	if (!prefs)
-//		prefs = new Prefs();
-//	
-//	prefs->Load(Frodo::prefs_path());
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
-	// Release anything that's not essential, such as cached data
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -128,6 +111,22 @@
 	}
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        EMUFileGroup *group = [self.roms objectAtIndex:indexPath.section];
+        EMUFileInfo *fileInfo = [group.files objectAtIndex:indexPath.row];
+        [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
+        [self reloadAdfs];
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
+    }
+}
+
 #define CELL_ID @"DiskCell"
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -151,9 +150,6 @@
 
 
 - (void)dealloc {
-	//if (prefs)
-	//	delete prefs;
-	
 	self.roms = nil;
 	self.indexTitles = nil;
 	self.selectedIndexPath = nil;
