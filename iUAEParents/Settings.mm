@@ -65,7 +65,7 @@ static NSString *configurationname;
         [defaults setObject:@"General" forKey:@"configurationname"];
     }
     
-    configurationname = [defaults stringForKey:@"configurationname"];
+    configurationname = [[defaults stringForKey:@"configurationname"] retain];
     
     for(int i=0;i<=1;i++)
     {
@@ -79,18 +79,24 @@ static NSString *configurationname;
             
             NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [curadf lastPathComponent]];
             
-            configurationname = [defaults stringForKey:settingstring] ? [defaults stringForKey:settingstring] : configurationname;
+            if([defaults stringForKey:settingstring] )
+            {
+                [configurationname release];
+                configurationname = [[defaults stringForKey:settingstring] retain];
+            }
+            
             [defaults setObject:configurationname forKey:@"configurationname"];
         }
     }
 }
 
 -(void) initializespecificsettings {
-    if(![self boolForKey:@"initialize"])
+    if(![self boolForKey:@"_initialize"])
     {
         [self setBool:mainMenu_ntsc forKey:@"_ntsc"];
         [self setBool:mainMenu_stretchscreen forKey:@"_stretchscreen"];
         [self setBool:mainMenu_showStatus forKey:@"_showstatus"];
+        [self setBool:TRUE forKey:@"_initialize"];
     }
 }
 

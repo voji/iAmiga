@@ -10,4 +10,12 @@
 
 @interface SettingsDisplayController : UITableViewController
 
+- (IBAction)toggleNTSC:(id)sender;
+- (IBAction)toggleStretchscreen:(id)sender;
+- (IBAction)toggleShowstatus:(id)sender;
+
+@property (readwrite, retain) IBOutlet UISwitch *ntsc;
+@property (readwrite, retain) IBOutlet UISwitch *stretchscreen;
+@property (readwrite, retain) IBOutlet UISwitch *showstatus;
+
 @end

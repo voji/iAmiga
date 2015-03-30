@@ -80,6 +80,8 @@ static NSMutableArray *Filename;
     [_df0 setText:df0title];
     [_df1 setText:df1title];
     
+    [settings initializeSettings];
+    
     if([settings stringForKey:@"configurationname"])
     {
         [_configurationname setText:[settings stringForKey:@"configurationname"]];

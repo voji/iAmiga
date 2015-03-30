@@ -26,17 +26,39 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     settings = [[Settings alloc] init];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
-    NSString *NTSCStretchScreen = [[settings stringForKey:@"_stretchscreen"] copy];
-                                    
+    [settings initializeSettings];
+    [_ntsc setOn:[settings boolForKey:@"_ntsc"]];
+    [_showstatus setOn:[settings boolForKey:@"_showstatus"]];
+    [_stretchscreen setOn:[settings boolForKey:@"_stretchscreen"]];
+
+}
+
+- (void)toggleNTSC:(id)sender {
+    [settings setBool:_ntsc.isOn forKey:@"_ntsc"];
+}
+
+- (void)toggleShowstatus:(id)sender {
+    [settings setBool:_showstatus.isOn forKey:@"_showstatus"];
+}
+
+- (void)toggleStretchscreen:(id)sender {
+    [settings setBool:_stretchscreen.isOn forKey:@"_stretchscreen"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    [settings release];
+    [super dealloc];
 }
 
 @end
