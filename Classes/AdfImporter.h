@@ -17,4 +17,6 @@
  */
 - (BOOL)import:(NSString *)path;
 
+- (BOOL)isDownloadedAdf:(NSString *)path;
+
 @end

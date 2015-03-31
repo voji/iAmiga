@@ -18,6 +18,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "AdfImporter.h"
 
 @class EMUFileInfo;
 
@@ -39,5 +40,6 @@
 @property (nonatomic, retain) NSIndexPath	*selectedIndexPath;
 @property (nonatomic, assign) id<SelectRomDelegate>	delegate;
 @property (nonatomic, retain) id context;
+@property (nonatomic, retain) AdfImporter *adfImporter;
 
 @end

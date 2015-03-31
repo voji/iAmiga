@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
 	self.title = @"Browser";
+    self.adfImporter = [[AdfImporter alloc] init];
     [self reloadAdfs];
 }
 
@@ -112,18 +113,20 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+    return [self.adfImporter isDownloadedAdf:fileInfo.path];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        EMUFileGroup *group = [self.roms objectAtIndex:indexPath.section];
-        EMUFileInfo *fileInfo = [group.files objectAtIndex:indexPath.row];
-        [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
-        [self reloadAdfs];
-        [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [tableView endUpdates];
+        EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+        BOOL deleteOk = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
+        if (deleteOk) {
+            [self reloadAdfs];
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView endUpdates];
+        }
     }
 }
 
@@ -141,19 +144,23 @@
 	else
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	
-	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
-	
-    cell.textLabel.text = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
+    EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+    cell.textLabel.text = [fileInfo fileName];
 	
     return cell;
 }
 
+- (EMUFileInfo *)getFileInfoForIndexPath:(NSIndexPath *)indexPath {
+    EMUFileGroup *group = [self.roms objectAtIndex:indexPath.section];
+    return [group.files objectAtIndex:indexPath.row];
+}
 
 - (void)dealloc {
 	self.roms = nil;
 	self.indexTitles = nil;
 	self.selectedIndexPath = nil;
 	self.context = nil;
+    self.adfImporter = nil;
 	[super dealloc];
 }
 

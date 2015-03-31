@@ -35,6 +35,8 @@ static NSString *kAdfsDirectoryName = @"DownloadedAdfs";
     [super dealloc];
 }
 
+# pragma mark - Public methods
+
 - (BOOL)import:(NSString *)path {
     BOOL imported = NO;
     if ([self isAdf:path]) {
@@ -49,6 +51,13 @@ static NSString *kAdfsDirectoryName = @"DownloadedAdfs";
     }
     return imported;
 }
+
+- (BOOL)isDownloadedAdf:(NSString *)path {
+    NSString *directory = [path stringByDeletingLastPathComponent];
+    return [directory isEqualToString:_adfsDirectory];
+}
+
+# pragma mark - Private methods
 
 - (BOOL)importAdf:(NSString *)adfPath {
     NSString *adfFileName = [adfPath lastPathComponent];
