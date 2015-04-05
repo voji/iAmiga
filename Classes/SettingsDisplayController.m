@@ -9,6 +9,10 @@
 #import "SettingsDisplayController.h"
 #import "Settings.h"
 
+extern int mainMenu_showStatus;
+extern int mainMenu_ntsc;
+extern int mainMenu_stretchscreen;
+
 @interface SettingsDisplayController ()
 
 @end
@@ -27,6 +31,7 @@
     
     settings = [[Settings alloc] init];
 
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,14 +45,17 @@
 
 - (void)toggleNTSC:(id)sender {
     [settings setBool:_ntsc.isOn forKey:@"_ntsc"];
+    mainMenu_ntsc = _ntsc.isOn;
 }
 
 - (void)toggleShowstatus:(id)sender {
     [settings setBool:_showstatus.isOn forKey:@"_showstatus"];
+    mainMenu_showStatus = _showstatus.isOn;
 }
 
 - (void)toggleStretchscreen:(id)sender {
     [settings setBool:_stretchscreen.isOn forKey:@"_stretchscreen"];
+    mainMenu_stretchscreen = _stretchscreen.isOn;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -98,6 +98,12 @@ static NSString *configurationname;
         [self setBool:mainMenu_showStatus forKey:@"_showstatus"];
         [self setBool:TRUE forKey:@"_initialize"];
     }
+    else
+    {
+        mainMenu_ntsc = [self boolForKey:@"_ntsc"];
+        mainMenu_stretchscreen = [self boolForKey:@"_stretchscreen"];
+        mainMenu_showStatus = [self boolForKey:@"_showstatus"];
+    }
 }
 
 - (void) setBool:(BOOL)value forKey:(NSString *)settingitemname {

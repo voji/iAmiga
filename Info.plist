@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIMainStoryboardFile~iphone</key>
-	<string>Storyboardiphone</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>StoryboardiPAD</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -32,6 +28,12 @@
 	<true/>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+	<key>UIMainStoryboardFile</key>
+	<string>StoryboardiPhone</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>StoryboardiPAD</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>StoryboardiPhone</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

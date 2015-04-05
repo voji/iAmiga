@@ -201,7 +201,6 @@
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
 		7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E23240A1A2E4E9A00426A9D /* Roadras1.adf */; };
-		7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */; };
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
@@ -217,6 +216,8 @@
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
 		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */; };
+		7E6D1B6A1ACB22A600E42678 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D1B691ACB22A600E42678 /* kick13.rom */; };
+		7E6D1B6C1ACB2BB000E42678 /* StoryboardiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D1B6B1ACB2BB000E42678 /* StoryboardiPhone.storyboard */; };
 		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
@@ -1588,7 +1589,6 @@
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
 		7E23240A1A2E4E9A00426A9D /* Roadras1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roadras1.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Gut/Roadras1.adf; sourceTree = "<group>"; };
-		7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboardiphone.storyboard; path = "Resources-iPad/Storyboardiphone.storyboard"; sourceTree = SOURCE_ROOT; };
 		7E27C39B1AA3A61900C00584 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
 		7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsDisplayController.h; sourceTree = "<group>"; };
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
@@ -1609,6 +1609,8 @@
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
 		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
+		7E6D1B691ACB22A600E42678 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
+		7E6D1B6B1ACB2BB000E42678 /* StoryboardiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPhone.storyboard; sourceTree = SOURCE_ROOT; };
 		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7E9482671A2277C600F254F6 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Northsou.adf; sourceTree = "<group>"; };
@@ -1641,8 +1643,8 @@
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
 		7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskAssociationViewController.mm; sourceTree = "<group>"; };
-		7EE0D0431AACF2090081DAA5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = iUAEParents/Settings.h; sourceTree = "<group>"; };
-		7EE0D0441AACF2090081DAA5 /* Settings.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Settings.mm; path = iUAEParents/Settings.mm; sourceTree = "<group>"; };
+		7EE0D0431AACF2090081DAA5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = ../iUAEParents/Settings.h; sourceTree = "<group>"; };
+		7EE0D0441AACF2090081DAA5 /* Settings.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Settings.mm; path = ../iUAEParents/Settings.mm; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectConfigurationViewController.m; path = ../SelectConfigurationViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2343,7 +2345,7 @@
 			isa = PBXGroup;
 			children = (
 				053368BA13B1D75E0012D55A /* MainWindow-Single.xib */,
-				7E24CF7F1A3A3F4400F9FE69 /* Storyboardiphone.storyboard */,
+				7E6D1B6B1ACB2BB000E42678 /* StoryboardiPhone.storyboard */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -2626,6 +2628,7 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7E6D1B691ACB22A600E42678 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2770,6 +2773,8 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7EE0D0431AACF2090081DAA5 /* Settings.h */,
+				7EE0D0441AACF2090081DAA5 /* Settings.mm */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */,
 				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
@@ -2858,8 +2863,6 @@
 				7EA4D6541923ECC100C58BB9 /* MainEmulationViewController.mm */,
 				7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */,
 				7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */,
-				7EE0D0431AACF2090081DAA5 /* Settings.h */,
-				7EE0D0441AACF2090081DAA5 /* Settings.mm */,
 				7EA4D64F1923ECB400C58BB9 /* IOSKeyboard.m */,
 				7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */,
 				7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */,
@@ -4124,6 +4127,7 @@
 				7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */,
 				97855109153A3F2E00580B91 /* Aperture (1x2 RB).png in Resources */,
 				7E4B18DB188B1CBE0019E82B /* chrome-bottom@2x.png in Resources */,
+				7E6D1B6C1ACB2BB000E42678 /* StoryboardiPhone.storyboard in Resources */,
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
 				7E1B8C4219FADFD400B6136B /* modekeyoff@2x.png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
@@ -4143,10 +4147,10 @@
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
 				7E1B8C4019FADFD400B6136B /* modejoypressed@2x.png in Resources */,
 				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
+				7E6D1B6A1ACB22A600E42678 /* kick13.rom in Resources */,
 				7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
-				7E24CF801A3A3F4400F9FE69 /* Storyboardiphone.storyboard in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,

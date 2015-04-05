@@ -31,19 +31,6 @@
 
 bool keyboardactive;
 
-- (CGFloat) XposFloatPanel {
-    
-    CGRect screenRect = CGRectZero;
-    screenRect = [[UIScreen mainScreen] bounds];
-    
-    
-    
-    //Middle of the Screen assuming fullScreenPanel has a width of 700
-    CGFloat result = (self.screenHeight / 2) - 350;
-    
-    return result;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

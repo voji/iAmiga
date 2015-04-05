@@ -39,7 +39,6 @@
 
 @interface MainEmulationViewController()
 
-//- (void)startIntroSequence;
 
 @end
 
@@ -78,11 +77,16 @@ extern void uae_reset();
     return screenRect.size.width;
 }
 
+- (void) loadView {
+    [super loadView];
+    
+    settings = [[Settings alloc] init];
+    [settings initializeSettings];
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self.view setMultipleTouchEnabled:TRUE];
-    
-    settings = [[Settings alloc] init];
     
     [self showpopupfirstlaunch];
     
@@ -138,25 +142,6 @@ extern void uae_reset();
 -(void)initializeJoypad:(InputControllerView *)joyController {
     _joyController.hidden = TRUE;
     joyactive = FALSE;
-}
-
-- (CGFloat) XposFloatPanel:(int)barwidth {
-    CGRect screenRect = CGRectZero;
-    screenRect = [[UIScreen mainScreen] bounds];
-    //CGFloat screenHeight = screenRect.size.height;
-    
-    CGFloat result;
-    
-    if(self.screenWidth > self.screenHeight)
-    {
-        result = (self.screenWidth / 2) - (barwidth/2);
-    }
-    else
-    {
-        result = (self.screenHeight / 2) - (barwidth/2);
-    }
-        
-    return result;
 }
 
 - (IBAction)toggleControls:(id)sender {
