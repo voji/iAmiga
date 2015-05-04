@@ -101,12 +101,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LsS-yq-44l">
-                                        <rect key="frame" x="151" y="483" width="1024" height="44"/>
-                                        <items>
-                                            <barButtonItem image="sticky.png" id="IIW-dZ-U3b"/>
-                                        </items>
-                                    </toolbar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="44g-VP-zUI" firstAttribute="leading" secondItem="YZd-03-fs2" secondAttribute="leading" id="0uA-28-xhb"/>
