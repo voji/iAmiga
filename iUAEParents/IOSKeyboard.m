@@ -38,6 +38,7 @@
 
 #define BFKEY 1
 #define BSKEY 2
+#define EXKEY 3
 
 
 @implementation IOSKeyboard {
@@ -61,6 +62,7 @@
     
     UIButton *fKey_btnd;
     UIButton *sKey_btnd;
+    UIButton *exit_btnd;
     
     UITextField        *dummy_textfield; // dummy text field used to display the keyboard
     UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
@@ -101,6 +103,7 @@
     fkeyselected = (button.tag == BFKEY) ? !fkeyselected : FALSE;
     skeyselected = (button.tag == BSKEY) ? !skeyselected : FALSE;
     
+    
     if (fkeyselected)
     {
         [dummy_textfield_f becomeFirstResponder];
@@ -108,6 +111,11 @@
     else if (skeyselected)
     {
         [dummy_textfield_s becomeFirstResponder];
+    }
+    else if(button.tag == EXKEY)
+    {
+        [dummy_textfield becomeFirstResponder];
+        [dummy_textfield resignFirstResponder];
     }
     else
     {
@@ -553,7 +561,6 @@
     
 	UIBarButtonItem* flex_spacer = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
     
-    // iPad gets a shift button, iphone doesn't (there's just not enough space ...)
     NSArray* items;
     
     items = [NSArray arrayWithObjects:f1_btn, flex_spacer, f2_btn, flex_spacer, f3_btn, flex_spacer, f4_btn, flex_spacer, f5_btn, flex_spacer, f6_btn, flex_spacer, f7_btn, flex_spacer, f8_btn, flex_spacer,
@@ -589,6 +596,9 @@
     sKey_btnd = [self createKeyboardButton:lastoptionname action:@selector(toggleKeyboardmode:)];
     [sKey_btnd setTag:BSKEY];
     
+    exit_btnd = [self createKeyboardButton:@"Exit" action:@selector(toggleKeyboardmode:)];
+    [exit_btnd setTag:EXKEY];
+    
     UIBarButtonItem* esc_btn = [[[UIBarButtonItem alloc] initWithCustomView:esc_btnd] autorelease];
 	UIBarButtonItem* ctrl_btn = [[[UIBarButtonItem alloc] initWithCustomView:ctrl_btnd] autorelease];
 	UIBarButtonItem* alt_btn = [[[UIBarButtonItem alloc] initWithCustomView:alt_btnd] autorelease];
@@ -607,9 +617,27 @@
     
     UIBarButtonItem* special_btn = [[[UIBarButtonItem alloc] initWithCustomView:sKey_btnd] autorelease];
     
+    UIBarButtonItem* exit_btn = [[[UIBarButtonItem alloc] initWithCustomView:exit_btnd] autorelease];
+    
     NSArray* items;
-
-    items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
+    {
+        items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
+                 shift_btn, flex_spacer,
+                 ctrl_btn, flex_spacer,
+                 alt_btn, flex_spacer,
+                 lA_btn, flex_spacer,
+                 rA_btn, flex_spacer,
+                 arrowleft_btn, arrowup_btn,
+                 arrowdown_btn, arrowright_btn, flex_spacer,
+                 F_btn, flex_spacer,
+                 special_btn, flex_spacer,
+                 exit_btn, flex_spacer, nil];
+    }
+    else
+    {
+        items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
                  shift_btn, flex_spacer,
                  ctrl_btn, flex_spacer,
                  alt_btn, flex_spacer,
@@ -619,6 +647,7 @@
                  arrowdown_btn, arrowright_btn, flex_spacer,
                  F_btn, flex_spacer,
                  special_btn, flex_spacer, nil];
+    }
     
 	[keyboard_toolbar setItems:items];
     [keyboard_toolbar sizeToFit];

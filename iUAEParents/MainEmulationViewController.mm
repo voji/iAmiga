@@ -95,9 +95,9 @@ extern void uae_reset();
     [_btnJoypad setTintColor: [UIColor blackColor]];
     
     
-    [_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+    /*[_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                 forState:UIControlStateNormal];
-    [_btnPin setTintColor: [UIColor blackColor]];
+    [_btnPin setTintColor: [UIColor blackColor]];*/
     
     timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
                                            selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
@@ -173,7 +173,8 @@ extern void uae_reset();
 -(IBAction)togglePinstatus:(id)sender {
     
     _btnPin.selected = !_btnPin.selected;
-    _btnPin.tintColor = _btnPin.selected ? [UIColor blueColor] : [UIColor blackColor];
+    //_btnPin.tintColor = _btnPin.selected ? [UIColor blueColor] : [UIColor blackColor];
+    
     _mouseHandler.clickedscreen = false;
     _joyController.clickedscreen = false;
 }

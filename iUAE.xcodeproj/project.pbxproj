@@ -178,29 +178,16 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
-		7E10738B1A34E85E000D7269 /* StoryboardiPAD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */; };
-		7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2919FAD4D000B6136B /* landbarblank.png */; };
-		7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */; };
-		7E1B8C3019FAD4D000B6136B /* landbarblank~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */; };
-		7E1B8C3119FAD4D000B6136B /* landbariphon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2C19FAD4D000B6136B /* landbariphon.png */; };
-		7E1B8C3219FAD4D000B6136B /* landbariphon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C2D19FAD4D000B6136B /* landbariphon@2x.png */; };
+		7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* Storyboard.storyboard */; };
 		7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3319FADFD400B6136B /* modejoy.png */; };
-		7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3419FADFD400B6136B /* modejoy@2x.png */; };
 		7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3519FADFD400B6136B /* modejoypressed.png */; };
-		7E1B8C4019FADFD400B6136B /* modejoypressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3619FADFD400B6136B /* modejoypressed@2x.png */; };
 		7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3719FADFD400B6136B /* modekeyoff.png */; };
-		7E1B8C4219FADFD400B6136B /* modekeyoff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3819FADFD400B6136B /* modekeyoff@2x.png */; };
 		7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3919FADFD400B6136B /* modekeyon.png */; };
-		7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */; };
 		7E1B8C4519FADFD400B6136B /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3B19FADFD400B6136B /* options.png */; };
-		7E1B8C4B19FAE04700B6136B /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4719FAE04700B6136B /* sticky.png */; };
-		7E1B8C4C19FAE04700B6136B /* sticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4819FAE04700B6136B /* sticky@2x.png */; };
 		7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4919FAE04700B6136B /* unsticky.png */; };
-		7E1B8C4E19FAE04700B6136B /* unsticky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */; };
 		7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */; };
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
-		7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E23240A1A2E4E9A00426A9D /* Roadras1.adf */; };
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
@@ -216,13 +203,10 @@
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
 		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */; };
-		7E6D1B6A1ACB22A600E42678 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D1B691ACB22A600E42678 /* kick13.rom */; };
-		7E6D1B6C1ACB2BB000E42678 /* StoryboardiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D1B6B1ACB2BB000E42678 /* StoryboardiPhone.storyboard */; };
 		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
-		7E9482681A2277C600F254F6 /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E9482671A2277C600F254F6 /* Northsou.adf */; };
 		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
@@ -235,6 +219,7 @@
 		7EA4D65A1923ECC100C58BB9 /* TouchHandlerViewClassic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */; };
 		7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4D6601923ED0800C58BB9 /* EmulationView-iPad.xib */; };
 		7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */; };
+		7EA5E7891AED732500FCE311 /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA5E7881AED732500FCE311 /* sticky.png */; };
 		7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
@@ -268,7 +253,6 @@
 		9706D6681561817500073678 /* firebutton-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD315489E6600BF66CF /* firebutton-red@2x.png */; };
 		9706D6691561817500073678 /* firebutton-red~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD415489E6600BF66CF /* firebutton-red~ipad.png */; };
 		9706D66A1561817500073678 /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
-		9706D66B1561817500073678 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
 		9706D66C1561817500073678 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		9706D66D1561817500073678 /* ls-fullscreen_bottomBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADA15489E6600BF66CF /* ls-fullscreen_bottomBtn.png */; };
 		9706D66E1561817500073678 /* ls-instructions_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADB15489E6600BF66CF /* ls-instructions_overlay.png */; };
@@ -438,7 +422,6 @@
 		97242C73156177EC00B6D03C /* firebutton-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD315489E6600BF66CF /* firebutton-red@2x.png */; };
 		97242C74156177EC00B6D03C /* firebutton-red~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD415489E6600BF66CF /* firebutton-red~ipad.png */; };
 		97242C75156177EC00B6D03C /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
-		97242C76156177EC00B6D03C /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
 		97242C77156177EC00B6D03C /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		97242C78156177EC00B6D03C /* ls-fullscreen_bottomBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADA15489E6600BF66CF /* ls-fullscreen_bottomBtn.png */; };
 		97242C79156177EC00B6D03C /* ls-instructions_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADB15489E6600BF66CF /* ls-instructions_overlay.png */; };
@@ -727,7 +710,6 @@
 		9787FA151561882D00458A4A /* firebutton-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD315489E6600BF66CF /* firebutton-red@2x.png */; };
 		9787FA161561882D00458A4A /* firebutton-red~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD415489E6600BF66CF /* firebutton-red~ipad.png */; };
 		9787FA171561882D00458A4A /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
-		9787FA181561882D00458A4A /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
 		9787FA191561882D00458A4A /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		9787FA1A1561882D00458A4A /* ls-fullscreen_bottomBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADA15489E6600BF66CF /* ls-fullscreen_bottomBtn.png */; };
 		9787FA1B1561882D00458A4A /* ls-instructions_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADB15489E6600BF66CF /* ls-instructions_overlay.png */; };
@@ -837,7 +819,6 @@
 		9787FB7715618A5E00458A4A /* firebutton-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD315489E6600BF66CF /* firebutton-red@2x.png */; };
 		9787FB7815618A5E00458A4A /* firebutton-red~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD415489E6600BF66CF /* firebutton-red~ipad.png */; };
 		9787FB7915618A5E00458A4A /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
-		9787FB7A15618A5E00458A4A /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
 		9787FB7B15618A5E00458A4A /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		9787FB7C15618A5E00458A4A /* ls-fullscreen_bottomBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADA15489E6600BF66CF /* ls-fullscreen_bottomBtn.png */; };
 		9787FB7D15618A5E00458A4A /* ls-instructions_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADB15489E6600BF66CF /* ls-instructions_overlay.png */; };
@@ -1082,9 +1063,6 @@
 		97BE2AF315489E6600BF66CF /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
 		97BE2AF415489E6600BF66CF /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
 		97BE2AF515489E6600BF66CF /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
-		97BE2AF615489E6600BF66CF /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
-		97BE2AF715489E6600BF66CF /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
-		97BE2AF815489E6600BF66CF /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
 		97BE2AF915489E6600BF66CF /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		97BE2AFA15489E6600BF66CF /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		97BE2AFB15489E6600BF66CF /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
@@ -1128,7 +1106,6 @@
 		97C8754E156E834100197738 /* firebutton-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD315489E6600BF66CF /* firebutton-red@2x.png */; };
 		97C8754F156E834100197738 /* firebutton-red~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD415489E6600BF66CF /* firebutton-red~ipad.png */; };
 		97C87550156E834100197738 /* joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD615489E6600BF66CF /* joystick.png */; };
-		97C87551156E834100197738 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD715489E6600BF66CF /* keyboard.png */; };
 		97C87552156E834100197738 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD815489E6600BF66CF /* mouse.png */; };
 		97C87553156E834100197738 /* ls-fullscreen_bottomBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADA15489E6600BF66CF /* ls-fullscreen_bottomBtn.png */; };
 		97C87554156E834100197738 /* ls-instructions_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ADB15489E6600BF66CF /* ls-instructions_overlay.png */; };
@@ -1566,29 +1543,16 @@
 		7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddConfigurationViewController.h; path = Classes/AddConfigurationViewController.h; sourceTree = SOURCE_ROOT; };
 		7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddConfigurationViewController.m; path = Classes/AddConfigurationViewController.m; sourceTree = SOURCE_ROOT; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
-		7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = StoryboardiPAD.storyboard; path = ../../StoryboardiPAD.storyboard; sourceTree = "<group>"; };
-		7E1B8C2919FAD4D000B6136B /* landbarblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landbarblank.png; sourceTree = "<group>"; };
-		7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank@2x.png"; sourceTree = "<group>"; };
-		7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbarblank~iPad.png"; sourceTree = "<group>"; };
-		7E1B8C2C19FAD4D000B6136B /* landbariphon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landbariphon.png; sourceTree = "<group>"; };
-		7E1B8C2D19FAD4D000B6136B /* landbariphon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landbariphon@2x.png"; sourceTree = "<group>"; };
+		7E10738A1A34E85E000D7269 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../../Storyboard.storyboard; sourceTree = "<group>"; };
 		7E1B8C3319FADFD400B6136B /* modejoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoy.png; sourceTree = "<group>"; };
-		7E1B8C3419FADFD400B6136B /* modejoy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modejoy@2x.png"; sourceTree = "<group>"; };
 		7E1B8C3519FADFD400B6136B /* modejoypressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoypressed.png; sourceTree = "<group>"; };
-		7E1B8C3619FADFD400B6136B /* modejoypressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modejoypressed@2x.png"; sourceTree = "<group>"; };
 		7E1B8C3719FADFD400B6136B /* modekeyoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyoff.png; sourceTree = "<group>"; };
-		7E1B8C3819FADFD400B6136B /* modekeyoff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modekeyoff@2x.png"; sourceTree = "<group>"; };
 		7E1B8C3919FADFD400B6136B /* modekeyon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyon.png; sourceTree = "<group>"; };
-		7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modekeyon@2x.png"; sourceTree = "<group>"; };
 		7E1B8C3B19FADFD400B6136B /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
-		7E1B8C4719FAE04700B6136B /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky.png; sourceTree = "<group>"; };
-		7E1B8C4819FAE04700B6136B /* sticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticky@2x.png"; sourceTree = "<group>"; };
 		7E1B8C4919FAE04700B6136B /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unsticky.png; sourceTree = "<group>"; };
-		7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unsticky@2x.png"; sourceTree = "<group>"; };
 		7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsController-ipad.xib"; sourceTree = "<group>"; };
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
-		7E23240A1A2E4E9A00426A9D /* Roadras1.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roadras1.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Gut/Roadras1.adf; sourceTree = "<group>"; };
 		7E27C39B1AA3A61900C00584 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
 		7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsDisplayController.h; sourceTree = "<group>"; };
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
@@ -1609,11 +1573,8 @@
 		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
 		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
-		7E6D1B691ACB22A600E42678 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
-		7E6D1B6B1ACB2BB000E42678 /* StoryboardiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPhone.storyboard; sourceTree = SOURCE_ROOT; };
 		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
-		7E9482671A2277C600F254F6 /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../../../Volumes/Multimedia/Archiv/emus/amiga/Spiele/Northsou.adf; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
@@ -1630,6 +1591,7 @@
 		7EA4D6661923F20C00C58BB9 /* FloatPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloatPanel.h; path = iUAEParents/FloatPanel.h; sourceTree = "<group>"; };
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
+		7EA5E7881AED732500FCE311 /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky.png; sourceTree = "<group>"; };
 		7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Specialkeyboard.png; sourceTree = "<group>"; };
 		7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCustomKeyboard.m; sourceTree = "<group>"; };
@@ -2095,7 +2057,6 @@
 		97BE2AD315489E6600BF66CF /* firebutton-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firebutton-red@2x.png"; sourceTree = "<group>"; };
 		97BE2AD415489E6600BF66CF /* firebutton-red~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firebutton-red~ipad.png"; sourceTree = "<group>"; };
 		97BE2AD615489E6600BF66CF /* joystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick.png; sourceTree = "<group>"; };
-		97BE2AD715489E6600BF66CF /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		97BE2AD815489E6600BF66CF /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
 		97BE2ADA15489E6600BF66CF /* ls-fullscreen_bottomBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ls-fullscreen_bottomBtn.png"; sourceTree = "<group>"; };
 		97BE2ADB15489E6600BF66CF /* ls-instructions_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ls-instructions_overlay.png"; sourceTree = "<group>"; };
@@ -2336,7 +2297,7 @@
 		053368AF13B1BDA40012D55A /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
-				7E10738A1A34E85E000D7269 /* StoryboardiPAD.storyboard */,
+				7E10738A1A34E85E000D7269 /* Storyboard.storyboard */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -2345,7 +2306,6 @@
 			isa = PBXGroup;
 			children = (
 				053368BA13B1D75E0012D55A /* MainWindow-Single.xib */,
-				7E6D1B6B1ACB2BB000E42678 /* StoryboardiPhone.storyboard */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -2628,7 +2588,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E6D1B691ACB22A600E42678 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2636,8 +2595,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7E23240A1A2E4E9A00426A9D /* Roadras1.adf */,
-				7E9482671A2277C600F254F6 /* Northsou.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2972,28 +2929,17 @@
 		7EB5FBBC19F942AA0030920E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7EA5E7881AED732500FCE311 /* sticky.png */,
 				7E27C39B1AA3A61900C00584 /* display.png */,
 				7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */,
 				7E43484E1A3B7C6100C60BF1 /* keyboard.png */,
 				7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */,
-				7E1B8C4719FAE04700B6136B /* sticky.png */,
-				7E1B8C4819FAE04700B6136B /* sticky@2x.png */,
 				7E1B8C4919FAE04700B6136B /* unsticky.png */,
-				7E1B8C4A19FAE04700B6136B /* unsticky@2x.png */,
 				7E1B8C3319FADFD400B6136B /* modejoy.png */,
-				7E1B8C3419FADFD400B6136B /* modejoy@2x.png */,
 				7E1B8C3519FADFD400B6136B /* modejoypressed.png */,
-				7E1B8C3619FADFD400B6136B /* modejoypressed@2x.png */,
 				7E1B8C3719FADFD400B6136B /* modekeyoff.png */,
-				7E1B8C3819FADFD400B6136B /* modekeyoff@2x.png */,
 				7E1B8C3919FADFD400B6136B /* modekeyon.png */,
-				7E1B8C3A19FADFD400B6136B /* modekeyon@2x.png */,
 				7E1B8C3B19FADFD400B6136B /* options.png */,
-				7E1B8C2919FAD4D000B6136B /* landbarblank.png */,
-				7E1B8C2A19FAD4D000B6136B /* landbarblank@2x.png */,
-				7E1B8C2B19FAD4D000B6136B /* landbarblank~iPad.png */,
-				7E1B8C2C19FAD4D000B6136B /* landbariphon.png */,
-				7E1B8C2D19FAD4D000B6136B /* landbariphon@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -3781,7 +3727,6 @@
 			isa = PBXGroup;
 			children = (
 				97BE2AD615489E6600BF66CF /* joystick.png */,
-				97BE2AD715489E6600BF66CF /* keyboard.png */,
 				97BE2AD815489E6600BF66CF /* mouse.png */,
 			);
 			path = "input-mode";
@@ -4069,7 +4014,6 @@
 				97BE2AEE15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				97BE2AF115489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				97BE2AF415489E6600BF66CF /* joystick.png in Resources */,
-				97BE2AF715489E6600BF66CF /* keyboard.png in Resources */,
 				97BE2AFA15489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFD15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
 				97BE2B0015489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
@@ -4087,11 +4031,8 @@
 			files = (
 				7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				7E1B8C4E19FAE04700B6136B /* unsticky@2x.png in Resources */,
-				7E1B8C3119FAD4D000B6136B /* landbariphon.png in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
-				7E1B8C4B19FAE04700B6136B /* sticky.png in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
@@ -4100,7 +4041,6 @@
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
 				7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */,
 				05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */,
-				7E1B8C3019FAD4D000B6136B /* landbarblank~iPad.png in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
@@ -4111,25 +4051,19 @@
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
-				7E10738B1A34E85E000D7269 /* StoryboardiPAD.storyboard in Resources */,
-				7E1B8C2E19FAD4D000B6136B /* landbarblank.png in Resources */,
-				7E1B8C2F19FAD4D000B6136B /* landbarblank@2x.png in Resources */,
-				7E9482681A2277C600F254F6 /* Northsou.adf in Resources */,
-				7E1B8C3E19FADFD400B6136B /* modejoy@2x.png in Resources */,
+				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
-				7E23240B1A2E4E9A00426A9D /* Roadras1.adf in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
 				7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */,
+				7EA5E7891AED732500FCE311 /* sticky.png in Resources */,
 				97855109153A3F2E00580B91 /* Aperture (1x2 RB).png in Resources */,
 				7E4B18DB188B1CBE0019E82B /* chrome-bottom@2x.png in Resources */,
-				7E6D1B6C1ACB2BB000E42678 /* StoryboardiPhone.storyboard in Resources */,
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
-				7E1B8C4219FADFD400B6136B /* modekeyoff@2x.png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
@@ -4145,10 +4079,7 @@
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
-				7E1B8C4019FADFD400B6136B /* modejoypressed@2x.png in Resources */,
 				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
-				7E6D1B6A1ACB22A600E42678 /* kick13.rom in Resources */,
-				7E1B8C4419FADFD400B6136B /* modekeyon@2x.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
@@ -4156,13 +4087,10 @@
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
-				97BE2AF615489E6600BF66CF /* keyboard.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
-				7E1B8C3219FAD4D000B6136B /* landbariphon@2x.png in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
-				7E1B8C4C19FAE04700B6136B /* sticky@2x.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
@@ -4194,7 +4122,6 @@
 				9706D6681561817500073678 /* firebutton-red@2x.png in Resources */,
 				9706D6691561817500073678 /* firebutton-red~ipad.png in Resources */,
 				9706D66A1561817500073678 /* joystick.png in Resources */,
-				9706D66B1561817500073678 /* keyboard.png in Resources */,
 				9706D66C1561817500073678 /* mouse.png in Resources */,
 				9706D66D1561817500073678 /* ls-fullscreen_bottomBtn.png in Resources */,
 				9706D66E1561817500073678 /* ls-instructions_overlay.png in Resources */,
@@ -4295,7 +4222,6 @@
 				97242C73156177EC00B6D03C /* firebutton-red@2x.png in Resources */,
 				97242C74156177EC00B6D03C /* firebutton-red~ipad.png in Resources */,
 				97242C75156177EC00B6D03C /* joystick.png in Resources */,
-				97242C76156177EC00B6D03C /* keyboard.png in Resources */,
 				97242C77156177EC00B6D03C /* mouse.png in Resources */,
 				97242C78156177EC00B6D03C /* ls-fullscreen_bottomBtn.png in Resources */,
 				97242C79156177EC00B6D03C /* ls-instructions_overlay.png in Resources */,
@@ -4397,7 +4323,6 @@
 				9787FA151561882D00458A4A /* firebutton-red@2x.png in Resources */,
 				9787FA161561882D00458A4A /* firebutton-red~ipad.png in Resources */,
 				9787FA171561882D00458A4A /* joystick.png in Resources */,
-				9787FA181561882D00458A4A /* keyboard.png in Resources */,
 				9787FA191561882D00458A4A /* mouse.png in Resources */,
 				9787FA1A1561882D00458A4A /* ls-fullscreen_bottomBtn.png in Resources */,
 				9787FA1B1561882D00458A4A /* ls-instructions_overlay.png in Resources */,
@@ -4438,7 +4363,6 @@
 				9787FB7715618A5E00458A4A /* firebutton-red@2x.png in Resources */,
 				9787FB7815618A5E00458A4A /* firebutton-red~ipad.png in Resources */,
 				9787FB7915618A5E00458A4A /* joystick.png in Resources */,
-				9787FB7A15618A5E00458A4A /* keyboard.png in Resources */,
 				9787FB7B15618A5E00458A4A /* mouse.png in Resources */,
 				9787FB7C15618A5E00458A4A /* ls-fullscreen_bottomBtn.png in Resources */,
 				9787FB7D15618A5E00458A4A /* ls-instructions_overlay.png in Resources */,
@@ -4540,7 +4464,6 @@
 				97C8754E156E834100197738 /* firebutton-red@2x.png in Resources */,
 				97C8754F156E834100197738 /* firebutton-red~ipad.png in Resources */,
 				97C87550156E834100197738 /* joystick.png in Resources */,
-				97C87551156E834100197738 /* keyboard.png in Resources */,
 				97C87552156E834100197738 /* mouse.png in Resources */,
 				97C87553156E834100197738 /* ls-fullscreen_bottomBtn.png in Resources */,
 				97C87554156E834100197738 /* ls-instructions_overlay.png in Resources */,
@@ -4631,7 +4554,6 @@
 				97BE2AEF15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				97BE2AF215489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				97BE2AF515489E6600BF66CF /* joystick.png in Resources */,
-				97BE2AF815489E6600BF66CF /* keyboard.png in Resources */,
 				97BE2AFB15489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFE15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
 				97BE2B0115489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
@@ -5470,7 +5392,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevDevice = 192.168.0.18;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5497,7 +5419,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevDevice = 192.168.0.18;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5522,7 +5444,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.13;
+				iOSOpenDevDevice = 192.168.0.18;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;

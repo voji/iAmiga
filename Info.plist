@@ -29,11 +29,9 @@
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
-	<string>StoryboardiPhone</string>
+	<string>Storyboard</string>
 	<key>UIMainStoryboardFile~ipad</key>
-	<string>StoryboardiPAD</string>
-	<key>UIMainStoryboardFile~iphone</key>
-	<string>StoryboardiPhone</string>
+	<string>Storyboard</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
