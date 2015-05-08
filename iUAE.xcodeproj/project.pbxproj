@@ -1265,6 +1265,9 @@
 		97EF968C1538771F001C01E6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963E1538771F001C01E6 /* icon.png */; };
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
+		BEF800B51AFCC15000D53BB6 /* StateManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800AF1AFCC15000D53BB6 /* StateManagementController.m */; };
+		BEF800B61AFCC15000D53BB6 /* StateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B11AFCC15000D53BB6 /* StateFileManager.m */; };
+		BEF800B71AFCC15000D53BB6 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B31AFCC15000D53BB6 /* State.m */; };
 		E18F65E7154CAD470073642F /* Bazooka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E6154CAD470073642F /* Bazooka.ttf */; };
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
@@ -2081,6 +2084,12 @@
 		97EF963F1538771F001C01E6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		97EF96561538771F001C01E6 /* StoogesEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoogesEmulationViewController.h; sourceTree = "<group>"; };
 		97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoogesEmulationViewController.m; sourceTree = "<group>"; };
+		BEF800AF1AFCC15000D53BB6 /* StateManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateManagementController.m; sourceTree = "<group>"; };
+		BEF800B01AFCC15000D53BB6 /* StateManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementController.h; sourceTree = "<group>"; };
+		BEF800B11AFCC15000D53BB6 /* StateFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateFileManager.m; sourceTree = "<group>"; };
+		BEF800B21AFCC15000D53BB6 /* StateFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateFileManager.h; sourceTree = "<group>"; };
+		BEF800B31AFCC15000D53BB6 /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		BEF800B41AFCC15000D53BB6 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		E18F65E6154CAD470073642F /* Bazooka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazooka.ttf; sourceTree = "<group>"; };
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
@@ -2750,6 +2759,12 @@
 				7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */,
 				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */,
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.m */,
+				BEF800B31AFCC15000D53BB6 /* State.m */,
+				BEF800B41AFCC15000D53BB6 /* State.h */,
+				BEF800B11AFCC15000D53BB6 /* StateFileManager.m */,
+				BEF800B21AFCC15000D53BB6 /* StateFileManager.h */,
+				BEF800AF1AFCC15000D53BB6 /* StateManagementController.m */,
+				BEF800B01AFCC15000D53BB6 /* StateManagementController.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4719,6 +4734,7 @@
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
 				05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */,
+				BEF800B51AFCC15000D53BB6 /* StateManagementController.m in Sources */,
 				0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */,
 				050415610FCB475C00F46828 /* InputControllerView.mm in Sources */,
 				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
@@ -4745,11 +4761,13 @@
 				05D5233712E8030E007912AE /* SelectEffectController.m in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
 				05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */,
+				BEF800B61AFCC15000D53BB6 /* StateFileManager.m in Sources */,
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
+				BEF800B71AFCC15000D53BB6 /* State.m in Sources */,
 				978550D0153A3F2E00580B91 /* iCadeReaderView.m in Sources */,
 				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
