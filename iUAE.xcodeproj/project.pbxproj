@@ -1265,6 +1265,7 @@
 		97EF968C1538771F001C01E6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963E1538771F001C01E6 /* icon.png */; };
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
+		BEA3C7411AFE1C90002B5022 /* StateManagementBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEA3C73F1AFE1C90002B5022 /* StateManagementBridge.mm */; };
 		BEF800B51AFCC15000D53BB6 /* StateManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800AF1AFCC15000D53BB6 /* StateManagementController.m */; };
 		BEF800B61AFCC15000D53BB6 /* StateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B11AFCC15000D53BB6 /* StateFileManager.m */; };
 		BEF800B71AFCC15000D53BB6 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B31AFCC15000D53BB6 /* State.m */; };
@@ -2084,6 +2085,8 @@
 		97EF963F1538771F001C01E6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		97EF96561538771F001C01E6 /* StoogesEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoogesEmulationViewController.h; sourceTree = "<group>"; };
 		97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoogesEmulationViewController.m; sourceTree = "<group>"; };
+		BEA3C73F1AFE1C90002B5022 /* StateManagementBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StateManagementBridge.mm; sourceTree = "<group>"; };
+		BEA3C7401AFE1C90002B5022 /* StateManagementBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementBridge.h; sourceTree = "<group>"; };
 		BEF800AF1AFCC15000D53BB6 /* StateManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateManagementController.m; sourceTree = "<group>"; };
 		BEF800B01AFCC15000D53BB6 /* StateManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementController.h; sourceTree = "<group>"; };
 		BEF800B11AFCC15000D53BB6 /* StateFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateFileManager.m; sourceTree = "<group>"; };
@@ -2763,6 +2766,8 @@
 				BEF800B41AFCC15000D53BB6 /* State.h */,
 				BEF800B11AFCC15000D53BB6 /* StateFileManager.m */,
 				BEF800B21AFCC15000D53BB6 /* StateFileManager.h */,
+				BEA3C73F1AFE1C90002B5022 /* StateManagementBridge.mm */,
+				BEA3C7401AFE1C90002B5022 /* StateManagementBridge.h */,
 				BEF800AF1AFCC15000D53BB6 /* StateManagementController.m */,
 				BEF800B01AFCC15000D53BB6 /* StateManagementController.h */,
 			);
@@ -4710,6 +4715,7 @@
 				0552BD240F3D797C005B30DF /* autoconf.cpp in Sources */,
 				7EA4D6581923ECC100C58BB9 /* EmulationView-iPhone.mm in Sources */,
 				0552BD250F3D797C005B30DF /* blitfunc.cpp in Sources */,
+				BEA3C7411AFE1C90002B5022 /* StateManagementBridge.mm in Sources */,
 				0552BD260F3D797C005B30DF /* blittable.cpp in Sources */,
 				0552BD270F3D797C005B30DF /* blitter.cpp in Sources */,
 				7EA4D6571923ECC100C58BB9 /* EmulationView-iPad.mm in Sources */,

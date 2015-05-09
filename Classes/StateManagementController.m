@@ -15,6 +15,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "State.h"
+#import "StateManagementBridge.h"
 #import "StateManagementController.h"
 #import "StateFileManager.h"
 
@@ -138,7 +139,7 @@
     if (_emulatorScreenshot) {
         [_stateFileManager saveStateImage:_emulatorScreenshot forStateFilePath:stateFilePath];
     }
-    [self.delegate onStateSave:stateFilePath];
+    [StateManagementBridge saveState:stateFilePath];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -155,7 +156,7 @@
         }
     }
     if (stateFilePath) {
-        [_delegate onStateRestore:stateFilePath];
+        [StateManagementBridge restoreState:stateFilePath];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

@@ -1,4 +1,4 @@
-//  Created by Simon Toens on 12.03.15
+//  Created by Simon Toens on 09.05.15
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -14,16 +14,26 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import <Foundation/Foundation.h>
+#import "sysconfig.h"
+#import "sysdeps.h"
+#import "savestate.h"
+#import "StateManagementBridge.h"
 
-@interface StateManagementController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@implementation StateManagementBridge
 
-@property (nonatomic, assign) IBOutlet UITextField *stateNameTextField;
-@property (nonatomic, assign) IBOutlet UIButton *saveButton;
-@property (nonatomic, assign) IBOutlet UIButton *restoreButton;
-@property (nonatomic, assign) IBOutlet UIImageView *selectedStateScreenshot;
-@property (nonatomic, assign) IBOutlet UITableView *statesTableView;
++ (void)saveState:(NSString *)stateFilePath {
+    [StateManagementBridge setGlobalSaveStatePath:stateFilePath andState:STATE_DOSAVE];
+}
 
-@property (nonatomic, strong) UIImage *emulatorScreenshot;
++ (void)restoreState:(NSString *)stateFilePath {
+    [StateManagementBridge setGlobalSaveStatePath:stateFilePath andState:STATE_DORESTORE];
+}
+
++ (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
+    static char path[1024];
+    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+    savestate_filename = path;
+    savestate_state = state;
+}
 
 @end

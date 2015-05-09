@@ -1,4 +1,4 @@
-//  Created by Simon Toens on 12.03.15
+//  Created by Simon Toens on 09.05.15
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -14,16 +14,12 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import <Foundation/Foundation.h>
+/**
+ * Acts as a bridge between the c/c++ part of the emulator handling saving/restoring states and the objective-c setting views.
+ */
+@interface StateManagementBridge : NSObject
 
-@interface StateManagementController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic, assign) IBOutlet UITextField *stateNameTextField;
-@property (nonatomic, assign) IBOutlet UIButton *saveButton;
-@property (nonatomic, assign) IBOutlet UIButton *restoreButton;
-@property (nonatomic, assign) IBOutlet UIImageView *selectedStateScreenshot;
-@property (nonatomic, assign) IBOutlet UITableView *statesTableView;
-
-@property (nonatomic, strong) UIImage *emulatorScreenshot;
++ (void)saveState:(NSString *)path;
++ (void)restoreState:(NSString *)stateFilePath;
 
 @end

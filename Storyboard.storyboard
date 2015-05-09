@@ -511,7 +511,7 @@
         <!--State Management-->
         <scene sceneID="qol-qS-4ks">
             <objects>
-                <viewController id="V0G-7J-pcz" userLabel="State Management" sceneMemberID="viewController">
+                <viewController id="V0G-7J-pcz" userLabel="State Management" customClass="StateManagementController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pd8-va-FuK"/>
                         <viewControllerLayoutGuide type="bottom" id="MTP-C6-sea"/>
@@ -519,8 +519,47 @@
                     <view key="view" contentMode="scaleToFill" id="gvb-sc-PQq">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="q7i-a7-c69">
+                                <rect key="frame" x="148" y="155" width="592" height="535"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="V0G-7J-pcz" id="xqX-MX-Jkj"/>
+                                    <outlet property="delegate" destination="V0G-7J-pcz" id="uXS-xm-5pi"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NU9-Gq-mMq">
+                                <rect key="frame" x="179" y="92" width="415" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuf-bC-it1">
+                                <rect key="frame" x="32" y="92" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSave" destination="V0G-7J-pcz" eventType="touchUpInside" id="zJA-RS-UR9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmX-21-0JC">
+                                <rect key="frame" x="638" y="91" width="57" height="30"/>
+                                <state key="normal" title="Restore">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRestore" destination="V0G-7J-pcz" eventType="touchUpInside" id="GWc-r1-chJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="restoreButton" destination="OmX-21-0JC" id="KbO-Bp-imS"/>
+                        <outlet property="saveButton" destination="yuf-bC-it1" id="euG-4f-DXu"/>
+                        <outlet property="stateNameTextField" destination="NU9-Gq-mMq" id="cO0-ap-hPt"/>
+                        <outlet property="statesTableView" destination="q7i-a7-c69" id="Imh-7l-Cvg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCa-Kv-Rz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
