@@ -20,6 +20,7 @@
 
 #import "SettingsGeneralController.h"
 #import "Settings.h"
+#import "StateManagementController.h"
 
 @interface SettingsGeneralController ()
 @end
@@ -100,17 +101,19 @@ static NSMutableArray *Filename;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"SelectDisk"]) {
         UIButton *btnsender = (UIButton *) sender;
-        
-        EMUROMBrowserViewController *controller = (EMUROMBrowserViewController *)segue.destinationViewController;
+        EMUROMBrowserViewController *controller = segue.destinationViewController;
         controller.delegate = self;
         controller.context = btnsender;
     }
-    
-    if([segue.identifier isEqualToString:@"loadconfiguration"]) {
-        UIButton *btnsender = (UIButton *) sender;
-        
-        SelectConfigurationViewController *controller = (SelectConfigurationViewController *) segue.destinationViewController;
+    else if([segue.identifier isEqualToString:@"loadconfiguration"])
+    {
+        SelectConfigurationViewController *controller = segue.destinationViewController;
         controller.delegate = self;
+    }
+    else if([segue.identifier isEqualToString:@"statemanagement"])
+    {
+        StateManagementController *stateController = segue.destinationViewController;
+        stateController.emulatorScreenshot = _emulatorScreenshot;
     }
 }
 
@@ -160,6 +163,7 @@ static NSMutableArray *Filename;
     [Filepath release];
     [_configurationname release];
     [_cellconfiguration release];
+    [_emulatorScreenshot release];
     
     [super dealloc];
 }

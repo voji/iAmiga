@@ -33,6 +33,7 @@
 @property (readwrite, retain) IBOutlet UILabel *configurationname;
 @property (readwrite, retain) IBOutlet UITableViewCell *cellconfiguration;
 
+@property (readwrite, retain) UIImage *emulatorScreenshot;
 
 @end
 
