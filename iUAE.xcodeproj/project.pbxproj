@@ -160,7 +160,6 @@
 		05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */; };
 		05BC1B17107348E500EABC6E /* keys.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B15107348E500EABC6E /* keys.png */; };
 		05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B16107348E500EABC6E /* VKBD.PNG */; };
-		05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B1C10734C3B00EABC6E /* SettingsController.xib */; };
 		05D5233712E8030E007912AE /* SelectEffectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D5233512E8030E007912AE /* SelectEffectController.m */; };
 		05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D5233612E8030E007912AE /* SelectEffectController.xib */; };
 		05D6044B12AF2D620048E478 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D6044912AF2D620048E478 /* Icon.png */; };
@@ -185,11 +184,11 @@
 		7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3919FADFD400B6136B /* modekeyon.png */; };
 		7E1B8C4519FADFD400B6136B /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3B19FADFD400B6136B /* options.png */; };
 		7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4919FAE04700B6136B /* unsticky.png */; };
-		7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */; };
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
+		7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */; };
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
 		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
@@ -1516,7 +1515,6 @@
 		05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EMUROMBrowserViewController.mm; sourceTree = "<group>"; };
 		05BC1B15107348E500EABC6E /* keys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keys.png; sourceTree = "<group>"; };
 		05BC1B16107348E500EABC6E /* VKBD.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VKBD.PNG; sourceTree = "<group>"; };
-		05BC1B1C10734C3B00EABC6E /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		05D5233412E8030E007912AE /* SelectEffectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectEffectController.h; sourceTree = "<group>"; };
 		05D5233512E8030E007912AE /* SelectEffectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectEffectController.m; sourceTree = "<group>"; };
 		05D5233612E8030E007912AE /* SelectEffectController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectEffectController.xib; sourceTree = "<group>"; };
@@ -1550,12 +1548,13 @@
 		7E1B8C3919FADFD400B6136B /* modekeyon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyon.png; sourceTree = "<group>"; };
 		7E1B8C3B19FADFD400B6136B /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
 		7E1B8C4919FAE04700B6136B /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unsticky.png; sourceTree = "<group>"; };
-		7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsController-ipad.xib"; sourceTree = "<group>"; };
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
 		7E27C39B1AA3A61900C00584 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
 		7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsDisplayController.h; sourceTree = "<group>"; };
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
+		7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadController.h; sourceTree = SOURCE_ROOT; };
+		7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadController.m; sourceTree = SOURCE_ROOT; };
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
 		7E3C13E41A51F16600534164 /* SettingsGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsGeneralController.m; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
@@ -2738,8 +2737,6 @@
 				7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */,
 				7E7E52281A533C8F003E03E7 /* SettingsController.h */,
 				7E7E52291A533C8F003E03E7 /* SettingsController.m */,
-				05BC1B1C10734C3B00EABC6E /* SettingsController.xib */,
-				7E1B8C4F19FAE53800B6136B /* SettingsController-ipad.xib */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
 				05D5233512E8030E007912AE /* SelectEffectController.m */,
 				05D5233612E8030E007912AE /* SelectEffectController.xib */,
@@ -2748,6 +2745,8 @@
 				05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */,
 				7E3C13E31A51F16600534164 /* SettingsGeneralController.h */,
 				7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */,
+				7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */,
+				7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */,
 				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */,
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.m */,
 			);
@@ -4029,7 +4028,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E1B8C5019FAE53800B6136B /* SettingsController-ipad.xib in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
@@ -4040,7 +4038,6 @@
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
 				7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */,
-				05BC1B1E10734C3B00EABC6E /* SettingsController.xib in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
@@ -4748,6 +4745,7 @@
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
+				7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
 				978550D0153A3F2E00580B91 /* iCadeReaderView.m in Sources */,
