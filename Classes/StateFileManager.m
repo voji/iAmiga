@@ -75,10 +75,13 @@ static NSString *kStateFileImageExtension = @".jpg";
 }
 
 - (NSArray *)loadStates {
-    NSArray *stateNames = [self loadStateNames];
-    NSMutableArray *states = [NSMutableArray arrayWithCapacity:[stateNames count]];
-    for (NSString *stateName in stateNames) {
-        [states addObject:[self loadStateForStateName:stateName]];
+    NSArray *fileNames = [_fileManager contentsOfDirectoryAtPath:_statesDirectoryPath error:NULL];
+    NSMutableArray *states = [NSMutableArray arrayWithCapacity:[fileNames count]];
+    for (NSString *fileName in fileNames) {
+        if ([self isStateFile:fileName]) {
+            State *state = [self loadStateForStateFileName:fileName];
+            [states addObject:state];
+        }
     }
     return states;
 }
@@ -95,23 +98,13 @@ static NSString *kStateFileImageExtension = @".jpg";
 
 #pragma mark - Private methods
 
-- (State *)loadStateForStateName:(NSString *)stateName {
+- (State *)loadStateForStateFileName:(NSString *)stateFileName {
+    NSString *stateName = [self getStateNameFromStateFileNameOrPath:stateFileName];
     NSString *stateFilePath = [self getStateFilePathForStateName:stateName];
     NSDate *creationDate = [self getFileModificationDate:stateFilePath];
     NSString *imagePath = [self getStateImagePathForStateName:stateName];
     imagePath = [_fileManager fileExistsAtPath:imagePath] ? imagePath : nil;
     return [[[State alloc] initWithName:stateName path:stateFilePath creationDate:creationDate imagePath:imagePath] autorelease];
-}
-
-- (NSArray *)loadStateNames {
-    NSArray *fileNames = [_fileManager contentsOfDirectoryAtPath:_statesDirectoryPath error:NULL];
-    NSMutableArray *stateNames = [NSMutableArray arrayWithCapacity:[fileNames count]];
-    for (NSString *fileName in fileNames) {
-        if ([self isStateFile:fileName]) {
-            [stateNames addObject:[self getStateNameFromStateFileNameOrPath:fileName]];
-        }
-    }
-    return stateNames;
 }
 
 - (NSDate *)getFileModificationDate:(NSString *)filePath {
