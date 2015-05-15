@@ -11,7 +11,7 @@
 
 static NSString *kAdfExtension = @"adf";
 static NSString *kZipExtension = @"zip";
-static NSString *kAdfsDirectoryName = @"DownloadedAdfs";
+static NSString *kAdfsDirectoryName = @"downloadedadfs";
 
 @implementation AdfImporter {
     @private
