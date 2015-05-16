@@ -19,6 +19,7 @@
 //
 
 #import "EmulationView-iPad.h"
+#import "SettingsGeneralController.h"
 
 @implementation EmulationViewiPad
 //@synthesize menuView;
@@ -40,6 +41,23 @@ bool keyboardactive;
     
     //[self initializeFullScreenPanel];
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts: dummy_textfield_s];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    if ([segue.identifier isEqualToString:@"OpenSettings"]) {
+        UITabBarController *tabBar = segue.destinationViewController;
+        SettingsGeneralController *settingsController = [tabBar.viewControllers objectAtIndex:0];
+        settingsController.emulatorScreenshot = [self captureScreenshot];
+    }
+}
+
+- (UIImage *)captureScreenshot {
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0f);
+    [displayView drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)dealloc {

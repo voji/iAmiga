@@ -1265,6 +1265,12 @@
 		97EF968C1538771F001C01E6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963E1538771F001C01E6 /* icon.png */; };
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
+		BEED84BA1B077093004BFAFD /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED84B51B077093004BFAFD /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		BEED84BB1B077093004BFAFD /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BEED84B71B077093004BFAFD /* SVProgressHUD.bundle */; };
+		BEED84BC1B077093004BFAFD /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED84B81B077093004BFAFD /* SVIndefiniteAnimatedView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		BEF800B51AFCC15000D53BB6 /* StateManagementController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEF800AF1AFCC15000D53BB6 /* StateManagementController.mm */; };
+		BEF800B61AFCC15000D53BB6 /* StateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B11AFCC15000D53BB6 /* StateFileManager.m */; };
+		BEF800B71AFCC15000D53BB6 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B31AFCC15000D53BB6 /* State.m */; };
 		E18F65E7154CAD470073642F /* Bazooka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E6154CAD470073642F /* Bazooka.ttf */; };
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
@@ -2081,6 +2087,17 @@
 		97EF963F1538771F001C01E6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		97EF96561538771F001C01E6 /* StoogesEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoogesEmulationViewController.h; sourceTree = "<group>"; };
 		97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoogesEmulationViewController.m; sourceTree = "<group>"; };
+		BEED84B51B077093004BFAFD /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		BEED84B61B077093004BFAFD /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		BEED84B71B077093004BFAFD /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		BEED84B81B077093004BFAFD /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = Submodules/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		BEED84B91B077093004BFAFD /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = Submodules/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		BEF800AF1AFCC15000D53BB6 /* StateManagementController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StateManagementController.mm; sourceTree = "<group>"; };
+		BEF800B01AFCC15000D53BB6 /* StateManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementController.h; sourceTree = "<group>"; };
+		BEF800B11AFCC15000D53BB6 /* StateFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateFileManager.m; sourceTree = "<group>"; };
+		BEF800B21AFCC15000D53BB6 /* StateFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateFileManager.h; sourceTree = "<group>"; };
+		BEF800B31AFCC15000D53BB6 /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		BEF800B41AFCC15000D53BB6 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		E18F65E6154CAD470073642F /* Bazooka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazooka.ttf; sourceTree = "<group>"; };
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
@@ -2750,6 +2767,12 @@
 				7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */,
 				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */,
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.m */,
+				BEF800B31AFCC15000D53BB6 /* State.m */,
+				BEF800B41AFCC15000D53BB6 /* State.h */,
+				BEF800B11AFCC15000D53BB6 /* StateFileManager.m */,
+				BEF800B21AFCC15000D53BB6 /* StateFileManager.h */,
+				BEF800AF1AFCC15000D53BB6 /* StateManagementController.mm */,
+				BEF800B01AFCC15000D53BB6 /* StateManagementController.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2837,6 +2860,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BEED84B31B077071004BFAFD /* Submodules */,
 				7EAA9D99192541D400541BE1 /* CustomIOSKeyboard */,
 				9785505F153A3F2E00580B91 /* libraries */,
 				0552BC9A0F3D7968005B30DF /* uae */,
@@ -3762,6 +3786,26 @@
 			path = Stooges;
 			sourceTree = "<group>";
 		};
+		BEED84B31B077071004BFAFD /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				BEED84B41B077079004BFAFD /* SVProgressHUD */,
+			);
+			name = Submodules;
+			sourceTree = "<group>";
+		};
+		BEED84B41B077079004BFAFD /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BEED84B51B077093004BFAFD /* SVProgressHUD.m */,
+				BEED84B61B077093004BFAFD /* SVProgressHUD.h */,
+				BEED84B71B077093004BFAFD /* SVProgressHUD.bundle */,
+				BEED84B81B077093004BFAFD /* SVIndefiniteAnimatedView.m */,
+				BEED84B91B077093004BFAFD /* SVIndefiniteAnimatedView.h */,
+			);
+			name = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4048,6 +4092,7 @@
 				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
+				BEED84BB1B077093004BFAFD /* SVProgressHUD.bundle in Resources */,
 				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
@@ -4710,6 +4755,7 @@
 				7EA4D64B1923EC9700C58BB9 /* BaseWebviewController.m in Sources */,
 				0552BD4F0F3D797C005B30DF /* od-joy.mm in Sources */,
 				0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */,
+				BEED84BC1B077093004BFAFD /* SVIndefiniteAnimatedView.m in Sources */,
 				7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */,
 				0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */,
 				0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */,
@@ -4719,6 +4765,7 @@
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
 				05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */,
+				BEF800B51AFCC15000D53BB6 /* StateManagementController.mm in Sources */,
 				0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */,
 				050415610FCB475C00F46828 /* InputControllerView.mm in Sources */,
 				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
@@ -4745,11 +4792,13 @@
 				05D5233712E8030E007912AE /* SelectEffectController.m in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
 				05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */,
+				BEF800B61AFCC15000D53BB6 /* StateFileManager.m in Sources */,
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
+				BEF800B71AFCC15000D53BB6 /* State.m in Sources */,
 				978550D0153A3F2E00580B91 /* iCadeReaderView.m in Sources */,
 				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
@@ -4777,6 +4826,7 @@
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
 				97855118153A3F2E00580B91 /* CRT.frag in Sources */,
 				97855121153A3F2E00580B91 /* Simple.frag in Sources */,
+				BEED84BA1B077093004BFAFD /* SVProgressHUD.m in Sources */,
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,

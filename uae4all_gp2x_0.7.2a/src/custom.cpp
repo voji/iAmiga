@@ -3520,8 +3520,6 @@ void customreset (void)
     new_beamcon0 = mainMenu_ntsc ? 0 : 0x20;
     init_hz ();
     
-    audio_reset ();
-    
     init_sprites ();
     
     init_hardware_frame ();
