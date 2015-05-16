@@ -136,16 +136,6 @@
     }
 }
 
-- (void)saveState {
-    NSString *stateName = _stateNameTextField.text;
-    NSString *stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
-    if (_emulatorScreenshot) {
-        [_stateFileManager saveStateImage:_emulatorScreenshot forStateFilePath:stateFilePath];
-    }
-    [self setGlobalSaveStatePath:stateFilePath andState:STATE_DOSAVE];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)onRestore {
     NSString *stateFilePath = nil;
     if (_selectedState) {
@@ -165,6 +155,23 @@
 }
 
 #pragma mark - Private methods
+
+- (void)saveState {
+    NSString *stateName = _stateNameTextField.text;
+    NSString *stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
+    if (_emulatorScreenshot) {
+        [_stateFileManager saveStateImage:_emulatorScreenshot forStateFilePath:stateFilePath];
+    }
+    static char path[1024];
+    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+    static char description[] = "no description provided=";
+    save_state(path, description);
+    [self reloadStates];
+    [_statesTableView reloadData];
+    _stateNameTextField.text = @"";
+    [self.view endEditing:YES]; // dismisses keyboard
+    [self updateUIState];
+}
 
 - (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
     static char path[1024];
@@ -195,6 +202,7 @@
 - (void)updateUIState {
     [self updateButtonState];
     [self updateTableHeaderLabel];
+    [_statesTableView setNeedsDisplay];
 }
 
 - (void)updateTableHeaderLabel {
@@ -203,9 +211,7 @@
     } else {
         _tableHeaderTextField.text = @"Saved states";
     }
-    [_statesTableView setNeedsDisplay];
 }
-
 
 - (void)updateButtonState {
     BOOL buttonsEnabled = [_stateNameTextField.text length] > 0;
