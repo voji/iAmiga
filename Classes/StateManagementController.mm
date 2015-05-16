@@ -14,8 +14,11 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "sysconfig.h"
+#import "sysdeps.h"
+#import "savestate.h"
+
 #import "State.h"
-#import "StateManagementBridge.h"
 #import "StateManagementController.h"
 #import "StateFileManager.h"
 
@@ -139,7 +142,7 @@
     if (_emulatorScreenshot) {
         [_stateFileManager saveStateImage:_emulatorScreenshot forStateFilePath:stateFilePath];
     }
-    [StateManagementBridge saveState:stateFilePath];
+    [self setGlobalSaveStatePath:stateFilePath andState:STATE_DOSAVE];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -156,12 +159,19 @@
         }
     }
     if (stateFilePath) {
-        [StateManagementBridge restoreState:stateFilePath];
+        [self setGlobalSaveStatePath:stateFilePath andState:STATE_DORESTORE];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
 #pragma mark - Private methods
+
+- (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
+    static char path[1024];
+    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+    savestate_filename = path;
+    savestate_state = state;
+}
 
 - (UITextField *)initTableHeadView {
     UITextField *tableHeaderTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
