@@ -1265,9 +1265,9 @@
 		97EF968C1538771F001C01E6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963E1538771F001C01E6 /* icon.png */; };
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
-		BEED84BA1B077093004BFAFD /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED84B51B077093004BFAFD /* SVProgressHUD.m */; };
+		BEED84BA1B077093004BFAFD /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED84B51B077093004BFAFD /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		BEED84BB1B077093004BFAFD /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BEED84B71B077093004BFAFD /* SVProgressHUD.bundle */; };
-		BEED84BC1B077093004BFAFD /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED84B81B077093004BFAFD /* SVIndefiniteAnimatedView.m */; };
+		BEED84BC1B077093004BFAFD /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED84B81B077093004BFAFD /* SVIndefiniteAnimatedView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		BEF800B51AFCC15000D53BB6 /* StateManagementController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEF800AF1AFCC15000D53BB6 /* StateManagementController.mm */; };
 		BEF800B61AFCC15000D53BB6 /* StateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B11AFCC15000D53BB6 /* StateFileManager.m */; };
 		BEF800B71AFCC15000D53BB6 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF800B31AFCC15000D53BB6 /* State.m */; };
