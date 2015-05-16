@@ -21,6 +21,7 @@
 #import "State.h"
 #import "StateManagementController.h"
 #import "StateFileManager.h"
+#import "SVProgressHUD.h"
 
 @implementation StateManagementController {
     @private
@@ -138,10 +139,12 @@
 
 - (IBAction)onRestore {
     NSString *stateFilePath = nil;
+    NSString *stateName;
     if (_selectedState) {
         stateFilePath = _selectedState.path;
+        stateName = _selectedState.name;
     } else {
-        NSString *stateName = _stateNameTextField.text; // for some reason the user manually typed the state name to load
+        stateName = _stateNameTextField.text; // for some reason the user manually typed the state name to load
         if ([_stateFileManager stateFileExistsForStateName:stateName]) {
             stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
         } else {
@@ -150,11 +153,17 @@
     }
     if (stateFilePath) {
         [self setGlobalSaveStatePath:stateFilePath andState:STATE_DORESTORE];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.view endEditing:YES]; // dismisses keyboard
+        [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateName]]; // not really, restore happens when exiting settings
     }
 }
 
 #pragma mark - Private methods
+
+- (void)showStatusHUD:(NSString *)message {
+    [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+    [SVProgressHUD showSuccessWithStatus:message];
+}
 
 - (void)saveState {
     NSString *stateName = _stateNameTextField.text;
@@ -171,6 +180,7 @@
     _stateNameTextField.text = @"";
     [self.view endEditing:YES]; // dismisses keyboard
     [self updateUIState];
+    [self showStatusHUD:[NSString stringWithFormat:@"Saved state %@", stateName]];
 }
 
 - (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
