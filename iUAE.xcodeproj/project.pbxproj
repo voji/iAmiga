@@ -57,7 +57,6 @@
 		0533694A13B1DEE90012D55A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C0E412DED4DF0040B77D /* CFNetwork.framework */; };
 		0533694B13B1DEE90012D55A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C1C412DFF3610040B77D /* OpenGLES.framework */; };
 		0533694C13B1DEE90012D55A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C1D712DFF3910040B77D /* QuartzCore.framework */; };
-		0533695313B1DF500012D55A /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		0533695513B1DF5C0012D55A /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		0533695613B1DF5F0012D55A /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		0533695713B1DF650012D55A /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 053D8B3213B1B9E20002802F /* icon-72.png */; };
@@ -206,7 +205,6 @@
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
-		7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
@@ -226,6 +224,15 @@
 		7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
 		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
+		7EB017651B09115900C74B9D /* StateManagementController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017631B09115900C74B9D /* StateManagementController.mm */; };
+		7EB017711B09143000C74B9D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0176B1B09143000C74B9D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0176D1B09143000C74B9D /* SVProgressHUD.bundle */; };
+		7EB017731B09143000C74B9D /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0176F1B09143000C74B9D /* SVIndefiniteAnimatedView.m */; };
+		7EB017781B09164900C74B9D /* StateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017741B09164900C74B9D /* StateFileManager.m */; };
+		7EB017791B09164900C74B9D /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017761B09164900C74B9D /* State.m */; };
+		7EB0177B1B09170D00C74B9D /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0177A1B09170D00C74B9D /* kick13.rom */; };
+		7EB0177D1B09174400C74B9D /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0177C1B09174400C74B9D /* Northsou.adf */; };
+		7EB017801B0921B000C74B9D /* SettingsSelectKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */; };
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
@@ -243,7 +250,6 @@
 		9706D65F1561817500073678 /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		9706D6601561817500073678 /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		9706D6611561817500073678 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
-		9706D6621561817500073678 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		9706D6641561817500073678 /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		9706D6651561817500073678 /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		9706D6661561817500073678 /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -412,7 +418,6 @@
 		97242C35156177EC00B6D03C /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		97242C36156177EC00B6D03C /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97242C37156177EC00B6D03C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
-		97242C38156177EC00B6D03C /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		97242C6F156177EC00B6D03C /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		97242C70156177EC00B6D03C /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		97242C71156177EC00B6D03C /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -700,7 +705,6 @@
 		9787FA0C1561882D00458A4A /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		9787FA0D1561882D00458A4A /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		9787FA0E1561882D00458A4A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
-		9787FA0F1561882D00458A4A /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		9787FA111561882D00458A4A /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		9787FA121561882D00458A4A /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		9787FA131561882D00458A4A /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -809,7 +813,6 @@
 		9787FB6E15618A5E00458A4A /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		9787FB6F15618A5E00458A4A /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		9787FB7015618A5E00458A4A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
-		9787FB7115618A5E00458A4A /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		9787FB7315618A5E00458A4A /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		9787FB7415618A5E00458A4A /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		9787FB7515618A5E00458A4A /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -1096,7 +1099,6 @@
 		97C87511156E834100197738 /* Simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		97C87512156E834100197738 /* Simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97C87513156E834100197738 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
-		97C87514156E834100197738 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		97C8754A156E834100197738 /* firebutton-red-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2ACF15489E6600BF66CF /* firebutton-red-active.png */; };
 		97C8754B156E834100197738 /* firebutton-red-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD015489E6600BF66CF /* firebutton-red-active@2x.png */; };
 		97C8754C156E834100197738 /* firebutton-red-active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97BE2AD115489E6600BF66CF /* firebutton-red-active~ipad.png */; };
@@ -1209,7 +1211,6 @@
 		97EE41621538A83B0072514D /* DISK1.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97EE415B1538A83B0072514D /* DISK1.ADF */; };
 		97EE41631538A83B0072514D /* DISK2.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97EE415C1538A83B0072514D /* DISK2.ADF */; };
 		97EF9580153876CA001C01E6 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
-		97EF9581153876CA001C01E6 /* MainWindow-Single.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053368BA13B1D75E0012D55A /* MainWindow-Single.xib */; };
 		97EF95BB153876CA001C01E6 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		97EF95BC153876CA001C01E6 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		97EF95BD153876CA001C01E6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
@@ -1295,7 +1296,6 @@
 		053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SingleWindowAppDelegate.mm; sourceTree = "<group>"; };
 		053368B513B1CC980012D55A /* BaseEmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEmulationViewController.h; sourceTree = "<group>"; };
 		053368B613B1CC980012D55A /* BaseEmulationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseEmulationViewController.mm; sourceTree = "<group>"; };
-		053368BA13B1D75E0012D55A /* MainWindow-Single.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-Single.xib"; sourceTree = "<group>"; };
 		0533695113B1DEE90012D55A /* DotC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0533695A13B1DFC00012D55A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		0533695B13B1DFC00012D55A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -1597,6 +1597,22 @@
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
+		7EB017631B09115900C74B9D /* StateManagementController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StateManagementController.mm; sourceTree = "<group>"; };
+		7EB017641B09115900C74B9D /* StateManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementController.h; sourceTree = "<group>"; };
+		7EB0176B1B09143000C74B9D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		7EB0176C1B09143000C74B9D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		7EB0176D1B09143000C74B9D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		7EB0176E1B09143000C74B9D /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		7EB0176F1B09143000C74B9D /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = Submodules/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		7EB017701B09143000C74B9D /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = Submodules/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		7EB017741B09164900C74B9D /* StateFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateFileManager.m; sourceTree = "<group>"; };
+		7EB017751B09164900C74B9D /* StateFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateFileManager.h; sourceTree = "<group>"; };
+		7EB017761B09164900C74B9D /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		7EB017771B09164900C74B9D /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		7EB0177A1B09170D00C74B9D /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
+		7EB0177C1B09174400C74B9D /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../Desktop/Northsou.adf; sourceTree = "<group>"; };
+		7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectKeyViewController.h; sourceTree = "<group>"; };
+		7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSelectKeyViewController.m; sourceTree = "<group>"; };
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
@@ -2277,8 +2293,7 @@
 		053368AD13B1BD740012D55A /* SingleView */ = {
 			isa = PBXGroup;
 			children = (
-				053368B913B1D7400012D55A /* Resources-iPhone */,
-				053368AF13B1BDA40012D55A /* Resources-iPad */,
+				7E10738A1A34E85E000D7269 /* Storyboard.storyboard */,
 				053368B013B1BDD60012D55A /* SingleWindowAppDelegate.h */,
 				7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */,
 				7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */,
@@ -2289,22 +2304,6 @@
 				055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */,
 			);
 			path = SingleView;
-			sourceTree = "<group>";
-		};
-		053368AF13B1BDA40012D55A /* Resources-iPad */ = {
-			isa = PBXGroup;
-			children = (
-				7E10738A1A34E85E000D7269 /* Storyboard.storyboard */,
-			);
-			name = "Resources-iPad";
-			sourceTree = "<group>";
-		};
-		053368B913B1D7400012D55A /* Resources-iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				053368BA13B1D75E0012D55A /* MainWindow-Single.xib */,
-			);
-			name = "Resources-iPhone";
 			sourceTree = "<group>";
 		};
 		053D8B2E13B1B2C30002802F /* TargetSpecific */ = {
@@ -2585,6 +2584,7 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7EB0177A1B09170D00C74B9D /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2592,6 +2592,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7EB0177C1B09174400C74B9D /* Northsou.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2727,6 +2728,14 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */,
+				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */,
+				7EB017741B09164900C74B9D /* StateFileManager.m */,
+				7EB017751B09164900C74B9D /* StateFileManager.h */,
+				7EB017761B09164900C74B9D /* State.m */,
+				7EB017771B09164900C74B9D /* State.h */,
+				7EB017631B09115900C74B9D /* StateManagementController.mm */,
+				7EB017641B09115900C74B9D /* StateManagementController.h */,
 				7EE0D0431AACF2090081DAA5 /* Settings.h */,
 				7EE0D0441AACF2090081DAA5 /* Settings.mm */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
@@ -2834,6 +2843,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7EB0176A1B09140D00C74B9D /* SVProgressHUD */,
 				7EAA9D99192541D400541BE1 /* CustomIOSKeyboard */,
 				9785505F153A3F2E00580B91 /* libraries */,
 				0552BC9A0F3D7968005B30DF /* uae */,
@@ -2920,6 +2930,19 @@
 				7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7EB0176A1B09140D00C74B9D /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7EB0176B1B09143000C74B9D /* SVProgressHUD.m */,
+				7EB0176C1B09143000C74B9D /* SVProgressHUD.h */,
+				7EB0176D1B09143000C74B9D /* SVProgressHUD.bundle */,
+				7EB0176E1B09143000C74B9D /* SVProgressHUD-Prefix.pch */,
+				7EB0176F1B09143000C74B9D /* SVIndefiniteAnimatedView.m */,
+				7EB017701B09143000C74B9D /* SVIndefiniteAnimatedView.h */,
+			);
+			name = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		7EB5FBBC19F942AA0030920E /* Images */ = {
@@ -3949,7 +3972,6 @@
 				97855132153A3FB200580B91 /* Simple.frag in Resources */,
 				97855133153A3FB200580B91 /* Simple.vert in Resources */,
 				0533690113B1DEE90012D55A /* Entitlements.plist in Resources */,
-				0533695313B1DF500012D55A /* MainWindow-Single.xib in Resources */,
 				0533695713B1DF650012D55A /* icon-72.png in Resources */,
 				0533695813B1DF650012D55A /* icon.png in Resources */,
 				0533695913B1DF650012D55A /* icon@2x.png in Resources */,
@@ -4042,7 +4064,6 @@
 				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
-				7EA2BC9F188B0DF3003DCE10 /* MainWindow-Single.xib in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
@@ -4085,7 +4106,10 @@
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
+				7EB0177B1B09170D00C74B9D /* kick13.rom in Resources */,
+				7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
+				7EB0177D1B09174400C74B9D /* Northsou.adf in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
 				97BE2B0E15489E6600BF66CF /* ls-joystick_rest.png in Resources */,
@@ -4107,7 +4131,6 @@
 				9706D65F1561817500073678 /* Simple.frag in Resources */,
 				9706D6601561817500073678 /* Simple.vert in Resources */,
 				9706D6611561817500073678 /* Entitlements.plist in Resources */,
-				9706D6621561817500073678 /* MainWindow-Single.xib in Resources */,
 				9706D6641561817500073678 /* firebutton-red-active.png in Resources */,
 				9706D6651561817500073678 /* firebutton-red-active@2x.png in Resources */,
 				9706D6661561817500073678 /* firebutton-red-active~ipad.png in Resources */,
@@ -4207,7 +4230,6 @@
 				97242C35156177EC00B6D03C /* Simple.frag in Resources */,
 				97242C36156177EC00B6D03C /* Simple.vert in Resources */,
 				97242C37156177EC00B6D03C /* Entitlements.plist in Resources */,
-				97242C38156177EC00B6D03C /* MainWindow-Single.xib in Resources */,
 				97242C6F156177EC00B6D03C /* firebutton-red-active.png in Resources */,
 				97242C70156177EC00B6D03C /* firebutton-red-active@2x.png in Resources */,
 				97242C71156177EC00B6D03C /* firebutton-red-active~ipad.png in Resources */,
@@ -4308,7 +4330,6 @@
 				9787FA0C1561882D00458A4A /* Simple.frag in Resources */,
 				9787FA0D1561882D00458A4A /* Simple.vert in Resources */,
 				9787FA0E1561882D00458A4A /* Entitlements.plist in Resources */,
-				9787FA0F1561882D00458A4A /* MainWindow-Single.xib in Resources */,
 				9787FA111561882D00458A4A /* firebutton-red-active.png in Resources */,
 				9787FA121561882D00458A4A /* firebutton-red-active@2x.png in Resources */,
 				9787FA131561882D00458A4A /* firebutton-red-active~ipad.png in Resources */,
@@ -4348,7 +4369,6 @@
 				9787FB6E15618A5E00458A4A /* Simple.frag in Resources */,
 				9787FB6F15618A5E00458A4A /* Simple.vert in Resources */,
 				9787FB7015618A5E00458A4A /* Entitlements.plist in Resources */,
-				9787FB7115618A5E00458A4A /* MainWindow-Single.xib in Resources */,
 				9787FB7315618A5E00458A4A /* firebutton-red-active.png in Resources */,
 				9787FB7415618A5E00458A4A /* firebutton-red-active@2x.png in Resources */,
 				9787FB7515618A5E00458A4A /* firebutton-red-active~ipad.png in Resources */,
@@ -4449,7 +4469,6 @@
 				97C87511156E834100197738 /* Simple.frag in Resources */,
 				97C87512156E834100197738 /* Simple.vert in Resources */,
 				97C87513156E834100197738 /* Entitlements.plist in Resources */,
-				97C87514156E834100197738 /* MainWindow-Single.xib in Resources */,
 				97C8754A156E834100197738 /* firebutton-red-active.png in Resources */,
 				97C8754B156E834100197738 /* firebutton-red-active@2x.png in Resources */,
 				97C8754C156E834100197738 /* firebutton-red-active~ipad.png in Resources */,
@@ -4487,7 +4506,6 @@
 				97855135153A3FBE00580B91 /* Simple.frag in Resources */,
 				97855136153A3FBE00580B91 /* Simple.vert in Resources */,
 				97EF9580153876CA001C01E6 /* Entitlements.plist in Resources */,
-				97EF9581153876CA001C01E6 /* MainWindow-Single.xib in Resources */,
 				97EF966D1538771F001C01E6 /* EmulationView-iPad.xib in Resources */,
 				97EF966F1538771F001C01E6 /* EmulationView-iPhone.xib in Resources */,
 				97EF968B1538771F001C01E6 /* icon-72.png in Resources */,
@@ -4681,6 +4699,7 @@
 				7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */,
 				7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */,
 				7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */,
+				7EB017711B09143000C74B9D /* SVProgressHUD.m in Sources */,
 				051B23B012C994BB000C2800 /* DisaSupport.cpp in Sources */,
 				7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.mm in Sources */,
@@ -4704,6 +4723,7 @@
 				0552BD4F0F3D797C005B30DF /* od-joy.mm in Sources */,
 				0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */,
 				7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */,
+				7EB017801B0921B000C74B9D /* SettingsSelectKeyViewController.m in Sources */,
 				0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */,
 				0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */,
 				0552BD550F3D797C005B30DF /* writelog.cpp in Sources */,
@@ -4717,6 +4737,7 @@
 				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
 				7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */,
 				0504156B0FCB4BD400F46828 /* CocoaUtility.m in Sources */,
+				7EB017731B09143000C74B9D /* SVIndefiniteAnimatedView.m in Sources */,
 				057B0D4C0FD0D0ED00D549AD /* MMStopWatch.m in Sources */,
 				7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */,
 				059E3A2710636CBA0056A577 /* fame_arm.cpp in Sources */,
@@ -4741,6 +4762,7 @@
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
+				7EB017651B09115900C74B9D /* StateManagementController.mm in Sources */,
 				7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
@@ -4754,6 +4776,7 @@
 				978550E5153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
 				7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */,
 				978550E8153A3F2E00580B91 /* SDL_syscond.c in Sources */,
+				7EB017791B09164900C74B9D /* State.m in Sources */,
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
 				7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */,
 				7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */,
@@ -4770,6 +4793,7 @@
 				97855103153A3F2E00580B91 /* OGLDisplay.m in Sources */,
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
 				97855118153A3F2E00580B91 /* CRT.frag in Sources */,
+				7EB017781B09164900C74B9D /* StateFileManager.m in Sources */,
 				97855121153A3F2E00580B91 /* Simple.frag in Sources */,
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */,

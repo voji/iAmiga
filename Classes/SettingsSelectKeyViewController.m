@@ -1,21 +1,26 @@
 //
-//  SettingsJoypadController.m
+//  SettingsSelectKeyViewController.m
 //  iUAE
 //
-//  Created by Urs on 14.05.15.
+//  Created by Urs on 17.05.15.
 //
 //
 
-#import "SettingsJoypadController.h"
+#import "SettingsSelectKeyViewController.h"
+#import "IOSKeyboard.h"
 
-@interface SettingsJoypadController ()
+@interface SettingsSelectKeyViewController ()
 
 @end
 
-@implementation SettingsJoypadController
+@implementation SettingsSelectKeyViewController {
+    IOSKeyboard *ioskeyboard;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    ioskeyboard = [[IOSKeyboard alloc] initWithDummyFields:_dummy_textfield fieldf:_dummy_textfield_f fieldspecial:_dummy_textfield_s];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -27,6 +32,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)associateKey:(id)sender {
+    [ioskeyboard toggleKeyboard];
 }
 
 @end
