@@ -74,10 +74,7 @@ static NSMutableArray *Filename;
     
     NSString *df0title = [[Filename objectAtIndex:0] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
     NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:1];
-    
-    df0title = [df0title stringByAppendingString:@"  >"];
-    df1title = [df1title stringByAppendingString:@" >"];
-    
+        
     [_df0 setText:df0title];
     [_df1 setText:df1title];
     
