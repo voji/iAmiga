@@ -458,6 +458,32 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="c6N-lc-2z5">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="4XU-jF-OSx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4XU-jF-OSx" id="J8M-cK-aU0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATt-i6-QbC">
+                                                    <rect key="frame" x="20" y="7" width="1016" height="30"/>
+                                                    <state key="normal" title="State Management">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="V0G-7J-pcz" kind="show" identifier="statemanagement" id="tJg-hd-WRy"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ATt-i6-QbC" firstAttribute="leading" secondItem="J8M-cK-aU0" secondAttribute="leadingMargin" constant="12" id="Tth-1j-lI4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ATt-i6-QbC" secondAttribute="trailing" constant="-20" id="jrl-oy-B3p"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="fDF-e7-E6W" id="Xd6-hu-CPt"/>

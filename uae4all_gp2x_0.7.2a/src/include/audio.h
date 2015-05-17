@@ -13,7 +13,7 @@
 #endif
 
 #ifdef NO_THREADS
-#define PRE_SNDBUFFER_LEN (960)
+#define PRE_SNDBUFFER_LEN (256)
 #else
 #define PRE_SNDBUFFER_LEN (1024)
 #endif
