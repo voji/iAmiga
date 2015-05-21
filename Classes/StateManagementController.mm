@@ -51,15 +51,8 @@
     _stateFileManager = [[StateFileManager alloc] init];
     [_stateNameTextField addTarget:self action:@selector(onStateNameTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
     [self reloadStates];
+    [self configureForDevice];
     [self updateUIState];
-    
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        int distanceFromRightViewEdge = self.view.frame.size.width - _titleLabel.frame.size.width - 30;
-        _stateNameTextFieldRightConstraint.constant = distanceFromRightViewEdge;
-        _statesTableViewRightConstraint.constant = distanceFromRightViewEdge;
-        [_stateNameTextField layoutIfNeeded];
-        [_statesTableView layoutIfNeeded];       
-    }
 }
 
 #pragma mark - UITableViewDelegate methods
@@ -242,6 +235,19 @@
                                 delegate:hasDelegate ? self : nil
                        cancelButtonTitle:@"OK"
                        otherButtonTitles:(hasCancelButton ? @"Cancel" : nil), nil] autorelease] show];
+}
+
+- (void)configureForDevice {
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        int distanceFromRightViewEdge = self.view.frame.size.width - _titleLabel.frame.size.width - 30;
+        _stateNameTextFieldRightConstraint.constant = distanceFromRightViewEdge;
+        _statesTableViewRightConstraint.constant = distanceFromRightViewEdge;
+        [_stateNameTextField layoutIfNeeded];
+        [_statesTableView layoutIfNeeded];
+    } else {
+        // no state screenshot preview on iPhone - disconnect the ui image view to make sure it doesn't render
+        _selectedStateScreenshot = nil;
+    }
 }
 
 @end
