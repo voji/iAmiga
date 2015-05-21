@@ -29,19 +29,19 @@
 - (BOOL)stateFileExistsForStateName:(NSString *)stateName;
 
 /**
- * Returns the fully qualified path to the state file identified by the given state name.
- */
-- (NSString *)getStateFilePathForStateName:(NSString *)stateName;
-
-/**
- * Saves and associates the specified image with the given state path.
- */
-- (void)saveStateImage:(UIImage *)image forStateFilePath:(NSString *)stateFilePath;
-
-/**
  * Returns YES if the given state name does not contain any problematic characters, NO otherwise.
  */
 - (BOOL)isValidStateName:(NSString *)stateName;
+
+/**
+ * Returns a new State instance with only path set, intended to be populated and saved.
+ */
+- (State *)newState:(NSString *)stateName;
+
+/**
+ * Saves meta information about the specified state (but not the state itself, that's handled by the core emulator).
+ */
+- (void)saveState:(State *)state;
 
 /**
  * Returns an array of all persisted State instances.
@@ -52,5 +52,10 @@
  * Deletes the specified state.
  */
 - (void)deleteState:(State *)state;
+
+/**
+ * Returns the fully qualified path to the state file identified by the given state name.
+ */
+- (NSString *)getStateFilePathForStateName:(NSString *)stateName;
 
 @end

@@ -25,7 +25,7 @@
 
 @dynamic modificationDate, image;
 
-- (instancetype)initWithName:(NSString *)name path:(NSString *)path creationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath {
+- (instancetype)initWithName:(NSString *)name path:(NSString *)path modificationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath {
     if (self = [super init]) {
         _name = [name retain];
         _path = [path retain];
@@ -55,6 +55,13 @@
         _image = [[UIImage imageWithData:imageBytes] retain];
     }
     return _image;
+}
+
+- (void)setImage:(UIImage *)image {
+    if (image != _image) {
+        [_image release];
+        _image = [image retain];
+    }
 }
 
 - (NSString *)modificationDate {

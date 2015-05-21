@@ -18,11 +18,12 @@
 
 @interface State : NSObject
 
-- (instancetype)initWithName:(NSString *)name path:(NSString *)path creationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath;
+- (instancetype)initWithName:(NSString *)name path:(NSString *)path modificationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath;
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *path;
 @property (nonatomic, readonly) NSString *modificationDate;
-@property (nonatomic, readonly) UIImage *image;
+
+@property (nonatomic, readwrite, strong) UIImage *image;
 
 @end

@@ -167,12 +167,13 @@
 
 - (void)saveState {
     NSString *stateName = _stateNameTextField.text;
-    NSString *stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
+    State *state = [_stateFileManager newState:stateName];
     if (_emulatorScreenshot) {
-        [_stateFileManager saveStateImage:_emulatorScreenshot forStateFilePath:stateFilePath];
+        state.image = _emulatorScreenshot;
     }
+    [_stateFileManager saveState:state];
     static char path[1024];
-    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+    [state.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
     static char description[] = "no description provided";
     save_state(path, description);
     [self reloadStates];
