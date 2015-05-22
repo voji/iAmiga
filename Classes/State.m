@@ -75,3 +75,6 @@
 }
 
 @end
+
+@implementation InsertedDisk
+@end;

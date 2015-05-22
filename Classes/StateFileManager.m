@@ -22,6 +22,7 @@ static NSString *kStateImagesDirectoryName = @"images"; // sub directory that st
 static NSString *kStateMetaDirectoryName = @"meta";   // additional information stored for each state, such as the disk currently inserted
 static NSString *kStateFileExtension = @".asf";
 static NSString *kStateFileImageExtension = @".jpg";
+static NSString *kStateFileMetaExtension = @".json";
 
 @implementation StateFileManager {
     @private
@@ -29,6 +30,7 @@ static NSString *kStateFileImageExtension = @".jpg";
     NSString *_documentsDirectoryPath;
     NSString *_statesDirectoryPath;
     NSString *_imagesDirectoryPath;
+    NSString *_metaDirectoryPath;
 }
 
 # pragma mark - init/dealloc
@@ -39,6 +41,7 @@ static NSString *kStateFileImageExtension = @".jpg";
         _documentsDirectoryPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] retain];
         _statesDirectoryPath = [[StateFileManager createAndGetDirectory:_fileManager rootDirectory:_documentsDirectoryPath directoryName:kStatesDirectoryName] retain];
         _imagesDirectoryPath = [[StateFileManager createAndGetDirectory:_fileManager rootDirectory:_statesDirectoryPath directoryName:kStateImagesDirectoryName] retain];
+        _metaDirectoryPath = [[StateFileManager createAndGetDirectory:_fileManager rootDirectory:_statesDirectoryPath directoryName:kStateMetaDirectoryName] retain];
     }
     return self;
 }
@@ -48,6 +51,7 @@ static NSString *kStateFileImageExtension = @".jpg";
     [_documentsDirectoryPath release];
     [_statesDirectoryPath release];
     [_imagesDirectoryPath release];
+    [_metaDirectoryPath release];
     [super dealloc];
 }
 
@@ -90,11 +94,8 @@ static NSString *kStateFileImageExtension = @".jpg";
 }
 
 - (void)saveState:(State *)state {
-    if (state.image) {
-        NSData *imageBytes = UIImageJPEGRepresentation(state.image, 0.3f);
-        NSString *imageFilePath = [self getStateImagePathForStateName:state.name];
-        [imageBytes writeToFile:imageFilePath atomically:YES];
-    }
+    [self writeImageFileForState:state];
+    [self writeMetaFileForState:state];
 }
 
 - (NSString *)getStateFilePathForStateName:(NSString *)stateName {
@@ -103,6 +104,43 @@ static NSString *kStateFileImageExtension = @".jpg";
 }
 
 #pragma mark - Private methods
+
+- (void)writeImageFileForState:(State *)state {
+    if (state.image) {
+        NSData *imageBytes = UIImageJPEGRepresentation(state.image, 0.3f);
+        NSString *imageFilePath = [self getStateImagePathForStateName:state.name];
+        [imageBytes writeToFile:imageFilePath atomically:YES];
+    }
+}
+
+- (void)writeMetaFileForState:(State *)state {
+    if (state.insertedDisks) {
+        NSMutableArray *insertedDisksDictionaries = [[NSMutableArray alloc] initWithCapacity:[state.insertedDisks count]];
+        for (InsertedDisk *insertedDisk in state.insertedDisks) {
+            [insertedDisksDictionaries addObject:[self getInsertedDiskDict:insertedDisk]];
+        }
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"InsertedDisks" : insertedDisksDictionaries}
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:nil];
+        NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *metaFilePath = [self getStateMetaPathForStateName:state.name];
+        [json writeToFile:metaFilePath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    }
+}
+
+- (NSDictionary *)getInsertedDiskDict:(InsertedDisk *)insertedDisk  {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [dict setObject:[self getInsertedDiskValuesDict:insertedDisk] forKey:@"InsertedDisk"];
+    return dict;
+}
+
+- (NSDictionary *)getInsertedDiskValuesDict:(InsertedDisk *)insertedDisk {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
+    [dict setObject:insertedDisk.driveNumber forKey:@"drive"];
+    NSString *adfPath = [self trimNilIfEmpty:insertedDisk.adfPath];
+    [dict setObject:(adfPath ? adfPath : [NSNull null]) forKey:@"adf"];
+    return dict;
+}
 
 - (State *)loadStateForStateFileName:(NSString *)stateFileName {
     NSString *stateName = [self getStateNameFromStateFileNameOrPath:stateFileName];
@@ -124,6 +162,10 @@ static NSString *kStateFileImageExtension = @".jpg";
 
 - (NSString *)getStateImagePathForStateName:(NSString *)stateName {
     return [[_imagesDirectoryPath stringByAppendingPathComponent:stateName] stringByAppendingString:kStateFileImageExtension];
+}
+
+- (NSString *)getStateMetaPathForStateName:(NSString *)stateName {
+    return [[_metaDirectoryPath stringByAppendingPathComponent:stateName] stringByAppendingString:kStateFileMetaExtension];
 }
 
 - (NSString *)trimNilIfEmpty:(NSString *)string {

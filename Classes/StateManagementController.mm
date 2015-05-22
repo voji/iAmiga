@@ -14,9 +14,10 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import "sysconfig.h"
-#import "sysdeps.h"
-#import "savestate.h"
+#include "sysconfig.h"
+#include "sysdeps.h"
+#include "options.h"
+#include "savestate.h"
 
 #import "State.h"
 #import "StateManagementController.h"
@@ -171,6 +172,7 @@
     if (_emulatorScreenshot) {
         state.image = _emulatorScreenshot;
     }
+    state.insertedDisks = [self getInsertedDisks];
     [_stateFileManager saveState:state];
     static char path[1024];
     [state.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
@@ -182,6 +184,17 @@
     [self dismissKeyboard];
     [self updateUIState];
     [self showStatusHUD:[NSString stringWithFormat:@"Saved state %@", stateName]];
+}
+
+- (NSArray *)getInsertedDisks {
+    NSMutableArray *insertedDisks = [[NSMutableArray alloc] initWithCapacity:NUM_DRIVES];
+    for (int i = 0; i < NUM_DRIVES; i++) {
+        InsertedDisk *insertedDisk = [[[InsertedDisk alloc] init] autorelease];
+        insertedDisk.driveNumber = [NSNumber numberWithInt:i];
+        insertedDisk.adfPath = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];
+        [insertedDisks addObject:insertedDisk];
+    }
+    return insertedDisks;
 }
 
 - (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
