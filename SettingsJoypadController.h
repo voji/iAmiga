@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsSelectKeyViewController.h"
 
-@interface SettingsJoypadController : UITableViewController
+@interface SettingsJoypadController : UITableViewController <SelectKeyDelegate>
+
+@property (retain, nonatomic) IBOutlet UITableViewCell *CellA;
+
+
 
 @end

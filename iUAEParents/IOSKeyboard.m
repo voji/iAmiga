@@ -441,7 +441,17 @@
 }
 
 - (void) sendkey:(int)asciicode {
-    [self sendkey:asciicode direction:KEYPRESS];
+    
+    //Keyboard used for Emulation
+    if(self.delegate == nil)
+    {
+        [self sendkey:asciicode direction:KEYPRESS];
+    }
+    else
+    {
+        [self.delegate keyPressed:asciicode];
+    }
+
 }
 
 - (void) sendkey:(int)asciicode direction:(int)direction {

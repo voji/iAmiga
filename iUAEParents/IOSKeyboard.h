@@ -19,8 +19,15 @@
 #import "PKCustomKeyboard.h"
 #import "PMCustomKeyboard.h"
 
+@protocol IOSKeyboardDelegate
+- (void)keyPressed:(int)asciicode;
+@end
+
 @interface IOSKeyboard : NSObject <UITextFieldDelegate>
 - (void) toggleKeyboard;
 -(void) setdummyfields:(UITextField *)dummyfield fieldf:(UITextField *)fieldf;
 -(id) initWithDummyFields:(UITextField *)dummyfield fieldf:(UITextField *)fieldf fieldspecial:(UITextField *)fieldspecial;
+
+@property (nonatomic, assign) id<IOSKeyboardDelegate>	delegate;
+
 @end
