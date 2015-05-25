@@ -20,7 +20,7 @@
 #import "PMCustomKeyboard.h"
 
 @protocol IOSKeyboardDelegate
-- (void)keyPressed:(int)asciicode;
+- (void)keyPressed:(int)asciicode keyName:(NSString *)keyName;
 @end
 
 @interface IOSKeyboard : NSObject <UITextFieldDelegate>

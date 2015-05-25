@@ -1,16 +1,38 @@
 //
-//  SettingsJoypadController.m
+//  SettingsGeneralController.h
 //  iUAE
 //
-//  Created by Urs on 14.05.15.
+//  Created by Emufr3ak on 24.05.15.
 //
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
 //
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+//along with this program; if not, write to the Free Software
+//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "SettingsJoypadController.h"
 #import "Settings.h"
 
 #define BTN_A 1
 #define BTN_B 2
+#define BTN_X 3
+#define BTN_Y 4
+#define BTN_L1 5
+#define BTN_L2 6
+#define BTN_R1 7
+#define BTN_R2 8
+#define BTN_UP 9
+#define BTN_DOWN 10
+#define BTN_LEFT 11
+#define BTN_RIGHT 12
 
 @interface SettingsJoypadController ()
 
@@ -37,6 +59,17 @@
     [settings initializeSettings];
     
     _CellA.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_A]];
+    _CellB.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_B]];
+    _CellX.detailTextLabel.text = [settings stringForKey: [NSString stringWithFormat: @"_BTNN_%d", BTN_X]];
+    _CellY.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_Y]];
+    _CellL1.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_L1]];
+    _CellL2.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_L2]];
+    _CellR1.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_R1]];
+    _CellR2.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_R2]];
+    _CellUp.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_UP]];
+    _CellDown.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_DOWN]];
+    _CellLeft.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_LEFT]];
+    _CellRight.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_RIGHT]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,35 +83,57 @@
         SettingsSelectKeyViewController *controller = segue.destinationViewController;
         controller.delegate = self;
         context = cellsender;
+        
+        NSString *strbuttonconnected = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", context.tag]];
+        
+        NSString *joypaddetailtext = [strbuttonconnected isEqualToString:@"Joypad"] ? @"Joypad" : @"";
+        NSString *keydetailtext = [strbuttonconnected isEqualToString:@"Joypad"] ? @"" : strbuttonconnected;
+        
+        controller.joypaddetailtext = joypaddetailtext;
+        controller.keydetailtext = keydetailtext;
+        
     }
 }
 
-- (void)didselectFire {
+- (void)didSelectJoypad {
     
     NSString *strConfigKey = [NSString stringWithFormat: @"_BTN_%d", context.tag];
-    [settings setObject:@"FIRE" forKey:strConfigKey];
+    [settings setObject:@"Joypad" forKey:strConfigKey];
     
     strConfigKey = [NSString stringWithFormat: @"_BTNN_%d", context.tag];
-    [settings setObject:@"FIRE" forKey:strConfigKey];
+    [settings setObject:@"Joypad" forKey:strConfigKey];
+    
+    //context.detailTextLabel.text = @"Joypad";
 }
 
-- (void)didSelectKey:(int)asciicode {
+- (void)didSelectKey:(int)asciicode keyName:(NSString *)keyName {
     
     NSString *strConfigValue = [NSString stringWithFormat: @"KEY_%d", asciicode];
     NSString *strConfigKey = [NSString stringWithFormat: @"_BTN_%d", context.tag];
     [settings setObject:strConfigValue forKey:strConfigKey];
     
-    strConfigValue = [NSString stringWithFormat: @"%c", asciicode];
     strConfigKey = [NSString stringWithFormat: @"_BTNN_%d", context.tag];
-    [settings setObject:strConfigValue forKey:strConfigKey];
+    [settings setObject:keyName forKey:strConfigKey];
 
-    context.detailTextLabel.text = strConfigValue;
+    //context.detailTextLabel.text = strConfigValue;
 }
 
 - (void)dealloc {
     [settings release];
 
     [_CellA release];
+    [_CellB release];
+    [_CellX release];
+    [_CellY release];
+    [_CellL1 release];
+    [_CellL2 release];
+    [_CellR1 release];
+    [_CellR2 release];
+    
+    [_CellUp release];
+    [_CellDown release];
+    [_CellLeft release];
+    [_CellRight release];
     [super dealloc];
 }
 

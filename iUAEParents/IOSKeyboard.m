@@ -40,6 +40,11 @@
 #define BSKEY 2
 #define EXKEY 3
 
+#define TAGUP 1
+#define TAGDOWN 2
+#define TAGLEFT 3
+#define TAGRIGHT 4
+
 
 @implementation IOSKeyboard {
     
@@ -131,13 +136,13 @@
     {
         ctrlselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_LCTRL direction:KEYDOWN];
+        [self sendkey:SDLK_LCTRL keyName:@"LCTRL" direction:KEYDOWN];
     }
     else
     {
         ctrlselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_LCTRL direction:KEYUP];
+        [self sendkey:SDLK_LCTRL keyName:@"LCTRL" direction:KEYUP];
     }
 }
 
@@ -149,13 +154,13 @@
     {
         shiftselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_LSHIFT direction:KEYDOWN];
+        [self sendkey:SDLK_LSHIFT keyName:@"LSHIFT" direction:KEYDOWN];
     }
     else
     {
         shiftselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_LSHIFT direction:KEYUP];
+        [self sendkey:SDLK_LSHIFT keyName:@"LSHIFT" direction:KEYUP];
     }
 }
 
@@ -167,13 +172,13 @@
     {
         altselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_LALT direction:KEYDOWN];
+        [self sendkey:SDLK_LALT keyName:@"LALT" direction:KEYDOWN];
     }
     else
     {
         altselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_LALT direction:KEYUP];
+        [self sendkey:SDLK_LALT keyName:@"LALT" direction:KEYUP];
     }
 }
 
@@ -182,13 +187,13 @@
     {
         lAselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_PAGEDOWN direction:KEYDOWN];
+        [self sendkey:SDLK_PAGEDOWN keyName:@"LAMIGA" direction:KEYDOWN];
     }
     else
     {
         lAselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_PAGEDOWN direction:KEYUP];
+        [self sendkey:SDLK_PAGEDOWN keyName:@"LAMIGA" direction:KEYUP];
     }
 }
 
@@ -197,82 +202,87 @@
     {
         rAselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_PAGEUP direction:KEYDOWN];
+        [self sendkey:SDLK_PAGEUP keyName:@"RAMIGA"  direction:KEYDOWN];
     }
     else
     {
         rAselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_PAGEUP direction:KEYUP];
+        [self sendkey:SDLK_PAGEUP keyName:@"RAMIGA" direction:KEYUP];
     }
 }
 
 - (IBAction)toggleEscKey:(id)sender {
-    [self sendkey:SDLK_ESCAPE];
+    [self sendkey:SDLK_ESCAPE keyName:@"ESC"];
 }
 
 //Catches Enter
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self sendkey:SDLK_RETURN];
+    [self sendkey:SDLK_RETURN keyName:@"RETURN"];
     return NO;
 }
 
 - (IBAction)F1Key:(id)sender {
-    [self sendkey:SDLK_F1];
+    [self sendkey:SDLK_F1 keyName:@"F1"];
 }
 
 - (IBAction)F2Key:(id)sender {
-    [self sendkey:SDLK_F2];
+    [self sendkey:SDLK_F2 keyName:@"F2"];
 }
 
 - (IBAction)F3Key:(id)sender {
-    [self sendkey:SDLK_F3];
+    [self sendkey:SDLK_F3 keyName:@"F3"];
 }
 
 - (IBAction)F4Key:(id)sender {
-    [self sendkey:SDLK_F4];
+    [self sendkey:SDLK_F4 keyName:@"F4"];
 }
 
 - (IBAction)F5Key:(id)sender {
-    [self sendkey:SDLK_F5];
+    [self sendkey:SDLK_F5 keyName:@"F5"];
 }
 
 - (IBAction)F6Key:(id)sender {
-    [self sendkey:SDLK_F6];
+    [self sendkey:SDLK_F6 keyName:@"F6"];
 }
 
 - (IBAction)F7Key:(id)sender {
-    [self sendkey:SDLK_F7];
+    [self sendkey:SDLK_F7 keyName:@"F7"];
 }
 
 - (IBAction)F8Key:(id)sender {
-    [self sendkey:SDLK_F8];
+    [self sendkey:SDLK_F8 keyName:@"F8"];
 }
 
 - (IBAction)F9Key:(id)sender {
-    [self sendkey:SDLK_F9];
+    [self sendkey:SDLK_F9 keyName:@"F9"];
 }
 
 - (IBAction)F10Key:(id)sender {
-    [self sendkey:SDLK_F10];
+    [self sendkey:SDLK_F10 keyName:@"F10"];
 }
 
 - (IBAction)CursorKeyPressed:(id)sender {
     
     UIButton *button = sender;
     
-    int keypressed =    (button == arrowup_btnd) ? SDLK_UP :
-                        (button == arrowdown_btnd) ? SDLK_DOWN :
-                        (button == arrowleft_btnd) ? SDLK_LEFT :
+    int keypressed =    (button.tag == TAGUP) ? SDLK_UP :
+                        (button.tag == TAGDOWN) ? SDLK_DOWN :
+                        (button.tag == TAGLEFT) ? SDLK_LEFT :
                         SDLK_RIGHT;
 
+    NSString *keyName =    (button.tag == TAGUP) ? @"UP" :
+    (button.tag == TAGDOWN) ? @"DOWN":
+    (button.tag == TAGLEFT) ? @"LEFT" :
+    @"RIGHT";
     
-    [self sendkey:keypressed];
+    [self sendkey:keypressed keyName:keyName];
 
 }
 
 - (IBAction)specialkeypressed:(id)sender
 {
+    
     UITextField *textfield = [sender object];
     
     NSString *keyflag = [textfield.text substringToIndex:1];
@@ -300,7 +310,7 @@
     //Backspace Pressed: Little Hack: Length is always 1 because one character is autoplaced there (expect when deleted by backspace)
     if(length == 0)
     {
-        [self sendkey:SDLK_BACKSPACE];
+        [self sendkey:SDLK_BACKSPACE keyName:@"BACKSPACE"];
         [textfield setText:@"0"];
         return;
     }
@@ -429,18 +439,27 @@
 }
 
 - (void) altsendkey:(int)asciicode {
+    if(self.delegate) { return; }
+    
     if (!altselected) { [self sendkey:SDLK_LALT direction:KEYDOWN]; }
     [self sendkey:asciicode direction:KEYPRESS];
     if (!altselected) { [self sendkey:SDLK_LALT direction:KEYUP]; }
 }
 
 - (void) shiftsendkey:(int)asciicode {
+    if(self.delegate) { return; }
+    
     if (!shiftselected) { [self sendkey:SDLK_LSHIFT direction:KEYDOWN]; }
     [self sendkey:asciicode direction:KEYPRESS];
     if (!shiftselected) { [self sendkey:SDLK_LSHIFT direction:KEYUP]; }
 }
 
 - (void) sendkey:(int)asciicode {
+    [self sendkey:asciicode keyName:[NSString stringWithFormat:@"%c", asciicode]];
+}
+
+
+- (void) sendkey:(int)asciicode keyName:(NSString *) keyName {
     
     //Keyboard used for Emulation
     if(self.delegate == nil)
@@ -449,13 +468,24 @@
     }
     else
     {
-        [self.delegate keyPressed:asciicode];
+        [self.delegate keyPressed:asciicode keyName:keyName];
     }
 
 }
 
 - (void) sendkey:(int)asciicode direction:(int)direction {
+    [self sendkey:asciicode keyName:[NSString stringWithFormat:@"%c", asciicode] direction:direction];
+}
+    
+- (void) sendkey:(int)asciicode keyName:(NSString *)keyName direction:(int)direction {
 
+    //Keyboard Used to assign key in Settings
+    if(self.delegate) {
+        [self.delegate keyPressed:asciicode keyName:keyName];
+        return;
+    }
+    
+    //Keyboard used for Emulation
     if(direction == KEYPRESS || direction == KEYDOWN)
     {
         SDL_Event ed = { SDL_KEYDOWN };
@@ -596,9 +626,13 @@
     UIButton *rA_btnd = [self createKeyboardButton:@"rA" action:@selector(togglerAKey:)];
     
     arrowleft_btnd = [self createKeyboardButton:@"<-" action:@selector(CursorKeyPressed:)];
+    arrowleft_btnd.tag = TAGLEFT;
     arrowup_btnd = [self createKeyboardButton:@"^" action:@selector(CursorKeyPressed:)];
+    arrowup_btnd.tag = TAGUP;
     arrowdown_btnd = [self createKeyboardButton:@"v" action:@selector(CursorKeyPressed:)];
+    arrowdown_btnd.tag = TAGDOWN;
     arrowright_btnd = [self createKeyboardButton:@"->" action:@selector(CursorKeyPressed:)];
+    arrowright_btnd.tag = TAGRIGHT;
     
     fKey_btnd = [self createKeyboardButton:@"F" action:@selector(toggleKeyboardmode:)];
     [fKey_btnd setTag:BFKEY];
