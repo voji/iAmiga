@@ -177,6 +177,7 @@
 		7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
 		7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* Storyboard.storyboard */; };
+		7E1A15921B17228100F0EA17 /* wb13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A15911B17228100F0EA17 /* wb13.adf */; };
 		7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3319FADFD400B6136B /* modejoy.png */; };
 		7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3519FADFD400B6136B /* modejoypressed.png */; };
 		7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3719FADFD400B6136B /* modekeyoff.png */; };
@@ -1541,6 +1542,8 @@
 		7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddConfigurationViewController.m; path = Classes/AddConfigurationViewController.m; sourceTree = SOURCE_ROOT; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
 		7E10738A1A34E85E000D7269 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../../Storyboard.storyboard; sourceTree = "<group>"; };
+		7E1A15901B171D7E00F0EA17 /* JoypadKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoypadKey.h; sourceTree = "<group>"; };
+		7E1A15911B17228100F0EA17 /* wb13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wb13.adf; path = ../../../Desktop/wb13.adf; sourceTree = "<group>"; };
 		7E1B8C3319FADFD400B6136B /* modejoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoy.png; sourceTree = "<group>"; };
 		7E1B8C3519FADFD400B6136B /* modejoypressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoypressed.png; sourceTree = "<group>"; };
 		7E1B8C3719FADFD400B6136B /* modekeyoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyoff.png; sourceTree = "<group>"; };
@@ -2592,6 +2595,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E1A15911B17228100F0EA17 /* wb13.adf */,
 				7EB0177C1B09174400C74B9D /* Northsou.adf */,
 			);
 			path = disks;
@@ -2815,6 +2819,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				7E1A15901B171D7E00F0EA17 /* JoypadKey.h */,
 				7EA4D6651923EDBE00C58BB9 /* MainEmulationViewController.h */,
 				7EA4D6621923EDA100C58BB9 /* TouchHandlerViewClassic.h */,
 				7EA4D65F1923ED0800C58BB9 /* EmulationView-iPad.h */,
@@ -4050,6 +4055,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
+				7E1A15921B17228100F0EA17 /* wb13.adf in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
@@ -5411,7 +5417,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5438,7 +5444,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5463,7 +5469,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;

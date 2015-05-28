@@ -454,10 +454,146 @@
     if (!shiftselected) { [self sendkey:SDLK_LSHIFT direction:KEYUP]; }
 }
 
-- (void) sendkey:(int)asciicode {
-    [self sendkey:asciicode keyName:[NSString stringWithFormat:@"%c", asciicode]];
+- (NSString *) mapkey:(int)asciicode {
+    
+    NSString *keyname;
+    
+    switch (asciicode)
+    {
+        case SDLK_LEFT:
+            keyname = @"LEFT";
+            break;
+            
+        case SDLK_RIGHT:
+            keyname = @"RIGHT";
+            break;
+            
+        case SDLK_UP:
+            keyname = @"UP";
+            break;
+            
+        case SDLK_DOWN:
+            keyname = @"DOWN";
+            break;
+            
+        case SDLK_KP0:
+            keyname = @"KEYPAD 0";
+            break;
+            
+        case SDLK_KP1:
+            keyname = @"KEYPAD 1";
+            break;
+            
+        case SDLK_KP2:
+            keyname = @"KEYPAD 2";
+            break;
+            
+        case SDLK_KP3:
+            keyname = @"KEYPAD 3";
+            break;
+            
+        case SDLK_KP4:
+            keyname = @"KEYPAD 4";
+            break;
+            
+        case SDLK_KP5:
+            keyname = @"KEYPAD 5";
+            break;
+            
+        case SDLK_KP6:
+            keyname = @"KEYPAD 6";
+            break;
+            
+        case SDLK_KP7:
+            keyname = @"KEYPAD 7";
+            break;
+            
+        case SDLK_KP8:
+            keyname = @"KEYPAD 8";
+            break;
+            
+        case SDLK_KP9:
+            keyname = @"KEYPAD 9";
+            break;
+            
+        case SDLK_HOME: //Pseudo Mapping SDL Doesnt know Bracket key / Amiga Doesnt know Home Key
+            keyname = @"BRACKET LEFT";
+            break;
+            
+        case SDLK_END: //Pseudo Mapping SDL Doesnt know Bracket key / Amiga Doesnt know End Key
+            keyname = @"BRACKET RIGHT";
+            break;
+            
+        case SDLK_KP_DIVIDE:
+            keyname = @"KEYPAD /";
+            break;
+            
+        case SDLK_KP_MULTIPLY:
+            keyname = @"KEYPAD *";
+            break;
+            
+        case SDLK_KP_PLUS:
+            keyname = @"KEYPAD +";
+            break;
+            
+        case SDLK_LSHIFT:
+            keyname = @"LSHIFT";
+            break;
+            
+        case SDLK_RSHIFT:
+            keyname = @"RSHIFT";
+            break;
+            
+        case SDLK_LALT:
+            keyname = @"LALT";
+            break;
+            
+        case SDLK_RALT:
+            keyname = @"RALT";
+            break;
+            
+        case SDLK_RCTRL:
+            keyname = @"RCTRL";
+            break;
+            
+        case SDLK_LCTRL:
+            keyname = @"LCTRL";
+            break;
+            
+        case SDLK_KP_ENTER:
+            keyname = @"KPENTER";
+            break;
+            
+        case SDLK_RMETA: //Pseudo Mapping SDL Doesnt know Amiga key / Amiga Doesnt know Meta Key
+            keyname = @"A RIGHT";
+            break;
+            
+        case SDLK_LMETA: //Pseudo Mapping SDL Doesnt know Amiga key / Amiga Doesnt know Meta Key
+            keyname = @"A LEFT";
+            break;
+            
+        case SDLK_KP_PERIOD:
+            keyname = @"KEYPAD .";
+            break;
+            
+        case SDLK_SPACE:
+            keyname = @"SPACE";
+            break;
+            
+        default:
+            keyname = [NSString stringWithFormat:@"%c", asciicode];
+    }
+    
+    return keyname;
+    
 }
 
+- (void) sendkey:(int)asciicode {
+    
+    NSString *keyname = [self mapkey:asciicode];
+    
+    [self sendkey:asciicode keyName:keyname];
+}
 
 - (void) sendkey:(int)asciicode keyName:(NSString *) keyName {
     
@@ -474,11 +610,14 @@
 }
 
 - (void) sendkey:(int)asciicode direction:(int)direction {
-    [self sendkey:asciicode keyName:[NSString stringWithFormat:@"%c", asciicode] direction:direction];
+    
+    NSString *keyname = [self mapkey:asciicode];
+    
+    [self sendkey:asciicode keyName:keyname direction:direction];
 }
     
 - (void) sendkey:(int)asciicode keyName:(NSString *)keyName direction:(int)direction {
-
+    
     //Keyboard Used to assign key in Settings
     if(self.delegate) {
         [self.delegate keyPressed:asciicode keyName:keyName];

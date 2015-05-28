@@ -32,6 +32,8 @@
 #import "ButtonStates.h"
 #import "SDL_NSObject+Blocks.h"
 #import "MFIControllerReaderView.h"
+#import "Settings.h"
+#import "JoypadKey.h"
 
 extern UIView *GetSharedOGLDisplayView();
 
@@ -52,6 +54,8 @@ typedef struct joystick_hwdata {
 
 inline
 static int icp_getState(int button);
+
+Settings *settingsforjoystick;
 
 int SDL_SYS_JoystickInit(void) {
     return 5;
@@ -87,7 +91,11 @@ const char *SDL_SYS_JoystickName(int index) {
  */
 int
 SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
-{    
+{
+    settingsforjoystick = [[Settings alloc] init];
+    [settingsforjoystick initializeSettings];
+    
+    
     if (joystick->index == kiControlPad) {
         joystick->naxes = 0;
         joystick->nhats = 1;
@@ -164,6 +172,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 void
 SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
 {
+
 	if (joystick->index == kAccelerometer) {
         Sint16 orientation[3];
         
@@ -215,10 +224,33 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
         MFIControllerReaderView *view = (MFIControllerReaderView *)joystick->hwdata->view;
         
         Uint8 pr = view.buttonpressed == true ? SDL_PRESSED : SDL_RELEASED;
-            
+        
         if (joystick->buttons[0] != pr)
         {
-            SDL_PrivateJoystickButton(joystick, 0, pr);; // hasn't changed state, so don't pump and event
+            NSString *configuredkey = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_A]];
+            
+            if([configuredkey  isEqual: @"Joypad"])
+            {
+                SDL_PrivateJoystickButton(joystick, 0, pr); // hasn't changed state, so don't pump and event
+            }
+            else
+            {
+                int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+                
+                if(view.buttonpressed)
+                {
+                    SDL_Event ed = { SDL_KEYDOWN };
+                    ed.key.keysym.sym = (SDLKey) asciicode;
+                    SDL_PushEvent(&ed);
+                }
+                else
+                {
+                    SDL_Event eu = { SDL_KEYUP };
+                    eu.key.keysym.sym = (SDLKey) asciicode;
+                    SDL_PushEvent(&eu);
+                }
+            }
+    
         }
         
         Uint8 hat_state = [view hat_state];
@@ -253,6 +285,8 @@ SDL_SYS_JoystickClose(SDL_Joystick * joystick)
     else {
         SDL_SetError("No joystick open with that index");
     }
+    
+    [settingsforjoystick release];
     
     return;
 }
