@@ -34,6 +34,16 @@
 - (BOOL)isValidStateName:(NSString *)stateName;
 
 /**
+ * Returns an array of all persisted State instances.
+ */
+- (NSArray *)loadStates;
+
+/**
+ * Returns a State instance for the specified stateName, nil if it does not exist.
+ */
+- (State *)loadState:(NSString *)stateName;
+
+/**
  * Returns a new State instance with only path set, intended to be populated and saved.
  */
 - (State *)newState:(NSString *)stateName;
@@ -44,18 +54,8 @@
 - (void)saveState:(State *)state;
 
 /**
- * Returns an array of all persisted State instances.
- */
-- (NSArray *)loadStates;
-
-/**
  * Deletes the specified state.
  */
 - (void)deleteState:(State *)state;
-
-/**
- * Returns the fully qualified path to the state file identified by the given state name.
- */
-- (NSString *)getStateFilePathForStateName:(NSString *)stateName;
 
 @end

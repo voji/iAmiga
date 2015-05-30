@@ -45,10 +45,6 @@
     [super dealloc];
 }
 
-- (NSString *)description {
-    return [NSString stringWithFormat:@"%@ : %@", _name, _path];
-}
-
 - (UIImage *)image {
     if (!_image && _imagePath) {
         NSData *imageBytes = [NSData dataWithContentsOfFile:_imagePath];
@@ -74,7 +70,16 @@
     return _formattedModificationDate;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@: %@", _name, _insertedDisks];
+}
+
 @end
 
 @implementation InsertedDisk
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"df%@:%@", _driveNumber, _adfPath];
+}
+
 @end;

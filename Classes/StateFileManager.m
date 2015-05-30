@@ -19,10 +19,15 @@
 
 static NSString *kStatesDirectoryName = @"states";      // top level directory under Documents where all state information goes
 static NSString *kStateImagesDirectoryName = @"images"; // sub directory that stores the screenshot associated with a saved state
-static NSString *kStateMetaDirectoryName = @"meta";   // additional information stored for each state, such as the disk currently inserted
+static NSString *kStateMetaDirectoryName = @"meta";     // additional information stored for each state, such as the disks currently inserted
 static NSString *kStateFileExtension = @".asf";
 static NSString *kStateFileImageExtension = @".jpg";
 static NSString *kStateFileMetaExtension = @".json";
+
+static NSString *kInsertedDisksAttrName = @"inserted_disks";
+static NSString *kInsertedDiskAttrName = @"inserted_disk";
+static NSString *kDriveAttrName = @"drive";
+static NSString *kAdfPathAttrName = @"adf";
 
 @implementation StateFileManager {
     @private
@@ -72,21 +77,35 @@ static NSString *kStateFileMetaExtension = @".json";
     NSMutableArray *states = [NSMutableArray arrayWithCapacity:[fileNames count]];
     for (NSString *fileName in fileNames) {
         if ([self isStateFile:fileName]) {
-            State *state = [self loadStateForStateFileName:fileName];
+            NSString *stateName = [self getStateNameFromStateFileNameOrPath:fileName];
+            State *state = [self loadState:stateName];
             [states addObject:state];
         }
     }
     return states;
 }
 
+- (State *)loadState:(NSString *)stateName {
+    if (![self stateFileExistsForStateName:stateName]) {
+        return nil;
+    }
+    NSString *stateFilePath = [self getStateFilePathForStateName:stateName];
+    NSDate *modificationDate = [self getFileModificationDate:stateFilePath];
+    NSString *imagePath = [self getStateImagePathForStateName:stateName];
+    imagePath = [_fileManager fileExistsAtPath:imagePath] ? imagePath : nil;
+    State *state = [[[State alloc] initWithName:stateName path:stateFilePath modificationDate:modificationDate imagePath:imagePath] autorelease];
+    state.insertedDisks = [self getInsertedDisksForStateName:stateName];
+    return state;
+}
+
 - (void)deleteState:(State *)state {
-    if ([_fileManager fileExistsAtPath:state.path]) {
-        [_fileManager removeItemAtPath:state.path error:NULL];
-    }
+    [_fileManager removeItemAtPath:state.path error:NULL];
+    
     NSString *stateImagePath = [self getStateImagePathForStateName:state.name];
-    if ([_fileManager fileExistsAtPath:stateImagePath]) {
-        [_fileManager removeItemAtPath:stateImagePath error:NULL];
-    }
+    [_fileManager removeItemAtPath:stateImagePath error:NULL];
+    
+    NSString *metaFilePath = [self getStateMetaPathForStateName:state.name];
+    [_fileManager removeItemAtPath:metaFilePath error:NULL];
 }
 
 - (State *)newState:(NSString *)stateName {
@@ -95,7 +114,7 @@ static NSString *kStateFileMetaExtension = @".json";
 
 - (void)saveState:(State *)state {
     [self writeImageFileForState:state];
-    [self writeMetaFileForState:state];
+    [self writeJsonMetaFileForState:state];
 }
 
 - (NSString *)getStateFilePathForStateName:(NSString *)stateName {
@@ -111,44 +130,6 @@ static NSString *kStateFileMetaExtension = @".json";
         NSString *imageFilePath = [self getStateImagePathForStateName:state.name];
         [imageBytes writeToFile:imageFilePath atomically:YES];
     }
-}
-
-- (void)writeMetaFileForState:(State *)state {
-    if (state.insertedDisks) {
-        NSMutableArray *insertedDisksDictionaries = [[NSMutableArray alloc] initWithCapacity:[state.insertedDisks count]];
-        for (InsertedDisk *insertedDisk in state.insertedDisks) {
-            [insertedDisksDictionaries addObject:[self getInsertedDiskDict:insertedDisk]];
-        }
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"InsertedDisks" : insertedDisksDictionaries}
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:nil];
-        NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSString *metaFilePath = [self getStateMetaPathForStateName:state.name];
-        [json writeToFile:metaFilePath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-    }
-}
-
-- (NSDictionary *)getInsertedDiskDict:(InsertedDisk *)insertedDisk  {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:1];
-    [dict setObject:[self getInsertedDiskValuesDict:insertedDisk] forKey:@"InsertedDisk"];
-    return dict;
-}
-
-- (NSDictionary *)getInsertedDiskValuesDict:(InsertedDisk *)insertedDisk {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
-    [dict setObject:insertedDisk.driveNumber forKey:@"drive"];
-    NSString *adfPath = [self trimNilIfEmpty:insertedDisk.adfPath];
-    [dict setObject:(adfPath ? adfPath : [NSNull null]) forKey:@"adf"];
-    return dict;
-}
-
-- (State *)loadStateForStateFileName:(NSString *)stateFileName {
-    NSString *stateName = [self getStateNameFromStateFileNameOrPath:stateFileName];
-    NSString *stateFilePath = [self getStateFilePathForStateName:stateName];
-    NSDate *modificationDate = [self getFileModificationDate:stateFilePath];
-    NSString *imagePath = [self getStateImagePathForStateName:stateName];
-    imagePath = [_fileManager fileExistsAtPath:imagePath] ? imagePath : nil;
-    return [[[State alloc] initWithName:stateName path:stateFilePath modificationDate:modificationDate imagePath:imagePath] autorelease];
 }
 
 - (NSDate *)getFileModificationDate:(NSString *)filePath {
@@ -187,6 +168,57 @@ static NSString *kStateFileMetaExtension = @".json";
         [fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:NULL];
     }
     return directoryPath;
+}
+
+- (void)writeJsonMetaFileForState:(State *)state {
+    if (state.insertedDisks) {
+        NSMutableArray *insertedDisksDictionaries = [[NSMutableArray alloc] initWithCapacity:[state.insertedDisks count]];
+        for (InsertedDisk *insertedDisk in state.insertedDisks) {
+            [insertedDisksDictionaries addObject:[self getInsertedDiskJsonDict:insertedDisk]];
+        }
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{kInsertedDisksAttrName : insertedDisksDictionaries}
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:nil];
+        NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *metaFilePath = [self getStateMetaPathForStateName:state.name];
+        [json writeToFile:metaFilePath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    }
+}
+
+- (NSDictionary *)getInsertedDiskJsonDict:(InsertedDisk *)insertedDisk  {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [dict setObject:[self getInsertedDiskInstanceJsonDict:insertedDisk] forKey:kInsertedDiskAttrName];
+    return dict;
+}
+
+- (NSDictionary *)getInsertedDiskInstanceJsonDict:(InsertedDisk *)insertedDisk {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
+    [dict setObject:insertedDisk.driveNumber forKey:kDriveAttrName];
+    NSString *adfPath = [self trimNilIfEmpty:insertedDisk.adfPath];
+    [dict setObject:(adfPath ? adfPath : [NSNull null]) forKey:kAdfPathAttrName];
+    return dict;
+}
+
+- (NSArray *)getInsertedDisksForStateName:(NSString *)stateName {
+    NSMutableArray *insertedDisks = [[NSMutableArray alloc] initWithCapacity:4];
+    NSString *stateMetaPath = [self getStateMetaPathForStateName:stateName];
+    if ([_fileManager fileExistsAtPath:stateMetaPath]) {
+        NSData *jsonData = [NSData dataWithContentsOfFile:stateMetaPath];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+        NSArray *insertedDisksDict = [dict objectForKey:kInsertedDisksAttrName];
+        for (NSDictionary *insertedDiskDict in insertedDisksDict) {
+            InsertedDisk *insertedDisk = [self getInsertedDiskInstanceFromJsonDict:[insertedDiskDict objectForKey:kInsertedDiskAttrName]];
+            [insertedDisks addObject:insertedDisk];
+        }
+    }
+    return insertedDisks;
+}
+
+- (InsertedDisk *)getInsertedDiskInstanceFromJsonDict:(NSDictionary *)jsonDict {
+    InsertedDisk *insertedDisk = [[[InsertedDisk alloc] init] autorelease];
+    insertedDisk.driveNumber = [jsonDict objectForKey:kDriveAttrName];
+    insertedDisk.adfPath = [jsonDict objectForKey:kAdfPathAttrName];
+    return insertedDisk;
 }
 
 @end

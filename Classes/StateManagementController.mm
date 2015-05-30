@@ -135,23 +135,18 @@
 }
 
 - (IBAction)onRestore {
-    NSString *stateFilePath = nil;
-    NSString *stateName;
-    if (_selectedState) {
-        stateFilePath = _selectedState.path;
-        stateName = _selectedState.name;
-    } else {
-        stateName = _stateNameTextField.text; // for some reason the user manually typed the state name to load
-        if ([_stateFileManager stateFileExistsForStateName:stateName]) {
-            stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
-        } else {
+    State *stateToRestore = _selectedState;
+    if (!stateToRestore) {
+        NSString *stateName = _stateNameTextField.text; // for some reason the user typed the state name to load instead of selecting an existing state
+        stateToRestore = [_stateFileManager loadState:stateName];
+        if (!stateToRestore) {
             [self showAlertWithTitle:@"Restore" message:[NSString stringWithFormat:@"State '%@' does not exist", stateName] hasCancelButton:NO hasDelegate:NO];
         }
     }
-    if (stateFilePath) {
-        [self setGlobalSaveStatePath:stateFilePath andState:STATE_DORESTORE];
+    if (stateToRestore) {
+        [self setGlobalSaveStatePath:stateToRestore.path andState:STATE_DORESTORE];
         [self dismissKeyboard];
-        [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateName]]; // not really, restore happens when exiting settings, but it sounds nice
+        [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateToRestore.name]]; // not really, restore happens when exiting settings, but it sounds nice
     }
 }
 
