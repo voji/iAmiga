@@ -144,7 +144,10 @@
         }
     }
     if (stateToRestore) {
-        [self setGlobalSaveStatePath:stateToRestore.path andState:STATE_DORESTORE];
+        static char path[1024];
+        [stateToRestore.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+        savestate_filename = path;
+        savestate_state = STATE_DORESTORE;
         [self dismissKeyboard];
         [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateToRestore.name]]; // not really, restore happens when exiting settings, but it sounds nice
     }
@@ -166,8 +169,8 @@
     State *state = [_stateFileManager newState:stateName];
     if (_emulatorScreenshot) {
         state.image = _emulatorScreenshot;
+        _selectedStateScreenshot.image = state.image;
     }
-    state.insertedDisks = [self getInsertedDisks];
     [_stateFileManager saveState:state];
     static char path[1024];
     [state.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
@@ -179,24 +182,6 @@
     [self dismissKeyboard];
     [self updateUIState];
     [self showStatusHUD:[NSString stringWithFormat:@"Saved state %@", stateName]];
-}
-
-- (NSArray *)getInsertedDisks {
-    NSMutableArray *insertedDisks = [[NSMutableArray alloc] initWithCapacity:NUM_DRIVES];
-    for (int i = 0; i < NUM_DRIVES; i++) {
-        InsertedDisk *insertedDisk = [[[InsertedDisk alloc] init] autorelease];
-        insertedDisk.driveNumber = [NSNumber numberWithInt:i];
-        insertedDisk.adfPath = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];
-        [insertedDisks addObject:insertedDisk];
-    }
-    return insertedDisks;
-}
-
-- (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
-    static char path[1024];
-    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
-    savestate_filename = path;
-    savestate_state = state;
 }
 
 - (void)clearSelectedStateScreenshotImage {

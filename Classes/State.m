@@ -71,15 +71,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@: %@", _name, _insertedDisks];
+    return [NSString stringWithFormat:@"%@: %@", _name, _path];
 }
 
 @end
-
-@implementation InsertedDisk
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"df%@:%@", _driveNumber, _adfPath];
-}
-
-@end;

@@ -16,13 +16,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface InsertedDisk : NSObject
-
-@property (nonatomic, readwrite, strong) NSNumber *driveNumber;
-@property (nonatomic, readwrite, strong) NSString *adfPath;
-
-@end
-
 @interface State : NSObject
 
 - (instancetype)initWithName:(NSString *)name path:(NSString *)path modificationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath;
@@ -32,10 +25,5 @@
 @property (nonatomic, readonly) NSString *modificationDate;
 
 @property (nonatomic, readwrite, strong) UIImage *image;
-
-/**
- * An array of InsertedDisk instances.
- */
-@property (nonatomic, readwrite, strong) NSArray *insertedDisks;
 
 @end
