@@ -27,54 +27,27 @@
 
 @implementation SettingsGeneralController {
     Settings *settings;
-    NSMutableArray *Filepath;
     bool autoloadconfig;
 }
 
-static NSMutableArray *Filename;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     settings = [[Settings alloc] init];
-    Filepath = [[settings arrayForKey:@"insertedfloppies"] mutableCopy];
-    
-    autoloadconfig = [settings boolForKey:@"autoloadconfig"];
-    [_swautoloadconfig setOn:autoloadconfig animated:TRUE];
-    
-    if(!Filepath)
-    {
-        Filepath = [[NSMutableArray alloc] init];
-        [Filepath addObject:[NSMutableString new]];
-        [Filepath addObject:[NSMutableString new]];
-    }
-    
-    if(!Filename)
-    {
-        
-        Filename = [[NSMutableArray alloc] init];
-        
-        for(int i=0;i<2;i++) // should use NUM_DRIVES instead of hardcoding
-        {
-            NSString *curadf = [Filepath objectAtIndex:i];
-            
-            if(curadf)
-            {
-                [Filename addObject:[curadf lastPathComponent]];
-            }
-            else
-            {
-                [Filename addObject:[NSMutableString new]];
-            }
-        }
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSString *df0title = @"Empty";
+    NSString *df1title = @"Empty";
     
-    NSString *df0title = [[Filename objectAtIndex:0] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
-    NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:1];
-        
+    NSArray *floppyPaths = [settings arrayForKey:@"insertedfloppies"];
+    
+    if ([floppyPaths count] >= 1) {
+        df0title = [[floppyPaths objectAtIndex:0] lastPathComponent];
+        if ([floppyPaths count] > 1) {
+            df1title = [[floppyPaths objectAtIndex:1] lastPathComponent];
+        }
+    }
+    
     [_df0 setText:df0title];
     [_df1 setText:df1title];
     
@@ -84,10 +57,6 @@ static NSMutableArray *Filename;
     {
         [_configurationname setText:[settings stringForKey:@"configurationname"]];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
@@ -117,12 +86,9 @@ static NSMutableArray *Filename;
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
     NSString *path = [fileInfo path];
     int df = sender.tag;
-    
-    [Filepath replaceObjectAtIndex:df withObject:path];
-    [settings setObject:Filepath forKey:@"insertedfloppies"];
-    
-    [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
-    
+    NSMutableArray *floppyPaths = [[[settings arrayForKey:@"insertedfloppies"] mutableCopy] autorelease];
+    [floppyPaths replaceObjectAtIndex:df withObject:path];
+    [settings setObject:floppyPaths forKey:@"insertedfloppies"];
 }
 
 - (NSString *)getfirstoption {
@@ -145,7 +111,7 @@ static NSMutableArray *Filename;
 }
 
 - (void)didDeleteConfiguration {
-    NSMutableArray *configurations = [[settings arrayForKey:@"configurations"] mutableCopy];
+    NSMutableArray *configurations = [[[settings arrayForKey:@"configurations"] mutableCopy] autorelease];
     
     if(![configurations indexOfObject:[_configurationname text]])
     {
@@ -155,9 +121,9 @@ static NSMutableArray *Filename;
 
 - (void)dealloc
 {
+    [settings release];
     [_df0 release];
     [_df1 release];
-    [Filepath release];
     [_configurationname release];
     [_cellconfiguration release];
     [_emulatorScreenshot release];

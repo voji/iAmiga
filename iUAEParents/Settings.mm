@@ -46,9 +46,10 @@ static NSString *configurationname;
     
 }
 
--(id) init {
-    [super init];
-    defaults = [[NSUserDefaults standardUserDefaults] retain];
+-(id)init {
+    if (self = [super init]) {
+        defaults = [[NSUserDefaults standardUserDefaults] retain];
+    }
     return self;
 }
 
