@@ -36,6 +36,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self setupFloppyLabels];
+    [settings initializeSettings];
+    if([settings stringForKey:@"configurationname"])
+    {
+        [_configurationname setText:[settings stringForKey:@"configurationname"]];
+    }
+}
+
+-(void)setupFloppyLabels {
     NSString *df0title = @"Empty";
     NSString *df1title = @"Empty";
     
@@ -50,13 +59,6 @@
     
     [_df0 setText:df0title];
     [_df1 setText:df1title];
-    
-    [settings initializeSettings];
-    
-    if([settings stringForKey:@"configurationname"])
-    {
-        [_configurationname setText:[settings stringForKey:@"configurationname"]];
-    }
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {

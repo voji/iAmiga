@@ -55,10 +55,9 @@ static NSString *configurationname;
 
 -(void)initializeCommonSettings {
     
-    NSArray *insertedfloppies = [[defaults arrayForKey:@"insertedfloppies"] mutableCopy];
+    configurationname = [[defaults stringForKey:@"configurationname"] retain];
     
     BOOL appvariableinitializied = [defaults boolForKey:@"appvariableinitialized"];
-    
     if(!appvariableinitializied)
     {
         [defaults setBool:TRUE forKey:@"appvariableinitialized"];
@@ -66,32 +65,34 @@ static NSString *configurationname;
         [defaults setObject:@"General" forKey:@"configurationname"];
     }
     
-    configurationname = [[defaults stringForKey:@"configurationname"] retain];
-    
+    [self insertConfiguredFloppies];
+}
+
+- (void)insertConfiguredFloppies {
+    NSArray *insertedfloppies = [defaults arrayForKey:@"insertedfloppies"];
     for(int i=0;i<NUM_DRIVES;i++)
     {
         NSString *curadf = [insertedfloppies objectAtIndex:i];
         NSString *oldadf = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];
         
-        if(![curadf isEqualToString:oldadf])
+        if(![curadf isEqualToString:oldadf]) // the emulator does this check anyway, we should just insert the floppy the user picked
         {
             [curadf getCString:changed_df[i] maxLength:256 encoding:[NSString defaultCStringEncoding]];
             real_changed_df[i] = 1;
             
             NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [curadf lastPathComponent]];
             
-            if([defaults stringForKey:settingstring] )
+            if([defaults stringForKey:settingstring])
             {
                 [configurationname release];
                 configurationname = [[defaults stringForKey:settingstring] retain];
+                [defaults setObject:configurationname forKey:@"configurationname"];
             }
-            
-            [defaults setObject:configurationname forKey:@"configurationname"];
         }
     }
 }
 
--(void) initializespecificsettings {
+-(void)initializespecificsettings {
     if(![self boolForKey:@"_initialize"])
     {
         [self setBool:mainMenu_ntsc forKey:@"_ntsc"];
