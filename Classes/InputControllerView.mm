@@ -144,6 +144,7 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
 	CGSize size = self.frame.size;
 
     BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]);

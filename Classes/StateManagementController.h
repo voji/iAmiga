@@ -18,11 +18,15 @@
 
 @interface StateManagementController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, assign) IBOutlet UILabel *titleLabel;
+
 @property (nonatomic, assign) IBOutlet UITextField *stateNameTextField;
-@property (nonatomic, assign) IBOutlet UIButton *saveButton;
-@property (nonatomic, assign) IBOutlet UIButton *restoreButton;
-@property (nonatomic, assign) IBOutlet UIImageView *selectedStateScreenshot;
+@property (nonatomic, assign) IBOutlet NSLayoutConstraint *stateNameTextFieldRightConstraint;
+
 @property (nonatomic, assign) IBOutlet UITableView *statesTableView;
+@property (nonatomic, assign) IBOutlet NSLayoutConstraint *statesTableViewRightConstraint;
+
+@property (nonatomic, assign) IBOutlet UIImageView *selectedStateScreenshot;
 
 @property (nonatomic, strong) UIImage *emulatorScreenshot;
 

@@ -67,7 +67,7 @@ static NSString *configurationname;
     
     configurationname = [[defaults stringForKey:@"configurationname"] retain];
     
-    for(int i=0;i<=1;i++)
+    for(int i=0;i<NUM_DRIVES;i++)
     {
         NSString *curadf = [insertedfloppies objectAtIndex:i];
         NSString *oldadf = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];

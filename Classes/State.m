@@ -25,7 +25,7 @@
 
 @dynamic modificationDate, image;
 
-- (instancetype)initWithName:(NSString *)name path:(NSString *)path creationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath {
+- (instancetype)initWithName:(NSString *)name path:(NSString *)path modificationDate:(NSDate *)modificationDate imagePath:(NSString *)imagePath {
     if (self = [super init]) {
         _name = [name retain];
         _path = [path retain];
@@ -45,16 +45,19 @@
     [super dealloc];
 }
 
-- (NSString *)description {
-    return [NSString stringWithFormat:@"%@ : %@", _name, _path];
-}
-
 - (UIImage *)image {
     if (!_image && _imagePath) {
         NSData *imageBytes = [NSData dataWithContentsOfFile:_imagePath];
         _image = [[UIImage imageWithData:imageBytes] retain];
     }
     return _image;
+}
+
+- (void)setImage:(UIImage *)image {
+    if (image != _image) {
+        [_image release];
+        _image = [image retain];
+    }
 }
 
 - (NSString *)modificationDate {
@@ -65,6 +68,10 @@
         _formattedModificationDate = [[dateFormatter stringFromDate:_modificationDate] retain];
     }
     return _formattedModificationDate;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@: %@", _name, _path];
 }
 
 @end
