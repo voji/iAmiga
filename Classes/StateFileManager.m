@@ -17,8 +17,8 @@
 #import "State.h"
 #import "StateFileManager.h"
 
-static NSString *kStatesDirectoryName = @"states";
-static NSString *kStateImagesDirectoryName = @"images";
+static NSString *kStatesDirectoryName = @"states";      // top level directory under Documents where all state information goes
+static NSString *kStateImagesDirectoryName = @"images"; // sub directory that stores the screenshot associated with a saved state
 static NSString *kStateFileExtension = @".asf";
 static NSString *kStateFileImageExtension = @".jpg";
 
@@ -57,18 +57,6 @@ static NSString *kStateFileImageExtension = @".jpg";
     return [_fileManager fileExistsAtPath:stateFilePath];
 }
 
-- (NSString *)getStateFilePathForStateName:(NSString *)stateName {
-    stateName = [self trimNilIfEmpty:stateName];
-    return stateName ? [[_statesDirectoryPath stringByAppendingPathComponent:stateName] stringByAppendingString:kStateFileExtension] : nil;
-}
-
-- (void)saveStateImage:(UIImage *)image forStateFilePath:(NSString *)stateFilePath {
-    NSString *stateName = [self getStateNameFromStateFileNameOrPath:stateFilePath];
-    NSData *imageBytes = UIImageJPEGRepresentation(image, 0.5f);
-    NSString *imageFilePath = [self getStateImagePathForStateName:stateName];
-    [imageBytes writeToFile:imageFilePath atomically:YES];
-}
-
 - (BOOL)isValidStateName:(NSString *)stateName {
     stateName = [self trimNilIfEmpty:stateName];
     return stateName != nil;
@@ -79,32 +67,53 @@ static NSString *kStateFileImageExtension = @".jpg";
     NSMutableArray *states = [NSMutableArray arrayWithCapacity:[fileNames count]];
     for (NSString *fileName in fileNames) {
         if ([self isStateFile:fileName]) {
-            State *state = [self loadStateForStateFileName:fileName];
+            NSString *stateName = [self getStateNameFromStateFileNameOrPath:fileName];
+            State *state = [self loadState:stateName];
             [states addObject:state];
         }
     }
     return states;
 }
 
+- (State *)loadState:(NSString *)stateName {
+    if (![self stateFileExistsForStateName:stateName]) {
+        return nil;
+    }
+    NSString *stateFilePath = [self getStateFilePathForStateName:stateName];
+    NSDate *modificationDate = [self getFileModificationDate:stateFilePath];
+    NSString *imagePath = [self getStateImagePathForStateName:stateName];
+    imagePath = [_fileManager fileExistsAtPath:imagePath] ? imagePath : nil;
+    return [[[State alloc] initWithName:stateName path:stateFilePath modificationDate:modificationDate imagePath:imagePath] autorelease];
+}
+
 - (void)deleteState:(State *)state {
-    if ([_fileManager fileExistsAtPath:state.path]) {
-        [_fileManager removeItemAtPath:state.path error:NULL];
-    }
+    [_fileManager removeItemAtPath:state.path error:NULL];
+    
     NSString *stateImagePath = [self getStateImagePathForStateName:state.name];
-    if ([_fileManager fileExistsAtPath:stateImagePath]) {
-        [_fileManager removeItemAtPath:stateImagePath error:NULL];
-    }
+    [_fileManager removeItemAtPath:stateImagePath error:NULL];
+}
+
+- (State *)newState:(NSString *)stateName {
+    return [[[State alloc] initWithName:stateName path:[self getStateFilePathForStateName:stateName] modificationDate:nil imagePath:nil] autorelease];
+}
+
+- (void)saveState:(State *)state {
+    [self writeImageFileForState:state];
+}
+
+- (NSString *)getStateFilePathForStateName:(NSString *)stateName {
+    stateName = [self trimNilIfEmpty:stateName];
+    return stateName ? [[_statesDirectoryPath stringByAppendingPathComponent:stateName] stringByAppendingString:kStateFileExtension] : nil;
 }
 
 #pragma mark - Private methods
 
-- (State *)loadStateForStateFileName:(NSString *)stateFileName {
-    NSString *stateName = [self getStateNameFromStateFileNameOrPath:stateFileName];
-    NSString *stateFilePath = [self getStateFilePathForStateName:stateName];
-    NSDate *creationDate = [self getFileModificationDate:stateFilePath];
-    NSString *imagePath = [self getStateImagePathForStateName:stateName];
-    imagePath = [_fileManager fileExistsAtPath:imagePath] ? imagePath : nil;
-    return [[[State alloc] initWithName:stateName path:stateFilePath creationDate:creationDate imagePath:imagePath] autorelease];
+- (void)writeImageFileForState:(State *)state {
+    if (state.image) {
+        NSData *imageBytes = UIImageJPEGRepresentation(state.image, 0.3f);
+        NSString *imageFilePath = [self getStateImagePathForStateName:state.name];
+        [imageBytes writeToFile:imageFilePath atomically:YES];
+    }
 }
 
 - (NSDate *)getFileModificationDate:(NSString *)filePath {

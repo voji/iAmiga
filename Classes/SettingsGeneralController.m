@@ -54,7 +54,7 @@ static NSMutableArray *Filename;
         
         Filename = [[NSMutableArray alloc] init];
         
-        for(int i=0;i<=1;i++)
+        for(int i=0;i<2;i++) // should use NUM_DRIVES instead of hardcoding
         {
             NSString *curadf = [Filepath objectAtIndex:i];
             
@@ -64,7 +64,7 @@ static NSMutableArray *Filename;
             }
             else
             {
-                    [Filename addObject:[NSMutableString new]];
+                [Filename addObject:[NSMutableString new]];
             }
         }
     }

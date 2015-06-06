@@ -14,9 +14,10 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import "sysconfig.h"
-#import "sysdeps.h"
-#import "savestate.h"
+#include "sysconfig.h"
+#include "sysdeps.h"
+#include "options.h"
+#include "savestate.h"
 
 #import "State.h"
 #import "StateManagementController.h"
@@ -28,7 +29,8 @@
     StateFileManager *_stateFileManager;
     NSArray *_states;
     State *_selectedState;
-    UITextField *_tableHeaderTextField;
+    UIBarButtonItem *_saveButton;
+    UIBarButtonItem *_restoreButton;
 }
 
 # pragma mark - init/dealloc
@@ -36,7 +38,8 @@
 - (void)dealloc {
     [_stateFileManager release];
     [_states release];
-    [_tableHeaderTextField release];
+    [_saveButton release];
+    [_restoreButton release];
     self.emulatorScreenshot = nil;
     [super dealloc];
 }
@@ -45,13 +48,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _saveButton.enabled = NO;
-    _restoreButton.enabled = NO;
+    [self initNavigationBarButtons];
     _stateFileManager = [[StateFileManager alloc] init];
     [_stateNameTextField addTarget:self action:@selector(onStateNameTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
-    _tableHeaderTextField = [self initTableHeadView];
-    _statesTableView.tableHeaderView = _tableHeaderTextField;
     [self reloadStates];
+    [self configureForDevice];
     [self updateUIState];
 }
 
@@ -116,10 +117,6 @@
 
 #pragma mark - Target-action methods
 
-- (IBAction)onInfoButtonSelected {
-    [self showAlertWithTitle:@"About states" message:kIssues hasCancelButton:NO hasDelegate:NO];
-}
-
 - (IBAction)onSave {
     NSString *stateName = _stateNameTextField.text;
     if (![_stateFileManager isValidStateName:stateName]) {
@@ -138,27 +135,29 @@
 }
 
 - (IBAction)onRestore {
-    NSString *stateFilePath = nil;
-    NSString *stateName;
-    if (_selectedState) {
-        stateFilePath = _selectedState.path;
-        stateName = _selectedState.name;
-    } else {
-        stateName = _stateNameTextField.text; // for some reason the user manually typed the state name to load
-        if ([_stateFileManager stateFileExistsForStateName:stateName]) {
-            stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
-        } else {
+    State *stateToRestore = _selectedState;
+    if (!stateToRestore) {
+        NSString *stateName = _stateNameTextField.text; // for some reason the user typed the state name to load instead of selecting an existing state
+        stateToRestore = [_stateFileManager loadState:stateName];
+        if (!stateToRestore) {
             [self showAlertWithTitle:@"Restore" message:[NSString stringWithFormat:@"State '%@' does not exist", stateName] hasCancelButton:NO hasDelegate:NO];
         }
     }
-    if (stateFilePath) {
-        [self setGlobalSaveStatePath:stateFilePath andState:STATE_DORESTORE];
-        [self.view endEditing:YES]; // dismisses keyboard
-        [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateName]]; // not really, restore happens when exiting settings
+    if (stateToRestore) {
+        static char path[1024];
+        [stateToRestore.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+        savestate_filename = path;
+        savestate_state = STATE_DORESTORE;
+        [self dismissKeyboard];
+        [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateToRestore.name]]; // not really, restore happens when exiting settings, but it sounds nice
     }
 }
 
 #pragma mark - Private methods
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
 
 - (void)showStatusHUD:(NSString *)message {
     [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
@@ -167,36 +166,22 @@
 
 - (void)saveState {
     NSString *stateName = _stateNameTextField.text;
-    NSString *stateFilePath = [_stateFileManager getStateFilePathForStateName:stateName];
+    State *state = [_stateFileManager newState:stateName];
     if (_emulatorScreenshot) {
-        [_stateFileManager saveStateImage:_emulatorScreenshot forStateFilePath:stateFilePath];
+        state.image = _emulatorScreenshot;
+        _selectedStateScreenshot.image = state.image;
     }
+    [_stateFileManager saveState:state];
     static char path[1024];
-    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
-    static char description[] = "no description provided=";
+    [state.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+    static char description[] = "no description provided";
     save_state(path, description);
     [self reloadStates];
     [_statesTableView reloadData];
     _stateNameTextField.text = @"";
-    [self.view endEditing:YES]; // dismisses keyboard
+    [self dismissKeyboard];
     [self updateUIState];
     [self showStatusHUD:[NSString stringWithFormat:@"Saved state %@", stateName]];
-}
-
-- (void)setGlobalSaveStatePath:(NSString *)stateFilePath andState:(int)state {
-    static char path[1024];
-    [stateFilePath getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
-    savestate_filename = path;
-    savestate_state = state;
-}
-
-- (UITextField *)initTableHeadView {
-    UITextField *tableHeaderTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
-    tableHeaderTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-    tableHeaderTextField.userInteractionEnabled = NO;
-    UIFont* boldFont = [UIFont boldSystemFontOfSize:17];
-    tableHeaderTextField.font = boldFont;
-    return tableHeaderTextField;
 }
 
 - (void)clearSelectedStateScreenshotImage {
@@ -211,22 +196,24 @@
 
 - (void)updateUIState {
     [self updateButtonState];
-    [self updateTableHeaderLabel];
+    [self updateNavigationBarTitle];
     [_statesTableView setNeedsDisplay];
 }
 
-- (void)updateTableHeaderLabel {
-    if ([_states count] == 0) {
-        _tableHeaderTextField.text = @"No saved states";
-    } else {
-        _tableHeaderTextField.text = @"Saved states";
-    }
+- (void)updateNavigationBarTitle {
+    self.navigationItem.title = [_states count] == 0 ? @"No saved states" : [NSString stringWithFormat:@"Saved states: %i", [_states count]];
+}
+
+- (void)initNavigationBarButtons {
+    _saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonSystemItemSave target:self action:@selector(onSave)];
+    _restoreButton = [[UIBarButtonItem alloc] initWithTitle:@"Restore" style:UIBarButtonSystemItemRewind target:self action:@selector(onRestore)];
+    self.navigationItem.rightBarButtonItems = @[_saveButton, _restoreButton];
 }
 
 - (void)updateButtonState {
     BOOL buttonsEnabled = [_stateNameTextField.text length] > 0;
     _saveButton.enabled = buttonsEnabled;
-    _restoreButton.enabled = buttonsEnabled;
+    _restoreButton.enabled = buttonsEnabled && [_states count] > 0;
 }
 
 - (void)reloadStates {
@@ -244,6 +231,17 @@
                        otherButtonTitles:(hasCancelButton ? @"Cancel" : nil), nil] autorelease] show];
 }
 
-static NSString *kIssues = @"- When restoring, insert the correct disk(s) first, exit settings, then re-enter settings to restore the state.\n- When saving, the state will only actually be saved when exiting from settings.";
+- (void)configureForDevice {
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        int distanceFromRightViewEdge = self.view.frame.size.width - _titleLabel.frame.size.width - 30;
+        _stateNameTextFieldRightConstraint.constant = distanceFromRightViewEdge;
+        _statesTableViewRightConstraint.constant = distanceFromRightViewEdge;
+        [_stateNameTextField layoutIfNeeded];
+        [_statesTableView layoutIfNeeded];
+    } else {
+        // no state screenshot preview on iPhone - disconnect the ui image view to make sure it doesn't render
+        _selectedStateScreenshot = nil;
+    }
+}
 
 @end
