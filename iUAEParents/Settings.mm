@@ -64,35 +64,31 @@ static NSString *configurationname;
         [defaults setBool:TRUE forKey:@"autoloadconfig"];
         [defaults setObject:@"General" forKey:@"configurationname"];
     }
-    
-    [self insertConfiguredFloppies];
 }
 
-- (void)insertConfiguredFloppies {
-    NSArray *insertedfloppies = [defaults arrayForKey:@"insertedfloppies"];
-    for(int i=0;i<NUM_DRIVES;i++)
+- (NSString *)getInsertedFloppyForDrive:(int)driveNumber {
+    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
+    NSString *adfPath = [NSString stringWithCString:changed_df[driveNumber] encoding:[NSString defaultCStringEncoding]];
+    return [adfPath length] == 0 ? nil : adfPath;
+}
+
+- (void)insertFloppy:(NSString *)adfPath intoDrive:(int)driveNumber {
+    [adfPath getCString:changed_df[driveNumber] maxLength:256 encoding:[NSString defaultCStringEncoding]];
+    real_changed_df[driveNumber] = 1;
+    [self setFloppyConfiguration:adfPath]; // ideally should not get called from this method, but from whatever calls this method
+}
+
+- (void)setFloppyConfiguration:(NSString *)adfPath {
+    NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [adfPath lastPathComponent]];
+    if ([defaults stringForKey:settingstring])
     {
-        NSString *curadf = [insertedfloppies objectAtIndex:i];
-        NSString *oldadf = [NSString stringWithCString:changed_df[i] encoding:[NSString defaultCStringEncoding]];
-        
-        if(![curadf isEqualToString:oldadf]) // the emulator does this check anyway, we should just insert the floppy the user picked
-        {
-            [curadf getCString:changed_df[i] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-            real_changed_df[i] = 1;
-            
-            NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [curadf lastPathComponent]];
-            
-            if([defaults stringForKey:settingstring])
-            {
-                [configurationname release];
-                configurationname = [[defaults stringForKey:settingstring] retain];
-                [defaults setObject:configurationname forKey:@"configurationname"];
-            }
-        }
+        [configurationname release];
+        configurationname = [[defaults stringForKey:settingstring] retain];
+        [defaults setObject:configurationname forKey:@"configurationname"];
     }
 }
 
--(void)initializespecificsettings {
+- (void)initializespecificsettings {
     if(![self boolForKey:@"_initialize"])
     {
         [self setBool:mainMenu_ntsc forKey:@"_ntsc"];

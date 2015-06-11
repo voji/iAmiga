@@ -10,8 +10,8 @@
 
 @interface Settings : NSObject
 - (void)initializeSettings;
--(void)initializeCommonSettings;
--(void) initializespecificsettings;
+- (void)initializeCommonSettings;
+- (void) initializespecificsettings;
 - (void) setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void) setObject:(id)value forKey:(NSString *)settingitemname;
 - (bool) boolForKey:(NSString *)settingitemname;
@@ -20,5 +20,11 @@
 - (void) removeObjectForKey:(NSString *) settingitemname;
 - (NSString *) configForDisk:(NSString *)diskName;
 - (void) setConfig:(NSString *)configName forDisk:(NSString *)diskName;
+
+- (void)setFloppyConfiguration:(NSString *)adfPath;
+
+// floppy related methods - move into their own class
+- (NSString *)getInsertedFloppyForDrive:(int)driveNumber;
+- (void)insertFloppy:(NSString *)adfPath intoDrive:(int)driveNumber;
 
 @end

@@ -45,20 +45,11 @@
 }
 
 -(void)setupFloppyLabels {
-    NSString *df0title = @"Empty";
-    NSString *df1title = @"Empty";
+    NSString *df0AdfPath = [settings getInsertedFloppyForDrive:0];
+    [_df0 setText:df0AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
     
-    NSArray *floppyPaths = [settings arrayForKey:@"insertedfloppies"];
-    
-    if ([floppyPaths count] >= 1) {
-        df0title = [[floppyPaths objectAtIndex:0] lastPathComponent];
-        if ([floppyPaths count] > 1) {
-            df1title = [[floppyPaths objectAtIndex:1] lastPathComponent];
-        }
-    }
-    
-    [_df0 setText:df0title];
-    [_df1 setText:df1title];
+    NSString *df1AdfPath = [settings getInsertedFloppyForDrive:1];
+    [_df1 setText:df1AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
@@ -86,11 +77,12 @@
 }
 
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
-    NSString *path = [fileInfo path];
-    int df = sender.tag;
+    NSString *adfPath = [fileInfo path];
+    int driveNumber = sender.tag;
     NSMutableArray *floppyPaths = [[[settings arrayForKey:@"insertedfloppies"] mutableCopy] autorelease];
-    [floppyPaths replaceObjectAtIndex:df withObject:path];
+    [floppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
     [settings setObject:floppyPaths forKey:@"insertedfloppies"];
+    [settings insertFloppy:adfPath intoDrive:driveNumber];
 }
 
 - (NSString *)getfirstoption {
