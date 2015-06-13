@@ -22,12 +22,8 @@
 #import "Settings.h"
 #import "StateManagementController.h"
 
-@interface SettingsGeneralController ()
-@end
-
 @implementation SettingsGeneralController {
     Settings *settings;
-    bool autoloadconfig;
 }
 
 - (void)viewDidLoad {
@@ -36,29 +32,43 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self setupFloppyLabels];
     [settings initializeSettings];
+    [self setupUIState];
+}
+
+- (void)setupUIState {
+    [self setupFloppyLabels];
+    [self setupAutoloadConfigSwitch];
+    [self setupConfigurationName];
+}
+
+- (void)setupFloppyLabels {
+    NSString *df0AdfPath = [settings getInsertedFloppyForDrive:0];
+    [_df0 setText:df0AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
+    
+    NSString *df1AdfPath = [settings getInsertedFloppyForDrive:1];
+    [_df1 setText:df1AdfPath ? [df1AdfPath lastPathComponent] : @"Empty"];
+}
+
+- (void)setupConfigurationName {
     if([settings stringForKey:@"configurationname"])
     {
         [_configurationname setText:[settings stringForKey:@"configurationname"]];
     }
 }
 
--(void)setupFloppyLabels {
-    NSString *df0AdfPath = [settings getInsertedFloppyForDrive:0];
-    [_df0 setText:df0AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
-    
-    NSString *df1AdfPath = [settings getInsertedFloppyForDrive:1];
-    [_df1 setText:df1AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
+- (void)setupAutoloadConfigSwitch {
+    [_swautoloadconfig setOn:[settings boolForKey:@"autoloadconfig"]];
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
-    autoloadconfig = !autoloadconfig;
+    BOOL autoloadconfig = ![settings boolForKey:@"autoloadconfig"];
     [settings setBool:autoloadconfig forKey:@"autoloadconfig"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"SelectDisk"]) {
+    if([segue.identifier isEqualToString:@"SelectDisk"])
+    {
         UIButton *btnsender = (UIButton *) sender;
         EMUROMBrowserViewController *controller = segue.destinationViewController;
         controller.delegate = self;
@@ -79,9 +89,15 @@
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
     NSString *adfPath = [fileInfo path];
     int driveNumber = sender.tag;
-    NSMutableArray *floppyPaths = [[[settings arrayForKey:@"insertedfloppies"] mutableCopy] autorelease];
-    [floppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
-    [settings setObject:floppyPaths forKey:@"insertedfloppies"];
+    NSArray *floppyPaths = [settings arrayForKey:@"insertedfloppies"];
+    NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
+    while ([mutableFloppyPaths count] <= driveNumber)
+    {
+        // pad the array if a disk is inserted into a drive with a higher number, but there's nothing in the lower number drive(s) yet
+        [mutableFloppyPaths addObject:@""];
+    }
+    [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
+    [settings setObject:mutableFloppyPaths forKey:@"insertedfloppies"];
     [settings insertFloppy:adfPath intoDrive:driveNumber];
 }
 

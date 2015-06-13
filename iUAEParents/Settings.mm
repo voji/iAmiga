@@ -36,34 +36,35 @@ extern int joystickselected;
 static NSString *configurationname;
 
 @implementation Settings {
-     NSUserDefaults *defaults;
+    NSUserDefaults *defaults;
 }
 
-- (void)initializeSettings {
-    
-    [self initializeCommonSettings];
-    [self initializespecificsettings];
-    
-}
-
--(id)init {
+- (id)init {
     if (self = [super init]) {
         defaults = [[NSUserDefaults standardUserDefaults] retain];
     }
     return self;
 }
 
--(void)initializeCommonSettings {
+- (BOOL)initializeSettings {
+    BOOL isFirstInitialization = [self initializeCommonSettings];
+    [self initializespecificsettings];
+    return isFirstInitialization;
+}
+
+- (BOOL)initializeCommonSettings {
     
     configurationname = [[defaults stringForKey:@"configurationname"] retain];
     
-    BOOL appvariableinitializied = [defaults boolForKey:@"appvariableinitialized"];
-    if(!appvariableinitializied)
+    BOOL isFirstInitialization = ![defaults boolForKey:@"appvariableinitialized"];
+    
+    if(isFirstInitialization)
     {
         [defaults setBool:TRUE forKey:@"appvariableinitialized"];
-        [defaults setBool:TRUE forKey:@"autoloadconfig"];
+        [defaults setBool:FALSE forKey:@"autoloadconfig"];
         [defaults setObject:@"General" forKey:@"configurationname"];
     }
+    return isFirstInitialization;
 }
 
 - (NSString *)getInsertedFloppyForDrive:(int)driveNumber {
@@ -72,10 +73,36 @@ static NSString *configurationname;
     return [adfPath length] == 0 ? nil : adfPath;
 }
 
+- (void)insertConfiguredFloppies {
+    NSArray *adfPaths = [self arrayForKey:@"insertedfloppies"];
+    for (int driveNumber = 0; driveNumber < [adfPaths count]; driveNumber++)
+    {
+        if (driveNumber < NUM_DRIVES)
+        {
+            NSString *adfPath = [adfPaths objectAtIndex:driveNumber];
+            if ([adfPath length] == 0) {
+                continue; // placeholder item
+            }
+            if ([[NSFileManager defaultManager] fileExistsAtPath:adfPath isDirectory:NULL]) {
+                // it is possible that the stored adf path is no longer valid - this especially happens
+                // during debugging.  If that's the case, don't insert the floppy to avoid confusion
+                [self insertFloppy:adfPath intoDrive:driveNumber];
+            } else {
+                NSLog(@"Adf does not exist: %@", adfPath);
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+}
+
 - (void)insertFloppy:(NSString *)adfPath intoDrive:(int)driveNumber {
+    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
     [adfPath getCString:changed_df[driveNumber] maxLength:256 encoding:[NSString defaultCStringEncoding]];
     real_changed_df[driveNumber] = 1;
-    [self setFloppyConfiguration:adfPath]; // ideally should not get called from this method, but from whatever calls this method
+    [self setFloppyConfiguration:adfPath];
 }
 
 - (void)setFloppyConfiguration:(NSString *)adfPath {

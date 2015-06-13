@@ -43,11 +43,7 @@
 @end
 
 @implementation MainEmulationViewController {
-    
-    bool showalert;
-    NSTimer *timer;
-    bool firstappearance;
-    Settings *settings;
+    NSTimer *_menuHidingTimer;
 }
 
 
@@ -62,33 +58,24 @@ extern void uae_reset();
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSString *fn = [NSString stringWithFormat:@"setVersion('%@');", self.bundleVersion];
-    NSString *result = [webView stringByEvaluatingJavaScriptFromString:fn];
+    [webView stringByEvaluatingJavaScriptFromString:fn];
 }
 
-- (CGFloat) screenHeight {
+- (CGFloat)screenHeight {
     CGRect screenRect = CGRectZero;
     screenRect = [[UIScreen mainScreen] bounds];
     return screenRect.size.height;
 }
 
-- (CGFloat) screenWidth {
+- (CGFloat)screenWidth {
     CGRect screenRect = CGRectZero;
     screenRect = [[UIScreen mainScreen] bounds];
     return screenRect.size.width;
 }
 
-- (void) loadView {
-    [super loadView];
-    
-    settings = [[Settings alloc] init];
-    [settings initializeSettings];
-}
-
-- (void) viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setMultipleTouchEnabled:TRUE];
-    
-    [self showpopupfirstlaunch];
     
     [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                     forState:UIControlStateNormal];
@@ -99,47 +86,38 @@ extern void uae_reset();
                 forState:UIControlStateNormal];
     [_btnPin setTintColor: [UIColor blackColor]];*/
     
-    timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
-                                           selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
+    Settings *settings = [[[Settings alloc] init] autorelease];
+    BOOL isFirstInitialization = [settings initializeSettings];
+    if (isFirstInitialization)
+    {
+        [self showMFIControllerAlert];
+    }
     
-    firstappearance = true;
+    [self initMenuBarHidingTimer];
+
+    if ([settings boolForKey:@"autoloadconfig"]) {
+        // the emulator isn't initialized correctly right here - we need to delay programmatically inserting floppies by a little
+        [NSTimer scheduledTimerWithTimeInterval:1 target:settings selector:@selector(insertConfiguredFloppies) userInfo:nil repeats:NO];
+    }
 }
 
-- (void)showpopupfirstlaunch {
-    //Popup MFI Controller
-    
-    if([settings boolForKey:@"appvariableinitializied"])
-    {
-        showalert = FALSE;
-    }
-    else
-    {
-        showalert = TRUE;
-    }
-
-}
-
-- (void) viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     set_joystickactive();
-    [settings initializeSettings];
-    
-    if(showalert)
-    {
-        showalert = FALSE;
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MFI Game Controllers"
-                                                        message:@"This version supports MFI Game Controllers. I have no Idea if it works, because I don't own one. Feedback very welcome at emufr3ak@icloud.com or on my website www.iuae-emulator.net"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        
-        [alert show];
-        [alert release];
-    }
 }
 
--(void)initializeJoypad:(InputControllerView *)joyController {
+- (void)showMFIControllerAlert {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MFI Game Controllers"
+                                                    message:@"This version supports MFI Game Controllers. I have no Idea if it works, because I don't own one. Feedback very welcome at emufr3ak@icloud.com or on my website www.iuae-emulator.net"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    [alert release];
+}
+
+- (void)initializeJoypad:(InputControllerView *)joyController {
     _joyController.hidden = TRUE;
     joyactive = FALSE;
 }
@@ -170,7 +148,7 @@ extern void uae_reset();
     
 }
 
--(IBAction)togglePinstatus:(id)sender {
+- (IBAction)togglePinstatus:(id)sender {
     
     _btnPin.selected = !_btnPin.selected;
     //_btnPin.tintColor = _btnPin.selected ? [UIColor blueColor] : [UIColor blackColor];
@@ -179,16 +157,16 @@ extern void uae_reset();
     _joyController.clickedscreen = false;
 }
 
-- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
+- (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
     
     keyboardactive = FALSE;
     
     ioskeyboard = [[IOSKeyboard alloc] initWithDummyFields:p_dummy_textfield fieldf:p_dummy_textfield_f fieldspecial:p_dummy_textfield_s];
     
-    [[NSNotificationCenter defaultCenter]   addObserver:self
-                                               selector:@selector(keyboardDidHide:)
-                                                   name:UIKeyboardDidHideNotification
-                                                 object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
 }
 
 -(IBAction)enableMenuBar:(id)sender {
@@ -196,11 +174,10 @@ extern void uae_reset();
     _menuBarEnabler.hidden = true;
     _mouseHandler.clickedscreen = false;
     _joyController.clickedscreen = false;
-    timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
-                                           selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
+    [self initMenuBarHidingTimer];
 }
 
--(void)timerEvent:(NSTimer*)timer{
+-(void)checkForMenuBarHiding:(NSTimer*)timer {
     if((_mouseHandler || _joyController) && !_btnPin.selected && _menuBar.hidden == false)
     {
         if(_mouseHandler.clickedscreen || _joyController.clickedscreen)
@@ -209,9 +186,21 @@ extern void uae_reset();
             _joyController.clickedscreen = false;
             _menuBar.hidden = true;
             _menuBarEnabler.hidden = false;
-            [timer invalidate];
+
+            [_menuHidingTimer invalidate];
+            [_menuHidingTimer release];
+            _menuHidingTimer = nil;
         }
     }
+}
+
+- (void)initMenuBarHidingTimer {
+    if (_menuHidingTimer) {
+        [_menuHidingTimer release];
+    }
+    _menuHidingTimer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                                       selector:@selector(checkForMenuBarHiding:) userInfo:nil repeats:YES] retain];
+    _menuHidingTimer.tolerance = 0.0020;
 }
 
 - (void)dealloc
@@ -222,8 +211,8 @@ extern void uae_reset();
     [_btnPin release];
     [_mouseHandler release];
     [_menuBarEnabler release];
-    [Settings release];
-    
+    [_menuHidingTimer invalidate];
+    [_menuHidingTimer release];
     [super dealloc];
 }
 

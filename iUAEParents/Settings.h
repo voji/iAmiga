@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Settings : NSObject
-- (void)initializeSettings;
-- (void)initializeCommonSettings;
-- (void) initializespecificsettings;
+
+/**
+ * Returns YES if this is the very first time the settings are initialized (meaning this must be the first time the app runs).
+ */
+- (BOOL)initializeSettings;
+
+
 - (void) setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void) setObject:(id)value forKey:(NSString *)settingitemname;
 - (bool) boolForKey:(NSString *)settingitemname;
@@ -26,5 +30,6 @@
 // floppy related methods - move into their own class
 - (NSString *)getInsertedFloppyForDrive:(int)driveNumber;
 - (void)insertFloppy:(NSString *)adfPath intoDrive:(int)driveNumber;
+- (void)insertConfiguredFloppies;
 
 @end
