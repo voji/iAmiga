@@ -24,11 +24,12 @@
 #import "StateFileManager.h"
 #import "SVProgressHUD.h"
 
+static NSString *kSaveStateAlertTitle = @"Save";
+
 @implementation StateManagementController {
     @private
     StateFileManager *_stateFileManager;
     NSArray *_states;
-    State *_selectedState;
     UIBarButtonItem *_saveButton;
     UIBarButtonItem *_restoreButton;
 }
@@ -68,9 +69,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedState = [_states objectAtIndex:indexPath.row];
-    _stateNameTextField.text = _selectedState.name;
-    _selectedStateScreenshot.image = _selectedState.image;
+    State *selectedState = [_states objectAtIndex:indexPath.row];
+    _stateNameTextField.text = selectedState.name;
+    _selectedStateScreenshot.image = selectedState.image;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self updateUIState];
 }
@@ -120,36 +121,36 @@
 - (IBAction)onSave {
     NSString *stateName = _stateNameTextField.text;
     if (![_stateFileManager isValidStateName:stateName]) {
-        [self showAlertWithTitle:@"Save" message:[NSString stringWithFormat:@"The state name '%@' is invalid", stateName] hasCancelButton:NO hasDelegate:NO];
+        [self showAlertWithTitle:kSaveStateAlertTitle message:[NSString stringWithFormat:@"The state name '%@' is invalid", stateName] hasCancelButton:NO hasDelegate:NO];
     } else if ([_stateFileManager stateFileExistsForStateName:stateName]) {
-        [self showAlertWithTitle:@"Save" message:[NSString stringWithFormat:@"State '%@' exists, overwrite?", stateName] hasCancelButton:YES hasDelegate:YES];
+        [self showAlertWithTitle:kSaveStateAlertTitle message:[NSString stringWithFormat:@"State '%@' exists, overwrite?", stateName] hasCancelButton:YES hasDelegate:YES];
     } else {
         [self saveState];
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) { // Overwrite existing state confirmation
-        [self saveState];
+- (IBAction)onRestore {
+    NSString *stateName = _stateNameTextField.text;
+    State *stateToRestore = [_stateFileManager loadState:stateName];
+    if (stateToRestore) {
+        [self dismissKeyboard];
+        [self showAlertWithTitle:@"Restore" message:[NSString stringWithFormat:@"Really restore state '%@'?", stateToRestore.name] hasCancelButton:YES hasDelegate:YES];
+    } else {
+        [self showAlertWithTitle:@"Restore" message:[NSString stringWithFormat:@"State '%@' does not exist", stateName] hasCancelButton:NO hasDelegate:NO];
     }
 }
 
-- (IBAction)onRestore {
-    State *stateToRestore = _selectedState;
-    if (!stateToRestore) {
-        NSString *stateName = _stateNameTextField.text; // for some reason the user typed the state name to load instead of selecting an existing state
-        stateToRestore = [_stateFileManager loadState:stateName];
-        if (!stateToRestore) {
-            [self showAlertWithTitle:@"Restore" message:[NSString stringWithFormat:@"State '%@' does not exist", stateName] hasCancelButton:NO hasDelegate:NO];
+#pragma mark - AlertView delegate method
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([alertView.title isEqualToString:kSaveStateAlertTitle]) {
+        if (buttonIndex == 0) { // Overwrite existing state confirmation
+            [self saveState];
         }
-    }
-    if (stateToRestore) {
-        static char path[1024];
-        [stateToRestore.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
-        savestate_filename = path;
-        savestate_state = STATE_DORESTORE;
-        [self dismissKeyboard];
-        [self showStatusHUD:[NSString stringWithFormat:@"Restored state %@", stateToRestore.name]]; // not really, restore happens when exiting settings, but it sounds nice
+    } else { // restore
+        if (buttonIndex == 0) { // Restore state confirmation
+            [self restoreState];
+        }
     }
 }
 
@@ -162,6 +163,19 @@
 - (void)showStatusHUD:(NSString *)message {
     [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
     [SVProgressHUD showSuccessWithStatus:message];
+}
+
+- (void)restoreState {
+    NSString *stateName = _stateNameTextField.text;
+    State *stateToRestore = [_stateFileManager loadState:stateName];
+    static char path[1024];
+    [stateToRestore.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
+    savestate_filename = path;
+    savestate_state = STATE_DORESTORE;
+    
+    // the state restore logic, including inserting the floppy(ies) associated with the state, only runs when exiting settings.  In order to reduce confusion about what
+    // floppies are inserted after the state has been restored, exit settings now
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)saveState {
@@ -189,7 +203,6 @@
 }
 
 - (void)onStateNameTextFieldChanged {
-    _selectedState = nil;
     [self clearSelectedStateScreenshotImage];
     [self updateUIState];
 }
