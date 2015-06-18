@@ -51,19 +51,18 @@
 }
 
 - (void)setupConfigurationName {
-    if([settings stringForKey:@"configurationname"])
+    if(settings.configurationName)
     {
-        [_configurationname setText:[settings stringForKey:@"configurationname"]];
+        [_configurationname setText:settings.configurationName];
     }
 }
 
 - (void)setupAutoloadConfigSwitch {
-    [_swautoloadconfig setOn:[settings boolForKey:@"autoloadconfig"]];
+    [_swautoloadconfig setOn:settings.autoloadConfig];
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
-    BOOL autoloadconfig = ![settings boolForKey:@"autoloadconfig"];
-    [settings setBool:autoloadconfig forKey:@"autoloadconfig"];
+    settings.autoloadConfig = !settings.autoloadConfig;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -89,7 +88,7 @@
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
     NSString *adfPath = [fileInfo path];
     int driveNumber = sender.tag;
-    NSArray *floppyPaths = [settings arrayForKey:@"insertedfloppies"];
+    NSArray *floppyPaths = settings.insertedFloppies;
     NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
     {
@@ -97,7 +96,7 @@
         [mutableFloppyPaths addObject:@""];
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
-    [settings setObject:mutableFloppyPaths forKey:@"insertedfloppies"];
+    settings.insertedFloppies = mutableFloppyPaths;
     [settings insertFloppy:adfPath intoDrive:driveNumber];
 }
 
@@ -115,13 +114,13 @@
     return FALSE;
 }
 
-- (void)didSelectConfiguration:(NSString *)configurationname {
-    [_configurationname setText:configurationname];
-    [settings setObject:configurationname forKey:@"configurationname"];
+- (void)didSelectConfiguration:(NSString *)configurationName {
+    [_configurationname setText:configurationName];
+    settings.configurationName = configurationName;
 }
 
 - (void)didDeleteConfiguration {
-    NSMutableArray *configurations = [[[settings arrayForKey:@"configurations"] mutableCopy] autorelease];
+    NSMutableArray *configurations = [[settings.configurations mutableCopy] autorelease];
     
     if(![configurations indexOfObject:[_configurationname text]])
     {

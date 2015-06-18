@@ -14,9 +14,9 @@
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 //  General Public License for more details.
 //
-// You should have received a copy of the GNU General Public License
-//along with this program; if not, write to the Free Software
-//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, write to the Free Software
+//  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "uae.h"
 #import "sysconfig.h"
@@ -27,6 +27,16 @@
 #import "savestate.h"
 
 #import "Settings.h"
+
+static NSString *const kAppSettingsInitializedKey = @"appvariableinitialized";
+static NSString *const kInitializeKey = @"_initialize";
+static NSString *const kConfigurationNameKey = @"configurationname";
+static NSString *const kConfigurationsKey = @"configurations";
+static NSString *const kAutoloadConfigKey = @"autoloadconfig";
+static NSString *const kNtscKey = @"_ntsc";
+static NSString *const kStretchScreenKey = @"_stretchscreen";
+static NSString *const kShowStatusKey = @"_showstatus";
+static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
 
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
@@ -54,15 +64,15 @@ static NSString *configurationname;
 
 - (BOOL)initializeCommonSettings {
     
-    configurationname = [[defaults stringForKey:@"configurationname"] retain];
+    configurationname = [[defaults stringForKey:kConfigurationNameKey] retain];
     
-    BOOL isFirstInitialization = ![defaults boolForKey:@"appvariableinitialized"];
+    BOOL isFirstInitialization = ![defaults boolForKey:kAppSettingsInitializedKey];
     
     if(isFirstInitialization)
     {
-        [defaults setBool:TRUE forKey:@"appvariableinitialized"];
-        [defaults setBool:FALSE forKey:@"autoloadconfig"];
-        [defaults setObject:@"General" forKey:@"configurationname"];
+        [defaults setBool:TRUE forKey:kAppSettingsInitializedKey];
+        self.autoloadConfig = FALSE;
+        [defaults setObject:@"General" forKey:kConfigurationNameKey];
     }
     return isFirstInitialization;
 }
@@ -74,7 +84,7 @@ static NSString *configurationname;
 }
 
 - (void)insertConfiguredFloppies {
-    NSArray *adfPaths = [self arrayForKey:@"insertedfloppies"];
+    NSArray *adfPaths = self.insertedFloppies;
     for (int driveNumber = 0; driveNumber < [adfPaths count]; driveNumber++)
     {
         if (driveNumber < NUM_DRIVES)
@@ -84,8 +94,8 @@ static NSString *configurationname;
                 continue; // placeholder item
             }
             if ([[NSFileManager defaultManager] fileExistsAtPath:adfPath isDirectory:NULL]) {
-                // it is possible that the stored adf path is no longer valid - this especially happens
-                // during debugging.  If that's the case, don't insert the floppy to avoid confusion
+                // it is possible that the stored adf path is no longer valid - this often happens
+                // during debugging.  If that's the case, don't even attempt to insert the floppy
                 [self insertFloppy:adfPath intoDrive:driveNumber];
             } else {
                 NSLog(@"Adf does not exist: %@", adfPath);
@@ -111,53 +121,110 @@ static NSString *configurationname;
     {
         [configurationname release];
         configurationname = [[defaults stringForKey:settingstring] retain];
-        [defaults setObject:configurationname forKey:@"configurationname"];
+        [defaults setObject:configurationname forKey:kConfigurationNameKey];
     }
 }
 
 - (void)initializespecificsettings {
-    if(![self boolForKey:@"_initialize"])
+    if(![self boolForKey:kInitializeKey])
     {
-        [self setBool:mainMenu_ntsc forKey:@"_ntsc"];
-        [self setBool:mainMenu_stretchscreen forKey:@"_stretchscreen"];
-        [self setBool:mainMenu_showStatus forKey:@"_showstatus"];
-        [self setBool:TRUE forKey:@"_initialize"];
+        self.ntsc = mainMenu_ntsc;
+        self.stretchScreen = mainMenu_stretchscreen;
+        self.showStatus = mainMenu_showStatus;
+        [self setBool:TRUE forKey:kInitializeKey];
     }
     else
     {
-        mainMenu_ntsc = [self boolForKey:@"_ntsc"];
-        mainMenu_stretchscreen = [self boolForKey:@"_stretchscreen"];
-        mainMenu_showStatus = [self boolForKey:@"_showstatus"];
+        mainMenu_ntsc = self.ntsc;
+        mainMenu_stretchscreen = self.stretchScreen;
+        mainMenu_showStatus = self.showStatus;
     }
 }
 
-- (void) setBool:(BOOL)value forKey:(NSString *)settingitemname {
+- (BOOL)autoloadConfig {
+    return [self boolForKey:kAutoloadConfigKey];
+}
+
+- (void)setAutoloadConfig:(BOOL)autoloadConfig {
+    [self setBool:autoloadConfig forKey:kAutoloadConfigKey];
+}
+
+- (NSArray *)insertedFloppies {
+    return [self arrayForKey:kInsertedFloppiesKey];
+}
+
+- (void)setInsertedFloppies:(NSArray *)insertedFloppies {
+    [self setObject:insertedFloppies forKey:kInsertedFloppiesKey];
+}
+
+- (BOOL)ntsc {
+    return [self boolForKey:kNtscKey];
+}
+
+- (void)setNtsc:(BOOL)ntsc {
+    [self setBool:ntsc forKey:kNtscKey];
+}
+
+
+- (BOOL)stretchScreen {
+    return [self boolForKey:kStretchScreenKey];
+}
+
+- (void)setStretchScreen:(BOOL)stretchScreen {
+    [self setBool:stretchScreen forKey:kStretchScreenKey];
+}
+
+- (BOOL)showStatus {
+    return [self boolForKey:kShowStatusKey];
+}
+
+- (void)setShowStatus:(BOOL)showStatus {
+    [self setBool:showStatus forKey:kShowStatusKey];
+}
+
+- (NSString *)configurationName {
+    return [self stringForKey:kConfigurationNameKey];
+}
+
+- (void)setConfigurationName:(NSString *)configurationName {
+    [self setObject:configurationName forKey:kConfigurationNameKey];
+}
+
+- (NSArray *)configurations {
+    return [self arrayForKey:kConfigurationsKey];
+}
+
+- (void)setConfigurations:(NSArray *)configurations {
+    [self setObject:configurations forKey:kConfigurationsKey];
+}
+
+- (void)setBool:(BOOL)value forKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
     //Setting in own Configuration
     {
-        [defaults setBool:value forKey:[NSString stringWithFormat:@"%@%@", configurationname, settingitemname ]];
+        [defaults setBool:value forKey:[NSString stringWithFormat:@"%@%@", configurationname, settingitemname]];
     }
     else
     //General Setting
     {
-       [defaults setBool:value forKey:[NSString stringWithFormat:@"%@", settingitemname ]];
+        [defaults setBool:value forKey:settingitemname];
     }
 }
          
-- (void) setObject:(id)value forKey:(NSString *)settingitemname {
+- (void)setObject:(id)value forKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
         //Setting in own Configuration
     {
-        [defaults setObject:value forKey:[NSString stringWithFormat:@"%@%@", configurationname, settingitemname ]];
+        [defaults setObject:value forKey:[NSString stringWithFormat:@"%@%@", configurationname, settingitemname]];
     }
     else
         //General Setting
     {
-        [defaults setObject:value forKey:[NSString stringWithFormat:@"%@", settingitemname ]];
+        [defaults setObject:value forKey:settingitemname];
     }
 }
 
-- (bool) boolForKey:(NSString *)settingitemname {
+- (bool)boolForKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
     //Setting in own Configuration
     {
@@ -165,11 +232,11 @@ static NSString *configurationname;
     }
     else
     {
-        return [defaults boolForKey:[NSString stringWithFormat:@"%@", settingitemname]];
+        return [defaults boolForKey:settingitemname];
     }
 }
          
-- (NSString *) stringForKey:(NSString *)settingitemname {
+- (NSString *)stringForKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
         //Setting in own Configuration
     {
@@ -177,11 +244,11 @@ static NSString *configurationname;
     }
     else
     {
-        return [defaults stringForKey:[NSString stringWithFormat:@"%@", settingitemname]];
+        return [defaults stringForKey:settingitemname];
     }
 }
 
-- (NSArray *) arrayForKey:(NSString *)settingitemname {
+- (NSArray *)arrayForKey:(NSString *)settingitemname {
     if([settingitemname hasPrefix:@"_"])
         //Setting in own Configuration
     {
@@ -189,11 +256,11 @@ static NSString *configurationname;
     }
     else
     {
-        return [defaults arrayForKey:[NSString stringWithFormat:@"%@", settingitemname]];
+        return [defaults arrayForKey:settingitemname];
     }
 }
 
-- (void) removeObjectForKey:(NSString *) settingitemname {
+- (void)removeObjectForKey:(NSString *) settingitemname {
     if([settingitemname hasPrefix:@"_"])
         //Setting in own Configuration
     {
@@ -201,17 +268,17 @@ static NSString *configurationname;
     }
     else
     {
-        [defaults removeObjectForKey:[NSString stringWithFormat:@"%@", settingitemname]];
+        [defaults removeObjectForKey:settingitemname];
     }
 }
 
-- (NSString *) configForDisk:(NSString *)diskName {
+- (NSString *)configForDisk:(NSString *)diskName {
 
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", diskName];
     return [defaults stringForKey:settingstring];
 }
 
-- (void) setConfig:(NSString *)configName forDisk:(NSString *)diskName {
+- (void)setConfig:(NSString *)configName forDisk:(NSString *)diskName {
     
     NSString *configstring = [NSString stringWithFormat:@"cnf%@", diskName];
     

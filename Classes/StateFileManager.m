@@ -17,10 +17,10 @@
 #import "State.h"
 #import "StateFileManager.h"
 
-static NSString *kStatesDirectoryName = @"states";      // top level directory under Documents where all state information goes
-static NSString *kStateImagesDirectoryName = @"images"; // sub directory that stores the screenshot associated with a saved state
-static NSString *kStateFileExtension = @".asf";
-static NSString *kStateFileImageExtension = @".jpg";
+static NSString *const kStatesDirectoryName = @"states";      // top level directory under Documents where all state information goes
+static NSString *const kStateImagesDirectoryName = @"images"; // sub directory that stores the screenshot associated with a saved state
+static NSString *const kStateFileExtension = @".asf";
+static NSString *const kStateFileImageExtension = @".jpg";
 
 @implementation StateFileManager {
     @private

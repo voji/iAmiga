@@ -95,7 +95,7 @@ extern void uae_reset();
     
     [self initMenuBarHidingTimer];
 
-    if ([settings boolForKey:@"autoloadconfig"]) {
+    if (settings.autoloadConfig) {
         // the emulator isn't initialized yet right here - we need to delay programmatically inserting floppies by a little
         [NSTimer scheduledTimerWithTimeInterval:.5 target:settings selector:@selector(insertConfiguredFloppies) userInfo:nil repeats:NO];
     }
