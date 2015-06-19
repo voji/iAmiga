@@ -174,14 +174,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		7E01A3D91B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D51B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf */; };
-		7E01A3DA1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D61B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf */; };
-		7E01A3DB1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D71B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf */; };
-		7E01A3DC1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D81B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf */; };
 		7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
 		7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* Storyboard.storyboard */; };
-		7E1A15921B17228100F0EA17 /* wb13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A15911B17228100F0EA17 /* wb13.adf */; };
 		7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3319FADFD400B6136B /* modejoy.png */; };
 		7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3519FADFD400B6136B /* modejoypressed.png */; };
 		7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3719FADFD400B6136B /* modekeyoff.png */; };
@@ -235,8 +230,6 @@
 		7EB017731B09143000C74B9D /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0176F1B09143000C74B9D /* SVIndefiniteAnimatedView.m */; };
 		7EB017781B09164900C74B9D /* StateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017741B09164900C74B9D /* StateFileManager.m */; };
 		7EB017791B09164900C74B9D /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017761B09164900C74B9D /* State.m */; };
-		7EB0177B1B09170D00C74B9D /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0177A1B09170D00C74B9D /* kick13.rom */; };
-		7EB0177D1B09174400C74B9D /* Northsou.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0177C1B09174400C74B9D /* Northsou.adf */; };
 		7EB017801B0921B000C74B9D /* SettingsSelectKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */; };
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
@@ -1542,16 +1535,11 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = iUAEParents/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
-		7E01A3D51B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf"; sourceTree = "<group>"; };
-		7E01A3D61B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf"; sourceTree = "<group>"; };
-		7E01A3D71B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf"; sourceTree = "<group>"; };
-		7E01A3D81B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf"; sourceTree = "<group>"; };
 		7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddConfigurationViewController.h; path = Classes/AddConfigurationViewController.h; sourceTree = SOURCE_ROOT; };
 		7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddConfigurationViewController.m; path = Classes/AddConfigurationViewController.m; sourceTree = SOURCE_ROOT; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
 		7E10738A1A34E85E000D7269 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../../Storyboard.storyboard; sourceTree = "<group>"; };
 		7E1A15901B171D7E00F0EA17 /* JoypadKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoypadKey.h; sourceTree = "<group>"; };
-		7E1A15911B17228100F0EA17 /* wb13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wb13.adf; path = ../../../Desktop/wb13.adf; sourceTree = "<group>"; };
 		7E1B8C3319FADFD400B6136B /* modejoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoy.png; sourceTree = "<group>"; };
 		7E1B8C3519FADFD400B6136B /* modejoypressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modejoypressed.png; sourceTree = "<group>"; };
 		7E1B8C3719FADFD400B6136B /* modekeyoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyoff.png; sourceTree = "<group>"; };
@@ -1620,8 +1608,6 @@
 		7EB017751B09164900C74B9D /* StateFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateFileManager.h; sourceTree = "<group>"; };
 		7EB017761B09164900C74B9D /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
 		7EB017771B09164900C74B9D /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
-		7EB0177A1B09170D00C74B9D /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
-		7EB0177C1B09174400C74B9D /* Northsou.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Northsou.adf; path = ../../../Desktop/Northsou.adf; sourceTree = "<group>"; };
 		7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectKeyViewController.h; sourceTree = "<group>"; };
 		7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSelectKeyViewController.m; sourceTree = "<group>"; };
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
@@ -2595,11 +2581,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E01A3D51B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf */,
-				7E01A3D61B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf */,
-				7E01A3D71B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf */,
-				7E01A3D81B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf */,
-				7EB0177A1B09170D00C74B9D /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2607,8 +2588,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7E1A15911B17228100F0EA17 /* wb13.adf */,
-				7EB0177C1B09174400C74B9D /* Northsou.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -4067,11 +4046,9 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
-				7E1A15921B17228100F0EA17 /* wb13.adf in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
-				7E01A3D91B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
@@ -4089,7 +4066,6 @@
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
-				7E01A3DA1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
@@ -4123,15 +4099,11 @@
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
-				7E01A3DC1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf in Resources */,
-				7E01A3DB1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
-				7EB0177B1B09170D00C74B9D /* kick13.rom in Resources */,
 				7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
-				7EB0177D1B09174400C74B9D /* Northsou.adf in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
 				97BE2B0E15489E6600BF66CF /* ls-joystick_rest.png in Resources */,
@@ -5433,8 +5405,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5460,8 +5432,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5485,8 +5457,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
