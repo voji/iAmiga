@@ -47,7 +47,7 @@
     //Get some view Specific properties
     UINavigationController *navigationcontroller = self.window.rootViewController;
     mainController = navigationcontroller.topViewController;
-        
+    
     // Override point for customization after application launch
     [window makeKeyAndVisible];
     
@@ -99,7 +99,9 @@
 			externalWindow.hidden = YES;
 		}
         
-		[mainController setDisplayViewWindow:nil isExternal:NO];
+        if ([mainController respondsToSelector:@selector(setDisplayViewWindow:isExternal:)]) {
+            [mainController setDisplayViewWindow:nil isExternal:NO];
+        }
 	} else {
 		NSLog(@"External display");
 		UIScreen *secondary = [[UIScreen screens] objectAtIndex:1];
