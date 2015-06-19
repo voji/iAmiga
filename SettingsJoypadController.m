@@ -20,19 +20,7 @@
 
 #import "SettingsJoypadController.h"
 #import "Settings.h"
-
-#define BTN_A 1
-#define BTN_B 2
-#define BTN_X 3
-#define BTN_Y 4
-#define BTN_L1 5
-#define BTN_L2 6
-#define BTN_R1 7
-#define BTN_R2 8
-#define BTN_UP 9
-#define BTN_DOWN 10
-#define BTN_LEFT 11
-#define BTN_RIGHT 12
+#import "JoypadKey.h"
 
 @interface SettingsJoypadController ()
 

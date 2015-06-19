@@ -22,6 +22,15 @@
 #include "SDL_joystick.h"
 
 @interface MFIControllerReaderView : UIView
-    @property (readonly) BOOL buttonpressed;
+    @property (readonly) BOOL buttonapressed;
+    @property (readonly) BOOL buttonbpressed;
+    @property (readonly) BOOL buttonxpressed;
+    @property (readonly) BOOL buttonypressed;
+
+    @property (readonly) BOOL buttonl1pressed;
+    @property (readonly) BOOL buttonl2pressed;
+    @property (readonly) BOOL buttonr1pressed;
+    @property (readonly) BOOL buttonr2pressed;
+
     @property (readonly) int hat_state;
 @end
