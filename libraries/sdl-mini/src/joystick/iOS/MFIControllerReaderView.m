@@ -23,7 +23,7 @@
 {
     self = [super initWithFrame:frame];
     _hat_state = SDL_HAT_CENTERED;
-    _buttonpressed = false;
+    _buttonapressed = false;
     
     [self discoverController];
     
@@ -57,7 +57,14 @@
     controller.gamepad.valueChangedHandler = ^(GCGamepad *gamepad, GCControllerElement
                                                *element)
     {
-        _buttonpressed = gamepad.buttonA.isPressed != _buttonpressed ? !_buttonpressed : _buttonpressed; //If value for Button pressed changes invert control value;
+        _buttonapressed = gamepad.buttonA.isPressed != _buttonapressed ? !_buttonapressed : _buttonapressed; //If value for Button pressed changes invert control value;
+        _buttonbpressed = gamepad.buttonB.isPressed != _buttonbpressed ? !_buttonbpressed : _buttonbpressed; //If value for Button pressed changes invert control value;
+        _buttonxpressed = gamepad.buttonX.isPressed != _buttonxpressed ? !_buttonxpressed : _buttonxpressed; //If value for Button pressed changes invert control value;
+        _buttonypressed = gamepad.buttonY.isPressed != _buttonypressed ? !_buttonypressed : _buttonypressed; //If value for Button pressed changes invert control value;
+        _buttonr1pressed = gamepad.rightShoulder.isPressed != _buttonr1pressed ? !_buttonr1pressed : _buttonr1pressed; //If value for Button pressed changes invert control value;
+        _buttonl1pressed = gamepad.leftShoulder.isPressed != _buttonl1pressed ? !_buttonl1pressed : _buttonl1pressed; //If value for Button pressed changes invert control value;
+        _buttonr2pressed = gamepad.controller.extendedGamepad.rightTrigger.isPressed != _buttonr2pressed ? !_buttonr2pressed : _buttonr2pressed; //If value for Button pressed changes invert control value;
+        _buttonl2pressed = gamepad.controller.extendedGamepad.leftTrigger.isPressed != _buttonl2pressed ? !_buttonl2pressed : _buttonl2pressed; //If value for Button pressed changes invert control value;
         
         if(gamepad.dpad.left.pressed)
         {

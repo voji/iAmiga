@@ -174,6 +174,10 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		7E01A3D91B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D51B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf */; };
+		7E01A3DA1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D61B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf */; };
+		7E01A3DB1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D71B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf */; };
+		7E01A3DC1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E01A3D81B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf */; };
 		7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
 		7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* Storyboard.storyboard */; };
@@ -1538,6 +1542,10 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = iUAEParents/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
+		7E01A3D51B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf"; sourceTree = "<group>"; };
+		7E01A3D61B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf"; sourceTree = "<group>"; };
+		7E01A3D71B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf"; sourceTree = "<group>"; };
+		7E01A3D81B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf"; path = "../../../Desktop/Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf"; sourceTree = "<group>"; };
 		7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddConfigurationViewController.h; path = Classes/AddConfigurationViewController.h; sourceTree = SOURCE_ROOT; };
 		7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddConfigurationViewController.m; path = Classes/AddConfigurationViewController.m; sourceTree = SOURCE_ROOT; };
 		7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSKeyboard.png; sourceTree = "<group>"; };
@@ -2587,6 +2595,10 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7E01A3D51B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf */,
+				7E01A3D61B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf */,
+				7E01A3D71B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf */,
+				7E01A3D81B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf */,
 				7EB0177A1B09170D00C74B9D /* kick13.rom */,
 			);
 			path = roms;
@@ -4059,6 +4071,7 @@
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
+				7E01A3D91B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 1 of 4).adf in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
 				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
@@ -4076,6 +4089,7 @@
 				7EA4D6611923ED0800C58BB9 /* EmulationView-iPad.xib in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
+				7E01A3DA1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 2 of 4).adf in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
@@ -4109,6 +4123,8 @@
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
+				7E01A3DC1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 4 of 4).adf in Resources */,
+				7E01A3DB1B31BECB00CD24CC /* Flashback (1992)(U. S. Gold)[cr Interpol](Disk 3 of 4).adf in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
 				97BE2B0215489E6600BF66CF /* ls-overlay-skin.png in Resources */,
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
@@ -5417,8 +5433,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5444,8 +5460,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5469,8 +5485,8 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
-				iOSOpenDevInstallOnAnyBuild = YES;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
