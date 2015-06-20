@@ -211,6 +211,7 @@ extern void uae_reset();
 
 - (void)insertConfiguredDisks {
     [_diskDriveService insertDisks:_settings.insertedFloppies];
+    [_settings setFloppyConfigurations:_settings.insertedFloppies];
 }
 
 - (void)dealloc

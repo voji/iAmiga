@@ -26,6 +26,9 @@
  */
 - (BOOL)initializeSettings;
 
+- (void)setFloppyConfigurations:(NSArray *)adfPaths;
+- (void)setFloppyConfiguration:(NSString *)adfPath;
+
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void)setObject:(id)value forKey:(NSString *)settingitemname;
 - (bool)boolForKey:(NSString *)settingitemname;

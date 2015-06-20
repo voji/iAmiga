@@ -77,6 +77,13 @@ static NSString *configurationname;
     return isFirstInitialization;
 }
 
+- (void)setFloppyConfigurations:(NSArray *)adfPaths {
+    for (NSString *adfPath : adfPaths)
+    {
+        [self setFloppyConfiguration:adfPath];
+    }
+}
+
 - (void)setFloppyConfiguration:(NSString *)adfPath {
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [adfPath lastPathComponent]];
     if ([defaults stringForKey:settingstring])
@@ -255,8 +262,7 @@ static NSString *configurationname;
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [defaults release];
     defaults = nil;
     [super dealloc];

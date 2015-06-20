@@ -100,6 +100,7 @@
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
     settings.insertedFloppies = mutableFloppyPaths;
+    [settings setFloppyConfiguration:adfPath];
     [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
 }
 
