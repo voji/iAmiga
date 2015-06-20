@@ -18,16 +18,19 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
 #import "StateManagementController.h"
 
 @implementation SettingsGeneralController {
+    DiskDriveService *diskDriveService;
     Settings *settings;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    diskDriveService = [[DiskDriveService alloc] init];
     settings = [[Settings alloc] init];
 }
 
@@ -43,10 +46,10 @@
 }
 
 - (void)setupFloppyLabels {
-    NSString *df0AdfPath = [settings getInsertedFloppyForDrive:0];
+    NSString *df0AdfPath = [diskDriveService getInsertedDiskForDrive:0];
     [_df0 setText:df0AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
     
-    NSString *df1AdfPath = [settings getInsertedFloppyForDrive:1];
+    NSString *df1AdfPath = [diskDriveService getInsertedDiskForDrive:1];
     [_df1 setText:df1AdfPath ? [df1AdfPath lastPathComponent] : @"Empty"];
 }
 
@@ -97,7 +100,7 @@
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
     settings.insertedFloppies = mutableFloppyPaths;
-    [settings insertFloppy:adfPath intoDrive:driveNumber];
+    [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
 }
 
 - (NSString *)getfirstoption {
@@ -128,8 +131,8 @@
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    [diskDriveService release];
     [settings release];
     [_df0 release];
     [_df1 release];

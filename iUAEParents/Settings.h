@@ -35,9 +35,4 @@
 - (NSString *)configForDisk:(NSString *)diskName;
 - (void) setConfig:(NSString *)configName forDisk:(NSString *)diskName;
 
-// floppy related methods - move into their own class
-- (NSString *)getInsertedFloppyForDrive:(int)driveNumber;
-- (void)insertFloppy:(NSString *)adfPath intoDrive:(int)driveNumber;
-- (void)insertConfiguredFloppies;
-
 @end

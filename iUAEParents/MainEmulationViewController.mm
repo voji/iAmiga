@@ -36,6 +36,7 @@
 #import "UIKitDisplayView.h"
 #import "savestate.h"
 #import "Settings.h"
+#import "DiskDriveService.h"
 
 @interface MainEmulationViewController()
 
@@ -43,7 +44,9 @@
 @end
 
 @implementation MainEmulationViewController {
+    DiskDriveService *_diskDriveService;
     NSTimer *_menuHidingTimer;
+    Settings *_settings;
 }
 
 
@@ -75,6 +78,10 @@ extern void uae_reset();
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _diskDriveService = [[DiskDriveService alloc] init];
+    _settings = [[Settings alloc] init];
+    
     [self.view setMultipleTouchEnabled:TRUE];
     
     [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
@@ -86,8 +93,7 @@ extern void uae_reset();
                 forState:UIControlStateNormal];
     [_btnPin setTintColor: [UIColor blackColor]];*/
     
-    Settings *settings = [[[Settings alloc] init] autorelease];
-    BOOL isFirstInitialization = [settings initializeSettings];
+    BOOL isFirstInitialization = [_settings initializeSettings];
     if (isFirstInitialization)
     {
         [self showMFIControllerAlert];
@@ -95,9 +101,9 @@ extern void uae_reset();
     
     [self initMenuBarHidingTimer];
 
-    if (settings.autoloadConfig) {
+    if (_settings.autoloadConfig && [_settings.insertedFloppies count] > 0) {
         // the emulator isn't initialized yet right here - we need to delay programmatically inserting floppies by a little
-        [NSTimer scheduledTimerWithTimeInterval:.5 target:settings selector:@selector(insertConfiguredFloppies) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(insertConfiguredDisks) userInfo:nil repeats:NO];
     }
 }
 
@@ -203,16 +209,22 @@ extern void uae_reset();
     _menuHidingTimer.tolerance = 0.0020;
 }
 
+- (void)insertConfiguredDisks {
+    [_diskDriveService insertDisks:_settings.insertedFloppies];
+}
+
 - (void)dealloc
 {
-    [_btnKeyboard release];
-    [_menuBar release];
     [_btnJoypad release];
+    [_btnKeyboard release];
     [_btnPin release];
+    [_diskDriveService release];
     [_mouseHandler release];
+    [_menuBar release];
     [_menuBarEnabler release];
     [_menuHidingTimer invalidate];
     [_menuHidingTimer release];
+    [_settings release];
     [super dealloc];
 }
 

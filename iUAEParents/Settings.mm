@@ -77,44 +77,6 @@ static NSString *configurationname;
     return isFirstInitialization;
 }
 
-- (NSString *)getInsertedFloppyForDrive:(int)driveNumber {
-    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
-    NSString *adfPath = [NSString stringWithCString:changed_df[driveNumber] encoding:[NSString defaultCStringEncoding]];
-    return [adfPath length] == 0 ? nil : adfPath;
-}
-
-- (void)insertConfiguredFloppies {
-    NSArray *adfPaths = self.insertedFloppies;
-    for (int driveNumber = 0; driveNumber < [adfPaths count]; driveNumber++)
-    {
-        if (driveNumber < NUM_DRIVES)
-        {
-            NSString *adfPath = [adfPaths objectAtIndex:driveNumber];
-            if ([adfPath length] == 0) {
-                continue; // placeholder item
-            }
-            if ([[NSFileManager defaultManager] fileExistsAtPath:adfPath isDirectory:NULL]) {
-                // it is possible that the stored adf path is no longer valid - this often happens
-                // during debugging.  If that's the case, don't even attempt to insert the floppy
-                [self insertFloppy:adfPath intoDrive:driveNumber];
-            } else {
-                NSLog(@"Adf does not exist: %@", adfPath);
-            }
-        }
-        else
-        {
-            break;
-        }
-    }
-}
-
-- (void)insertFloppy:(NSString *)adfPath intoDrive:(int)driveNumber {
-    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
-    [adfPath getCString:changed_df[driveNumber] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-    real_changed_df[driveNumber] = 1;
-    [self setFloppyConfiguration:adfPath];
-}
-
 - (void)setFloppyConfiguration:(NSString *)adfPath {
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [adfPath lastPathComponent]];
     if ([defaults stringForKey:settingstring])
