@@ -306,29 +306,24 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ya0-S4-0ey" id="pwu-2p-Gs1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-hp-l7l" userLabel="DFOLabel">
-                                                    <rect key="frame" x="50" y="11" width="965" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DF0:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybp-NV-rRY">
+                                                    <rect key="frame" x="15" y="10" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-hp-l7l" userLabel="DF0InsertedDiskLabel">
+                                                    <rect key="frame" x="489" y="11" width="500" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWY-1p-EdC">
-                                                    <rect key="frame" x="20" y="7" width="1016" height="30"/>
-                                                    <state key="normal" title="DF0">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="fbF-EZ-ckx" kind="show" identifier="SelectDisk" id="dbL-38-fZI"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="620-hp-l7l" secondAttribute="trailing" constant="1" id="2BY-t6-gPo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pWY-1p-EdC" secondAttribute="trailing" constant="-20" id="LTD-DX-YB3"/>
-                                                <constraint firstItem="620-hp-l7l" firstAttribute="leading" secondItem="pwu-2p-Gs1" secondAttribute="leadingMargin" constant="42" id="Qvg-0A-wYo"/>
-                                                <constraint firstItem="620-hp-l7l" firstAttribute="baseline" secondItem="pWY-1p-EdC" secondAttribute="baseline" id="cAg-rb-sgx"/>
-                                                <constraint firstItem="pWY-1p-EdC" firstAttribute="leading" secondItem="pwu-2p-Gs1" secondAttribute="leadingMargin" constant="12" id="gWP-Ym-fdw"/>
-                                                <constraint firstItem="620-hp-l7l" firstAttribute="centerY" secondItem="pwu-2p-Gs1" secondAttribute="centerY" id="hU6-Sm-UY3"/>
+                                                <constraint firstItem="Ybp-NV-rRY" firstAttribute="leading" secondItem="pwu-2p-Gs1" secondAttribute="leadingMargin" constant="5" id="BIb-cw-BM0"/>
+                                                <constraint firstAttribute="centerY" secondItem="Ybp-NV-rRY" secondAttribute="centerY" constant="1" id="ckK-nK-f0z"/>
+                                                <constraint firstAttribute="centerY" secondItem="620-hp-l7l" secondAttribute="centerY" id="pjg-FL-Mp7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="620-hp-l7l" secondAttribute="trailing" constant="5" id="sWh-Fs-ceg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -337,30 +332,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DxJ-ZI-eCV" id="gs2-0K-ro6">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyq-9t-jBF" userLabel="DF1Label">
-                                                    <rect key="frame" x="50" y="11" width="965" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DF1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-kT-rDi">
+                                                    <rect key="frame" x="13" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyq-9t-jBF" userLabel="DF1InsertedDiskLabel">
+                                                    <rect key="frame" x="481" y="11" width="500" height="21"/>
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEV-Kh-Dnh">
-                                                    <rect key="frame" x="20" y="7" width="1024" height="30"/>
-                                                    <state key="normal" title="DF1">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="fbF-EZ-ckx" kind="show" identifier="SelectDisk" id="1UH-sl-PIQ"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Wyq-9t-jBF" firstAttribute="centerY" secondItem="gs2-0K-ro6" secondAttribute="centerY" id="JEs-ty-Fib"/>
-                                                <constraint firstItem="JEV-Kh-Dnh" firstAttribute="centerX" secondItem="Wyq-9t-jBF" secondAttribute="centerX" id="KAk-rb-sXc"/>
-                                                <constraint firstItem="JEV-Kh-Dnh" firstAttribute="leading" secondItem="gs2-0K-ro6" secondAttribute="leadingMargin" constant="12" id="X8H-IB-pEs"/>
-                                                <constraint firstItem="Wyq-9t-jBF" firstAttribute="baseline" secondItem="JEV-Kh-Dnh" secondAttribute="baseline" id="XGr-zv-MKE"/>
-                                                <constraint firstItem="Wyq-9t-jBF" firstAttribute="leading" secondItem="gs2-0K-ro6" secondAttribute="leadingMargin" constant="42" id="cal-p7-Ohs"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Wyq-9t-jBF" secondAttribute="trailing" constant="1" id="xnU-2R-lJz"/>
+                                                <constraint firstAttribute="centerY" secondItem="ey2-kT-rDi" secondAttribute="centerY" id="9fQ-9z-GNU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Wyq-9t-jBF" secondAttribute="trailing" constant="5" id="Om3-k4-6BW"/>
+                                                <constraint firstItem="ey2-kT-rDi" firstAttribute="leading" secondItem="gs2-0K-ro6" secondAttribute="leadingMargin" constant="5" id="UFy-ai-Hru"/>
+                                                <constraint firstAttribute="centerY" secondItem="Wyq-9t-jBF" secondAttribute="centerY" id="nSp-2t-c6R"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -479,6 +469,7 @@
                         <outlet property="df0" destination="620-hp-l7l" id="1d7-6X-rQs"/>
                         <outlet property="df1" destination="Wyq-9t-jBF" id="rKd-D9-I8Q"/>
                         <outlet property="swautoloadconfig" destination="8pu-T2-h7e" id="QNe-ue-6Qy"/>
+                        <segue destination="fbF-EZ-ckx" kind="show" identifier="SelectDisk" id="cfj-R0-Oey"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VK-Vz-1xK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1238,7 +1229,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Iye-cM-RsD"/>
-        <segue reference="dbL-38-fZI"/>
         <segue reference="pcx-Rd-sXG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

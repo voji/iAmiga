@@ -23,6 +23,11 @@
 #import "Settings.h"
 #import "StateManagementController.h"
 
+static NSString *const kSelectDiskSegue = @"SelectDisk";
+
+@interface SettingsGeneralController ()
+@end
+
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
     Settings *settings;
@@ -68,13 +73,19 @@
     settings.autoloadConfig = !settings.autoloadConfig;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        [self performSegueWithIdentifier:kSelectDiskSegue sender:[NSNumber numberWithInt:indexPath.row]];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"SelectDisk"])
+    if([segue.identifier isEqualToString:kSelectDiskSegue])
     {
-        UIButton *btnsender = (UIButton *) sender;
         EMUROMBrowserViewController *controller = segue.destinationViewController;
         controller.delegate = self;
-        controller.context = btnsender;
+        controller.context = sender;
     }
     else if([segue.identifier isEqualToString:@"loadconfiguration"])
     {
@@ -88,20 +99,19 @@
     }
 }
 
-- (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
+- (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(NSNumber *)driveNumber {
     NSString *adfPath = [fileInfo path];
-    int driveNumber = sender.tag;
     NSArray *floppyPaths = settings.insertedFloppies;
     NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
-    while ([mutableFloppyPaths count] <= driveNumber)
+    while ([mutableFloppyPaths count] <= [driveNumber integerValue])
     {
         // pad the array if a disk is inserted into a drive with a higher number, but there's nothing in the lower number drive(s) yet
         [mutableFloppyPaths addObject:@""];
     }
-    [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
+    [mutableFloppyPaths replaceObjectAtIndex:[driveNumber integerValue] withObject:adfPath];
     settings.insertedFloppies = mutableFloppyPaths;
     [settings setFloppyConfiguration:adfPath];
-    [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
+    [diskDriveService insertDisk:adfPath intoDrive:[driveNumber integerValue]];
 }
 
 - (NSString *)getfirstoption {
