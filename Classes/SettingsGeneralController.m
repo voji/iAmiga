@@ -24,6 +24,9 @@
 #import "StateManagementController.h"
 
 static NSString *const kSelectDiskSegue = @"SelectDisk";
+static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
+static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
+static NSString *const kStateManagementSegue = @"StateManagement";
 
 @interface SettingsGeneralController ()
 @end
@@ -75,8 +78,23 @@ static NSString *const kSelectDiskSegue = @"SelectDisk";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0)
+    {
         [self performSegueWithIdentifier:kSelectDiskSegue sender:[NSNumber numberWithInt:indexPath.row]];
+    }
+    else if (indexPath.section == 1)
+    {
+        if (indexPath.row == 1)
+        {
+            [self performSegueWithIdentifier:kAssignDiskfilesSegue sender:nil];
+        } else if (indexPath.row == 2)
+        {
+            [self performSegueWithIdentifier:kLoadConfigurationSegue sender:nil];
+        }
+    }
+    else if (indexPath.section == 2)
+    {
+        [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
     }
 }
 
@@ -87,12 +105,12 @@ static NSString *const kSelectDiskSegue = @"SelectDisk";
         controller.delegate = self;
         controller.context = sender;
     }
-    else if([segue.identifier isEqualToString:@"loadconfiguration"])
+    else if([segue.identifier isEqualToString:kLoadConfigurationSegue])
     {
         SelectConfigurationViewController *controller = segue.destinationViewController;
         controller.delegate = self;
     }
-    else if([segue.identifier isEqualToString:@"statemanagement"])
+    else if([segue.identifier isEqualToString:kStateManagementSegue])
     {
         StateManagementController *stateController = segue.destinationViewController;
         stateController.emulatorScreenshot = _emulatorScreenshot;
