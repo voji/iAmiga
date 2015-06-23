@@ -49,7 +49,7 @@
                 // during debugging.  If that's the case, don't even attempt to insert the floppy
                 [self insertDisk:adfPath intoDrive:driveNumber];
             } else {
-                NSLog(@"Adf does not exist: %@", adfPath);
+                NSLog(@"adf does not exist: %@", adfPath);
             }
         }
         else
