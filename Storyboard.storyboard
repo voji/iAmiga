@@ -379,20 +379,16 @@
                                                         <action selector="toggleAutoloadconfig:" destination="fDF-e7-E6W" eventType="touchUpInside" id="fFU-5L-qpc"/>
                                                     </connections>
                                                 </switch>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBa-9T-6h3">
-                                                    <rect key="frame" x="20" y="7" width="1016" height="30"/>
-                                                    <state key="normal" title="Autoload Config">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autoload Config" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5D-FK-SMD">
+                                                    <rect key="frame" x="17" y="11" width="128" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="8pu-T2-h7e" firstAttribute="centerY" secondItem="Mme-e3-H3P" secondAttribute="centerY" id="2d3-kv-qse"/>
-                                                <constraint firstItem="zBa-9T-6h3" firstAttribute="bottom" secondItem="8pu-T2-h7e" secondAttribute="bottom" id="Bwy-ue-bow"/>
-                                                <constraint firstItem="zBa-9T-6h3" firstAttribute="leading" secondItem="Mme-e3-H3P" secondAttribute="leadingMargin" constant="12" id="XJl-6h-90x"/>
                                                 <constraint firstItem="8pu-T2-h7e" firstAttribute="trailing" secondItem="Mme-e3-H3P" secondAttribute="trailingMargin" id="jJq-sj-Ad8"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="zBa-9T-6h3" secondAttribute="trailing" constant="-20" id="jsz-J9-6RW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -487,7 +483,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VK-Vz-1xK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208.75" y="2384.1549295774648"/>
+            <point key="canvasLocation" x="2208" y="2384"/>
         </scene>
         <!--Joystick-->
         <scene sceneID="9Ze-AO-zNo">

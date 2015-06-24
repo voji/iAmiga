@@ -143,14 +143,15 @@
     NSMutableArray *configurationsforsave = [configurations mutableCopy];
     [configurationsforsave removeObjectAtIndex:0]; //General or None is no real Configuration just a placeholder
 
-    [settings setObject:configurationsforsave forKey:@"configurations"];
+    settings.configurations = configurationsforsave;
     
     for (EMUFileInfo* f in files) {
         
         /*Associated Configuration File*/
         NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [f fileName]];
         NSString *configurationfile = [settings stringForKey:settingstring] ? [settings stringForKey:settingstring] : [NSString stringWithFormat:@""];
-        if([configurationfile isEqualToString:configdeleted]) {
+        if([configurationfile isEqualToString:configdeleted])
+        {
             if(self.delegate)
             {
                 [self.delegate didDeleteConfiguration];

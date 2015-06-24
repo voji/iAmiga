@@ -18,85 +18,59 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
 #import "StateManagementController.h"
 
-@interface SettingsGeneralController ()
-@end
-
 @implementation SettingsGeneralController {
+    DiskDriveService *diskDriveService;
     Settings *settings;
-    NSMutableArray *Filepath;
-    bool autoloadconfig;
 }
-
-static NSMutableArray *Filename;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    diskDriveService = [[DiskDriveService alloc] init];
     settings = [[Settings alloc] init];
-    Filepath = [[settings arrayForKey:@"insertedfloppies"] mutableCopy];
-    
-    autoloadconfig = [settings boolForKey:@"autoloadconfig"];
-    [_swautoloadconfig setOn:autoloadconfig animated:TRUE];
-    
-    if(!Filepath)
-    {
-        Filepath = [[NSMutableArray alloc] init];
-        [Filepath addObject:[NSMutableString new]];
-        [Filepath addObject:[NSMutableString new]];
-    }
-    
-    if(!Filename)
-    {
-        
-        Filename = [[NSMutableArray alloc] init];
-        
-        for(int i=0;i<2;i++) // should use NUM_DRIVES instead of hardcoding
-        {
-            NSString *curadf = [Filepath objectAtIndex:i];
-            
-            if(curadf)
-            {
-                [Filename addObject:[curadf lastPathComponent]];
-            }
-            else
-            {
-                [Filename addObject:[NSMutableString new]];
-            }
-        }
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
-    NSString *df0title = [[Filename objectAtIndex:0] length] == 0 ? @"Empty" : [Filename objectAtIndex:0];
-    NSString *df1title = [[Filename objectAtIndex:1] length] == 0 ? @"Empty" : [Filename objectAtIndex:1];
-        
-    [_df0 setText:df0title];
-    [_df1 setText:df1title];
-    
     [settings initializeSettings];
+    [self setupUIState];
+}
+
+- (void)setupUIState {
+    [self setupFloppyLabels];
+    [self setupAutoloadConfigSwitch];
+    [self setupConfigurationName];
+}
+
+- (void)setupFloppyLabels {
+    NSString *df0AdfPath = [diskDriveService getInsertedDiskForDrive:0];
+    [_df0 setText:df0AdfPath ? [df0AdfPath lastPathComponent] : @"Empty"];
     
-    if([settings stringForKey:@"configurationname"])
+    NSString *df1AdfPath = [diskDriveService getInsertedDiskForDrive:1];
+    [_df1 setText:df1AdfPath ? [df1AdfPath lastPathComponent] : @"Empty"];
+}
+
+- (void)setupConfigurationName {
+    if(settings.configurationName)
     {
-        [_configurationname setText:[settings stringForKey:@"configurationname"]];
+        [_configurationname setText:settings.configurationName];
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)setupAutoloadConfigSwitch {
+    [_swautoloadconfig setOn:settings.autoloadConfig];
 }
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
-    autoloadconfig = !autoloadconfig;
-    [settings setBool:autoloadconfig forKey:@"autoloadconfig"];
+    settings.autoloadConfig = !settings.autoloadConfig;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"SelectDisk"]) {
+    if([segue.identifier isEqualToString:@"SelectDisk"])
+    {
         UIButton *btnsender = (UIButton *) sender;
         EMUROMBrowserViewController *controller = segue.destinationViewController;
         controller.delegate = self;
@@ -115,14 +89,19 @@ static NSMutableArray *Filename;
 }
 
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(UIButton*)sender {
-    NSString *path = [fileInfo path];
-    int df = sender.tag;
-    
-    [Filepath replaceObjectAtIndex:df withObject:path];
-    [settings setObject:Filepath forKey:@"insertedfloppies"];
-    
-    [Filename replaceObjectAtIndex:df withObject:[NSMutableString stringWithString:[fileInfo fileName]]];
-    
+    NSString *adfPath = [fileInfo path];
+    int driveNumber = sender.tag;
+    NSArray *floppyPaths = settings.insertedFloppies;
+    NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
+    while ([mutableFloppyPaths count] <= driveNumber)
+    {
+        // pad the array if a disk is inserted into a drive with a higher number, but there's nothing in the lower number drive(s) yet
+        [mutableFloppyPaths addObject:@""];
+    }
+    [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
+    settings.insertedFloppies = mutableFloppyPaths;
+    [settings setFloppyConfiguration:adfPath];
+    [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
 }
 
 - (NSString *)getfirstoption {
@@ -139,13 +118,13 @@ static NSMutableArray *Filename;
     return FALSE;
 }
 
-- (void)didSelectConfiguration:(NSString *)configurationname {
-    [_configurationname setText:configurationname];
-    [settings setObject:configurationname forKey:@"configurationname"];
+- (void)didSelectConfiguration:(NSString *)configurationName {
+    [_configurationname setText:configurationName];
+    settings.configurationName = configurationName;
 }
 
 - (void)didDeleteConfiguration {
-    NSMutableArray *configurations = [[settings arrayForKey:@"configurations"] mutableCopy];
+    NSMutableArray *configurations = [[settings.configurations mutableCopy] autorelease];
     
     if(![configurations indexOfObject:[_configurationname text]])
     {
@@ -153,11 +132,11 @@ static NSMutableArray *Filename;
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    [diskDriveService release];
+    [settings release];
     [_df0 release];
     [_df1 release];
-    [Filepath release];
     [_configurationname release];
     [_cellconfiguration release];
     [_emulatorScreenshot release];
