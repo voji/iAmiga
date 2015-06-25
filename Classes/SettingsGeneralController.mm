@@ -18,10 +18,13 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "uae.h"
+
 #import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
 #import "StateManagementController.h"
+#import "SVProgressHUD.h"
 
 static NSString *const kNoDiskLabel = @"Empty";
 static NSString *const kSelectDiskSegue = @"SelectDisk";
@@ -95,7 +98,14 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     }
     else if (indexPath.section == 2)
     {
-        [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
+        if (indexPath.row == 0)
+        {
+            [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
+        }
+        else if (indexPath.row == 1)
+        {
+            [self showResetAlert];
+        }
     }
 }
 
@@ -160,6 +170,22 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     {
         [_configurationname setText:@"General"];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) { // OK button
+        uae_reset();
+        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+        [SVProgressHUD showSuccessWithStatus:@"Reset Amiga"];
+    }
+}
+
+- (void)showResetAlert {
+    [[[[UIAlertView alloc] initWithTitle:@"Reset Amiga"
+                                 message:@"Are you sure?"
+                                delegate:self
+                       cancelButtonTitle:@"OK"
+                       otherButtonTitles:@"Cancel", nil] autorelease] show];
 }
 
 - (void)dealloc {

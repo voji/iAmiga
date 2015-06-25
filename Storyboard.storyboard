@@ -451,6 +451,31 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nyu-dL-Nsw">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nyu-dL-Nsw" id="eCl-uu-Z0A">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reset Amiga" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZT-FH-jk7">
+                                                    <rect key="frame" x="11" y="11" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IZT-FH-jk7" firstAttribute="leading" secondItem="eCl-uu-Z0A" secondAttribute="leadingMargin" constant="5" id="PTx-Rk-DRt"/>
+                                                <constraint firstAttribute="centerY" secondItem="IZT-FH-jk7" secondAttribute="centerY" id="j2R-wg-oOi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IZT-FH-jk7" secondAttribute="trailing" constant="897" id="wKB-fl-buO"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="wKB-fl-buO"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -474,7 +499,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VK-Vz-1xK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208" y="2384"/>
+            <point key="canvasLocation" x="2267" y="2384"/>
         </scene>
         <!--Joystick-->
         <scene sceneID="9Ze-AO-zNo">
