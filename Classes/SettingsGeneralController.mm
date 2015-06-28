@@ -27,13 +27,11 @@
 #import "SVProgressHUD.h"
 
 static NSString *const kNoDiskLabel = @"Empty";
+static NSString *const kNoDiskAdfPath = @"";
 static NSString *const kSelectDiskSegue = @"SelectDisk";
 static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
 static NSString *const kStateManagementSegue = @"StateManagement";
-
-@interface SettingsGeneralController ()
-@end
 
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
@@ -78,6 +76,25 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
     settings.autoloadConfig = !settings.autoloadConfig;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 0 && [diskDriveService diskInsertedIntoDrive:indexPath.row];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Eject";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.tableView setEditing:NO animated:YES];
+        int driveNumber = indexPath.row;
+        [self onAdfChanged:kNoDiskAdfPath inDrive:driveNumber];
+        [diskDriveService ejectDiskFromDrive:driveNumber];
+        [self setupFloppyLabels];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,12 +148,17 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(NSNumber *)driveNSNumber {
     NSString *adfPath = [fileInfo path];
     int driveNumber = [driveNSNumber integerValue];
+    [self onAdfChanged:adfPath inDrive:driveNumber];
+    [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
+}
+
+- (void)onAdfChanged:(NSString *)adfPath inDrive:(int)driveNumber {
     NSArray *floppyPaths = settings.insertedFloppies;
     NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
     {
         // pad the array if a disk is inserted into a drive with a higher number, but there's nothing in the lower number drive(s) yet
-        [mutableFloppyPaths addObject:@""];
+        [mutableFloppyPaths addObject:kNoDiskAdfPath];
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
     settings.insertedFloppies = mutableFloppyPaths;

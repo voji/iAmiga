@@ -36,4 +36,14 @@
  */
 - (void)insertDisks:(NSArray *)adfPaths;
 
+/**
+ * Ejects the disk from the specified drive number.
+ */
+- (void)ejectDiskFromDrive:(int)driveNumber;
+
+/**
+ * Returns YES if a disk is inserted into the specified drive.
+ */
+- (BOOL)diskInsertedIntoDrive:(int)driveNumber;
+
 @end

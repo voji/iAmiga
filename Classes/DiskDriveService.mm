@@ -18,7 +18,6 @@
 #import "sysconfig.h"
 #import "sysdeps.h"
 #import "options.h"
-
 #import "DiskDriveService.h"
 
 @implementation DiskDriveService
@@ -57,6 +56,17 @@
             break;
         }
     }
+}
+
+- (void)ejectDiskFromDrive:(int)driveNumber {
+    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
+    changed_df[driveNumber][0] = 0;
+    real_changed_df[driveNumber] = 1;
+}
+
+- (BOOL)diskInsertedIntoDrive:(int)driveNumber {
+    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
+    return changed_df[driveNumber][0] != 0;
 }
 
 @end
