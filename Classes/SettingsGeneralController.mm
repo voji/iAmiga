@@ -56,11 +56,17 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 }
 
 - (void)setupFloppyLabels {
-    NSString *df0AdfPath = [diskDriveService getInsertedDiskForDrive:0];
-    [_df0 setText:df0AdfPath ? [df0AdfPath lastPathComponent] : kNoDiskLabel];
+    NSString *adfPath = [diskDriveService getInsertedDiskForDrive:0];
+    [_df0 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
-    NSString *df1AdfPath = [diskDriveService getInsertedDiskForDrive:1];
-    [_df1 setText:df1AdfPath ? [df1AdfPath lastPathComponent] : kNoDiskLabel];
+    adfPath = [diskDriveService getInsertedDiskForDrive:1];
+    [_df1 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    
+    adfPath = [diskDriveService getInsertedDiskForDrive:2];
+    [_df2 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    
+    adfPath = [diskDriveService getInsertedDiskForDrive:3];
+    [_df3 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
 }
 
 - (void)setupConfigurationName {
@@ -163,7 +169,6 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
     settings.insertedFloppies = mutableFloppyPaths;
     [settings setFloppyConfiguration:adfPath];
-    [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
 }
 
 - (NSString *)getfirstoption {

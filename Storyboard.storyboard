@@ -354,6 +354,60 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="g0d-v6-G6R">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g0d-v6-G6R" id="j2a-ej-AUQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DF2:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDP-yJ-bKF">
+                                                    <rect key="frame" x="13" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhj-tQ-Zya" userLabel="DF12nsertedDiskLabel">
+                                                    <rect key="frame" x="481" y="11" width="500" height="21"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bDP-yJ-bKF" firstAttribute="leading" secondItem="j2a-ej-AUQ" secondAttribute="leadingMargin" constant="5" id="3OT-JX-EjE"/>
+                                                <constraint firstAttribute="centerY" secondItem="Rhj-tQ-Zya" secondAttribute="centerY" id="DJU-Ge-9iE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Rhj-tQ-Zya" secondAttribute="trailing" constant="5" id="TIw-ty-s0m"/>
+                                                <constraint firstAttribute="centerY" secondItem="bDP-yJ-bKF" secondAttribute="centerY" id="YaO-6k-Nx8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="zFo-pF-JH6">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFo-pF-JH6" id="Fm8-9r-luR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DF3:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPl-cA-X9c">
+                                                    <rect key="frame" x="13" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soj-mJ-3y3" userLabel="DF13nsertedDiskLabel">
+                                                    <rect key="frame" x="481" y="11" width="500" height="21"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="soj-mJ-3y3" secondAttribute="trailing" constant="5" id="1jp-RQ-q7Z"/>
+                                                <constraint firstItem="WPl-cA-X9c" firstAttribute="leading" secondItem="Fm8-9r-luR" secondAttribute="leadingMargin" constant="5" id="6Ns-Ib-cmG"/>
+                                                <constraint firstAttribute="centerY" secondItem="WPl-cA-X9c" secondAttribute="centerY" id="QcE-RH-wPY"/>
+                                                <constraint firstAttribute="centerY" secondItem="soj-mJ-3y3" secondAttribute="centerY" id="RI9-XD-NRb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="tsM-uV-vda">
@@ -490,6 +544,8 @@
                         <outlet property="configurationname" destination="6Yc-d0-1J1" id="VIy-bu-T7q"/>
                         <outlet property="df0" destination="620-hp-l7l" id="1d7-6X-rQs"/>
                         <outlet property="df1" destination="Wyq-9t-jBF" id="rKd-D9-I8Q"/>
+                        <outlet property="df2" destination="Rhj-tQ-Zya" id="AMI-Jm-ocX"/>
+                        <outlet property="df3" destination="soj-mJ-3y3" id="Me4-8D-PQV"/>
                         <outlet property="swautoloadconfig" destination="8pu-T2-h7e" id="QNe-ue-6Qy"/>
                         <segue destination="fbF-EZ-ckx" kind="show" identifier="SelectDisk" id="cfj-R0-Oey"/>
                         <segue destination="35x-lU-B56" kind="show" identifier="AssignDiskfiles" id="FAe-3z-c5O"/>
