@@ -322,6 +322,7 @@
                                             <constraints>
                                                 <constraint firstItem="Ybp-NV-rRY" firstAttribute="leading" secondItem="pwu-2p-Gs1" secondAttribute="leadingMargin" constant="5" id="BIb-cw-BM0"/>
                                                 <constraint firstAttribute="centerY" secondItem="Ybp-NV-rRY" secondAttribute="centerY" constant="1" id="ckK-nK-f0z"/>
+                                                <constraint firstItem="620-hp-l7l" firstAttribute="leading" secondItem="pwu-2p-Gs1" secondAttribute="leadingMargin" constant="38" id="grp-XC-z8o"/>
                                                 <constraint firstAttribute="centerY" secondItem="620-hp-l7l" secondAttribute="centerY" id="pjg-FL-Mp7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="620-hp-l7l" secondAttribute="trailing" constant="5" id="sWh-Fs-ceg"/>
                                             </constraints>
@@ -348,6 +349,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="ey2-kT-rDi" secondAttribute="centerY" id="9fQ-9z-GNU"/>
+                                                <constraint firstItem="Wyq-9t-jBF" firstAttribute="leading" secondItem="gs2-0K-ro6" secondAttribute="leadingMargin" constant="38" id="Hbp-i0-esu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Wyq-9t-jBF" secondAttribute="trailing" constant="5" id="Om3-k4-6BW"/>
                                                 <constraint firstItem="ey2-kT-rDi" firstAttribute="leading" secondItem="gs2-0K-ro6" secondAttribute="leadingMargin" constant="5" id="UFy-ai-Hru"/>
                                                 <constraint firstAttribute="centerY" secondItem="Wyq-9t-jBF" secondAttribute="centerY" id="nSp-2t-c6R"/>
@@ -374,6 +376,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Rhj-tQ-Zya" firstAttribute="leading" secondItem="j2a-ej-AUQ" secondAttribute="leadingMargin" constant="38" id="065-Gg-8Aw"/>
                                                 <constraint firstItem="bDP-yJ-bKF" firstAttribute="leading" secondItem="j2a-ej-AUQ" secondAttribute="leadingMargin" constant="5" id="3OT-JX-EjE"/>
                                                 <constraint firstAttribute="centerY" secondItem="Rhj-tQ-Zya" secondAttribute="centerY" id="DJU-Ge-9iE"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rhj-tQ-Zya" secondAttribute="trailing" constant="5" id="TIw-ty-s0m"/>
@@ -405,6 +408,7 @@
                                                 <constraint firstItem="WPl-cA-X9c" firstAttribute="leading" secondItem="Fm8-9r-luR" secondAttribute="leadingMargin" constant="5" id="6Ns-Ib-cmG"/>
                                                 <constraint firstAttribute="centerY" secondItem="WPl-cA-X9c" secondAttribute="centerY" id="QcE-RH-wPY"/>
                                                 <constraint firstAttribute="centerY" secondItem="soj-mJ-3y3" secondAttribute="centerY" id="RI9-XD-NRb"/>
+                                                <constraint firstItem="soj-mJ-3y3" firstAttribute="leading" secondItem="Fm8-9r-luR" secondAttribute="leadingMargin" constant="38" id="dXv-C9-BW7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
