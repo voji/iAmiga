@@ -1588,18 +1588,24 @@ uae_u8 *restore_disk(int num,uae_u8 *src)
     	drv->dskready = dskready;
     	drv->drive_id_scnt = drive_id_scnt;
     	drv->mfmpos = mfmpos;
-    	strncpy(changed_df[num],(char *)src,255);
-    	changed_df[num][255] = 0;
+        
+        char adf[256];
+        strncpy(adf,(char *)src,255);
+        adf[255] = 0;
+        FILE *f=fopen(adf,"rb");
+        if (f)
         {
-            FILE *f=fopen(changed_df[num],"rb");
-            if (f)
+            fclose(f);
+            if (strcmp(prefs_df[num],adf))
             {
-                fclose(f);
-                if (strcmp(prefs_df[num],changed_df[num]))
-                {
-                    real_changed_df[num] = 1;
-                }
+                strncpy(changed_df[num],adf,255);
+                real_changed_df[num] = 1;
             }
+        }
+        else
+        {
+            changed_df[num][num] = 0;
+            real_changed_df[num] = 1;
         }
     }
     else
