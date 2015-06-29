@@ -1604,7 +1604,7 @@ uae_u8 *restore_disk(int num,uae_u8 *src)
         }
         else
         {
-            changed_df[num][num] = 0;
+            changed_df[num][0] = 0;
             real_changed_df[num] = 1;
         }
     }
