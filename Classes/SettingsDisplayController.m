@@ -8,6 +8,8 @@
 
 #import "SettingsDisplayController.h"
 #import "Settings.h"
+#import "SDL.h"
+#import "UIKitDisplayView.h"
 
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
@@ -16,7 +18,6 @@ extern int mainMenu_stretchscreen;
 @implementation SettingsDisplayController {
     Settings *settings;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +49,12 @@ extern int mainMenu_stretchscreen;
 - (void)toggleStretchscreen:(id)sender {
     settings.stretchScreen = _stretchscreen.isOn;
     mainMenu_stretchscreen = _stretchscreen.isOn;
+}
+
+- (void)toggleFoo {
+ 	SDL_Surface *video = SDL_GetVideoSurface();
+    id<DisplayViewSurface> display = (id<DisplayViewSurface>)video->userdata;
+   	display.displayEffect = kDisplayEffectScanline100;
 }
 
 - (void)dealloc
