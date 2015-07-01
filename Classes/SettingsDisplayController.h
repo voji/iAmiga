@@ -17,5 +17,6 @@
 @property (readwrite, retain) IBOutlet UISwitch *ntsc;
 @property (readwrite, retain) IBOutlet UISwitch *stretchscreen;
 @property (readwrite, retain) IBOutlet UISwitch *showstatus;
+@property (readwrite, retain) IBOutlet UILabel *selectedEffectLabel;
 
 @end

@@ -8,17 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SelectEffectDelegate
-- (void)didSelectEffect:(int)effect name:(NSString*)name;
-@end
+@interface SelectEffectController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
-@interface SelectEffectController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate> {
-	NSArray *effects;
-	id<SelectEffectDelegate> delegate;
-	NSInteger lastSelectedRow;
-}
-
-- (void)setDelegate:(id<SelectEffectDelegate>)delegate;
-- (IBAction)done:(id)sender;
+@property (readwrite, nonatomic) NSUInteger selectedEffectIndex;
+@property (readonly, nonatomic) NSString *selectedEffectName;
+@property (readwrite, nonatomic) IBOutlet UIPickerView *effectsPicker;
 
 @end

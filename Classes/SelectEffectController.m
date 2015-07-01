@@ -8,58 +8,45 @@
 
 #import "SelectEffectController.h"
 
-
-@implementation SelectEffectController
+@implementation SelectEffectController {
+    NSArray *_effects;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	effects = [[NSMutableArray alloc] initWithObjects:
-						 @"None",
-						 @"Scanline (50%)",
-						 @"Scanline (100%)",
-						 @"Aperture 1x2 RB",
-						 @"Aperture 1x3 RB",
-						 @"Aperture 2x4 RB",
-						 @"Aperture 2x4 BG",
-						 nil];
-	lastSelectedRow = 0;
+	_effects = [@[@"None",
+                 @"Scanline (50%)", @"Scanline (100%)",
+                 @"Aperture 1x2 RB", @"Aperture 1x3 RB",
+                 @"Aperture 2x4 RB", @"Aperture 2x4 BG"] retain];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [_effectsPicker selectRow:_selectedEffectIndex inComponent:0 animated:YES];
+    [self pickerView:_effectsPicker didSelectRow:_selectedEffectIndex inComponent:0];
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {	
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
 	return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {	
-	return [effects count];
+	return [_effects count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	return [effects objectAtIndex:row];
+	return [_effects objectAtIndex:row];
 }
 
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {	
-	lastSelectedRow = row;
-}
-
-- (IBAction)done:(id)sender {
-	[delegate didSelectEffect:lastSelectedRow name:[effects objectAtIndex:lastSelectedRow]];
-	[self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)setDelegate:(id<SelectEffectDelegate>)aDelegate {
-	delegate = aDelegate;
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    _selectedEffectIndex = row;
+    _selectedEffectName = [_effects objectAtIndex:row];
 }
 
 - (void)dealloc {
+    [_effects release];
+    [_selectedEffectName release];
     [super dealloc];
 }
-
 
 @end

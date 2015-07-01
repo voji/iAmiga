@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EnC-f2-lWs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EnC-f2-lWs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -182,7 +182,7 @@
         <!--Effects-->
         <scene sceneID="GLW-Cg-m9h">
             <objects>
-                <viewController id="HUA-d8-Uko" userLabel="Effects" sceneMemberID="viewController">
+                <viewController id="HUA-d8-Uko" userLabel="Effects" customClass="SelectEffectController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Naj-Ej-nbX"/>
                         <viewControllerLayoutGuide type="bottom" id="MQY-Nb-ZNZ"/>
@@ -190,8 +190,26 @@
                     <view key="view" contentMode="scaleToFill" id="ehf-nC-Pp8">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select effect:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luc-yt-jcD">
+                                <rect key="frame" x="27" y="98" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvg-we-HNz">
+                                <rect key="frame" x="27" y="116" width="199" height="171"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HUA-d8-Uko" id="gLM-Oy-HmO"/>
+                                    <outlet property="delegate" destination="HUA-d8-Uko" id="qEE-DW-pZf"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="effectsPicker" destination="tvg-we-HNz" id="a1K-DN-oOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTf-ki-Q8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -330,8 +348,24 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Selected Effect" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gI-85-Nsp">
+                                                    <rect key="frame" x="733" y="11" width="247" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="247" id="FnU-2r-WWz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="FnU-2r-WWz"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9gI-85-Nsp" secondAttribute="trailing" constant="5" id="Nbs-na-aCm"/>
+                                                <constraint firstAttribute="centerY" secondItem="9gI-85-Nsp" secondAttribute="centerY" id="XSR-2w-VZC"/>
                                                 <constraint firstAttribute="centerY" secondItem="ETx-Id-pfa" secondAttribute="centerY" id="bWI-KE-Shp"/>
                                                 <constraint firstItem="ETx-Id-pfa" firstAttribute="leading" secondItem="bk9-FF-8jY" secondAttribute="leadingMargin" constant="12" id="ggc-1S-iGY"/>
                                             </constraints>
@@ -352,6 +386,7 @@
                     <tabBarItem key="tabBarItem" title="Display" image="display.png" id="egl-Jf-zmG"/>
                     <connections>
                         <outlet property="ntsc" destination="Hcb-ds-J5m" id="Omk-up-T2o"/>
+                        <outlet property="selectedEffectLabel" destination="9gI-85-Nsp" id="Mni-aL-it2"/>
                         <outlet property="showstatus" destination="8WT-27-Bj6" id="gg3-Oi-tCp"/>
                         <outlet property="stretchscreen" destination="EEq-Cq-qbU" id="XFn-Li-6oa"/>
                     </connections>
