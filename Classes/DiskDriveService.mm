@@ -18,21 +18,25 @@
 #import "sysconfig.h"
 #import "sysdeps.h"
 #import "options.h"
-
 #import "DiskDriveService.h"
 
 @implementation DiskDriveService
 
 - (NSString *)getInsertedDiskForDrive:(int)driveNumber {
-    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
-    NSString *adfPath = [NSString stringWithCString:changed_df[driveNumber] encoding:[NSString defaultCStringEncoding]];
-    return [adfPath length] == 0 ? nil : adfPath;
+    if (driveNumber < NUM_DRIVES)
+    {
+        NSString *adfPath = [NSString stringWithCString:changed_df[driveNumber] encoding:[NSString defaultCStringEncoding]];
+        return [adfPath length] == 0 ? nil : adfPath;
+    }
+    return nil;
 }
 
 - (void)insertDisk:(NSString *)adfPath intoDrive:(int)driveNumber {
-    NSAssert(driveNumber >= 0 && driveNumber <= NUM_DRIVES, @"Bad drive number");
-    [adfPath getCString:changed_df[driveNumber] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-    real_changed_df[driveNumber] = 1;
+    if (driveNumber < NUM_DRIVES)
+    {
+        [adfPath getCString:changed_df[driveNumber] maxLength:256 encoding:[NSString defaultCStringEncoding]];
+        real_changed_df[driveNumber] = 1;
+    }
 }
 
 - (void)insertDisks:(NSArray *)adfPaths {
@@ -57,6 +61,22 @@
             break;
         }
     }
+}
+
+- (void)ejectDiskFromDrive:(int)driveNumber {
+    if (driveNumber < NUM_DRIVES)
+    {
+        changed_df[driveNumber][0] = 0;
+        real_changed_df[driveNumber] = 1;
+    }
+}
+
+- (BOOL)diskInsertedIntoDrive:(int)driveNumber {
+    if (driveNumber < NUM_DRIVES)
+    {
+        return changed_df[driveNumber][0] != 0;
+    }
+    return NO;
 }
 
 @end

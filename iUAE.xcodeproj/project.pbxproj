@@ -188,7 +188,7 @@
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
 		7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */; };
-		7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.m */; };
+		7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */; };
 		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
 		7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */; };
@@ -1555,7 +1555,7 @@
 		7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadController.h; sourceTree = SOURCE_ROOT; };
 		7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadController.m; sourceTree = SOURCE_ROOT; };
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
-		7E3C13E41A51F16600534164 /* SettingsGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsGeneralController.m; sourceTree = "<group>"; };
+		7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsGeneralController.mm; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		7E4B18D4188B1C720019E82B /* chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-bottom.png"; path = "TargetSpecific/DotC/chrome-bottom.png"; sourceTree = SOURCE_ROOT; };
 		7E4B18D6188B1CAB0019E82B /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chrome-top@2x.png"; path = "TargetSpecific/DotC/chrome-top@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -2753,7 +2753,7 @@
 				7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */,
 				7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */,
 				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */,
-				7E3C13E41A51F16600534164 /* SettingsGeneralController.m */,
+				7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
 			);
@@ -4796,7 +4796,7 @@
 				7EB017781B09164900C74B9D /* StateFileManager.m in Sources */,
 				97855121153A3F2E00580B91 /* Simple.frag in Sources */,
 				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
-				7E3C13E51A51F16600534164 /* SettingsGeneralController.m in Sources */,
+				7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
 				9785512D153A3F2E00580B91 /* SDL_UIKitVideo.m in Sources */,
