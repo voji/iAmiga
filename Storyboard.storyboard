@@ -42,6 +42,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hi-zf-TDh">
+                                                <rect key="frame" x="34" y="85" width="593" height="57"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="44g-VP-zUI" firstAttribute="leading" secondItem="YZd-03-fs2" secondAttribute="leading" id="0uA-28-xhb"/>
@@ -142,14 +148,14 @@
                         <outlet property="dummy_textfield_f" destination="gQf-EM-UOL" id="7RP-Cx-avv"/>
                         <outlet property="dummy_textfield_s" destination="YZd-03-fs2" id="4ME-rd-vfg"/>
                         <outlet property="joyController" destination="8JE-eY-9II" id="ES4-LO-OCB"/>
+                        <outlet property="lblDebug" destination="1hi-zf-TDh" id="vMg-GJ-cbB"/>
                         <outlet property="menuBar" destination="mqn-Rz-0og" id="Qyb-pu-TaZ"/>
                         <outlet property="menuBarEnabler" destination="H3t-Pq-UNY" id="RnJ-Ob-SK1"/>
-                        <outlet property="mouseHandler" destination="7qW-dZ-P7e" id="l5h-nE-qEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDn-Cn-zFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208.75" y="375"/>
+            <point key="canvasLocation" x="2208" y="375"/>
         </scene>
         <!--Settings-->
         <scene sceneID="BEU-FQ-0Zh">

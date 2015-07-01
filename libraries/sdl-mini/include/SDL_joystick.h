@@ -71,6 +71,7 @@ extern Sint16 SDL_JoystickGetAxis(SDL_Joystick*, int);
 extern Uint8 SDL_JoystickGetHat(SDL_Joystick * joystick, int hat);
 extern Uint8 SDL_JoystickGetButton(SDL_Joystick*, int);
 extern void SDL_JoystickClose(SDL_Joystick*);
+extern int SDL_JoystickGetPaused(SDL_Joystick*);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

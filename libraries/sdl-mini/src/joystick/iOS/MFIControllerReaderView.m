@@ -32,7 +32,6 @@
 
 - (void)discoverController {
     
-    
     if ([[GCController controllers] count] == 0) {
         [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
         
@@ -54,6 +53,10 @@
     
     GCController *controller = [GCController controllers][0];
     
+    controller.controllerPausedHandler = ^(GCController *controller) {
+        _paused = (_paused == 1) ? 0 : 1;
+    };
+    
     controller.gamepad.valueChangedHandler = ^(GCGamepad *gamepad, GCControllerElement
                                                *element)
     {
@@ -66,13 +69,13 @@
         _buttonr2pressed = gamepad.controller.extendedGamepad.rightTrigger.isPressed != _buttonr2pressed ? !_buttonr2pressed : _buttonr2pressed; //If value for Button pressed changes invert control value;
         _buttonl2pressed = gamepad.controller.extendedGamepad.leftTrigger.isPressed != _buttonl2pressed ? !_buttonl2pressed : _buttonl2pressed; //If value for Button pressed changes invert control value;
         
-        if(gamepad.dpad.left.pressed)
+        if(gamepad.dpad.left.pressed || gamepad.controller.extendedGamepad.leftThumbstick.left.pressed)
         {
             if(gamepad.dpad.up.pressed)
             {
                 _hat_state = SDL_HAT_LEFTUP;
             }
-            else if(gamepad.dpad.down.pressed)
+            else if(gamepad.dpad.down.pressed || gamepad.controller.extendedGamepad.leftThumbstick.down.pressed)
             {
                 _hat_state = SDL_HAT_LEFTDOWN;
             }
@@ -81,13 +84,13 @@
                 _hat_state = SDL_HAT_LEFT;
             }
         }
-        else if(gamepad.dpad.right.pressed)
+        else if(gamepad.dpad.right.pressed || gamepad.controller.extendedGamepad.leftThumbstick.right.pressed)
         {
-            if(gamepad.dpad.up.pressed)
+            if(gamepad.dpad.up.pressed || gamepad.controller.extendedGamepad.leftThumbstick.up.pressed)
             {
                 _hat_state = SDL_HAT_RIGHTUP;
             }
-            else if(gamepad.dpad.down.pressed)
+            else if(gamepad.dpad.down.pressed || gamepad.controller.extendedGamepad.leftThumbstick.down.pressed)
             {
                 _hat_state = SDL_HAT_RIGHTDOWN;
             }
@@ -96,11 +99,11 @@
                 _hat_state = SDL_HAT_RIGHT;
             }
         }
-        else if(gamepad.dpad.up.pressed)
+        else if(gamepad.dpad.up.pressed || gamepad.controller.extendedGamepad.leftThumbstick.up.pressed)
         {
             _hat_state = SDL_HAT_UP;
         }
-        else if(gamepad.dpad.down.pressed)
+        else if(gamepad.dpad.down.pressed || gamepad.controller.extendedGamepad.leftThumbstick.down.pressed)
         {
             _hat_state = SDL_HAT_DOWN;
         }

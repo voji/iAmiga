@@ -5,7 +5,7 @@
 //  Created by Stuart Carnie on 6/5/11.
 //  Copyright 2011 Manomio LLC. All rights reserved.
 //
-//  Changed by Emufr3ak on 17.11.14.
+//  Changed by Emufr3ak on 24.06.15.
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -164,6 +164,97 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
     return 0;
 }
 
+int
+MFI_JoystickUpdateButtons(SDL_Joystick * joystick) {
+    
+    // buttons
+    MFIControllerReaderView *view = (MFIControllerReaderView *)joystick->hwdata->view;
+
+    for (int i = 0; i<= 7;i++)
+    {
+        Uint8 pr;
+        
+        switch (i) {
+            case 0:
+                pr = view.buttonapressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 1:
+                pr = view.buttonbpressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 2:
+                pr = view.buttonxpressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 3:
+                pr = view.buttonypressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 4:
+                pr = view.buttonr1pressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 5:
+                pr = view.buttonl1pressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 6:
+                pr = view.buttonr2pressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            case 7:
+                pr = view.buttonl2pressed == true ? SDL_PRESSED : SDL_RELEASED;
+                break;
+                
+            default:
+                break;
+        }
+        
+        if (joystick->buttons[i] != pr)
+        {
+            NSString *configuredkey = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", i]];
+            
+            if([configuredkey  isEqual: @"Joypad"])
+            {
+                SDL_PrivateJoystickButton(joystick, i, pr); // hasn't changed state, so don't pump and event
+            }
+            else
+            {
+                int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+                
+                joystick->buttons[i] = pr;
+                if(pr == SDL_PRESSED)
+                {
+                    SDL_Event ed = { SDL_KEYDOWN };
+                    ed.key.keysym.sym = (SDLKey) asciicode;
+                    SDL_PushEvent(&ed);
+                }
+                else
+                {
+                    SDL_Event eu = { SDL_KEYUP };
+                    eu.key.keysym.sym = (SDLKey) asciicode;
+                    SDL_PushEvent(&eu);
+                }
+            }
+            
+        }
+    }
+    
+    int paused = view.paused;
+    
+    if(joystick->paused != paused)
+    {
+        joystick->paused = paused;
+    }
+    
+    Uint8 hat_state = [view hat_state];
+    if (joystick->hats[0] != hat_state) {
+        SDL_PrivateJoystickHat(joystick, 0, hat_state);
+    }
+    
+}
+
 /* Function to update the state of a joystick - called as a device poll.
  * This function shouldn't update the joystick structure directly,
  * but instead should call SDL_PrivateJoystick*() to deliver events
@@ -222,91 +313,6 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
         MFI_JoystickUpdateButtons(joystick);
     }
 
-}
-
-int
-MFI_JoystickUpdateButtons(SDL_Joystick * joystick) {
-    
-    // buttons
-    MFIControllerReaderView *view = (MFIControllerReaderView *)joystick->hwdata->view;
-    
-    for (int i = 0; i<= 7;i++)
-    {
-        Uint8 pr;
-        
-        switch (i) {
-            case 0:
-                pr = view.buttonapressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-            
-            case 1:
-                pr = view.buttonbpressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-            
-            case 2:
-                pr = view.buttonxpressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-            
-            case 3:
-                pr = view.buttonypressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-                
-            case 4:
-                pr = view.buttonr1pressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-            
-            case 5:
-                pr = view.buttonl1pressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-            
-            case 6:
-                pr = view.buttonr2pressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-            
-            case 7:
-                pr = view.buttonl2pressed == true ? SDL_PRESSED : SDL_RELEASED;
-                break;
-                
-            default:
-                break;
-        }
-        
-        
-        if (joystick->buttons[i] != pr)
-        {
-            NSString *configuredkey = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", i]];
-            
-            if([configuredkey  isEqual: @"Joypad"])
-            {
-                SDL_PrivateJoystickButton(joystick, i, pr); // hasn't changed state, so don't pump and event
-            }
-            else
-            {
-                int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
-                
-                joystick->buttons[i] = pr;
-                if(pr == SDL_PRESSED)
-                {
-                    SDL_Event ed = { SDL_KEYDOWN };
-                    ed.key.keysym.sym = (SDLKey) asciicode;
-                    SDL_PushEvent(&ed);
-                }
-                else
-                {
-                    SDL_Event eu = { SDL_KEYUP };
-                    eu.key.keysym.sym = (SDLKey) asciicode;
-                    SDL_PushEvent(&eu);
-                }
-            }
-            
-        }
-    }
-    
-    Uint8 hat_state = [view hat_state];
-    if (joystick->hats[0] != hat_state) {
-        SDL_PrivateJoystickHat(joystick, 0, hat_state);
-    }
-    
 }
 
 /* Function to close a joystick after use */

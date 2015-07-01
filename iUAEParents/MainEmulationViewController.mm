@@ -37,16 +37,20 @@
 #import "savestate.h"
 #import "Settings.h"
 #import "DiskDriveService.h"
+#import <GameController/GameController.h>
+
+extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
+extern void init_joystick();
 
 @interface MainEmulationViewController()
-
-
 @end
 
 @implementation MainEmulationViewController {
     DiskDriveService *_diskDriveService;
     NSTimer *_menuHidingTimer;
     Settings *_settings;
+    NSTimer *_checkForPausedTimer;
+    NSTimer *_checkForGControllerTimer;
 }
 
 
@@ -100,11 +104,25 @@ extern void uae_reset();
     }
     
     [self initMenuBarHidingTimer];
-
+    [self initcheckForPaused];
+    
     if (_settings.autoloadConfig && [_settings.insertedFloppies count] > 0) {
         // the emulator isn't initialized yet right here - we need to delay programmatically inserting floppies by a little
         [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(insertConfiguredDisks) userInfo:nil repeats:NO];
     }
+    
+    paused = 0;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerStateChange)
+                                                 name:GCControllerDidConnectNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerStateChange)
+                                                 name:GCControllerDidDisconnectNotification
+                                               object:nil];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -200,6 +218,33 @@ extern void uae_reset();
     }
 }
 
+-(void)checkForPaused:(NSTimer *)timer {
+    
+    //As emulator is paused this methods needs to be called to check for Joypad as it wont get called by the emulator
+    if(paused) SDL_JoystickUpdate();
+    
+    int pausednew;
+    pausednew = SDL_JoystickGetPaused(uae4all_joy0);
+    
+    if(pausednew != paused )
+    {
+        paused = pausednew;
+        
+        if(paused == 1)
+        {
+            [self pauseEmulator];
+        }
+        else
+        {
+            [self resumeEmulator];
+        }
+    }
+}
+
+-(void)controllerStateChange {
+    init_joystick();
+}
+
 - (void)initMenuBarHidingTimer {
     if (_menuHidingTimer) {
         [_menuHidingTimer release];
@@ -208,6 +253,20 @@ extern void uae_reset();
                                                        selector:@selector(checkForMenuBarHiding:) userInfo:nil repeats:YES] retain];
     _menuHidingTimer.tolerance = 0.0020;
 }
+
+- (void) initcheckForPaused {
+    if (_checkForPausedTimer) {
+        [_checkForPausedTimer release];
+    }
+    
+    _checkForPausedTimer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                                           selector:@selector(checkForPaused:) userInfo:nil repeats:YES] retain];
+    
+    _checkForPausedTimer.tolerance = 0.0020;
+    
+}
+
+
 
 - (void)insertConfiguredDisks {
     [_diskDriveService insertDisks:_settings.insertedFloppies];

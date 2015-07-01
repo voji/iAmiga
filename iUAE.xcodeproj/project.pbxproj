@@ -307,7 +307,7 @@
 		9706D6E51561817500073678 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
 		9706D6E61561817500073678 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		9706D6E71561817500073678 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		9706D6E81561817500073678 /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
+		9706D6E81561817500073678 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		9706D6E91561817500073678 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		9706D6EA1561817500073678 /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		9706D6EB1561817500073678 /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -475,7 +475,7 @@
 		97242CAD156177EC00B6D03C /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
 		97242CAE156177EC00B6D03C /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		97242CAF156177EC00B6D03C /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		97242CB0156177EC00B6D03C /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
+		97242CB0156177EC00B6D03C /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		97242CB1156177EC00B6D03C /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		97242CB2156177EC00B6D03C /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		97242CB3156177EC00B6D03C /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -596,9 +596,9 @@
 		978550D9153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
 		978550DA153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
 		978550DB153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		978550DC153A3F2E00580B91 /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
-		978550DD153A3F2E00580B91 /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
-		978550DE153A3F2E00580B91 /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
+		978550DC153A3F2E00580B91 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
+		978550DD153A3F2E00580B91 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
+		978550DE153A3F2E00580B91 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		978550DF153A3F2E00580B91 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		978550E0153A3F2E00580B91 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		978550E2153A3F2E00580B91 /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
@@ -762,7 +762,7 @@
 		9787FA911561882D00458A4A /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
 		9787FA921561882D00458A4A /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		9787FA931561882D00458A4A /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		9787FA941561882D00458A4A /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
+		9787FA941561882D00458A4A /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		9787FA951561882D00458A4A /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		9787FA961561882D00458A4A /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		9787FA971561882D00458A4A /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -870,7 +870,7 @@
 		9787FBF415618A5E00458A4A /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
 		9787FBF515618A5E00458A4A /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		9787FBF615618A5E00458A4A /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		9787FBF715618A5E00458A4A /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
+		9787FBF715618A5E00458A4A /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		9787FBF815618A5E00458A4A /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		9787FBF915618A5E00458A4A /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		9787FBFA15618A5E00458A4A /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -1156,7 +1156,7 @@
 		97C8758C156E834100197738 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
 		97C8758D156E834100197738 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		97C8758E156E834100197738 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		97C8758F156E834100197738 /* SDL_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.c */; };
+		97C8758F156E834100197738 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		97C87590156E834100197738 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		97C87591156E834100197738 /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		97C87592156E834100197738 /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -1820,7 +1820,7 @@
 		9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_sysjoystick.m; sourceTree = "<group>"; };
 		9785508C153A3F2E00580B91 /* SDLUIAccelerationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLUIAccelerationDelegate.h; sourceTree = "<group>"; };
 		9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLUIAccelerationDelegate.m; sourceTree = "<group>"; };
-		9785508E153A3F2E00580B91 /* SDL_joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_joystick.c; sourceTree = "<group>"; };
+		9785508E153A3F2E00580B91 /* SDL_joystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_joystick.m; sourceTree = "<group>"; };
 		9785508F153A3F2E00580B91 /* SDL_joystick_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_joystick_c.h; sourceTree = "<group>"; };
 		97855090153A3F2E00580B91 /* SDL_sysjoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_sysjoystick.h; sourceTree = "<group>"; };
 		97855091153A3F2E00580B91 /* SDL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SDL.mm; sourceTree = "<group>"; };
@@ -3288,7 +3288,7 @@
 			isa = PBXGroup;
 			children = (
 				97855083153A3F2E00580B91 /* iOS */,
-				9785508E153A3F2E00580B91 /* SDL_joystick.c */,
+				9785508E153A3F2E00580B91 /* SDL_joystick.m */,
 				9785508F153A3F2E00580B91 /* SDL_joystick_c.h */,
 				97855090153A3F2E00580B91 /* SDL_sysjoystick.h */,
 			);
@@ -4662,7 +4662,7 @@
 				978550D4153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D7153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550DA153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
-				978550DD153A3F2E00580B91 /* SDL_joystick.c in Sources */,
+				978550DD153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				978550E0153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E3153A3F2E00580B91 /* SDL_error.c in Sources */,
 				978550E6153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
@@ -4770,7 +4770,7 @@
 				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550D9153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
-				978550DC153A3F2E00580B91 /* SDL_joystick.c in Sources */,
+				978550DC153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				978550DF153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E2153A3F2E00580B91 /* SDL_error.c in Sources */,
 				978550E5153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
@@ -4851,7 +4851,7 @@
 				9706D6E51561817500073678 /* iControlPadReaderView.m in Sources */,
 				9706D6E61561817500073678 /* SDL_sysjoystick.m in Sources */,
 				9706D6E71561817500073678 /* SDLUIAccelerationDelegate.m in Sources */,
-				9706D6E81561817500073678 /* SDL_joystick.c in Sources */,
+				9706D6E81561817500073678 /* SDL_joystick.m in Sources */,
 				9706D6E91561817500073678 /* SDL.mm in Sources */,
 				9706D6EA1561817500073678 /* SDL_error.c in Sources */,
 				9706D6EB1561817500073678 /* SDL_NSObject+Blocks.m in Sources */,
@@ -4926,7 +4926,7 @@
 				97242CAD156177EC00B6D03C /* iControlPadReaderView.m in Sources */,
 				97242CAE156177EC00B6D03C /* SDL_sysjoystick.m in Sources */,
 				97242CAF156177EC00B6D03C /* SDLUIAccelerationDelegate.m in Sources */,
-				97242CB0156177EC00B6D03C /* SDL_joystick.c in Sources */,
+				97242CB0156177EC00B6D03C /* SDL_joystick.m in Sources */,
 				97242CB1156177EC00B6D03C /* SDL.mm in Sources */,
 				97242CB2156177EC00B6D03C /* SDL_error.c in Sources */,
 				97242CB3156177EC00B6D03C /* SDL_NSObject+Blocks.m in Sources */,
@@ -5001,7 +5001,7 @@
 				9787FA911561882D00458A4A /* iControlPadReaderView.m in Sources */,
 				9787FA921561882D00458A4A /* SDL_sysjoystick.m in Sources */,
 				9787FA931561882D00458A4A /* SDLUIAccelerationDelegate.m in Sources */,
-				9787FA941561882D00458A4A /* SDL_joystick.c in Sources */,
+				9787FA941561882D00458A4A /* SDL_joystick.m in Sources */,
 				9787FA951561882D00458A4A /* SDL.mm in Sources */,
 				9787FA961561882D00458A4A /* SDL_error.c in Sources */,
 				9787FA971561882D00458A4A /* SDL_NSObject+Blocks.m in Sources */,
@@ -5076,7 +5076,7 @@
 				9787FBF415618A5E00458A4A /* iControlPadReaderView.m in Sources */,
 				9787FBF515618A5E00458A4A /* SDL_sysjoystick.m in Sources */,
 				9787FBF615618A5E00458A4A /* SDLUIAccelerationDelegate.m in Sources */,
-				9787FBF715618A5E00458A4A /* SDL_joystick.c in Sources */,
+				9787FBF715618A5E00458A4A /* SDL_joystick.m in Sources */,
 				9787FBF815618A5E00458A4A /* SDL.mm in Sources */,
 				9787FBF915618A5E00458A4A /* SDL_error.c in Sources */,
 				9787FBFA15618A5E00458A4A /* SDL_NSObject+Blocks.m in Sources */,
@@ -5156,7 +5156,7 @@
 				97C8758C156E834100197738 /* iControlPadReaderView.m in Sources */,
 				97C8758D156E834100197738 /* SDL_sysjoystick.m in Sources */,
 				97C8758E156E834100197738 /* SDLUIAccelerationDelegate.m in Sources */,
-				97C8758F156E834100197738 /* SDL_joystick.c in Sources */,
+				97C8758F156E834100197738 /* SDL_joystick.m in Sources */,
 				97C87590156E834100197738 /* SDL.mm in Sources */,
 				97C87591156E834100197738 /* SDL_error.c in Sources */,
 				97C87592156E834100197738 /* SDL_NSObject+Blocks.m in Sources */,
@@ -5251,7 +5251,7 @@
 				978550D5153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D8153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550DB153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
-				978550DE153A3F2E00580B91 /* SDL_joystick.c in Sources */,
+				978550DE153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				97855152153A478D00580B91 /* SDL.mm in Sources */,
 				97855153153A479800580B91 /* SDL_error.c in Sources */,
 				97855154153A479C00580B91 /* SDL_NSObject+Blocks.m in Sources */,
@@ -5387,7 +5387,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = "Ad Hoc";
@@ -5412,7 +5412,7 @@
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
 				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5439,7 +5439,7 @@
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
 				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5464,7 +5464,7 @@
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.18;
 				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5787,7 +5787,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = Debug;
@@ -5840,7 +5840,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
 			name = Release;

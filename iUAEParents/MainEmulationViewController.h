@@ -32,6 +32,7 @@
     FloatPanel *fullscreenPanel;
     bool keyboardactive;
     bool joyactive;
+    int paused;
     //JoystickViewLandscape *joyControllerMain;
 }
 
@@ -53,5 +54,6 @@
 - (void) settings;
 - (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeJoypad:(InputControllerView *)joyController;
+- (void)checkForPaused:(NSTimer*)timer;
 
 @end

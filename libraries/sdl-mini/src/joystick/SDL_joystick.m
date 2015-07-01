@@ -289,6 +289,20 @@ SDL_JoystickGetButton(SDL_Joystick * joystick, int button)
     return (state);
 }
 
+int
+SDL_JoystickGetPaused(SDL_Joystick *joystick) {
+    
+    if(joystick)
+    {
+        if(joystick->paused == 1)
+        {
+            return 1;
+        }
+    }
+    
+    return 0;
+}
+
 /*
  * Close a joystick previously opened with SDL_JoystickOpen()
  */
