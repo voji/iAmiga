@@ -43,7 +43,7 @@ bool keyboardactive;
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts: dummy_textfield_s];
     
     //Uncomment for release
-    //[_lblDebug setHidden:true];
+    [_lblDebug setHidden:true];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
