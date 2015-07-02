@@ -34,6 +34,7 @@ extern int mainMenu_stretchscreen;
     [_ntsc setOn:_settings.ntsc];
     [_showstatus setOn:_settings.showStatus];
     [_stretchscreen setOn:_settings.stretchScreen];
+    [_showstatusbar setOn:_settings.showStatusBar];
     
     if (_selectEffectController)
     {
@@ -47,19 +48,23 @@ extern int mainMenu_stretchscreen;
     _selectEffectController.selectedEffectIndex = _selectedEffectIndex;
 }
 
-- (void)toggleNTSC:(id)sender {
+- (IBAction)toggleNTSC:(id)sender {
     _settings.ntsc = _ntsc.isOn;
     mainMenu_ntsc = _ntsc.isOn;
 }
 
-- (void)toggleShowstatus:(id)sender {
+- (IBAction)toggleShowstatus:(id)sender {
     _settings.showStatus = _showstatus.isOn;
     mainMenu_showStatus = _showstatus.isOn;
 }
 
-- (void)toggleStretchscreen:(id)sender {
+- (IBAction)toggleStretchscreen:(id)sender {
     _settings.stretchScreen = _stretchscreen.isOn;
     mainMenu_stretchscreen = _stretchscreen.isOn;
+}
+
+- (IBAction)toggleShowStatusBar {
+    _settings.showStatusBar = !_settings.showStatusBar;
 }
 
 - (void)onSelectedEffectAtIndex:(int)selectedEffectIndex withName:(NSString *)selectedEffectName {

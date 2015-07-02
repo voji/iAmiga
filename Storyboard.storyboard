@@ -323,6 +323,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5a-WW-aO0">
                                                     <rect key="frame" x="967" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleShowStatusBar" destination="yXc-Cp-5wh" eventType="touchUpInside" id="bVR-dB-04g"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -388,6 +391,7 @@
                         <outlet property="ntsc" destination="Hcb-ds-J5m" id="Omk-up-T2o"/>
                         <outlet property="selectedEffectLabel" destination="9gI-85-Nsp" id="Mni-aL-it2"/>
                         <outlet property="showstatus" destination="8WT-27-Bj6" id="gg3-Oi-tCp"/>
+                        <outlet property="showstatusbar" destination="T5a-WW-aO0" id="H8o-Ks-YdR"/>
                         <outlet property="stretchscreen" destination="EEq-Cq-qbU" id="XFn-Li-6oa"/>
                     </connections>
                 </tableViewController>

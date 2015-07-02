@@ -33,10 +33,13 @@ static NSString *const kInitializeKey = @"_initialize";
 static NSString *const kConfigurationNameKey = @"configurationname";
 static NSString *const kConfigurationsKey = @"configurations";
 static NSString *const kAutoloadConfigKey = @"autoloadconfig";
+static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
+
 static NSString *const kNtscKey = @"_ntsc";
 static NSString *const kStretchScreenKey = @"_stretchscreen";
 static NSString *const kShowStatusKey = @"_showstatus";
-static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
+static NSString *const kShowStatusBarKey = @"_showstatusbar";
+static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
 
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
@@ -100,6 +103,8 @@ static NSString *configurationname;
         self.ntsc = mainMenu_ntsc;
         self.stretchScreen = mainMenu_stretchscreen;
         self.showStatus = mainMenu_showStatus;
+        self.showStatusBar = YES;
+        self.selectedEffectIndex = 0;
         [self setBool:TRUE forKey:kInitializeKey];
     }
     else
@@ -134,7 +139,6 @@ static NSString *configurationname;
     [self setBool:ntsc forKey:kNtscKey];
 }
 
-
 - (BOOL)stretchScreen {
     return [self boolForKey:kStretchScreenKey];
 }
@@ -149,6 +153,22 @@ static NSString *configurationname;
 
 - (void)setShowStatus:(BOOL)showStatus {
     [self setBool:showStatus forKey:kShowStatusKey];
+}
+
+- (BOOL)showStatusBar {
+    return [self boolForKey:kShowStatusBarKey];
+}
+
+- (void)setShowStatusBar:(BOOL)showStatusBar {
+    [self setBool:showStatusBar forKey:kShowStatusBarKey];
+}
+
+- (NSUInteger)selectedEffectIndex {
+    return [self integerForKey:kSelectedEffectIndexKey];
+}
+
+- (void)setSelectedEffectIndex:(NSUInteger)selectedEffectIndex {
+    return [self setInteger:selectedEffectIndex forKey:kSelectedEffectIndexKey];
 }
 
 - (NSString *)configurationName {
@@ -168,81 +188,43 @@ static NSString *configurationname;
 }
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname {
-    if([settingitemname hasPrefix:@"_"])
-    //Setting in own Configuration
-    {
-        [defaults setBool:value forKey:[NSString stringWithFormat:@"%@%@", configurationname, settingitemname]];
-    }
-    else
-    //General Setting
-    {
-        [defaults setBool:value forKey:settingitemname];
-    }
+    [defaults setBool:value forKey:[self getInternalSettingKey:settingitemname]];
 }
-         
+
 - (void)setObject:(id)value forKey:(NSString *)settingitemname {
-    if([settingitemname hasPrefix:@"_"])
-        //Setting in own Configuration
-    {
-        [defaults setObject:value forKey:[NSString stringWithFormat:@"%@%@", configurationname, settingitemname]];
-    }
-    else
-        //General Setting
-    {
-        [defaults setObject:value forKey:settingitemname];
-    }
+    [defaults setObject:value forKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (bool)boolForKey:(NSString *)settingitemname {
-    if([settingitemname hasPrefix:@"_"])
-    //Setting in own Configuration
-    {
-        return [defaults boolForKey:[NSString stringWithFormat:@"%@%@", configurationname,  settingitemname]];
-    }
-    else
-    {
-        return [defaults boolForKey:settingitemname];
-    }
+    return [defaults boolForKey:[self getInternalSettingKey:settingitemname]];
 }
          
 - (NSString *)stringForKey:(NSString *)settingitemname {
-    if([settingitemname hasPrefix:@"_"])
-        //Setting in own Configuration
-    {
-        return [defaults stringForKey:[NSString stringWithFormat:@"%@%@", configurationname,  settingitemname]];
-    }
-    else
-    {
-        return [defaults stringForKey:settingitemname];
-    }
+    return [defaults stringForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (void)setInteger:(NSInteger)value forKey:(NSString *)settingitemname {
+    [defaults setInteger:value forKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (NSInteger)integerForKey:(NSString *)settingitemname {
+    return [defaults integerForKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (NSArray *)arrayForKey:(NSString *)settingitemname {
-    if([settingitemname hasPrefix:@"_"])
-        //Setting in own Configuration
-    {
-        return [defaults arrayForKey:[NSString stringWithFormat:@"%@%@", configurationname,  settingitemname]];
-    }
-    else
-    {
-        return [defaults arrayForKey:settingitemname];
-    }
+    return [defaults arrayForKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (void)removeObjectForKey:(NSString *) settingitemname {
-    if([settingitemname hasPrefix:@"_"])
-        //Setting in own Configuration
-    {
-        [defaults removeObjectForKey:[NSString stringWithFormat:@"%@%@", configurationname,  settingitemname]];
-    }
-    else
-    {
-        [defaults removeObjectForKey:settingitemname];
-    }
+    [defaults removeObjectForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (NSString *)getInternalSettingKey:(NSString *)name {
+    // if name starts with '_', the setting is stored in its own configuration
+    return [name hasPrefix:@"_"] ? [NSString stringWithFormat:@"%@%@", configurationname, name] : name;
 }
 
 - (NSString *)configForDisk:(NSString *)diskName {
-
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", diskName];
     return [defaults stringForKey:settingstring];
 }
@@ -251,8 +233,10 @@ static NSString *configurationname;
     
     NSString *configstring = [NSString stringWithFormat:@"cnf%@", diskName];
     
-    if([configName isEqual:@"None"]) {
-        if([self configForDisk:diskName]) {
+    if([configName isEqual:@"None"])
+    {
+        if([self configForDisk:diskName])
+        {
             [defaults setObject:nil forKey:configstring];
         }
     }

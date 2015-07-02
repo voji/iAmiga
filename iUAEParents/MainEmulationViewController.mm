@@ -130,6 +130,10 @@ extern void uae_reset();
     set_joystickactive();
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return !_settings.showStatusBar;
+}
+
 - (void)showMFIControllerAlert {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MFI Game Controllers"
                                                     message:@"This version supports MFI Game Controllers. I have no Idea if it works, because I don't own one. Feedback very welcome at emufr3ak@icloud.com or on my website www.iuae-emulator.net"
