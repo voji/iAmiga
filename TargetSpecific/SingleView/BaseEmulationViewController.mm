@@ -28,10 +28,10 @@
 #import "TouchHandlerView.h"
 #import "NSObject+Blocks.h"
 #import "iAmigaAppDelegate.h"
+#import "Settings.h"
 
 #define kDisplayWidth							320.0f
 #define kDisplayHeight							240.0f
-#define kDisplayTopOffset                       20.0f
 
 extern int mainMenu_stretchscreen;
 
@@ -40,6 +40,7 @@ extern int mainMenu_stretchscreen;
 @property (nonatomic, retain) UIView<DisplayViewSurface>	*displayView;
 @property (nonatomic,retain) UIWindow	*displayViewWindow;
 @property (nonatomic, readonly) CGRect currentDisplayFrame;
+@property (nonatomic, retain) Settings *settings;
 
 @end
 
@@ -71,6 +72,8 @@ extern int mainMenu_stretchscreen;
 	} else {
 		[view addSubview:self.displayView];
     }
+    
+    _settings = [[Settings alloc] init];
 }
 
 - (void)sendKeys:(SDLKey*)keys count:(size_t)count keyState:(SDL_EventType)keyState afterDelay:(NSTimeInterval)delayInSeconds {
@@ -126,7 +129,12 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 }
 
 - (CGFloat)displayTop {
-    return kDisplayTopOffset;
+    return _settings.showStatusBar ? [self getStatusBarHeight] : 0;
+}
+
+- (CGFloat)getStatusBarHeight {
+    CGSize statusBarSize = [[UIApplication sharedApplication] statusBarFrame].size;
+    return MIN(statusBarSize.width, statusBarSize.height);
 }
 
 - (CGRect)currentDisplayFrame {
@@ -244,9 +252,8 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
     return UIBarStyleBlackOpaque;
 }
 
-- (BOOL)prefersStatusBarHidden
-{
-    return NO;
+- (BOOL)prefersStatusBarHidden {
+    return !_settings.showStatusBar;
 }
 
 @end
