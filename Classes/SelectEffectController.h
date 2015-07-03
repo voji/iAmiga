@@ -10,8 +10,9 @@
 
 @interface SelectEffectController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (readwrite, nonatomic) NSUInteger selectedEffectIndex;
-@property (readonly, nonatomic) NSString *selectedEffectName;
-@property (readwrite, nonatomic) IBOutlet UIPickerView *effectsPicker;
+@property (nonatomic, strong) NSArray *effectNames;
+@property (nonatomic, assign) NSUInteger selectedEffectIndex;
+@property (nonatomic, strong) NSString *selectedEffectName;
+@property (nonatomic, strong) IBOutlet UIPickerView *effectsPicker;
 
 @end

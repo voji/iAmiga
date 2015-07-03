@@ -7,18 +7,10 @@
 //
 
 #import "SelectEffectController.h"
+#import "SDL.h"
+#import "UIKitDisplayView.h"
 
-@implementation SelectEffectController {
-    NSArray *_effects;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	_effects = [@[@"None",
-                 @"Scanline (50%)", @"Scanline (100%)",
-                 @"Aperture 1x2 RB", @"Aperture 1x3 RB",
-                 @"Aperture 2x4 RB", @"Aperture 2x4 BG"] retain];
-}
+@implementation SelectEffectController
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -31,21 +23,20 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {	
-	return [_effects count];
+	return [_effectNames count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	return [_effects objectAtIndex:row];
+	return [_effectNames objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     _selectedEffectIndex = row;
-    _selectedEffectName = [_effects objectAtIndex:row];
 }
 
 - (void)dealloc {
-    [_effects release];
-    [_selectedEffectName release];
+    [_effectNames release];
+    [_effectsPicker release];
     [super dealloc];
 }
 

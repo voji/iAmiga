@@ -9,15 +9,13 @@
 #import "SelectEffectController.h"
 #import "SettingsDisplayController.h"
 #import "Settings.h"
-#import "SDL.h"
-#import "UIKitDisplayView.h"
 
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
 
 @implementation SettingsDisplayController {
-    NSUInteger _selectedEffectIndex;
+    NSArray *_effectNames;
     SelectEffectController *_selectEffectController;
     Settings *_settings;
 }
@@ -26,6 +24,10 @@ extern int mainMenu_stretchscreen;
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     _settings = [[Settings alloc] init];
+    _effectNames = [@[@"None",
+                      @"Scanline (50%)", @"Scanline (100%)",
+                      @"Aperture 1x2 RB", @"Aperture 1x3 RB",
+                      @"Aperture 2x4 RB", @"Aperture 2x4 BG"] retain];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -35,17 +37,14 @@ extern int mainMenu_stretchscreen;
     [_showstatus setOn:_settings.showStatus];
     [_stretchscreen setOn:_settings.stretchScreen];
     [_showstatusbar setOn:_settings.showStatusBar];
-    
-    if (_selectEffectController)
-    {
-        [self onSelectedEffectAtIndex:_selectEffectController.selectedEffectIndex withName:_selectEffectController.selectedEffectName];
-    }
+    [self handleSelectedEffect];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [_selectEffectController release];
     _selectEffectController = [segue.destinationViewController retain];
-    _selectEffectController.selectedEffectIndex = _selectedEffectIndex;
+    _selectEffectController.effectNames = _effectNames;
+    _selectEffectController.selectedEffectIndex = _settings.selectedEffectIndex;
 }
 
 - (IBAction)toggleNTSC:(id)sender {
@@ -67,16 +66,27 @@ extern int mainMenu_stretchscreen;
     _settings.showStatusBar = !_settings.showStatusBar;
 }
 
-- (void)onSelectedEffectAtIndex:(int)selectedEffectIndex withName:(NSString *)selectedEffectName {
-    [_selectedEffectLabel setText:selectedEffectName];
-    _selectedEffectIndex = selectedEffectIndex;
-    SDL_Surface *video = SDL_GetVideoSurface();
-    id<DisplayViewSurface> display = (id<DisplayViewSurface>)video->userdata;
-   	display.displayEffect = selectedEffectIndex;
+- (void)populateEffectLabel:(int)selectedEffectIndex {
+    NSString *effectName = [_effectNames objectAtIndex:selectedEffectIndex];
+    [_selectedEffectLabel setText:effectName];
 }
 
-- (void)dealloc
-{
+- (void)handleSelectedEffect {
+    int effectIndex;
+    if (_selectEffectController)
+    {
+        effectIndex = _selectEffectController.selectedEffectIndex;
+        _settings.selectedEffectIndex = effectIndex;
+    }
+    else
+    {
+        effectIndex = _settings.selectedEffectIndex;
+    }
+    [self populateEffectLabel:effectIndex];
+}
+
+- (void)dealloc {
+    [_effectNames release];
     [_selectEffectController release];
     [_settings release];
     [super dealloc];
