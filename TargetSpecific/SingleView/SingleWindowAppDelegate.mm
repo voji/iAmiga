@@ -44,10 +44,10 @@
 
 @synthesize window, mainController;
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
     //Get some view Specific properties
-    UINavigationController *navigationcontroller = self.window.rootViewController;
-    mainController = navigationcontroller.topViewController;
+    UINavigationController *navigationcontroller = (UINavigationController *)self.window.rootViewController;
+    self.mainController = (BaseEmulationViewController *)navigationcontroller.topViewController;
     
     // Override point for customization after application launch
     [window makeKeyAndVisible];
@@ -69,8 +69,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];
     [self configureScreens];
 }
-
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     SDL_PauseOpenGL(1);
@@ -99,10 +97,7 @@
 		if (externalWindow) {
 			externalWindow.hidden = YES;
 		}
-        
-        if ([mainController respondsToSelector:@selector(setDisplayViewWindow:isExternal:)]) {
-            [mainController setDisplayViewWindow:nil isExternal:NO];
-        }
+        [mainController setDisplayViewWindow:nil isExternal:NO];
 	} else {
 		NSLog(@"External display");
 		UIScreen *secondary = [[UIScreen screens] objectAtIndex:1];
