@@ -27,6 +27,8 @@
 #import <AudioToolbox/AudioServices.h>
 #import "SDL.h"
 #import "UIKitDisplayView.h"
+#import "SVProgressHUD.h"
+#import "EMUROMBrowserViewController.h"
 
 #import "sysconfig.h"
 #import "sysdeps.h"
@@ -125,17 +127,18 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    AdfImporter *importer = [[AdfImporter alloc] init];
+    AdfImporter *importer = [[[AdfImporter alloc] init] autorelease];
     BOOL imported = [importer import:url.path];
-    NSString *message = [NSString stringWithFormat:(imported ? @"Successfully imported %@" : @"Failed to import %@"), [url.path lastPathComponent]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import"
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    [importer release];
-    [alert release];
+    if (imported)
+    {
+        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Imported %@", [url.path lastPathComponent]]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:[EMUROMBrowserViewController getAdfChangedNotificationName] object:nil];
+    }
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Failed to import %@", [url.path lastPathComponent]]];
+    }
     return imported;
 }
 

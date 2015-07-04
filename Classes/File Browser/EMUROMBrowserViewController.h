@@ -36,6 +36,8 @@
 	id context;
 }
 
++ (NSString *)getAdfChangedNotificationName;
+
 @property (nonatomic, retain) NSArray		*roms, *indexTitles;
 @property (nonatomic, retain) NSIndexPath	*selectedIndexPath;
 @property (nonatomic, assign) id<SelectRomDelegate>	delegate;

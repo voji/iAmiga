@@ -26,10 +26,18 @@
 
 @synthesize roms, selectedIndexPath, indexTitles, delegate, context;
 
++ (NSString *)getAdfChangedNotificationName {
+    return @"OnAdfChanged";
+}
+
 - (void)viewDidLoad {
 	self.title = @"Browser";
     self.adfImporter = [[AdfImporter alloc] init];
     [self reloadAdfs];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAdfChanged)
+                                                 name:[EMUROMBrowserViewController getAdfChangedNotificationName]
+                                               object:nil];
 }
 
 - (void)reloadAdfs {
@@ -86,6 +94,11 @@
 		return c - 65;
 	
     return 26;
+}
+
+- (void)onAdfChanged {
+    [self reloadAdfs];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
@@ -161,6 +174,7 @@
 	self.selectedIndexPath = nil;
 	self.context = nil;
     self.adfImporter = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }
 
