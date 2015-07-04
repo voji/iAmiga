@@ -38,13 +38,13 @@
                                              selector:@selector(onAdfChanged)
                                                  name:[EMUROMBrowserViewController getAdfChangedNotificationName]
                                                object:nil];
+    
+    self.indexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
+                        @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
+                        @"W", @"X", @"Y", @"Z", @"#"];
 }
 
 - (void)reloadAdfs {
-	self.indexTitles = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
-						@"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
-						@"W", @"X", @"Y", @"Z", @"#", nil];
-	
 	NSMutableArray *sections = [[NSMutableArray alloc] init];
 	for (int i = 0; i < 26; i++) {
 		unichar c = i+65;
