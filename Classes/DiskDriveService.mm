@@ -80,14 +80,20 @@
 }
 
 - (BOOL)enabled:(NSUInteger)driveNumber {
-    return (disabled & (1 << driveNumber)) == 0;
+    if (driveNumber < NUM_DRIVES)
+    {
+        return (disabled & (1 << driveNumber)) == 0;
+    }
+    return NO;
 }
 
-- (void)enableDrive:(NSUInteger)driveNumber enabled:(BOOL)enabled {
+- (void)enableDrive:(NSUInteger)driveNumber enable:(BOOL)enable {
     if (driveNumber < NUM_DRIVES) {
-        if (enabled) {
+        if (enable && ![self enabled:driveNumber])
+        {
             disabled -= (1 << driveNumber);
-        } else {
+        } else if (!enable && [self enabled:driveNumber])
+        {
             disabled += (1 << driveNumber);
         }
     }

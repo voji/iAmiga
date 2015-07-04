@@ -95,15 +95,15 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 // because when the emulator is reset, DISK_reset (in disk.cpp) always
 // enables all drives...that logic would have to change.
 - (IBAction)toggleDF1Switch {
-    [diskDriveService enableDrive:1 enabled:_df1Switch.isOn];
+    [diskDriveService enableDrive:1 enable:_df1Switch.isOn];
 }
 
 - (IBAction)toggleDF2Switch {
-    [diskDriveService enableDrive:2 enabled:_df2Switch.isOn];
+    [diskDriveService enableDrive:2 enable:_df2Switch.isOn];
 }
 
 - (IBAction)toggleDF3Switch {
-    [diskDriveService enableDrive:3 enabled:_df3Switch.isOn];
+    [diskDriveService enableDrive:3 enable:_df3Switch.isOn];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -54,6 +54,6 @@
 /**
  * Enables/disables the specified drive.
  */
-- (void)enableDrive:(NSUInteger)driveNumber enabled:(BOOL)enabled;
+- (void)enableDrive:(NSUInteger)driveNumber enable:(BOOL)enable;
 
 @end
