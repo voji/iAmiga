@@ -53,6 +53,13 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     [self setupFloppyLabels];
     [self setupAutoloadConfigSwitch];
     [self setupConfigurationName];
+    [self setupDriveSwitches];
+}
+
+- (void)setupDriveSwitches {
+    [_df1Switch setOn:[diskDriveService enabled:1]];
+    [_df2Switch setOn:[diskDriveService enabled:2]];
+    [_df3Switch setOn:[diskDriveService enabled:3]];
 }
 
 - (void)setupFloppyLabels {
@@ -82,6 +89,21 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
     settings.autoloadConfig = !settings.autoloadConfig;
+}
+
+// Whether a disk drive is enabled or disabled is currently not persisted in settings
+// because when the emulator is reset, DISK_reset (in disk.cpp) always
+// enables all drives...that logic would have to change.
+- (IBAction)toggleDF1Switch {
+    [diskDriveService enableDrive:1 enabled:_df1Switch.isOn];
+}
+
+- (IBAction)toggleDF2Switch {
+    [diskDriveService enableDrive:2 enabled:_df2Switch.isOn];
+}
+
+- (IBAction)toggleDF3Switch {
+    [diskDriveService enableDrive:3 enabled:_df3Switch.isOn];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -202,6 +224,7 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) { // OK button
         uae_reset();
+        [self setupUIState];
         [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
         [SVProgressHUD showSuccessWithStatus:@"Reset Amiga"];
     }

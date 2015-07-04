@@ -71,7 +71,8 @@ static int floppy_speed = NORMAL_FLOPPY_SPEED;
  */
 
 static int side, direction, writing;
-static uae_u8 selected = 15, disabled=0;
+static uae_u8 selected = 15;
+uae_u8 disabled=0;
 
 static uae_u8 *writebuffer[544 * 22];
 

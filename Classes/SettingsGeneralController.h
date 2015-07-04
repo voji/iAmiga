@@ -30,6 +30,9 @@
 @property (readwrite, retain) IBOutlet UILabel *df1;
 @property (readwrite, retain) IBOutlet UILabel *df2;
 @property (readwrite, retain) IBOutlet UILabel *df3;
+@property (readwrite, retain) IBOutlet UISwitch *df1Switch;
+@property (readwrite, retain) IBOutlet UISwitch *df2Switch;
+@property (readwrite, retain) IBOutlet UISwitch *df3Switch;
 @property (readwrite, retain) IBOutlet UILabel *configurationname;
 @property (readwrite, retain) IBOutlet UITableViewCell *cellconfiguration;
 

@@ -39,11 +39,21 @@
 /**
  * Ejects the disk from the specified drive number.
  */
-- (void)ejectDiskFromDrive:(int)driveNumber;
+- (void)ejectDiskFromDrive:(NSUInteger)driveNumber;
 
 /**
- * Returns YES if a disk is inserted into the specified drive.
+ * Returns YES if a disk is currently inserted into the specified drive, NO otherwise.
  */
-- (BOOL)diskInsertedIntoDrive:(int)driveNumber;
+- (BOOL)diskInsertedIntoDrive:(NSUInteger)driveNumber;
+
+/**
+ * Returns YES if the specified is enabled, NO otherwise.
+ */
+- (BOOL)enabled:(NSUInteger)driveNumber;
+
+/**
+ * Enables/disables the specified drive.
+ */
+- (void)enableDrive:(NSUInteger)driveNumber enabled:(BOOL)enabled;
 
 @end

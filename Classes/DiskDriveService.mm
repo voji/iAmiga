@@ -63,7 +63,7 @@
     }
 }
 
-- (void)ejectDiskFromDrive:(int)driveNumber {
+- (void)ejectDiskFromDrive:(NSUInteger)driveNumber {
     if (driveNumber < NUM_DRIVES)
     {
         changed_df[driveNumber][0] = 0;
@@ -71,12 +71,26 @@
     }
 }
 
-- (BOOL)diskInsertedIntoDrive:(int)driveNumber {
+- (BOOL)diskInsertedIntoDrive:(NSUInteger)driveNumber {
     if (driveNumber < NUM_DRIVES)
     {
         return changed_df[driveNumber][0] != 0;
     }
     return NO;
+}
+
+- (BOOL)enabled:(NSUInteger)driveNumber {
+    return (disabled & (1 << driveNumber)) == 0;
+}
+
+- (void)enableDrive:(NSUInteger)driveNumber enabled:(BOOL)enabled {
+    if (driveNumber < NUM_DRIVES) {
+        if (enabled) {
+            disabled -= (1 << driveNumber);
+        } else {
+            disabled += (1 << driveNumber);
+        }
+    }
 }
 
 @end
