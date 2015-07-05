@@ -49,10 +49,10 @@
                 continue; // placeholder item
             }
             if ([[NSFileManager defaultManager] fileExistsAtPath:adfPath isDirectory:NULL]) {
-                // it is possible that the stored adf path is no longer valid - this often happens
-                // during debugging.  If that's the case, don't even attempt to insert the floppy
                 [self insertDisk:adfPath intoDrive:driveNumber];
             } else {
+                // it is possible that the stored adf path is no longer valid - this often happens
+                // during debugging.  If that's the case, don't even attempt to insert the floppy
                 NSLog(@"adf does not exist: %@", adfPath);
             }
         }
