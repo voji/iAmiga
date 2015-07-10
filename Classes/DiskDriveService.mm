@@ -49,10 +49,10 @@
                 continue; // placeholder item
             }
             if ([[NSFileManager defaultManager] fileExistsAtPath:adfPath isDirectory:NULL]) {
-                // it is possible that the stored adf path is no longer valid - this often happens
-                // during debugging.  If that's the case, don't even attempt to insert the floppy
                 [self insertDisk:adfPath intoDrive:driveNumber];
             } else {
+                // it is possible that the stored adf path is no longer valid - this often happens
+                // during debugging.  If that's the case, don't even attempt to insert the floppy
                 NSLog(@"adf does not exist: %@", adfPath);
             }
         }
@@ -63,7 +63,7 @@
     }
 }
 
-- (void)ejectDiskFromDrive:(int)driveNumber {
+- (void)ejectDiskFromDrive:(NSUInteger)driveNumber {
     if (driveNumber < NUM_DRIVES)
     {
         changed_df[driveNumber][0] = 0;
@@ -71,12 +71,52 @@
     }
 }
 
-- (BOOL)diskInsertedIntoDrive:(int)driveNumber {
+- (BOOL)diskInsertedIntoDrive:(NSUInteger)driveNumber {
     if (driveNumber < NUM_DRIVES)
     {
         return changed_df[driveNumber][0] != 0;
     }
     return NO;
+}
+
+- (BOOL)enabled:(NSUInteger)driveNumber {
+    if (driveNumber < NUM_DRIVES)
+    {
+        return (disabled & (1 << driveNumber)) == 0;
+    }
+    return NO;
+}
+
+- (void)enableDrive:(NSUInteger)driveNumber enable:(BOOL)enable {
+    if (driveNumber < NUM_DRIVES) {
+        if (enable && ![self enabled:driveNumber])
+        {
+            disabled -= (1 << driveNumber);
+        } else if (!enable && [self enabled:driveNumber])
+        {
+            disabled += (1 << driveNumber);
+        }
+    }
+}
+
+- (DriveState *)getDriveState {
+    DriveState *driveState = [[[DriveState alloc] init] autorelease];
+    driveState.df1Enabled = [self enabled:1];
+    driveState.df2Enabled = [self enabled:2];
+    driveState.df3Enabled = [self enabled:3];
+    return driveState;
+}
+
+- (void)setDriveState:(DriveState *)driveState {
+    if (NUM_DRIVES > 1) {
+        [self enableDrive:1 enable:driveState.df1Enabled];
+    }
+    if (NUM_DRIVES > 2) {
+        [self enableDrive:2 enable:driveState.df2Enabled];
+    }
+    if (NUM_DRIVES > 3) {
+        [self enableDrive:3 enable:driveState.df3Enabled];
+    }
 }
 
 @end

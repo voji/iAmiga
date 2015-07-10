@@ -15,6 +15,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import <Foundation/Foundation.h>
+#import "DriveState.h"
 
 /**
  * The disk drive service handles interactions with the disk drives.
@@ -39,11 +40,31 @@
 /**
  * Ejects the disk from the specified drive number.
  */
-- (void)ejectDiskFromDrive:(int)driveNumber;
+- (void)ejectDiskFromDrive:(NSUInteger)driveNumber;
 
 /**
- * Returns YES if a disk is inserted into the specified drive.
+ * Returns YES if a disk is currently inserted into the specified drive, NO otherwise.
  */
-- (BOOL)diskInsertedIntoDrive:(int)driveNumber;
+- (BOOL)diskInsertedIntoDrive:(NSUInteger)driveNumber;
+
+/**
+ * Returns YES if the specified is enabled, NO otherwise.
+ */
+- (BOOL)enabled:(NSUInteger)driveNumber;
+
+/**
+ * Enables/disables the specified drive.
+ */
+- (void)enableDrive:(NSUInteger)driveNumber enable:(BOOL)enable;
+
+/**
+ * Returns a DriveState instance that has enabled/disabled information for all drives.
+ */
+- (DriveState *)getDriveState;
+
+/**
+ * Enables/disables drives as specified in the given driveState instance.
+ */
+- (void)setDriveState:(DriveState *)driveState;
 
 @end
