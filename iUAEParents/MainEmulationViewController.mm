@@ -127,6 +127,7 @@ extern void uae_reset();
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self applyConfiguredEffect];
     set_joystickactive();
 }
 
@@ -139,6 +140,12 @@ extern void uae_reset();
     
     [alert show];
     [alert release];
+}
+
+- (void)applyConfiguredEffect {
+    SDL_Surface *video = SDL_GetVideoSurface();
+    id<DisplayViewSurface> display = (id<DisplayViewSurface>)video->userdata;
+    display.displayEffect = (DisplayEffect)_settings.selectedEffectIndex;
 }
 
 - (void)initializeJoypad:(InputControllerView *)joyController {
