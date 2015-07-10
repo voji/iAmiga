@@ -24,10 +24,11 @@
 #import "DynamicLandscapeControls.h"
 #import "TouchHandlerViewClassic.h"
 #import "InputControllerView.h"
+#import "ResetController.h"
 
 @class VirtualKeyboard;
 
-@interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
+@interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
     VirtualKeyboard				*vKeyboard;
     FloatPanel *fullscreenPanel;
     bool keyboardactive;

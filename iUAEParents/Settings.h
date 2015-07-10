@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DriveState.h"
 
 @interface Settings : NSObject
 
@@ -20,6 +21,7 @@
 @property (nonatomic, readwrite, assign) BOOL showStatus;
 @property (nonatomic, readwrite, assign) NSString *configurationName;
 @property (nonatomic, readwrite, assign) NSArray *configurations;
+@property (nonatomic, readwrite, assign) DriveState *driveState;
 
 /**
  * Returns YES if this is the very first time that the settings are initialized (the firs time the app runs).

@@ -15,6 +15,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import <Foundation/Foundation.h>
+#import "DriveState.h"
 
 /**
  * The disk drive service handles interactions with the disk drives.
@@ -55,5 +56,15 @@
  * Enables/disables the specified drive.
  */
 - (void)enableDrive:(NSUInteger)driveNumber enable:(BOOL)enable;
+
+/**
+ * Returns a DriveState instance that has enabled/disabled information for all drives.
+ */
+- (DriveState *)getDriveState;
+
+/**
+ * Enables/disables drives as specified in the given driveState instance.
+ */
+- (void)setDriveState:(DriveState *)driveState;
 
 @end

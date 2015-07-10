@@ -19,6 +19,7 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import <UIKit/UIKit.h>
+#import "ResetController.h"
 #import "EMUROMBrowserViewController.h"
 #import "SelectConfigurationViewController.h"
 
@@ -37,7 +38,6 @@
 @property (readwrite, retain) IBOutlet UITableViewCell *cellconfiguration;
 
 @property (readwrite, retain) UIImage *emulatorScreenshot;
+@property (readwrite, assign) id<ResetDelegate> resetDelegate;
 
 @end
-
-

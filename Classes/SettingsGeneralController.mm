@@ -18,8 +18,6 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import "uae.h"
-
 #import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
@@ -32,6 +30,7 @@ static NSString *const kSelectDiskSegue = @"SelectDisk";
 static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
 static NSString *const kStateManagementSegue = @"StateManagement";
+static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
@@ -47,6 +46,10 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 - (void)viewWillAppear:(BOOL)animated {
     [settings initializeSettings];
     [self setupUIState];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (void)setupUIState {
@@ -89,21 +92,6 @@ static NSString *const kStateManagementSegue = @"StateManagement";
 
 - (IBAction)toggleAutoloadconfig:(id)sender {
     settings.autoloadConfig = !settings.autoloadConfig;
-}
-
-// Whether a disk drive is enabled or disabled is currently not persisted in settings
-// because when the emulator is reset, DISK_reset (in disk.cpp) always
-// enables all drives...that logic would have to change.
-- (IBAction)toggleDF1Switch {
-    [diskDriveService enableDrive:1 enable:_df1Switch.isOn];
-}
-
-- (IBAction)toggleDF2Switch {
-    [diskDriveService enableDrive:2 enable:_df2Switch.isOn];
-}
-
-- (IBAction)toggleDF3Switch {
-    [diskDriveService enableDrive:3 enable:_df3Switch.isOn];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -149,7 +137,7 @@ static NSString *const kStateManagementSegue = @"StateManagement";
         }
         else if (indexPath.row == 1)
         {
-            [self showResetAlert];
+            [self performSegueWithIdentifier:kConfirmResetSegue sender:nil];
         }
     }
 }
@@ -170,6 +158,11 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     {
         StateManagementController *stateController = segue.destinationViewController;
         stateController.emulatorScreenshot = _emulatorScreenshot;
+    }
+    else if ([segue.identifier isEqualToString:kConfirmResetSegue])
+    {
+        ResetController *resetController = segue.destinationViewController;
+        resetController.delegate = self.resetDelegate;
     }
 }
 
@@ -221,28 +214,16 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) { // OK button
-        uae_reset();
-        [self setupUIState];
-        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
-        [SVProgressHUD showSuccessWithStatus:@"Reset Amiga"];
-    }
-}
-
-- (void)showResetAlert {
-    [[[[UIAlertView alloc] initWithTitle:@"Reset Amiga"
-                                 message:@"Are you sure?"
-                                delegate:self
-                       cancelButtonTitle:@"OK"
-                       otherButtonTitles:@"Cancel", nil] autorelease] show];
-}
-
 - (void)dealloc {
     [diskDriveService release];
     [settings release];
     [_df0 release];
     [_df1 release];
+    [_df2 release];
+    [_df3 release];
+    [_df1Switch release];
+    [_df2Switch release];
+    [_df3Switch release];
     [_configurationname release];
     [_cellconfiguration release];
     [_emulatorScreenshot release];

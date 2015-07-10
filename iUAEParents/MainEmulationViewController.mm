@@ -36,6 +36,7 @@
 #import "UIKitDisplayView.h"
 #import "savestate.h"
 #import "Settings.h"
+#import "SettingsGeneralController.h"
 #import "DiskDriveService.h"
 #import <GameController/GameController.h>
 
@@ -104,11 +105,13 @@ extern void uae_reset();
     }
     
     [self initMenuBarHidingTimer];
-    [self initcheckForPaused];
+    [self initCheckForPausedTimer];
     
-    if (_settings.autoloadConfig && [_settings.insertedFloppies count] > 0) {
-        // the emulator isn't initialized yet right here - we need to delay programmatically inserting floppies by a little
-        [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(insertConfiguredDisks) userInfo:nil repeats:NO];
+    if (_settings.autoloadConfig)
+    {
+        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here - we need to delay disk drive related tasks by a little bit
+        [self initDriveSetupTimer:_settings.driveState];
+        [self initDiskInsertTimer:_settings.insertedFloppies];
     }
     
     paused = 0;
@@ -128,6 +131,19 @@ extern void uae_reset();
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     set_joystickactive();
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    UITabBarController *tabBarController = segue.destinationViewController;
+    SettingsGeneralController *settingsController = [tabBarController.viewControllers objectAtIndex:0];
+    settingsController.resetDelegate = self;
+}
+
+- (void)didSelectReset:(DriveState *)driveState {
+    uae_reset();
+    _settings.driveState = driveState;
+    [self initDriveSetupTimer:driveState];
 }
 
 - (void)showMFIControllerAlert {
@@ -245,6 +261,14 @@ extern void uae_reset();
     init_joystick();
 }
 
+- (void)initDriveSetupTimer:(DriveState *)driveState {
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(setupDrives:) userInfo:driveState repeats:NO];
+}
+
+- (void)initDiskInsertTimer:(NSArray *)insertedFloppies {
+    [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(insertConfiguredDisks:) userInfo:insertedFloppies repeats:NO];
+}
+
 - (void)initMenuBarHidingTimer {
     if (_menuHidingTimer) {
         [_menuHidingTimer release];
@@ -254,7 +278,7 @@ extern void uae_reset();
     _menuHidingTimer.tolerance = 0.0020;
 }
 
-- (void) initcheckForPaused {
+- (void)initCheckForPausedTimer {
     if (_checkForPausedTimer) {
         [_checkForPausedTimer release];
     }
@@ -266,11 +290,18 @@ extern void uae_reset();
     
 }
 
+- (void)insertConfiguredDisks:(NSTimer *)timer {
+    NSArray *insertedFloppies = timer.userInfo;
+    if ([insertedFloppies count] > 0)
+    {
+        [_diskDriveService insertDisks:insertedFloppies];
+        [_settings setFloppyConfigurations:insertedFloppies];
+    }
+}
 
-
-- (void)insertConfiguredDisks {
-    [_diskDriveService insertDisks:_settings.insertedFloppies];
-    [_settings setFloppyConfigurations:_settings.insertedFloppies];
+- (void)setupDrives:(NSTimer *)timer {
+    DriveState *driveState = timer.userInfo;
+    [_diskDriveService setDriveState:driveState];
 }
 
 - (void)dealloc

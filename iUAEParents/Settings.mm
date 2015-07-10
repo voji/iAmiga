@@ -38,6 +38,10 @@ static NSString *const kStretchScreenKey = @"_stretchscreen";
 static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
 
+static NSString *const kDf1EnabledKey = @"df1Enabled";
+static NSString *const kDf2EnabledKey = @"df2Enabled";
+static NSString *const kDf3EnabledKey = @"df3Enabled";
+
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
@@ -72,6 +76,7 @@ static NSString *configurationname;
     {
         [defaults setBool:TRUE forKey:kAppSettingsInitializedKey];
         self.autoloadConfig = FALSE;
+        self.driveState = [DriveState getAllEnabled];
         [defaults setObject:@"General" forKey:kConfigurationNameKey];
     }
     return isFirstInitialization;
@@ -165,6 +170,20 @@ static NSString *configurationname;
 
 - (void)setConfigurations:(NSArray *)configurations {
     [self setObject:configurations forKey:kConfigurationsKey];
+}
+
+- (DriveState *)driveState {
+    DriveState *driveState = [[[DriveState alloc] init] autorelease];
+    driveState.df1Enabled = [self boolForKey:kDf1EnabledKey];
+    driveState.df2Enabled = [self boolForKey:kDf2EnabledKey];
+    driveState.df3Enabled = [self boolForKey:kDf3EnabledKey];
+    return driveState;
+}
+
+- (void)setDriveState:(DriveState *)driveState {
+    [self setBool:driveState.df1Enabled forKey:kDf1EnabledKey];
+    [self setBool:driveState.df2Enabled forKey:kDf2EnabledKey];
+    [self setBool:driveState.df3Enabled forKey:kDf3EnabledKey];
 }
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname {

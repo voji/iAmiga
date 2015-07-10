@@ -99,4 +99,24 @@
     }
 }
 
+- (DriveState *)getDriveState {
+    DriveState *driveState = [[[DriveState alloc] init] autorelease];
+    driveState.df1Enabled = [self enabled:1];
+    driveState.df2Enabled = [self enabled:2];
+    driveState.df3Enabled = [self enabled:3];
+    return driveState;
+}
+
+- (void)setDriveState:(DriveState *)driveState {
+    if (NUM_DRIVES > 1) {
+        [self enableDrive:1 enable:driveState.df1Enabled];
+    }
+    if (NUM_DRIVES > 2) {
+        [self enableDrive:2 enable:driveState.df2Enabled];
+    }
+    if (NUM_DRIVES > 3) {
+        [self enableDrive:3 enable:driveState.df3Enabled];
+    }
+}
+
 @end
