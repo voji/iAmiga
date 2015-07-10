@@ -191,21 +191,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select effect:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luc-yt-jcD">
-                                <rect key="frame" x="27" y="98" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvg-we-HNz">
-                                <rect key="frame" x="27" y="116" width="199" height="171"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvg-we-HNz">
+                                <rect key="frame" x="66" y="112" width="200" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8br-YU-hPm"/>
+                                    <constraint firstAttribute="height" constant="165" id="K1r-jo-8TQ"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="HUA-d8-Uko" id="gLM-Oy-HmO"/>
                                     <outlet property="delegate" destination="HUA-d8-Uko" id="qEE-DW-pZf"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select effect:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luc-yt-jcD">
+                                <rect key="frame" x="46" y="94" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tvg-we-HNz" secondAttribute="trailing" constant="770" id="HSB-hO-Gnb"/>
+                            <constraint firstItem="Luc-yt-jcD" firstAttribute="top" secondItem="Naj-Ej-nbX" secondAttribute="bottom" constant="30" id="LgP-Va-0FK"/>
+                            <constraint firstItem="tvg-we-HNz" firstAttribute="leading" secondItem="ehf-nC-Pp8" secondAttribute="leadingMargin" constant="50" id="T5S-Wl-Bqa"/>
+                            <constraint firstItem="tvg-we-HNz" firstAttribute="top" secondItem="Luc-yt-jcD" secondAttribute="bottom" constant="15" id="Unb-rm-9pj"/>
+                            <constraint firstItem="tvg-we-HNz" firstAttribute="leading" secondItem="ehf-nC-Pp8" secondAttribute="leadingMargin" constant="50" id="cvs-Se-yFo"/>
+                            <constraint firstItem="Luc-yt-jcD" firstAttribute="leading" secondItem="ehf-nC-Pp8" secondAttribute="leadingMargin" constant="30" id="e1O-oE-RgL"/>
+                            <constraint firstItem="tvg-we-HNz" firstAttribute="top" secondItem="Naj-Ej-nbX" secondAttribute="bottom" constant="45" id="jpz-K8-2xo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tvg-we-HNz" secondAttribute="trailing" constant="761" id="rxJ-kK-zlY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HSB-hO-Gnb"/>
+                                <exclude reference="Unb-rm-9pj"/>
+                                <exclude reference="cvs-Se-yFo"/>
+                                <exclude reference="rxJ-kK-zlY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="effectsPicker" destination="tvg-we-HNz" id="a1K-DN-oOe"/>
@@ -357,7 +379,7 @@
                                                         <constraint firstAttribute="width" constant="247" id="FnU-2r-WWz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
