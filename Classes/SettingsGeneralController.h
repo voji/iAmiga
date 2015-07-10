@@ -19,6 +19,7 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import <UIKit/UIKit.h>
+#import "ResetController.h"
 #import "EMUROMBrowserViewController.h"
 #import "SelectConfigurationViewController.h"
 
@@ -30,11 +31,13 @@
 @property (readwrite, retain) IBOutlet UILabel *df1;
 @property (readwrite, retain) IBOutlet UILabel *df2;
 @property (readwrite, retain) IBOutlet UILabel *df3;
+@property (readwrite, retain) IBOutlet UISwitch *df1Switch;
+@property (readwrite, retain) IBOutlet UISwitch *df2Switch;
+@property (readwrite, retain) IBOutlet UISwitch *df3Switch;
 @property (readwrite, retain) IBOutlet UILabel *configurationname;
 @property (readwrite, retain) IBOutlet UITableViewCell *cellconfiguration;
 
 @property (readwrite, retain) UIImage *emulatorScreenshot;
+@property (readwrite, assign) id<ResetDelegate> resetDelegate;
 
 @end
-
-

@@ -18,8 +18,6 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import "uae.h"
-
 #import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
@@ -32,6 +30,7 @@ static NSString *const kSelectDiskSegue = @"SelectDisk";
 static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
 static NSString *const kStateManagementSegue = @"StateManagement";
+static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
@@ -49,10 +48,21 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     [self setupUIState];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 - (void)setupUIState {
     [self setupFloppyLabels];
     [self setupAutoloadConfigSwitch];
     [self setupConfigurationName];
+    [self setupDriveSwitches];
+}
+
+- (void)setupDriveSwitches {
+    [_df1Switch setOn:[diskDriveService enabled:1]];
+    [_df2Switch setOn:[diskDriveService enabled:2]];
+    [_df3Switch setOn:[diskDriveService enabled:3]];
 }
 
 - (void)setupFloppyLabels {
@@ -127,7 +137,7 @@ static NSString *const kStateManagementSegue = @"StateManagement";
         }
         else if (indexPath.row == 1)
         {
-            [self showResetAlert];
+            [self performSegueWithIdentifier:kConfirmResetSegue sender:nil];
         }
     }
 }
@@ -148,6 +158,11 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     {
         StateManagementController *stateController = segue.destinationViewController;
         stateController.emulatorScreenshot = _emulatorScreenshot;
+    }
+    else if ([segue.identifier isEqualToString:kConfirmResetSegue])
+    {
+        ResetController *resetController = segue.destinationViewController;
+        resetController.delegate = self.resetDelegate;
     }
 }
 
@@ -199,27 +214,16 @@ static NSString *const kStateManagementSegue = @"StateManagement";
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) { // OK button
-        uae_reset();
-        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
-        [SVProgressHUD showSuccessWithStatus:@"Reset Amiga"];
-    }
-}
-
-- (void)showResetAlert {
-    [[[[UIAlertView alloc] initWithTitle:@"Reset Amiga"
-                                 message:@"Are you sure?"
-                                delegate:self
-                       cancelButtonTitle:@"OK"
-                       otherButtonTitles:@"Cancel", nil] autorelease] show];
-}
-
 - (void)dealloc {
     [diskDriveService release];
     [settings release];
     [_df0 release];
     [_df1 release];
+    [_df2 release];
+    [_df3 release];
+    [_df1Switch release];
+    [_df2Switch release];
+    [_df3Switch release];
     [_configurationname release];
     [_cellconfiguration release];
     [_emulatorScreenshot release];

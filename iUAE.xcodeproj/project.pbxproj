@@ -1269,6 +1269,8 @@
 		BEE41BD41B4784AC00CE487D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCD1B4784AC00CE487D /* unzip.c */; };
 		BEE41BD51B4784AC00CE487D /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCF1B4784AC00CE487D /* mztools.c */; };
 		BEE41BD61B4784AC00CE487D /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BD11B4784AC00CE487D /* ioapi.c */; };
+		BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA61B4FC9B8008E15E6 /* ResetController.m */; };
+		BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA81B4FC9B8008E15E6 /* DriveState.m */; };
 		E18F65E7154CAD470073642F /* Bazooka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E6154CAD470073642F /* Bazooka.ttf */; };
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
@@ -2113,6 +2115,10 @@
 		BEE41BD01B4784AC00CE487D /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = minizip/ioapi.h; sourceTree = "<group>"; };
 		BEE41BD11B4784AC00CE487D /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = minizip/ioapi.c; sourceTree = "<group>"; };
 		BEE41BD21B4784AC00CE487D /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = minizip/crypt.h; sourceTree = "<group>"; };
+		BE52EFA61B4FC9B8008E15E6 /* ResetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetController.m; sourceTree = "<group>"; };
+		BE52EFA71B4FC9B8008E15E6 /* ResetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetController.h; sourceTree = "<group>"; };
+		BE52EFA81B4FC9B8008E15E6 /* DriveState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveState.m; sourceTree = "<group>"; };
+		BE52EFA91B4FC9B8008E15E6 /* DriveState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveState.h; sourceTree = "<group>"; };
 		E18F65E6154CAD470073642F /* Bazooka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazooka.ttf; sourceTree = "<group>"; };
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
@@ -2750,6 +2756,8 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BE52EFA61B4FC9B8008E15E6 /* ResetController.m */,
+				BE52EFA71B4FC9B8008E15E6 /* ResetController.h */,
 				7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */,
 				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */,
 				7EB017741B09164900C74B9D /* StateFileManager.m */,
@@ -2780,6 +2788,8 @@
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
+				BE52EFA81B4FC9B8008E15E6 /* DriveState.m */,
+				BE52EFA91B4FC9B8008E15E6 /* DriveState.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4791,6 +4801,7 @@
 				05BC1AF61073448200EABC6E /* EMUFileGroup.m in Sources */,
 				05BC1AF71073448200EABC6E /* EMUFileInfo.m in Sources */,
 				05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */,
+				BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */,
 				0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */,
 				0585D5621091653E00C1E4C1 /* KeyView.m in Sources */,
 				050C393D12C31B24000CE512 /* Disa.c in Sources */,
@@ -4834,6 +4845,7 @@
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,
 				7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */,
+				BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */,
 				7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */,
 				97855100153A3F2E00580B91 /* NoEffect.m in Sources */,
 				97855103153A3F2E00580B91 /* OGLDisplay.m in Sources */,

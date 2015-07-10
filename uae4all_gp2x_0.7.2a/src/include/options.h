@@ -37,6 +37,8 @@ extern unsigned prefs_chipmem_size;
 extern int prefs_gfx_framerate, changed_gfx_framerate;
 extern int m68k_speed;
 
+extern uae_u8 disabled;
+
 
 #define PREFS_GFX_WIDTH 320
 #define PREFS_GFX_HEIGHT 240
