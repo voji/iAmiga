@@ -18,6 +18,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "AdfImporter.h"
 
 @class EMUFileInfo;
 
@@ -35,9 +36,12 @@
 	id context;
 }
 
++ (NSString *)getAdfChangedNotificationName;
+
 @property (nonatomic, retain) NSArray		*roms, *indexTitles;
 @property (nonatomic, retain) NSIndexPath	*selectedIndexPath;
 @property (nonatomic, assign) id<SelectRomDelegate>	delegate;
 @property (nonatomic, retain) id context;
+@property (nonatomic, retain) AdfImporter *adfImporter;
 
 @end

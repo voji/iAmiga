@@ -26,20 +26,25 @@
 
 @synthesize roms, selectedIndexPath, indexTitles, delegate, context;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-		// Initialization code
-	}
-	return self;
++ (NSString *)getAdfChangedNotificationName {
+    return @"OnAdfChanged";
 }
 
 - (void)viewDidLoad {
 	self.title = @"Browser";
-	
-	self.indexTitles = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", 
-						@"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
-						@"W", @"X", @"Y", @"Z", @"#", nil];
-	
+    self.adfImporter = [[AdfImporter alloc] init];
+    [self reloadAdfs];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAdfChanged)
+                                                 name:[EMUROMBrowserViewController getAdfChangedNotificationName]
+                                               object:nil];
+    
+    self.indexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
+                        @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
+                        @"W", @"X", @"Y", @"Z", @"#"];
+}
+
+- (void)reloadAdfs {
 	NSMutableArray *sections = [[NSMutableArray alloc] init];
 	for (int i = 0; i < 26; i++) {
 		unichar c = i+65;
@@ -65,22 +70,9 @@
 	self.roms = sections;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-//	if (!prefs)
-//		prefs = new Prefs();
-//	
-//	prefs->Load(Frodo::prefs_path());
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
-	// Release anything that's not essential, such as cached data
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -102,6 +94,11 @@
 		return c - 65;
 	
     return 26;
+}
+
+- (void)onAdfChanged {
+    [self reloadAdfs];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
@@ -128,6 +125,24 @@
 	}
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+    return [self.adfImporter isDownloadedAdf:fileInfo.path];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+        BOOL deleteOk = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
+        if (deleteOk) {
+            [self reloadAdfs];
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView endUpdates];
+        }
+    }
+}
+
 #define CELL_ID @"DiskCell"
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,22 +157,24 @@
 	else
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	
-	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
-	
-    cell.textLabel.text = [(EMUFileInfo *)[g.files objectAtIndex:indexPath.row] fileName];
+    EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+    cell.textLabel.text = [fileInfo fileName];
 	
     return cell;
 }
 
+- (EMUFileInfo *)getFileInfoForIndexPath:(NSIndexPath *)indexPath {
+    EMUFileGroup *group = [self.roms objectAtIndex:indexPath.section];
+    return [group.files objectAtIndex:indexPath.row];
+}
 
 - (void)dealloc {
-	//if (prefs)
-	//	delete prefs;
-	
 	self.roms = nil;
 	self.indexTitles = nil;
 	self.selectedIndexPath = nil;
 	self.context = nil;
+    self.adfImporter = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }
 

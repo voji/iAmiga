@@ -1263,6 +1263,12 @@
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
 		BE0921FF1B343D810058D9F2 /* DiskDriveService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */; };
+		BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.m */; };
+		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
+		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
+		BEE41BD41B4784AC00CE487D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCD1B4784AC00CE487D /* unzip.c */; };
+		BEE41BD51B4784AC00CE487D /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCF1B4784AC00CE487D /* mztools.c */; };
+		BEE41BD61B4784AC00CE487D /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BD11B4784AC00CE487D /* ioapi.c */; };
 		E18F65E7154CAD470073642F /* Bazooka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E6154CAD470073642F /* Bazooka.ttf */; };
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
@@ -2094,6 +2100,19 @@
 		97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoogesEmulationViewController.m; sourceTree = "<group>"; };
 		BE0921FD1B343D810058D9F2 /* DiskDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskDriveService.h; sourceTree = "<group>"; };
 		BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskDriveService.mm; sourceTree = "<group>"; };
+		BEE41BC11B4782D200CE487D /* AdfImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfImporter.m; sourceTree = "<group>"; };
+		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
+		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		BEE41BC51B47836D00CE487D /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		BEE41BCA1B4784AC00CE487D /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = minizip/zip.h; sourceTree = "<group>"; };
+		BEE41BCB1B4784AC00CE487D /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = minizip/zip.c; sourceTree = "<group>"; };
+		BEE41BCC1B4784AC00CE487D /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = minizip/unzip.h; sourceTree = "<group>"; };
+		BEE41BCD1B4784AC00CE487D /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = minizip/unzip.c; sourceTree = "<group>"; };
+		BEE41BCE1B4784AC00CE487D /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = minizip/mztools.h; sourceTree = "<group>"; };
+		BEE41BCF1B4784AC00CE487D /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mztools.c; path = minizip/mztools.c; sourceTree = "<group>"; };
+		BEE41BD01B4784AC00CE487D /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = minizip/ioapi.h; sourceTree = "<group>"; };
+		BEE41BD11B4784AC00CE487D /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = minizip/ioapi.c; sourceTree = "<group>"; };
+		BEE41BD21B4784AC00CE487D /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = minizip/crypt.h; sourceTree = "<group>"; };
 		E18F65E6154CAD470073642F /* Bazooka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazooka.ttf; sourceTree = "<group>"; };
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
@@ -2247,11 +2266,16 @@
 		050415680FCB4BC300F46828 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BEE41BC91B47849F00CE487D /* minizip */,
+				BEE41BC11B4782D200CE487D /* AdfImporter.m */,
+				BEE41BC21B4782D200CE487D /* AdfImporter.h */,
 				050415690FCB4BD400F46828 /* CocoaUtility.h */,
 				0504156A0FCB4BD400F46828 /* CocoaUtility.m */,
 				0504156C0FCB4BE600F46828 /* debug.h */,
 				057B26B313B325AB006BB230 /* NSObject+Blocks.h */,
 				057B26B413B325AB006BB230 /* NSObject+Blocks.m */,
+				BEE41BC41B47836D00CE487D /* ZipArchive.mm */,
+				BEE41BC51B47836D00CE487D /* ZipArchive.h */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -3782,6 +3806,22 @@
 			path = Stooges;
 			sourceTree = "<group>";
 		};
+		BEE41BC91B47849F00CE487D /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				BEE41BCA1B4784AC00CE487D /* zip.h */,
+				BEE41BCB1B4784AC00CE487D /* zip.c */,
+				BEE41BCC1B4784AC00CE487D /* unzip.h */,
+				BEE41BCD1B4784AC00CE487D /* unzip.c */,
+				BEE41BCE1B4784AC00CE487D /* mztools.h */,
+				BEE41BCF1B4784AC00CE487D /* mztools.c */,
+				BEE41BD01B4784AC00CE487D /* ioapi.h */,
+				BEE41BD11B4784AC00CE487D /* ioapi.c */,
+				BEE41BD21B4784AC00CE487D /* crypt.h */,
+			);
+			name = minizip;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4711,6 +4751,7 @@
 				7EA4D6571923ECC100C58BB9 /* EmulationView-iPad.mm in Sources */,
 				0552BD280F3D797C005B30DF /* cia.cpp in Sources */,
 				0552BD2D0F3D797C005B30DF /* ersatz.cpp in Sources */,
+				BEE41BD51B4784AC00CE487D /* mztools.c in Sources */,
 				0552BD2E0F3D797C005B30DF /* gfxutil.cpp in Sources */,
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
@@ -4726,6 +4767,8 @@
 				BE0921FF1B343D810058D9F2 /* DiskDriveService.mm in Sources */,
 				0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */,
 				0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */,
+				BEE41BD61B4784AC00CE487D /* ioapi.c in Sources */,
+				BEE41BD31B4784AC00CE487D /* zip.c in Sources */,
 				0552BD550F3D797C005B30DF /* writelog.cpp in Sources */,
 				7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */,
 				7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */,
@@ -4758,6 +4801,7 @@
 				0577C0F912DED4FD0040B77D /* UaeDebugger.m in Sources */,
 				05D5233712E8030E007912AE /* SelectEffectController.m in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
+				BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */,
 				05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */,
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
@@ -4766,6 +4810,7 @@
 				7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
+				BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */,
 				978550D0153A3F2E00580B91 /* iCadeReaderView.m in Sources */,
 				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
@@ -4783,6 +4828,7 @@
 				7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */,
 				978550EE153A3F2E00580B91 /* SDL_syssem.c in Sources */,
 				978550F1153A3F2E00580B91 /* SDL_systhread.c in Sources */,
+				BEE41BD41B4784AC00CE487D /* unzip.c in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,

@@ -21,11 +21,14 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "AdfImporter.h"
 #import "SingleWindowAppDelegate.h"
 #import "BaseEmulationViewController.h"
 #import <AudioToolbox/AudioServices.h>
 #import "SDL.h"
 #import "UIKitDisplayView.h"
+#import "SVProgressHUD.h"
+#import "EMUROMBrowserViewController.h"
 
 #import "sysconfig.h"
 #import "sysdeps.h"
@@ -43,10 +46,10 @@
 
 @synthesize window, mainController;
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
     //Get some view Specific properties
-    UINavigationController *navigationcontroller = self.window.rootViewController;
-    mainController = navigationcontroller.topViewController;
+    UINavigationController *navigationcontroller = (UINavigationController *)self.window.rootViewController;
+    self.mainController = (BaseEmulationViewController *)navigationcontroller.topViewController;
     
     // Override point for customization after application launch
     [window makeKeyAndVisible];
@@ -68,8 +71,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];
     [self configureScreens];
 }
-
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     SDL_PauseOpenGL(1);
@@ -98,10 +99,7 @@
 		if (externalWindow) {
 			externalWindow.hidden = YES;
 		}
-        
-        if ([mainController respondsToSelector:@selector(setDisplayViewWindow:isExternal:)]) {
-            [mainController setDisplayViewWindow:nil isExternal:NO];
-        }
+        [mainController setDisplayViewWindow:nil isExternal:NO];
 	} else {
 		NSLog(@"External display");
 		UIScreen *secondary = [[UIScreen screens] objectAtIndex:1];
@@ -128,8 +126,23 @@
 	}
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    AdfImporter *importer = [[[AdfImporter alloc] init] autorelease];
+    BOOL imported = [importer import:url.path];
+    if (imported)
+    {
+        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Imported %@", [url.path lastPathComponent]]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:[EMUROMBrowserViewController getAdfChangedNotificationName] object:nil];
+    }
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Failed to import %@", [url.path lastPathComponent]]];
+    }
+    return imported;
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskLandscape;
 }
 
