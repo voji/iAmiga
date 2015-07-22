@@ -24,8 +24,6 @@
 @property (nonatomic, readwrite, assign) BOOL showStatus;
 @property (nonatomic, readwrite, assign) BOOL showStatusBar;
 @property (nonatomic, readwrite, assign) NSUInteger selectedEffectIndex;
-@property (nonatomic, readwrite, assign) NSString *configurationName;
-@property (nonatomic, readwrite, assign) NSArray *configurations;
 @property (nonatomic, readwrite, assign) DriveState *driveState;
 
 /**

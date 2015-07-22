@@ -114,6 +114,7 @@ extern void uae_reset();
         [self initDiskInsertTimer:_settings.insertedFloppies];
     }
     
+    [self initializeControls];
     paused = 0;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -167,6 +168,12 @@ extern void uae_reset();
 - (void)initializeJoypad:(InputControllerView *)joyController {
     _joyController.hidden = TRUE;
     joyactive = FALSE;
+}
+
+- (void)initializeControls {
+    joyactive = FALSE;
+    _mouseHandler.hidden = FALSE;
+    _joyController.hidden = TRUE;
 }
 
 - (IBAction)toggleControls:(id)sender {

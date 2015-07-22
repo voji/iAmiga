@@ -22,7 +22,6 @@
 #import "SettingsGeneralController.h"
 #import "Settings.h"
 #import "StateManagementController.h"
-#import "SVProgressHUD.h"
 
 static NSString *const kNoDiskLabel = @"Empty";
 static NSString *const kNoDiskAdfPath = @"";

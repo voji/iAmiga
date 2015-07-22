@@ -46,7 +46,7 @@
 @property (readwrite, retain) UIButton *btnPin;
 @property (readwrite, retain) UIToolbar *menuBar;
 @property (nonatomic, retain) InputControllerView *joyController;
-@property (nonatomic, retain) TouchHandlerViewClassic *mouseHandler;
+@property (nonatomic, retain) IBOutlet TouchHandlerViewClassic *mouseHandler;
 
 -(IBAction)toggleControls:(id)sender;
 -(IBAction)enableMenuBar:(id)sender;
