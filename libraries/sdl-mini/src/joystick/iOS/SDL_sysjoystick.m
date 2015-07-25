@@ -255,6 +255,98 @@ MFI_JoystickUpdateButtons(SDL_Joystick * joystick) {
     
 }
 
+int
+Icade_JoystickUpdateButtons(SDL_Joystick * joystick) {
+    
+    
+    // buttons
+    iCadeReaderView *view = (iCadeReaderView *)joystick->hwdata->view;
+    iCadeState state = view.iCadeState;
+    
+    for(int i=iCadeButtonFirst, btn=0; i <= iCadeButtonLast; i <<= 1, btn++) {
+        Uint8 pr = ((i & state) != 0) ? SDL_PRESSED : SDL_RELEASED;
+        
+        if (joystick->buttons[btn] != pr)
+        {
+            int btn_pressed;
+            
+            switch (btn) {
+                case 0:
+                    btn_pressed = BTN_X;
+                    break;
+                    
+                case 1:
+                    btn_pressed = BTN_A;
+                    break;
+                    
+                case 2:
+                    btn_pressed = BTN_Y;
+                    break;
+                    
+                case 3:
+                    btn_pressed = BTN_B;
+                    break;
+                
+                case 4:
+                    btn_pressed = BTN_L1;
+                    break;
+                
+                case 5:
+                    btn_pressed = BTN_R1;
+                    break;
+                    
+                case 6:
+                    btn_pressed = BTN_L2;
+                    break;
+                
+                case 7:
+                    btn_pressed = BTN_R2;
+                    break;
+                
+                default:
+                    break;
+            }
+            
+            
+            
+            NSString *configuredkey = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", btn_pressed]];
+            
+            if([configuredkey  isEqual: @"Joypad"])
+            {
+                SDL_PrivateJoystickButton(joystick, btn, pr); // hasn't changed state, so don't pump and event
+            }
+            else
+            {
+                int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+                
+                joystick->buttons[btn] = pr;
+                
+                if(pr == SDL_PRESSED)
+                {
+                    SDL_Event ed = { SDL_KEYDOWN };
+                    ed.key.keysym.sym = (SDLKey) asciicode;
+                    SDL_PushEvent(&ed);
+                }
+                else
+                {
+                    SDL_Event eu = { SDL_KEYUP };
+                    eu.key.keysym.sym = (SDLKey) asciicode;
+                    SDL_PushEvent(&eu);
+                }
+            }
+
+        }
+
+    }
+    
+    Uint8 hat_state = (state & 0x0f);
+    if (joystick->hats[0] != hat_state) {
+        SDL_PrivateJoystickHat(joystick, 0, hat_state);
+    }
+    
+}
+
+
 /* Function to update the state of a joystick - called as a device poll.
  * This function shouldn't update the joystick structure directly,
  * but instead should call SDL_PrivateJoystick*() to deliver events
@@ -294,7 +386,7 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
     } else if (joystick->index == kiCade) {
         
         // buttons
-        iCadeReaderView *view = (iCadeReaderView *)joystick->hwdata->view;
+        /*iCadeReaderView *view = (iCadeReaderView *)joystick->hwdata->view;
         iCadeState state = view.iCadeState;
         
         for(int i=iCadeButtonFirst, btn=0; i <= iCadeButtonLast; i <<= 1, btn++) {
@@ -307,7 +399,8 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
         Uint8 hat_state = (state & 0x0f);
         if (joystick->hats[0] != hat_state) {
             SDL_PrivateJoystickHat(joystick, 0, hat_state);
-        }
+        }*/
+        Icade_JoystickUpdateButtons(joystick);
     }
     else if (joystick->index == kOfficial) {
         MFI_JoystickUpdateButtons(joystick);

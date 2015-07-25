@@ -34,7 +34,6 @@
     bool keyboardactive;
     bool joyactive;
     int paused;
-    //JoystickViewLandscape *joyControllerMain;
 }
 
 @property (readwrite) bool keyboardactive;
