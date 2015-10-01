@@ -1709,7 +1709,7 @@ static __inline__ void pfield_doline (int lineno)
 static _INLINE_ void init_row_map (void)
 {
     int i;
-    for (i = 0; i < GFXVIDINFO_HEIGHT + 1; i++)
+    for (i = 0; i < GFXVIDINFO_HEIGHT; i++)
 		row_map[i] = gfx_mem + gfx_rowbytes * i;
 }
 
