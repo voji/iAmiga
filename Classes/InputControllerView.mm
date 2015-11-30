@@ -22,24 +22,36 @@
 #import "touchstick.h"
 #import "CGVector.h"
 #import "CocoaUtility.h"
+#import "SDL_events.h"
+#import "JoypadKey.h"
+
 
 InputControllerView *sharedInstance;
 extern CJoyStick g_touchStick;
-
 
 @interface FireButtonView : UIView {
 @public
 	CJoyStick							*TheJoyStick;
 	id<InputControllerChangedDelegate>	delegate;
 	UIImageView							*fireImage;
-	BOOL								showImage;
 }
 
 @property (nonatomic, assign)	BOOL	showImage;
+@property (nonatomic, readwrite) bool showControls;
+@property (nonatomic, readwrite) NSString *joypadstyle;
+@property (nonatomic, readwrite) NSString *leftorright;
+@property (nonatomic, readwrite) BOOL showbuttontouch;
 
 @end
 
-@implementation FireButtonView
+@implementation FireButtonView {
+    Settings *_settings;
+    NSTimer *_showcontrolstimer;
+    bool _buttonapressed;
+    bool _buttonbpressed;
+    bool _buttonxpressed;
+    bool _buttonypressed;
+}
 
 @synthesize showImage;
 
@@ -49,8 +61,153 @@ extern CJoyStick g_touchStick;
 	showImage = NO;
 	TheJoyStick = &g_touchStick;
 	
+    _settings = [[Settings alloc] init];
+    [_settings initializeSettings];
+    
 	return self;
+    
 }
+
+- (void)initShowControlsTimer {
+    if (_showcontrolstimer) {
+        [_showcontrolstimer release];
+    }
+    _showcontrolstimer = [[NSTimer scheduledTimerWithTimeInterval:1.000 target:self
+                                                       selector:@selector(disableShowControls:) userInfo:nil repeats:YES] retain];
+    _showcontrolstimer.tolerance = 0.0020;
+    
+    [self setNeedsDisplay];
+}
+
+- (void)disableShowControls:(NSTimer *)timer {
+    _showControls = false;
+    [self setNeedsDisplay];
+    
+    [_showcontrolstimer invalidate];
+    [_showcontrolstimer release];
+    _showcontrolstimer = nil;
+}
+
+
+-(void)drawRect:(CGRect)rect {
+    
+    if(!_showControls && !_showbuttontouch)
+    {
+        return;
+    }
+    
+    if([_joypadstyle isEqualToString:kJoyStyleFourButton])
+    {
+        [self drawFireButtonsFour:rect];
+    }
+    else
+    {
+        [self drawFireButtonsOne:rect];
+    }
+}
+
+-(void)drawFireButtonsFour:(CGRect)rect
+{
+    NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+    textStyle.alignment = NSTextAlignmentLeft;
+    NSDictionary* textFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 12], NSForegroundColorAttributeName: UIColor.whiteColor, NSParagraphStyleAttributeName: textStyle};
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGRect yLabel = CGRectMake(CGRectGetMidX(rect), CGRectGetMidY(rect)/2, 20, 20);
+    CGRect aLabel = CGRectMake(CGRectGetMidX(rect), CGRectGetMaxY(rect)*0.75, 20, 20);
+    CGRect xLabel = CGRectMake(CGRectGetMidX(rect)/2, CGRectGetMidY(rect), 20, 20);
+    CGRect bLabel = CGRectMake(CGRectGetMaxX(rect)*0.75, CGRectGetMidY(rect), 20, 20);
+    
+    if(_showControls || _buttonypressed)
+    {
+        //Button Y
+        CGContextBeginPath(ctx);
+        CGContextMoveToPoint   (ctx, CGRectGetMinX(rect), CGRectGetMinY(rect));  // top left
+        CGContextAddLineToPoint(ctx, CGRectGetMidX(rect), CGRectGetMidY(rect));  // mid right
+        CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMinY(rect));  // bottom left
+        CGContextClosePath(ctx);
+            
+        CGContextSetRGBFillColor(ctx, 0, 0, 0.7, 0.7);
+        CGContextFillPath(ctx);
+        
+        [@"Y" drawInRect:yLabel withAttributes:textFontAttributes];
+    }
+    
+    if(_showControls || _buttonapressed)
+    {
+    //Button A
+        CGContextBeginPath(ctx);
+        CGContextMoveToPoint   (ctx, CGRectGetMinX(rect), CGRectGetMaxY(rect));  // top left
+        CGContextAddLineToPoint(ctx, CGRectGetMidX(rect), CGRectGetMidY(rect));  // mid right
+        CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMaxY(rect));  // bottom left
+        CGContextClosePath(ctx);
+
+        CGContextSetRGBFillColor(ctx, 0, 0, 0.7, 0.7);
+        CGContextFillPath(ctx);
+        
+        [@"A" drawInRect:aLabel withAttributes:textFontAttributes];
+    }
+    
+    if(_showControls || _buttonxpressed)
+    {
+    //Button X
+        CGContextBeginPath(ctx);
+        CGContextMoveToPoint   (ctx, CGRectGetMinX(rect), CGRectGetMinY(rect));  // top left
+        CGContextAddLineToPoint(ctx, CGRectGetMidX(rect), CGRectGetMidY(rect));  // mid right
+        CGContextAddLineToPoint(ctx, CGRectGetMinX(rect), CGRectGetMaxY(rect));  // bottom left
+        CGContextClosePath(ctx);
+        
+        CGContextSetRGBFillColor(ctx, 0, 0, 0.5, 0.7);
+        CGContextFillPath(ctx);
+        
+        [@"X" drawInRect:xLabel withAttributes:textFontAttributes];
+    }
+    
+    if(_showControls || _buttonbpressed)
+    {
+        //Button B
+        CGContextBeginPath(ctx);
+        CGContextMoveToPoint   (ctx, CGRectGetMaxX(rect), CGRectGetMinY(rect));  // top left
+        CGContextAddLineToPoint(ctx, CGRectGetMidX(rect), CGRectGetMidY(rect));  // mid right
+        CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMaxY(rect));  // bottom left
+        CGContextClosePath(ctx);
+        
+        CGContextSetRGBFillColor(ctx, 0, 0, 0.5, 0.7);
+        CGContextFillPath(ctx);
+        
+        [@"B" drawInRect:bLabel withAttributes:textFontAttributes];
+    }
+    
+}
+
+-(void)drawFireButtonsOne:(CGRect)rect
+{
+    NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+    textStyle.alignment = NSTextAlignmentLeft;
+    NSDictionary* textFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 12], NSForegroundColorAttributeName: UIColor.whiteColor, NSParagraphStyleAttributeName: textStyle};
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGRect aLabel = CGRectMake(CGRectGetMidX(rect), CGRectGetMidY(rect), 20, 20);
+    
+    if(_showControls || _buttonapressed)
+    {
+        //Button A
+        CGContextBeginPath(ctx);
+        CGContextMoveToPoint(ctx, CGRectGetMinX(rect), CGRectGetMinY(rect)); //top left
+        CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMinY(rect));  // top right
+        CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMaxY(rect));  // bottom right
+        CGContextAddLineToPoint(ctx, CGRectGetMinX(rect), CGRectGetMaxY(rect));  // bottom left
+        CGContextClosePath(ctx);
+        
+        CGContextSetRGBFillColor(ctx, 0, 0, 0.7, 0.7);
+        CGContextFillPath(ctx);
+        
+        [@"A" drawInRect:aLabel withAttributes:textFontAttributes];
+    }
+}
+
 
 - (void)setShowImage:(BOOL)value {
 	showImage = value;
@@ -66,32 +223,172 @@ extern CJoyStick g_touchStick;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	TheJoyStick->setButtonOneState(FireButtonDown);
-	[delegate fireButton:FireButtonDown];
-	if (showImage) {
-		UITouch *touch = [touches anyObject];
-		fireImage.center = [touch locationInView:self];
-		fireImage.hidden = NO;
-	}
+	
+    CGPoint coordinates = [[[event allTouches] anyObject] locationInView:self];
+    
+    NSString *configuredkey;
+    if([_joypadstyle isEqualToString:kJoyStyleFourButton])
+    {
+        configuredkey = [self getButtonFour:&coordinates];
+    }
+    else
+    {
+        configuredkey = [self getButtonOne:&coordinates];
+    }
+    
+    if([configuredkey  isEqual: @"Joypad"])
+    {
+        TheJoyStick->setButtonOneState(FireButtonDown);
+        [delegate fireButton:FireButtonDown];
+    }
+    else
+    {
+        int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+        
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicode;
+        SDL_PushEvent(&ed);
+    }
+    
+    //[self setButtonState:@"DOWN"];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
+/*- (void)setButtonState:(NSString *)upordown {
+    
+    if([upordown isEqualToString:@"DOWN"])
+    {
+        
+    }
+}*/
+
+- (NSString *)getButtonFour:(CGPoint *)coordinates {
+    
+    bool tophalf = (coordinates->y <= (self.frame.size.height / 2)) ? true : false;
+    bool lefthalf = (coordinates->x <= (self.frame.size.width / 2)) ? true : false;
+    int xposvertex = self.frame.size.width / 2; //Highest point of all (triangular shaped) buttons;
+    
+    int buttonheight = tophalf ? self.frame.size.height / 2 : (self.frame.size.height / 2) - 1; //Height of button
+    int xpointsreltovertex = lefthalf ? coordinates->x : (coordinates->x - self.frame.size.width)*-1; //X-Axis relative to highest point of triangle
+    
+    int xposbuttonyheight = ((double)xpointsreltovertex/ (double) xposvertex) * (double) buttonheight;
+    
+    NSString *configuredkey;
+    
+    if(tophalf && (coordinates->y <= xposbuttonyheight))
+    //Button Y
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_Y]];
+        _buttonypressed = true;
+    }
+    else if(!tophalf && coordinates->y >= buttonheight - xposbuttonyheight + (self.frame.size.height / 2))
+    //Button A
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_A]];
+        _buttonapressed = true;
+    }
+    else if(lefthalf)
+    //Button X
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_X]];
+        _buttonxpressed = true;
+    }
+    else
+    //Button B
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_B]];
+        _buttonbpressed = true;
+    }
+    
+    if(configuredkey)
+    //If any result display needs to be refreshed
+    {
+        [self setNeedsDisplay];
+    }
+    
+    return configuredkey;
+    
+}
+
+-(NSString *)getButtonOne:(CGPoint *)coordinates {
+    
+    _buttonapressed = true;
+    [self setNeedsDisplay];
+    
+    return [NSString stringWithFormat: @"_BTN_%d", BTN_A];
+}
+
+-(NSString *)releasebutton {
+    
+    NSString *configuredkey;
+    
+    if(_buttonypressed)
+        //Button Y
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_Y]];
+        _buttonypressed = false;
+    }
+    else if(_buttonapressed)
+        //Button A
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_A]];
+        _buttonapressed = false;
+    }
+    else if(_buttonxpressed)
+        //Button X
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_X]];
+        _buttonxpressed = false;
+    }
+    else if(_buttonbpressed)
+        //Button B
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_B]];
+        _buttonbpressed = false;
+    }
+    
+    if(configuredkey)
+        //If any result display needs to be refreshed
+    {
+        [self setNeedsDisplay];
+    }
+    
+    return configuredkey;
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	// ignore
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
-	TheJoyStick->setButtonOneState(FireButtonUp);
-	[delegate fireButton:FireButtonUp];
-	if (showImage) {
-		fireImage.hidden = YES;
-	}
+    CGPoint coordinates = [[[event allTouches] anyObject] locationInView:self];
+    
+    
+    NSString *configuredkey = [self releasebutton];
+    
+    if([configuredkey  isEqual: @"Joypad"])
+    {
+        TheJoyStick->setButtonOneState(FireButtonUp);
+        [delegate fireButton:FireButtonUp];
+    }
+    else
+    {
+        int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+        
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) asciicode;
+        SDL_PushEvent(&ed);
+    }
+    
 }
 
 - (void)dealloc {
 	if (fireImage)
 		[fireImage release];
 	
+    [_joypadstyle release];
+    [_leftorright release];
+    
 	[super dealloc];
 }
 
@@ -108,10 +405,17 @@ extern CJoyStick g_touchStick;
 - (void)configure;
 @end
 
-@implementation InputControllerView
-
-const CGFloat kButtonWidthPortraitPct			= 0.25;
-const CGFloat kButtonWidthLandscapePct			= 0.25;
+@implementation InputControllerView {
+    CGFloat _kButtonWidthPortraitPct;
+    CGFloat _kButtonWidthLandscapePct;
+    NSString *_joypadstyle;
+    NSString *_leftorright;
+    BOOL _showbuttontouch;
+    Settings *_settings;
+    int _asciicodekeytoreleasehorizontal;
+    int _asciicodekeytoreleasevertical;
+    TouchStickDPadState _oldstate;
+}
 
 @synthesize delegate;
 
@@ -119,6 +423,7 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
     if (self = [super initWithFrame:frame]) {
         [self configure];
     }
+    
     return self;
 }
 
@@ -126,16 +431,43 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 	[self configure];
 }
 
+-(void) showControls {
+    button.showControls = true;
+    [button initShowControlsTimer];
+}
+
 - (void)configure {
+    
     // Initialization code
     button = [[FireButtonView alloc] initWithFrame:CGRectZero];
+    button.backgroundColor = [UIColor clearColor];
     button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
     [self addSubview:button];
     _deadZone = 20.0f;	// radius, in pixels of the dead zone.
     _trackingStick = NO;
     _stickVector = new CGVector2D();
     sharedInstance = self;
-    TheJoyStick = &g_touchStick;    
+    TheJoyStick = &g_touchStick;
+    _oldstate = DPadCenter;
+    
+    _settings = [[Settings alloc] init];
+    [_settings initializeSettings];
+}
+
+- (void)setJoypadstyle:(NSString *)strjoypadstyle {
+    _joypadstyle = strjoypadstyle;
+    button.joypadstyle = _joypadstyle;
+}
+
+- (void)setLeftOrRight:(NSString *)strLeftOrRight {
+    _leftorright = strLeftOrRight;
+    button.leftorright = _leftorright;
+    [self setButtonSubview];
+}
+
+- (void)setShowButtontouch:(BOOL)showbuttontouch {
+    _showbuttontouch = showbuttontouch;
+    button.showbuttontouch = _showbuttontouch;
 }
 
 - (void)setDelegate:(id<InputControllerChangedDelegate>)theDelegate {
@@ -145,20 +477,44 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-	CGSize size = self.frame.size;
 
+    if([_joypadstyle isEqualToString:kJoyStyleFourButton])
+    {
+        _kButtonWidthLandscapePct = 0.5;
+        _kButtonWidthPortraitPct = 0.5;
+    }
+    else
+    {
+        _kButtonWidthLandscapePct = 0.25;
+        _kButtonWidthPortraitPct = 0.25;
+    }
+    
+    [self setButtonSubview];
+}
+
+- (void)setButtonSubview {
+    CGSize size = self.frame.size;
+    
     BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]);
-	if (isLandscape) {
-		button.frame = CGRectMake(0, 0, size.width * kButtonWidthLandscapePct, size.height);
-		//button.showImage = YES;
-	} else {
-		button.frame = CGRectMake(0, 0, size.width * kButtonWidthPortraitPct, size.height);
-		//button.showImage = NO;
-	}
+    if (isLandscape) {
+        if ([_leftorright isEqualToString:@"Left"])
+        {
+            button.frame = CGRectMake(0, 0, size.width * _kButtonWidthLandscapePct, size.height);
+        }
+        else
+        {
+            button.frame = CGRectMake(size.width *_kButtonWidthLandscapePct, 0, size.width * _kButtonWidthLandscapePct, size.height);
+        }
+        //button.showImage = YES;
+    } else {
+        button.frame = CGRectMake(0, 0, size.width * _kButtonWidthPortraitPct, size.height);
+        //button.showImage = NO;
+    }
 }
 
 - (void)didAddSubview:(UIView*)theView {
 	[self bringSubviewToFront:button];
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -183,6 +539,7 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 }
 
 - (void)dealloc {
+    [_joypadstyle release];
 	delete _stickVector;
     [super dealloc];
 }
@@ -198,7 +555,7 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 	
 	const CGFloat deg = 22.5;
 	TouchStickDPadState dPadState;
-	
+    
 	if (angle <= 0 + deg || angle > 360 - deg)
 		dPadState = DPadRight;
 	else if (angle <= 45 + deg && angle > 45 - deg)
@@ -222,12 +579,236 @@ const CGFloat kButtonWidthLandscapePct			= 0.25;
 }
 
 - (void)setDPadState:(TouchStickDPadState)state {
-	TouchStickDPadState oldState = TheJoyStick->dPadState();
-	if (oldState != state) {
-		TheJoyStick->setDPadState(state);
+	if (_oldstate != state) {
+        [self pushKey:state];
 		[delegate joystickStateChanged:state];
-	}
+    }
+    
+    _oldstate = state;
 }
+
+- (void)pushKey:(TouchStickDPadState)dpadstate {
+    
+    NSString *configuredkeyhorizontal = NULL;
+    NSString *configuredkeyvertical = NULL;
+    int asciicodehorizontal = NULL;
+    int asciicodevertical = NULL;
+    
+    if([self dpadstatetojoypadkey:dpadstate direction:@"horizontal"])
+    {
+        configuredkeyhorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: dpadstate direction:@"horizontal"]]];
+        asciicodehorizontal = [[configuredkeyhorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if([self dpadstatetojoypadkey:dpadstate direction:@"vertical"])
+    {
+       configuredkeyvertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: dpadstate direction:@"vertical"]]];
+        asciicodevertical = [[configuredkeyvertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if(_asciicodekeytoreleasehorizontal)
+    {
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) _asciicodekeytoreleasehorizontal;
+        SDL_PushEvent(&ed);
+        _asciicodekeytoreleasehorizontal = NULL;
+    }
+    
+    if(_asciicodekeytoreleasevertical)
+    {
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) _asciicodekeytoreleasevertical;
+        SDL_PushEvent(&ed);
+        _asciicodekeytoreleasevertical = NULL;
+    }
+    
+    if(dpadstate == DPadCenter) return;
+    
+    if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
+    {
+        TheJoyStick->setDPadState(dpadstate);
+        return;
+    }
+    
+    if([configuredkeyhorizontal isEqual: @"Joypad"])
+    {
+        TheJoyStick->setDPadState(dpadstate);
+    }
+    else if(configuredkeyhorizontal)
+    {
+        _asciicodekeytoreleasehorizontal = asciicodehorizontal;
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicodehorizontal;
+        SDL_PushEvent(&ed);
+    }
+    
+   
+    if([configuredkeyvertical isEqual: @"Joypad"])
+    {
+        TheJoyStick->setDPadState(dpadstate);
+    }
+    else if (configuredkeyvertical)
+    {
+        _asciicodekeytoreleasevertical = asciicodevertical;
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicodevertical;
+        SDL_PushEvent(&ed);
+    }
+    
+}
+
+- (int)dpadstatetojoypadkey:(TouchStickDPadState)dpadstate direction:(NSString *)direction {
+    
+    if(dpadstate == DPadUp)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_UP;
+        else
+            return NULL;
+    }
+    else if(dpadstate == DPadUpLeft)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_UP;
+        else
+            return BTN_LEFT;
+    }
+    else if(dpadstate == DPadUpRight)
+    {
+        if([direction isEqual:@"horizontal"])
+            return BTN_UP;
+        else
+            return BTN_RIGHT;
+    }
+    else if(dpadstate == DPadDown)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return NULL;
+    }
+    else if (dpadstate == DPadDownLeft)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return BTN_LEFT;
+    }
+    else if (dpadstate == DPadDownRight)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return BTN_RIGHT;
+    }
+    else if (dpadstate == DPadLeft)
+    {
+        if([direction isEqual:@"vertical"])
+            return NULL;
+        else
+            return BTN_LEFT;
+    }
+    else if (dpadstate == DPadRight)
+    {
+        if([direction isEqual:@"vertical"])
+            return NULL;
+        else
+            return BTN_RIGHT;
+    }
+    
+}
+
+/*- (void)pushDirectionButtons:(TouchStickDPadState)state {
+    
+    NSString *configuredkey;
+    NSString *configuredkeyhorizontal;
+    NSString *configuredkeyvertical;
+    
+    if(state == DPadRight)
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_RIGHT]];
+        
+        if([configuredkey  isEqual: @"Joypad"])
+        {
+            TheJoyStick->setDPadState(DPadRight);
+        }
+        else
+        {
+            [self pushKey:configuredkey];
+        }
+    }
+    else if(state == DPadLeft)
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_LEFT]];
+        
+        if([configuredkey  isEqual: @"Joypad"])
+        {
+            TheJoyStick->setDPadState(DPadLeft);
+        }
+        else
+        {
+            [self pushKey:configuredkey];
+        }
+    }
+    else if(state == DPadUp)
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_UP]];
+        
+        if([configuredkey  isEqual: @"Joypad"])
+        {
+            TheJoyStick->setDPadState(DPadUp);
+        }
+        else
+        {
+            [self pushKey:configuredkey];
+        }
+    }
+    else if(state == DPadDown)
+    {
+        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_DOWN]];
+        
+        if([configuredkey  isEqual: @"Joypad"])
+        {
+            TheJoyStick->setDPadState(DPadDown);
+        }
+        else
+        {
+            [self pushKey:configuredkey];
+        }
+    }
+    else if(state == DPadDownRight)
+    {
+        configuredkeyhorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_DOWN]];
+        configuredkeyvertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_RIGHT]];
+        
+        
+        if([configuredkey  isEqual: @"Joypad"])
+        {
+            TheJoyStick->setDPadState(DPadRight);
+        }
+        else
+        {
+            [self pushKey:configuredkey];
+        }
+        
+    }
+    else if(DPadDownLeft)
+    {
+        [self pushDirectionButton:BTN_DOWN];
+        [self pushDirectionButton:BTN_LEFT];
+    }
+    else if(DPadUpRight)
+    {
+        [self pushDirectionButton:BTN_UP];
+        [self pushDirectionButton:BTN_RIGHT];
+    }
+    else if(DPadUpLeft)
+    {
+        [self pushDirectionButton:BTN_UP];
+        [self pushDirectionButton:BTN_LEFT];
+    }
+    
+}*/
 
 
 @end

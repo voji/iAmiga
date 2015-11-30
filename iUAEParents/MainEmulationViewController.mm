@@ -133,6 +133,7 @@ extern void uae_reset();
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
     set_joystickactive();
+    [self reloadJoypadsettings];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -166,6 +167,7 @@ extern void uae_reset();
 }
 
 - (void)initializeJoypad:(InputControllerView *)joyController {
+    /* Check if function is still needed */
     _joyController.hidden = TRUE;
     joyactive = FALSE;
 }
@@ -174,6 +176,13 @@ extern void uae_reset();
     joyactive = FALSE;
     _mouseHandler.hidden = FALSE;
     _joyController.hidden = TRUE;
+    [self reloadJoypadsettings];
+}
+
+- (void)reloadJoypadsettings {
+    [_joyController setJoypadstyle:[_settings joypadstyle]];
+    [_joyController setLeftOrRight:[_settings joypadleftorright]];
+    [_joyController setShowButtontouch:[_settings joypadshowbuttontouch]];
 }
 
 - (IBAction)toggleControls:(id)sender {
@@ -193,6 +202,10 @@ extern void uae_reset();
     _joyController.hidden = !joyactive;
     _mouseHandler.hidden = joyactive;
 
+    if (joyactive)
+    {
+        [_joyController showControls];
+    }
     
     if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
     

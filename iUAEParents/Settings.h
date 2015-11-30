@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "DriveState.h"
 
+@protocol protReloadSettings
+- (void)settingsChanged;
+@end
+
+static NSString *const kJoyStyleOneButton = @"OneButton";
+static NSString *const kJoyStyleFourButton = @"FourButton";
+
 @interface Settings : NSObject
 
 /**
@@ -25,6 +32,9 @@
 @property (nonatomic, readwrite, assign) BOOL showStatusBar;
 @property (nonatomic, readwrite, assign) NSUInteger selectedEffectIndex;
 @property (nonatomic, readwrite, assign) DriveState *driveState;
+@property (nonatomic, readwrite, assign) NSString *joypadstyle;
+@property (nonatomic, readwrite, assign) NSString *joypadleftorright;
+@property (nonatomic, readwrite, assign) BOOL joypadshowbuttontouch;
 
 /**
  * Returns YES if this is the very first time that the settings are initialized (the firs time the app runs).

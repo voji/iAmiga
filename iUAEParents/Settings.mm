@@ -40,6 +40,9 @@ static NSString *const kStretchScreenKey = @"_stretchscreen";
 static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
+static NSString *const kJoypadStyleKey = @"_joypadstyle";
+static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
+static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
 
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
@@ -110,6 +113,9 @@ static NSString *configurationname;
         self.showStatus = mainMenu_showStatus;
         self.showStatusBar = YES;
         self.selectedEffectIndex = 0;
+        self.joypadstyle = @"FourButton";
+        self.joypadleftorright = @"Right";
+        self.joypadshowbuttontouch = true;
         [self setBool:TRUE forKey:kInitializeKey];
     }
     else
@@ -159,6 +165,31 @@ static NSString *configurationname;
 - (void)setShowStatus:(BOOL)showStatus {
     [self setBool:showStatus forKey:kShowStatusKey];
 }
+
+- (NSString *)joypadstyle {
+    return [self stringForKey:kJoypadStyleKey];
+}
+
+- (void)setjoypadstyle:(NSString *)joypadstyle {
+    [self setObject:joypadstyle forKey:kJoypadStyleKey];
+}
+
+- (NSString *)joypadleftorright {
+    return [self stringForKey:kJoypadLeftOrRightKey];
+}
+
+- (void)setjoypadleftorright:(NSString *)joypadleftorright {
+    [self setObject:joypadleftorright forKey:kJoypadLeftOrRightKey];
+}
+
+- (BOOL)joypadshowbuttontouch {
+    return [self boolForKey:kJoypadShowButtonTouchKey];
+}
+
+-(void)setJoypadshowbuttontouch:(BOOL)joypadshowbuttontouch {
+    [self setBool:joypadshowbuttontouch forKey:kJoypadShowButtonTouchKey];
+}
+
 
 - (BOOL)showStatusBar {
     return [self boolForKey:kShowStatusBarKey];
