@@ -623,7 +623,12 @@ extern CJoyStick g_touchStick;
         _asciicodekeytoreleasevertical = NULL;
     }
     
-    if(dpadstate == DPadCenter) return;
+    if(dpadstate == DPadCenter)
+    {
+        //In case multiple "Joypads" get implemented this line needs to be checked
+        TheJoyStick->setDPadState(DPadCenter);
+        return;
+    }
     
     if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
     {
