@@ -57,6 +57,9 @@ static int icp_getState(int button);
 
 Settings *settingsforjoystick;
 
+int asciicodekeytoreleasehorizontal;
+int asciicodekeytoreleasevertical;
+
 int SDL_SYS_JoystickInit(void) {
     return 5;
 }
@@ -164,6 +167,139 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
     return 0;
 }
 
+int dpadstatetojoypadkey (Uint8 dpadstate, NSString * direction) {
+    
+    if(dpadstate == SDL_HAT_UP)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_UP;
+        else
+            return NULL;
+    }
+    else if(dpadstate == SDL_HAT_LEFTUP)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_UP;
+        else
+            return BTN_LEFT;
+    }
+    else if(dpadstate == SDL_HAT_RIGHTUP)
+    {
+        if([direction isEqual:@"horizontal"])
+            return BTN_UP;
+        else
+            return BTN_RIGHT;
+    }
+    else if(dpadstate == SDL_HAT_DOWN)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return NULL;
+    }
+    else if (dpadstate == SDL_HAT_LEFTDOWN)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return BTN_LEFT;
+    }
+    else if (dpadstate == SDL_HAT_RIGHTDOWN)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return BTN_RIGHT;
+    }
+    else if (dpadstate == SDL_HAT_LEFT)
+    {
+        if([direction isEqual:@"vertical"])
+            return NULL;
+        else
+            return BTN_LEFT;
+    }
+    else if (dpadstate == SDL_HAT_RIGHT)
+    {
+        if([direction isEqual:@"vertical"])
+            return NULL;
+        else
+            return BTN_RIGHT;
+    }
+    
+}
+
+void pushkey(UInt8 dpadstate, SDL_Joystick * joystick) {
+    
+    NSString *configuredkeyhorizontal = NULL;
+    NSString *configuredkeyvertical = NULL;
+    int asciicodehorizontal = NULL;
+    int asciicodevertical = NULL;
+    
+    if(dpadstatetojoypadkey(dpadstate, @"horizontal"))
+    {
+        
+        configuredkeyhorizontal = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", dpadstatetojoypadkey(dpadstate, @"horizontal")]];
+        asciicodehorizontal = [[configuredkeyhorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if(dpadstatetojoypadkey(dpadstate, @"vertical"))
+    {
+        configuredkeyvertical = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", dpadstatetojoypadkey(dpadstate, @"vertical")]];
+        asciicodevertical = [[configuredkeyvertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if(asciicodekeytoreleasehorizontal)
+    {
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) asciicodekeytoreleasehorizontal;
+        SDL_PushEvent(&ed);
+        asciicodekeytoreleasehorizontal = NULL;
+        
+    }
+    
+    if(asciicodekeytoreleasevertical)
+    {
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) asciicodekeytoreleasevertical;
+        SDL_PushEvent(&ed);
+        asciicodekeytoreleasevertical = NULL;
+    }
+    
+    if(dpadstate == SDL_HAT_CENTERED) return;
+    
+    if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
+    {
+        SDL_PrivateJoystickHat(joystick, 0, dpadstate);
+        return;
+    }
+    
+    if([configuredkeyhorizontal isEqual: @"Joypad"])
+    {
+        SDL_PrivateJoystickHat(joystick, 0, dpadstate);
+    }
+    else if(configuredkeyhorizontal)
+    {
+        asciicodekeytoreleasehorizontal = asciicodehorizontal;
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicodehorizontal;
+        SDL_PushEvent(&ed);
+    }
+    
+    
+    if([configuredkeyvertical isEqual: @"Joypad"])
+    {
+        SDL_PrivateJoystickHat(joystick, 0, dpadstate);
+    }
+    else if (configuredkeyvertical)
+    {
+        asciicodekeytoreleasevertical = asciicodevertical;
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicodevertical;
+        SDL_PushEvent(&ed);
+    }
+    
+}
+
 int
 MFI_JoystickUpdateButtons(SDL_Joystick * joystick) {
     
@@ -250,7 +386,9 @@ MFI_JoystickUpdateButtons(SDL_Joystick * joystick) {
     
     Uint8 hat_state = [view hat_state];
     if (joystick->hats[0] != hat_state) {
-        SDL_PrivateJoystickHat(joystick, 0, hat_state);
+        pushkey(hat_state, joystick);
+        joystick->hats[0] = hat_state;
+        //SDL_PrivateJoystickHat(joystick, 0, hat_state);
     }
     
 }
@@ -341,7 +479,8 @@ Icade_JoystickUpdateButtons(SDL_Joystick * joystick) {
     
     Uint8 hat_state = (state & 0x0f);
     if (joystick->hats[0] != hat_state) {
-        SDL_PrivateJoystickHat(joystick, 0, hat_state);
+        pushkey(hat_state, joystick);
+        joystick->hats[0] = hat_state;
     }
     
 }

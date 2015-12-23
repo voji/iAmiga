@@ -5494,7 +5494,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.18;
+				iOSOpenDevDevice = 192.168.0.15;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5521,7 +5521,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.18;
+				iOSOpenDevDevice = 192.168.0.15;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
@@ -5546,7 +5546,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.18;
+				iOSOpenDevDevice = 192.168.0.15;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;

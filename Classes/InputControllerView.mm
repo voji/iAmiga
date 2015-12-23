@@ -477,7 +477,12 @@ extern CJoyStick g_touchStick;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    [self setButtonSubview];
+}
 
+- (void)setButtonSubview {
+    
     if([_joypadstyle isEqualToString:kJoyStyleFourButton])
     {
         _kButtonWidthLandscapePct = 0.5;
@@ -489,10 +494,6 @@ extern CJoyStick g_touchStick;
         _kButtonWidthPortraitPct = 0.25;
     }
     
-    [self setButtonSubview];
-}
-
-- (void)setButtonSubview {
     CGSize size = self.frame.size;
     
     BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]);
@@ -503,7 +504,7 @@ extern CJoyStick g_touchStick;
         }
         else
         {
-            button.frame = CGRectMake(size.width *_kButtonWidthLandscapePct, 0, size.width * _kButtonWidthLandscapePct, size.height);
+            button.frame = CGRectMake(size.width * (1.00 - _kButtonWidthLandscapePct), 0, size.width * _kButtonWidthLandscapePct, size.height);
         }
         //button.showImage = YES;
     } else {
@@ -717,98 +718,6 @@ extern CJoyStick g_touchStick;
     }
     
 }
-
-/*- (void)pushDirectionButtons:(TouchStickDPadState)state {
-    
-    NSString *configuredkey;
-    NSString *configuredkeyhorizontal;
-    NSString *configuredkeyvertical;
-    
-    if(state == DPadRight)
-    {
-        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_RIGHT]];
-        
-        if([configuredkey  isEqual: @"Joypad"])
-        {
-            TheJoyStick->setDPadState(DPadRight);
-        }
-        else
-        {
-            [self pushKey:configuredkey];
-        }
-    }
-    else if(state == DPadLeft)
-    {
-        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_LEFT]];
-        
-        if([configuredkey  isEqual: @"Joypad"])
-        {
-            TheJoyStick->setDPadState(DPadLeft);
-        }
-        else
-        {
-            [self pushKey:configuredkey];
-        }
-    }
-    else if(state == DPadUp)
-    {
-        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_UP]];
-        
-        if([configuredkey  isEqual: @"Joypad"])
-        {
-            TheJoyStick->setDPadState(DPadUp);
-        }
-        else
-        {
-            [self pushKey:configuredkey];
-        }
-    }
-    else if(state == DPadDown)
-    {
-        configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_DOWN]];
-        
-        if([configuredkey  isEqual: @"Joypad"])
-        {
-            TheJoyStick->setDPadState(DPadDown);
-        }
-        else
-        {
-            [self pushKey:configuredkey];
-        }
-    }
-    else if(state == DPadDownRight)
-    {
-        configuredkeyhorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_DOWN]];
-        configuredkeyvertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_RIGHT]];
-        
-        
-        if([configuredkey  isEqual: @"Joypad"])
-        {
-            TheJoyStick->setDPadState(DPadRight);
-        }
-        else
-        {
-            [self pushKey:configuredkey];
-        }
-        
-    }
-    else if(DPadDownLeft)
-    {
-        [self pushDirectionButton:BTN_DOWN];
-        [self pushDirectionButton:BTN_LEFT];
-    }
-    else if(DPadUpRight)
-    {
-        [self pushDirectionButton:BTN_UP];
-        [self pushDirectionButton:BTN_RIGHT];
-    }
-    else if(DPadUpLeft)
-    {
-        [self pushDirectionButton:BTN_UP];
-        [self pushDirectionButton:BTN_LEFT];
-    }
-    
-}*/
 
 
 @end

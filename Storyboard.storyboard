@@ -1122,13 +1122,17 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fup-me-bbF">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fup-me-bbF">
                                                     <rect key="frame" x="962" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggleShowButtonTouch:" destination="lsI-FR-9UZ" eventType="touchUpInside" id="Xt9-Xa-l0w"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fup-me-bbF" secondAttribute="trailing" constant="-2" id="VDV-A5-1fv"/>
+                                                <constraint firstItem="Fup-me-bbF" firstAttribute="centerY" secondItem="8L1-ht-bOG" secondAttribute="centerY" id="Vck-qh-sMo"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
