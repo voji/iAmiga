@@ -25,6 +25,7 @@
 #import "SDL.h"
 #import "UIKitDisplayView.h"
 #import "savestate.h"
+#import "JoypadKey.h"
 
 #import "Settings.h"
 
@@ -43,6 +44,8 @@ static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
 static NSString *const kJoypadStyleKey = @"_joypadstyle";
 static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
 static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
+
+static NSString *const kJoypadButtonkey = @"_BTN_";
 
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
@@ -105,6 +108,19 @@ static NSString *configurationname;
     }
 }
 
+#define BTN_A 0
+#define BTN_B 1
+#define BTN_X 2
+#define BTN_Y 3
+#define BTN_L1 5
+#define BTN_L2 7
+#define BTN_R1 4
+#define BTN_R2 6
+#define BTN_UP 9
+#define BTN_DOWN 10
+#define BTN_LEFT 11
+#define BTN_RIGHT 12
+
 - (void)initializespecificsettings {
     if(![self boolForKey:kInitializeKey])
     {
@@ -116,6 +132,33 @@ static NSString *configurationname;
         self.joypadstyle = @"FourButton";
         self.joypadleftorright = @"Right";
         self.joypadshowbuttontouch = true;
+        
+        [self setKeyconfiguration:@"Joypad" Button:BTN_A];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_B];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_X];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_Y];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_L1];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_L2];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_R1];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_R2];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_UP];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_DOWN];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_LEFT];
+        [self setKeyconfiguration:@"Joypad" Button:BTN_RIGHT];
+        
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_A];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_B];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_X];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_Y];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_L1];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_L2];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_R1];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_R2];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_UP];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_DOWN];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_LEFT];
+        [self setKeyconfigurationname:@"Joypad" Button:BTN_RIGHT];
+        
         [self setBool:TRUE forKey:kInitializeKey];
     }
     else
@@ -170,7 +213,7 @@ static NSString *configurationname;
     return [self stringForKey:kJoypadStyleKey];
 }
 
-- (void)setjoypadstyle:(NSString *)joypadstyle {
+- (void)setJoypadstyle:(NSString *)joypadstyle {
     [self setObject:joypadstyle forKey:kJoypadStyleKey];
 }
 
@@ -178,7 +221,7 @@ static NSString *configurationname;
     return [self stringForKey:kJoypadLeftOrRightKey];
 }
 
-- (void)setjoypadleftorright:(NSString *)joypadleftorright {
+- (void)setJoypadleftorright:(NSString *)joypadleftorright {
     [self setObject:joypadleftorright forKey:kJoypadLeftOrRightKey];
 }
 
@@ -190,6 +233,13 @@ static NSString *configurationname;
     [self setBool:joypadshowbuttontouch forKey:kJoypadShowButtonTouchKey];
 }
 
+-(void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button {
+    [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTN_%d", button]];
+}
+
+-(void)setKeyconfigurationname:(NSString *)configuredkey Button:(int)button {
+    [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d", button]];
+}
 
 - (BOOL)showStatusBar {
     return [self boolForKey:kShowStatusBarKey];

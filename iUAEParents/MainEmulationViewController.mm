@@ -99,10 +99,6 @@ extern void uae_reset();
     [_btnPin setTintColor: [UIColor blackColor]];*/
     
     BOOL isFirstInitialization = [_settings initializeSettings];
-    if (isFirstInitialization)
-    {
-        [self showMFIControllerAlert];
-    }
     
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];

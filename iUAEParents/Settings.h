@@ -43,6 +43,7 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;
 - (void)setFloppyConfiguration:(NSString *)adfPath;
+- (void)setKeyconfiguration:(NSString *) configuredkey Button:(int)button;
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void)setObject:(id)value forKey:(NSString *)settingitemname;
