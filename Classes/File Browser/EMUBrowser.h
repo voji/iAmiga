@@ -18,16 +18,18 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "EMUFileInfo.h"
 
-@interface EMUBrowser : NSObject {
-	NSString *basePath;
-	NSArray *extensions;
-}
+@interface EMUBrowser : NSObject
 
-@property (nonatomic, retain) NSString* basePath;
-@property (nonatomic, retain) NSArray* extensions;
+/**
+ * Returns an array of EMUFileInfo instances for all available adfs.
+ */
+- (NSArray *)getFileInfos;
 
-- (id)initWithBasePath:(NSString *)theBasePath;
-- (NSMutableArray*)getFiles;
+/**
+ * Returns an EMUFileInfo instance for the specified fileName (xyz.adf), or nil if a file with that name does not exist.
+ */
+- (EMUFileInfo *)getFileInfo:(NSString *)fileName;
 
 @end

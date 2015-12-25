@@ -1267,6 +1267,7 @@
 		BE0921FF1B343D810058D9F2 /* DiskDriveService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */; };
 		BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA61B4FC9B8008E15E6 /* ResetController.m */; };
 		BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA81B4FC9B8008E15E6 /* DriveState.m */; };
+		BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE6086D81C2CF5AC008E668B /* adfresolver.mm */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.m */; };
 		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
 		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
@@ -2113,6 +2114,8 @@
 		BE52EFA71B4FC9B8008E15E6 /* ResetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetController.h; sourceTree = "<group>"; };
 		BE52EFA81B4FC9B8008E15E6 /* DriveState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveState.m; sourceTree = "<group>"; };
 		BE52EFA91B4FC9B8008E15E6 /* DriveState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveState.h; sourceTree = "<group>"; };
+		BE6086D71C2CF5AC008E668B /* adfresolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adfresolver.h; sourceTree = "<group>"; };
+		BE6086D81C2CF5AC008E668B /* adfresolver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adfresolver.mm; sourceTree = "<group>"; };
 		BEE41BC11B4782D200CE487D /* AdfImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfImporter.m; sourceTree = "<group>"; };
 		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
 		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
@@ -2765,6 +2768,8 @@
 			children = (
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */,
+				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
+				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
 				BE52EFA91B4FC9B8008E15E6 /* DriveState.h */,
@@ -4775,6 +4780,7 @@
 				0552BD2D0F3D797C005B30DF /* ersatz.cpp in Sources */,
 				BEE41BD51B4784AC00CE487D /* mztools.c in Sources */,
 				0552BD2E0F3D797C005B30DF /* gfxutil.cpp in Sources */,
+				BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */,
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
 				0552BD490F3D797C005B30DF /* uae.cpp in Sources */,
