@@ -78,24 +78,29 @@ void sound_default_evtime(void) {
 }
 #endif
 
+NSString* get_rom_path(NSString * directory, NSArray *romNameFilters) {
+    NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:directory];
+    NSArray *relativeFilePaths = [[direnum allObjects] pathsMatchingExtensions:@[@"rom"]];
+    for (NSString *relativeFilePath in relativeFilePaths) {
+        if ([romNameFilters containsObject:[relativeFilePath lastPathComponent]]) {
+            return [directory stringByAppendingPathComponent:relativeFilePath];
+        }
+    }
+    return nil;
+}
+
 char* get_rom_path() {
-	NSString *bp = [[NSBundle mainBundle] bundlePath];
-	//bp = [bp stringByAppendingPathComponent:@"kick.rom"];
-	
-    if([[NSFileManager defaultManager] fileExistsAtPath:[bp stringByAppendingPathComponent:@"kick.rom"]])
-    {
-        bp = [bp stringByAppendingPathComponent:@"kick.rom"];
-    }
-    else
-    {
-         bp = [bp stringByAppendingPathComponent:@"kick13.rom"];
-    }
-    
-	static char bundlePath[500];
-	
-	[bp getCString:bundlePath maxLength:sizeof(bundlePath) encoding:[NSString defaultCStringEncoding]];
-	
-	return bundlePath;
+    NSArray *romNameFilters = @[@"kick.rom", @"kick13.rom"];
+	NSString *mainBundleDirectory = [[NSBundle mainBundle] bundlePath];
+    NSString *romPath = get_rom_path(mainBundleDirectory, romNameFilters);
+    if (!romPath) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        romPath = get_rom_path(documentsDirectory, romNameFilters);
+    }    
+	static char romPathC[500];
+	[romPath getCString:romPathC maxLength:sizeof(romPathC) encoding:[NSString defaultCStringEncoding]];
+    return romPathC;
 }
 
 extern "C" char changed_df[1][256];;
