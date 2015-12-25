@@ -59,7 +59,6 @@ int gui_init() {
     
     NSString *documents = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     [documents getCString:launchDir maxLength:sizeof(launchDir) encoding:[NSString defaultCStringEncoding]];
-    [[NSFileManager defaultManager] createDirectoryAtPath:[documents stringByAppendingPathComponent:@"saves"] withIntermediateDirectories:YES attributes:nil error:NULL];
 	
 	return 0;
 }
