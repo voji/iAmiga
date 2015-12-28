@@ -108,31 +108,33 @@ static NSString *configurationname;
     }
 }
 
-#define BTN_A 0
-#define BTN_B 1
-#define BTN_X 2
-#define BTN_Y 3
-#define BTN_L1 5
-#define BTN_L2 7
-#define BTN_R1 4
-#define BTN_R2 6
-#define BTN_UP 9
-#define BTN_DOWN 10
-#define BTN_LEFT 11
-#define BTN_RIGHT 12
-
 - (void)initializespecificsettings {
     if(![self boolForKey:kInitializeKey])
     {
         self.ntsc = mainMenu_ntsc;
         self.stretchScreen = mainMenu_stretchscreen;
         self.showStatus = mainMenu_showStatus;
-        self.showStatusBar = YES;
-        self.selectedEffectIndex = 0;
-        self.joypadstyle = @"FourButton";
-        self.joypadleftorright = @"Right";
-        self.joypadshowbuttontouch = true;
-        
+        [self setBool:TRUE forKey:kInitializeKey];
+    }
+    else
+    {
+        mainMenu_ntsc = self.ntsc;
+        mainMenu_stretchscreen = self.stretchScreen;
+        mainMenu_showStatus = self.showStatus;
+    }
+    
+    //Set Default values for settings if key does not exist
+    
+    self.showStatusBar =            [self keyExists:kShowStatusBarKey]          ? self.showStatusBar        :   YES;
+    self.selectedEffectIndex =      [self keyExists:kSelectedEffectIndexKey]    ? self.selectedEffectIndex  :   0;
+    self.joypadstyle =              [self keyExists:kJoypadStyleKey]            ? self.joypadstyle          :   @"FourButton";
+    self.joypadleftorright =        [self keyExists:kJoypadLeftOrRightKey]      ? self.joypadleftorright    :   @"Right";
+    self.joypadshowbuttontouch =    [self keyExists:kJoypadShowButtonTouchKey]  ? self.joypadshowbuttontouch :  YES;
+    
+    if (![self keyExists:[NSString stringWithFormat:@"_BTN_%d", BTN_A]])
+    //Set default values for JoypadKeyconfiguration
+    {
+    
         [self setKeyconfiguration:@"Joypad" Button:BTN_A];
         [self setKeyconfiguration:@"Joypad" Button:BTN_B];
         [self setKeyconfiguration:@"Joypad" Button:BTN_X];
@@ -158,15 +160,11 @@ static NSString *configurationname;
         [self setKeyconfigurationname:@"Joypad" Button:BTN_DOWN];
         [self setKeyconfigurationname:@"Joypad" Button:BTN_LEFT];
         [self setKeyconfigurationname:@"Joypad" Button:BTN_RIGHT];
-        
-        [self setBool:TRUE forKey:kInitializeKey];
     }
-    else
-    {
-        mainMenu_ntsc = self.ntsc;
-        mainMenu_stretchscreen = self.stretchScreen;
-        mainMenu_showStatus = self.showStatus;
-    }
+}
+                          
+- (BOOL)keyExists: (NSString *) key {
+    return [[[defaults dictionaryRepresentation] allKeys] containsObject:[self getInternalSettingKey: key]];
 }
 
 - (BOOL)autoloadConfig {

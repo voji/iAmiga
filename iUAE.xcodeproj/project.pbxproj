@@ -199,7 +199,6 @@
 		7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */; };
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
-		7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */; };
 		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */; };
 		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
@@ -1579,7 +1578,6 @@
 		7E4C6AF519DB0F7100D337D0 /* famec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = famec.cpp; sourceTree = "<group>"; };
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
-		7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatPanel.mm; path = ../../iUAEParents/FloatPanel.mm; sourceTree = "<group>"; };
 		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
 		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
@@ -1596,7 +1594,6 @@
 		7EA4D65F1923ED0800C58BB9 /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EmulationView-iPad.h"; path = "iUAEParents/EmulationView-iPad.h"; sourceTree = "<group>"; };
 		7EA4D6621923EDA100C58BB9 /* TouchHandlerViewClassic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchHandlerViewClassic.h; path = iUAEParents/TouchHandlerViewClassic.h; sourceTree = "<group>"; };
 		7EA4D6651923EDBE00C58BB9 /* MainEmulationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainEmulationViewController.h; path = iUAEParents/MainEmulationViewController.h; sourceTree = "<group>"; };
-		7EA4D6661923F20C00C58BB9 /* FloatPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloatPanel.h; path = iUAEParents/FloatPanel.h; sourceTree = "<group>"; };
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
 		7EA5E7881AED732500FCE311 /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky.png; sourceTree = "<group>"; };
@@ -2874,7 +2871,6 @@
 				7EA4D6511923ECC100C58BB9 /* EmulationView-iPad.mm */,
 				7EA4D6521923ECC100C58BB9 /* EmulationView-iPhone.h */,
 				7EA4D6531923ECC100C58BB9 /* EmulationView-iPhone.mm */,
-				7EA4D6661923F20C00C58BB9 /* FloatPanel.h */,
 				7EA4D6541923ECC100C58BB9 /* MainEmulationViewController.mm */,
 				7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */,
 				7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */,
@@ -3731,7 +3727,6 @@
 				7EB5FBBC19F942AA0030920E /* Images */,
 				97BE2AB51548702100BF66CF /* Landscape */,
 				97BE2AA81548702100BF66CF /* BaseControlsView.h */,
-				7E4D90EE188DB7BC000AD040 /* FloatPanel.mm */,
 				97BE2AA91548702100BF66CF /* BaseControlsView.m */,
 				97BE2AAA1548702100BF66CF /* BaseLeftRightAwareView.h */,
 				97BE2AAB1548702100BF66CF /* BaseLeftRightAwareView.m */,
@@ -4854,7 +4849,6 @@
 				7EB017791B09164900C74B9D /* State.m in Sources */,
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
 				7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */,
-				7E4D90EF188DB7BC000AD040 /* FloatPanel.mm in Sources */,
 				7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */,
 				978550EE153A3F2E00580B91 /* SDL_syssem.c in Sources */,
 				978550F1153A3F2E00580B91 /* SDL_systhread.c in Sources */,

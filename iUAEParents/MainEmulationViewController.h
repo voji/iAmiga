@@ -20,7 +20,6 @@
 
 #import "BaseEmulationViewController.h"
 #import "AnimatedImageSequenceView.h"
-#import "FloatPanel.h"
 #import "DynamicLandscapeControls.h"
 #import "TouchHandlerViewClassic.h"
 #import "InputControllerView.h"
@@ -30,7 +29,6 @@
 
 @interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
     VirtualKeyboard				*vKeyboard;
-    FloatPanel *fullscreenPanel;
     bool keyboardactive;
     bool joyactive;
     int paused;

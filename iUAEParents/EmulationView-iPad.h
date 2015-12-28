@@ -20,7 +20,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MainEmulationViewController.h"
-#import "FloatPanel.h"
 #import "IOSKeyboard.h"
 #import "InputControllerView.h"
 
