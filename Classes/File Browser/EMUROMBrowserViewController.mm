@@ -53,8 +53,8 @@
 	}
 	[sections addObject:[[EMUFileGroup alloc] initWithSectionName:@"#"]];
 	
-	EMUBrowser *browser = [[EMUBrowser alloc] initWithBasePath:@""];
-	NSArray *files = [browser getFiles];
+	EMUBrowser *browser = [[EMUBrowser alloc] init];
+	NSArray *files = [browser getFileInfos];
 	for (EMUFileInfo* f in files) {
 		unichar c = [[f fileName] characterAtIndex:0];
 		if (isdigit(c)) {
