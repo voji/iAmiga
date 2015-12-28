@@ -33,6 +33,7 @@
 #include "xwin.h"
 #include "execlib.h"
 #include "savestate.h"
+#include "adfresolver.h"
 
 
 char prefs_df[NUM_DRIVES][256];
@@ -1594,6 +1595,14 @@ uae_u8 *restore_disk(int num,uae_u8 *src)
         strncpy(adf,(char *)src,255);
         adf[255] = 0;
         FILE *f=fopen(adf,"rb");
+        
+        if (!f)
+        {
+            // the path to the adf may have changed since the state was saved
+            strcpy(adf, get_updated_adf_path(adf));
+            f = fopen(adf,"rb");
+        }
+        
         if (f)
         {
             fclose(f);

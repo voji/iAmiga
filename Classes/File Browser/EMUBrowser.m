@@ -20,56 +20,46 @@
 #import "EMUBrowser.h"
 #import "EMUFileInfo.h"
 
-@interface EMUBrowser()
-
-- (NSMutableArray*)getFilesForPath:(NSString *)thePath;
-
-@end
-
-
-
 @implementation EMUBrowser
 
-@synthesize basePath, extensions;
-
-- (id)initWithBasePath:(NSString *)theBasePath {
-	NSAssert(theBasePath != nil, @"theBasePath cannot be nil");
-
-	self.extensions = [NSArray arrayWithObjects:@"adf", @"ADF", nil];
-	self.basePath = theBasePath;
-	
-	return [super init];
+- (NSArray *)getFileInfos {
+    return [self getFileInfosWithFileNameFilter:nil];
 }
 
-- (NSMutableArray*)getFiles {
-	NSMutableArray* list = [[NSMutableArray alloc] init];
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	[list addObjectsFromArray:[self getFilesForPath:documentsDirectory]];
-	
-	[list addObjectsFromArray:[self getFilesForPath:[[NSBundle mainBundle] bundlePath]]];
-	
-	return [list autorelease];
+- (EMUFileInfo *)getFileInfo:(NSString *)fileName {
+    NSArray *fileInfo = [self getFileInfosWithFileNameFilter:fileName];
+    return [fileInfo count] == 0 ? nil : [fileInfo lastObject];
 }
 
-- (NSMutableArray*)getFilesForPath:(NSString *)thePath {
-	NSMutableArray* list = [[NSMutableArray alloc] init];
-	
-	NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:thePath];
-	NSArray *files = [[direnum allObjects] pathsMatchingExtensions:extensions];
-	for (NSString *pname in files) {
-		id obj = [[EMUFileInfo alloc] initFromPath:[thePath stringByAppendingPathComponent:pname]];
-		[list addObject:obj];
-		[obj release];
-	}
-	return [list autorelease];
+- (NSArray *)getFileInfosWithFileNameFilter:(NSString *)fileNameFilter {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSArray *documentFileInfos = [self getFileInfosInDirectory:documentsDirectory fileNameFilter:fileNameFilter];
+    NSArray *bundleFileInfos = [self getFileInfosInDirectory:[[NSBundle mainBundle] bundlePath] fileNameFilter:fileNameFilter];
+    NSMutableArray *fileInfos = [[[NSMutableArray alloc] initWithCapacity:[documentFileInfos count] + [bundleFileInfos count]] autorelease];
+    [fileInfos addObjectsFromArray:documentFileInfos];
+    [fileInfos addObjectsFromArray:bundleFileInfos];
+    return fileInfos;
 }
 
--(void)dealloc {
-	self.extensions = nil;
-	self.basePath = nil;
-	[super dealloc];
+- (NSArray *)getFileInfosInDirectory:(NSString *)directory fileNameFilter:(NSString *)fileNameFilter {
+    NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:directory];
+    NSArray *relativeFilePaths = [[direnum allObjects] pathsMatchingExtensions:@[@"adf", @"ADF"]];
+    NSMutableArray *fileInfos = [[[NSMutableArray alloc] initWithCapacity:[relativeFilePaths count]] autorelease];
+    for (NSString *relativeFilePath in relativeFilePaths) {
+        NSString *filePath = [directory stringByAppendingPathComponent:relativeFilePath];
+        EMUFileInfo *fileInfo = [[[EMUFileInfo alloc] initFromPath:filePath] autorelease];
+        if (fileNameFilter) {
+            NSString *fileName = [relativeFilePath lastPathComponent];
+            if ([fileName isEqualToString:fileNameFilter]) {
+                return [NSArray arrayWithObject:fileInfo];
+            }
+        } else {
+            [fileInfos addObject:fileInfo];
+        }
+    }
+    return fileInfos;
 }
 
 @end
