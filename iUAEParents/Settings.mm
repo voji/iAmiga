@@ -84,7 +84,7 @@ static NSString *configurationname;
     if(isFirstInitialization)
     {
         [defaults setBool:TRUE forKey:kAppSettingsInitializedKey];
-        self.autoloadConfig = FALSE;
+        self.autoloadConfig = TRUE;
         self.driveState = [DriveState getAllEnabled];
         [defaults setObject:@"General" forKey:kConfigurationNameKey];
     }
@@ -100,7 +100,7 @@ static NSString *configurationname;
 
 - (void)setFloppyConfiguration:(NSString *)adfPath {
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [adfPath lastPathComponent]];
-    if ([defaults stringForKey:settingstring])
+    if ([defaults stringForKey:settingstring] && self.autoloadConfig )
     {
         [configurationname release];
         configurationname = [[defaults stringForKey:settingstring] retain];
@@ -261,6 +261,7 @@ static NSString *configurationname;
 
 - (void)setConfigurationName:(NSString *)configurationName {
     [self setObject:configurationName forKey:kConfigurationNameKey];
+    [self initializespecificsettings];
 }
 
 - (NSArray *)configurations {
