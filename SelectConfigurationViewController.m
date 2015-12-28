@@ -111,7 +111,10 @@
     {
         [configurations addObject:configurationname];
     }
-    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    [self.navigationController popViewControllerAnimated:NO];
+    [self.delegate didSelectConfiguration:configurationname];
+    //[self dismissViewControllerAnimated:NO completion:nil];
 }
 
 
