@@ -15,8 +15,8 @@
 //  General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-//along with this program; if not, write to the Free Software
-//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
@@ -177,7 +177,7 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
     {
-        // pad the array if a disk is inserted into a drive with a higher number, but there's nothing in the lower number drive(s) yet
+        // pad the array if a disk is inserted into a drive with a higher number, and there's nothing in the lower number drive(s) yet
         [mutableFloppyPaths addObject:kNoDiskAdfPath];
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
@@ -185,18 +185,12 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     [settings setFloppyConfiguration:adfPath];
 }
 
-- (NSString *)getfirstoption {
-    return [[NSString alloc] initWithFormat:@"General"];
+- (NSString *)getFirstOption {
+    return @"General";
 }
 
-- (BOOL)isRecentConfig:(NSString *)configurationname {
-    
-    if([[_configurationname text] isEqual:configurationname])
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+- (BOOL)isRecentConfig:(NSString *)configurationname {    
+    return [_configurationname.text isEqualToString:configurationname];
 }
 
 - (void)didSelectConfiguration:(NSString *)configurationName {
@@ -224,7 +218,6 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     [_df2Switch release];
     [_df3Switch release];
     [_configurationname release];
-    [_cellconfiguration release];
     [_emulatorScreenshot release];
     
     [super dealloc];

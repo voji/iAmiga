@@ -29,8 +29,8 @@
     
     if(_delegate)
     {
-        if ([_delegate respondsToSelector:@selector(getfirstoption)]) {
-            firstoption = [[NSString alloc] initWithFormat:[_delegate getfirstoption]];
+        if ([_delegate respondsToSelector:@selector(getFirstOption)]) {
+            firstoption = [[_delegate getFirstOption] retain];
         }
     }
     if(!firstoption) { firstoption = [[NSString alloc] initWithFormat:@"None"]; }
@@ -90,6 +90,7 @@
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         }
     }
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
