@@ -28,6 +28,7 @@ static NSString *const kNoDiskAdfPath = @"";
 static NSString *const kSelectDiskSegue = @"SelectDisk";
 static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
+static NSString *const kKeyButtonsSegue = @"KeyButtons";
 static NSString *const kStateManagementSegue = @"StateManagement";
 static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
@@ -132,9 +133,13 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     {
         if (indexPath.row == 0)
         {
+            [self performSegueWithIdentifier:kKeyButtonsSegue sender:nil];
+        }
+        if (indexPath.row == 1)
+        {
             [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
         }
-        else if (indexPath.row == 1)
+        else if (indexPath.row == 2)
         {
             [self performSegueWithIdentifier:kConfirmResetSegue sender:nil];
         }
@@ -142,18 +147,18 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:kSelectDiskSegue])
+    if ([segue.identifier isEqualToString:kSelectDiskSegue])
     {
         EMUROMBrowserViewController *controller = segue.destinationViewController;
         controller.delegate = self;
         controller.context = sender; // sender = driveNumber (NSNumber)
     }
-    else if([segue.identifier isEqualToString:kLoadConfigurationSegue])
+    else if ([segue.identifier isEqualToString:kLoadConfigurationSegue])
     {
         SelectConfigurationViewController *controller = segue.destinationViewController;
         controller.delegate = self;
     }
-    else if([segue.identifier isEqualToString:kStateManagementSegue])
+    else if ([segue.identifier isEqualToString:kStateManagementSegue])
     {
         StateManagementController *stateController = segue.destinationViewController;
         stateController.emulatorScreenshot = _emulatorScreenshot;

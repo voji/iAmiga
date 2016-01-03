@@ -1267,6 +1267,9 @@
 		BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA61B4FC9B8008E15E6 /* ResetController.m */; };
 		BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA81B4FC9B8008E15E6 /* DriveState.m */; };
 		BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE6086D81C2CF5AC008E668B /* adfresolver.mm */; };
+		BE66229A1C328442009C2809 /* KeyButtonManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6622991C328442009C2809 /* KeyButtonManagementController.m */; };
+		BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */; };
+		BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.m */; };
 		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
 		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
@@ -2113,6 +2116,12 @@
 		BE52EFA91B4FC9B8008E15E6 /* DriveState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveState.h; sourceTree = "<group>"; };
 		BE6086D71C2CF5AC008E668B /* adfresolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adfresolver.h; sourceTree = "<group>"; };
 		BE6086D81C2CF5AC008E668B /* adfresolver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adfresolver.mm; sourceTree = "<group>"; };
+		BE6622981C328442009C2809 /* KeyButtonManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonManagementController.h; sourceTree = "<group>"; };
+		BE6622991C328442009C2809 /* KeyButtonManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonManagementController.m; sourceTree = "<group>"; };
+		BE66229B1C3285B3009C2809 /* KeyButtonConfigurationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfigurationController.h; sourceTree = "<group>"; };
+		BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfigurationController.m; sourceTree = "<group>"; };
+		BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfiguration.h; sourceTree = "<group>"; };
+		BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfiguration.m; sourceTree = "<group>"; };
 		BEE41BC11B4782D200CE487D /* AdfImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfImporter.m; sourceTree = "<group>"; };
 		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
 		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
@@ -2771,6 +2780,12 @@
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
 				BE52EFA91B4FC9B8008E15E6 /* DriveState.h */,
 				BE52EFA81B4FC9B8008E15E6 /* DriveState.m */,
+				BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */,
+				BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */,
+				BE66229B1C3285B3009C2809 /* KeyButtonConfigurationController.h */,
+				BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */,
+				BE6622981C328442009C2809 /* KeyButtonManagementController.h */,
+				BE6622991C328442009C2809 /* KeyButtonManagementController.m */,
 				BE52EFA71B4FC9B8008E15E6 /* ResetController.h */,
 				BE52EFA61B4FC9B8008E15E6 /* ResetController.m */,
 				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
@@ -4836,6 +4851,7 @@
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
 				BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */,
 				978550D0153A3F2E00580B91 /* iCadeReaderView.m in Sources */,
+				BE66229A1C328442009C2809 /* KeyButtonManagementController.m in Sources */,
 				7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.m in Sources */,
 				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
@@ -4847,12 +4863,14 @@
 				7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */,
 				978550E8153A3F2E00580B91 /* SDL_syscond.c in Sources */,
 				7EB017791B09164900C74B9D /* State.m in Sources */,
+				BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */,
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
 				7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */,
 				7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */,
 				978550EE153A3F2E00580B91 /* SDL_syssem.c in Sources */,
 				978550F1153A3F2E00580B91 /* SDL_systhread.c in Sources */,
 				BEE41BD41B4784AC00CE487D /* unzip.c in Sources */,
+				BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,

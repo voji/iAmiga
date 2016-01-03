@@ -35,6 +35,7 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) NSString *joypadstyle;
 @property (nonatomic, readwrite, assign) NSString *joypadleftorright;
 @property (nonatomic, readwrite, assign) BOOL joypadshowbuttontouch;
+@property (nonatomic, readwrite, assign) NSArray *buttonViewConfigurations;
 
 /**
  * Returns YES if this is the very first time that the settings are initialized (the firs time the app runs).
