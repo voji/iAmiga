@@ -32,6 +32,11 @@ static NSString *const kKeyButtonsSegue = @"KeyButtons";
 static NSString *const kStateManagementSegue = @"StateManagement";
 static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
+static const NSUInteger kDrivesSection = 0;
+static const NSUInteger kConfigSection = 1;
+static const NSUInteger kKeyButtonsSection = 2;
+static const NSUInteger kMiscSection = 3;
+
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
     Settings *settings;
@@ -115,31 +120,32 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0)
+    if (indexPath.section == kDrivesSection)
     {
         [self performSegueWithIdentifier:kSelectDiskSegue sender:[NSNumber numberWithInt:indexPath.row]];
     }
-    else if (indexPath.section == 1)
+    else if (indexPath.section == kConfigSection)
     {
         if (indexPath.row == 1)
         {
             [self performSegueWithIdentifier:kAssignDiskfilesSegue sender:nil];
-        } else if (indexPath.row == 2)
+        }
+        else if (indexPath.row == 2)
         {
             [self performSegueWithIdentifier:kLoadConfigurationSegue sender:nil];
         }
     }
-    else if (indexPath.section == 2)
+    else if (indexPath.section == kKeyButtonsSection)
+    {
+        [self performSegueWithIdentifier:kKeyButtonsSegue sender:nil];
+    }
+    else if (indexPath.section == kMiscSection)
     {
         if (indexPath.row == 0)
         {
-            [self performSegueWithIdentifier:kKeyButtonsSegue sender:nil];
-        }
-        if (indexPath.row == 1)
-        {
             [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
         }
-        else if (indexPath.row == 2)
+        else if (indexPath.row == 1)
         {
             [self performSegueWithIdentifier:kConfirmResetSegue sender:nil];
         }

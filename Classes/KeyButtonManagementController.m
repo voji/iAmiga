@@ -21,7 +21,7 @@
 
 static NSString *const kTitleCellIdent = @"TitleCell";
 static NSString *const kButtonViewConfigurationCellIdent = @"ButtonViewConfigurationCell";
-static NSString *const kConfigureKeySegue = @"ConfigureKeySegue";
+static NSString *const kConfigureKeyButtonSegue = @"ConfigureKeyButtonSegue";
 
 @implementation ButtonViewConfigurationCell
 @end
@@ -36,13 +36,13 @@ static NSString *const kConfigureKeySegue = @"ConfigureKeySegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _settings = [[Settings alloc] init];
-    _buttonConfigurations = [[NSMutableArray arrayWithArray:_settings.buttonViewConfigurations] retain];
+    _buttonConfigurations = [[NSMutableArray arrayWithArray:_settings.keyButtonConfigurations] retain];
     _initialLoad = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView reloadData]; // re-render table when coming back from configuring a button view
+    [self.tableView reloadData]; // re-render table when coming back from configuring a key button
     if (!_initialLoad) {
         [self saveButtonViewConfigurations];
     }
@@ -93,7 +93,7 @@ static NSString *const kConfigureKeySegue = @"ConfigureKeySegue";
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 1 && indexPath.row != 0;
+    return indexPath.row != 0;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,24 +108,23 @@ static NSString *const kConfigureKeySegue = @"ConfigureKeySegue";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            [self onAddButtonView];
-        } else {
-            NSUInteger buttonViewIndex = indexPath.row - 1;
-            [self performSegueWithIdentifier:kConfigureKeySegue sender:[_buttonConfigurations objectAtIndex:buttonViewIndex]];
-        }
+    if (indexPath.row == 0) {
+        [self onAddKeyButton];
+    } else {
+        NSUInteger buttonViewIndex = indexPath.row - 1;
+        [self performSegueWithIdentifier:kConfigureKeyButtonSegue
+                                  sender:[_buttonConfigurations objectAtIndex:buttonViewIndex]];
     }
 }
 
-- (void)onAddButtonView {
+- (void)onAddKeyButton {
     KeyButtonConfiguration *buttonConfiguration = [self newButtonViewConfiguration];
     [_buttonConfigurations addObject:buttonConfiguration];
-    NSArray *indexPath = @[[NSIndexPath indexPathForItem:[_buttonConfigurations count] inSection:1]];
+    NSArray *indexPath = @[[NSIndexPath indexPathForItem:[_buttonConfigurations count] inSection:0]];
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
-    [self performSegueWithIdentifier:kConfigureKeySegue sender:buttonConfiguration];
+    [self performSegueWithIdentifier:kConfigureKeyButtonSegue sender:buttonConfiguration];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(KeyButtonConfiguration *)selectedButtonViewConfiguration {
@@ -135,7 +134,7 @@ static NSString *const kConfigureKeySegue = @"ConfigureKeySegue";
 }
 
 - (void)saveButtonViewConfigurations {
-    _settings.buttonViewConfigurations = _buttonConfigurations;
+    _settings.keyButtonConfigurations = _buttonConfigurations;
 }
 
 - (KeyButtonConfiguration *)newButtonViewConfiguration {

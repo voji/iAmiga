@@ -294,14 +294,14 @@ NSString *const kKeyNameAttrName = @"keyname";
 NSString *const kShowOutlineAttrName = @"showoutline";
 NSString *const kEnabledAttrName = @"enabled";
 
-- (NSArray *)buttonViewConfigurations {
+- (NSArray *)keyButtonConfigurations {
     NSString *json = [self stringForKey:kButtonConfigurationsKey];
     if (!json) {
         return @[];
     }
     NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
     NSArray *dicts = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    NSMutableArray *buttonViewConfigurations = [[[NSMutableArray alloc] initWithCapacity:[dicts count]] autorelease];
+    NSMutableArray *keyButtonConfigurations = [[[NSMutableArray alloc] initWithCapacity:[dicts count]] autorelease];
     for (NSDictionary *dict : dicts) {
         KeyButtonConfiguration *button = [[[KeyButtonConfiguration alloc] init] autorelease];
         button.position = CGPointFromString([dict objectForKey:kPositionAttrName]);
@@ -310,14 +310,14 @@ NSString *const kEnabledAttrName = @"enabled";
         button.keyName = [dict objectForKey:kKeyNameAttrName];
         button.showOutline = [[dict objectForKey:kShowOutlineAttrName] boolValue];
         button.enabled = [[dict objectForKey:kEnabledAttrName] boolValue];
-        [buttonViewConfigurations addObject:button];
+        [keyButtonConfigurations addObject:button];
     }
-    return buttonViewConfigurations;
+    return keyButtonConfigurations;
 }
 
-- (void)setButtonViewConfigurations:(NSArray *)buttonViewConfigurations {
-    NSMutableArray *dicts = [NSMutableArray arrayWithCapacity:[buttonViewConfigurations count]];
-    for (KeyButtonConfiguration *button in buttonViewConfigurations) {
+- (void)setKeyButtonConfigurations:(NSArray *)keyButtonConfigurations {
+    NSMutableArray *dicts = [NSMutableArray arrayWithCapacity:[keyButtonConfigurations count]];
+    for (KeyButtonConfiguration *button in keyButtonConfigurations) {
         NSDictionary *dict = @{kPositionAttrName : NSStringFromCGPoint(button.position),
                                kSizeAttrName : NSStringFromCGSize(button.size),
                                kKeyAttrName : @(button.key),
