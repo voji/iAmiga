@@ -224,7 +224,7 @@ extern CJoyStick g_touchStick;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	
-    CGPoint coordinates = [[[event allTouches] anyObject] locationInView:self];
+    CGPoint coordinates = [[[event touchesForView:self] anyObject] locationInView:self];
     
     NSString *configuredkey;
     if([_joypadstyle isEqualToString:kJoyStyleFourButton])
