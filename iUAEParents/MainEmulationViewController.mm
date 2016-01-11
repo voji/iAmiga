@@ -98,7 +98,7 @@ extern void uae_reset();
                 forState:UIControlStateNormal];
     [_btnPin setTintColor: [UIColor blackColor]];*/
     
-    BOOL isFirstInitialization = [_settings initializeSettings];
+    [_settings initializeSettings];
     
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
@@ -143,17 +143,6 @@ extern void uae_reset();
     uae_reset();
     _settings.driveState = driveState;
     [self initDriveSetupTimer:driveState];
-}
-
-- (void)showMFIControllerAlert {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MFI Game Controllers"
-                                                    message:@"This version supports MFI Game Controllers. I have no Idea if it works, because I don't own one. Feedback very welcome at emufr3ak@icloud.com or on my website www.iuae-emulator.net"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    
-    [alert show];
-    [alert release];
 }
 
 - (void)applyConfiguredEffect {
