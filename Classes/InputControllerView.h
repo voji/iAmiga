@@ -44,10 +44,7 @@
 
 @property (nonatomic, assign)		id<InputControllerChangedDelegate>	delegate;
 @property (readwrite, assign) bool clickedscreen;
-- (void) setJoypadstyle:(NSString *)strjoypadstyle;
-- (void) setLeftOrRight:(NSString *)strLeftOrRight;
-- (void) setShowButtontouch:(BOOL )showbuttontouch;
-- (void)setStick;
-
+- (void)reloadJoypadSettings;
+- (void)onJoypadActivated;
 
 @end

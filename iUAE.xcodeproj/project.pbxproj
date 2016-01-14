@@ -1264,6 +1264,7 @@
 		97EF968D1538771F001C01E6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF963F1538771F001C01E6 /* icon@2x.png */; };
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
 		BE0921FF1B343D810058D9F2 /* DiskDriveService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */; };
+		BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */; };
 		BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA61B4FC9B8008E15E6 /* ResetController.m */; };
 		BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA81B4FC9B8008E15E6 /* DriveState.m */; };
 		BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE6086D81C2CF5AC008E668B /* adfresolver.mm */; };
@@ -2110,6 +2111,8 @@
 		97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoogesEmulationViewController.m; sourceTree = "<group>"; };
 		BE0921FD1B343D810058D9F2 /* DiskDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskDriveService.h; sourceTree = "<group>"; };
 		BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskDriveService.mm; sourceTree = "<group>"; };
+		BE2CA1E01C42219000B84C2C /* KeyButtonViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonViewHandler.h; sourceTree = "<group>"; };
+		BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonViewHandler.m; sourceTree = "<group>"; };
 		BE52EFA61B4FC9B8008E15E6 /* ResetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetController.m; sourceTree = "<group>"; };
 		BE52EFA71B4FC9B8008E15E6 /* ResetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetController.h; sourceTree = "<group>"; };
 		BE52EFA81B4FC9B8008E15E6 /* DriveState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveState.m; sourceTree = "<group>"; };
@@ -2273,14 +2276,16 @@
 				0504155B0FCB46F000F46828 /* EmulationViewController.mm */,
 				0504155D0FCB475C00F46828 /* InputControllerView.h */,
 				0504155E0FCB475C00F46828 /* InputControllerView.mm */,
+				BE2CA1E01C42219000B84C2C /* KeyButtonViewHandler.h */,
+				BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */,
+				0585D5601091653E00C1E4C1 /* KeyView.h */,
+				0585D5611091653E00C1E4C1 /* KeyView.m */,
 				0583DE5612D1A3AC000E97CE /* TouchHandlerView.h */,
 				0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */,
 				0504155F0FCB475C00F46828 /* JoystickViewLandscape.h */,
 				050415600FCB475C00F46828 /* JoystickViewLandscape.mm */,
 				0585D55D1091640900C1E4C1 /* VirtualKeyboard.h */,
 				0585D55E1091640900C1E4C1 /* VirtualKeyboard.m */,
-				0585D5601091653E00C1E4C1 /* KeyView.h */,
-				0585D5611091653E00C1E4C1 /* KeyView.m */,
 			);
 			name = Emulator;
 			sourceTree = "<group>";
@@ -4859,6 +4864,7 @@
 				978550DC153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				978550DF153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E2153A3F2E00580B91 /* SDL_error.c in Sources */,
+				BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */,
 				978550E5153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
 				7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */,
 				978550E8153A3F2E00580B91 /* SDL_syscond.c in Sources */,

@@ -24,6 +24,7 @@
 #import "CocoaUtility.h"
 #import "SDL_events.h"
 #import "JoypadKey.h"
+#import "KeyButtonViewHandler.h"
 
 
 InputControllerView *sharedInstance;
@@ -36,10 +37,10 @@ extern CJoyStick g_touchStick;
 	UIImageView							*fireImage;
 }
 
-@property (nonatomic, assign)	BOOL	showImage;
-@property (nonatomic, readwrite) bool showControls;
-@property (nonatomic, readwrite) NSString *joypadstyle;
-@property (nonatomic, readwrite) NSString *leftorright;
+@property (nonatomic, assign)	BOOL showImage;
+@property (nonatomic, readwrite) BOOL showControls;
+@property (nonatomic, readwrite, assign) NSString *joypadstyle;
+@property (nonatomic, readwrite, assign) NSString *leftorright;
 @property (nonatomic, readwrite) BOOL showbuttontouch;
 
 @end
@@ -360,10 +361,6 @@ extern CJoyStick g_touchStick;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    CGPoint coordinates = [[[event allTouches] anyObject] locationInView:self];
-    
-    
     NSString *configuredkey = [self releasebutton];
     
     if([configuredkey  isEqual: @"Joypad"])
@@ -383,8 +380,9 @@ extern CJoyStick g_touchStick;
 }
 
 - (void)dealloc {
-	if (fireImage)
+    if (fireImage) {
 		[fireImage release];
+    }
 	
     [_joypadstyle release];
     [_leftorright release];
@@ -415,6 +413,7 @@ extern CJoyStick g_touchStick;
     int _asciicodekeytoreleasehorizontal;
     int _asciicodekeytoreleasevertical;
     TouchStickDPadState _oldstate;
+    KeyButtonViewHandler *_keyButtonViewHandler;
 }
 
 @synthesize delegate;
@@ -429,11 +428,6 @@ extern CJoyStick g_touchStick;
 
 - (void)awakeFromNib {
 	[self configure];
-}
-
--(void) showControls {
-    button.showControls = true;
-    [button initShowControlsTimer];
 }
 
 - (void)configure {
@@ -452,6 +446,21 @@ extern CJoyStick g_touchStick;
     
     _settings = [[Settings alloc] init];
     [_settings initializeSettings];
+    
+    _keyButtonViewHandler = [[KeyButtonViewHandler alloc] initWithSuperview:self];
+}
+
+- (void)onJoypadActivated {
+    button.showControls = true;
+    [button initShowControlsTimer];
+    [_keyButtonViewHandler addKeyButtons:_settings.keyButtonConfigurations];
+}
+
+- (void)reloadJoypadSettings {
+    [self setJoypadstyle:_settings.joypadstyle];
+    [self setLeftOrRight:_settings .joypadleftorright];
+    [self setShowButtontouch:_settings.joypadshowbuttontouch];
+    [_keyButtonViewHandler addKeyButtons:_settings.keyButtonConfigurations];
 }
 
 - (void)setJoypadstyle:(NSString *)strjoypadstyle {
@@ -515,7 +524,6 @@ extern CJoyStick g_touchStick;
 
 - (void)didAddSubview:(UIView*)theView {
 	[self bringSubviewToFront:button];
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -541,6 +549,8 @@ extern CJoyStick g_touchStick;
 
 - (void)dealloc {
     [_joypadstyle release];
+    [_keyButtonViewHandler release];
+    [_settings release];
 	delete _stickVector;
     [super dealloc];
 }
@@ -647,7 +657,6 @@ extern CJoyStick g_touchStick;
         ed.key.keysym.sym = (SDLKey) asciicodehorizontal;
         SDL_PushEvent(&ed);
     }
-    
    
     if([configuredkeyvertical isEqual: @"Joypad"])
     {
@@ -721,8 +730,7 @@ extern CJoyStick g_touchStick;
         else
             return BTN_RIGHT;
     }
-    
+    return NULL;
 }
-
 
 @end

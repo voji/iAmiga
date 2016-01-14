@@ -25,10 +25,6 @@
 #import "VirtualKeyboard.h"
 #import "IOSKeyboard.h"
 #import "uae.h"
-/*#import "EMUROMBrowserViewController.h"
-#import "EmulationViewController.h"
-#import "SelectEffectController.h"
-#import "EMUFileInfo.h"*/
 #import "sysconfig.h"
 #import "sysdeps.h"
 #import "options.h"
@@ -61,7 +57,7 @@ IOSKeyboard *ioskeyboard;
 extern void uae_reset();
 
 - (IBAction)restart:(id)sender {
-        uae_reset();
+    uae_reset();
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -129,7 +125,7 @@ extern void uae_reset();
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
     set_joystickactive();
-    [self reloadJoypadsettings];
+    [_joyController reloadJoypadSettings];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -161,13 +157,6 @@ extern void uae_reset();
     joyactive = FALSE;
     _mouseHandler.hidden = FALSE;
     _joyController.hidden = TRUE;
-    [self reloadJoypadsettings];
-}
-
-- (void)reloadJoypadsettings {
-    [_joyController setJoypadstyle:[_settings joypadstyle]];
-    [_joyController setLeftOrRight:[_settings joypadleftorright]];
-    [_joyController setShowButtontouch:[_settings joypadshowbuttontouch]];
 }
 
 - (IBAction)toggleControls:(id)sender {
@@ -189,7 +178,7 @@ extern void uae_reset();
 
     if (joyactive)
     {
-        [_joyController showControls];
+        [_joyController onJoypadActivated];
     }
     
     if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
