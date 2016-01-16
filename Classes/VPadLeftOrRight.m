@@ -27,8 +27,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [_settings initializeSettings];
-    
     NSString *leftorright = [_settings stringForKey:@"_joypadleftorright"];
     
     _CellRight.accessoryType = [leftorright isEqualToString:@"Right"] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;

@@ -63,7 +63,6 @@ extern CJoyStick g_touchStick;
 	TheJoyStick = &g_touchStick;
 	
     _settings = [[Settings alloc] init];
-    [_settings initializeSettings];
     
 	return self;
     
@@ -81,7 +80,7 @@ extern CJoyStick g_touchStick;
 }
 
 - (void)disableShowControls:(NSTimer *)timer {
-    _showControls = false;
+    _showControls = NO;
     [self setNeedsDisplay];
     
     [_showcontrolstimer invalidate];
@@ -237,7 +236,7 @@ extern CJoyStick g_touchStick;
         configuredkey = [self getButtonOne:&coordinates];
     }
     
-    if([configuredkey  isEqual: @"Joypad"])
+    if([configuredkey isEqualToString:@"Joypad"])
     {
         TheJoyStick->setButtonOneState(FireButtonDown);
         [delegate fireButton:FireButtonDown];
@@ -247,20 +246,10 @@ extern CJoyStick g_touchStick;
         int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
         
         SDL_Event ed = { SDL_KEYDOWN };
-        ed.key.keysym.sym = (SDLKey) asciicode;
+        ed.key.keysym.sym = (SDLKey)asciicode;
         SDL_PushEvent(&ed);
     }
-    
-    //[self setButtonState:@"DOWN"];
 }
-
-/*- (void)setButtonState:(NSString *)upordown {
-    
-    if([upordown isEqualToString:@"DOWN"])
-    {
-        
-    }
-}*/
 
 - (NSString *)getButtonFour:(CGPoint *)coordinates {
     
@@ -306,16 +295,14 @@ extern CJoyStick g_touchStick;
         [self setNeedsDisplay];
     }
     
-    return configuredkey;
-    
+    return configuredkey;    
 }
 
 -(NSString *)getButtonOne:(CGPoint *)coordinates {
     
     _buttonapressed = true;
     [self setNeedsDisplay];
-    
-    return [NSString stringWithFormat: @"_BTN_%d", BTN_A];
+    return [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", BTN_A]];
 }
 
 -(NSString *)releasebutton {
@@ -445,13 +432,12 @@ extern CJoyStick g_touchStick;
     _oldstate = DPadCenter;
     
     _settings = [[Settings alloc] init];
-    [_settings initializeSettings];
     
     _keyButtonViewHandler = [[KeyButtonViewHandler alloc] initWithSuperview:self];
 }
 
 - (void)onJoypadActivated {
-    button.showControls = true;
+    button.showControls = YES;
     [button initShowControlsTimer];
     [_keyButtonViewHandler addKeyButtons:_settings.keyButtonConfigurations];
 }
@@ -640,13 +626,13 @@ extern CJoyStick g_touchStick;
         return;
     }
     
-    if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
+    if([configuredkeyhorizontal isEqualToString:@"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
     {
         TheJoyStick->setDPadState(dpadstate);
         return;
     }
     
-    if([configuredkeyhorizontal isEqual: @"Joypad"])
+    if([configuredkeyhorizontal isEqualToString:@"Joypad"])
     {
         TheJoyStick->setDPadState(dpadstate);
     }
@@ -658,7 +644,7 @@ extern CJoyStick g_touchStick;
         SDL_PushEvent(&ed);
     }
    
-    if([configuredkeyvertical isEqual: @"Joypad"])
+    if([configuredkeyvertical isEqualToString:@"Joypad"])
     {
         TheJoyStick->setDPadState(dpadstate);
     }

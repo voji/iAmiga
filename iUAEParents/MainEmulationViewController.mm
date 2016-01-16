@@ -94,8 +94,6 @@ extern void uae_reset();
                 forState:UIControlStateNormal];
     [_btnPin setTintColor: [UIColor blackColor]];*/
     
-    [_settings initializeSettings];
-    
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
     
@@ -118,6 +116,9 @@ extern void uae_reset();
                                              selector:@selector(controllerStateChange)
                                                  name:GCControllerDidDisconnectNotification
                                                object:nil];
+    
+    // we start out with the mouse activated
+    [_mouseHandler onMouseActivated];
 
 }
 
@@ -125,6 +126,7 @@ extern void uae_reset();
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
     set_joystickactive();
+    [_mouseHandler reloadMouseSettings];
     [_joyController reloadJoypadSettings];
 }
 
@@ -159,11 +161,9 @@ extern void uae_reset();
     _joyController.hidden = TRUE;
 }
 
-- (IBAction)toggleControls:(id)sender {
+- (IBAction)toggleControls:(UIButton *)button {
     
     bool keyboardactiveonstart = keyboardactive;
-    
-    UIButton *button = (UIButton *) sender;
     
     keyboardactive = (button == _btnKeyboard) ? !keyboardactive : FALSE;
     joyactive = (button == _btnJoypad) ? !joyactive : FALSE;
@@ -180,13 +180,15 @@ extern void uae_reset();
     {
         [_joyController onJoypadActivated];
     }
+    else
+    {
+        [_mouseHandler onMouseActivated];
+    }
     
-    if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
-    
-    if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
-    
-    if (button == btnSettings) { [self settings]; }
-    
+    if (keyboardactive != keyboardactiveonstart)
+    {
+        [ioskeyboard toggleKeyboard];
+    }    
 }
 
 - (IBAction)togglePinstatus:(id)sender {

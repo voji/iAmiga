@@ -43,9 +43,9 @@
 }
 
 - (void)highlightBorder {
-    UIColor *color = [UIColor redColor];
+    UIColor *color = [self getOutlineColor];
     self.layer.borderColor = color.CGColor;
-    self.layer.borderWidth = .8;
+    self.layer.borderWidth = .5;
 }
 
 - (void)addKeyLabelOnLeftSide:(BOOL)onLeftSide {
@@ -55,8 +55,12 @@
     CGRect frame = onLeftSide ? CGRectMake(offset, offset, labelWidth, labelHeight) : CGRectMake(self.frame.size.width - labelWidth - offset, offset, labelWidth, labelHeight);
     UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
     label.text = _keyName;
-    label.textColor = [UIColor whiteColor];
+    label.textColor = [self getOutlineColor];
     [self addSubview:label];
+}
+
+- (UIColor *)getOutlineColor {
+    return [UIColor redColor];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

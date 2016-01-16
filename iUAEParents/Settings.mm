@@ -66,17 +66,13 @@ static NSString *configurationname;
 - (id)init {
     if (self = [super init]) {
         defaults = [[NSUserDefaults standardUserDefaults] retain];
+        [self initializeCommonSettings];
+        [self initializespecificsettings];
     }
     return self;
 }
 
-- (BOOL)initializeSettings {
-    BOOL isFirstInitialization = [self initializeCommonSettings];
-    [self initializespecificsettings];
-    return isFirstInitialization;
-}
-
-- (BOOL)initializeCommonSettings {
+- (void)initializeCommonSettings {
     
     configurationname = [[defaults stringForKey:kConfigurationNameKey] retain];
     
@@ -89,7 +85,6 @@ static NSString *configurationname;
         self.driveState = [DriveState getAllEnabled];
         [defaults setObject:@"General" forKey:kConfigurationNameKey];
     }
-    return isFirstInitialization;
 }
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths {

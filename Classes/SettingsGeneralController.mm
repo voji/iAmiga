@@ -49,7 +49,6 @@ static const NSUInteger kMiscSection = 3;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [settings initializeSettings];
     [self setupUIState];
 }
 

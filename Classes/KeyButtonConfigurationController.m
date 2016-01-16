@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add another key" style:UIBarButtonSystemItemAdd target:self action:@selector(onNewButton)];
     _keyboard = [[IOSKeyboard alloc] initWithDummyFields:_dummyTextField1 fieldf:_dummyTextField2 fieldspecial:_dummyTextField3];
     _keyboard.delegate = self;
     _viewConfigurationToView = [[NSMutableDictionary alloc] init];
@@ -43,12 +42,7 @@
     [_keyboard toggleKeyboard];
     _selectedButtonViewConfiguration.key = (SDLKey)ascii;
     _selectedButtonViewConfiguration.keyName = keyName;
-    [self updateKeyButtonLabel];
     [self updateKeyLabelForView:[self getSelectedView] withValue:keyName];
-}
-
-- (void)updateKeyButtonLabel {
-    [_configureKeyButton setTitle:[NSString stringWithFormat:@"Configured Key: %@", _selectedButtonViewConfiguration.keyName] forState:UIControlStateNormal];
 }
 
 - (void)updateButtonViewSizeSlider {
@@ -94,7 +88,7 @@
     }
 }
 
-- (void)onNewButton {
+- (IBAction)onNewButton {
     KeyButtonConfiguration *newButtonConfig = [_selectedButtonViewConfiguration clone];
     [_allButtonConfigurations addObject:newButtonConfig];
     newButtonConfig.position = CGPointMake(newButtonConfig.position.x + 5, newButtonConfig.position.y + 5);
@@ -111,6 +105,10 @@
     _selectedButtonViewConfiguration.size = newSize;
     UIView *view = [self getSelectedView];
     view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, newSize.width, newSize.height);
+}
+
+- (IBAction)onDoneButton {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)handleTap:(UIPanGestureRecognizer *)recognizer {
@@ -143,7 +141,6 @@
 
 - (void)updateUIForSelectedView {
     [self updateButtonViewSizeSlider];
-    [self updateKeyButtonLabel];
 }
 
 - (KeyButtonConfiguration *)configForView:(UIView *)view {
