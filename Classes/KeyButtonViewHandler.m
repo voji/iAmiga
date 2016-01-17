@@ -18,14 +18,26 @@
 #import "KeyButtonViewHandler.h"
 #import "Settings.h"
 
-@interface KeyButtonView : UIView
-
-- (instancetype)initWithFrame:(CGRect)frame forKey:(SDLKey)key andKeyName:(NSString *)keyName;
+@interface TouchNotifier : NSObject
 
 @property (nonatomic) BOOL buttonWasTouched;
-@property (nonatomic, readonly) SDLKey key;
-@property (nonatomic, readonly) NSString *keyName;
 
+@end
+
+@implementation TouchNotifier
+@end
+
+@interface KeyButtonView : UIView {
+    @private
+    SDLKey _key;
+    NSString *_keyName;
+    TouchNotifier *_touchNotifier;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+                       forKey:(SDLKey)key
+                  withKeyName:(NSString *)keyName
+                touchNofifier:(TouchNotifier *)touchNotifier;
 @end
 
 /**
@@ -33,10 +45,15 @@
  */
 @implementation KeyButtonView
 
-- (instancetype)initWithFrame:(CGRect)frame forKey:(SDLKey)key andKeyName:(NSString *)keyName {
+- (instancetype)initWithFrame:(CGRect)frame
+                       forKey:(SDLKey)key
+                  withKeyName:(NSString *)keyName
+                touchNofifier:(TouchNotifier *)touchNotifier
+{
     if (self = [super initWithFrame:frame]) {
         _key = key;
         _keyName = [keyName retain];
+        _touchNotifier = [touchNotifier retain];
     }
     return self;
 }
@@ -66,7 +83,7 @@
     SDL_Event ed = { SDL_KEYDOWN };
     ed.key.keysym.sym = _key;
     SDL_PushEvent(&ed);
-    _buttonWasTouched = YES;
+    _touchNotifier.buttonWasTouched = YES;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -77,6 +94,7 @@
 
 - (void)dealloc {
     [_keyName release];
+    [_touchNotifier release];
     [super dealloc];
 }
 
@@ -87,6 +105,7 @@
     NSMutableArray *_keyButtonViews;
     Settings *_settings;
     UIView *_superview;
+    TouchNotifier *_touchNotifier;
 }
 
 - (instancetype)initWithSuperview:(UIView *)superview {
@@ -94,23 +113,17 @@
         _keyButtonViews = [[NSMutableArray alloc] init];
         _settings = [[Settings alloc] init];
         _superview = [superview retain];
+        _touchNotifier = [[TouchNotifier alloc] init];
     }
     return self;
 }
 
 - (BOOL)anyButtonWasTouched {
-    for (KeyButtonView *keyButtonView in _keyButtonViews) {
-        if (keyButtonView.buttonWasTouched) {
-            return YES;
-        }
-    }
-    return NO;
+    return _touchNotifier.buttonWasTouched;
 }
 
 - (void)setAnyButtonWasTouched:(BOOL)anyButtonWasTouched {
-    for (KeyButtonView *keyButtonView in _keyButtonViews) {
-        keyButtonView.buttonWasTouched = anyButtonWasTouched;
-    }
+    _touchNotifier.buttonWasTouched = anyButtonWasTouched;
 }
 
 - (void)addConfiguredKeyButtonViews {
@@ -126,7 +139,10 @@
             continue;
         }
         CGRect frame = CGRectMake(button.position.x, button.position.y, button.size.width, button.size.height);
-        KeyButtonView *buttonView = [[[KeyButtonView alloc] initWithFrame:frame forKey:button.key andKeyName:button.keyName] autorelease];
+        KeyButtonView *buttonView = [[[KeyButtonView alloc] initWithFrame:frame
+                                                                   forKey:button.key
+                                                              withKeyName:button.keyName
+                                                            touchNofifier:_touchNotifier] autorelease];
         if (button.showOutline) {
             [buttonView highlightBorder];
             [buttonView addKeyLabelOnLeftSide:YES];
@@ -154,6 +170,7 @@
     [_keyButtonViews release];
     [_settings release];
     [_superview release];
+    [_touchNotifier release];
     [super dealloc];
 }
 
