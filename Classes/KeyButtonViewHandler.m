@@ -17,13 +17,11 @@
 #import "KeyButtonConfiguration.h"
 #import "KeyButtonViewHandler.h"
 
-@interface KeyButtonView : UIView {
-@public
-    BOOL _clickedScreen;
-}
+@interface KeyButtonView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame forKey:(SDLKey)key andKeyName:(NSString *)keyName;
 
+@property (nonatomic) BOOL buttonWasTouched;
 @property (nonatomic, readonly) SDLKey key;
 @property (nonatomic, readonly) NSString *keyName;
 
@@ -64,10 +62,10 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    _clickedScreen = YES;
     SDL_Event ed = { SDL_KEYDOWN };
     ed.key.keysym.sym = _key;
     SDL_PushEvent(&ed);
+    _buttonWasTouched = YES;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -97,6 +95,21 @@
     return self;
 }
 
+- (BOOL)anyButtonWasTouched {
+    for (KeyButtonView *keyButtonView in _keyButtonViews) {
+        if (keyButtonView.buttonWasTouched) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)setAnyButtonWasTouched:(BOOL)anyButtonWasTouched {
+    for (KeyButtonView *keyButtonView in _keyButtonViews) {
+        keyButtonView.buttonWasTouched = anyButtonWasTouched;
+    }
+}
+
 - (void)addKeyButtons:(NSArray *)keyButtonConfigurations {
     [self removeExistingKeyButtonViews];
     for (KeyButtonConfiguration *button in keyButtonConfigurations) {
@@ -113,8 +126,14 @@
             [buttonView addKeyLabelOnLeftSide:YES];
         }
         [_superview addSubview:buttonView];
-        [_superview bringSubviewToFront:buttonView];
         [_keyButtonViews addObject:buttonView];
+    }
+    [self bringAllButtonViewsToFront];
+}
+
+- (void)bringAllButtonViewsToFront {
+    for (UIView *keyButtonView in _keyButtonViews) {
+        [_superview bringSubviewToFront:keyButtonView];
     }
 }
 

@@ -42,8 +42,8 @@
 	float								_deadZone;		// represents the deadzone radius, where the DPad state will be considered DPadCenter
 }
 
-@property (nonatomic, assign)		id<InputControllerChangedDelegate>	delegate;
-@property (readwrite, assign) bool clickedscreen;
+@property (nonatomic, assign) id<InputControllerChangedDelegate> delegate;
+@property (nonatomic, readwrite) BOOL clickedscreen;
 - (void)reloadJoypadSettings;
 - (void)onJoypadActivated;
 

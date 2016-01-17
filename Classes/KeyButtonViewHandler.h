@@ -23,4 +23,6 @@
 
 - (void)addKeyButtons:(NSArray *)keyButtonConfigurations;
 
+@property (nonatomic) BOOL anyButtonWasTouched;
+
 @end

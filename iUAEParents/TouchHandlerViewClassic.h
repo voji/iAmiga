@@ -47,6 +47,6 @@
 - (void)onMouseActivated;
 - (void)reloadMouseSettings;
 
-@property (readwrite, assign) bool clickedscreen;
+@property (nonatomic, assign) BOOL clickedscreen;
 
 @end

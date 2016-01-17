@@ -41,6 +41,8 @@
     KeyButtonViewHandler *keyButtonViewHandler;
     Settings *settings;
 }
+
+@synthesize clickedscreen = _clickedscreen;
     
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -213,6 +215,16 @@
 - (void)onMouseActivated
 {
     [keyButtonViewHandler addKeyButtons:settings.keyButtonConfigurations];
+}
+
+- (BOOL)clickedscreen {
+    // did the user move the mouse or use key buttons?
+    return _clickedscreen || keyButtonViewHandler.anyButtonWasTouched;
+}
+
+- (void)setClickedscreen:(BOOL)clickedscreen {
+    _clickedscreen = clickedscreen;
+    keyButtonViewHandler.anyButtonWasTouched = clickedscreen;
 }
 
 - (void)dealloc
