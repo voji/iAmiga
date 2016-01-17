@@ -35,11 +35,12 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) NSString *joypadstyle;
 @property (nonatomic, readwrite, assign) NSString *joypadleftorright;
 @property (nonatomic, readwrite, assign) BOOL joypadshowbuttontouch;
+@property (nonatomic, readwrite, assign) BOOL keyButtonsEnabled;
 @property (nonatomic, readwrite, assign) NSArray *keyButtonConfigurations;
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;
 - (void)setFloppyConfiguration:(NSString *)adfPath;
-- (void)setKeyconfiguration:(NSString *) configuredkey Button:(int)button;
+- (void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button;
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void)setObject:(id)value forKey:(NSString *)settingitemname;

@@ -19,9 +19,13 @@
 #import "KeyButtonManagementController.h"
 #import "Settings.h"
 
-static NSString *const kTitleCellIdent = @"TitleCell";
-static NSString *const kButtonViewConfigurationCellIdent = @"ButtonViewConfigurationCell";
+static NSString *const kKeyButtonsEnabledCellIdent = @"KeyButtonsEnabledCell";
+static NSString *const kNewKeyButtonCellIdent = @"NewKeyButtonCell";
+static NSString *const kConfiguredKeyButtonCellIdent = @"ConfiguredKeyButtonCell";
 static NSString *const kConfigureKeyButtonSegue = @"ConfigureKeyButtonSegue";
+
+@implementation KeyButtonsEnabledCell
+@end
 
 @implementation ButtonViewConfigurationCell
 @end
@@ -36,15 +40,17 @@ static NSString *const kConfigureKeyButtonSegue = @"ConfigureKeyButtonSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _settings = [[Settings alloc] init];
-    _buttonConfigurations = [[NSMutableArray arrayWithArray:_settings.keyButtonConfigurations] retain];
     _initialLoad = YES;
+    if (_settings.keyButtonsEnabled) {
+        _buttonConfigurations = [[self loadButtonConfiguration] retain];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData]; // re-render table when coming back from configuring a key button
     if (!_initialLoad) {
-        [self saveButtonViewConfigurations];
+        [self saveButtonConfigurations];
     }
     _initialLoad = NO;
 }
@@ -56,44 +62,50 @@ static NSString *const kConfigureKeyButtonSegue = @"ConfigureKeyButtonSegue";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _settings.keyButtonsEnabled ? 2 : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_buttonConfigurations count] + 1;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Mapped Keys";
+    if (section == 0) {
+        return 1;
+    } else {
+        return _settings.keyButtonsEnabled ? [_buttonConfigurations count] + 1 : 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = indexPath.row;
-    if (row == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTitleCellIdent];
+    if (indexPath.section == 0) {
+        KeyButtonsEnabledCell *cell = [tableView dequeueReusableCellWithIdentifier:kKeyButtonsEnabledCellIdent];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTitleCellIdent];
+            cell = [[[KeyButtonsEnabledCell alloc] init] autorelease];
         }
+        [cell.keyButtonsEnabledSwitch setOn:_settings.keyButtonsEnabled];
         return cell;
+    }
+    else if (indexPath.row == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kNewKeyButtonCellIdent];
+        return cell ?
+            cell:
+            [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kNewKeyButtonCellIdent];
     } else {
-        ButtonViewConfigurationCell *cell = [tableView dequeueReusableCellWithIdentifier:kButtonViewConfigurationCellIdent];
+        ButtonViewConfigurationCell *cell = [tableView dequeueReusableCellWithIdentifier:kConfiguredKeyButtonCellIdent];
         if (!cell) {
             cell = [[[ButtonViewConfigurationCell alloc] init] autorelease];
         }
-        KeyButtonConfiguration *button = [_buttonConfigurations objectAtIndex:row - 1];
+        KeyButtonConfiguration *button = [_buttonConfigurations objectAtIndex:indexPath.row - 1];
         cell.keyNameLabel.text = button.keyName;
         [cell.showOutlineSwitch setOn:button.showOutline];
         [cell.showOutlineSwitch addTarget:button action:@selector(toggleShowOutline) forControlEvents:UIControlEventValueChanged];
-        [cell.showOutlineSwitch addTarget:self action:@selector(saveButtonViewConfigurations) forControlEvents:UIControlEventValueChanged];
+        [cell.showOutlineSwitch addTarget:self action:@selector(saveButtonConfigurations) forControlEvents:UIControlEventValueChanged];
         [cell.enabledSwitch setOn:button.enabled];
         [cell.enabledSwitch addTarget:button action:@selector(toggleEnabled) forControlEvents:UIControlEventValueChanged];
-        [cell.enabledSwitch addTarget:self action:@selector(saveButtonViewConfigurations) forControlEvents:UIControlEventValueChanged];
+        [cell.enabledSwitch addTarget:self action:@selector(saveButtonConfigurations) forControlEvents:UIControlEventValueChanged];
         return cell;
     }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.row != 0;
+    return indexPath.section == 1 && indexPath.row != 0;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,24 +115,41 @@ static NSString *const kConfigureKeyButtonSegue = @"ConfigureKeyButtonSegue";
         [_buttonConfigurations removeObjectAtIndex:indexPath.row - 1];
         [tableView endUpdates];
     }
-    [self saveButtonViewConfigurations];
+    [self saveButtonConfigurations];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
-        [self onAddKeyButton];
-    } else {
-        NSUInteger buttonViewIndex = indexPath.row - 1;
-        [self performSegueWithIdentifier:kConfigureKeyButtonSegue
-                                  sender:[_buttonConfigurations objectAtIndex:buttonViewIndex]];
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [self onAddKeyButton];
+        } else {
+            NSUInteger buttonViewIndex = indexPath.row - 1;
+            [self performSegueWithIdentifier:kConfigureKeyButtonSegue
+                                      sender:[_buttonConfigurations objectAtIndex:buttonViewIndex]];
+        }
     }
+}
+
+- (IBAction)onKeyButtonsFeatureSwitchToggled:(UISwitch *)keyButtonsEnabledSwitch {
+    _settings.keyButtonsEnabled = keyButtonsEnabledSwitch.isOn;
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+    [self.tableView beginUpdates];
+    if (keyButtonsEnabledSwitch.isOn) {
+        _buttonConfigurations = [[self loadButtonConfiguration] retain];
+        [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+        [_buttonConfigurations release];
+        _buttonConfigurations = nil;
+    }
+    [self.tableView endUpdates];
 }
 
 - (void)onAddKeyButton {
     KeyButtonConfiguration *buttonConfiguration = [self newButtonViewConfiguration];
     [_buttonConfigurations addObject:buttonConfiguration];
-    NSArray *indexPath = @[[NSIndexPath indexPathForItem:[_buttonConfigurations count] inSection:0]];
+    NSArray *indexPath = @[[NSIndexPath indexPathForItem:[_buttonConfigurations count] inSection:1]];
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
@@ -133,8 +162,12 @@ static NSString *const kConfigureKeyButtonSegue = @"ConfigureKeyButtonSegue";
     controller.allButtonConfigurations = _buttonConfigurations;
 }
 
-- (void)saveButtonViewConfigurations {
+- (void)saveButtonConfigurations {
     _settings.keyButtonConfigurations = _buttonConfigurations;
+}
+
+- (NSMutableArray *)loadButtonConfiguration {
+    return [NSMutableArray arrayWithArray:_settings.keyButtonConfigurations];
 }
 
 - (KeyButtonConfiguration *)newButtonViewConfiguration {

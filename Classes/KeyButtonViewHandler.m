@@ -16,6 +16,7 @@
 
 #import "KeyButtonConfiguration.h"
 #import "KeyButtonViewHandler.h"
+#import "Settings.h"
 
 @interface KeyButtonView : UIView
 
@@ -84,12 +85,14 @@
 @implementation KeyButtonViewHandler {
     @private
     NSMutableArray *_keyButtonViews;
+    Settings *_settings;
     UIView *_superview;
 }
 
 - (instancetype)initWithSuperview:(UIView *)superview {
     if (self = [super init]) {
         _keyButtonViews = [[NSMutableArray alloc] init];
+        _settings = [[Settings alloc] init];
         _superview = [superview retain];
     }
     return self;
@@ -110,9 +113,12 @@
     }
 }
 
-- (void)addKeyButtons:(NSArray *)keyButtonConfigurations {
+- (void)addConfiguredKeyButtonViews {
     [self removeExistingKeyButtonViews];
-    for (KeyButtonConfiguration *button in keyButtonConfigurations) {
+    if (!_settings.keyButtonsEnabled) {
+        return;
+    }
+    for (KeyButtonConfiguration *button in _settings.keyButtonConfigurations) {
         if (!button.enabled) {
             continue;
         }
@@ -146,6 +152,7 @@
 
 - (void)dealloc {
     [_keyButtonViews release];
+    [_settings release];
     [_superview release];
     [super dealloc];
 }

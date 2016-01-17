@@ -36,7 +36,8 @@ static NSString *const kConfigurationNameKey = @"configurationname";
 static NSString *const kConfigurationsKey = @"configurations";
 static NSString *const kAutoloadConfigKey = @"autoloadconfig";
 static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
-static NSString *const kButtonConfigurationsKey = @"buttonConfigurations";
+static NSString *const kKeyButtonsEnabledKey = @"keyButtonsEnabled";
+static NSString *const kKeyButtonConfigurationsKey = @"keyButtonConfigurations";
 
 static NSString *const kNtscKey = @"_ntsc";
 static NSString *const kStretchScreenKey = @"_stretchscreen";
@@ -282,6 +283,14 @@ static NSString *configurationname;
     [self setBool:driveState.df3Enabled forKey:kDf3EnabledKey];
 }
 
+- (BOOL)keyButtonsEnabled {
+    return [self boolForKey:kKeyButtonsEnabledKey];
+}
+
+- (void)setKeyButtonsEnabled:(BOOL)keyButtonsEnabled {
+    [self setBool:keyButtonsEnabled forKey:kKeyButtonsEnabledKey];
+}
+
 NSString *const kPositionAttrName = @"position";
 NSString *const kSizeAttrName = @"size";
 NSString *const kKeyAttrName = @"key";
@@ -290,7 +299,7 @@ NSString *const kShowOutlineAttrName = @"showoutline";
 NSString *const kEnabledAttrName = @"enabled";
 
 - (NSArray *)keyButtonConfigurations {
-    NSString *json = [self stringForKey:kButtonConfigurationsKey];
+    NSString *json = [self stringForKey:kKeyButtonConfigurationsKey];
     if (!json) {
         return @[];
     }
@@ -323,7 +332,7 @@ NSString *const kEnabledAttrName = @"enabled";
     }
     NSData *data = [NSJSONSerialization dataWithJSONObject:dicts options:0 error:nil];
     NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [self setObject:json forKey:kButtonConfigurationsKey];
+    [self setObject:json forKey:kKeyButtonConfigurationsKey];
 }
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname {

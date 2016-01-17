@@ -21,7 +21,7 @@
 - (instancetype)init __unavailable;
 - (instancetype)initWithSuperview:(UIView *)superview;
 
-- (void)addKeyButtons:(NSArray *)keyButtonConfigurations;
+- (void)addConfiguredKeyButtonViews;
 
 @property (nonatomic) BOOL anyButtonWasTouched;
 

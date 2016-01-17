@@ -423,14 +423,14 @@ extern CJoyStick g_touchStick;
 - (void)onJoypadActivated {
     button.showControls = YES;
     [button initShowControlsTimer];
-    [_keyButtonViewHandler addKeyButtons:_settings.keyButtonConfigurations];
+    [_keyButtonViewHandler addConfiguredKeyButtonViews];
 }
 
 - (void)reloadJoypadSettings {
     [self setJoypadstyle:_settings.joypadstyle];
     [self setLeftOrRight:_settings .joypadleftorright];
     [self setShowButtontouch:_settings.joypadshowbuttontouch];
-    [_keyButtonViewHandler addKeyButtons:_settings.keyButtonConfigurations];
+    [_keyButtonViewHandler addConfiguredKeyButtonViews];
 }
 
 - (void)setJoypadstyle:(NSString *)strjoypadstyle {

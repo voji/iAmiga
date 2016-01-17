@@ -29,7 +29,6 @@
 #import "SDL_events.h"
 #import "SDL_mouse_c.h"
 #import "KeyButtonViewHandler.h"
-#import "Settings.h"
 
 @implementation TouchHandlerViewClassic {
     NSTimer *timer;
@@ -39,7 +38,6 @@
     UILabel *ldraggingon;
     UILabel *ldurationtouch;
     KeyButtonViewHandler *keyButtonViewHandler;
-    Settings *settings;
 }
 
 @synthesize clickedscreen = _clickedscreen;
@@ -64,8 +62,6 @@
     [self addSubview:ldurationtouch];*/
     
     keyButtonViewHandler = [[KeyButtonViewHandler alloc] initWithSuperview:self];
-    
-    settings = [[Settings alloc] init];
     
     return self;
 }
@@ -214,7 +210,7 @@
 
 - (void)onMouseActivated
 {
-    [keyButtonViewHandler addKeyButtons:settings.keyButtonConfigurations];
+    [keyButtonViewHandler addConfiguredKeyButtonViews];
 }
 
 - (BOOL)clickedscreen {
@@ -234,7 +230,6 @@
     [ldurationtouch release];
     [timer release];
     [keyButtonViewHandler release];
-    [settings release];
     [super dealloc];
 }
 

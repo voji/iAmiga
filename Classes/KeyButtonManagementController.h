@@ -16,6 +16,12 @@
 
 #import <Foundation/Foundation.h>
 
+@interface KeyButtonsEnabledCell : UITableViewCell
+
+@property (nonatomic, assign) IBOutlet UISwitch *keyButtonsEnabledSwitch;
+
+@end
+
 @interface ButtonViewConfigurationCell : UITableViewCell
 
 @property (nonatomic, assign) IBOutlet UILabel *keyNameLabel;
@@ -23,6 +29,7 @@
 @property (nonatomic, assign) IBOutlet UISwitch *enabledSwitch;
 
 @end
+
 
 @interface KeyButtonManagementController : UITableViewController
 
