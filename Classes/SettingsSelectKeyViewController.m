@@ -48,8 +48,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [settings initializeSettings];
-    
     _KeyDetailLabel.text = _keydetailtext;
     _JoypadDetailLabel.text = _joypaddetailtext;
     

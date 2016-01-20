@@ -28,6 +28,7 @@
 #import "SDL.h"
 #import "SDL_events.h"
 #import "SDL_mouse_c.h"
+#import "KeyButtonViewHandler.h"
 
 @implementation TouchHandlerViewClassic {
     NSTimer *timer;
@@ -36,7 +37,10 @@
     NSDate *now;
     UILabel *ldraggingon;
     UILabel *ldurationtouch;
+    KeyButtonViewHandler *keyButtonViewHandler;
 }
+
+@synthesize clickedscreen = _clickedscreen;
     
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -46,8 +50,8 @@
 		self.multipleTouchEnabled = YES;
     }
     
-    timer=[[ NSTimer scheduledTimerWithTimeInterval:0.020 target:self
-                                          selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
+    timer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                            selector:@selector(timerEvent:) userInfo:nil repeats:YES ] retain];
     
     draggingon = FALSE;
     
@@ -57,17 +61,19 @@
     /*[self addSubview:ldraggingon];
     [self addSubview:ldurationtouch];*/
     
+    keyButtonViewHandler = [[KeyButtonViewHandler alloc] initWithSuperview:self];
     
     return self;
 }
 
--(void)timerEvent:(NSTimer*)timer{
+-(void)timerEvent:(NSTimer*)timer
+{
     //Press Left Mouse Button down and keep down if tab is pressed for more than one second without moving
     
     /*[ldraggingon setText: (draggingon ? @"YES" : @"NO")];
     [ldurationtouch setText:[NSString stringWithFormat:@"%f", durationtouch]];*/
     
-    if(starttimetouch && didMove == FALSE && draggingon == FALSE)
+    if(starttimetouch && !didMove && !draggingon)
     {
         now = [NSDate date];
         durationtouch = [now timeIntervalSinceDate:starttimetouch];
@@ -76,15 +82,17 @@
     if(durationtouch > 1)
     {
         SDL_SendMouseButton(NULL, SDL_PRESSED, SDL_BUTTON_LEFT);
-        draggingon = TRUE;
+        draggingon = YES;
     }
 }
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     self.multipleTouchEnabled = YES;
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews
+{
     [super layoutSubviews];
     x_ratio = self.frame.size.width / 320.0f / 2.0f; /* King of Chicago */
     y_ratio = self.frame.size.height / 240.0f / 2.0f; /* King of Chicago */
@@ -92,8 +100,6 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    
     NSSet *touchtype = [event allTouches];
     int touchCounts = [touchtype count];
     
@@ -159,10 +165,10 @@
         {
             if (touch == leadTouch)
             {
-                leadTouch = Nil;
+                leadTouch = nil;
                 //printf("Move End\n");
                 
-                if(draggingon == FALSE)
+                if(draggingon == NO)
                 {
                     if (didMove == NO)
                     {
@@ -182,9 +188,9 @@
                    SDL_SendMouseButton(NULL, SDL_RELEASED, SDL_BUTTON_LEFT);
                 }
                 
-                draggingon = FALSE;
+                draggingon = NO;
                 [starttimetouch release];
-                starttimetouch = Nil;
+                starttimetouch = nil;
                 durationtouch = 0;
             }
             else if (touch == rightTouch)
@@ -197,7 +203,25 @@
     }
 }
 
+- (void)reloadMouseSettings
+{
+    [self onMouseActivated];
+}
 
+- (void)onMouseActivated
+{
+    [keyButtonViewHandler addConfiguredKeyButtonViews];
+}
+
+- (BOOL)clickedscreen {
+    // did the user move the mouse or use key buttons?
+    return _clickedscreen || keyButtonViewHandler.anyButtonWasTouched;
+}
+
+- (void)setClickedscreen:(BOOL)clickedscreen {
+    _clickedscreen = clickedscreen;
+    keyButtonViewHandler.anyButtonWasTouched = clickedscreen;
+}
 
 - (void)dealloc
 {
@@ -205,8 +229,8 @@
     [ldraggingon release];
     [ldurationtouch release];
     [timer release];
+    [keyButtonViewHandler release];
     [super dealloc];
 }
-
 
 @end

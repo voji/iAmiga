@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AddConfigurationViewController.h"
 
-@protocol SelectConfigurationDelegate
+@protocol SelectConfigurationDelegate <NSObject>
 - (void)didSelectConfiguration:(NSString *)configurationname;
 - (BOOL)isRecentConfig:(NSString *)configurationname;
 - (void)didDeleteConfiguration;
-- (NSString *)getfirstoption;
+- (NSString *)getFirstOption;
 @end
 
 @interface SelectConfigurationViewController : UITableViewController <AddConfigurationDelegate>
 
-@property (nonatomic, assign) id<SelectConfigurationDelegate>	delegate;
+@property (nonatomic, assign) id<SelectConfigurationDelegate> delegate;
 
 @end

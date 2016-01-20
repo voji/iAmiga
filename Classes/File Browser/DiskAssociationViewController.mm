@@ -228,8 +228,8 @@
     
 }
 
-- (NSString *)getfirstoption {
-    return [[NSString alloc] initWithFormat:@"None"];
+- (NSString *)getFirstOption {
+    return @"None";
 }
 
 - (void)dealloc {

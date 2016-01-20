@@ -44,8 +44,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    [settings initializeSettings];
-    
     _CellA.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_A]];
     _CellB.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_B]];
     _CellX.detailTextLabel.text = [settings stringForKey: [NSString stringWithFormat: @"_BTNN_%d", BTN_X]];

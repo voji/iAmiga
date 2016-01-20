@@ -27,8 +27,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [_settings initializeSettings];
-    
     NSString *vpadstyle = [_settings stringForKey:@"_joypadstyle"];
     
     _CellOneButton.accessoryType = [vpadstyle isEqualToString:@"OneButton"] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
