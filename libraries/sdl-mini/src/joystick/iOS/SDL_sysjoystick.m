@@ -96,8 +96,6 @@ int
 SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 {
     settingsforjoystick = [[Settings alloc] init];
-    [settingsforjoystick initializeSettings];
-    
     
     if (joystick->index == kiControlPad) {
         joystick->naxes = 0;
@@ -225,7 +223,7 @@ int dpadstatetojoypadkey (Uint8 dpadstate, NSString * direction) {
         else
             return BTN_RIGHT;
     }
-    
+    return NULL;
 }
 
 void pushkey(UInt8 dpadstate, SDL_Joystick * joystick) {

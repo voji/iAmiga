@@ -45,11 +45,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    [_settings initializeSettings];
-    
     _Joypadstyle.detailTextLabel.text = [_settings stringForKey:@"_joypadstyle"];
     _LeftorRight.detailTextLabel.text = [_settings stringForKey:@"_joypadleftorright"];
-
 }
 
 - (void)didReceiveMemoryWarning {

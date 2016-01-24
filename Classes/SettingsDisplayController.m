@@ -32,7 +32,6 @@ extern int mainMenu_stretchscreen;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_settings initializeSettings];
     [_ntsc setOn:_settings.ntsc];
     [_showstatus setOn:_settings.showStatus];
     [_stretchscreen setOn:_settings.stretchScreen];

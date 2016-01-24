@@ -28,13 +28,12 @@
 @class VirtualKeyboard;
 
 @interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
-    VirtualKeyboard				*vKeyboard;
+    VirtualKeyboard	*vKeyboard;
     bool keyboardactive;
     bool joyactive;
     int paused;
 }
 
-@property (readwrite) bool keyboardactive;
 @property (readonly) CGFloat screenHeight;
 @property (readonly) CGFloat screenWidth;
 @property (readwrite, retain) UIButton *btnKeyboard;
@@ -50,8 +49,7 @@
 -(IBAction)enableMenuBar:(id)sender;
 -(IBAction)togglePinstatus:(id)sender;
 - (IBAction)restart:(id)sender;
-- (void) settings;
-- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
+- (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeJoypad:(InputControllerView *)joyController;
 - (void)checkForPaused:(NSTimer*)timer;
 

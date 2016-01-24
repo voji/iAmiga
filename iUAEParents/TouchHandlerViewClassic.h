@@ -44,6 +44,9 @@
     NSDate *starttimetouch;
 }
 
-@property (readwrite, assign) bool clickedscreen;
+- (void)onMouseActivated;
+- (void)reloadMouseSettings;
+
+@property (nonatomic, assign) BOOL clickedscreen;
 
 @end

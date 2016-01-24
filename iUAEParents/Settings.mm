@@ -28,6 +28,7 @@
 #import "JoypadKey.h"
 
 #import "Settings.h"
+#import "KeyButtonConfiguration.h"
 
 static NSString *const kAppSettingsInitializedKey = @"appvariableinitialized";
 static NSString *const kInitializeKey = @"_initialize";
@@ -35,17 +36,18 @@ static NSString *const kConfigurationNameKey = @"configurationname";
 static NSString *const kConfigurationsKey = @"configurations";
 static NSString *const kAutoloadConfigKey = @"autoloadconfig";
 static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
+static NSString *const kKeyButtonsEnabledKey = @"keyButtonsEnabled";
+static NSString *const kKeyButtonConfigurationsKey = @"keyButtonConfigurations";
 
 static NSString *const kNtscKey = @"_ntsc";
 static NSString *const kStretchScreenKey = @"_stretchscreen";
 static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
+
 static NSString *const kJoypadStyleKey = @"_joypadstyle";
 static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
 static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
-
-static NSString *const kJoypadButtonkey = @"_BTN_";
 
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
@@ -65,17 +67,13 @@ static NSString *configurationname;
 - (id)init {
     if (self = [super init]) {
         defaults = [[NSUserDefaults standardUserDefaults] retain];
+        [self initializeCommonSettings];
+        [self initializespecificsettings];
     }
     return self;
 }
 
-- (BOOL)initializeSettings {
-    BOOL isFirstInitialization = [self initializeCommonSettings];
-    [self initializespecificsettings];
-    return isFirstInitialization;
-}
-
-- (BOOL)initializeCommonSettings {
+- (void)initializeCommonSettings {
     
     configurationname = [[defaults stringForKey:kConfigurationNameKey] retain];
     
@@ -88,7 +86,6 @@ static NSString *configurationname;
         self.driveState = [DriveState getAllEnabled];
         [defaults setObject:@"General" forKey:kConfigurationNameKey];
     }
-    return isFirstInitialization;
 }
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths {
@@ -284,6 +281,58 @@ static NSString *configurationname;
     [self setBool:driveState.df1Enabled forKey:kDf1EnabledKey];
     [self setBool:driveState.df2Enabled forKey:kDf2EnabledKey];
     [self setBool:driveState.df3Enabled forKey:kDf3EnabledKey];
+}
+
+- (BOOL)keyButtonsEnabled {
+    return [self boolForKey:kKeyButtonsEnabledKey];
+}
+
+- (void)setKeyButtonsEnabled:(BOOL)keyButtonsEnabled {
+    [self setBool:keyButtonsEnabled forKey:kKeyButtonsEnabledKey];
+}
+
+NSString *const kPositionAttrName = @"position";
+NSString *const kSizeAttrName = @"size";
+NSString *const kKeyAttrName = @"key";
+NSString *const kKeyNameAttrName = @"keyname";
+NSString *const kShowOutlineAttrName = @"showoutline";
+NSString *const kEnabledAttrName = @"enabled";
+
+- (NSArray *)keyButtonConfigurations {
+    NSString *json = [self stringForKey:kKeyButtonConfigurationsKey];
+    if (!json) {
+        return @[];
+    }
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+    NSArray *dicts = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSMutableArray *keyButtonConfigurations = [[[NSMutableArray alloc] initWithCapacity:[dicts count]] autorelease];
+    for (NSDictionary *dict : dicts) {
+        KeyButtonConfiguration *button = [[[KeyButtonConfiguration alloc] init] autorelease];
+        button.position = CGPointFromString([dict objectForKey:kPositionAttrName]);
+        button.size = CGSizeFromString([dict objectForKey:kSizeAttrName]);
+        button.key = (SDLKey)[[dict objectForKey:kKeyAttrName] intValue];
+        button.keyName = [dict objectForKey:kKeyNameAttrName];
+        button.showOutline = [[dict objectForKey:kShowOutlineAttrName] boolValue];
+        button.enabled = [[dict objectForKey:kEnabledAttrName] boolValue];
+        [keyButtonConfigurations addObject:button];
+    }
+    return keyButtonConfigurations;
+}
+
+- (void)setKeyButtonConfigurations:(NSArray *)keyButtonConfigurations {
+    NSMutableArray *dicts = [NSMutableArray arrayWithCapacity:[keyButtonConfigurations count]];
+    for (KeyButtonConfiguration *button in keyButtonConfigurations) {
+        NSDictionary *dict = @{kPositionAttrName : NSStringFromCGPoint(button.position),
+                               kSizeAttrName : NSStringFromCGSize(button.size),
+                               kKeyAttrName : @(button.key),
+                               kKeyNameAttrName : button.keyName,
+                               kShowOutlineAttrName : @(button.showOutline),
+                               kEnabledAttrName : @(button.enabled)};
+        [dicts addObject:dict];
+    }
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dicts options:0 error:nil];
+    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [self setObject:json forKey:kKeyButtonConfigurationsKey];
 }
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname {

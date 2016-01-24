@@ -15,8 +15,8 @@
 //  General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-//along with this program; if not, write to the Free Software
-//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "DiskDriveService.h"
 #import "SettingsGeneralController.h"
@@ -28,8 +28,14 @@ static NSString *const kNoDiskAdfPath = @"";
 static NSString *const kSelectDiskSegue = @"SelectDisk";
 static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
+static NSString *const kKeyButtonsSegue = @"KeyButtons";
 static NSString *const kStateManagementSegue = @"StateManagement";
 static NSString *const kConfirmResetSegue = @"ConfirmReset";
+
+static const NSUInteger kDrivesSection = 0;
+static const NSUInteger kConfigSection = 1;
+static const NSUInteger kKeyButtonsSection = 2;
+static const NSUInteger kMiscSection = 3;
 
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
@@ -43,7 +49,6 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [settings initializeSettings];
     [self setupUIState];
 }
 
@@ -114,21 +119,26 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0)
+    if (indexPath.section == kDrivesSection)
     {
         [self performSegueWithIdentifier:kSelectDiskSegue sender:[NSNumber numberWithInt:indexPath.row]];
     }
-    else if (indexPath.section == 1)
+    else if (indexPath.section == kConfigSection)
     {
         if (indexPath.row == 1)
         {
             [self performSegueWithIdentifier:kAssignDiskfilesSegue sender:nil];
-        } else if (indexPath.row == 2)
+        }
+        else if (indexPath.row == 2)
         {
             [self performSegueWithIdentifier:kLoadConfigurationSegue sender:nil];
         }
     }
-    else if (indexPath.section == 2)
+    else if (indexPath.section == kKeyButtonsSection)
+    {
+        [self performSegueWithIdentifier:kKeyButtonsSegue sender:nil];
+    }
+    else if (indexPath.section == kMiscSection)
     {
         if (indexPath.row == 0)
         {
@@ -142,18 +152,18 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:kSelectDiskSegue])
+    if ([segue.identifier isEqualToString:kSelectDiskSegue])
     {
         EMUROMBrowserViewController *controller = segue.destinationViewController;
         controller.delegate = self;
         controller.context = sender; // sender = driveNumber (NSNumber)
     }
-    else if([segue.identifier isEqualToString:kLoadConfigurationSegue])
+    else if ([segue.identifier isEqualToString:kLoadConfigurationSegue])
     {
         SelectConfigurationViewController *controller = segue.destinationViewController;
         controller.delegate = self;
     }
-    else if([segue.identifier isEqualToString:kStateManagementSegue])
+    else if ([segue.identifier isEqualToString:kStateManagementSegue])
     {
         StateManagementController *stateController = segue.destinationViewController;
         stateController.emulatorScreenshot = _emulatorScreenshot;
@@ -177,7 +187,7 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
     {
-        // pad the array if a disk is inserted into a drive with a higher number, but there's nothing in the lower number drive(s) yet
+        // pad the array if a disk is inserted into a drive with a higher number, and there's nothing in the lower number drive(s) yet
         [mutableFloppyPaths addObject:kNoDiskAdfPath];
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
@@ -185,18 +195,12 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     [settings setFloppyConfiguration:adfPath];
 }
 
-- (NSString *)getfirstoption {
-    return [[NSString alloc] initWithFormat:@"General"];
+- (NSString *)getFirstOption {
+    return @"General";
 }
 
-- (BOOL)isRecentConfig:(NSString *)configurationname {
-    
-    if([[_configurationname text] isEqual:configurationname])
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+- (BOOL)isRecentConfig:(NSString *)configurationname {    
+    return [_configurationname.text isEqualToString:configurationname];
 }
 
 - (void)didSelectConfiguration:(NSString *)configurationName {
@@ -224,7 +228,6 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
     [_df2Switch release];
     [_df3Switch release];
     [_configurationname release];
-    [_cellconfiguration release];
     [_emulatorScreenshot release];
     
     [super dealloc];
