@@ -73,7 +73,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B2i-L0-Sxk" userLabel="ButtonSettings">
                                             <rect key="frame" x="16" y="6" width="32" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="options.png"/>
+                                            <state key="normal" image="gear_unselected.png"/>
                                             <connections>
                                                 <segue destination="ENz-F1-cn7" kind="show" identifier="OpenSettings" id="3oo-zE-Tf7"/>
                                             </connections>
@@ -84,7 +84,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DiM-PN-uJz">
                                             <rect key="frame" x="328" y="6" width="46" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="keyboard.png"/>
+                                            <state key="normal" image="keyboard_unselected.png"/>
                                             <connections>
                                                 <action selector="toggleControls:" destination="fEz-6J-9kJ" eventType="touchUpInside" id="yuS-Rz-FEJ"/>
                                             </connections>
@@ -95,7 +95,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="OKz-YY-FT1">
                                             <rect key="frame" x="645" y="6" width="55" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="gamepad.png"/>
+                                            <state key="normal" image="controller_unselected.png"/>
                                             <connections>
                                                 <action selector="toggleControls:" destination="fEz-6J-9kJ" eventType="touchUpInside" id="sAR-6T-00Y"/>
                                             </connections>
@@ -106,7 +106,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Smw-zP-eVy">
                                             <rect key="frame" x="969" y="6" width="32" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="sticky.png"/>
+                                            <state key="normal" image="sticky_unselected.png"/>
                                             <connections>
                                                 <action selector="togglePinstatus:" destination="fEz-6J-9kJ" eventType="touchUpInside" id="GSF-Yf-qew"/>
                                             </connections>
@@ -400,7 +400,11 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Display" image="display.png" id="egl-Jf-zmG"/>
+                    <tabBarItem key="tabBarItem" title="Display" image="monitor_unselected.png" id="egl-Jf-zmG">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="monitor_selected.png"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="ntsc" destination="Hcb-ds-J5m" id="Omk-up-T2o"/>
                         <outlet property="selectedEffectLabel" destination="9gI-85-Nsp" id="Mni-aL-it2"/>
@@ -683,7 +687,11 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <tabBarItem key="tabBarItem" title="General" image="options.png" id="rMF-Nc-Qqf" userLabel="General"/>
+                    <tabBarItem key="tabBarItem" title="General" image="gear_unselected.png" id="rMF-Nc-Qqf" userLabel="General">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="gear_selected.png"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="configurationname" destination="6Yc-d0-1J1" id="VIy-bu-T7q"/>
                         <outlet property="df0" destination="620-hp-l7l" id="1d7-6X-rQs"/>
@@ -1034,7 +1042,7 @@
                             <outlet property="delegate" destination="x73-Do-Hqs" id="u3G-yy-qg0"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Joystick" image="joystick.png" id="dUt-X8-wV1"/>
+                    <tabBarItem key="tabBarItem" title="Joystick" image="controller_selected.png" id="dUt-X8-wV1"/>
                     <connections>
                         <outlet property="CellA" destination="p4D-6w-L1J" id="kOD-W4-A5u"/>
                         <outlet property="CellB" destination="QKH-EI-kvP" id="ILR-EA-ijL"/>
@@ -1571,7 +1579,11 @@
                             <outlet property="delegate" destination="Ssi-XH-6r7" id="xu1-G4-EmM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Joypad" image="joystick.png" id="VSm-fp-KJF"/>
+                    <tabBarItem key="tabBarItem" title="Joypad" image="controller_unselected.png" selectedImage="controller_selected.png" id="VSm-fp-KJF">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="controller_selected.png"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44z-ft-pUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1893,12 +1905,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="display.png" width="32" height="32"/>
-        <image name="gamepad.png" width="55" height="32"/>
-        <image name="joystick.png" width="24" height="24"/>
+        <image name="controller_selected.png" width="25" height="25"/>
+        <image name="controller_unselected.png" width="25" height="25"/>
+        <image name="gear_selected.png" width="25" height="25"/>
+        <image name="gear_unselected.png" width="25" height="25"/>
         <image name="keyboard.png" width="46" height="32"/>
-        <image name="options.png" width="32" height="32"/>
-        <image name="sticky.png" width="25" height="25"/>
+        <image name="keyboard_unselected.png" width="25" height="25"/>
+        <image name="monitor_selected.png" width="25" height="22"/>
+        <image name="monitor_unselected.png" width="25" height="22"/>
+        <image name="sticky_unselected.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yz1-cx-vwd"/>

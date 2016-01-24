@@ -89,9 +89,13 @@ extern void uae_reset();
     
     [self.view setMultipleTouchEnabled:TRUE];
     
-    [_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                    forState:UIControlStateNormal];
-    [_btnJoypad setTintColor: [UIColor blackColor]];
+    [_btnJoypad setImage:[UIImage imageNamed:@"controller_selected.png"] forState:UIControlStateSelected];
+    [_btnSettings setImage:[UIImage imageNamed:@"gear_selected.png"] forState: UIControlStateHighlighted];
+    [_btnKeyboard setImage:[UIImage imageNamed:@"keyboard_selected.png"] forState:UIControlStateHighlighted];
+    [_btnPin setImage:[UIImage imageNamed:@"sticky_selected.png"] forState:UIControlStateSelected];
+    //[_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                    //forState:UIControlStateNormal];
+    //[_btnJoypad setTintColor: [UIColor blackColor]];
     
     
     /*[_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
@@ -193,7 +197,7 @@ extern void uae_reset();
     _btnKeyboard.selected = (button == _btnKeyboard) ? !_btnKeyboard.selected : FALSE;
     _btnJoypad.selected = (button == _btnJoypad) ? !_btnJoypad.selected : FALSE;
     
-    _btnJoypad.tintColor = _btnJoypad.selected ? [UIColor blueColor] : [UIColor blackColor];
+    //_btnJoypad.tintColor = _btnJoypad.selected ? [UIColor blueColor] : [UIColor blackColor];
     
     _joyController.hidden = !joyactive;
     _mouseHandler.hidden = joyactive;

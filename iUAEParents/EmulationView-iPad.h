@@ -48,6 +48,7 @@
 @property (readwrite, retain) IBOutlet UIToolbar *menuBar;
 @property (readwrite, retain) IBOutlet UIButton *menuBarEnabler;
 @property (retain, nonatomic) IBOutlet UILabel *lblDebug;
+@property (retain, nonatomic) IBOutlet UIButton *btnSettings;
 
 
 @end

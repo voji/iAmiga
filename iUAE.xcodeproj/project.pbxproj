@@ -185,6 +185,9 @@
 		7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4919FAE04700B6136B /* unsticky.png */; };
 		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
+		7E2665531C483AEB004250D1 /* monitor_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665501C483AEB004250D1 /* monitor_unselected.png */; };
+		7E2665541C483AEB004250D1 /* monitor_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */; };
+		7E2665551C483AEB004250D1 /* monitor_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665521C483AEB004250D1 /* monitor_selected.png */; };
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
 		7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */; };
@@ -200,6 +203,22 @@
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */; };
+		7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */; };
+		7E5AF60C1C444854000BF5CB /* sticky_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FC1C444854000BF5CB /* sticky_unselected.png */; };
+		7E5AF60D1C444854000BF5CB /* sticky_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FD1C444854000BF5CB /* sticky_selected_svg.svg */; };
+		7E5AF60E1C444854000BF5CB /* sticky_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FE1C444854000BF5CB /* sticky_selected.png */; };
+		7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FF1C444854000BF5CB /* keyboard_unselected_svg.svg */; };
+		7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6011C444854000BF5CB /* keyboard_selected_svg.svg */; };
+		7E5AF6121C444854000BF5CB /* keyboard_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6021C444854000BF5CB /* keyboard_selected.png */; };
+		7E5AF6131C444854000BF5CB /* gear_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6031C444854000BF5CB /* gear_unselected_svg.svg */; };
+		7E5AF6151C444854000BF5CB /* gear_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6051C444854000BF5CB /* gear_selected_svg.svg */; };
+		7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6061C444854000BF5CB /* gear_selected.png */; };
+		7E5AF6171C444854000BF5CB /* controller_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6071C444854000BF5CB /* controller_unselected_svg.svg */; };
+		7E5AF6181C444854000BF5CB /* controller_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6081C444854000BF5CB /* controller_unselected.png */; };
+		7E5AF6191C444854000BF5CB /* controller_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF6091C444854000BF5CB /* controller_selected_svg.svg */; };
+		7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF60A1C444854000BF5CB /* controller_selected.png */; };
+		7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */; };
+		7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61F1C444C83000BF5CB /* gear_unselected.png */; };
 		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
@@ -233,6 +252,7 @@
 		7EC59ED21BAC52390097B87A /* SettingsJoypadStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
+		7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.m */; };
 		7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D0441AACF2090081DAA5 /* Settings.mm */; };
 		7EEFD2921BAC3DE300C7F247 /* VPadLeftOrRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFD2911BAC3DE300C7F247 /* VPadLeftOrRight.m */; };
 		7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.m */; };
@@ -1559,6 +1579,9 @@
 		7E1B8C4919FAE04700B6136B /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unsticky.png; sourceTree = "<group>"; };
 		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
+		7E2665501C483AEB004250D1 /* monitor_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monitor_unselected.png; sourceTree = "<group>"; };
+		7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monitor_selected_svg.svg; sourceTree = "<group>"; };
+		7E2665521C483AEB004250D1 /* monitor_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monitor_selected.png; sourceTree = "<group>"; };
 		7E27C39B1AA3A61900C00584 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
 		7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsDisplayController.h; sourceTree = "<group>"; };
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
@@ -1580,6 +1603,22 @@
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
 		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
 		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
+		7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sticky_unselected_svg.svg; sourceTree = "<group>"; };
+		7E5AF5FC1C444854000BF5CB /* sticky_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky_unselected.png; sourceTree = "<group>"; };
+		7E5AF5FD1C444854000BF5CB /* sticky_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sticky_selected_svg.svg; sourceTree = "<group>"; };
+		7E5AF5FE1C444854000BF5CB /* sticky_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky_selected.png; sourceTree = "<group>"; };
+		7E5AF5FF1C444854000BF5CB /* keyboard_unselected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = keyboard_unselected_svg.svg; sourceTree = "<group>"; };
+		7E5AF6011C444854000BF5CB /* keyboard_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = keyboard_selected_svg.svg; sourceTree = "<group>"; };
+		7E5AF6021C444854000BF5CB /* keyboard_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_selected.png; sourceTree = "<group>"; };
+		7E5AF6031C444854000BF5CB /* gear_unselected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gear_unselected_svg.svg; sourceTree = "<group>"; };
+		7E5AF6051C444854000BF5CB /* gear_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gear_selected_svg.svg; sourceTree = "<group>"; };
+		7E5AF6061C444854000BF5CB /* gear_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_selected.png; sourceTree = "<group>"; };
+		7E5AF6071C444854000BF5CB /* controller_unselected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = controller_unselected_svg.svg; sourceTree = "<group>"; };
+		7E5AF6081C444854000BF5CB /* controller_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_unselected.png; sourceTree = "<group>"; };
+		7E5AF6091C444854000BF5CB /* controller_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = controller_selected_svg.svg; sourceTree = "<group>"; };
+		7E5AF60A1C444854000BF5CB /* controller_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_selected.png; sourceTree = "<group>"; };
+		7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_unselected.png; sourceTree = "<group>"; };
+		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
 		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
@@ -1625,6 +1664,8 @@
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
 		7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskAssociationViewController.mm; sourceTree = "<group>"; };
+		7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoypadMainSettingsController.h; sourceTree = "<group>"; };
+		7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoypadMainSettingsController.m; sourceTree = "<group>"; };
 		7EE0D0431AACF2090081DAA5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = ../iUAEParents/Settings.h; sourceTree = "<group>"; };
 		7EE0D0441AACF2090081DAA5 /* Settings.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Settings.mm; path = ../iUAEParents/Settings.mm; sourceTree = "<group>"; };
 		7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPadLeftOrRight.h; sourceTree = "<group>"; };
@@ -2765,6 +2806,8 @@
 			children = (
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */,
+				7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */,
+				7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.m */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
 				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
@@ -2996,6 +3039,25 @@
 		7EB5FBBC19F942AA0030920E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7E2665501C483AEB004250D1 /* monitor_unselected.png */,
+				7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */,
+				7E2665521C483AEB004250D1 /* monitor_selected.png */,
+				7E5AF61F1C444C83000BF5CB /* gear_unselected.png */,
+				7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */,
+				7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */,
+				7E5AF5FC1C444854000BF5CB /* sticky_unselected.png */,
+				7E5AF5FD1C444854000BF5CB /* sticky_selected_svg.svg */,
+				7E5AF5FE1C444854000BF5CB /* sticky_selected.png */,
+				7E5AF5FF1C444854000BF5CB /* keyboard_unselected_svg.svg */,
+				7E5AF6011C444854000BF5CB /* keyboard_selected_svg.svg */,
+				7E5AF6021C444854000BF5CB /* keyboard_selected.png */,
+				7E5AF6031C444854000BF5CB /* gear_unselected_svg.svg */,
+				7E5AF6051C444854000BF5CB /* gear_selected_svg.svg */,
+				7E5AF6061C444854000BF5CB /* gear_selected.png */,
+				7E5AF6071C444854000BF5CB /* controller_unselected_svg.svg */,
+				7E5AF6081C444854000BF5CB /* controller_unselected.png */,
+				7E5AF6091C444854000BF5CB /* controller_selected_svg.svg */,
+				7E5AF60A1C444854000BF5CB /* controller_selected.png */,
 				7EA5E7881AED732500FCE311 /* sticky.png */,
 				7E27C39B1AA3A61900C00584 /* display.png */,
 				7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */,
@@ -4110,11 +4172,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2665541C483AEB004250D1 /* monitor_selected_svg.svg in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
+				7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
+				7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
@@ -4122,18 +4187,24 @@
 				7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */,
 				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
+				7E5AF6171C444854000BF5CB /* controller_unselected_svg.svg in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
 				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
+				7E5AF6151C444854000BF5CB /* gear_selected_svg.svg in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
+				7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
 				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
 				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
+				7E2665531C483AEB004250D1 /* monitor_unselected.png in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
+				7E5AF6121C444854000BF5CB /* keyboard_selected.png in Resources */,
+				7E5AF6181C444854000BF5CB /* controller_unselected.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
 				7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */,
@@ -4142,10 +4213,13 @@
 				7E4B18DB188B1CBE0019E82B /* chrome-bottom@2x.png in Resources */,
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
+				7E2665551C483AEB004250D1 /* monitor_selected.png in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
 				7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */,
+				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
+				7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
@@ -4154,6 +4228,7 @@
 				7E27C39C1AA3A61900C00584 /* display.png in Resources */,
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
+				7E5AF6191C444854000BF5CB /* controller_selected_svg.svg in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
 				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
@@ -4163,6 +4238,10 @@
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
+				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
+				7E5AF60D1C444854000BF5CB /* sticky_selected_svg.svg in Resources */,
+				7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */,
+				7E5AF6131C444854000BF5CB /* gear_unselected_svg.svg in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,
 				97BE2AFF15489E6600BF66CF /* ls-instructions_overlay.png in Resources */,
@@ -4171,7 +4250,9 @@
 				7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
+				7E5AF60E1C444854000BF5CB /* sticky_selected.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
+				7E5AF60C1C444854000BF5CB /* sticky_unselected.png in Resources */,
 				97BE2B0E15489E6600BF66CF /* ls-joystick_rest.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4863,6 +4944,7 @@
 				7EEFD2921BAC3DE300C7F247 /* VPadLeftOrRight.m in Sources */,
 				97855100153A3F2E00580B91 /* NoEffect.m in Sources */,
 				97855103153A3F2E00580B91 /* OGLDisplay.m in Sources */,
+				7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.m in Sources */,
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
 				97855118153A3F2E00580B91 /* CRT.frag in Sources */,
 				7EB017781B09164900C74B9D /* StateFileManager.m in Sources */,
