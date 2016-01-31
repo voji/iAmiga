@@ -56,6 +56,7 @@
     _CellDown.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_DOWN]];
     _CellLeft.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_LEFT]];
     _CellRight.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_RIGHT]];
+        
 }
 
 - (void)didReceiveMemoryWarning {

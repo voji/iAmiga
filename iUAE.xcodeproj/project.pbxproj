@@ -219,6 +219,7 @@
 		7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF60A1C444854000BF5CB /* controller_selected.png */; };
 		7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */; };
 		7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61F1C444C83000BF5CB /* gear_unselected.png */; };
+		7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */; };
 		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
@@ -1623,6 +1624,8 @@
 		7E5AF60A1C444854000BF5CB /* controller_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_selected.png; sourceTree = "<group>"; };
 		7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_unselected.png; sourceTree = "<group>"; };
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
+		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
+		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadMainController.m; sourceTree = "<group>"; };
 		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
@@ -2854,6 +2857,8 @@
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */,
 				7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */,
 				7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */,
+				7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */,
+				7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */,
 				7EC59ED01BAC52390097B87A /* SettingsJoypadStyle.h */,
 				7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */,
 				7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */,
@@ -4925,6 +4930,7 @@
 				0577C0DB12DED4A60040B77D /* AsyncSocket.m in Sources */,
 				0577C0F912DED4FD0040B77D /* UaeDebugger.m in Sources */,
 				05D5233712E8030E007912AE /* SelectEffectController.m in Sources */,
+				7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.m in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
 				BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */,
 				05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */,
@@ -5594,7 +5600,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5626,7 +5632,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5656,7 +5662,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;

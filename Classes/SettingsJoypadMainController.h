@@ -1,4 +1,4 @@
-//  Created by Emufr3ak on 31.01.2016
+//  Created by Emufreak on 31.1.2016
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -16,17 +16,8 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AddConfigurationDelegate
-- (void)configurationAdded:(NSString *)configurationname;
-@end
+@interface SettingsJoypadMainController : UITableViewController
 
-@interface AddConfigurationViewController : UITableViewController
-
-- (IBAction)addConfiguration:(id)sender;
-- (IBAction)toggleAddConfiguration:(id)sender;
-
-@property (readwrite, retain) IBOutlet UIButton *add;
-@property (readwrite, retain) IBOutlet UITextField *name;
-@property (nonatomic, assign) id<AddConfigurationDelegate>	delegate;
+@property (retain, nonatomic) IBOutlet UILabel *LabelDetection;
 
 @end
