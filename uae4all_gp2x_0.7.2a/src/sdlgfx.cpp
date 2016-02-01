@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 /*
  * UAE - The Un*x Amiga Emulator
  *
@@ -1015,3 +1018,4 @@ void gui_purge_events(void)
 	keybuf_init();
 }
 
+#pragma clang diagnostic pop

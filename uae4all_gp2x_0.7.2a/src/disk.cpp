@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 /*
  * UAE - The Un*x Amiga Emulator
  *
@@ -1697,3 +1700,5 @@ uae_u8 *save_floppy(int *len)
     *len = dst - dstbak;
     return dstbak;
 }
+
+#pragma clang diagnostic pop

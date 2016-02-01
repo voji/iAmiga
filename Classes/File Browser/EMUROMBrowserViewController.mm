@@ -148,8 +148,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
-	if (cell == nil)
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CELL_ID] autorelease];
+    if (cell == nil)
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_ID] autorelease];
 	
     cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	if ([indexPath compare:self.selectedIndexPath] == NSOrderedSame)

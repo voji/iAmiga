@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 #define EXECUTE_EXCEPTION(EX,CYCLES)   \
 {                                      \
 u32 oldPC=GET_PC;                   \
@@ -47224,3 +47227,5 @@ OPCODE(0x06FB)
     RET(4)
 }
 #endif
+
+#pragma clang diagnostic pop

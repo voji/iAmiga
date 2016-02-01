@@ -29,6 +29,8 @@
 @synthesize restartButton;
 @synthesize joyController;
 
+@dynamic btnKeyboard;
+
 #pragma mark - View lifecycle
 
 - (CGFloat) XposFloatPanel {
@@ -51,7 +53,6 @@
     [webView setOpaque:NO];
     webView.delegate = self;
     
-    [self initializeFullScreenPanel];
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts:dummy_textfield_s];
 }
 
@@ -73,12 +74,6 @@
     [self setWebView:nil];
     [self setRestartButton:nil];
     [super viewDidUnload];
-}
-
-- (void)initializeFullScreenPanel {
-
-    [super initializeFullScreenPanel:480 barheight:32 iconwidth:48 iconheight:24];
-
 }
 
 - (IBAction)keyboardDidHide:(id)sender

@@ -1,3 +1,8 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic ignored "-Wcomment"
+#pragma clang diagnostic ignored "-Wc++11-compat-deprecated-writable-strings"
+
 /*
  * UAE - The Un*x Amiga Emulator
  *
@@ -2306,3 +2311,5 @@ void drawing_init ()
 	
     gen_pfield_tables();
 }
+
+#pragma clang diagnostic pop

@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 #define NO_SHORT_EVENTS
 #define PROTECT_INFINITE
 
@@ -239,3 +242,6 @@ uae_u8 *save_cpu (int *len)
     *len = dst - dstbak;
     return dstbak;
 }
+
+#pragma clang diagnostic pop
+

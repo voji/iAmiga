@@ -27,7 +27,7 @@
 
 @class VirtualKeyboard;
 
-@interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
+@interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
     VirtualKeyboard	*vKeyboard;
     bool keyboardactive;
     bool joyactive;

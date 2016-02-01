@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 /*
  * UAE - The Un*x Amiga Emulator
  *
@@ -684,3 +687,5 @@ int blitnasty (void)
     uae4all_prof_end(6);
     return ccnt;
 }
+
+#pragma clang diagnostic pop

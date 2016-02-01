@@ -47,25 +47,10 @@
 @synthesize window, mainController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-    //Get some view Specific properties
     UINavigationController *navigationcontroller = (UINavigationController *)self.window.rootViewController;
     self.mainController = (BaseEmulationViewController *)navigationcontroller.topViewController;
-    
-    // Override point for customization after application launch
     [window makeKeyAndVisible];
-    
-    /*if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {*/
-        window.frame = [[UIScreen mainScreen] bounds];
-    /*}*/
-    
-    //[window.rootViewController setNeedsStatusBarAppearanceUpdate];
-    
-        
-    OSStatus res = AudioSessionInitialize(NULL, NULL, NULL, NULL);
-    UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
-    res = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
-    res = AudioSessionSetActive(true);
+    window.frame = [[UIScreen mainScreen] bounds];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidConnect:) name:UIScreenDidConnectNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];

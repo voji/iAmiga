@@ -28,6 +28,8 @@
 @synthesize closeButton;
 @synthesize restartButton;
 
+@dynamic btnKeyboard, btnJoypad, btnPin, mouseHandler, joyController, menuBar, menuBarEnabler, btnSettings;
+
 #pragma mark - View lifecycle
 
 bool keyboardactive;
@@ -39,7 +41,6 @@ bool keyboardactive;
     [webView setOpaque:NO];
     webView.delegate = self;
     
-    //[self initializeFullScreenPanel];
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts: dummy_textfield_s];
     
     //Uncomment for debug mode
@@ -53,6 +54,18 @@ bool keyboardactive;
         SettingsGeneralController *settingsController = [tabBar.viewControllers objectAtIndex:0];
         settingsController.emulatorScreenshot = [self captureScreenshot];
     }
+}
+
+-(IBAction)toggleControls:(id)sender {
+    [super toggleControls:sender];
+}
+
+-(IBAction)togglePinstatus:(id)sender {
+    [super togglePinstatus:sender];
+}
+
+-(IBAction)enableMenuBar:(id)sender {
+    [super enableMenuBar:sender];
 }
 
 -(void)checkForPaused:(NSTimer*)timer {

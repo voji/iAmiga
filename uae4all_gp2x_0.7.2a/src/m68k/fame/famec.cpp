@@ -1002,6 +1002,9 @@ execute_exception(EX);              \
 RET(CYCLES)                         \
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wlogical-op-parentheses"
+
 static void TRAPCC_EXECUTE (u32 Opcode)
 {
     u8 do_trap;
@@ -1032,6 +1035,7 @@ static void TRAPCC_EXECUTE (u32 Opcode)
         execute_exception(M68K_TRAPV_EX);
 }
 
+#pragma clang diagnostic pop
 
 /* Bit Field Instructions
  *

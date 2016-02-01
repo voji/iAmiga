@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 /*
  SDL - Simple DirectMedia Layer
  Copyright (C) 1997-2009 Sam Lantinga
@@ -140,3 +143,5 @@ static SDLUIAccelerationDelegate *sharedDelegate=nil;
 }
 
 @end
+
+#pragma clang diagnostic pop

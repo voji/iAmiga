@@ -47,15 +47,13 @@
 }
 
 -(IBAction)addConfiguration:(id)sender {
-    NSMutableArray *test;
-    
     if([configurations containsObject:_name.text] || [_name.text isEqual:@"None"])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Configuration Exists"
-                                                        message:@"Configuration Already exists enter a new Name"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+        [[UIAlertView alloc] initWithTitle:@"Configuration Exists"
+                                   message:@"Configuration Already exists enter a new Name"
+                                  delegate:nil
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil];
     }
     else
     {

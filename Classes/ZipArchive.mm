@@ -1,3 +1,7 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wformat"
+
 //
 //  ZipArchive.mm
 //  
@@ -334,4 +338,4 @@
 
 @end
 
-
+#pragma clang diagnostic pop
