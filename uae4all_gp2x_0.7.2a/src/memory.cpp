@@ -1,4 +1,8 @@
- /*
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic ignored "-Wparentheses"
+
+/*
   * UAE - The Un*x Amiga Emulator
   *
   * Memory management
@@ -1526,3 +1530,5 @@ void find_word(uae_u16 aWord) {
 }
 
 #endif
+
+#pragma clang diagnostic pop

@@ -21,7 +21,6 @@
 #import "debug.h"
 #import "InputControllerView.h"
 #import "uae.h"
-#import "JoystickViewLandscape.h"
 #import "CocoaUtility.h"
 #import "VirtualKeyboard.h"
 #import "TouchHandlerView.h"
@@ -50,7 +49,6 @@ typedef struct {
 
 #define kDisplayWidth							320.0f
 #define kDisplayHeight							240.0f
-const float kDisplayRatio =						(kDisplayHeight / kDisplayWidth);
 
 #define kInputFramePortrait						CGRectMake(0, 0, 320.0f * S_PSCALE, 480.0f * S_PSCALE)
 
@@ -64,7 +62,6 @@ const double kDefaultAnimationDuration			= 250.0 / 1000.0;
 
 @synthesize emulator, emulatorState;
 @synthesize displayView, inputController;
-@synthesize landscapeJoystickView;
 @synthesize touchHandler;
 @synthesize displayViewWindow;
 @synthesize integralSize=_integralSize;
@@ -95,7 +92,6 @@ CGFloat S_WIDTH, S_HEIGHT, S_HALFWIDTH, S_HALFHEIGHT, S_PSCALE, S_LSCALE;
 	
 	_integralSize = NO;
 	g_emulatorViewController		= self;
-	self.wantsFullScreenLayout		= YES;
 		
 	self.hidesBottomBarWhenPushed	= YES;
 	self.emulatorState				= EmulatorNotStarted;
@@ -198,8 +194,6 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	
 	if (_integralSize) {
 		CGRect aFrame;
-		CGFloat scale;
-		CGFloat frameWidth;
 		if (UIInterfaceOrientationIsLandscape(layoutOrientation)) {
 			aFrame = CGRectMake(0, 0, frameSize.width, frameSize.height);
 			// width is larger than height

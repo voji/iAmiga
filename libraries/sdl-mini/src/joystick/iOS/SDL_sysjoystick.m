@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreturn-type"
+
 //
 //  SDL_sysjoystick.m
 //  iAmiga
@@ -644,3 +647,5 @@ void icp_handle(char c) {
     if(pos > 10) NSLog(@"Possible error - %i characters queued!", pos);
     if(pos >= 256) pos = 0;
 }
+
+#pragma clang diagnostic pop

@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 #include "sysconfig.h"
 #include "sysdeps.h"
 #include "config.h"
@@ -1406,3 +1409,6 @@ void blitdofast_desc_fc (uaecptr pta, uaecptr ptb, uaecptr ptc, uaecptr ptd, str
 	b->bltbhold = srcb;
 	if ((totald<<16) != 0) b->blitzero = 0;
 }
+
+#pragma clang diagnostic pop
+

@@ -22,11 +22,12 @@
 #import "MainEmulationViewController.h"
 #import "IOSKeyboard.h"
 #import "InputControllerView.h"
+#import "TouchHandlerViewClassic.h"
 
 @interface EmulationViewiPhone : MainEmulationViewController {
 
     UIButton *closeButton;
-    UIView *mouseHandler;
+    TouchHandlerViewClassic *mouseHandler;
     UIButton *restartButton;
     UIWebView *webView;
     IBOutlet UITextField        *dummy_textfield; // dummy text field used to display the keyboard
@@ -38,7 +39,7 @@
 @property (readwrite, retain) IBOutlet UIButton *btnKeyboard;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) IBOutlet UIButton *closeButton;
-@property (nonatomic, retain) IBOutlet UIView *mouseHandler;
+@property (nonatomic, retain) IBOutlet TouchHandlerViewClassic *mouseHandler;
 @property (nonatomic, retain) IBOutlet UIButton *restartButton;
 @property (retain, nonatomic) IBOutlet InputControllerView *joyController;
 

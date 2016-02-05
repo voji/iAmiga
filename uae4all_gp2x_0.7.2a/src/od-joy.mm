@@ -1,4 +1,7 @@
-/* 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch"
+
+/*
  * UAE - The Un*x Amiga Emulator
  * 
  * Joystick emulation for Linux and BSD. They share too much code to
@@ -149,3 +152,6 @@ void set_joystickactive(void) {
         SDL_JoystickSetActive(uae4all_joy0);
     }
 }
+
+#pragma clang diagnostic pop
+

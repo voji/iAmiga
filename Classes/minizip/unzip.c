@@ -1,3 +1,8 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic ignored "-Wdangling-else"
+#pragma clang diagnostic ignored "-Wparentheses-equality"
+
 /* unzip.c -- IO for uncompress .zip files using zlib
    Version 1.01e, February 12th, 2005
 
@@ -1596,3 +1601,5 @@ extern int ZEXPORT unzSetOffset (file, pos)
     s->current_file_ok = (err == UNZ_OK);
     return err;
 }
+
+#pragma clang diagnostic pop

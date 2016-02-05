@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 /*
     SDL - Simple DirectMedia Layer
     Copyright (C) 1997-2010 Sam Lantinga
@@ -162,3 +165,5 @@ SDL_SemPost(SDL_sem * sem)
 
 //#endif /* __MACOSX__ */
 /* vi: set ts=4 sw=4 expandtab: */
+
+#pragma clang diagnostic pop

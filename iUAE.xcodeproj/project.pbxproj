@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0504155B0FCB46F000F46828 /* EmulationViewController.mm */; };
 		050415610FCB475C00F46828 /* InputControllerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0504155E0FCB475C00F46828 /* InputControllerView.mm */; };
-		050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */ = {isa = PBXBuildFile; fileRef = 050415600FCB475C00F46828 /* JoystickViewLandscape.mm */; };
 		0504156B0FCB4BD400F46828 /* CocoaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0504156A0FCB4BD400F46828 /* CocoaUtility.m */; };
 		0506D73913CA7BF700559637 /* OldLondon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0506D73713CA7BF700559637 /* OldLondon.ttf */; };
 		0506D73A13CA7BF700559637 /* gpl.html in Resources */ = {isa = PBXBuildFile; fileRef = 0506D73813CA7BF700559637 /* gpl.html */; };
-		05084E4A13D7FE7B0004617A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		050C393D12C31B24000CE512 /* Disa.c in Sources */ = {isa = PBXBuildFile; fileRef = 050C393B12C31B24000CE512 /* Disa.c */; };
 		050C3A9412C33D94000CE512 /* disassembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 050C3A9312C33D94000CE512 /* disassembler.m */; };
 		051B23B012C994BB000C2800 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
@@ -102,8 +100,6 @@
 		055FD7F413B4029900BB3F8B /* bg_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055FD7F213B4029900BB3F8B /* bg_web@2x.png */; };
 		055FD7F913B45AAA00BB3F8B /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
 		056089BE13C2366000677A6C /* iscroll4.js in Resources */ = {isa = PBXBuildFile; fileRef = 056089BA13C235F200677A6C /* iscroll4.js */; };
-		05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 05619ED913ADE1AA00341DB0 /* SelectHardware.m */; };
-		05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */; };
 		05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05743FC40FC293FD003BE251 /* iphone_main.mm */; };
 		0577C0DB12DED4A60040B77D /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0577C0DA12DED4A60040B77D /* AsyncSocket.m */; };
 		0577C0E512DED4DF0040B77D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C0E412DED4DF0040B77D /* CFNetwork.framework */; };
@@ -127,7 +123,6 @@
 		058063D013B06DD800E00B04 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 058063CF13B06DD800E00B04 /* Icon-72.png */; };
 		0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0585D55E1091640900C1E4C1 /* VirtualKeyboard.m */; };
 		0585D5621091653E00C1E4C1 /* KeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0585D5611091653E00C1E4C1 /* KeyView.m */; };
-		059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059A411C12697B33003B23C7 /* MainWindow-iPad.xib */; };
 		059C0E2913B99DEE00E89B35 /* bg_web~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2313B99DEE00E89B35 /* bg_web~ipad.png */; };
 		059C0E2A13B99DEE00E89B35 /* btn_close~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2413B99DEE00E89B35 /* btn_close~ipad.png */; };
 		059C0E2B13B99DEE00E89B35 /* btn_menu~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 059C0E2513B99DEE00E89B35 /* btn_menu~ipad.png */; };
@@ -155,12 +150,10 @@
 		05BC1AF51073448200EABC6E /* EMUBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1AED1073448200EABC6E /* EMUBrowser.m */; };
 		05BC1AF61073448200EABC6E /* EMUFileGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1AEF1073448200EABC6E /* EMUFileGroup.m */; };
 		05BC1AF71073448200EABC6E /* EMUFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1AF11073448200EABC6E /* EMUFileInfo.m */; };
-		05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1AF21073448200EABC6E /* EMUROMBrowserView.xib */; };
 		05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */; };
 		05BC1B17107348E500EABC6E /* keys.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B15107348E500EABC6E /* keys.png */; };
 		05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 05BC1B16107348E500EABC6E /* VKBD.PNG */; };
 		05D5233712E8030E007912AE /* SelectEffectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D5233512E8030E007912AE /* SelectEffectController.m */; };
-		05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D5233612E8030E007912AE /* SelectEffectController.xib */; };
 		05D6044B12AF2D620048E478 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D6044912AF2D620048E478 /* Icon.png */; };
 		05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D6044A12AF2D620048E478 /* Icon@2x.png */; };
 		05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8A04312B2C884005532AF /* amiga-beige-dark-center.png */; };
@@ -173,7 +166,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */; };
 		7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0E9593198ACF4C0082F80F /* iOSKeyboard.png */; };
 		7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E10738A1A34E85E000D7269 /* Storyboard.storyboard */; };
@@ -183,7 +175,6 @@
 		7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3919FADFD400B6136B /* modekeyon.png */; };
 		7E1B8C4519FADFD400B6136B /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C3B19FADFD400B6136B /* options.png */; };
 		7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C4919FAE04700B6136B /* unsticky.png */; };
-		7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */; };
 		7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */; };
 		7E2665531C483AEB004250D1 /* monitor_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665501C483AEB004250D1 /* monitor_unselected.png */; };
 		7E2665541C483AEB004250D1 /* monitor_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */; };
@@ -220,7 +211,6 @@
 		7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */; };
 		7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61F1C444C83000BF5CB /* gear_unselected.png */; };
 		7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */; };
-		7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E52291A533C8F003E03E7 /* SettingsController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
@@ -239,9 +229,7 @@
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
 		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */; };
-		7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
-		7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */; };
 		7EB017651B09115900C74B9D /* StateManagementController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017631B09115900C74B9D /* StateManagementController.mm */; };
 		7EB017711B09143000C74B9D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0176B1B09143000C74B9D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0176D1B09143000C74B9D /* SVProgressHUD.bundle */; };
@@ -255,7 +243,6 @@
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
 		7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.m */; };
 		7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D0441AACF2090081DAA5 /* Settings.mm */; };
-		7EEFD2921BAC3DE300C7F247 /* VPadLeftOrRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFD2911BAC3DE300C7F247 /* VPadLeftOrRight.m */; };
 		7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.m */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */; };
@@ -350,7 +337,6 @@
 		9706D6FA1561817500073678 /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		9706D6FB1561817500073678 /* cyclone.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855147153A455C00580B91 /* cyclone.s */; };
 		9706D6FC1561817500073678 /* memhandlers.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855148153A455C00580B91 /* memhandlers.s */; };
-		9706D7021561817500073678 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		9706D7031561817500073678 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		9706D7041561817500073678 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		9706D7051561817500073678 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -518,7 +504,6 @@
 		97242CC5156177EC00B6D03C /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		97242CC6156177EC00B6D03C /* cyclone.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855147153A455C00580B91 /* cyclone.s */; };
 		97242CC7156177EC00B6D03C /* memhandlers.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855148153A455C00580B91 /* memhandlers.s */; };
-		97242CCA156177EC00B6D03C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		97242CCB156177EC00B6D03C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		97242CCC156177EC00B6D03C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		97242CCD156177EC00B6D03C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -675,7 +660,6 @@
 		97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B7153A3F2E00580B91 /* Aperture (4x6).png */; };
 		97855116153A3F2E00580B91 /* Aperture (4x6).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B7153A3F2E00580B91 /* Aperture (4x6).png */; };
 		97855117153A3F2E00580B91 /* Aperture (4x6).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B7153A3F2E00580B91 /* Aperture (4x6).png */; };
-		97855118153A3F2E00580B91 /* CRT.frag in Sources */ = {isa = PBXBuildFile; fileRef = 978550B8153A3F2E00580B91 /* CRT.frag */; };
 		97855119153A3F2E00580B91 /* CRT.frag in Sources */ = {isa = PBXBuildFile; fileRef = 978550B8153A3F2E00580B91 /* CRT.frag */; };
 		9785511A153A3F2E00580B91 /* CRT.frag in Sources */ = {isa = PBXBuildFile; fileRef = 978550B8153A3F2E00580B91 /* CRT.frag */; };
 		9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B9153A3F2E00580B91 /* Scanlines (100%).png */; };
@@ -684,10 +668,8 @@
 		9785511E153A3F2E00580B91 /* Scanlines (50%).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550BA153A3F2E00580B91 /* Scanlines (50%).png */; };
 		9785511F153A3F2E00580B91 /* Scanlines (50%).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550BA153A3F2E00580B91 /* Scanlines (50%).png */; };
 		97855120153A3F2E00580B91 /* Scanlines (50%).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550BA153A3F2E00580B91 /* Scanlines (50%).png */; };
-		97855121153A3F2E00580B91 /* Simple.frag in Sources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		97855122153A3F2E00580B91 /* Simple.frag in Sources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
 		97855123153A3F2E00580B91 /* Simple.frag in Sources */ = {isa = PBXBuildFile; fileRef = 978550BB153A3F2E00580B91 /* Simple.frag */; };
-		97855124153A3F2E00580B91 /* Simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97855125153A3F2E00580B91 /* Simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97855126153A3F2E00580B91 /* Simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = 978550BC153A3F2E00580B91 /* Simple.vert */; };
 		97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 978550BE153A3F2E00580B91 /* TexturedCRTEffect.m */; };
@@ -805,7 +787,6 @@
 		9787FAA61561882D00458A4A /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		9787FAA71561882D00458A4A /* cyclone.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855147153A455C00580B91 /* cyclone.s */; };
 		9787FAA81561882D00458A4A /* memhandlers.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855148153A455C00580B91 /* memhandlers.s */; };
-		9787FAAE1561882D00458A4A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		9787FAAF1561882D00458A4A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		9787FAB01561882D00458A4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		9787FAB11561882D00458A4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -913,7 +894,6 @@
 		9787FC0915618A5E00458A4A /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		9787FC0A15618A5E00458A4A /* cyclone.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855147153A455C00580B91 /* cyclone.s */; };
 		9787FC0B15618A5E00458A4A /* memhandlers.s in Sources */ = {isa = PBXBuildFile; fileRef = 97855148153A455C00580B91 /* memhandlers.s */; };
-		9787FC1615618A5E00458A4A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		9787FC1715618A5E00458A4A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		9787FC1815618A5E00458A4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		9787FC1915618A5E00458A4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -1219,7 +1199,6 @@
 		97C875B6156E834100197738 /* MMFixedStickController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97BE2ABB1548702100BF66CF /* MMFixedStickController.mm */; };
 		97C875B7156E834100197738 /* StaticImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BE2ABD1548702100BF66CF /* StaticImage.m */; };
 		97C875B8156E834100197738 /* StickControllerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97BE2ABF1548702100BF66CF /* StickControllerBase.mm */; };
-		97C875BA156E834100197738 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		97C875BB156E834100197738 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		97C875BC156E834100197738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		97C875BD156E834100197738 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -1268,7 +1247,6 @@
 		97EF95EC153876CA001C01E6 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		97EF95ED153876CA001C01E6 /* NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 057B26B413B325AB006BB230 /* NSObject+Blocks.m */; };
 		97EF95F0153876CA001C01E6 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
-		97EF95F4153876CA001C01E6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05084E4913D7FE7B0004617A /* libz.dylib */; };
 		97EF95F5153876CA001C01E6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		97EF95F6153876CA001C01E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		97EF95F7153876CA001C01E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -1288,10 +1266,14 @@
 		BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */; };
 		BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA61B4FC9B8008E15E6 /* ResetController.m */; };
 		BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA81B4FC9B8008E15E6 /* DriveState.m */; };
+		BE5DE31E1C5CCD1400FF5D1D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
 		BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE6086D81C2CF5AC008E668B /* adfresolver.mm */; };
+		BE6537DA1C5F7E41007AD097 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6537D91C5F7E41007AD097 /* PKCustomKeyboard.xib */; };
+		BE6537DC1C5F7E59007AD097 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6537DB1C5F7E59007AD097 /* PMCustomKeyboard.xib */; };
 		BE66229A1C328442009C2809 /* KeyButtonManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6622991C328442009C2809 /* KeyButtonManagementController.m */; };
 		BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */; };
 		BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */; };
+		BE6F9F621C4E2C420061B98C /* VPadLeftOrRight.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.m */; };
 		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
 		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
@@ -1309,8 +1291,6 @@
 		0504155B0FCB46F000F46828 /* EmulationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmulationViewController.mm; sourceTree = "<group>"; };
 		0504155D0FCB475C00F46828 /* InputControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputControllerView.h; sourceTree = "<group>"; };
 		0504155E0FCB475C00F46828 /* InputControllerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputControllerView.mm; sourceTree = "<group>"; };
-		0504155F0FCB475C00F46828 /* JoystickViewLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoystickViewLandscape.h; sourceTree = "<group>"; };
-		050415600FCB475C00F46828 /* JoystickViewLandscape.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JoystickViewLandscape.mm; sourceTree = "<group>"; };
 		050415630FCB47B200F46828 /* CGVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVector.h; sourceTree = "<group>"; };
 		050415640FCB47B200F46828 /* touchstick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touchstick.h; sourceTree = "<group>"; };
 		050415690FCB4BD400F46828 /* CocoaUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaUtility.h; sourceTree = "<group>"; };
@@ -1318,7 +1298,6 @@
 		0504156C0FCB4BE600F46828 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		0506D73713CA7BF700559637 /* OldLondon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OldLondon.ttf; path = html/OldLondon.ttf; sourceTree = "<group>"; };
 		0506D73813CA7BF700559637 /* gpl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = gpl.html; path = html/gpl.html; sourceTree = "<group>"; };
-		05084E4913D7FE7B0004617A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		050C393B12C31B24000CE512 /* Disa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Disa.c; sourceTree = "<group>"; };
 		050C393C12C31B24000CE512 /* Disa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Disa.h; sourceTree = "<group>"; };
 		050C3A9212C33D94000CE512 /* disassembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = disassembler.h; sourceTree = "<group>"; };
@@ -1457,9 +1436,6 @@
 		055FD7F713B45AAA00BB3F8B /* AnimatedImageSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedImageSequenceView.h; sourceTree = "<group>"; };
 		055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimatedImageSequenceView.mm; sourceTree = "<group>"; };
 		056089BA13C235F200677A6C /* iscroll4.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = iscroll4.js; path = html/iscroll4.js; sourceTree = "<group>"; };
-		05619ED813ADE1AA00341DB0 /* SelectHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHardware.h; sourceTree = "<group>"; };
-		05619ED913ADE1AA00341DB0 /* SelectHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHardware.m; sourceTree = "<group>"; };
-		05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectHardware.xib; sourceTree = "<group>"; };
 		05743FC30FC293FD003BE251 /* iphone_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_main.h; sourceTree = "<group>"; };
 		05743FC40FC293FD003BE251 /* iphone_main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_main.mm; sourceTree = "<group>"; };
 		0577C0D912DED4A60040B77D /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
@@ -1491,7 +1467,6 @@
 		0585D55E1091640900C1E4C1 /* VirtualKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualKeyboard.m; sourceTree = "<group>"; };
 		0585D5601091653E00C1E4C1 /* KeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyView.h; sourceTree = "<group>"; };
 		0585D5611091653E00C1E4C1 /* KeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyView.m; sourceTree = "<group>"; };
-		059A411C12697B33003B23C7 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		059C0E2313B99DEE00E89B35 /* bg_web~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web~ipad.png"; sourceTree = "<group>"; };
 		059C0E2413B99DEE00E89B35 /* btn_close~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_close~ipad.png"; sourceTree = "<group>"; };
 		059C0E2513B99DEE00E89B35 /* btn_menu~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_menu~ipad.png"; sourceTree = "<group>"; };
@@ -1543,14 +1518,12 @@
 		05BC1AEF1073448200EABC6E /* EMUFileGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMUFileGroup.m; sourceTree = "<group>"; };
 		05BC1AF01073448200EABC6E /* EMUFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMUFileInfo.h; sourceTree = "<group>"; };
 		05BC1AF11073448200EABC6E /* EMUFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMUFileInfo.m; sourceTree = "<group>"; };
-		05BC1AF21073448200EABC6E /* EMUROMBrowserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EMUROMBrowserView.xib; sourceTree = "<group>"; };
 		05BC1AF31073448200EABC6E /* EMUROMBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMUROMBrowserViewController.h; sourceTree = "<group>"; };
 		05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EMUROMBrowserViewController.mm; sourceTree = "<group>"; };
 		05BC1B15107348E500EABC6E /* keys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keys.png; sourceTree = "<group>"; };
 		05BC1B16107348E500EABC6E /* VKBD.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VKBD.PNG; sourceTree = "<group>"; };
 		05D5233412E8030E007912AE /* SelectEffectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectEffectController.h; sourceTree = "<group>"; };
 		05D5233512E8030E007912AE /* SelectEffectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectEffectController.m; sourceTree = "<group>"; };
-		05D5233612E8030E007912AE /* SelectEffectController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectEffectController.xib; sourceTree = "<group>"; };
 		05D6044912AF2D620048E478 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = iUAEParents/Icon.png; sourceTree = "<group>"; };
 		05D6044A12AF2D620048E478 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "iUAEParents/Icon@2x.png"; sourceTree = "<group>"; };
 		05E6A3250FC3DAA90086151B /* sound_iphone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sound_iphone.cpp; sourceTree = "<group>"; };
@@ -1568,7 +1541,6 @@
 		1D6058910D05DD3D006BFB54 /* iUAE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iUAE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = iUAEParents/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = iUAEParents/main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iUAE_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAE_Prefix.pch; sourceTree = "<group>"; };
 		7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddConfigurationViewController.h; path = Classes/AddConfigurationViewController.h; sourceTree = SOURCE_ROOT; };
@@ -1582,7 +1554,6 @@
 		7E1B8C3919FADFD400B6136B /* modekeyon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modekeyon.png; sourceTree = "<group>"; };
 		7E1B8C3B19FADFD400B6136B /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
 		7E1B8C4919FAE04700B6136B /* unsticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unsticky.png; sourceTree = "<group>"; };
-		7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EMUROMBrowserView-ipad.xib"; sourceTree = "<group>"; };
 		7E21F5C31A3F784E000D9AD2 /* gamepad_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad_selected.png; sourceTree = "<group>"; };
 		7E2665501C483AEB004250D1 /* monitor_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monitor_unselected.png; sourceTree = "<group>"; };
 		7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monitor_selected_svg.svg; sourceTree = "<group>"; };
@@ -1626,8 +1597,6 @@
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
 		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
 		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadMainController.m; sourceTree = "<group>"; };
-		7E7E52281A533C8F003E03E7 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
-		7E7E52291A533C8F003E03E7 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
@@ -1646,10 +1615,8 @@
 		7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Specialkeyboard.png; sourceTree = "<group>"; };
 		7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCustomKeyboard.m; sourceTree = "<group>"; };
-		7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKCustomKeyboard.xib; sourceTree = "<group>"; };
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
-		7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
 		7EB017631B09115900C74B9D /* StateManagementController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StateManagementController.mm; sourceTree = "<group>"; };
 		7EB017641B09115900C74B9D /* StateManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementController.h; sourceTree = "<group>"; };
 		7EB0176B1B09143000C74B9D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
@@ -1676,7 +1643,6 @@
 		7EE0D0431AACF2090081DAA5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = ../iUAEParents/Settings.h; sourceTree = "<group>"; };
 		7EE0D0441AACF2090081DAA5 /* Settings.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Settings.mm; path = ../iUAEParents/Settings.mm; sourceTree = "<group>"; };
 		7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPadLeftOrRight.h; sourceTree = "<group>"; };
-		7EEFD2911BAC3DE300C7F247 /* VPadLeftOrRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPadLeftOrRight.m; sourceTree = "<group>"; };
 		7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadVpadController.h; sourceTree = "<group>"; };
 		7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadVpadController.m; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
@@ -2161,14 +2127,18 @@
 		BE52EFA71B4FC9B8008E15E6 /* ResetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetController.h; sourceTree = "<group>"; };
 		BE52EFA81B4FC9B8008E15E6 /* DriveState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveState.m; sourceTree = "<group>"; };
 		BE52EFA91B4FC9B8008E15E6 /* DriveState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveState.h; sourceTree = "<group>"; };
+		BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BE6086D71C2CF5AC008E668B /* adfresolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adfresolver.h; sourceTree = "<group>"; };
 		BE6086D81C2CF5AC008E668B /* adfresolver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adfresolver.mm; sourceTree = "<group>"; };
+		BE6537D91C5F7E41007AD097 /* PKCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKCustomKeyboard.xib; sourceTree = "<group>"; };
+		BE6537DB1C5F7E59007AD097 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
 		BE6622981C328442009C2809 /* KeyButtonManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonManagementController.h; sourceTree = "<group>"; };
 		BE6622991C328442009C2809 /* KeyButtonManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonManagementController.m; sourceTree = "<group>"; };
 		BE66229B1C3285B3009C2809 /* KeyButtonConfigurationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfigurationController.h; sourceTree = "<group>"; };
 		BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfigurationController.m; sourceTree = "<group>"; };
 		BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfiguration.h; sourceTree = "<group>"; };
 		BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfiguration.m; sourceTree = "<group>"; };
+		BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPadLeftOrRight.m; sourceTree = "<group>"; };
 		BEE41BC11B4782D200CE487D /* AdfImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfImporter.m; sourceTree = "<group>"; };
 		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
 		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
@@ -2193,7 +2163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05084E4A13D7FE7B0004617A /* libz.dylib in Frameworks */,
 				976877761534B2D20077B654 /* AudioToolbox.framework in Frameworks */,
 				0533694513B1DEE90012D55A /* Foundation.framework in Frameworks */,
 				0533694613B1DEE90012D55A /* UIKit.framework in Frameworks */,
@@ -2223,7 +2192,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9706D7021561817500073678 /* libz.dylib in Frameworks */,
 				9706D7031561817500073678 /* AudioToolbox.framework in Frameworks */,
 				9706D7041561817500073678 /* Foundation.framework in Frameworks */,
 				9706D7051561817500073678 /* UIKit.framework in Frameworks */,
@@ -2238,7 +2206,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97242CCA156177EC00B6D03C /* libz.dylib in Frameworks */,
 				97242CCB156177EC00B6D03C /* AudioToolbox.framework in Frameworks */,
 				97242CCC156177EC00B6D03C /* Foundation.framework in Frameworks */,
 				97242CCD156177EC00B6D03C /* UIKit.framework in Frameworks */,
@@ -2253,7 +2220,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9787FAAE1561882D00458A4A /* libz.dylib in Frameworks */,
 				9787FAAF1561882D00458A4A /* AudioToolbox.framework in Frameworks */,
 				9787FAB01561882D00458A4A /* Foundation.framework in Frameworks */,
 				9787FAB11561882D00458A4A /* UIKit.framework in Frameworks */,
@@ -2268,7 +2234,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9787FC1615618A5E00458A4A /* libz.dylib in Frameworks */,
 				9787FC1715618A5E00458A4A /* AudioToolbox.framework in Frameworks */,
 				9787FC1815618A5E00458A4A /* Foundation.framework in Frameworks */,
 				9787FC1915618A5E00458A4A /* UIKit.framework in Frameworks */,
@@ -2283,7 +2248,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97C875BA156E834100197738 /* libz.dylib in Frameworks */,
 				97C875BB156E834100197738 /* AudioToolbox.framework in Frameworks */,
 				97C875BC156E834100197738 /* Foundation.framework in Frameworks */,
 				97C875BD156E834100197738 /* UIKit.framework in Frameworks */,
@@ -2298,7 +2262,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97EF95F4153876CA001C01E6 /* libz.dylib in Frameworks */,
 				97EF95F5153876CA001C01E6 /* AudioToolbox.framework in Frameworks */,
 				97EF95F6153876CA001C01E6 /* Foundation.framework in Frameworks */,
 				97EF95F7153876CA001C01E6 /* UIKit.framework in Frameworks */,
@@ -2326,8 +2289,6 @@
 				0585D5611091653E00C1E4C1 /* KeyView.m */,
 				0583DE5612D1A3AC000E97CE /* TouchHandlerView.h */,
 				0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */,
-				0504155F0FCB475C00F46828 /* JoystickViewLandscape.h */,
-				050415600FCB475C00F46828 /* JoystickViewLandscape.mm */,
 				0585D55D1091640900C1E4C1 /* VirtualKeyboard.h */,
 				0585D55E1091640900C1E4C1 /* VirtualKeyboard.m */,
 			);
@@ -2725,7 +2686,6 @@
 			children = (
 				05E8A03112B2C850005532AF /* keyboard */,
 				058063CF13B06DD800E00B04 /* Icon-72.png */,
-				059A411C12697B33003B23C7 /* MainWindow-iPad.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -2808,8 +2768,6 @@
 				05BC1AEF1073448200EABC6E /* EMUFileGroup.m */,
 				05BC1AF01073448200EABC6E /* EMUFileInfo.h */,
 				05BC1AF11073448200EABC6E /* EMUFileInfo.m */,
-				05BC1AF21073448200EABC6E /* EMUROMBrowserView.xib */,
-				7E1B8C5119FAE98200B6136B /* EMUROMBrowserView-ipad.xib */,
 				05BC1AF31073448200EABC6E /* EMUROMBrowserViewController.h */,
 				7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */,
 				05BC1AF41073448200EABC6E /* EMUROMBrowserViewController.mm */,
@@ -2843,14 +2801,8 @@
 				7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
 				05D5233512E8030E007912AE /* SelectEffectController.m */,
-				05D5233612E8030E007912AE /* SelectEffectController.xib */,
-				05619ED813ADE1AA00341DB0 /* SelectHardware.h */,
-				05619ED913ADE1AA00341DB0 /* SelectHardware.m */,
-				05619EDA13ADE1AA00341DB0 /* SelectHardware.xib */,
 				7EE0D0431AACF2090081DAA5 /* Settings.h */,
 				7EE0D0441AACF2090081DAA5 /* Settings.mm */,
-				7E7E52281A533C8F003E03E7 /* SettingsController.h */,
-				7E7E52291A533C8F003E03E7 /* SettingsController.m */,
 				7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */,
 				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */,
 				7E3C13E31A51F16600534164 /* SettingsGeneralController.h */,
@@ -2872,7 +2824,7 @@
 				7EB017641B09115900C74B9D /* StateManagementController.h */,
 				7EB017631B09115900C74B9D /* StateManagementController.mm */,
 				7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */,
-				7EEFD2911BAC3DE300C7F247 /* VPadLeftOrRight.m */,
+				BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2932,6 +2884,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */,
 				7E1A15901B171D7E00F0EA17 /* JoypadKey.h */,
 				7EA4D6651923EDBE00C58BB9 /* MainEmulationViewController.h */,
 				7EA4D6621923EDA100C58BB9 /* TouchHandlerViewClassic.h */,
@@ -2977,7 +2930,6 @@
 				057443530FC3CA04003BE251 /* disks */,
 				057440D40FC2A4A7003BE251 /* roms */,
 				0504161C0FCB566500F46828 /* images */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				05789FB813B1436200A72F5F /* Entitlements.plist */,
 			);
@@ -2988,7 +2940,6 @@
 			isa = PBXGroup;
 			children = (
 				7EB372E91A0FC8DE001B460A /* GameController.framework */,
-				05084E4913D7FE7B0004617A /* libz.dylib */,
 				976877751534B2D20077B654 /* AudioToolbox.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -3016,7 +2967,7 @@
 				7EAA9D9B192541D400541BE1 /* Images */,
 				7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */,
 				7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */,
-				7EAA9DA6192541D400541BE1 /* PKCustomKeyboard.xib */,
+				BE6537D91C5F7E41007AD097 /* PKCustomKeyboard.xib */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -3035,7 +2986,7 @@
 				7EAA9DA8192541D400541BE1 /* Images */,
 				7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */,
 				7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */,
-				7EAA9DB6192541D400541BE1 /* PMCustomKeyboard.xib */,
+				BE6537DB1C5F7E59007AD097 /* PMCustomKeyboard.xib */,
 			);
 			path = "iPhone:iPod";
 			sourceTree = "<group>";
@@ -4078,7 +4029,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iUAE" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4198,21 +4149,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E2665541C483AEB004250D1 /* monitor_selected_svg.svg in Resources */,
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
-				05BC1AF81073448200EABC6E /* EMUROMBrowserView.xib in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
 				7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
+				BE6537DA1C5F7E41007AD097 /* PKCustomKeyboard.xib in Resources */,
 				7E1B8C4119FADFD400B6136B /* modekeyoff.png in Resources */,
-				7EAA9DC0192541D400541BE1 /* PKCustomKeyboard.xib in Resources */,
 				7E21F5C41A3F784E000D9AD2 /* gamepad_selected.png in Resources */,
-				059A411D12697B33003B23C7 /* MainWindow-iPad.xib in Resources */,
 				05D6044B12AF2D620048E478 /* Icon.png in Resources */,
 				7E5AF6171C444854000BF5CB /* controller_unselected_svg.svg in Resources */,
+				BE5DE31E1C5CCD1400FF5D1D /* Default-568h@2x.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
 				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
@@ -4223,8 +4172,6 @@
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
-				05D5233812E8030E007912AE /* SelectEffectController.xib in Resources */,
-				05619EDC13ADE1AA00341DB0 /* SelectHardware.xib in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
 				7E2665531C483AEB004250D1 /* monitor_unselected.png in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
@@ -4241,7 +4188,6 @@
 				7E2665551C483AEB004250D1 /* monitor_selected.png in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
-				7E1B8C5219FAE98200B6136B /* EMUROMBrowserView-ipad.xib in Resources */,
 				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */,
@@ -4255,12 +4201,12 @@
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				7E5AF6191C444854000BF5CB /* controller_selected_svg.svg in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
-				7EAA9DCD192541D400541BE1 /* PMCustomKeyboard.xib in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
+				BE6537DC1C5F7E59007AD097 /* PMCustomKeyboard.xib in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
@@ -4906,7 +4852,6 @@
 				05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */,
 				0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */,
 				050415610FCB475C00F46828 /* InputControllerView.mm in Sources */,
-				050415620FCB475C00F46828 /* JoystickViewLandscape.mm in Sources */,
 				7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */,
 				0504156B0FCB4BD400F46828 /* CocoaUtility.m in Sources */,
 				7EB017731B09143000C74B9D /* SVIndefiniteAnimatedView.m in Sources */,
@@ -4933,7 +4878,6 @@
 				7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.m in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
 				BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */,
-				05619EDB13ADE1AA00341DB0 /* SelectHardware.m in Sources */,
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
@@ -4968,18 +4912,14 @@
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,
-				7E7E522A1A533C8F003E03E7 /* SettingsController.m in Sources */,
 				BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */,
 				7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */,
-				7EEFD2921BAC3DE300C7F247 /* VPadLeftOrRight.m in Sources */,
+				BE6F9F621C4E2C420061B98C /* VPadLeftOrRight.m in Sources */,
 				97855100153A3F2E00580B91 /* NoEffect.m in Sources */,
 				97855103153A3F2E00580B91 /* OGLDisplay.m in Sources */,
 				7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.m in Sources */,
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
-				97855118153A3F2E00580B91 /* CRT.frag in Sources */,
 				7EB017781B09164900C74B9D /* StateFileManager.m in Sources */,
-				97855121153A3F2E00580B91 /* Simple.frag in Sources */,
-				97855124153A3F2E00580B91 /* Simple.vert in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
@@ -5491,6 +5431,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "o.anoAmiga.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DotC;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5503,6 +5444,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "o.anoAmiga.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DotC;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5516,6 +5458,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "o.anoAmiga.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DotC;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5569,7 +5512,7 @@
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				iOSOpenDevDevice = 192.168.0.11;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
@@ -5580,7 +5523,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
@@ -5590,10 +5532,7 @@
 					SAFE_MEMORY_ACCESS,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Volumes/Multimedia/emus/amiga/HDS/Work/Programme/xfrmaster,
-				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emufreak.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = iUAE;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5611,7 +5550,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5623,10 +5561,7 @@
 					SAFE_MEMORY_ACCESS,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Volumes/Multimedia/emus/amiga/HDS/Work/Programme/xfrmaster,
-				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emufreak.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
@@ -5643,7 +5578,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
@@ -5653,10 +5587,7 @@
 					SAFE_MEMORY_ACCESS,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Volumes/Multimedia/emus/amiga/HDS/Work/Programme/xfrmaster,
-				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emufreak.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
@@ -5678,6 +5609,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = sdi;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5690,6 +5622,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = sdi;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5703,6 +5636,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = sdi;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5718,6 +5652,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = lrs;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5730,6 +5665,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = lrs;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5743,6 +5679,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = lrs;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5758,6 +5695,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = koc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5770,6 +5708,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = koc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5783,6 +5722,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = koc;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5798,6 +5738,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = sinbad;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5810,6 +5751,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = sinbad;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5823,6 +5765,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = sinbad;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5898,6 +5841,7 @@
 					DEBUG,
 					AMIGA_OPTIONS,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = stooges;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5915,6 +5859,7 @@
 					NDEBUG,
 					AMIGA_OPTIONS,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = stooges;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5933,6 +5878,7 @@
 					NDEBUG,
 					AMIGA_OPTIONS,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = stooges;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5947,6 +5893,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -5984,7 +5931,7 @@
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				iOSOpenDevDevice = 192.168.0.11;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
@@ -6037,7 +5984,7 @@
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				iOSOpenDevDevice = 192.168.0.11;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";

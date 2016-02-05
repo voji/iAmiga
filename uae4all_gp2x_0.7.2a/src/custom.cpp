@@ -1,4 +1,7 @@
- /*
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
+/*
   * UAE - The Un*x Amiga Emulator
   *
   * Custom chip emulation
@@ -4348,3 +4351,5 @@ uae_u8 *save_custom_sprite(int *len, int num)
     *len = dst - dstbak;
     return dstbak;
 }
+
+#pragma clang diagnostic pop
