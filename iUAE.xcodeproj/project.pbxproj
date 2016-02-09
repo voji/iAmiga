@@ -182,6 +182,8 @@
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
 		7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */; };
+		7E2AE5DC1C65302700079E20 /* airtaxi.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E2AE5DB1C65302700079E20 /* airtaxi.adf */; };
+		7E2AE5DE1C65303C00079E20 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E2AE5DD1C65303C00079E20 /* kick13.rom */; };
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */; };
 		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
@@ -1563,6 +1565,8 @@
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
 		7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadController.h; sourceTree = SOURCE_ROOT; };
 		7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadController.m; sourceTree = SOURCE_ROOT; };
+		7E2AE5DB1C65302700079E20 /* airtaxi.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = airtaxi.adf; path = ../../../../../Volumes/Multimedia/Downloads/airtaxi.adf; sourceTree = "<group>"; };
+		7E2AE5DD1C65303C00079E20 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
 		7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsGeneralController.mm; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
@@ -2640,6 +2644,7 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7E2AE5DD1C65303C00079E20 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2647,6 +2652,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E2AE5DB1C65302700079E20 /* airtaxi.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -4208,6 +4214,7 @@
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				BE6537DC1C5F7E59007AD097 /* PMCustomKeyboard.xib in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
+				7E2AE5DE1C65303C00079E20 /* kick13.rom in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
 				7E5AF60D1C444854000BF5CB /* sticky_selected_svg.svg in Resources */,
@@ -4220,6 +4227,7 @@
 				97BE2B0515489E6600BF66CF /* ls-bgimage.png in Resources */,
 				7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */,
 				97BE2B0815489E6600BF66CF /* ls-fire.png in Resources */,
+				7E2AE5DC1C65302700079E20 /* airtaxi.adf in Resources */,
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
 				7E5AF60E1C444854000BF5CB /* sticky_selected.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
@@ -5539,7 +5547,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5567,7 +5575,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
@@ -5593,7 +5601,7 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
