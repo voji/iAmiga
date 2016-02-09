@@ -295,6 +295,7 @@ NSString *const kPositionAttrName = @"position";
 NSString *const kSizeAttrName = @"size";
 NSString *const kKeyAttrName = @"key";
 NSString *const kKeyNameAttrName = @"keyname";
+NSString *const kGroupNameAttrName = @"groupname";
 NSString *const kShowOutlineAttrName = @"showoutline";
 NSString *const kEnabledAttrName = @"enabled";
 
@@ -312,6 +313,7 @@ NSString *const kEnabledAttrName = @"enabled";
         button.size = CGSizeFromString([dict objectForKey:kSizeAttrName]);
         button.key = (SDLKey)[[dict objectForKey:kKeyAttrName] intValue];
         button.keyName = [dict objectForKey:kKeyNameAttrName];
+        button.groupName = [dict objectForKey:kGroupNameAttrName];
         button.showOutline = [[dict objectForKey:kShowOutlineAttrName] boolValue];
         button.enabled = [[dict objectForKey:kEnabledAttrName] boolValue];
         [keyButtonConfigurations addObject:button];
@@ -326,6 +328,7 @@ NSString *const kEnabledAttrName = @"enabled";
                                kSizeAttrName : NSStringFromCGSize(button.size),
                                kKeyAttrName : @(button.key),
                                kKeyNameAttrName : button.keyName,
+                               kGroupNameAttrName : button.groupName,
                                kShowOutlineAttrName : @(button.showOutline),
                                kEnabledAttrName : @(button.enabled)};
         [dicts addObject:dict];

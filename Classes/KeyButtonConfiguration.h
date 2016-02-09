@@ -23,6 +23,7 @@
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) SDLKey key;
 @property (nonatomic, strong) NSString *keyName;
+@property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, assign) BOOL showOutline;
 @property (nonatomic, assign) BOOL enabled;
 
