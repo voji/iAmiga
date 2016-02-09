@@ -20,10 +20,14 @@ static const int kInitialValue = -1;
 
 @implementation KeyButtonConfiguration
 
+static NSString *const kUnassignedKeyName = @"<none>";
+static NSString *const kDefaultGroupName = @"default";
+
 - (instancetype)init {
     if (self = [super init]) {
         _key = kInitialValue;
-        _keyName = @"<none>";
+        _keyName = [kUnassignedKeyName retain];
+        _groupName = [kDefaultGroupName retain];
         _showOutline = YES;
         _enabled = YES;
     }
@@ -32,6 +36,7 @@ static const int kInitialValue = -1;
 
 - (void)dealloc {
     [_keyName release];
+    [_groupName release];
     [super dealloc];
 }
 
@@ -61,6 +66,7 @@ static const int kInitialValue = -1;
     clone.size = _size;
     clone.key = _key;
     clone.keyName = [_keyName copy];
+    clone.groupName = [_groupName copy];
     clone.showOutline = _showOutline;
     clone.enabled = _enabled;
     return clone;
