@@ -40,7 +40,8 @@ extern int mainMenu_AddVerticalStretchValue;
     [_stretchscreen setOn:_settings.stretchScreen];
     [_showstatusbar setOn:_settings.showStatusBar];
     [self handleSelectedEffect];
-    _additionalVerticalStretchValue.text = [[NSNumber numberWithInt:mainMenu_AddVerticalStretchValue] stringValue];
+    _additionalVerticalStretchValue.text = [[NSNumber numberWithInt:_settings.addVerticalStretchValue] stringValue];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -98,6 +99,7 @@ extern int mainMenu_AddVerticalStretchValue;
 }
 - (IBAction)setAdditionalVerticalStretch:(id)sender {
     mainMenu_AddVerticalStretchValue = (int)[_additionalVerticalStretchValue.text doubleValue];
+    _settings.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
 }
 
 -(BOOL) textFieldShouldReturn: (UITextField *) textField {

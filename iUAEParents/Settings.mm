@@ -41,6 +41,7 @@ static NSString *const kKeyButtonConfigurationsKey = @"keyButtonConfigurations";
 
 static NSString *const kNtscKey = @"_ntsc";
 static NSString *const kStretchScreenKey = @"_stretchscreen";
+static NSString *const kAddVerticalStretchKey = @"_addverticalstretchvalue";
 static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
@@ -56,6 +57,7 @@ static NSString *const kDf3EnabledKey = @"df3Enabled";
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
+extern int mainMenu_AddVerticalStretchValue;
 extern int joystickselected;
 
 static NSString *configurationname;
@@ -110,6 +112,7 @@ static NSString *configurationname;
     {
         self.ntsc = mainMenu_ntsc;
         self.stretchScreen = mainMenu_stretchscreen;
+        self.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
         self.showStatus = mainMenu_showStatus;
         [self setBool:TRUE forKey:kInitializeKey];
     }
@@ -117,6 +120,7 @@ static NSString *configurationname;
     {
         mainMenu_ntsc = self.ntsc;
         mainMenu_stretchscreen = self.stretchScreen;
+        mainMenu_AddVerticalStretchValue = self.addVerticalStretchValue;
         mainMenu_showStatus = self.showStatus;
     }
     
@@ -194,6 +198,14 @@ static NSString *configurationname;
 
 - (void)setStretchScreen:(BOOL)stretchScreen {
     [self setBool:stretchScreen forKey:kStretchScreenKey];
+}
+
+- (int)addVerticalStretchValue {
+    return [self integerForKey:kAddVerticalStretchKey];
+}
+
+- (void)setAddVerticalStretchValue:(int)addVerticalStretchVal {
+    [self setInteger: addVerticalStretchVal forKey:kAddVerticalStretchKey];
 }
 
 - (BOOL)showStatus {
