@@ -13,6 +13,7 @@
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
+extern int mainMenu_AddVerticalStretchValue;
 
 @implementation SettingsDisplayController {
     NSArray *_effectNames;
@@ -28,7 +29,9 @@ extern int mainMenu_stretchscreen;
                       @"Scanline (50%)", @"Scanline (100%)",
                       @"Aperture 1x2 RB", @"Aperture 1x3 RB",
                       @"Aperture 2x4 RB", @"Aperture 2x4 BG"] retain];
+    self.additionalVerticalStretchValue.delegate = self;
 }
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -37,6 +40,8 @@ extern int mainMenu_stretchscreen;
     [_stretchscreen setOn:_settings.stretchScreen];
     [_showstatusbar setOn:_settings.showStatusBar];
     [self handleSelectedEffect];
+    _additionalVerticalStretchValue.text = [[NSNumber numberWithInt:_settings.addVerticalStretchValue] stringValue];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -54,6 +59,7 @@ extern int mainMenu_stretchscreen;
 - (IBAction)toggleShowstatus:(id)sender {
     _settings.showStatus = _showstatus.isOn;
     mainMenu_showStatus = _showstatus.isOn;
+    [[self view] endEditing:YES];
 }
 
 - (IBAction)toggleStretchscreen:(id)sender {
@@ -88,7 +94,18 @@ extern int mainMenu_stretchscreen;
     [_effectNames release];
     [_selectEffectController release];
     [_settings release];
+    [_additionalVerticalStretchValue release];
     [super dealloc];
 }
+- (IBAction)setAdditionalVerticalStretch:(id)sender {
+    mainMenu_AddVerticalStretchValue = (int)[_additionalVerticalStretchValue.text doubleValue];
+    _settings.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
+}
+
+-(BOOL) textFieldShouldReturn: (UITextField *) textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 @end

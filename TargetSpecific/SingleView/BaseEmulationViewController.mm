@@ -34,7 +34,7 @@
 #define kDisplayHeight							240.0f
 
 extern int mainMenu_stretchscreen;
-
+extern int mainMenu_AddVerticalStretchValue;
 @interface BaseEmulationViewController()
 
 @property (nonatomic, retain) UIView<DisplayViewSurface>	*displayView;
@@ -164,7 +164,7 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	// full-screen, landscape mode
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
         
-        int height = self.view.frame.size.height - self.displayTop;
+        int height = self.view.frame.size.height - self.displayTop + mainMenu_AddVerticalStretchValue;
         
         //Stretch or keep 3/4 aspect radio for width
         int width = mainMenu_stretchscreen ? self.view.frame.size.width : height / 3 * 4;
