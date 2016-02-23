@@ -39,7 +39,23 @@
 
 #import <UIKit/UIKit.h>
 #import <GameController/GameController.h>
+#import "MainEmulationViewController.h"
 
+
+
+MainEmulationViewController *mainViewController=nil;
+void set_MainView(MainEmulationViewController *m)
+{
+    mainViewController = m;
+}
+
+
+
+extern int mainMenu_servermode;
+extern unsigned int mainMenu_joy0dir;
+extern int mainMenu_joy0button;
+extern unsigned int mainMenu_joy1dir;
+extern int mainMenu_joy1button;
 int nr_joysticks;
 int joystickselected;
 
@@ -53,13 +69,33 @@ void read_joystick(int nr, unsigned int *dir, int *button)
     int left = 0, right = 0, top = 0, bot = 0;
     int i, num;
 	SDL_Joystick *joy = nr == 0 ? uae4all_joy0 : uae4all_joy0;
+    int joyport = nr == 0 ? 1 : 0;
+    
     
     *dir = 0;
     *button = 0;
 #if defined (SWAP_JOYSTICK)
-    if (nr == 0) return;
+    //this is not defined anyway
+    if (nr == 0) {
+        if(mainMenu_servermode==1)
+        {
+            //NSLog("ServerMode");
+            *dir = mainMenu_joy0dir;
+            *button = mainMenu_joy0button;
+            return;
+        }
+    };
 #else
-    if (nr == 1) return;
+    if(mainMenu_servermode==1)
+    {
+        if (joyport == 0)
+        {
+            //NSLog("ServerMode");
+            *dir = mainMenu_joy0dir;
+            *button = mainMenu_joy0button;
+            return;
+        }
+    }
 #endif
     
     nr = (~nr)&0x1;
@@ -116,6 +152,27 @@ void read_joystick(int nr, unsigned int *dir, int *button)
     if (right) bot = !bot;
     *dir = bot | (right << 1) | (top << 8) | (left << 9);
 #endif
+    if(mainViewController == nil)
+    {}
+    else if(mainMenu_servermode>1) //am I the client, then I do should send notifications to the server
+    {
+        mainMenu_joy1button = *button;
+        mainMenu_joy1dir = *dir;
+        sendJoystickDataToServer (mainViewController, *dir);
+    }
+    else if(mainMenu_servermode==1)
+    {
+        //overwrite host joystick dir and button with remote in case of host does not move or press e.g. ==0
+        if (*dir == 0)
+        {
+            *dir = mainMenu_joy1dir;
+        }
+        if (*button == 0)
+        {
+            *button = mainMenu_joy1button;
+        }
+    }
+
 }
 
 void init_joystick(void) {

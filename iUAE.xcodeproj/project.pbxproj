@@ -246,6 +246,7 @@
 		7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.m */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */; };
+		9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
 		9706D6581561817500073678 /* Aperture (1x3 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B4153A3F2E00580B91 /* Aperture (1x3 RB).png */; };
 		9706D6591561817500073678 /* Aperture (2x4 BG).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B5153A3F2E00580B91 /* Aperture (2x4 BG).png */; };
@@ -1648,6 +1649,8 @@
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectConfigurationViewController.m; path = ../SelectConfigurationViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		9064AD561C7D0A8D004CAE28 /* od-joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "od-joy.h"; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
 		9706D7121561827300073678 /* bg_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web@2x.png"; sourceTree = "<group>"; };
@@ -2177,6 +2180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */,
 				7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */,
 				7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -2399,6 +2403,7 @@
 		0542F2610FC8852A00126562 /* uae-src */ = {
 			isa = PBXGroup;
 			children = (
+				9064AD561C7D0A8D004CAE28 /* od-joy.h */,
 				97855145153A454100580B91 /* savestate.cpp */,
 				0552BD1C0F3D797C005B30DF /* sysconfig.h */,
 				054525AF106EC5550032FC41 /* combined_modules.cpp */,
@@ -2939,6 +2944,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */,
 				7EB372E91A0FC8DE001B460A /* GameController.framework */,
 				976877751534B2D20077B654 /* AudioToolbox.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,

@@ -2636,9 +2636,23 @@ static _INLINE_ uae_u16 POT0DAT (void)
     return cnt;
 }
 
+bool bDontCareMouseIUAE=false;
+void mousehack_setdontcare_iuae ()
+{
+    bDontCareMouseIUAE = true;
+}
+void mousehack_setfollow_iuae ()
+{
+    bDontCareMouseIUAE = false;
+}
+
 static _INLINE_ uae_u16 JOY0DAT (void)
 {
     do_mouse_hack ();
+    
+    if(bDontCareMouseIUAE)  //mithrendil
+        return joy0dir;
+  
     return ((uae_u8)mouse_x) + ((uae_u16)mouse_y << 8) + joy0dir;
 }
 

@@ -25,9 +25,12 @@
 #import "InputControllerView.h"
 #import "ResetController.h"
 
+#import <Foundation/Foundation.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "od-joy.h"
 @class VirtualKeyboard;
 
-@interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
+@interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate,MCNearbyServiceAdvertiserDelegate, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate> {
     VirtualKeyboard	*vKeyboard;
     bool keyboardactive;
     bool joyactive;
@@ -52,5 +55,4 @@
 - (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeJoypad:(InputControllerView *)joyController;
 - (void)checkForPaused:(NSTimer*)timer;
-
 @end

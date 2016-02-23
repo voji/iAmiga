@@ -23,6 +23,12 @@ int mainMenu_ntsc=0;
 int drawfinished=0;
 int mainMenu_stretchscreen = 0;
 int mainMenu_AddVerticalStretchValue=0;
+int mainMenu_servermode=0;   //0==nein, 1==server, 2==client
+unsigned int mainMenu_joy0dir=0;
+int mainMenu_joy0button=0;
+unsigned int mainMenu_joy1dir=0;
+int mainMenu_joy1button=0;
+
 extern int vkbd_mode;
 
 int gui_init() {

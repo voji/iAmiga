@@ -126,12 +126,65 @@ extern void uae_reset();
 
 }
 
+extern void set_MainView(MainEmulationViewController *m);
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
     set_joystickactive();
+    set_MainView(self);
+    
     [_mouseHandler reloadMouseSettings];
     [_joyController reloadJoypadSettings];
+    
+    
+    if(mainMenu_servermode != 1)
+    {
+        if(advertiser!=nil)
+        {//stop server
+            [self stopServer];
+        }
+        else if(session != nil && mainMenu_servermode == 0)
+        {//close client connection
+            [session disconnect];
+            session = nil;
+            [self showMessage: @"closed connection" withMessage: @"to the server"];
+            
+        }
+        //the device should go to sleep after some idle time
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+    }
+    
+    if(mainMenu_servermode == 1)
+    {
+        if(localPeerID==nil || session == nil)
+        {
+            [self startServer];
+            
+            //the device should NOT go to sleep after some idle time
+            [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+        }
+    }
+    
+    if(mainMenu_servermode > 1 )
+    {
+        if(localPeerID==nil || session == nil|| session.connectedPeers.count == 0)
+        {
+            [self startClient];
+        }
+        else
+        {
+            if( mainMenu_servermode == 2)
+                [self showMessage: @"use existing connection" withMessage: @"send to joystick port 0"];
+            else if ( mainMenu_servermode == 3)
+                [self showMessage: @"use existing connection" withMessage:  @"send to joystick port 1"];
+            
+            if(_btnJoypad.selected == FALSE)
+            {
+                [self toggleControls:_btnJoypad];
+            }
+        }
+    }
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -165,6 +218,9 @@ extern void uae_reset();
     _joyController.hidden = TRUE;
 }
 
+extern  void mousehack_setdontcare_iuae ();
+extern  void mousehack_setfollow_iuae ();
+extern void togglemouse (void);
 - (IBAction)toggleControls:(UIButton *)button {
     
     bool keyboardactiveonstart = keyboardactive;
@@ -183,10 +239,12 @@ extern void uae_reset();
     if (joyactive)
     {
         [_joyController onJoypadActivated];
+         mousehack_setdontcare_iuae();
     }
     else
     {
         [_mouseHandler onMouseActivated];
+         mousehack_setfollow_iuae();
     }
     
     if (keyboardactive != keyboardactiveonstart)
@@ -325,5 +383,251 @@ extern void uae_reset();
     [_settings release];
     [super dealloc];
 }
+
+/******* START MCSESSION mithrendal ****/
+extern int mainMenu_servermode;
+extern unsigned int mainMenu_joy0dir;
+extern int mainMenu_joy0button;
+extern unsigned int mainMenu_joy1dir;
+extern int mainMenu_joy1button;
+static NSString * const XXServiceType = @"svc-iuae";
+MCPeerID *localPeerID = nil;
+MCSession *session = nil;
+MCNearbyServiceBrowser *browser = nil;
+MCBrowserViewController *browserViewController = nil;
+/*  CLIENT teil */
+- (void)startClient {
+    localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    session = [[MCSession alloc] initWithPeer:localPeerID
+                             securityIdentity:nil
+                         encryptionPreference:MCEncryptionNone];
+    
+    browser = [[MCNearbyServiceBrowser alloc] initWithPeer:localPeerID serviceType:XXServiceType];
+    browser.delegate = self;
+    browserViewController = [[MCBrowserViewController alloc] initWithBrowser:browser
+                                                                     session:session];
+    browserViewController.delegate = self;
+    [self presentViewController:browserViewController
+                       animated:YES
+                     completion:
+     ^{
+         [browser startBrowsingForPeers];
+     }];
+}
+
+- (void)browser:(MCNearbyServiceBrowser *)browser
+      foundPeer:(MCPeerID *)peerID
+withDiscoveryInfo:(NSDictionary<NSString *,
+                   NSString *> *)info
+{
+    NSLog(@"found peer");
+    [browser invitePeer:peerID toSession:session withContext:nil timeout:30];
+    
+}
+- (void)browser:(MCNearbyServiceBrowser *)browser
+       lostPeer:(MCPeerID *)peerID
+{}
+
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if( mainMenu_servermode == 2)
+            [self showMessage: @"connection established" withMessage: @"send to joystick port 0"];
+        else if ( mainMenu_servermode == 3)
+            [self showMessage: @"connection established" withMessage:  @"send to joystick port 1"];
+    
+        if(_btnJoypad.selected == FALSE)
+        {
+            [self toggleControls:_btnJoypad];
+        }
+    });
+}
+
+- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    mainMenu_servermode=0; //disable client mode
+}
+
+
+
+// C "trampoline" function to invoke Objective-C method
+void sendJoystickDataToServer (void *self, unsigned int aParameter)
+{
+    // Call the Objective-C method using Objective-C syntax
+    [(id) self sendJoystickData:aParameter ];
+}
+
+
+unsigned int lastdir =0;
+int lastbutton =0;
+- (void)sendJoystickData: (unsigned int) joystickregister
+{
+    if(session == nil || session.connectedPeers.count == 0)
+    {
+    }
+    else if(mainMenu_joy1dir != lastdir || mainMenu_joy1button != lastbutton)
+    {
+        lastdir = mainMenu_joy1dir;
+        lastbutton = mainMenu_joy1button;
+        
+        unsigned int iJoystickPort = mainMenu_servermode-2;  // 0 or 1
+        unsigned int aints[3]= { iJoystickPort,  mainMenu_joy1dir, (unsigned int)mainMenu_joy1button};
+      
+        NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
+        
+        
+        NSError *error = nil;
+        if (![session sendData:data
+                       toPeers:session.connectedPeers
+                      withMode:MCSessionSendDataReliable
+                         error:&error]) {
+            NSLog(@"[Error] %@", error);
+        }
+    }
+    
+}
+
+
+-(void)autoClickOnCancel:(UIAlertView*)theAlert{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [theAlert dismissWithClickedButtonIndex:-1 animated:YES];
+    });
+}
+
+- (void)showMessage: (NSString *)sTitel withMessage:(NSString *)sMessage
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: sTitel
+                                                        message: sMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@""
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        [self performSelector:@selector(autoClickOnCancel:) withObject:alert afterDelay:2];
+        [alert release];
+        // NSLog(@"received: dir=%d, but=%d", mainMenu_joydir, mainMenu_joybutton);
+    });
+    
+}
+
+
+
+
+- (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
+{
+    if(state == MCSessionStateConnected)
+        [self showMessage: peerID.displayName withMessage: @"connected"];
+    else if(state == MCSessionStateNotConnected)
+        [self showMessage: peerID.displayName withMessage: @"not connected"];
+    else if(state == MCSessionStateConnecting)
+        [self showMessage: peerID.displayName withMessage: @"connecting..."];
+    
+}
+/* server teil */
+MCNearbyServiceAdvertiser *advertiser=nil;
+
+
+- (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
+{
+    unsigned int aJoyData[3];
+    [data getBytes: &aJoyData length: sizeof(aJoyData)];
+    
+    
+    unsigned int iJoystickPort = aJoyData[0];  // 0 or 1
+    if(iJoystickPort == 0)
+    {
+        mainMenu_joy0dir = aJoyData[1];
+        mainMenu_joy0button =(int)aJoyData[2];
+        
+        //when joy0 signals come in
+        //we have to activate joypad, otherwise the last mouse movements will overwrite/disturb
+        //the remote joystick ddirection
+        if(_btnJoypad.selected == FALSE)
+        {
+            [self toggleControls:_btnJoypad];
+        }
+    }
+    else if(iJoystickPort == 1)
+    {
+        mainMenu_joy1dir = aJoyData[1];
+        mainMenu_joy1button =(int)aJoyData[2];
+    }
+}
+
+
+- (void) startServer {
+    localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    
+    MCNearbyServiceAdvertiser *advertiser =
+    [[MCNearbyServiceAdvertiser alloc] initWithPeer:localPeerID
+                                      discoveryInfo:nil
+                                        serviceType:XXServiceType];
+    advertiser.delegate = self;
+    [advertiser startAdvertisingPeer];
+    [self showMessage: @"server" withMessage: @"started on this device"];
+}
+
+
+- (void) stopServer {
+    
+    [advertiser stopAdvertisingPeer];
+    [session disconnect];
+    session = nil;
+    advertiser = nil;
+    [self showMessage: @"server" withMessage: @"stopped on this device"];
+    
+}
+
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser
+didReceiveInvitationFromPeer:(MCPeerID *)peerID
+       withContext:(NSData *)context
+ invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler
+{
+    session = [[MCSession alloc] initWithPeer:localPeerID
+                             securityIdentity:nil
+                         encryptionPreference:MCEncryptionNone];
+    session.delegate = self;
+    
+    invitationHandler(YES, session);
+}
+- (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName
+       fromPeer:(MCPeerID *)peerID
+{
+    NSLog(@"Received data over stream with name %@ from peer %@", streamName, peerID.displayName);
+    /*
+     stream.delegate = self;
+     [stream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+     forMode:NSDefaultRunLoopMode];
+     [stream open];
+     */
+}
+
+
+// Start receiving a resource from remote peer.
+- (void)                    session:(MCSession *)session
+  didStartReceivingResourceWithName:(NSString *)resourceName
+                           fromPeer:(MCPeerID *)peerID
+                       withProgress:(NSProgress *)progress
+{}
+
+// Finished receiving a resource from remote peer and saved the content
+// in a temporary location - the app is responsible for moving the file
+// to a permanent location within its sandbox.
+- (void)                    session:(MCSession *)session
+ didFinishReceivingResourceWithName:(NSString *)resourceName
+                           fromPeer:(MCPeerID *)peerID
+                              atURL:(NSURL *)localURL
+                          withError:(nullable NSError *)error
+{}
+
+
+/*** ENDE MCSession mithrendal */
+
+
+
 
 @end
