@@ -142,16 +142,16 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 
 
 // C "trampoline" function to invoke Objective-C method
-void sendJoystickDataToServer (void *self, unsigned int aParameter)
+void sendJoystickDataToServer (void *self)
 {
     // Call the Objective-C method using Objective-C syntax
-    [(id) self sendJoystickData:aParameter ];
+    [(id) self sendJoystickData];
 }
 
 
 unsigned int lastdir =0;
 int lastbutton =0;
-- (void)sendJoystickData: (unsigned int) joystickregister
+- (void)sendJoystickData
 {
     if(session == nil || session.connectedPeers.count == 0)
     {

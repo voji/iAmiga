@@ -159,7 +159,7 @@ void read_joystick(int nr, unsigned int *dir, int *button)
     {
         mainMenu_joy1button = *button;
         mainMenu_joy1dir = *dir;
-        sendJoystickDataToServer (theMPCController, *dir);
+        sendJoystickDataToServer (theMPCController);
     }
     else if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
     {
