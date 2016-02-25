@@ -247,6 +247,7 @@
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */; };
 		9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */; };
+		9064AD631C7F7982004CAE28 /* MultiPeerConnectivityController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */; };
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
 		9706D6581561817500073678 /* Aperture (1x3 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B4153A3F2E00580B91 /* Aperture (1x3 RB).png */; };
 		9706D6591561817500073678 /* Aperture (2x4 BG).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B5153A3F2E00580B91 /* Aperture (2x4 BG).png */; };
@@ -1651,6 +1652,9 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		9064AD561C7D0A8D004CAE28 /* od-joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "od-joy.h"; sourceTree = "<group>"; };
+		9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiPeerConnectivityController.h; path = iUAEParents/MultiPeerConnectivityController.h; sourceTree = "<group>"; };
+		9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MultiPeerConnectivityController.mm; path = iUAEParents/MultiPeerConnectivityController.mm; sourceTree = "<group>"; };
+		9064AD621C7F7982004CAE28 /* MPCConnectionStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPCConnectionStates.h; path = iUAEParents/MPCConnectionStates.h; sourceTree = "<group>"; };
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
 		9706D7121561827300073678 /* bg_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web@2x.png"; sourceTree = "<group>"; };
@@ -2889,6 +2893,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */,
+				9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */,
+				9064AD621C7F7982004CAE28 /* MPCConnectionStates.h */,
 				BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */,
 				7E1A15901B171D7E00F0EA17 /* JoypadKey.h */,
 				7EA4D6651923EDBE00C58BB9 /* MainEmulationViewController.h */,
@@ -4907,6 +4914,7 @@
 				978550E8153A3F2E00580B91 /* SDL_syscond.c in Sources */,
 				7EB017791B09164900C74B9D /* State.m in Sources */,
 				BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */,
+				9064AD631C7F7982004CAE28 /* MultiPeerConnectivityController.mm in Sources */,
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
 				7E079CC11A81594B00EC0DE4 /* AddConfigurationViewController.m in Sources */,
 				7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */,

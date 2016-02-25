@@ -30,7 +30,7 @@
 #import "od-joy.h"
 @class VirtualKeyboard;
 
-@interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate,MCNearbyServiceAdvertiserDelegate, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate> {
+@interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
     VirtualKeyboard	*vKeyboard;
     bool keyboardactive;
     bool joyactive;

@@ -11,6 +11,7 @@
 #import "sysconfig.h"
 #include "iphone_main.h"
 #include "debug_uae4all.h"
+#import "MPCConnectionStates.h"
 
 char launchDir[300];
 
@@ -23,7 +24,7 @@ int mainMenu_ntsc=0;
 int drawfinished=0;
 int mainMenu_stretchscreen = 0;
 int mainMenu_AddVerticalStretchValue=0;
-int mainMenu_servermode=0;   //0==nein, 1==server, 2==client
+MPCStateType mainMenu_servermode=kConnectionIsOff;
 unsigned int mainMenu_joy0dir=0;
 int mainMenu_joy0button=0;
 unsigned int mainMenu_joy1dir=0;

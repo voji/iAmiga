@@ -39,19 +39,18 @@
 
 #import <UIKit/UIKit.h>
 #import <GameController/GameController.h>
-#import "MainEmulationViewController.h"
+#import "MultiPeerConnectivityController.h"
+#import "MPCConnectionStates.h"
 
 
-
-MainEmulationViewController *mainViewController=nil;
-void set_MainView(MainEmulationViewController *m)
+MultiPeerConnectivityController *theMPCController=nil;
+void set_MPCController(MultiPeerConnectivityController *m)
 {
-    mainViewController = m;
+    theMPCController = m;
 }
 
 
-
-extern int mainMenu_servermode;
+extern MPCStateType mainMenu_servermode;
 extern unsigned int mainMenu_joy0dir;
 extern int mainMenu_joy0button;
 extern unsigned int mainMenu_joy1dir;
@@ -77,7 +76,7 @@ void read_joystick(int nr, unsigned int *dir, int *button)
 #if defined (SWAP_JOYSTICK)
     //this is not defined anyway
     if (nr == 0) {
-        if(mainMenu_servermode==1)
+        if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
         {
             //NSLog("ServerMode");
             *dir = mainMenu_joy0dir;
@@ -86,7 +85,7 @@ void read_joystick(int nr, unsigned int *dir, int *button)
         }
     };
 #else
-    if(mainMenu_servermode==1)
+    if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
     {
         if (joyport == 0)
         {
@@ -152,15 +151,17 @@ void read_joystick(int nr, unsigned int *dir, int *button)
     if (right) bot = !bot;
     *dir = bot | (right << 1) | (top << 8) | (left << 9);
 #endif
-    if(mainViewController == nil)
+    if(theMPCController == nil)
     {}
-    else if(mainMenu_servermode>1) //am I the client, then I do should send notifications to the server
+    else if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ||
+            mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1
+            ) //am I the client, then I do should send notifications to the server
     {
         mainMenu_joy1button = *button;
         mainMenu_joy1dir = *dir;
-        sendJoystickDataToServer (mainViewController, *dir);
+        sendJoystickDataToServer (theMPCController, *dir);
     }
-    else if(mainMenu_servermode==1)
+    else if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
     {
         //overwrite host joystick dir and button with remote in case of host does not move or press e.g. ==0
         if (*dir == 0)
