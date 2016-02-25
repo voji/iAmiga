@@ -27,7 +27,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
-#import "od-joy.h"
+
 @class VirtualKeyboard;
 
 @interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {

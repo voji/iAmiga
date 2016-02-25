@@ -41,7 +41,7 @@
 #import <GameController/GameController.h>
 #import "MultiPeerConnectivityController.h"
 #import "MPCConnectionStates.h"
-
+#import "od-joy.h"
 
 MultiPeerConnectivityController *theMPCController=nil;
 void set_MPCController(MultiPeerConnectivityController *m)
