@@ -85,7 +85,10 @@ MCBrowserViewController *browserViewController = nil;
 
 /*  CLIENT part */
 - (void)startClient {
-    localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    if(localPeerID == nil)
+    {
+        localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    }
     session = [[MCSession alloc] initWithPeer:localPeerID
                              securityIdentity:nil
                          encryptionPreference:MCEncryptionNone];
@@ -109,7 +112,8 @@ withDiscoveryInfo:(NSDictionary<NSString *,
                    NSString *> *)info
 {
     NSLog(@"found peer");
-    [browser invitePeer:peerID toSession:session withContext:nil timeout:30];
+    if(![peerID isEqual:localPeerID])
+        [browser invitePeer:peerID toSession:session withContext:nil timeout:30];
     
 }
 - (void)browser:(MCNearbyServiceBrowser *)browser
@@ -254,10 +258,11 @@ MCNearbyServiceAdvertiser *advertiser=nil;
 
 
 - (void) startServer {
-    localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
-    
-    MCNearbyServiceAdvertiser *advertiser =
-    [[MCNearbyServiceAdvertiser alloc] initWithPeer:localPeerID
+    if(localPeerID == nil)
+    {
+        localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    }
+    advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:localPeerID
                                       discoveryInfo:nil
                                         serviceType:XXServiceType];
     advertiser.delegate = self;
