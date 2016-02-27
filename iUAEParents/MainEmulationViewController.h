@@ -25,7 +25,6 @@
 #import "InputControllerView.h"
 #import "ResetController.h"
 
-#import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 @class VirtualKeyboard;

@@ -25,6 +25,7 @@ MCSession *session = nil;
 MCNearbyServiceBrowser *browser = nil;
 MCBrowserViewController *browserViewController = nil;
 MPCStateType lastServerMode=kConnectionIsOff;
+bool bConnectionToServerJustEstablished = false;
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl {
     _mainEmuViewController = mainEmuViewCtrl;
@@ -78,6 +79,7 @@ MPCStateType lastServerMode=kConnectionIsOff;
         
         if(session == nil|| session.connectedPeers.count == 0)
         {
+            bConnectionToServerJustEstablished = true;
             [self startClient];
             
             //the device should go to sleep after some idle time
@@ -85,11 +87,14 @@ MPCStateType lastServerMode=kConnectionIsOff;
         }
         else
         {
-            if( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
-                [self showMessage: @"use existing connection" withMessage: @"send to joystick port 0"];
-            else if ( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-                [self showMessage: @"use existing connection" withMessage:  @"send to joystick port 1"];
-            
+            if(!bConnectionToServerJustEstablished)
+            {
+                if( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
+                    [self showMessage: @"use existing connection" withMessage: @"send to joystick port 0"];
+                else if ( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
+                    [self showMessage: @"use existing connection" withMessage:  @"send to joystick port 1"];
+            }
+            bConnectionToServerJustEstablished = false;
             if(_mainEmuViewController.btnJoypad.selected == FALSE)
             {
                 [_mainEmuViewController toggleControls:_mainEmuViewController.btnJoypad];
@@ -146,9 +151,9 @@ withDiscoveryInfo:(NSDictionary<NSString *,
     
     dispatch_async(dispatch_get_main_queue(), ^{
         if( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
-            [self showMessage: @"connection established" withMessage: @"send to joystick port 0"];
+            [self showMessage: @"new connection established" withMessage: @"send to joystick port 0"];
         else if ( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-            [self showMessage: @"connection established" withMessage:  @"send to joystick port 1"];
+            [self showMessage: @"new connection established" withMessage:  @"send to joystick port 1"];
         
         if(_mainEmuViewController.btnJoypad.selected == FALSE)
         {
