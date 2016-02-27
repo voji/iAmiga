@@ -37,8 +37,8 @@ MPCStateType lastServerMode=kConnectionIsOff;
         {//stop server
             [self stopServer];
         }
-        else if(session != nil )
-        {//close seesion connection
+        if(session != nil )
+        {//close session connection
             [session disconnect];
             session = nil;
             [self showMessage: @"closed connection" withMessage: @"to the server"];
@@ -46,7 +46,7 @@ MPCStateType lastServerMode=kConnectionIsOff;
         //the device should go to sleep after some idle time
         [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     }
-    if(mainMenu_servermode == kServeAsHostForIncomingJoypadSignals)
+    else if(mainMenu_servermode == kServeAsHostForIncomingJoypadSignals)
     {
         if(lastServerMode == kSendJoypadSignalsToServerOnJoystickPort0 ||
            lastServerMode == kSendJoypadSignalsToServerOnJoystickPort1)
@@ -63,9 +63,9 @@ MPCStateType lastServerMode=kConnectionIsOff;
             [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
         }
     }
-    
-    if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ||
-       mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1
+    else if(
+        mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ||
+        mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1
        )
     {
         if(lastServerMode == kServeAsHostForIncomingJoypadSignals)
@@ -79,6 +79,9 @@ MPCStateType lastServerMode=kConnectionIsOff;
         if(session == nil|| session.connectedPeers.count == 0)
         {
             [self startClient];
+            
+            //the device should go to sleep after some idle time
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
         }
         else
         {
