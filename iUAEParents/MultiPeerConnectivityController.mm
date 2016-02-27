@@ -8,6 +8,7 @@
 
 #import "MultiPeerConnectivityController.h"
 #import "MPCConnectionStates.h"
+#import "SVProgressHUD.h"
 
 @implementation MultiPeerConnectivityController {
   
@@ -213,32 +214,14 @@ int lastbutton =0;
     
 }
 
-
--(void)autoClickOnCancel:(UIAlertView*)theAlert{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [theAlert dismissWithClickedButtonIndex:-1 animated:YES];
-    });
-}
-
 - (void)showMessage: (NSString *)sTitel withMessage:(NSString *)sMessage
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: sTitel
-                                                        message: sMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@""
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-        [self performSelector:@selector(autoClickOnCancel:) withObject:alert afterDelay:2];
-        [alert release];
-        // NSLog(@"received: dir=%d, but=%d", mainMenu_joydir, mainMenu_joybutton);
+        [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1]];
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"%@\n\n %@", sTitel, sMessage]];
     });
     
 }
-
-
-
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
