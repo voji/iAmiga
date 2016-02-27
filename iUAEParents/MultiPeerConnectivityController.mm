@@ -24,32 +24,38 @@ MCPeerID *localPeerID = nil;
 MCSession *session = nil;
 MCNearbyServiceBrowser *browser = nil;
 MCBrowserViewController *browserViewController = nil;
-
+MPCStateType lastServerMode=kConnectionIsOff;
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl {
     _mainEmuViewController = mainEmuViewCtrl;
     set_MPCController(self);
 
-    if(mainMenu_servermode != kServeAsHostForIncomingJoypadSignals)
+
+    if(mainMenu_servermode == kConnectionIsOff)
     {
         if(advertiser!=nil)
         {//stop server
             [self stopServer];
         }
-        else if(session != nil && mainMenu_servermode == kConnectionIsOff)
-        {//close client connection
+        else if(session != nil )
+        {//close seesion connection
             [session disconnect];
             session = nil;
             [self showMessage: @"closed connection" withMessage: @"to the server"];
-            
         }
         //the device should go to sleep after some idle time
         [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     }
-    
     if(mainMenu_servermode == kServeAsHostForIncomingJoypadSignals)
     {
-        if(localPeerID==nil || session == nil)
+        if(lastServerMode == kSendJoypadSignalsToServerOnJoystickPort0 ||
+           lastServerMode == kSendJoypadSignalsToServerOnJoystickPort1)
+        {
+            [session disconnect]; // close client session
+            session = nil;
+        }
+        
+        if(advertiser == nil)
         {
             [self startServer];
             
@@ -62,7 +68,15 @@ MCBrowserViewController *browserViewController = nil;
        mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1
        )
     {
-        if(localPeerID==nil || session == nil|| session.connectedPeers.count == 0)
+        if(lastServerMode == kServeAsHostForIncomingJoypadSignals)
+        {
+            if(advertiser!=nil)
+            {
+                [self stopServer];
+            }
+        }
+        
+        if(session == nil|| session.connectedPeers.count == 0)
         {
             [self startClient];
         }
@@ -79,6 +93,9 @@ MCBrowserViewController *browserViewController = nil;
             }
         }
     }
+    
+    
+    lastServerMode = mainMenu_servermode;
 }
 
 
