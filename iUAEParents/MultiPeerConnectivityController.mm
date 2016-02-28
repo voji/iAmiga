@@ -96,10 +96,7 @@ bool bConnectionToServerJustEstablished = false;
                     [self showMessage: @"use existing connection" withMessage:  @"send to joystick port 1"];
             }
             bConnectionToServerJustEstablished = false;
-            if(_mainEmuViewController.btnJoypad.selected == FALSE)
-            {
-                [_mainEmuViewController toggleControls:_mainEmuViewController.btnJoypad];
-            }
+            [self activateJoyPad];
         }
     }
     
@@ -107,7 +104,15 @@ bool bConnectionToServerJustEstablished = false;
     lastServerMode = mainMenu_servermode;
 }
 
+- (void)activateJoyPad {
+    if(_mainEmuViewController.btnJoypad.selected == FALSE)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_mainEmuViewController toggleControls:_mainEmuViewController.btnJoypad];
 
+        });
+    }
+}
 
 /*  CLIENT part */
 - (void)startClient {
@@ -156,10 +161,7 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         else if ( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
             [self showMessage: @"new connection established" withMessage:  @"send to joystick port 1"];
         
-        if(_mainEmuViewController.btnJoypad.selected == FALSE)
-        {
-            [_mainEmuViewController toggleControls:_mainEmuViewController.btnJoypad];
-        }
+         [self activateJoyPad];
     });
 }
 
@@ -217,8 +219,9 @@ int lastbutton =0;
 - (void)showMessage: (NSString *)sTitel withMessage:(NSString *)sMessage
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD setInfoImage:nil];
         [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1]];
-        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"%@\n\n %@", sTitel, sMessage]];
+        [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@\n\n%@", sTitel, sMessage]];
     });
     
 }
@@ -236,7 +239,6 @@ int lastbutton =0;
 /* server part */
 MCNearbyServiceAdvertiser *advertiser=nil;
 
-
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
     unsigned int aJoyData[3];
@@ -252,10 +254,7 @@ MCNearbyServiceAdvertiser *advertiser=nil;
         //when joy0 signals come in
         //we have to activate joypad, otherwise the last mouse movements will overwrite/disturb
         //the remote joystick ddirection
-        if(_mainEmuViewController.btnJoypad.selected == FALSE)
-        {
-            [_mainEmuViewController toggleControls:_mainEmuViewController.btnJoypad];
-        }
+        [self activateJoyPad];
     }
     else if(iJoystickPort == 1)
     {
