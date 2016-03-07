@@ -18,39 +18,39 @@
 //  General Public License for more details.
 //
 
-
 #import "BaseEmulationViewController.h"
 #import "AnimatedImageSequenceView.h"
-#import "SettingsController.h"
-#import "FloatPanel.h"
 #import "DynamicLandscapeControls.h"
 #import "TouchHandlerViewClassic.h"
 #import "InputControllerView.h"
+#import "ResetController.h"
 
 @class VirtualKeyboard;
 
-@interface MainEmulationViewController : BaseEmulationViewController<AnimatedImageSequenceDelegate, UIWebViewDelegate> {
-    VirtualKeyboard				*vKeyboard;
-    FloatPanel *fullscreenPanel;
+@interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
+    VirtualKeyboard	*vKeyboard;
     bool keyboardactive;
     bool joyactive;
-    UIButton *btnKeyboard;
-    UIButton *btnJoypad;
-    //JoystickViewLandscape *joyControllerMain;
-    UIView *mouseHandlermain;
+    int paused;
 }
 
-@property (readwrite) bool keyboardactive;
 @property (readonly) CGFloat screenHeight;
 @property (readonly) CGFloat screenWidth;
-@property (readwrite) UIButton *btnKeyboard;
-@property (nonatomic, retain) InputControllerView *joyControllerMain;
+@property (readwrite, retain) UIButton *btnKeyboard;
+@property (readwrite, retain) UIButton *menuBarEnabler;
+@property (readwrite, retain) UIButton *btnJoypad;
+@property (readwrite, retain) UIButton *btnPin;
+@property (readwrite, retain) UIToolbar *menuBar;
+@property (nonatomic, retain) InputControllerView *joyController;
+@property (nonatomic, retain) IBOutlet TouchHandlerViewClassic *mouseHandler;
+@property (retain, nonatomic) IBOutlet UIButton *btnSettings;
 
-
+-(IBAction)toggleControls:(id)sender;
+-(IBAction)enableMenuBar:(id)sender;
+-(IBAction)togglePinstatus:(id)sender;
 - (IBAction)restart:(id)sender;
-- (void) settings;
-- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
-- (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight;
+- (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeJoypad:(InputControllerView *)joyController;
+- (void)checkForPaused:(NSTimer*)timer;
 
 @end

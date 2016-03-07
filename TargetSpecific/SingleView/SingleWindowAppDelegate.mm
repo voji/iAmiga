@@ -27,6 +27,8 @@
 #import <AudioToolbox/AudioServices.h>
 #import "SDL.h"
 #import "UIKitDisplayView.h"
+#import "SVProgressHUD.h"
+#import "EMUROMBrowserViewController.h"
 
 #import "sysconfig.h"
 #import "sysdeps.h"
@@ -43,38 +45,17 @@
 @implementation SingleWindowAppDelegate
 
 @synthesize window, mainController;
-@synthesize navigationController;
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // load disks into df0: and df1:
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"DISK1" ofType:@"ADF"];
-    [path getCString:prefs_df[0] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-    fprintf(stdout, ">>>>>>> %s\n", prefs_df[0]);
-    path = [[NSBundle mainBundle] pathForResource:@"DISK2" ofType:@"ADF"];
-    [path getCString:prefs_df[1] maxLength:256 encoding:[NSString defaultCStringEncoding]];
-    
-    // Override point for customization after application launch
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+    UINavigationController *navigationcontroller = (UINavigationController *)self.window.rootViewController;
+    self.mainController = (BaseEmulationViewController *)navigationcontroller.topViewController;
     [window makeKeyAndVisible];
-    
-    /*if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {*/
-        window.frame = [[UIScreen mainScreen] bounds];
-    /*}*/
-    
-    //[window.rootViewController setNeedsStatusBarAppearanceUpdate];
-    
-        
-    OSStatus res = AudioSessionInitialize(NULL, NULL, NULL, NULL);
-    UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
-    res = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
-    res = AudioSessionSetActive(true);
+    window.frame = [[UIScreen mainScreen] bounds];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidConnect:) name:UIScreenDidConnectNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];
     [self configureScreens];
 }
-
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     SDL_PauseOpenGL(1);
@@ -103,7 +84,7 @@
 		if (externalWindow) {
 			externalWindow.hidden = YES;
 		}
-		[self.mainController setDisplayViewWindow:nil isExternal:NO];
+        [mainController setDisplayViewWindow:nil isExternal:NO];
 	} else {
 		NSLog(@"External display");
 		UIScreen *secondary = [[UIScreen screens] objectAtIndex:1];
@@ -130,6 +111,7 @@
 	}
 }
 
+<<<<<<< HEAD
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     AdfImporter *importer = [[AdfImporter alloc] init];
@@ -148,6 +130,25 @@
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
+=======
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    AdfImporter *importer = [[[AdfImporter alloc] init] autorelease];
+    BOOL imported = [importer import:url.path];
+    if (imported)
+    {
+        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Imported %@", [url.path lastPathComponent]]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:[EMUROMBrowserViewController getAdfChangedNotificationName] object:nil];
+    }
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Failed to import %@", [url.path lastPathComponent]]];
+    }
+    return imported;
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+>>>>>>> 1.1.0b1
     return UIInterfaceOrientationMaskLandscape;
 }
 

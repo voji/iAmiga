@@ -43,4 +43,10 @@
 	CGFloat			x_ratio, y_ratio;
     NSDate *starttimetouch;
 }
+
+- (void)onMouseActivated;
+- (void)reloadMouseSettings;
+
+@property (nonatomic, assign) BOOL clickedscreen;
+
 @end

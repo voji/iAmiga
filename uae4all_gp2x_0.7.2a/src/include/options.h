@@ -19,7 +19,7 @@
 #define UAESUBREV 22
 
 #ifndef NUM_DRIVES
-#define NUM_DRIVES 2
+#define NUM_DRIVES 4
 #endif
 
 typedef enum { KBD_LANG_US, KBD_LANG_DK, KBD_LANG_DE, KBD_LANG_SE, KBD_LANG_FR, KBD_LANG_IT, KBD_LANG_ES } KbdLang;
@@ -36,6 +36,8 @@ extern char romfile[256];
 extern unsigned prefs_chipmem_size;
 extern int prefs_gfx_framerate, changed_gfx_framerate;
 extern int m68k_speed;
+
+extern uae_u8 disabled;
 
 
 #define PREFS_GFX_WIDTH 320

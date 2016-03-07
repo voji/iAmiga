@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 //
 //  sdl_event.m
 //  A2600
@@ -421,3 +424,6 @@ int SDL_PushEvent(SDL_Event *e) {
 	eventQueue->push(*e);
 	return 1;
 } */
+
+#pragma clang diagnostic pop
+

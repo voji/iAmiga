@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import "CGVector.h"
 #import "touchstick.h"
+#import "Settings.h"
 
 @protocol InputControllerChangedDelegate
 
@@ -39,12 +40,11 @@
 	CJoyStick							*TheJoyStick;
 	
 	float								_deadZone;		// represents the deadzone radius, where the DPad state will be considered DPadCenter
-	
-	id<InputControllerChangedDelegate>	delegate;
 }
 
-@property (nonatomic, assign)		id<InputControllerChangedDelegate>	delegate;
-
-- (void)setStick;
+@property (nonatomic, assign) id<InputControllerChangedDelegate> delegate;
+@property (nonatomic, readwrite) BOOL clickedscreen;
+- (void)reloadJoypadSettings;
+- (void)onJoypadActivated;
 
 @end

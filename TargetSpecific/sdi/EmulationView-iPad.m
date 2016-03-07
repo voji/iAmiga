@@ -32,6 +32,7 @@
     [mouseHandler release];
     [webView release];
     [restartButton release];
+    [_btnSettings release];
     [super dealloc];
 }
 

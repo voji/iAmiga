@@ -19,53 +19,70 @@
 //
 
 #import "EmulationView-iPad.h"
+#import "SettingsGeneralController.h"
 
 @implementation EmulationViewiPad
 //@synthesize menuView;
 @synthesize webView;
 //@synthesize menuButton;
 @synthesize closeButton;
-@synthesize mouseHandler;
 @synthesize restartButton;
-@synthesize joyController;
+
+@dynamic btnKeyboard, btnJoypad, btnPin, mouseHandler, joyController, menuBar, menuBarEnabler, btnSettings;
 
 #pragma mark - View lifecycle
 
 bool keyboardactive;
 
-UIButton *btnKeyboard;
-
-- (CGFloat) XposFloatPanel {
-    
-    CGRect screenRect = CGRectZero;
-    screenRect = [[UIScreen mainScreen] bounds];
-    //CGFloat screenHeight = screenRect.size.height;
-    
-    
-    
-    //Middle of the Screen assuming fullScreenPanel has a width of 700
-    CGFloat result = (self.screenHeight / 2) - 350;
-    
-    return result;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    mouseHandlermain = mouseHandler;
-    [self initializeJoypad:joyController];
     
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
     webView.delegate = self;
     
-    [self initializeFullScreenPanel];
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts: dummy_textfield_s];
+    
+    //Uncomment for debug mode
+    //[_lblDebug setHidden:true];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    if ([segue.identifier isEqualToString:@"OpenSettings"]) {
+        UITabBarController *tabBar = segue.destinationViewController;
+        SettingsGeneralController *settingsController = [tabBar.viewControllers objectAtIndex:0];
+        settingsController.emulatorScreenshot = [self captureScreenshot];
+    }
+}
+
+-(IBAction)toggleControls:(id)sender {
+    [super toggleControls:sender];
+}
+
+-(IBAction)togglePinstatus:(id)sender {
+    [super togglePinstatus:sender];
+}
+
+-(IBAction)enableMenuBar:(id)sender {
+    [super enableMenuBar:sender];
+}
+
+-(void)checkForPaused:(NSTimer*)timer {
+    [super checkForPaused:timer];
+    //[_lblDebug setText:[NSString stringWithFormat:@"%i", paused]];
+}
+
+- (UIImage *)captureScreenshot {
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0f);
+    [displayView drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)dealloc {
     [closeButton release];
-    [mouseHandler release];
     [webView release];
     [restartButton release];
     [super dealloc];
@@ -89,14 +106,8 @@ UIButton *btnKeyboard;
             && dummy_textfield_s.isFirstResponder == FALSE //Special Keyboard view was activated this triggered the event
        )
     {
-        [btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
+        [self.btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
-}
-
-- (void)initializeFullScreenPanel {
-    
-    [super initializeFullScreenPanel:700 barheight:47 iconwidth:72 iconheight:36];
-    
 }
 
 @end

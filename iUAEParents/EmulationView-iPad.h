@@ -20,26 +20,35 @@
 
 #import <UIKit/UIKit.h>
 #import "MainEmulationViewController.h"
-#import "FloatPanel.h"
 #import "IOSKeyboard.h"
 #import "InputControllerView.h"
 
 @interface EmulationViewiPad : MainEmulationViewController {
 
     UIButton *closeButton;
-    UIView *mouseHandler;
     UIButton *restartButton;
     UIWebView *webView;
     IBOutlet UITextField        *dummy_textfield; // dummy text field used to display the keyboard
     IBOutlet UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
     IBOutlet UITextField *dummy_textfield_s; //dummy textfield for special key like right shift numlock etc .....
-    InputControllerView  *joyController;
 }
 
+-(IBAction)toggleControls:(id)sender;
+-(IBAction)togglePinstatus:(id)sender;
+-(IBAction)enableMenuBar:(id)sender;
+
+@property (readwrite, retain) IBOutlet UIButton *btnKeyboard;
+@property (readwrite, retain) IBOutlet UIButton *btnJoypad;
+@property (readwrite, retain) IBOutlet UIButton *btnPin;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) IBOutlet UIButton *closeButton;
-@property (nonatomic, retain) IBOutlet UIView *mouseHandler;
+@property (nonatomic, retain) IBOutlet TouchHandlerViewClassic *mouseHandler;
 @property (nonatomic, retain) IBOutlet UIButton *restartButton;
 @property (nonatomic, retain) IBOutlet InputControllerView *joyController;
+@property (readwrite, retain) IBOutlet UIToolbar *menuBar;
+@property (readwrite, retain) IBOutlet UIButton *menuBarEnabler;
+@property (retain, nonatomic) IBOutlet UILabel *lblDebug;
+@property (retain, nonatomic) IBOutlet UIButton *btnSettings;
+
 
 @end

@@ -25,20 +25,30 @@
 #import "VirtualKeyboard.h"
 #import "IOSKeyboard.h"
 #import "uae.h"
+#import "sysconfig.h"
+#import "sysdeps.h"
+#import "options.h"
+#import "SDL.h"
+#import "UIKitDisplayView.h"
+#import "savestate.h"
+#import "Settings.h"
+#import "SettingsGeneralController.h"
+#import "DiskDriveService.h"
+#import <GameController/GameController.h>
+
+extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
+extern void init_joystick();
 
 @interface MainEmulationViewController()
-
-//- (void)startIntroSequence;
-
 @end
 
 @implementation MainEmulationViewController {
-    
-    bool showalert;
-
+    DiskDriveService *_diskDriveService;
+    NSTimer *_menuHidingTimer;
+    Settings *_settings;
+    NSTimer *_checkForPausedTimer;
+    NSTimer *_checkForGControllerTimer;
 }
-
-@synthesize joyControllerMain;
 
 
 UIButton *btnSettings;
@@ -47,145 +57,147 @@ IOSKeyboard *ioskeyboard;
 extern void uae_reset();
 
 - (IBAction)restart:(id)sender {
-        uae_reset();
-}
-
--(void) settings {
-    
-    NSString *xibfile = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"SettingsController-ipad" : @"SettingsController";
-    
-    SettingsController *viewController = [[SettingsController alloc] initWithNibName:xibfile bundle:nil];
-    
-    viewController.view.frame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
-    [self.navigationController pushViewController:viewController animated:YES];
+    uae_reset();
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSString *fn = [NSString stringWithFormat:@"setVersion('%@');", self.bundleVersion];
-    NSString *result = [webView stringByEvaluatingJavaScriptFromString:fn];
+    [webView stringByEvaluatingJavaScriptFromString:fn];
 }
 
-- (CGFloat) screenHeight {
+- (CGFloat)screenHeight {
     CGRect screenRect = CGRectZero;
     screenRect = [[UIScreen mainScreen] bounds];
     return screenRect.size.height;
 }
 
-- (CGFloat) screenWidth {
+- (CGFloat)screenWidth {
     CGRect screenRect = CGRectZero;
     screenRect = [[UIScreen mainScreen] bounds];
     return screenRect.size.width;
 }
 
-- (void) viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
+
+    _diskDriveService = [[DiskDriveService alloc] init];
+    _settings = [[Settings alloc] init];
+    
     [self.view setMultipleTouchEnabled:TRUE];
-    [self showpopupfirstlaunch];
+    
+    [_btnJoypad setImage:[UIImage imageNamed:@"controller_selected.png"] forState:UIControlStateSelected];
+    [_btnSettings setImage:[UIImage imageNamed:@"gear_selected.png"] forState: UIControlStateHighlighted];
+    [_btnKeyboard setImage:[UIImage imageNamed:@"keyboard_selected.png"] forState:UIControlStateHighlighted];
+    [_btnPin setImage:[UIImage imageNamed:@"sticky_selected.png"] forState:UIControlStateSelected];
+    //[_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                    //forState:UIControlStateNormal];
+    //[_btnJoypad setTintColor: [UIColor blackColor]];
+    
+    
+    /*[_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                forState:UIControlStateNormal];
+    [_btnPin setTintColor: [UIColor blackColor]];*/
+    
+    [self initMenuBarHidingTimer];
+    [self initCheckForPausedTimer];
+    
+    if (_settings.autoloadConfig)
+    {
+        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here - we need to delay disk drive related tasks by a little bit
+        [self initDriveSetupTimer:_settings.driveState];
+        [self initDiskInsertTimer:_settings.insertedFloppies];
+    }
+    
+    [self initializeControls];
+    paused = 0;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerStateChange)
+                                                 name:GCControllerDidConnectNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerStateChange)
+                                                 name:GCControllerDidDisconnectNotification
+                                               object:nil];
+    
+    // we start out with the mouse activated
+    [_mouseHandler onMouseActivated];
+
 }
 
-- (void)showpopupfirstlaunch {
-    //Popup MFI Controller
-    NSFileManager *filemgr;
-    
-    filemgr = [NSFileManager defaultManager];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [paths objectAtIndex:0];
-    [filemgr changeCurrentDirectoryPath:docsDir];
-    
-    if ([filemgr fileExistsAtPath: @"firstlaunch.txt" ] == YES)
-    {
-        showalert = FALSE;
-    }
-    else
-    {
-        showalert = TRUE;
-        
-        NSMutableData *data;
-        const char *bytestring = "1.0.7";
-        
-        data = [NSMutableData dataWithBytes:bytestring length:strlen(bytestring)];
-        bool success = [filemgr createFileAtPath:@"./firstlaunch.txt" contents:data attributes:nil];
-        
-        [filemgr release];
-    }
-
-}
-
-- (void) viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self applyConfiguredEffect];
     set_joystickactive();
-    if(showalert)
-    {
-        showalert = FALSE;
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MFI Game Controllers"
-                                                        message:@"This version supports MFI Game Controllers. I have no Idea if it works, because I don't own one. Feedback very welcome at emufr3ak@icloud.com or on my website www.iuae-emulator.net"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-    }
+    [_mouseHandler reloadMouseSettings];
+    [_joyController reloadJoypadSettings];
 }
 
-- (void)initializeFullScreenPanel:(int)barwidth barheight:(int)barheight iconwidth:(int)iconwidth iconheight:(int)iconheight  {
-    
-    int xpos = [self XposFloatPanel:barwidth];
-    
-    fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(xpos,20,barwidth,barheight)];
-    
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
-    
-    btnSettings = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [btnSettings setImage:[UIImage imageNamed:@"options.png"] forState:UIControlStateNormal];
-    [btnSettings addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:btnSettings];
-    
-    btnKeyboard = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [btnKeyboard setImage:[UIImage imageNamed:@"modekeyoff.png"] forState:UIControlStateNormal];
-    [btnKeyboard setImage:[UIImage imageNamed:@"modekeyon.png"] forState:UIControlStateSelected];
-    [btnKeyboard addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:btnKeyboard];
-    
-    btnJoypad = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,iconwidth,iconheight)] autorelease];
-    [btnJoypad setImage:[UIImage imageNamed:@"modejoy.png"] forState:UIControlStateNormal];
-    [btnJoypad setImage:[UIImage imageNamed:@"modejoypressed.png"] forState:UIControlStateSelected];
-    [btnJoypad addTarget:self action:@selector(toggleControls:) forControlEvents:UIControlEventTouchUpInside];
-    [items addObject:btnJoypad];
-    
-    [fullscreenPanel setItems:items];
-    
-    [self.view addSubview:fullscreenPanel];
-    [fullscreenPanel showContent];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    UITabBarController *tabBarController = segue.destinationViewController;
+    SettingsGeneralController *settingsController = [tabBarController.viewControllers objectAtIndex:0];
+    settingsController.resetDelegate = self;
 }
 
--(void)initializeJoypad:(InputControllerView *)joyController {
-    joyControllerMain = joyController;
-    self.joyControllerMain.hidden = TRUE;
+- (void)didSelectReset:(DriveState *)driveState {
+    uae_reset();
+    _settings.driveState = driveState;
+    [self initDriveSetupTimer:driveState];
+}
+
+- (void)applyConfiguredEffect {
+    SDL_Surface *video = SDL_GetVideoSurface();
+    id<DisplayViewSurface> display = (id<DisplayViewSurface>)video->userdata;
+    display.displayEffect = (DisplayEffect)_settings.selectedEffectIndex;
+}
+
+- (void)initializeJoypad:(InputControllerView *)joyController {
+    /* Check if function is still needed */
+    _joyController.hidden = TRUE;
     joyactive = FALSE;
 }
 
-- (CGFloat) XposFloatPanel:(int)barwidth {
-    CGRect screenRect = CGRectZero;
-    screenRect = [[UIScreen mainScreen] bounds];
-    //CGFloat screenHeight = screenRect.size.height;
+- (void)initializeControls {
+    joyactive = FALSE;
+    _mouseHandler.hidden = FALSE;
+    _joyController.hidden = TRUE;
+}
+
+- (IBAction)toggleControls:(UIButton *)button {
     
-    CGFloat result;
+    bool keyboardactiveonstart = keyboardactive;
     
-    if(self.screenWidth > self.screenHeight)
+    keyboardactive = (button == _btnKeyboard) ? !keyboardactive : FALSE;
+    joyactive = (button == _btnJoypad) ? !joyactive : FALSE;
+    
+    _btnKeyboard.selected = (button == _btnKeyboard) ? !_btnKeyboard.selected : FALSE;
+    _btnJoypad.selected = (button == _btnJoypad) ? !_btnJoypad.selected : FALSE;
+    
+    //_btnJoypad.tintColor = _btnJoypad.selected ? [UIColor blueColor] : [UIColor blackColor];
+    
+    _joyController.hidden = !joyactive;
+    _mouseHandler.hidden = joyactive;
+
+    if (joyactive)
     {
-        result = (self.screenWidth / 2) - (barwidth/2);
+        [_joyController onJoypadActivated];
     }
     else
     {
-        result = (self.screenHeight / 2) - (barwidth/2);
+        [_mouseHandler onMouseActivated];
     }
-        
-    return result;
+    
+    if (keyboardactive != keyboardactiveonstart)
+    {
+        [ioskeyboard toggleKeyboard];
+    }    
 }
 
-- (IBAction)toggleControls:(id)sender {
+- (IBAction)togglePinstatus:(id)sender {
     
+<<<<<<< HEAD
     UIButton *button = sender;
     
     if (button == btnSettings)
@@ -209,18 +221,135 @@ extern void uae_reset();
         
         if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
     }
+=======
+    _btnPin.selected = !_btnPin.selected;
+    //_btnPin.tintColor = _btnPin.selected ? [UIColor blueColor] : [UIColor blackColor];
+    
+    _mouseHandler.clickedscreen = false;
+    _joyController.clickedscreen = false;
 }
 
-- (void) initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
+- (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s {
     
     keyboardactive = FALSE;
     
     ioskeyboard = [[IOSKeyboard alloc] initWithDummyFields:p_dummy_textfield fieldf:p_dummy_textfield_f fieldspecial:p_dummy_textfield_s];
     
-    [[NSNotificationCenter defaultCenter]   addObserver:self
-                                               selector:@selector(keyboardDidHide:)
-                                                   name:UIKeyboardDidHideNotification
-                                                 object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
+}
+
+-(IBAction)enableMenuBar:(id)sender {
+    _menuBar.hidden = false;
+    _menuBarEnabler.hidden = true;
+    _mouseHandler.clickedscreen = false;
+    _joyController.clickedscreen = false;
+    [self initMenuBarHidingTimer];
+}
+
+-(void)checkForMenuBarHiding:(NSTimer*)timer {
+    if((_mouseHandler || _joyController) && !_btnPin.selected && _menuBar.hidden == false)
+    {
+        if(_mouseHandler.clickedscreen || _joyController.clickedscreen)
+        {
+            _mouseHandler.clickedscreen = false;
+            _joyController.clickedscreen = false;
+            _menuBar.hidden = true;
+            _menuBarEnabler.hidden = false;
+
+            [_menuHidingTimer invalidate];
+            [_menuHidingTimer release];
+            _menuHidingTimer = nil;
+        }
+    }
+}
+
+-(void)checkForPaused:(NSTimer *)timer {
+    
+    //As emulator is paused this methods needs to be called to check for Joypad as it wont get called by the emulator
+    if(paused) SDL_JoystickUpdate();
+    
+    int pausednew;
+    pausednew = SDL_JoystickGetPaused(uae4all_joy0);
+    
+    if(pausednew != paused )
+    {
+        paused = pausednew;
+        
+        if(paused == 1)
+        {
+            [self pauseEmulator];
+        }
+        else
+        {
+            [self resumeEmulator];
+        }
+    }
+}
+
+-(void)controllerStateChange {
+    init_joystick();
+}
+
+- (void)initDriveSetupTimer:(DriveState *)driveState {
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(setupDrives:) userInfo:driveState repeats:NO];
+}
+
+- (void)initDiskInsertTimer:(NSArray *)insertedFloppies {
+    [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(insertConfiguredDisks:) userInfo:insertedFloppies repeats:NO];
+}
+
+- (void)initMenuBarHidingTimer {
+    if (_menuHidingTimer) {
+        [_menuHidingTimer release];
+    }
+    _menuHidingTimer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                                       selector:@selector(checkForMenuBarHiding:) userInfo:nil repeats:YES] retain];
+    _menuHidingTimer.tolerance = 0.0020;
+>>>>>>> 1.1.0b1
+}
+
+- (void)initCheckForPausedTimer {
+    if (_checkForPausedTimer) {
+        [_checkForPausedTimer release];
+    }
+    
+    _checkForPausedTimer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                                           selector:@selector(checkForPaused:) userInfo:nil repeats:YES] retain];
+    
+    _checkForPausedTimer.tolerance = 0.0020;
+    
+}
+
+- (void)insertConfiguredDisks:(NSTimer *)timer {
+    NSArray *insertedFloppies = timer.userInfo;
+    if ([insertedFloppies count] > 0)
+    {
+        [_diskDriveService insertDisks:insertedFloppies];
+        [_settings setFloppyConfigurations:insertedFloppies];
+    }
+}
+
+- (void)setupDrives:(NSTimer *)timer {
+    DriveState *driveState = timer.userInfo;
+    [_diskDriveService setDriveState:driveState];
+}
+
+- (void)dealloc
+{
+    [_btnJoypad release];
+    [_btnKeyboard release];
+    [_btnPin release];
+    [_diskDriveService release];
+    [_mouseHandler release];
+    [_menuBar release];
+    [_menuBarEnabler release];
+    [_menuHidingTimer invalidate];
+    [_menuHidingTimer release];
+    [_settings release];
+    [super dealloc];
 }
 
 @end

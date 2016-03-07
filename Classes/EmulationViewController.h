@@ -20,7 +20,6 @@
 #import <UIKit/UIKit.h>
 
 @class InputControllerView;
-@class JoystickViewLandscape;
 @class VirtualKeyboard;
 @class TouchHandlerView;
 @protocol DisplayViewSurface;
@@ -63,9 +62,6 @@ typedef enum {
 	// Views: portrait
 
 	
-	// Views: landscape
-	JoystickViewLandscape		*landscapeJoystickView;
-
 	// Emulator
 	uae							*emulator;
 	NSThread					*emulationThread;
@@ -85,8 +81,6 @@ typedef enum {
 @property (nonatomic, retain)	UIView<DisplayViewSurface>	*displayView;
 @property (nonatomic, retain)	InputControllerView			*inputController;
 @property (nonatomic, retain)	TouchHandlerView			*touchHandler;
-
-@property (nonatomic, retain)	JoystickViewLandscape		*landscapeJoystickView;
 
 @property (nonatomic)			BOOL						integralSize;
 

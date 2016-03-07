@@ -1,4 +1,7 @@
- /*
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++11-compat-deprecated-writable-strings"
+
+/*
   * UAE - The Un*x Amiga Emulator
   *
   * Save/restore emulator state
@@ -811,3 +814,5 @@ misc:
 - should we strip all paths from image file names?
 
 */
+
+#pragma clang diagnostic pop

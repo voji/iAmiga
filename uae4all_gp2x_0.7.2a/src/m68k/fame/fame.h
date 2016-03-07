@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmacro-redefined"
+
 /*****************************************************************************/
 /* FAME Fast and Accurate Motorola 68000 Emulation Core                      */
 /* (c) 2005 Oscar Orallo Pelaez                                              */
@@ -210,3 +213,5 @@ extern "C" {
 #endif
 
 #endif
+
+#pragma clang diagnostic pop

@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
 /*
  * UAE - The Un*x Amiga Emulator
  *
@@ -33,6 +36,7 @@
 #include "xwin.h"
 #include "execlib.h"
 #include "savestate.h"
+#include "adfresolver.h"
 
 
 char prefs_df[NUM_DRIVES][256];
@@ -71,7 +75,8 @@ static int floppy_speed = NORMAL_FLOPPY_SPEED;
  */
 
 static int side, direction, writing;
-static uae_u8 selected = 15, disabled=0;
+static uae_u8 selected = 15;
+uae_u8 disabled=0;
 
 static uae_u8 *writebuffer[544 * 22];
 
@@ -1588,19 +1593,32 @@ uae_u8 *restore_disk(int num,uae_u8 *src)
     	drv->dskready = dskready;
     	drv->drive_id_scnt = drive_id_scnt;
     	drv->mfmpos = mfmpos;
-    	strncpy(changed_df[num],(char *)src,127);
-    	changed_df[num][127] = 0;
+        
+        char adf[256];
+        strncpy(adf,(char *)src,255);
+        adf[255] = 0;
+        FILE *f=fopen(adf,"rb");
+        
+        if (!f)
         {
-            FILE *f=fopen(changed_df[num],"rb");
-            if (f)
+            // the path to the adf may have changed since the state was saved
+            strcpy(adf, get_updated_adf_path(adf));
+            f = fopen(adf,"rb");
+        }
+        
+        if (f)
+        {
+            fclose(f);
+            if (strcmp(prefs_df[num],adf))
             {
-                fclose(f);
-                if (strcmp(prefs_df[num],changed_df[num]))
-                {
-                    strcpy(prefs_df[num],changed_df[num]);
-                    real_changed_df[num] = 1;
-                }
+                strncpy(changed_df[num],adf,255);
+                real_changed_df[num] = 1;
             }
+        }
+        else
+        {
+            changed_df[num][0] = 0;
+            real_changed_df[num] = 1;
         }
     }
     else
@@ -1682,3 +1700,5 @@ uae_u8 *save_floppy(int *len)
     *len = dst - dstbak;
     return dstbak;
 }
+
+#pragma clang diagnostic pop

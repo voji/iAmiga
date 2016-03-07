@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wformat"
+
+>>>>>>> 1.1.0b1
 //
 //  ZipArchive.mm
 //  
@@ -334,4 +341,8 @@
 
 @end
 
+<<<<<<< HEAD
 
+=======
+#pragma clang diagnostic pop
+>>>>>>> 1.1.0b1

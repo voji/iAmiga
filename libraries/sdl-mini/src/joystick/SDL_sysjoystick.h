@@ -37,6 +37,8 @@ struct _SDL_Joystick
     struct joystick_hwdata *hwdata;     /* Driver dependent information */
 
     int ref_count;
+    
+    int paused;
 };
 
 /* Function to scan the system for joysticks.

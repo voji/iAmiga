@@ -1,4 +1,7 @@
- /*
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
+/*
   * UAE - The Un*x Amiga Emulator
   *
   * Custom chip emulation
@@ -1165,6 +1168,128 @@ static _INLINE_ void record_color_change (int hpos, int regno, unsigned long val
 
 typedef int sprbuf_res_t, cclockres_t, hwres_t, bplres_t;
 
+//newer code starts here mithrendal
+/* handle very rarely needed playfield collision (CLXDAT bit 0) */
+static void do_playfield_collisions (void)
+{
+    int bplres = GET_RES (bplcon0); //bplcon0_res;;
+    hwres_t ddf_left = thisline_decision.plfleft * 2 << bplres;
+    hwres_t hw_diwlast = coord_window_to_diw_x (thisline_decision.diwlastword);
+    hwres_t hw_diwfirst = coord_window_to_diw_x (thisline_decision.diwfirstword);
+    int i, collided, minpos, maxpos;
+    int planes = /*(currprefs.chipset_mask & CSMASK_AGA) ? 8 :*/ 6;
+    
+    collided = 0;
+    minpos = thisline_decision.plfleft * 2;
+    if (minpos < hw_diwfirst)
+        minpos = hw_diwfirst;
+    maxpos = thisline_decision.plfright * 2;
+    if (maxpos > hw_diwlast)
+        maxpos = hw_diwlast;
+    for (i = minpos; i < maxpos && !collided; i+= 32) {
+        int offs = ((i << bplres) - ddf_left) >> 3;
+        int j;
+        uae_u32 total = 0xffffffff;
+        for (j = 0; j < planes; j++) {
+            int ena = (clxcon_bpl_enable >> j) & 1;
+            int match = (clxcon_bpl_match >> j) & 1;
+            uae_u32 t = 0xffffffff;
+            if (ena) {
+                if (j < thisline_decision.nr_planes) {
+                    t = *(uae_u32 *)(line_data[next_lineno] + offs + 2 * j * MAX_WORDS_PER_LINE);
+                    t ^= (match & 1) - 1;
+                } else {
+                    t = (match & 1) - 1;
+                }
+            }
+            total &= t;
+        }
+        if (total) {
+            collided = 1;
+        }
+    }
+    if (collided)
+        clxdat |= 1;
+}
+
+
+/* Sprite-to-sprite collisions are taken care of in record_sprite.  This one does
+ playfield/sprite collisions.
+ That's the theory.  In practice this doesn't work yet.  I also suspect this code
+ is way too slow.  */
+static void do_sprite_collisions (void)
+{
+    int nr_sprites = curr_drawinfo[next_lineno].nr_sprites;
+    int first = curr_drawinfo[next_lineno].first_sprite_entry;
+    int i;
+    unsigned int collision_mask = clxmask[clxcon >> 12];
+    int bplres = GET_RES (bplcon0); //bplcon0_res;
+    hwres_t ddf_left = thisline_decision.plfleft * 2 << bplres;
+    hwres_t hw_diwlast = coord_window_to_diw_x (thisline_decision.diwlastword);
+    hwres_t hw_diwfirst = coord_window_to_diw_x (thisline_decision.diwfirstword);
+    
+    for (i = 0; i < nr_sprites; i++) {
+        struct sprite_entry *e = curr_sprite_entries + first + i;
+        sprbuf_res_t j;
+        sprbuf_res_t minpos = e->pos;
+        sprbuf_res_t maxpos = e->max;
+        hwres_t minp1 = minpos >> sprite_buffer_res;
+        hwres_t maxp1 = maxpos >> sprite_buffer_res;
+        
+        if (maxp1 > hw_diwlast)
+            maxpos = hw_diwlast << sprite_buffer_res;
+        if (maxp1 > thisline_decision.plfright * 2)
+            maxpos = thisline_decision.plfright * 2 << sprite_buffer_res;
+        if (minp1 < hw_diwfirst)
+            minpos = hw_diwfirst << sprite_buffer_res;
+        if (minp1 < thisline_decision.plfleft * 2)
+            minpos = thisline_decision.plfleft * 2 << sprite_buffer_res;
+        
+        for (j = minpos; j < maxpos; j++) {
+            int sprpix = spixels[e->first_pixel + j - e->pos] & collision_mask;
+            int k;
+            int offs;
+            int match = 1;
+            
+            if (sprpix == 0)
+                continue;
+            
+            offs = ((j << bplres) >> sprite_buffer_res) - ddf_left;
+            sprpix = sprite_ab_merge[sprpix & 255] | (sprite_ab_merge[sprpix >> 8] << 2);
+            sprpix <<= 1;
+            
+            /* Loop over number of playfields.  */
+            for (k = 1; k >= 0; k--) {
+                int l;
+                int planes = /*(currprefs.chipset_mask & CSMASK_AGA) ? 8 : */6;
+                
+                if (bplcon0 & 0x400)
+                    match = 1;
+                for (l = k; match && l < planes; l += 2) {
+                    int t = 0;
+                    if (l < thisline_decision.nr_planes) {
+                        uae_u32 *ldata = (uae_u32 *)(line_data[next_lineno] + 2 * l * MAX_WORDS_PER_LINE);
+                        uae_u32 word = ldata[offs >> 5];
+                        t = (word >> (31 - (offs & 31))) & 1;
+                    }
+                    if (clxcon_bpl_enable & (1 << l)) {
+                        if (t != ((clxcon_bpl_match >> l) & 1))
+                            match = 0;
+                    }
+                }
+                if (match) {
+                    clxdat |= sprpix << (k * 4);
+                }
+            }
+        }
+    }
+}
+
+
+//newer code ends here mithrendal
+
+
+
 static _INLINE_ void expand_sprres (void)
 {
     switch ((bplcon3 >> 6) & 3) {
@@ -1253,7 +1378,8 @@ static _INLINE_ void record_sprite (int line, int num, int sprxp, uae_u16 *_GCCR
 						 | (sprtabb[db & 0xFF] << 16) | sprtabb[db >> 8]);
 		
 		buf = spixels + word_offs + (i << dbl);
-	    record_sprite_1 (buf, datab, num, dbl, mask, 0, collision_mask);
+        //record_sprite_1 (buf, datab, num, dbl, mask, 0, collision_mask);
+	    record_sprite_1 (buf, datab, num, dbl, mask, 1, collision_mask); //mithrendal sprite collision 1=enabled 
 		data++;
 		datb++;
     }
@@ -3314,7 +3440,11 @@ void hsync_handler (void)
     sync_copper_with_cpu (maxhpos, 0, 0x8A);
 	
     finish_decisions ();
-	
+	    
+    do_sprite_collisions ();        
+  //  do_playfield_collisions ();     //only used in game "rotor"
+    
+
     hsync_record_line_state (next_lineno, thisline_changed);
 	
     eventtab[ev_hsync].evtime += get_cycles () - eventtab[ev_hsync].oldcycles;
@@ -4348,3 +4478,5 @@ uae_u8 *save_custom_sprite(int *len, int num)
     *len = dst - dstbak;
     return dstbak;
 }
+
+#pragma clang diagnostic pop

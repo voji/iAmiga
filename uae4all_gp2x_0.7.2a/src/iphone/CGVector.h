@@ -25,7 +25,7 @@ struct CGVector2D {
 	CGFloat x;
 	CGFloat y;	
 	
-	CGVector2D():x(0), y(0) 
+	CGVector2D():x(0), y(0)
 	{}
 	
 	CGVector2D(CGFloat x, CGFloat y):x(x), y(y) 

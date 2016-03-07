@@ -1,3 +1,8 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic ignored "-Wcomment"
+#pragma clang diagnostic ignored "-Wc++11-compat-deprecated-writable-strings"
+
 /*
  * UAE - The Un*x Amiga Emulator
  *
@@ -1709,7 +1714,7 @@ static __inline__ void pfield_doline (int lineno)
 static _INLINE_ void init_row_map (void)
 {
     int i;
-    for (i = 0; i < GFXVIDINFO_HEIGHT + 1; i++)
+    for (i = 0; i < GFXVIDINFO_HEIGHT; i++)
 		row_map[i] = gfx_mem + gfx_rowbytes * i;
 }
 
@@ -2306,3 +2311,5 @@ void drawing_init ()
 	
     gen_pfield_tables();
 }
+
+#pragma clang diagnostic pop

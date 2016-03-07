@@ -10,11 +10,14 @@
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 //  General Public License for more details.
 //
-// You should have received a copy of the GNU General Public License
-//along with this program; if not, write to the Free Software
-//Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, write to the Free Software
+//  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "IOSKeyboard.h"
+#import "SDL.h"
+#import "PKCustomKeyboard.h"
+#import "PMCustomKeyboard.h"
 
 #define KEYDOWN 1
 #define KEYUP 2
@@ -38,6 +41,12 @@
 
 #define BFKEY 1
 #define BSKEY 2
+#define EXKEY 3
+
+#define TAGUP 1
+#define TAGDOWN 2
+#define TAGLEFT 3
+#define TAGRIGHT 4
 
 
 @implementation IOSKeyboard {
@@ -61,6 +70,7 @@
     
     UIButton *fKey_btnd;
     UIButton *sKey_btnd;
+    UIButton *exit_btnd;
     
     UITextField        *dummy_textfield; // dummy text field used to display the keyboard
     UITextField *dummy_textfield_f; //dummy textfield used to display the keyboard with function keys
@@ -101,6 +111,7 @@
     fkeyselected = (button.tag == BFKEY) ? !fkeyselected : FALSE;
     skeyselected = (button.tag == BSKEY) ? !skeyselected : FALSE;
     
+    
     if (fkeyselected)
     {
         [dummy_textfield_f becomeFirstResponder];
@@ -108,6 +119,11 @@
     else if (skeyselected)
     {
         [dummy_textfield_s becomeFirstResponder];
+    }
+    else if(button.tag == EXKEY)
+    {
+        [dummy_textfield becomeFirstResponder];
+        [dummy_textfield resignFirstResponder];
     }
     else
     {
@@ -123,13 +139,13 @@
     {
         ctrlselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_LCTRL direction:KEYDOWN];
+        [self sendkey:SDLK_LCTRL keyName:@"LCTRL" direction:KEYDOWN];
     }
     else
     {
         ctrlselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_LCTRL direction:KEYUP];
+        [self sendkey:SDLK_LCTRL keyName:@"LCTRL" direction:KEYUP];
     }
 }
 
@@ -141,13 +157,13 @@
     {
         shiftselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_LSHIFT direction:KEYDOWN];
+        [self sendkey:SDLK_LSHIFT keyName:@"LSHIFT" direction:KEYDOWN];
     }
     else
     {
         shiftselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_LSHIFT direction:KEYUP];
+        [self sendkey:SDLK_LSHIFT keyName:@"LSHIFT" direction:KEYUP];
     }
 }
 
@@ -159,13 +175,13 @@
     {
         altselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_LALT direction:KEYDOWN];
+        [self sendkey:SDLK_LALT keyName:@"LALT" direction:KEYDOWN];
     }
     else
     {
         altselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_LALT direction:KEYUP];
+        [self sendkey:SDLK_LALT keyName:@"LALT" direction:KEYUP];
     }
 }
 
@@ -174,13 +190,13 @@
     {
         lAselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_PAGEDOWN direction:KEYDOWN];
+        [self sendkey:SDLK_PAGEDOWN keyName:@"LAMIGA" direction:KEYDOWN];
     }
     else
     {
         lAselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_PAGEDOWN direction:KEYUP];
+        [self sendkey:SDLK_PAGEDOWN keyName:@"LAMIGA" direction:KEYUP];
     }
 }
 
@@ -189,82 +205,87 @@
     {
         rAselected = TRUE;
         [self setButtonSelected:sender];
-        [self sendkey:SDLK_PAGEUP direction:KEYDOWN];
+        [self sendkey:SDLK_PAGEUP keyName:@"RAMIGA"  direction:KEYDOWN];
     }
     else
     {
         rAselected = FALSE;
         [self setButtonUnselected:sender];
-        [self sendkey:SDLK_PAGEUP direction:KEYUP];
+        [self sendkey:SDLK_PAGEUP keyName:@"RAMIGA" direction:KEYUP];
     }
 }
 
 - (IBAction)toggleEscKey:(id)sender {
-    [self sendkey:SDLK_ESCAPE];
+    [self sendkey:SDLK_ESCAPE keyName:@"ESC"];
 }
 
 //Catches Enter
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self sendkey:SDLK_RETURN];
+    [self sendkey:SDLK_RETURN keyName:@"RETURN"];
     return NO;
 }
 
 - (IBAction)F1Key:(id)sender {
-    [self sendkey:SDLK_F1];
+    [self sendkey:SDLK_F1 keyName:@"F1"];
 }
 
 - (IBAction)F2Key:(id)sender {
-    [self sendkey:SDLK_F2];
+    [self sendkey:SDLK_F2 keyName:@"F2"];
 }
 
 - (IBAction)F3Key:(id)sender {
-    [self sendkey:SDLK_F3];
+    [self sendkey:SDLK_F3 keyName:@"F3"];
 }
 
 - (IBAction)F4Key:(id)sender {
-    [self sendkey:SDLK_F4];
+    [self sendkey:SDLK_F4 keyName:@"F4"];
 }
 
 - (IBAction)F5Key:(id)sender {
-    [self sendkey:SDLK_F5];
+    [self sendkey:SDLK_F5 keyName:@"F5"];
 }
 
 - (IBAction)F6Key:(id)sender {
-    [self sendkey:SDLK_F6];
+    [self sendkey:SDLK_F6 keyName:@"F6"];
 }
 
 - (IBAction)F7Key:(id)sender {
-    [self sendkey:SDLK_F7];
+    [self sendkey:SDLK_F7 keyName:@"F7"];
 }
 
 - (IBAction)F8Key:(id)sender {
-    [self sendkey:SDLK_F8];
+    [self sendkey:SDLK_F8 keyName:@"F8"];
 }
 
 - (IBAction)F9Key:(id)sender {
-    [self sendkey:SDLK_F9];
+    [self sendkey:SDLK_F9 keyName:@"F9"];
 }
 
 - (IBAction)F10Key:(id)sender {
-    [self sendkey:SDLK_F10];
+    [self sendkey:SDLK_F10 keyName:@"F10"];
 }
 
 - (IBAction)CursorKeyPressed:(id)sender {
     
     UIButton *button = sender;
     
-    int keypressed =    (button == arrowup_btnd) ? SDLK_UP :
-                        (button == arrowdown_btnd) ? SDLK_DOWN :
-                        (button == arrowleft_btnd) ? SDLK_LEFT :
+    int keypressed =    (button.tag == TAGUP) ? SDLK_UP :
+                        (button.tag == TAGDOWN) ? SDLK_DOWN :
+                        (button.tag == TAGLEFT) ? SDLK_LEFT :
                         SDLK_RIGHT;
 
+    NSString *keyName =    (button.tag == TAGUP) ? @"UP" :
+    (button.tag == TAGDOWN) ? @"DOWN":
+    (button.tag == TAGLEFT) ? @"LEFT" :
+    @"RIGHT";
     
-    [self sendkey:keypressed];
+    [self sendkey:keypressed keyName:keyName];
 
 }
 
 - (IBAction)specialkeypressed:(id)sender
 {
+    
     UITextField *textfield = [sender object];
     
     NSString *keyflag = [textfield.text substringToIndex:1];
@@ -292,7 +313,7 @@
     //Backspace Pressed: Little Hack: Length is always 1 because one character is autoplaced there (expect when deleted by backspace)
     if(length == 0)
     {
-        [self sendkey:SDLK_BACKSPACE];
+        [self sendkey:SDLK_BACKSPACE keyName:@"BACKSPACE"];
         [textfield setText:@"0"];
         return;
     }
@@ -421,23 +442,192 @@
 }
 
 - (void) altsendkey:(int)asciicode {
+    if(self.delegate) { return; }
+    
     if (!altselected) { [self sendkey:SDLK_LALT direction:KEYDOWN]; }
     [self sendkey:asciicode direction:KEYPRESS];
     if (!altselected) { [self sendkey:SDLK_LALT direction:KEYUP]; }
 }
 
 - (void) shiftsendkey:(int)asciicode {
+    if(self.delegate) { return; }
+    
     if (!shiftselected) { [self sendkey:SDLK_LSHIFT direction:KEYDOWN]; }
     [self sendkey:asciicode direction:KEYPRESS];
     if (!shiftselected) { [self sendkey:SDLK_LSHIFT direction:KEYUP]; }
 }
 
+- (NSString *) mapkey:(int)asciicode {
+    
+    NSString *keyname;
+    
+    switch (asciicode)
+    {
+        case SDLK_LEFT:
+            keyname = @"LEFT";
+            break;
+            
+        case SDLK_RIGHT:
+            keyname = @"RIGHT";
+            break;
+            
+        case SDLK_UP:
+            keyname = @"UP";
+            break;
+            
+        case SDLK_DOWN:
+            keyname = @"DOWN";
+            break;
+            
+        case SDLK_KP0:
+            keyname = @"KEYPAD 0";
+            break;
+            
+        case SDLK_KP1:
+            keyname = @"KEYPAD 1";
+            break;
+            
+        case SDLK_KP2:
+            keyname = @"KEYPAD 2";
+            break;
+            
+        case SDLK_KP3:
+            keyname = @"KEYPAD 3";
+            break;
+            
+        case SDLK_KP4:
+            keyname = @"KEYPAD 4";
+            break;
+            
+        case SDLK_KP5:
+            keyname = @"KEYPAD 5";
+            break;
+            
+        case SDLK_KP6:
+            keyname = @"KEYPAD 6";
+            break;
+            
+        case SDLK_KP7:
+            keyname = @"KEYPAD 7";
+            break;
+            
+        case SDLK_KP8:
+            keyname = @"KEYPAD 8";
+            break;
+            
+        case SDLK_KP9:
+            keyname = @"KEYPAD 9";
+            break;
+            
+        case SDLK_HOME: //Pseudo Mapping SDL Doesnt know Bracket key / Amiga Doesnt know Home Key
+            keyname = @"BRACKET LEFT";
+            break;
+            
+        case SDLK_END: //Pseudo Mapping SDL Doesnt know Bracket key / Amiga Doesnt know End Key
+            keyname = @"BRACKET RIGHT";
+            break;
+            
+        case SDLK_KP_DIVIDE:
+            keyname = @"KEYPAD /";
+            break;
+            
+        case SDLK_KP_MULTIPLY:
+            keyname = @"KEYPAD *";
+            break;
+            
+        case SDLK_KP_PLUS:
+            keyname = @"KEYPAD +";
+            break;
+            
+        case SDLK_LSHIFT:
+            keyname = @"LSHIFT";
+            break;
+            
+        case SDLK_RSHIFT:
+            keyname = @"RSHIFT";
+            break;
+            
+        case SDLK_LALT:
+            keyname = @"LALT";
+            break;
+            
+        case SDLK_RALT:
+            keyname = @"RALT";
+            break;
+            
+        case SDLK_RCTRL:
+            keyname = @"RCTRL";
+            break;
+            
+        case SDLK_LCTRL:
+            keyname = @"LCTRL";
+            break;
+            
+        case SDLK_KP_ENTER:
+            keyname = @"KPENTER";
+            break;
+            
+        case SDLK_RMETA: //Pseudo Mapping SDL Doesnt know Amiga key / Amiga Doesnt know Meta Key
+            keyname = @"A RIGHT";
+            break;
+            
+        case SDLK_LMETA: //Pseudo Mapping SDL Doesnt know Amiga key / Amiga Doesnt know Meta Key
+            keyname = @"A LEFT";
+            break;
+            
+        case SDLK_KP_PERIOD:
+            keyname = @"KEYPAD .";
+            break;
+            
+        case SDLK_SPACE:
+            keyname = @"SPACE";
+            break;
+            
+        default:
+            keyname = [NSString stringWithFormat:@"%c", asciicode];
+    }
+    
+    return keyname;
+    
+}
+
 - (void) sendkey:(int)asciicode {
-    [self sendkey:asciicode direction:KEYPRESS];
+    
+    NSString *keyname = [self mapkey:asciicode];
+    
+    [self sendkey:asciicode keyName:keyname];
+}
+
+- (void) sendkey:(int)asciicode keyName:(NSString *) keyName {
+    
+    //Keyboard used for Emulation
+    if(self.delegate == nil)
+    {
+        [self sendkey:asciicode direction:KEYPRESS];
+    }
+    else
+    {
+        [self.delegate keyPressed:asciicode keyName:keyName];
+    }
+
 }
 
 - (void) sendkey:(int)asciicode direction:(int)direction {
-
+    
+    NSString *keyname = [self mapkey:asciicode];
+    
+    [self sendkey:asciicode keyName:keyname direction:direction];
+}
+    
+- (void) sendkey:(int)asciicode keyName:(NSString *)keyName direction:(int)direction {
+    
+    //Keyboard Used to assign key in Settings
+    if(self.delegate) {
+        [self.delegate keyPressed:asciicode keyName:keyName];
+        return;
+    }
+    
+    //Keyboard used for Emulation
     if(direction == KEYPRESS || direction == KEYDOWN)
     {
         SDL_Event ed = { SDL_KEYDOWN };
@@ -553,7 +743,6 @@
     
 	UIBarButtonItem* flex_spacer = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
     
-    // iPad gets a shift button, iphone doesn't (there's just not enough space ...)
     NSArray* items;
     
     items = [NSArray arrayWithObjects:f1_btn, flex_spacer, f2_btn, flex_spacer, f3_btn, flex_spacer, f4_btn, flex_spacer, f5_btn, flex_spacer, f6_btn, flex_spacer, f7_btn, flex_spacer, f8_btn, flex_spacer,
@@ -579,15 +768,22 @@
     UIButton *rA_btnd = [self createKeyboardButton:@"rA" action:@selector(togglerAKey:)];
     
     arrowleft_btnd = [self createKeyboardButton:@"<-" action:@selector(CursorKeyPressed:)];
+    arrowleft_btnd.tag = TAGLEFT;
     arrowup_btnd = [self createKeyboardButton:@"^" action:@selector(CursorKeyPressed:)];
+    arrowup_btnd.tag = TAGUP;
     arrowdown_btnd = [self createKeyboardButton:@"v" action:@selector(CursorKeyPressed:)];
+    arrowdown_btnd.tag = TAGDOWN;
     arrowright_btnd = [self createKeyboardButton:@"->" action:@selector(CursorKeyPressed:)];
+    arrowright_btnd.tag = TAGRIGHT;
     
     fKey_btnd = [self createKeyboardButton:@"F" action:@selector(toggleKeyboardmode:)];
     [fKey_btnd setTag:BFKEY];
     
     sKey_btnd = [self createKeyboardButton:lastoptionname action:@selector(toggleKeyboardmode:)];
     [sKey_btnd setTag:BSKEY];
+    
+    exit_btnd = [self createKeyboardButton:@"Exit" action:@selector(toggleKeyboardmode:)];
+    [exit_btnd setTag:EXKEY];
     
     UIBarButtonItem* esc_btn = [[[UIBarButtonItem alloc] initWithCustomView:esc_btnd] autorelease];
 	UIBarButtonItem* ctrl_btn = [[[UIBarButtonItem alloc] initWithCustomView:ctrl_btnd] autorelease];
@@ -607,9 +803,27 @@
     
     UIBarButtonItem* special_btn = [[[UIBarButtonItem alloc] initWithCustomView:sKey_btnd] autorelease];
     
+    UIBarButtonItem* exit_btn = [[[UIBarButtonItem alloc] initWithCustomView:exit_btnd] autorelease];
+    
     NSArray* items;
-
-    items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
+    {
+        items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
+                 shift_btn, flex_spacer,
+                 ctrl_btn, flex_spacer,
+                 alt_btn, flex_spacer,
+                 lA_btn, flex_spacer,
+                 rA_btn, flex_spacer,
+                 arrowleft_btn, arrowup_btn,
+                 arrowdown_btn, arrowright_btn, flex_spacer,
+                 F_btn, flex_spacer,
+                 special_btn, flex_spacer,
+                 exit_btn, flex_spacer, nil];
+    }
+    else
+    {
+        items = [NSArray arrayWithObjects:esc_btn, flex_spacer,
                  shift_btn, flex_spacer,
                  ctrl_btn, flex_spacer,
                  alt_btn, flex_spacer,
@@ -619,6 +833,7 @@
                  arrowdown_btn, arrowright_btn, flex_spacer,
                  F_btn, flex_spacer,
                  special_btn, flex_spacer, nil];
+    }
     
 	[keyboard_toolbar setItems:items];
     [keyboard_toolbar sizeToFit];

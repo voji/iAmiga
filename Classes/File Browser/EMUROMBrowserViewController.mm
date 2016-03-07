@@ -26,10 +26,18 @@
 
 @synthesize roms, selectedIndexPath, indexTitles, delegate, context;
 
+<<<<<<< HEAD
+=======
++ (NSString *)getAdfChangedNotificationName {
+    return @"OnAdfChanged";
+}
+
+>>>>>>> 1.1.0b1
 - (void)viewDidLoad {
 	self.title = @"Browser";
     self.adfImporter = [[AdfImporter alloc] init];
     [self reloadAdfs];
+<<<<<<< HEAD
 }
 
 - (void)reloadAdfs {
@@ -37,6 +45,19 @@
 						@"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
 						@"W", @"X", @"Y", @"Z", @"#", nil];
 	
+=======
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAdfChanged)
+                                                 name:[EMUROMBrowserViewController getAdfChangedNotificationName]
+                                               object:nil];
+    
+    self.indexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
+                        @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
+                        @"W", @"X", @"Y", @"Z", @"#"];
+}
+
+- (void)reloadAdfs {
+>>>>>>> 1.1.0b1
 	NSMutableArray *sections = [[NSMutableArray alloc] init];
 	for (int i = 0; i < 26; i++) {
 		unichar c = i+65;
@@ -45,8 +66,8 @@
 	}
 	[sections addObject:[[EMUFileGroup alloc] initWithSectionName:@"#"]];
 	
-	EMUBrowser *browser = [[EMUBrowser alloc] initWithBasePath:@""];
-	NSArray *files = [browser getFiles];
+	EMUBrowser *browser = [[EMUBrowser alloc] init];
+	NSArray *files = [browser getFileInfos];
 	for (EMUFileInfo* f in files) {
 		unichar c = [[f fileName] characterAtIndex:0];
 		if (isdigit(c)) {
@@ -86,6 +107,11 @@
 		return c - 65;
 	
     return 26;
+}
+
+- (void)onAdfChanged {
+    [self reloadAdfs];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
@@ -135,8 +161,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
-	if (cell == nil)
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CELL_ID] autorelease];
+    if (cell == nil)
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_ID] autorelease];
 	
     cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	if ([indexPath compare:self.selectedIndexPath] == NSOrderedSame)
@@ -161,6 +187,10 @@
 	self.selectedIndexPath = nil;
 	self.context = nil;
     self.adfImporter = nil;
+<<<<<<< HEAD
+=======
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+>>>>>>> 1.1.0b1
 	[super dealloc];
 }
 

@@ -29,6 +29,8 @@
 @synthesize restartButton;
 @synthesize joyController;
 
+@dynamic btnKeyboard;
+
 #pragma mark - View lifecycle
 
 - (CGFloat) XposFloatPanel {
@@ -45,14 +47,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    mouseHandlermain = mouseHandler;
     [self initializeJoypad:joyController];
     
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
     webView.delegate = self;
     
-    [self initializeFullScreenPanel];
     [super initializeKeyboard:dummy_textfield dummytextf:dummy_textfield_f dummytexts:dummy_textfield_s];
 }
 
@@ -76,12 +76,6 @@
     [super viewDidUnload];
 }
 
-- (void)initializeFullScreenPanel {
-
-    [super initializeFullScreenPanel:480 barheight:32 iconwidth:48 iconheight:24];
-
-}
-
 - (IBAction)keyboardDidHide:(id)sender
 //Keyboards dismissed by other Means than Fullscreenpanel
 {
@@ -92,7 +86,7 @@
        && dummy_textfield_s.isFirstResponder == FALSE //Special Keyboard view was activated this triggered the event
        )
     {
-        [btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
+        [self.btnKeyboard sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
 }
 
