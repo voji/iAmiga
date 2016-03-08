@@ -131,7 +131,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *shareAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Share" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+        NSURL *url = [NSURL fileURLWithPath:fileInfo.path];
+        
+        NSString *string = @"iAmiga File Sharing";
+        UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[string, url] applicationActivities:nil];
+        [self presentViewController:activityViewController animated:YES completion:^{ }];
+        
+    }];
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
         EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
         BOOL deleteOk = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
         if (deleteOk) {
@@ -140,7 +155,11 @@
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             [tableView endUpdates];
         }
-    }
+    }];
+    
+    shareAction.backgroundColor = [UIColor blueColor];
+    
+    return @[deleteAction, shareAction];
 }
 
 #define CELL_ID @"DiskCell"
