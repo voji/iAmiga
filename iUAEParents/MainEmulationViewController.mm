@@ -35,6 +35,7 @@
 #import "SettingsGeneralController.h"
 #import "DiskDriveService.h"
 #import <GameController/GameController.h>
+#import "MultiPeerConnectivityController.h"
 
 extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
 extern void init_joystick();
@@ -50,7 +51,7 @@ extern void init_joystick();
     NSTimer *_checkForGControllerTimer;
 }
 
-
+MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init];
 UIButton *btnSettings;
 IOSKeyboard *ioskeyboard;
 
@@ -130,8 +131,12 @@ extern void uae_reset();
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
     set_joystickactive();
+
+   
     [_mouseHandler reloadMouseSettings];
     [_joyController reloadJoypadSettings];
+    
+    [mpcController configure: self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -165,6 +170,9 @@ extern void uae_reset();
     _joyController.hidden = TRUE;
 }
 
+extern  void mousehack_setdontcare_iuae ();
+extern  void mousehack_setfollow_iuae ();
+extern void togglemouse (void);
 - (IBAction)toggleControls:(UIButton *)button {
     
     bool keyboardactiveonstart = keyboardactive;
@@ -183,10 +191,12 @@ extern void uae_reset();
     if (joyactive)
     {
         [_joyController onJoypadActivated];
+         mousehack_setdontcare_iuae();
     }
     else
     {
         [_mouseHandler onMouseActivated];
+         mousehack_setfollow_iuae();
     }
     
     if (keyboardactive != keyboardactiveonstart)

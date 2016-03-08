@@ -19,5 +19,8 @@
 @interface SettingsJoypadMainController : UITableViewController
 
 @property (retain, nonatomic) IBOutlet UILabel *LabelDetection;
+@property (retain, nonatomic) IBOutlet UISwitch *openServer;
+@property (retain, nonatomic) IBOutlet UISwitch *sendToPort0;
+@property (retain, nonatomic) IBOutlet UISwitch *sendToPort1;
 
 @end

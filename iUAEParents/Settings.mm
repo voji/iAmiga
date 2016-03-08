@@ -200,11 +200,11 @@ static NSString *configurationname;
     [self setBool:stretchScreen forKey:kStretchScreenKey];
 }
 
-- (int)addVerticalStretchValue {
+- (NSUInteger)addVerticalStretchValue {
     return [self integerForKey:kAddVerticalStretchKey];
 }
 
-- (void)setAddVerticalStretchValue:(int)addVerticalStretchVal {
+- (void)setAddVerticalStretchValue:(NSUInteger)addVerticalStretchVal {
     [self setInteger: addVerticalStretchVal forKey:kAddVerticalStretchKey];
 }
 

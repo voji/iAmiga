@@ -25,6 +25,8 @@
 #import "InputControllerView.h"
 #import "ResetController.h"
 
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+
 @class VirtualKeyboard;
 
 @interface MainEmulationViewController : BaseEmulationViewController<ResetDelegate, UIWebViewDelegate, UINavigationControllerDelegate> {
@@ -52,5 +54,4 @@
 - (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeJoypad:(InputControllerView *)joyController;
 - (void)checkForPaused:(NSTimer*)timer;
-
 @end
