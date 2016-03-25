@@ -181,6 +181,7 @@ void init_joystick(void) {
     nr_joysticks = 1;
     joystickselected = 3;
     
+    SDL_JoystickClose(uae4all_joy0);
     if ([[GCController controllers] count] > 0)
     {
         uae4all_joy0 = SDL_JoystickOpen(4);  // MFI Controller detected

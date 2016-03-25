@@ -137,7 +137,11 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
             view.active = YES;
         } afterDelay:0.0f];
         joystick->hwdata->view = view;
-        controllerbuttons = [NSMutableArray arrayWithArray: @[ @NO, @NO, @NO, @NO, @NO, @NO, @NO, @NO ]];
+        
+        if(controllerbuttons)
+            [controllerbuttons release];
+        
+        controllerbuttons = [[NSMutableArray arrayWithArray: @[ @NO, @NO, @NO, @NO, @NO, @NO, @NO, @NO ] ]retain];
         
     } else if (joystick->index == kAccelerometer) {
 		joystick->naxes = 3;
@@ -157,7 +161,11 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
         MFIControllerReaderView *view = [[MFIControllerReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
         SDL_Surface *surface = SDL_GetVideoSurface();
         UIView *display = (UIView *)surface->userdata;
-        controllerbuttons = [NSMutableArray arrayWithArray: @[ @NO, @NO, @NO, @NO, @NO, @NO, @NO, @NO ]];
+        
+        if(controllerbuttons)
+            [controllerbuttons release];
+        
+        controllerbuttons = [[NSMutableArray arrayWithArray: @[ @NO, @NO, @NO, @NO, @NO, @NO, @NO, @NO ]] retain];
         
         [display performBlock:^(void) {
             // main thread
