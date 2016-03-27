@@ -1565,8 +1565,6 @@
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsDisplayController.m; sourceTree = "<group>"; };
 		7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadController.h; sourceTree = SOURCE_ROOT; };
 		7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadController.m; sourceTree = SOURCE_ROOT; };
-		7E2AE5DB1C65302700079E20 /* airtaxi.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = airtaxi.adf; path = ../../../../../Volumes/Multimedia/Downloads/airtaxi.adf; sourceTree = "<group>"; };
-		7E2AE5DD1C65303C00079E20 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
 		7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsGeneralController.mm; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
@@ -1638,9 +1636,6 @@
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		7EC59ED01BAC52390097B87A /* SettingsJoypadStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadStyle.h; sourceTree = "<group>"; };
 		7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadStyle.m; sourceTree = "<group>"; };
-		7ECA4B431C7CF6FB00A3B7ED /* Classic Invaders (1989)(Supernova).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Classic Invaders (1989)(Supernova).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Classic Invaders (1989)(Supernova).adf"; sourceTree = "<group>"; };
-		7ECA4B451C7CF7CE00A3B7ED /* InvaderCraft v2.0 (1987)(CW Publikationen).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InvaderCraft v2.0 (1987)(CW Publikationen).adf"; path = "../../../../../Volumes/Multimedia/Downloads/InvaderCraft v2.0 (1987)(CW Publikationen).adf"; sourceTree = "<group>"; };
-		7ECA4B471C7CF99900A3B7ED /* Cabaret Asteroids (1991)(Vertical Development).adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cabaret Asteroids (1991)(Vertical Development).adf"; path = "../../../../../Volumes/Multimedia/Downloads/Cabaret Asteroids (1991)(Vertical Development).adf"; sourceTree = "<group>"; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
@@ -2652,7 +2647,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E2AE5DD1C65303C00079E20 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2660,10 +2654,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7ECA4B471C7CF99900A3B7ED /* Cabaret Asteroids (1991)(Vertical Development).adf */,
-				7ECA4B451C7CF7CE00A3B7ED /* InvaderCraft v2.0 (1987)(CW Publikationen).adf */,
-				7ECA4B431C7CF6FB00A3B7ED /* Classic Invaders (1989)(Supernova).adf */,
-				7E2AE5DB1C65302700079E20 /* airtaxi.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
