@@ -33,7 +33,9 @@
     @property (readonly) BOOL buttonr1pressed;
     @property (readonly) BOOL buttonr2pressed;
 
-    @property (readonly) int hat_state;
+    
 
     @property (readonly) int paused;
+
+
 @end

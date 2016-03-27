@@ -90,14 +90,6 @@ extern void uae_reset();
     [_btnSettings setImage:[UIImage imageNamed:@"gear_selected.png"] forState: UIControlStateHighlighted];
     [_btnKeyboard setImage:[UIImage imageNamed:@"keyboard_selected.png"] forState:UIControlStateHighlighted];
     [_btnPin setImage:[UIImage imageNamed:@"sticky_selected.png"] forState:UIControlStateSelected];
-    //[_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                    //forState:UIControlStateNormal];
-    //[_btnJoypad setTintColor: [UIColor blackColor]];
-    
-    
-    /*[_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                forState:UIControlStateNormal];
-    [_btnPin setTintColor: [UIColor blackColor]];*/
     
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];

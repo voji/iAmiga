@@ -10,8 +10,9 @@
 #import "MPCConnectionStates.h"
 #import "SVProgressHUD.h"
 
+static MultiPeerConnectivityController *_instance;
+
 @implementation MultiPeerConnectivityController {
-  
 }
 
 extern void set_MPCController(MultiPeerConnectivityController *m);
@@ -28,10 +29,15 @@ MCBrowserViewController *browserViewController = nil;
 MPCStateType lastServerMode=kConnectionIsOff;
 bool bConnectionToServerJustEstablished = false;
 
++ (MultiPeerConnectivityController *)getinstance
+{
+    return _instance;
+}
+
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl {
     _mainEmuViewController = mainEmuViewCtrl;
     set_MPCController(self);
-
+    _instance = self;
 
     if(mainMenu_servermode == kConnectionIsOff)
     {

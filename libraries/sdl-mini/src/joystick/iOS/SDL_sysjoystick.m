@@ -165,7 +165,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
         if(controllerbuttons)
             [controllerbuttons release];
         
-        controllerbuttons = [[NSMutableArray arrayWithArray: @[ @NO, @NO, @NO, @NO, @NO, @NO, @NO, @NO ]] retain];
+        controllerbuttons = [[NSMutableArray arrayWithArray: @[ @NO, @NO, @NO, @NO, @NO, @NO,  @NO, @NO ]] retain];
         
         [display performBlock:^(void) {
             // main thread
@@ -323,100 +323,6 @@ void pushkey(UInt8 dpadstate, SDL_Joystick * joystick) {
 }
 
 int
-MFI_JoystickUpdateButtons(SDL_Joystick * joystick) {
-    
-    // buttons
-    MFIControllerReaderView *view = (MFIControllerReaderView *)joystick->hwdata->view;
-
-    for (int i = 0; i<= 7;i++)
-    {
-        bool pr;
-        
-        switch (i) {
-            case 0:
-                pr = view.buttonapressed == true ? TRUE : FALSE;
-                break;
-                
-            case 1:
-                pr = view.buttonbpressed == true ? TRUE : FALSE;
-                break;
-                
-            case 2:
-                pr = view.buttonxpressed == true ? TRUE : FALSE;
-                break;
-                
-            case 3:
-                pr = view.buttonypressed == true ? TRUE : FALSE;
-                break;
-                
-            case 4:
-                pr = view.buttonr1pressed == true ? TRUE : FALSE;
-                break;
-                
-            case 5:
-                pr = view.buttonl1pressed == true ? TRUE : FALSE;
-                break;
-                
-            case 6:
-                pr = view.buttonr2pressed == true ? TRUE : FALSE;
-                break;
-                
-            case 7:
-                pr = view.buttonl2pressed == true ? TRUE : FALSE;
-                break;
-                
-            default:
-                break;
-        }
-        
-        if ([controllerbuttons[i] boolValue] != pr)
-        {
-            NSString *configuredkey = [settingsforjoystick stringForKey:[NSString stringWithFormat: @"_BTN_%d", i]];
-            controllerbuttons[i] = [NSNumber numberWithBool:pr];
-            
-            if([configuredkey  isEqual: @"Joypad"])
-            {
-                SDL_PrivateJoystickButton(joystick, i, pr); // hasn't changed state, so don't pump and event
-            }
-            else
-            {
-                int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
-                
-                if(pr)
-                {
-                    SDL_Event ed = { SDL_KEYDOWN };
-                    ed.key.keysym.sym = (SDLKey) asciicode;
-                    SDL_PushEvent(&ed);
-                   
-                }
-                else
-                {
-                    SDL_Event eu = { SDL_KEYUP };
-                    eu.key.keysym.sym = (SDLKey) asciicode;
-                    SDL_PushEvent(&eu);
-                }
-            }
-            
-        }
-    }
-    
-    int paused = view.paused;
-    
-    if(joystick->paused != paused)
-    {
-        joystick->paused = paused;
-    }
-    
-    Uint8 hat_state = [view hat_state];
-    if (controllerhatstate != hat_state) {
-        controllerhatstate = hat_state;
-        pushkey(hat_state, joystick);
-        //SDL_PrivateJoystickHat(joystick, 0, hat_state);
-    }
-    
-}
-
-int
 Icade_JoystickUpdateButtons(SDL_Joystick * joystick) {
     
     
@@ -547,9 +453,6 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
         SDL_PrivateJoystickHat(joystick, 0, hat_value);
     } else if (joystick->index == kiCade) {
         Icade_JoystickUpdateButtons(joystick);
-    }
-    else if (joystick->index == kOfficial) {
-        MFI_JoystickUpdateButtons(joystick);
     }
 
 }

@@ -1,9 +1,18 @@
 //
 //  MultiPeerConnectivityController.h
 //  iUAE
+//  Created by mithendral on 24.02.16.
 //
-//  Created by familie on 24.02.16.
 //
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
 //
 
 #ifndef MultiPeerConnectivityController_h
@@ -18,6 +27,7 @@
     @property (readwrite, retain) MainEmulationViewController *mainEmuViewController;
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl ;
++ (MultiPeerConnectivityController *)getinstance;
 
 @end
 

@@ -193,7 +193,7 @@
 		7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */; };
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
-		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */; };
+		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */; };
 		7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */; };
 		7E5AF60C1C444854000BF5CB /* sticky_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FC1C444854000BF5CB /* sticky_unselected.png */; };
 		7E5AF60D1C444854000BF5CB /* sticky_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FD1C444854000BF5CB /* sticky_selected_svg.svg */; };
@@ -1291,8 +1291,8 @@
 /* Begin PBXFileReference section */
 		0504155A0FCB46F000F46828 /* EmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulationViewController.h; sourceTree = "<group>"; };
 		0504155B0FCB46F000F46828 /* EmulationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmulationViewController.mm; sourceTree = "<group>"; };
-		0504155D0FCB475C00F46828 /* InputControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputControllerView.h; sourceTree = "<group>"; };
-		0504155E0FCB475C00F46828 /* InputControllerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputControllerView.mm; sourceTree = "<group>"; };
+		0504155D0FCB475C00F46828 /* InputControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputControllerView.h; path = ../InputControllerView.h; sourceTree = "<group>"; };
+		0504155E0FCB475C00F46828 /* InputControllerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = InputControllerView.mm; path = ../InputControllerView.mm; sourceTree = "<group>"; };
 		050415630FCB47B200F46828 /* CGVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVector.h; sourceTree = "<group>"; };
 		050415640FCB47B200F46828 /* touchstick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touchstick.h; sourceTree = "<group>"; };
 		050415690FCB4BD400F46828 /* CocoaUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaUtility.h; sourceTree = "<group>"; };
@@ -1581,8 +1581,8 @@
 		7E4C6AF519DB0F7100D337D0 /* famec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = famec.cpp; sourceTree = "<group>"; };
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
-		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFIControllerReaderView.m; sourceTree = "<group>"; };
-		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFIControllerReaderView.h; sourceTree = "<group>"; };
+		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MFIControllerReaderView.mm; path = "../../libraries/sdl-mini/src/joystick/iOS/MFIControllerReaderView.mm"; sourceTree = "<group>"; };
+		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFIControllerReaderView.h; path = "../../libraries/sdl-mini/src/joystick/iOS/MFIControllerReaderView.h"; sourceTree = "<group>"; };
 		7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sticky_unselected_svg.svg; sourceTree = "<group>"; };
 		7E5AF5FC1C444854000BF5CB /* sticky_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky_unselected.png; sourceTree = "<group>"; };
 		7E5AF5FD1C444854000BF5CB /* sticky_selected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sticky_selected_svg.svg; sourceTree = "<group>"; };
@@ -2294,8 +2294,6 @@
 				0577C0D812DED3290040B77D /* debugger */,
 				0504155A0FCB46F000F46828 /* EmulationViewController.h */,
 				0504155B0FCB46F000F46828 /* EmulationViewController.mm */,
-				0504155D0FCB475C00F46828 /* InputControllerView.h */,
-				0504155E0FCB475C00F46828 /* InputControllerView.mm */,
 				BE2CA1E01C42219000B84C2C /* KeyButtonViewHandler.h */,
 				BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */,
 				0585D5601091653E00C1E4C1 /* KeyView.h */,
@@ -3406,8 +3404,6 @@
 		97855083153A3F2E00580B91 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.m */,
-				7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */,
 				97855084153A3F2E00580B91 /* ButtonStates.h */,
 				97855085153A3F2E00580B91 /* ButtonStates.m */,
 				97855086153A3F2E00580B91 /* iCadeReaderView.h */,
@@ -3789,9 +3785,13 @@
 				97BE2AB51548702100BF66CF /* Landscape */,
 				97BE2AA81548702100BF66CF /* BaseControlsView.h */,
 				97BE2AA91548702100BF66CF /* BaseControlsView.m */,
+				7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */,
+				7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */,
 				97BE2AAA1548702100BF66CF /* BaseLeftRightAwareView.h */,
 				97BE2AAB1548702100BF66CF /* BaseLeftRightAwareView.m */,
 				97BE2AAC1548702100BF66CF /* ButtonJoyButton.h */,
+				0504155D0FCB475C00F46828 /* InputControllerView.h */,
+				0504155E0FCB475C00F46828 /* InputControllerView.mm */,
 				97BE2AAD1548702100BF66CF /* ButtonJoyButton.mm */,
 				97BE2AAE1548702100BF66CF /* ControlDefaultConstants.h */,
 				97BE2AAF1548702100BF66CF /* ControlDefaultConstants.m */,
@@ -4873,7 +4873,7 @@
 				BEE41BD61B4784AC00CE487D /* ioapi.c in Sources */,
 				BEE41BD31B4784AC00CE487D /* zip.c in Sources */,
 				0552BD550F3D797C005B30DF /* writelog.cpp in Sources */,
-				7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.m in Sources */,
+				7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.mm in Sources */,
 				7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */,
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
