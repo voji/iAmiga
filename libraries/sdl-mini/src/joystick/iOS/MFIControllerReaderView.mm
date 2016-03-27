@@ -21,17 +21,15 @@
 #import "JoypadKey.h"
 #import "Settings.h"
 #import "SDL_events.h"
-
-extern CJoyStick g_touchStick;
+#import "MultiPeerConnectivityController.h"
 
 @implementation MFIControllerReaderView {
-    CJoyStick							*_thejoystick;
     int _button[8];
-    Settings *_settings;
     TouchStickDPadState _hat_statelast;
     TouchStickDPadState _hat_state;
-    int _asciicodekeytoreleasehorizontal;
-    int _asciicodekeytoreleasevertical;
+    MultiPeerConnectivityController *mpcController;
+    int _buttontoreleasehorizontal;
+    int _buttontoreleasevertical;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -39,14 +37,15 @@ extern CJoyStick g_touchStick;
     self = [super initWithFrame:frame];
     _hat_state = DPadCenter;
     _buttonapressed = false;
-    _thejoystick = &g_touchStick;
+    //_thejoystick = &g_touchStick;
     _hat_statelast = DPadCenter;
+    mpcController = [MultiPeerConnectivityController getinstance];
     
     for(int i=0;i<=7;i++)
         _button[i] = 0;
     
     [self discoverController];
-    _settings = [[Settings alloc] init];
+    //_settings = [[Settings alloc] init];
     
     return self;
 }
@@ -70,6 +69,11 @@ extern CJoyStick g_touchStick;
     }
 }
 
+- (void)sendinputbuttons:(int)buttonid
+{
+    _button[buttonid] = [mpcController sendinputbuttons:buttonid buttonstatus:_button[buttonid]];
+}
+
 - (void)controllerDiscovered {
     
     GCController *controller = [GCController controllers][0];
@@ -82,21 +86,21 @@ extern CJoyStick g_touchStick;
                                                *element)
     {
         if(gamepad.buttonA.isPressed != _button[BTN_A])
-            [self sendinputbuttons:BTN_A];
+            [self sendinputbuttons: BTN_A];
         else if(gamepad.buttonB.isPressed != _button[BTN_B])
-            [self sendinputbuttons:BTN_B];
+               [self sendinputbuttons: BTN_B];
         else if(gamepad.buttonX.isPressed!= _button[BTN_X])
-            [self sendinputbuttons:BTN_X];
+               [self sendinputbuttons: BTN_X];
         else if(gamepad.buttonY.isPressed != _button[BTN_Y])
-            [self sendinputbuttons:BTN_Y];
+               [self sendinputbuttons: BTN_Y];
         else if(gamepad.rightShoulder.isPressed != _button[BTN_R1])
-            [self sendinputbuttons:BTN_R1];
+               [self sendinputbuttons: BTN_R1];
         else if(gamepad.leftShoulder.isPressed != _button[BTN_L1])
-            [self sendinputbuttons:BTN_L1];
+                [self sendinputbuttons: BTN_L1];
         else if(gamepad.controller.extendedGamepad.rightTrigger.isPressed != _button[BTN_R2])
-            [self sendinputbuttons:BTN_R2];
-        else if(gamepad.controller.extendedGamepad.leftTrigger.isPressed != _button[BTN_L2])
-            [self sendinputbuttons:BTN_L2];
+                [self sendinputbuttons: BTN_R2];
+        else if(gamepad.controller.extendedGamepad.leftTrigger.isPressed !=     _button[BTN_L2])
+              [self sendinputbuttons: BTN_L2];
         
         if(gamepad.dpad.left.pressed || gamepad.controller.extendedGamepad.leftThumbstick.left.pressed)
         {
@@ -143,7 +147,14 @@ extern CJoyStick g_touchStick;
         
         if (_hat_state != _hat_statelast) {
             _hat_statelast = _hat_state;
-            [self pushkey];
+            
+            int buttonvertical = [mpcController dpadstatetojoypadkey:@"vertical" hatstate:_hat_state];
+            int buttonhorizontal = [mpcController dpadstatetojoypadkey:@"horizontal" hatstate: _hat_state];
+            
+            [mpcController sendinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal];
+            
+            _buttontoreleasevertical = buttonvertical;
+            _buttontoreleasehorizontal = buttonhorizontal;
         }
 
     };
@@ -156,177 +167,14 @@ extern CJoyStick g_touchStick;
     
     dpad.xAxis.valueChangedHandler = ^(GCControllerAxisInput *xAxis,float value) {
         NSLog(@"X Axis changed value %f",value);
-    };     
-}
-
-- (void)sendinputbuttons:(int)buttoncode {
-    _button[buttoncode] = !_button[buttoncode];
-    
-    NSString *configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttoncode]];
-    
-    if([configuredkey  isEqual: @"Joypad"])
-    {
-        if(_button[buttoncode])
-            _thejoystick->setButtonOneState(FireButtonDown);
-        else
-            _thejoystick->setButtonOneState(FireButtonUp);
-    }
-    else
-    {
-        int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
-        
-        if(_button[buttoncode])
-        {
-            SDL_Event ed = { SDL_KEYDOWN };
-            ed.key.keysym.sym = (SDLKey) asciicode;
-            SDL_PushEvent(&ed);
-        }
-        else
-        {
-            SDL_Event eu = { SDL_KEYUP };
-            eu.key.keysym.sym = (SDLKey) asciicode;
-            SDL_PushEvent(&eu);
-        }
-    }
-}
-
-- (void) pushkey {
-    
-    NSString *configuredkeyhorizontal = NULL;
-    NSString *configuredkeyvertical = NULL;
-    int asciicodehorizontal = NULL;
-    int asciicodevertical = NULL;
-    
-    if([self dpadstatetojoypadkey: @"horizontal"])
-    {
-        
-        configuredkeyhorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: @"horizontal"]]];
-        asciicodehorizontal = [[configuredkeyhorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
-    }
-    
-    if([self dpadstatetojoypadkey: @"vertical"])
-    {
-        configuredkeyvertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: @"vertical"]]];
-        asciicodevertical = [[configuredkeyvertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
-    }
-    
-    if(_asciicodekeytoreleasehorizontal)
-    {
-        SDL_Event ed = { SDL_KEYUP };
-        ed.key.keysym.sym = (SDLKey) _asciicodekeytoreleasehorizontal;
-        SDL_PushEvent(&ed);
-        _asciicodekeytoreleasehorizontal = NULL;
-        
-    }
-    
-    if(_asciicodekeytoreleasevertical)
-    {
-        SDL_Event ed = { SDL_KEYUP };
-        ed.key.keysym.sym = (SDLKey) _asciicodekeytoreleasevertical;
-        SDL_PushEvent(&ed);
-        _asciicodekeytoreleasevertical = NULL;
-    }
-    
-    if(_hat_state == DPadCenter)
-    {
-        _thejoystick->setDPadState(_hat_state);
-        return;
-    }
-    
-    if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
-    {
-        _thejoystick->setDPadState(_hat_state);
-        return;
-    }
-    
-    if([configuredkeyhorizontal isEqual: @"Joypad"])
-    {
-        _thejoystick->setDPadState(_hat_state);
-    }
-    else if(configuredkeyhorizontal)
-    {
-        _asciicodekeytoreleasehorizontal = asciicodehorizontal;
-        SDL_Event ed = { SDL_KEYDOWN };
-        ed.key.keysym.sym = (SDLKey) asciicodehorizontal;
-        SDL_PushEvent(&ed);
-    }
-    
-    
-    if([configuredkeyvertical isEqual: @"Joypad"])
-    {
-        _thejoystick->setDPadState(_hat_state);
-    }
-    else if (configuredkeyvertical)
-    {
-        _asciicodekeytoreleasevertical = asciicodevertical;
-        SDL_Event ed = { SDL_KEYDOWN };
-        ed.key.keysym.sym = (SDLKey) asciicodevertical;
-        SDL_PushEvent(&ed);
-    }
+    };
     
 }
 
-- (int) dpadstatetojoypadkey:(NSString *)direction
+-(void)dealloc
 {
-    if(_hat_state == DPadUp)
-    {
-        if([direction isEqual:@"vertical"])
-            return BTN_UP;
-        else
-            return NULL;
-    }
-    else if(_hat_state == DPadUpLeft)
-    {
-        if([direction isEqual:@"vertical"])
-            return BTN_UP;
-        else
-            return BTN_LEFT;
-    }
-    else if(_hat_state == DPadUpRight)
-    {
-        if([direction isEqual:@"horizontal"])
-            return BTN_UP;
-        else
-            return BTN_RIGHT;
-    }
-    else if(_hat_state == DPadDown)
-    {
-        if([direction isEqual:@"vertical"])
-            return BTN_DOWN;
-        else
-            return NULL;
-    }
-    else if (_hat_state == DPadDownLeft)
-    {
-        if([direction isEqual:@"vertical"])
-            return BTN_DOWN;
-        else
-            return BTN_LEFT;
-    }
-    else if (_hat_state == DPadDownRight)
-    {
-        if([direction isEqual:@"vertical"])
-            return BTN_DOWN;
-        else
-            return BTN_RIGHT;
-    }
-    else if (_hat_state == DPadLeft)
-    {
-        if([direction isEqual:@"vertical"])
-            return NULL;
-        else
-            return BTN_LEFT;
-    }
-    else if (_hat_state == DPadRight)
-    {
-        if([direction isEqual:@"vertical"])
-            return NULL;
-        else
-            return BTN_RIGHT;
-    }
-    return NULL;
+    [super dealloc];
 }
-
 
 @end
 

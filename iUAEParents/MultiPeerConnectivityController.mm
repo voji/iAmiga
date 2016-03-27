@@ -1,4 +1,4 @@
-//
+ //
 //  MultiPeerConnectivityController.m
 //  iUAE
 //
@@ -9,10 +9,14 @@
 #import "MultiPeerConnectivityController.h"
 #import "MPCConnectionStates.h"
 #import "SVProgressHUD.h"
+#import "JoypadKey.h"
 
 static MultiPeerConnectivityController *_instance;
+extern CJoyStick g_touchStick;
 
 @implementation MultiPeerConnectivityController {
+    Settings *_settings;
+    CJoyStick							*_thejoystick;
 }
 
 extern void set_MPCController(MultiPeerConnectivityController *m);
@@ -38,7 +42,9 @@ bool bConnectionToServerJustEstablished = false;
     _mainEmuViewController = mainEmuViewCtrl;
     set_MPCController(self);
     _instance = self;
-
+    _settings = [[Settings alloc] init];
+    _thejoystick = &g_touchStick;
+    
     if(mainMenu_servermode == kConnectionIsOff)
     {
         if(advertiser!=nil)
@@ -250,8 +256,8 @@ MCNearbyServiceAdvertiser *advertiser=nil;
     unsigned int aJoyData[3];
     [data getBytes: &aJoyData length: sizeof(aJoyData)];
     
-    
     unsigned int iJoystickPort = aJoyData[0];  // 0 or 1
+    
     if(iJoystickPort == 0)
     {
         mainMenu_joy0dir = aJoyData[1];
@@ -318,6 +324,189 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
      */
 }
 
+- (int)sendinputbuttons:(int)buttonid buttonstatus:(int)buttonstatus {
+    
+    buttonstatus = !buttonstatus;
+    
+    NSString *configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttonid]];
+    
+    if([configuredkey  isEqual: @"Joypad"])
+    {
+        if(buttonstatus)
+            _thejoystick->setButtonOneState(FireButtonDown);
+        else
+            _thejoystick->setButtonOneState(FireButtonUp);
+    }
+    else
+    {
+        int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+        
+        if(buttonstatus)
+        {
+            SDL_Event ed = { SDL_KEYDOWN };
+            ed.key.keysym.sym = (SDLKey) asciicode;
+            SDL_PushEvent(&ed);
+        }
+        else
+        {
+            SDL_Event eu = { SDL_KEYUP };
+            eu.key.keysym.sym = (SDLKey) asciicode;
+            SDL_PushEvent(&eu);
+        }
+    }
+    
+    return buttonstatus;
+    
+}
+
+- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
+{
+    
+    NSString *configuredkeyhorizontal = NULL;
+    NSString *configuredkeyvertical = NULL;
+    int asciicodehorizontal = NULL;
+    int asciicodevertical = NULL;
+    NSString *configuredkeytoreleasehorizontal = NULL;
+    int asciicodekeytoreleasehorizontal = NULL;
+    NSString *configuredkeytoreleasevertical = NULL;
+    int asciicodekeytoreleasevertical = NULL;
+    
+    if([self dpadstatetojoypadkey: @"horizontal" hatstate:hat_state])
+    {
+        
+        configuredkeyhorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: @"horizontal" hatstate:hat_state]]];
+        asciicodehorizontal = [[configuredkeyhorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if([self dpadstatetojoypadkey: @"vertical" hatstate:hat_state])
+    {
+        configuredkeyvertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: @"vertical" hatstate:hat_state]]];
+        asciicodevertical = [[configuredkeyvertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if(buttontoreleasehorizontal)
+    {
+        configuredkeytoreleasehorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttontoreleasehorizontal]];
+        asciicodekeytoreleasehorizontal = [[configuredkeytoreleasehorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if(buttontoreleasevertical)
+    {
+        configuredkeytoreleasevertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttontoreleasevertical]];
+        asciicodekeytoreleasevertical = [[configuredkeytoreleasevertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+    }
+    
+    if(asciicodekeytoreleasehorizontal)
+    {
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) asciicodekeytoreleasehorizontal;
+        SDL_PushEvent(&ed);
+    }
+    
+    if(asciicodekeytoreleasevertical)
+    {
+        SDL_Event ed = { SDL_KEYUP };
+        ed.key.keysym.sym = (SDLKey) asciicodekeytoreleasevertical;
+        SDL_PushEvent(&ed);
+    }
+    
+    if(hat_state == DPadCenter)
+    {
+        _thejoystick->setDPadState(hat_state);
+        return;
+    }
+    
+    if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
+    {
+        _thejoystick->setDPadState(hat_state);
+        return;
+    }
+    
+    if([configuredkeyhorizontal isEqual: @"Joypad"])
+    {
+        _thejoystick->setDPadState(hat_state);
+    }
+    else if(configuredkeyhorizontal)
+    {
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicodehorizontal;
+        SDL_PushEvent(&ed);
+    }
+    
+    
+    if([configuredkeyvertical isEqual: @"Joypad"])
+    {
+        _thejoystick->setDPadState(hat_state);
+    }
+    else if (configuredkeyvertical)
+    {
+        SDL_Event ed = { SDL_KEYDOWN };
+        ed.key.keysym.sym = (SDLKey) asciicodevertical;
+        SDL_PushEvent(&ed);
+    }
+}
+
+
+- (int) dpadstatetojoypadkey:(NSString *)direction hatstate:(TouchStickDPadState)hat_state
+{
+    if(hat_state == DPadUp)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_UP;
+        else
+            return NULL;
+    }
+    else if(hat_state == DPadUpLeft)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_UP;
+        else
+            return BTN_LEFT;
+    }
+    else if(hat_state == DPadUpRight)
+    {
+        if([direction isEqual:@"horizontal"])
+            return BTN_UP;
+        else
+            return BTN_RIGHT;
+    }
+    else if(hat_state == DPadDown)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return NULL;
+    }
+    else if (hat_state == DPadDownLeft)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return BTN_LEFT;
+    }
+    else if (hat_state == DPadDownRight)
+    {
+        if([direction isEqual:@"vertical"])
+            return BTN_DOWN;
+        else
+            return BTN_RIGHT;
+    }
+    else if (hat_state == DPadLeft)
+    {
+        if([direction isEqual:@"vertical"])
+            return NULL;
+        else
+            return BTN_LEFT;
+    }
+    else if (hat_state == DPadRight)
+    {
+        if([direction isEqual:@"vertical"])
+            return NULL;
+        else
+            return BTN_RIGHT;
+    }
+    return NULL;
+}
 
 
 // Start receiving a resource from remote peer.

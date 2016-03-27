@@ -28,6 +28,9 @@
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl ;
 + (MultiPeerConnectivityController *)getinstance;
+- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal;
+- (int)sendinputbuttons:(int)buttonid buttonstatus:(int)buttonstatus;
+- (int) dpadstatetojoypadkey:(NSString *)direction hatstate:(TouchStickDPadState)hat_state;
 
 @end
 
