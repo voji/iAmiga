@@ -24,7 +24,7 @@
 #import "MultiPeerConnectivityController.h"
 
 @implementation MFIControllerReaderView {
-    int _button[8];
+    int _button[9];
     TouchStickDPadState _hat_statelast;
     TouchStickDPadState _hat_state;
     MultiPeerConnectivityController *mpcController;
@@ -71,7 +71,7 @@
 
 - (void)sendinputbuttons:(int)buttonid
 {
-    _button[buttonid] = [mpcController sendinputbuttons:buttonid buttonstatus:_button[buttonid]];
+    _button[buttonid] = [mpcController sendinputbuttons:buttonid buttonstate:_button[buttonid]];
 }
 
 - (void)controllerDiscovered {

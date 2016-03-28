@@ -19,7 +19,6 @@ extern CJoyStick g_touchStick;
     CJoyStick							*_thejoystick;
 }
 
-extern void set_MPCController(MultiPeerConnectivityController *m);
 extern MPCStateType mainMenu_servermode;
 extern unsigned int mainMenu_joy0dir;
 extern int mainMenu_joy0button;
@@ -38,9 +37,17 @@ bool bConnectionToServerJustEstablished = false;
     return _instance;
 }
 
+- (id) init
+{
+    [super init];
+    
+    _instance = self;
+    
+    return self;
+}
+
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl {
     _mainEmuViewController = mainEmuViewCtrl;
-    set_MPCController(self);
     _instance = self;
     _settings = [[Settings alloc] init];
     _thejoystick = &g_touchStick;
@@ -212,7 +219,7 @@ int lastbutton =0;
             iJoystickPort=1;
         
         
-        unsigned int aints[3]= { iJoystickPort,  mainMenu_joy1dir, (unsigned int)mainMenu_joy1button};
+        int aints[3]= { iJoystickPort,  mainMenu_joy1dir, (unsigned int)mainMenu_joy1button};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
         
@@ -228,6 +235,44 @@ int lastbutton =0;
     
 }
 
+- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical
+{
+    int aints[6]= { (unsigned int) 1,  (unsigned int)direction, (unsigned int) 0, 0, buttontoreleasehorizontal, buttontoreleasevertical};
+    
+    NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
+    
+    
+    NSError *error = nil;
+    if (![session sendData:data
+                    toPeers:session.connectedPeers
+                   withMode:MCSessionSendDataReliable
+                      error:&error]) {
+        NSLog(@"[Error] %@", error);
+    }
+}
+- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate;
+{
+    if(session == nil || session.connectedPeers.count == 0)
+    {
+        
+    }
+    else
+    {
+        int aints[6]= { (unsigned int) 1,  (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
+        
+        NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
+        
+        
+        NSError *error = nil;
+        if (![session sendData:data
+                       toPeers:session.connectedPeers
+                      withMode:MCSessionSendDataReliable
+                         error:&error]) {
+            NSLog(@"[Error] %@", error);
+        }
+    }
+
+}
 - (void)showMessage: (NSString *)sTitel withMessage:(NSString *)sMessage
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -253,25 +298,32 @@ MCNearbyServiceAdvertiser *advertiser=nil;
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
-    unsigned int aJoyData[3];
+    NSLog(@"Data Received");
+    
+    unsigned int aJoyData[6];
     [data getBytes: &aJoyData length: sizeof(aJoyData)];
     
-    unsigned int iJoystickPort = aJoyData[0];  // 0 or 1
+    //Attenttion!! Code Ignores Port at the Moment and always uses port 1
+    int iJoystickPort = (int) aJoyData[0];  // 0 or 1
+    TouchStickDPadState joydir = (TouchStickDPadState)aJoyData[1];
+    int joybtnstat = (int) aJoyData[2];
+    int joybtn = (int) aJoyData[3];
+    int btntoreleasehor = (int) aJoyData[4];
+    int btntoreleasever = (int) aJoyData[5];
     
-    if(iJoystickPort == 0)
+    
+    if(joybtnstat == 1)
     {
-        mainMenu_joy0dir = aJoyData[1];
-        mainMenu_joy0button =(int)aJoyData[2];
         
-        //when joy0 signals come in
-        //we have to activate joypad, otherwise the last mouse movements will overwrite/disturb
-        //the remote joystick ddirection
-        [self activateJoyPad];
     }
-    else if(iJoystickPort == 1)
+    
+    if(joybtn)
     {
-        mainMenu_joy1dir = aJoyData[1];
-        mainMenu_joy1button =(int)aJoyData[2];
+        [self sendinputbuttons:joybtn buttonstate:joybtnstat];
+    }
+    else
+    {
+        [self sendinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor];
     }
 }
 
@@ -324,15 +376,15 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
      */
 }
 
-- (int)sendinputbuttons:(int)buttonid buttonstatus:(int)buttonstatus {
+- (int)sendinputbuttons:(int)buttonid buttonstate:(int)buttonstate {
     
-    buttonstatus = !buttonstatus;
+    buttonstate = !buttonstate;
     
     NSString *configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttonid]];
     
     if([configuredkey  isEqual: @"Joypad"])
     {
-        if(buttonstatus)
+        if(buttonstate)
             _thejoystick->setButtonOneState(FireButtonDown);
         else
             _thejoystick->setButtonOneState(FireButtonUp);
@@ -341,7 +393,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     {
         int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
         
-        if(buttonstatus)
+        if(buttonstate)
         {
             SDL_Event ed = { SDL_KEYDOWN };
             ed.key.keysym.sym = (SDLKey) asciicode;
@@ -355,7 +407,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
         }
     }
     
-    return buttonstatus;
+    return buttonstate;
     
 }
 

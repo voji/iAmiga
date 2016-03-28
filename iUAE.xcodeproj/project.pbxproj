@@ -238,6 +238,7 @@
 		7EB017791B09164900C74B9D /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017761B09164900C74B9D /* State.m */; };
 		7EB017801B0921B000C74B9D /* SettingsSelectKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */; };
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
+		7EB828F21CA94757003D3A18 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7EB828F11CA94757003D3A18 /* kick13.rom */; };
 		7EC59ED21BAC52390097B87A /* SettingsJoypadStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
@@ -1634,6 +1635,7 @@
 		7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectKeyViewController.h; sourceTree = "<group>"; };
 		7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSelectKeyViewController.m; sourceTree = "<group>"; };
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		7EB828F11CA94757003D3A18 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../../Desktop/kick13.rom; sourceTree = "<group>"; };
 		7EC59ED01BAC52390097B87A /* SettingsJoypadStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadStyle.h; sourceTree = "<group>"; };
 		7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadStyle.m; sourceTree = "<group>"; };
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
@@ -1651,7 +1653,6 @@
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectConfigurationViewController.m; path = ../SelectConfigurationViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
-		9064AD561C7D0A8D004CAE28 /* od-joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "od-joy.h"; sourceTree = "<group>"; };
 		9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiPeerConnectivityController.h; path = iUAEParents/MultiPeerConnectivityController.h; sourceTree = "<group>"; };
 		9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MultiPeerConnectivityController.mm; path = iUAEParents/MultiPeerConnectivityController.mm; sourceTree = "<group>"; };
 		9064AD621C7F7982004CAE28 /* MPCConnectionStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPCConnectionStates.h; path = iUAEParents/MPCConnectionStates.h; sourceTree = "<group>"; };
@@ -2405,7 +2406,6 @@
 		0542F2610FC8852A00126562 /* uae-src */ = {
 			isa = PBXGroup;
 			children = (
-				9064AD561C7D0A8D004CAE28 /* od-joy.h */,
 				97855145153A454100580B91 /* savestate.cpp */,
 				0552BD1C0F3D797C005B30DF /* sysconfig.h */,
 				054525AF106EC5550032FC41 /* combined_modules.cpp */,
@@ -2647,6 +2647,7 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7EB828F11CA94757003D3A18 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -4172,6 +4173,7 @@
 				7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */,
+				7EB828F21CA94757003D3A18 /* kick13.rom in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				BE6537DA1C5F7E41007AD097 /* PKCustomKeyboard.xib in Resources */,
