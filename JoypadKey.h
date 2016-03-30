@@ -26,3 +26,4 @@
 #define BTN_DOWN 10
 #define BTN_LEFT 11
 #define BTN_RIGHT 12
+#define BTN_INVALID 99

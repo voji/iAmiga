@@ -51,7 +51,7 @@ extern void init_joystick();
     NSTimer *_checkForGControllerTimer;
 }
 
-MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init];
+MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init]; //Needs to be called this early and out of class context to ensure it loads first
 UIButton *btnSettings;
 IOSKeyboard *ioskeyboard;
 

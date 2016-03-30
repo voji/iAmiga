@@ -21,14 +21,22 @@
 
 class CJoyStick  {
 public:
-	TouchStickDPadState		dPadState() { return _dPadState; }
-	FireButtonState			buttonOneState() { return _buttonOneState; }
+	TouchStickDPadState		dPadStateP0() { return _dPadStateP0; }
+	FireButtonState			buttonOneStateP0() { return _buttonOneStateP0; }
 	
-	void					setDPadState(TouchStickDPadState value) { _dPadState = value; }
-	void					setButtonOneState(FireButtonState value) { _buttonOneState = value; }
+	void					setDPadStateP0(TouchStickDPadState value) { _dPadStateP0 = value; }
+    void					setButtonOneStateP0(FireButtonState value) { _buttonOneStateP0 = value; }
+    
+    TouchStickDPadState		dPadStateP1() { return _dPadStateP1; }
+    FireButtonState			buttonOneStateP1() { return _buttonOneStateP1; }
+    
+    void					setDPadStateP1(TouchStickDPadState value) { _dPadStateP1 = value; }
+    void					setButtonOneStateP1(FireButtonState value) { _buttonOneStateP1 = value; }
 
 private:
-	TouchStickDPadState _dPadState;
-	FireButtonState _buttonOneState;
+	TouchStickDPadState _dPadStateP0;
+	FireButtonState _buttonOneStateP0;
+    TouchStickDPadState _dPadStateP1;
+    FireButtonState _buttonOneStateP1;
 
 };

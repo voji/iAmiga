@@ -37,24 +37,8 @@
 
 #include "vkbd.h"
 
-#import <UIKit/UIKit.h>
 #import <GameController/GameController.h>
-#import "MultiPeerConnectivityController.h"
-#import "MPCConnectionStates.h"
-#import "od-joy.h"
 
-MultiPeerConnectivityController *theMPCController=nil;
-void set_MPCController(MultiPeerConnectivityController *m)
-{
-    theMPCController = m;
-}
-
-
-extern MPCStateType mainMenu_servermode;
-extern unsigned int mainMenu_joy0dir;
-extern int mainMenu_joy0button;
-extern unsigned int mainMenu_joy1dir;
-extern int mainMenu_joy1button;
 int nr_joysticks;
 int joystickselected;
 
@@ -67,39 +51,17 @@ void read_joystick(int nr, unsigned int *dir, int *button)
 #ifndef MAX_AUTOEVENTS
     int left = 0, right = 0, top = 0, bot = 0;
     int i, num;
-	SDL_Joystick *joy = nr == 0 ? uae4all_joy0 : uae4all_joy0;
-    int joyport = nr == 0 ? 1 : 0;
     
+    nr = !nr;
+    
+	SDL_Joystick *joy = nr == 0 ? uae4all_joy0 : uae4all_joy1;
     
     *dir = 0;
     *button = 0;
-#if defined (SWAP_JOYSTICK)
-    //this is not defined anyway
-    if (nr == 0) {
-        if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
-        {
-            //NSLog("ServerMode");
-            *dir = mainMenu_joy0dir;
-            *button = mainMenu_joy0button;
-            return;
-        }
-    };
-#else
-    if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
-    {
-        if (joyport == 0)
-        {
-            //NSLog("ServerMode");
-            *dir = mainMenu_joy0dir;
-            *button = mainMenu_joy0button;
-            return;
-        }
-    }
-#endif
     
-    nr = (~nr)&0x1;
-	
-    switch (g_touchStick.dPadState()) {
+    TouchStickDPadState dpadstate = nr == 0 ? g_touchStick.dPadStateP0() : g_touchStick.dPadStateP1();
+    
+    switch (dpadstate) {
 		case DPadUp:
 			top = 1;
 			break;
@@ -125,15 +87,23 @@ void read_joystick(int nr, unsigned int *dir, int *button)
 			top = 1; left = 1;
 			break;
 	}
-	
-	*button = g_touchStick.buttonOneState();
+    
+    if(nr==0)
+    {
+        *button = g_touchStick.buttonOneStateP0();
+    }
+    else
+    {
+        *button = g_touchStick.buttonOneStateP1();
+    }
+    
     
     // now read current "SDL" joystick
     num = SDL_JoystickNumButtons (joy);
     
     // NOTE: should really only map one button, but this code maps any button press as a fire
     for (i = 0; i < num; i++)
-		//*button |= (SDL_JoystickGetButton (joy, i) & 1) << i;
+		*button |= (SDL_JoystickGetButton (joy, i) & 1) << i;
         *button |= (SDL_JoystickGetButton (joy, i) & 1);
     
     int hat = SDL_JoystickGetHat(joy, 0);
@@ -151,29 +121,6 @@ void read_joystick(int nr, unsigned int *dir, int *button)
     if (right) bot = !bot;
     *dir = bot | (right << 1) | (top << 8) | (left << 9);
 #endif
-    if(theMPCController == nil)
-    {}
-    else if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ||
-            mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1
-            ) //am I the client, then I do should send notifications to the server
-    {
-        mainMenu_joy1button = *button;
-        mainMenu_joy1dir = *dir;
-        sendJoystickDataToServer (theMPCController);
-    }
-    else if(mainMenu_servermode==kServeAsHostForIncomingJoypadSignals)
-    {
-        //overwrite host joystick dir and button with remote in case of host does not move or press e.g. ==0
-        if (*dir == 0)
-        {
-            *dir = mainMenu_joy1dir;
-        }
-        if (*button == 0)
-        {
-            *button = mainMenu_joy1button;
-        }
-    }
-
 }
 
 void init_joystick(void) {
