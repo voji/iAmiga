@@ -571,7 +571,7 @@ extern MPCStateType mainMenu_servermode;
         int buttonhorizontal = [_mpcController dpadstatetojoypadkey:@"horizontal" hatstate:state];
         
         if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-            [_mpcController sendJoystickDataForDirection:state buttontoreleasehorizontal:_buttontoreleasehorizontal buttontoreleasevertical:_buttontoreleasehorizontal];
+            [_mpcController sendJoystickDataForDirection:state buttontoreleasehorizontal:_buttontoreleasehorizontal buttontoreleasevertical:_buttontoreleasevertical];
         else
             [_mpcController sendinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal];
 

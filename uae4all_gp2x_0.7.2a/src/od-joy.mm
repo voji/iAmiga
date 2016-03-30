@@ -51,19 +51,17 @@ void read_joystick(int nr, unsigned int *dir, int *button)
 #ifndef MAX_AUTOEVENTS
     int left = 0, right = 0, top = 0, bot = 0;
     int i, num;
-	SDL_Joystick *joy = nr == 0 ? uae4all_joy0 : uae4all_joy0;
+    
+    nr = !nr;
+    
+	SDL_Joystick *joy = nr == 0 ? uae4all_joy0 : uae4all_joy1;
     
     *dir = 0;
     *button = 0;
-#if defined (SWAP_JOYSTICK)
-    if (nr == 0) return;
-#else
-    if (nr == 1) return;
-#endif
     
-    nr = (~nr)&0x1;
-	
-    switch (g_touchStick.dPadState()) {
+    TouchStickDPadState dpadstate = nr == 0 ? g_touchStick.dPadStateP0() : g_touchStick.dPadStateP1();
+    
+    switch (dpadstate) {
 		case DPadUp:
 			top = 1;
 			break;
@@ -89,15 +87,23 @@ void read_joystick(int nr, unsigned int *dir, int *button)
 			top = 1; left = 1;
 			break;
 	}
-	
-	*button = g_touchStick.buttonOneState();
+    
+    if(nr==0)
+    {
+        *button = g_touchStick.buttonOneStateP0();
+    }
+    else
+    {
+        *button = g_touchStick.buttonOneStateP1();
+    }
+    
     
     // now read current "SDL" joystick
     num = SDL_JoystickNumButtons (joy);
     
     // NOTE: should really only map one button, but this code maps any button press as a fire
     for (i = 0; i < num; i++)
-		//*button |= (SDL_JoystickGetButton (joy, i) & 1) << i;
+		*button |= (SDL_JoystickGetButton (joy, i) & 1) << i;
         *button |= (SDL_JoystickGetButton (joy, i) & 1);
     
     int hat = SDL_JoystickGetHat(joy, 0);

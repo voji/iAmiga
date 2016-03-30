@@ -16,7 +16,7 @@ extern CJoyStick g_touchStick;
 
 @implementation MultiPeerConnectivityController {
     Settings *_settings;
-    CJoyStick							*_thejoystick;
+    double _lasttime;
 }
 
 extern MPCStateType mainMenu_servermode;
@@ -25,6 +25,7 @@ extern int mainMenu_joy0button;
 extern unsigned int mainMenu_joy1dir;
 extern int mainMenu_joy1button;
 static NSString * const XXServiceType = @"svc-iuae";
+CJoyStick *theJoystick = &g_touchStick;
 MCPeerID *localPeerID = nil;
 MCSession *session = nil;
 MCNearbyServiceBrowser *browser = nil;
@@ -47,10 +48,10 @@ bool bConnectionToServerJustEstablished = false;
 }
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl {
+    
     _mainEmuViewController = mainEmuViewCtrl;
     _instance = self;
     _settings = [[Settings alloc] init];
-    _thejoystick = &g_touchStick;
     
     if(mainMenu_servermode == kConnectionIsOff)
     {
@@ -190,28 +191,13 @@ withDiscoveryInfo:(NSDictionary<NSString *,
     mainMenu_servermode=kConnectionIsOff; //disable client mode
 }
 
-
-
-// C "trampoline" function to invoke Objective-C method
-void sendJoystickDataToServer (void *self)
-{
-    // Call the Objective-C method using Objective-C syntax
-    [(id) self sendJoystickData];
-}
-
-
-unsigned int lastdir =0;
-int lastbutton =0;
-- (void)sendJoystickData
+- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical
 {
     if(session == nil || session.connectedPeers.count == 0)
     {
     }
-    else if(mainMenu_joy1dir != lastdir || mainMenu_joy1button != lastbutton)
+    else
     {
-        lastdir = mainMenu_joy1dir;
-        lastbutton = mainMenu_joy1button;
-        
         unsigned int iJoystickPort = 0;  // 0 or 1
         if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
             iJoystickPort=0;
@@ -219,7 +205,7 @@ int lastbutton =0;
             iJoystickPort=1;
         
         
-        int aints[3]= { iJoystickPort,  mainMenu_joy1dir, (unsigned int)mainMenu_joy1button};
+        int aints[6]= { (unsigned int) iJoystickPort,  (unsigned int)direction, (unsigned int)0, BTN_INVALID, buttontoreleasehorizontal, buttontoreleasevertical};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
         
@@ -232,33 +218,23 @@ int lastbutton =0;
             NSLog(@"[Error] %@", error);
         }
     }
-    
 }
-
-- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical
-{
-    int aints[6]= { (unsigned int) 1,  (unsigned int)direction, (unsigned int) 0, 0, buttontoreleasehorizontal, buttontoreleasevertical};
-    
-    NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
-    
-    
-    NSError *error = nil;
-    if (![session sendData:data
-                    toPeers:session.connectedPeers
-                   withMode:MCSessionSendDataReliable
-                      error:&error]) {
-        NSLog(@"[Error] %@", error);
-    }
-}
-- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate;
-{
+- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate {
+ 
     if(session == nil || session.connectedPeers.count == 0)
     {
         
     }
     else
     {
-        int aints[6]= { (unsigned int) 1,  (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
+        unsigned int iJoystickPort = 0;  // 0 or 1
+        if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
+            iJoystickPort=0;
+        else if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
+            iJoystickPort=1;
+        
+        
+        int aints[6]= { (unsigned int)iJoystickPort,  (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
         
@@ -298,7 +274,6 @@ MCNearbyServiceAdvertiser *advertiser=nil;
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
-    NSLog(@"Data Received");
     
     unsigned int aJoyData[6];
     [data getBytes: &aJoyData length: sizeof(aJoyData)];
@@ -311,19 +286,28 @@ MCNearbyServiceAdvertiser *advertiser=nil;
     int btntoreleasehor = (int) aJoyData[4];
     int btntoreleasever = (int) aJoyData[5];
     
-    
-    if(joybtnstat == 1)
+    if(joybtn != BTN_INVALID)
     {
+
+        if(CACurrentMediaTime() - _lasttime < (double) 0.02)
+        {
+            dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 0.02 * NSEC_PER_SEC);
+            
+            dispatch_after(waittime, dispatch_get_main_queue(),
+            ^void{
+                [self sendinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
+            });
+        }
+        else
+        {
+             [self sendinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
+        }
         
-    }
-    
-    if(joybtn)
-    {
-        [self sendinputbuttons:joybtn buttonstate:joybtnstat];
+        _lasttime = CACurrentMediaTime();
     }
     else
     {
-        [self sendinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor];
+        [self sendinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor port:iJoystickPort];
     }
 }
 
@@ -376,7 +360,20 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
      */
 }
 
-- (int)sendinputbuttons:(int)buttonid buttonstate:(int)buttonstate {
+- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
+{
+    [self sendinputdirections:hat_state buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal:buttontoreleasehorizontal port:1];
+}
+
+
+- (int)sendinputbuttons:(int)buttonid buttonstate:(int)buttonstate
+{
+    int returnvalue = [self sendinputbuttons:buttonid buttonstate:buttonstate port:1];
+    return returnvalue;
+}
+
+
+- (int)sendinputbuttons:(int)buttonid buttonstate:(int)buttonstate port:(int)port {
     
     buttonstate = !buttonstate;
     
@@ -384,10 +381,14 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
     if([configuredkey  isEqual: @"Joypad"])
     {
-        if(buttonstate)
-            _thejoystick->setButtonOneState(FireButtonDown);
-        else
-            _thejoystick->setButtonOneState(FireButtonUp);
+        if(buttonstate) {
+            if(port == 0) theJoystick->setButtonOneStateP0(FireButtonDown);
+            else theJoystick->setButtonOneStateP1(FireButtonDown);
+        }
+        else {
+            if(port == 0) theJoystick->setButtonOneStateP0(FireButtonUp);
+             else theJoystick->setButtonOneStateP1(FireButtonUp);
+        }
     }
     else
     {
@@ -411,7 +412,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
 }
 
-- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
+- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port:(int)port
 {
     
     NSString *configuredkeyhorizontal = NULL;
@@ -464,19 +465,22 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
     if(hat_state == DPadCenter)
     {
-        _thejoystick->setDPadState(hat_state);
+        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        else theJoystick->setDPadStateP1(hat_state);
         return;
     }
     
     if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
     {
-        _thejoystick->setDPadState(hat_state);
+        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        else theJoystick->setDPadStateP1(hat_state);
         return;
     }
     
     if([configuredkeyhorizontal isEqual: @"Joypad"])
     {
-        _thejoystick->setDPadState(hat_state);
+        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        else theJoystick->setDPadStateP1(hat_state);
     }
     else if(configuredkeyhorizontal)
     {
@@ -488,7 +492,8 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
     if([configuredkeyvertical isEqual: @"Joypad"])
     {
-        _thejoystick->setDPadState(hat_state);
+        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        else theJoystick->setDPadStateP1(hat_state);
     }
     else if (configuredkeyvertical)
     {
