@@ -214,6 +214,7 @@
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
+		7E942A161C90BF3D0081ED20 /* iUAE in Resources */ = {isa = PBXBuildFile; fileRef = 7E942A151C90BF3D0081ED20 /* iUAE */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
@@ -230,7 +231,6 @@
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
 		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
-		7EAF731B1C945FAD00E76804 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF731A1C945FAD00E76804 /* Info.plist */; };
 		7EB017651B09115900C74B9D /* StateManagementController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017631B09115900C74B9D /* StateManagementController.mm */; };
 		7EB017711B09143000C74B9D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0176B1B09143000C74B9D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0176D1B09143000C74B9D /* SVProgressHUD.bundle */; };
@@ -1601,6 +1601,7 @@
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
 		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
 		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadMainController.m; sourceTree = "<group>"; };
+		7E942A151C90BF3D0081ED20 /* iUAE */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iUAE; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
@@ -2375,6 +2376,7 @@
 		053D8B2E13B1B2C30002802F /* TargetSpecific */ = {
 			isa = PBXGroup;
 			children = (
+				7E942A151C90BF3D0081ED20 /* iUAE */,
 				9787FC2415618ADB00458A4A /* sinbad */,
 				9787FABD156188ED00458A4A /* koc */,
 				9706D7101561827300073678 /* sdi */,
@@ -4203,7 +4205,6 @@
 				9785510C153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
 				9785510F153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
 				7E2665551C483AEB004250D1 /* monitor_selected.png in Resources */,
-				7EAF731B1C945FAD00E76804 /* Info.plist in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
 				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
@@ -4230,6 +4231,7 @@
 				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
 				7E5AF60D1C444854000BF5CB /* sticky_selected_svg.svg in Resources */,
 				7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */,
+				7E942A161C90BF3D0081ED20 /* iUAE in Resources */,
 				7E5AF6131C444854000BF5CB /* gear_unselected_svg.svg in Resources */,
 				97BE2AF915489E6600BF66CF /* mouse.png in Resources */,
 				97BE2AFC15489E6600BF66CF /* ls-fullscreen_bottomBtn.png in Resources */,

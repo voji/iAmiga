@@ -9,13 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EmulationViewController.h"
 
-<<<<<<< HEAD
-@class DynamicLandscapeControls;
-
-@interface EmulationViewiPhone : EmulationViewController <UIWebViewDelegate> {
-=======
 @interface EmulationViewiPhone : EmulationViewController {
->>>>>>> parent of fa960e3... Configurable onscreen mouse buttons
     
     UIView *menuView;
     UIWebView *webView;

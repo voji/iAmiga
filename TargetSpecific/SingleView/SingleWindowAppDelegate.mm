@@ -111,26 +111,7 @@
 	}
 }
 
-<<<<<<< HEAD
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    AdfImporter *importer = [[AdfImporter alloc] init];
-    BOOL imported = [importer import:url.path];
-    NSString *message = [NSString stringWithFormat:(imported ? @"Successfully imported %@" : @"Failed to import %@"), [url.path lastPathComponent]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import"
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    [importer release];
-    [alert release];
-    return imported;
-}
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-=======
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     AdfImporter *importer = [[[AdfImporter alloc] init] autorelease];
     BOOL imported = [importer import:url.path];
@@ -148,7 +129,7 @@
 }
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
->>>>>>> 1.1.0b1
+
     return UIInterfaceOrientationMaskLandscape;
 }
 

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-//
-//  AdfDownloader.h
-//  iUAE
-//
-//  Created by Simon Toens on 3/25/15.
-//
-//
-=======
 //  Created by Simon Toens on 25.03.15
 //
 //  iUAE is free software: you may copy, redistribute
@@ -22,7 +13,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
->>>>>>> 1.1.0b1
 
 #import <Foundation/Foundation.h>
 

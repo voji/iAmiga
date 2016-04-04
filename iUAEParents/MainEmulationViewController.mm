@@ -197,31 +197,6 @@ extern void uae_reset();
 
 - (IBAction)togglePinstatus:(id)sender {
     
-<<<<<<< HEAD
-    UIButton *button = sender;
-    
-    if (button == btnSettings)
-    {
-        [self settings];
-    }
-    else
-    {
-        bool keyboardactiveonstart = keyboardactive;
-        keyboardactive = (button == btnKeyboard) ? !keyboardactive : FALSE;
-        
-        joyactive = (button == btnJoypad) ? !joyactive : FALSE;
-        
-        btnKeyboard.selected = (button == btnKeyboard) ? !btnKeyboard.selected : FALSE;
-        btnJoypad.selected = (button == btnJoypad) ? !btnJoypad.selected : FALSE;
-        
-        joyControllerMain.hidden = !joyactive;
-        mouseHandlermain.hidden = joyactive;
-        
-        if (keyboardactive != keyboardactiveonstart) { [ioskeyboard toggleKeyboard]; }
-        
-        if (keyboardactive != keyboardactiveonstart && !keyboardactive) { set_joystickactive(); }
-    }
-=======
     _btnPin.selected = !_btnPin.selected;
     //_btnPin.tintColor = _btnPin.selected ? [UIColor blueColor] : [UIColor blackColor];
     
@@ -308,7 +283,7 @@ extern void uae_reset();
     _menuHidingTimer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
                                                        selector:@selector(checkForMenuBarHiding:) userInfo:nil repeats:YES] retain];
     _menuHidingTimer.tolerance = 0.0020;
->>>>>>> 1.1.0b1
+
 }
 
 - (void)initCheckForPausedTimer {

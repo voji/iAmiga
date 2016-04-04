@@ -26,26 +26,16 @@
 
 @synthesize roms, selectedIndexPath, indexTitles, delegate, context;
 
-<<<<<<< HEAD
-=======
 + (NSString *)getAdfChangedNotificationName {
     return @"OnAdfChanged";
 }
 
->>>>>>> 1.1.0b1
 - (void)viewDidLoad {
 	self.title = @"Browser";
     self.adfImporter = [[AdfImporter alloc] init];
     [self reloadAdfs];
-<<<<<<< HEAD
-}
 
-- (void)reloadAdfs {
-	self.indexTitles = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
-						@"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
-						@"W", @"X", @"Y", @"Z", @"#", nil];
-	
-=======
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAdfChanged)
                                                  name:[EMUROMBrowserViewController getAdfChangedNotificationName]
@@ -57,7 +47,7 @@
 }
 
 - (void)reloadAdfs {
->>>>>>> 1.1.0b1
+
 	NSMutableArray *sections = [[NSMutableArray alloc] init];
 	for (int i = 0; i < 26; i++) {
 		unichar c = i+65;
@@ -187,10 +177,9 @@
 	self.selectedIndexPath = nil;
 	self.context = nil;
     self.adfImporter = nil;
-<<<<<<< HEAD
-=======
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
->>>>>>> 1.1.0b1
+
 	[super dealloc];
 }
 

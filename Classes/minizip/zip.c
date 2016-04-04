@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wparentheses-equality"
 
->>>>>>> 1.1.0b1
 /* zip.c -- IO on .zip files using zlib
    Version 1.01e, February 12th, 2005
 
@@ -1223,8 +1220,6 @@ extern int ZEXPORT zipClose (file, global_comment)
 
     return err;
 }
-<<<<<<< HEAD
-=======
 
 #pragma clang diagnostic pop
->>>>>>> 1.1.0b1
+
