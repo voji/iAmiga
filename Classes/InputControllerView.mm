@@ -27,6 +27,7 @@
 #import "KeyButtonViewHandler.h"
 #import "MultiPeerconnectivityController.h"
 #import "MPCConnectionStates.h"
+#import "VPadMotionController.h"
 
 
 InputControllerView *sharedInstance;
@@ -488,6 +489,8 @@ extern MPCStateType mainMenu_servermode;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ([VPadMotionController isActive]){return;}
+    
 	UITouch *touch = [touches anyObject];
 	_stickCenter = [touch locationInView:self];
 	_stickVector->x = _stickVector->y = 0;
@@ -496,13 +499,17 @@ extern MPCStateType mainMenu_servermode;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
-	UITouch *touch = [touches anyObject];
+	if ([VPadMotionController isActive]){return;}
+    
+    UITouch *touch = [touches anyObject];
 	_stickLocation = [touch locationInView:self];
 	_stickVector->UpdateFromPoints(_stickCenter, _stickLocation);
 	[self calculateDPadState];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ([VPadMotionController isActive]){return;}
+    
     _clickedscreen = YES;
 	_stickVector->x = _stickVector->y = 0;
 	[self setDPadState:DPadCenter];
