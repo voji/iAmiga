@@ -36,6 +36,7 @@
 #import "DiskDriveService.h"
 #import <GameController/GameController.h>
 #import "MultiPeerConnectivityController.h"
+#import "VPadMotionController.h"
 
 extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
 extern void init_joystick();
@@ -128,7 +129,15 @@ extern void uae_reset();
     [_mouseHandler reloadMouseSettings];
     [_joyController reloadJoypadSettings];
     
+    if (joyactive && _settings.DPadModeIsMotion){
+        [VPadMotionController setActive];
+    }
+    
     [mpcController configure: self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [VPadMotionController disable];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -154,12 +163,14 @@ extern void uae_reset();
     /* Check if function is still needed */
     _joyController.hidden = TRUE;
     joyactive = FALSE;
+    [VPadMotionController disable];
 }
 
 - (void)initializeControls {
     joyactive = FALSE;
     _mouseHandler.hidden = FALSE;
     _joyController.hidden = TRUE;
+    [VPadMotionController disable];
 }
 
 extern  void mousehack_setdontcare_iuae ();
@@ -178,6 +189,15 @@ extern void togglemouse (void);
     //_btnJoypad.tintColor = _btnJoypad.selected ? [UIColor blueColor] : [UIColor blackColor];
     
     _joyController.hidden = !joyactive;
+
+    
+    if (joyactive && _settings.DPadModeIsMotion){
+        [VPadMotionController setActive];
+    }
+    else{
+        [VPadMotionController disable];
+    }
+    
     _mouseHandler.hidden = joyactive;
 
     if (joyactive)
