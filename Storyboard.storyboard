@@ -1246,8 +1246,136 @@
                                             <segue destination="3LA-WS-AAY" kind="show" identifier="SelectLeftOrRight" id="6SL-ek-zOw"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="8L1-ht-bOG" style="IBUITableViewCellStyleDefault" id="C9h-AB-jHu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ttp-SR-MJS" detailTextLabel="z9f-MU-eRb" style="IBUITableViewCellStyleValue1" id="irU-Gz-OhY" userLabel="DPad Cell">
                                         <rect key="frame" x="0.0" y="187" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="irU-Gz-OhY" id="Pda-IY-o0r">
+                                            <rect key="frame" x="0.0" y="0.0" width="810" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="DPad Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ttp-SR-MJS" userLabel="DPad">
+                                                    <rect key="frame" x="196" y="12" width="85" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z9f-MU-eRb">
+                                                    <rect key="frame" x="768" y="12" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="DTi-e3-4vT" kind="show" identifier="SelectDPadMode" id="PzY-34-IPl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="gcL-rf-u2f" detailTextLabel="KCk-VD-2h1" style="IBUITableViewCellStyleValue1" id="CmW-J5-ndt" userLabel="Gyro Info Cell">
+                                        <rect key="frame" x="0.0" y="231" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CmW-J5-ndt" id="tPE-eE-SL7">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gyro Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcL-rf-u2f">
+                                                    <rect key="frame" x="196" y="12" width="67" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KCk-VD-2h1">
+                                                    <rect key="frame" x="786" y="12" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="atJ-2q-Yga" style="IBUITableViewCellStyleDefault" id="YPJ-if-jlc" userLabel="Gyro Calibration Cell">
+                                        <rect key="frame" x="0.0" y="275" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YPJ-if-jlc" id="FG3-Sb-unX">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Calibrate Gyro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="atJ-2q-Yga">
+                                                    <rect key="frame" x="196" y="0.0" width="632" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="VCX-lb-cz6" style="IBUITableViewCellStyleDefault" id="0Tj-HW-Pv7" userLabel="Gyro Toggle Up Down Cell">
+                                        <rect key="frame" x="0.0" y="319" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Tj-HW-Pv7" id="3tf-YJ-G2y">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Toggle Gyro Up Down Directions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VCX-lb-cz6">
+                                                    <rect key="frame" x="196" y="0.0" width="632" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcK-Jy-J1N">
+                                                    <rect key="frame" x="962" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleGyroUpDown:" destination="lsI-FR-9UZ" eventType="touchUpInside" id="QJQ-UY-GNs"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wcK-Jy-J1N" secondAttribute="trailing" constant="-2" id="Fz7-0O-ogm"/>
+                                                <constraint firstItem="wcK-Jy-J1N" firstAttribute="centerY" secondItem="VCX-lb-cz6" secondAttribute="centerY" id="SJD-hb-od7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="K24-7B-pxm" style="IBUITableViewCellStyleDefault" id="4YU-GO-iKb" userLabel="Gyro Sensitivity Cell">
+                                        <rect key="frame" x="0.0" y="363" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4YU-GO-iKb" id="OUT-me-cjx">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.050000000000000003" maxValue="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="yk0-18-rQZ">
+                                                    <rect key="frame" x="485" y="6" width="336" height="31"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" button="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="8NI-GN-9uc"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="gyroSensitivityChanged:" destination="lsI-FR-9UZ" eventType="valueChanged" id="3Vx-Sc-hlm"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gyro Sensitivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" id="K24-7B-pxm">
+                                                    <rect key="frame" x="196" y="0.0" width="632" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yk0-18-rQZ" firstAttribute="centerX" secondItem="K24-7B-pxm" secondAttribute="centerX" constant="100" id="6Nh-f6-ZyV"/>
+                                                <constraint firstItem="yk0-18-rQZ" firstAttribute="centerY" secondItem="K24-7B-pxm" secondAttribute="centerY" id="J6b-uX-hzS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="8L1-ht-bOG" style="IBUITableViewCellStyleDefault" id="C9h-AB-jHu">
+                                        <rect key="frame" x="0.0" y="407" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C9h-AB-jHu" id="Gin-9t-mea">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
@@ -1282,8 +1410,15 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="DPadMode" destination="irU-Gz-OhY" id="Hwj-he-BcM"/>
+                        <outlet property="GyroCalibration" destination="YPJ-if-jlc" id="oEG-Ha-2gR"/>
+                        <outlet property="GyroInfo" destination="CmW-J5-ndt" id="RtO-Lf-J34"/>
+                        <outlet property="GyroSensitivity" destination="4YU-GO-iKb" id="LRT-F3-K3I"/>
+                        <outlet property="GyroToggleUpDown" destination="0Tj-HW-Pv7" id="zwJ-LY-usj"/>
                         <outlet property="Joypadstyle" destination="5Tj-d4-6Ii" id="8qM-sE-JvE"/>
                         <outlet property="LeftorRight" destination="dSL-oe-PoQ" id="mvp-In-fRe"/>
+                        <outlet property="sliderGyroSensitivity" destination="yk0-18-rQZ" id="TGI-IW-dUT"/>
+                        <outlet property="swGyroUpDown" destination="wcK-Jy-J1N" id="hBg-wK-2eB"/>
                         <outlet property="swShowButtonTouch" destination="Fup-me-bbF" id="NUA-fX-lYv"/>
                     </connections>
                 </tableViewController>
@@ -2417,6 +2552,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljs-VL-kfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1173" y="3397"/>
+        </scene>
+        <!--DPad Mode Scene-->
+        <scene sceneID="VX3-qr-sE7">
+            <objects>
+                <tableViewController id="DTi-e3-4vT" userLabel="DPad Mode Scene" customClass="VPadTouchOrGyro" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="H8i-60-gdL">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="aU6-OR-AXs">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="UoZ-LU-QJI" style="IBUITableViewCellStyleDefault" id="GLH-Xs-bC2" userLabel="Cell Touch">
+                                        <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLH-Xs-bC2" id="TvK-sg-lYD">
+                                            <rect key="frame" x="0.0" y="0.0" width="804" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Touch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UoZ-LU-QJI">
+                                                    <rect key="frame" x="196" y="0.0" width="608" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="ztw-AX-ApA" style="IBUITableViewCellStyleDefault" id="obI-nY-gmt" userLabel="Cell Gyro">
+                                        <rect key="frame" x="0.0" y="108" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obI-nY-gmt" id="lGO-AX-sck">
+                                            <rect key="frame" x="0.0" y="0.0" width="804" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gyro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ztw-AX-ApA">
+                                                    <rect key="frame" x="196" y="0.0" width="608" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KLh-Hj-MIA">
+                                        <rect key="frame" x="0.0" y="152" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLh-Hj-MIA" id="hNM-4W-wpS">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="DTi-e3-4vT" id="SWA-Tn-pMg"/>
+                            <outlet property="delegate" destination="DTi-e3-4vT" id="ecf-Or-Dpr"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="cellGyro" destination="obI-nY-gmt" id="Jcp-Li-jVr"/>
+                        <outlet property="cellTouch" destination="GLH-Xs-bC2" id="3zZ-LI-4Zi"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ZZ-yR-PxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6932" y="2422"/>
         </scene>
     </scenes>
     <resources>

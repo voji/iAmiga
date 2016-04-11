@@ -1288,6 +1288,9 @@
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
 		E18F65ED154CB6960073642F /* intro_5~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65EA154CB6950073642F /* intro_5~ipad.png */; };
+		E937D8A71CB58BC9008DCC27 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */; };
+		E937D8AA1CB58C50008DCC27 /* VPadMotionController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E937D8A91CB58C50008DCC27 /* VPadMotionController.mm */; };
+		E937D8B01CB58CE3008DCC27 /* VPadTouchOrGyro.m in Sources */ = {isa = PBXBuildFile; fileRef = E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -2167,6 +2170,11 @@
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
 		E18F65EA154CB6950073642F /* intro_5~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5~ipad.png"; sourceTree = "<group>"; };
+		E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E937D8A81CB58C4F008DCC27 /* VPadMotionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VPadMotionController.h; path = iUAEParents/VPadMotionController.h; sourceTree = "<group>"; };
+		E937D8A91CB58C50008DCC27 /* VPadMotionController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = VPadMotionController.mm; path = iUAEParents/VPadMotionController.mm; sourceTree = "<group>"; };
+		E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPadTouchOrGyro.h; sourceTree = "<group>"; };
+		E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPadTouchOrGyro.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2188,6 +2196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E937D8A71CB58BC9008DCC27 /* CoreMotion.framework in Frameworks */,
 				9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */,
 				7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */,
 				7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */,
@@ -2790,6 +2799,8 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
+				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
@@ -2897,6 +2908,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E937D8A81CB58C4F008DCC27 /* VPadMotionController.h */,
+				E937D8A91CB58C50008DCC27 /* VPadMotionController.mm */,
 				9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */,
 				9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */,
 				9064AD621C7F7982004CAE28 /* MPCConnectionStates.h */,
@@ -2955,6 +2968,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */,
 				9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */,
 				7EB372E91A0FC8DE001B460A /* GameController.framework */,
 				976877751534B2D20077B654 /* AudioToolbox.framework */,
@@ -4869,6 +4883,7 @@
 				0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */,
 				BEE41BD61B4784AC00CE487D /* ioapi.c in Sources */,
 				BEE41BD31B4784AC00CE487D /* zip.c in Sources */,
+				E937D8B01CB58CE3008DCC27 /* VPadTouchOrGyro.m in Sources */,
 				0552BD550F3D797C005B30DF /* writelog.cpp in Sources */,
 				7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.mm in Sources */,
 				7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */,
@@ -4907,6 +4922,7 @@
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
 				7EB017651B09115900C74B9D /* StateManagementController.mm in Sources */,
+				E937D8AA1CB58C50008DCC27 /* VPadMotionController.mm in Sources */,
 				7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,

@@ -22,6 +22,7 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "BaseNavigationController.h"
+#import "VPadMotionController.h"
 
 @interface BaseNavigationController ()
 
@@ -66,7 +67,7 @@
 }
 
 - (BOOL)shouldAutorotate {
-    return YES;
+    return [VPadMotionController isActive]?  NO : YES;
 }
 
 @end

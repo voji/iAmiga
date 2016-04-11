@@ -20,6 +20,8 @@
 
 #import "SettingsJoypadVpadController.h"
 #import "Settings.h"
+#import "VPadMotionController.h"
+#import <Foundation/Foundation.h>
 
 @interface SettingsJoypadVpadController ()
 
@@ -27,6 +29,7 @@
 
 @implementation SettingsJoypadVpadController {
     Settings *_settings;
+    NSTimer *timer;
 }
 
 - (void)viewDidLoad {
@@ -35,7 +38,8 @@
     _settings = [[Settings alloc] init];
     
     [_swShowButtonTouch setOn:_settings.joypadshowbuttontouch];
-    
+    [_swGyroUpDown setOn:_settings.gyroToggleUpDown];
+    [_sliderGyroSensitivity setValue:_settings.gyroSensitivity];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -47,6 +51,58 @@
 -(void)viewWillAppear:(BOOL)animated {
     _Joypadstyle.detailTextLabel.text = [_settings stringForKey:@"_joypadstyle"];
     _LeftorRight.detailTextLabel.text = [_settings stringForKey:@"_joypadleftorright"];
+    _DPadMode.detailTextLabel.text = _settings.dpadTouchOrMotion;
+    _GyroSensitivity.textLabel.text = [NSString stringWithFormat:@"Gyro Sensitivity: %.2f",_settings.gyroSensitivity];
+    
+    [_GyroInfo setHidden: _settings.DPadModeIsTouch ? YES : NO];
+    [_GyroCalibration setHidden: _settings.DPadModeIsTouch ? YES : NO];
+    [_GyroToggleUpDown setHidden:_settings.DPadModeIsTouch ? YES : NO];
+    [_GyroSensitivity setHidden:_settings.DPadModeIsTouch ? YES : NO];
+    
+    
+    if ([_GyroInfo isHidden] == NO){
+
+        [VPadMotionController startUpdating];
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(updateValues:) userInfo:nil repeats:YES];
+
+    }
+    
+    [self.tableView reloadData];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+
+    [VPadMotionController stopUpdating];
+}
+
+-(void) updateValues:(NSTimer *)timer{
+    double refRoll = [VPadMotionController referenceAttitude].roll;
+    double refPitch = [VPadMotionController referenceAttitude].pitch;
+    
+    double roll = [VPadMotionController getMotion].roll;
+    double pitch = [VPadMotionController getMotion].pitch;
+    
+    _GyroInfo.detailTextLabel.text = [NSString stringWithFormat: @"Reference t/d %.2f, l/r %.2f  - current t/d %.2f, l/r %.2f",refRoll, refPitch, roll, pitch];
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 4)
+    {
+        [VPadMotionController calibrate];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    if((cell == _GyroInfo || cell == _GyroCalibration || cell == _GyroToggleUpDown || cell == _GyroSensitivity) && _settings.DPadModeIsTouch)
+        return 0; //set the hidden cell's height to 0
+    
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,8 +118,22 @@
     [_settings setObject:strStyle forKey:@"_joypadstyle"];
 }
 
+- (void)didSelectVPadDirection:(NSString *)strType {
+    _settings.dpadTouchOrMotion = strType;
+}
+
+
 - (void)toggleShowButtonTouch:(id)sender {
     _settings.joypadshowbuttontouch = !_settings.joypadshowbuttontouch;
+}
+
+- (void)toggleGyroUpDown:(id)sender{
+    _settings.gyroToggleUpDown = !_settings.gyroToggleUpDown;
+}
+
+- (IBAction)gyroSensitivityChanged:(UISlider *)sender {
+    _settings.gyroSensitivity = sender.value;
+    _GyroSensitivity.textLabel.text = [NSString stringWithFormat:@"Gyro Sensitivity: %.2f",_settings.gyroSensitivity];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -76,15 +146,27 @@
         SettingsJoypadStyle *controller = segue.destinationViewController;
         controller.delegate = self;
     }
+    else if([segue.identifier isEqualToString:@"SelectDPadMode"])
+    {
+        VPadTouchOrGyro *controller = segue.destinationViewController;
+        controller.delegate = self;
+    }
 }
 
 - (void)dealloc {
     
+    [timer release];
     [_swShowButtonTouch release];
     [_settings release];
     [_Joypadstyle release];
     [_LeftorRight release];
-
+    [_DPadMode release];
+    [_GyroInfo release];
+    [_GyroCalibration release];
+    [_swGyroUpDown release];
+    [_GyroToggleUpDown release];
+    [_GyroSensitivity release];
+    [_sliderGyroSensitivity release];
     [super dealloc];
 }
 

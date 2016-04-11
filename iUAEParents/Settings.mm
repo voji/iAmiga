@@ -50,6 +50,10 @@ static NSString *const kControllersKey = @"_controllers";
 static NSString *const kJoypadStyleKey = @"_joypadstyle";
 static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
 static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
+static NSString *const kDPadTouchOrMotion = @"_dpadTouchOrMotion";
+
+static NSString *const kGyroToggleUpDown = @"_gyroToggleUpDown";
+static NSString *const kGyroSensitivity = @"_gyroSensitivity";
 
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
@@ -132,6 +136,9 @@ static NSString *configurationname;
     self.joypadstyle =              [self keyExists:kJoypadStyleKey]            ? self.joypadstyle          :   @"FourButton";
     self.joypadleftorright =        [self keyExists:kJoypadLeftOrRightKey]      ? self.joypadleftorright    :   @"Right";
     self.joypadshowbuttontouch =    [self keyExists:kJoypadShowButtonTouchKey]  ? self.joypadshowbuttontouch :  YES;
+    self.dpadTouchOrMotion =        [self keyExists:kDPadTouchOrMotion]         ? self.dpadTouchOrMotion : @"Touch";
+    self.gyroToggleUpDown =         [self keyExists:kGyroToggleUpDown]          ? self.gyroToggleUpDown : NO;
+    self.gyroSensitivity =          [self keyExists:kGyroSensitivity]           ? self.gyroSensitivity : 0.1;
     
     if (![self keyExists:[NSString stringWithFormat:@"_BTN_%d", BTN_A]])
     //Set default values for JoypadKeyconfiguration
@@ -237,8 +244,40 @@ static NSString *configurationname;
     return [self boolForKey:kJoypadShowButtonTouchKey];
 }
 
--(void)setJoypadshowbuttontouch:(BOOL)joypadshowbuttontouch {
+- (void)setJoypadshowbuttontouch:(BOOL)joypadshowbuttontouch {
     [self setBool:joypadshowbuttontouch forKey:kJoypadShowButtonTouchKey];
+}
+
+- (NSString *)dpadTouchOrMotion {
+    return [self stringForKey:kDPadTouchOrMotion];
+}
+
+- (void)setDpadTouchOrMotion:(NSString *)dpadTouchOrMotion {
+    [self setObject:dpadTouchOrMotion forKey:kDPadTouchOrMotion];
+}
+
+- (BOOL)DPadModeIsTouch {
+    return [[self stringForKey:kDPadTouchOrMotion] isEqualToString: @"Touch"];
+}
+
+- (BOOL)DPadModeIsMotion {
+    return [[self stringForKey:kDPadTouchOrMotion]  isEqualToString: @"Motion"];
+}
+
+- (BOOL)gyroToggleUpDown {
+    return [self boolForKey:kGyroToggleUpDown];
+}
+
+- (void)setGyroToggleUpDown:(BOOL)gyroToggleUpDown {
+    [self setBool:gyroToggleUpDown forKey:kGyroToggleUpDown];
+}
+
+- (float)gyroSensitivity {
+    return [self floatForKey:kGyroSensitivity];
+}
+
+- (void)setGyroSensitivity:(float)gyroSensitivity {
+    [self setFloat:gyroSensitivity forKey:kGyroSensitivity];
 }
 
 -(void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button {
@@ -382,6 +421,14 @@ NSString *const kEnabledAttrName = @"enabled";
 
 - (NSInteger)integerForKey:(NSString *)settingitemname {
     return [defaults integerForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (float)floatForKey:(NSString *)settingitemname {
+    return [defaults floatForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (void)setFloat:(float)value forKey:(NSString *)settingitemname {
+    [defaults setFloat:value forKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (NSArray *)arrayForKey:(NSString *)settingitemname {
