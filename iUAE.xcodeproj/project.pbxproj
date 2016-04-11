@@ -230,6 +230,7 @@
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
 		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */; };
+		7EADD3161CB2FAA100136978 /* JoypadMappingMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EADD3151CB2FAA100136978 /* JoypadMappingMainController.m */; };
 		7EB017651B09115900C74B9D /* StateManagementController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017631B09115900C74B9D /* StateManagementController.mm */; };
 		7EB017711B09143000C74B9D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0176B1B09143000C74B9D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7EB017721B09143000C74B9D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0176D1B09143000C74B9D /* SVProgressHUD.bundle */; };
@@ -1620,6 +1621,8 @@
 		7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCustomKeyboard.m; sourceTree = "<group>"; };
 		7EAA9DB4192541D400541BE1 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
+		7EADD3141CB2FAA100136978 /* JoypadMappingMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoypadMappingMainController.h; sourceTree = "<group>"; };
+		7EADD3151CB2FAA100136978 /* JoypadMappingMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoypadMappingMainController.m; sourceTree = "<group>"; };
 		7EB017631B09115900C74B9D /* StateManagementController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StateManagementController.mm; sourceTree = "<group>"; };
 		7EB017641B09115900C74B9D /* StateManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManagementController.h; sourceTree = "<group>"; };
 		7EB0176B1B09143000C74B9D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Submodules/SVProgressHUD/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
@@ -2806,6 +2809,8 @@
 				BE52EFA71B4FC9B8008E15E6 /* ResetController.h */,
 				BE52EFA61B4FC9B8008E15E6 /* ResetController.m */,
 				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
+				7EADD3141CB2FAA100136978 /* JoypadMappingMainController.h */,
+				7EADD3151CB2FAA100136978 /* JoypadMappingMainController.m */,
 				7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
 				05D5233512E8030E007912AE /* SelectEffectController.m */,
@@ -4910,6 +4915,7 @@
 				BE66229A1C328442009C2809 /* KeyButtonManagementController.m in Sources */,
 				7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.m in Sources */,
 				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
+				7EADD3161CB2FAA100136978 /* JoypadMappingMainController.m in Sources */,
 				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550D9153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
 				978550DC153A3F2E00580B91 /* SDL_joystick.m in Sources */,

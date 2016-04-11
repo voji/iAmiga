@@ -1593,7 +1593,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4741" y="4111"/>
+            <point key="canvasLocation" x="4735" y="4337"/>
         </scene>
         <!--State Management-->
         <scene sceneID="qol-qS-4ks">

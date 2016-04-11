@@ -46,6 +46,7 @@ static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
 
+static NSString *const kControllersKey = @"_controllers";
 static NSString *const kJoypadStyleKey = @"_joypadstyle";
 static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
 static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
@@ -280,6 +281,15 @@ static NSString *configurationname;
 - (void)setConfigurations:(NSArray *)configurations {
     [self setObject:configurations forKey:kConfigurationsKey];
 }
+
+- (NSArray *)controllers {
+    return [self arrayForKey:kControllersKey];
+}
+
+- (void)setControllers:(NSArray *)controllers {
+    [self setObject:controllers forKey:kControllersKey];
+}
+
 
 - (DriveState *)driveState {
     DriveState *driveState = [[[DriveState alloc] init] autorelease];

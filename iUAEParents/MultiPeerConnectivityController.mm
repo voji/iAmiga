@@ -295,19 +295,19 @@ MCNearbyServiceAdvertiser *advertiser=nil;
             
             dispatch_after(waittime, dispatch_get_main_queue(),
             ^void{
-                [self sendinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
+                [self handleinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
             });
         }
         else
         {
-             [self sendinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
+             [self handleinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
         }
         
         _lasttime = CACurrentMediaTime();
     }
     else
     {
-        [self sendinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor port:iJoystickPort];
+        [self handleinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor port:iJoystickPort];
     }
 }
 
@@ -360,20 +360,20 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
      */
 }
 
-- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
+- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
 {
-    [self sendinputdirections:hat_state buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal:buttontoreleasehorizontal port:1];
+    [self handleinputdirections:hat_state buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal:buttontoreleasehorizontal port:1];
 }
 
 
-- (int)sendinputbuttons:(int)buttonid buttonstate:(int)buttonstate
+- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate
 {
-    int returnvalue = [self sendinputbuttons:buttonid buttonstate:buttonstate port:1];
+    int returnvalue = [self handleinputbuttons:buttonid buttonstate:buttonstate port:1];
     return returnvalue;
 }
 
 
-- (int)sendinputbuttons:(int)buttonid buttonstate:(int)buttonstate port:(int)port {
+- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate port:(int)port {
     
     buttonstate = !buttonstate;
     
@@ -412,7 +412,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
 }
 
-- (void)sendinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port:(int)port
+- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port:(int)port
 {
     
     NSString *configuredkeyhorizontal = NULL;

@@ -69,9 +69,9 @@
     }
 }
 
-- (void)sendinputbuttons:(int)buttonid
+- (void)handleinputbuttons:(int)buttonid
 {
-    _button[buttonid] = [mpcController sendinputbuttons:buttonid buttonstate:_button[buttonid]];
+    _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid]];
 }
 
 - (void)controllerDiscovered {
@@ -86,21 +86,21 @@
                                                *element)
     {
         if(gamepad.buttonA.isPressed != _button[BTN_A])
-            [self sendinputbuttons: BTN_A];
+            [self handleinputbuttons: BTN_A];
         else if(gamepad.buttonB.isPressed != _button[BTN_B])
-               [self sendinputbuttons: BTN_B];
+               [self handleinputbuttons: BTN_B];
         else if(gamepad.buttonX.isPressed!= _button[BTN_X])
-               [self sendinputbuttons: BTN_X];
+               [self handleinputbuttons: BTN_X];
         else if(gamepad.buttonY.isPressed != _button[BTN_Y])
-               [self sendinputbuttons: BTN_Y];
+               [self handleinputbuttons: BTN_Y];
         else if(gamepad.rightShoulder.isPressed != _button[BTN_R1])
-               [self sendinputbuttons: BTN_R1];
+               [self handleinputbuttons: BTN_R1];
         else if(gamepad.leftShoulder.isPressed != _button[BTN_L1])
-                [self sendinputbuttons: BTN_L1];
+                [self handleinputbuttons: BTN_L1];
         else if(gamepad.controller.extendedGamepad.rightTrigger.isPressed != _button[BTN_R2])
-                [self sendinputbuttons: BTN_R2];
+                [self handleinputbuttons: BTN_R2];
         else if(gamepad.controller.extendedGamepad.leftTrigger.isPressed !=     _button[BTN_L2])
-              [self sendinputbuttons: BTN_L2];
+              [self handleinputbuttons: BTN_L2];
         
         if(gamepad.dpad.left.pressed || gamepad.controller.extendedGamepad.leftThumbstick.left.pressed)
         {
@@ -151,7 +151,7 @@
             int buttonvertical = [mpcController dpadstatetojoypadkey:@"vertical" hatstate:_hat_state];
             int buttonhorizontal = [mpcController dpadstatetojoypadkey:@"horizontal" hatstate: _hat_state];
             
-            [mpcController sendinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal];
+            [mpcController handleinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal];
             
             _buttontoreleasevertical = buttonvertical;
             _buttontoreleasehorizontal = buttonhorizontal;

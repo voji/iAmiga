@@ -51,5 +51,7 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 - (void)removeObjectForKey:(NSString *) settingitemname;
 - (NSString *)configForDisk:(NSString *)diskName;
 - (void)setConfig:(NSString *)configName forDisk:(NSString *)diskName;
+- (NSArray *)controllers;
+- (void)setControllers:(NSArray *)controllers;
 
 @end

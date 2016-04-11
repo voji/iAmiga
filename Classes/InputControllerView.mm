@@ -229,7 +229,7 @@ extern MPCStateType mainMenu_servermode;
     if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
         [_mpcController sendJoystickDataForButtonID:pressedbutton buttonstate: 0];
     else
-        [_mpcController sendinputbuttons:pressedbutton buttonstate:0];
+        [_mpcController handleinputbuttons:pressedbutton buttonstate:0];
 }
 
 
@@ -334,7 +334,7 @@ extern MPCStateType mainMenu_servermode;
     if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
         [_mpcController sendJoystickDataForButtonID:buttoncode buttonstate: 1];
     else
-        [_mpcController sendinputbuttons:buttoncode buttonstate:1];
+        [_mpcController handleinputbuttons:buttoncode buttonstate:1];
     
     _clickedscreen = YES;
     
@@ -573,7 +573,7 @@ extern MPCStateType mainMenu_servermode;
         if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
             [_mpcController sendJoystickDataForDirection:state buttontoreleasehorizontal:_buttontoreleasehorizontal buttontoreleasevertical:_buttontoreleasevertical];
         else
-            [_mpcController sendinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal];
+            [_mpcController handleinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal];
 
         
         		[delegate joystickStateChanged:state];
