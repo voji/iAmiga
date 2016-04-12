@@ -33,8 +33,6 @@
 - (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port: (int)port;
 - (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate port: (int)port;
 - (int) dpadstatetojoypadkey:(NSString *)direction hatstate:(TouchStickDPadState)hat_state;
-- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical;
-- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate;
 
 @end
 

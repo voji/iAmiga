@@ -72,6 +72,8 @@
 - (void)handleinputbuttons:(int)buttonid
 {
     _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid]];
+    
+    NSLog(@"Buttonstate: %d",_button[buttonid]);
 }
 
 - (void)controllerDiscovered {

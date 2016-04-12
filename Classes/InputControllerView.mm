@@ -227,10 +227,7 @@ extern MPCStateType mainMenu_servermode;
         pressedbutton = [self getButtonOne:&coordinates];
     }
     
-    if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-        [_mpcController sendJoystickDataForButtonID:pressedbutton buttonstate: 0];
-    else
-        [_mpcController handleinputbuttons:pressedbutton buttonstate:0];
+    [_mpcController handleinputbuttons:pressedbutton buttonstate:0];
 }
 
 
@@ -332,10 +329,7 @@ extern MPCStateType mainMenu_servermode;
     
     int buttoncode = [self releasebutton];
     
-    if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-        [_mpcController sendJoystickDataForButtonID:buttoncode buttonstate: 1];
-    else
-        [_mpcController handleinputbuttons:buttoncode buttonstate:1];
+    [_mpcController handleinputbuttons:buttoncode buttonstate:1];
     
     _clickedscreen = YES;
     
@@ -577,13 +571,11 @@ extern MPCStateType mainMenu_servermode;
         int buttonvertical = [_mpcController dpadstatetojoypadkey:@"vertical" hatstate:state];
         int buttonhorizontal = [_mpcController dpadstatetojoypadkey:@"horizontal" hatstate:state];
         
-        if(mainMenu_servermode ==  kSendJoypadSignalsToServerOnJoystickPort0 ||mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-            [_mpcController sendJoystickDataForDirection:state buttontoreleasehorizontal:_buttontoreleasehorizontal buttontoreleasevertical:_buttontoreleasevertical];
-        else
-            [_mpcController handleinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal];
+
+        [_mpcController handleinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal];
 
         
-        		[delegate joystickStateChanged:state];
+        [delegate joystickStateChanged:state];
         
         _buttontoreleasevertical = buttonvertical;
         _buttontoreleasehorizontal = buttonhorizontal;

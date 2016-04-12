@@ -191,21 +191,15 @@ withDiscoveryInfo:(NSDictionary<NSString *,
     mainMenu_servermode=kConnectionIsOff; //disable client mode
 }
 
-- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical
+- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical jport:(int)jport
 {
     if(session == nil || session.connectedPeers.count == 0)
     {
     }
     else
     {
-        unsigned int iJoystickPort = 0;  // 0 or 1
-        if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
-            iJoystickPort=0;
-        else if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-            iJoystickPort=1;
         
-        
-        int aints[6]= { (unsigned int) iJoystickPort,  (unsigned int)direction, (unsigned int)0, BTN_INVALID, buttontoreleasehorizontal, buttontoreleasevertical};
+        int aints[6]= { (unsigned int) jport,  (unsigned int)direction, (unsigned int)0, BTN_INVALID, buttontoreleasehorizontal, buttontoreleasevertical};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
         
@@ -219,25 +213,17 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         }
     }
 }
-- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate {
+- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate jport:(int)jport  {
  
     if(session == nil || session.connectedPeers.count == 0)
     {
-        
     }
     else
     {
-        unsigned int iJoystickPort = 0;  // 0 or 1
-        if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
-            iJoystickPort=0;
-        else if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-            iJoystickPort=1;
         
-        
-        int aints[6]= { (unsigned int)iJoystickPort,  (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
+        int aints[6]= { (unsigned int)jport,  (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
-        
         
         NSError *error = nil;
         if (![session sendData:data
@@ -362,18 +348,28 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
 
 - (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
 {
-    [self handleinputdirections:hat_state buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal:buttontoreleasehorizontal port:1];
+    int port = mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ? 0 : 1;
+    
+    [self handleinputdirections:hat_state buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal:buttontoreleasehorizontal port:port];
 }
 
 
 - (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate
 {
-    int returnvalue = [self handleinputbuttons:buttonid buttonstate:buttonstate port:1];
+    int port = mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ? 0 : 1;
+    
+    int returnvalue = [self handleinputbuttons:buttonid buttonstate:buttonstate port:port];
     return returnvalue;
 }
 
 
 - (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate port:(int)port {
+    
+    if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 || mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1 )
+    {
+        [self sendJoystickDataForButtonID:buttonid buttonstate:buttonstate jport:port];
+        return !buttonstate;
+    }
     
     buttonstate = !buttonstate;
     
@@ -414,6 +410,13 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
 
 - (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port:(int)port
 {
+    if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 || mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1 )
+    {
+        [self sendJoystickDataForDirection:hat_state buttontoreleasehorizontal: buttontoreleasehorizontal buttontoreleasevertical:buttontoreleasevertical jport:port];
+        
+        return;
+    }
+    
     
     NSString *configuredkeyhorizontal = NULL;
     NSString *configuredkeyvertical = NULL;
