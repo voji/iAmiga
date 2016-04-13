@@ -214,7 +214,6 @@
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
-		7EA185FC1CBC33CF006000B9 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7EA185FB1CBC33CF006000B9 /* kick13.rom */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
@@ -366,7 +365,6 @@
 		9706D7741561827300073678 /* chrome-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 9706D7201561827300073678 /* chrome-top.png */; };
 		9706D7751561827300073678 /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9706D7211561827300073678 /* chrome-top@2x.png */; };
 		9706D7761561827300073678 /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9706D7221561827300073678 /* chrome-top~ipad.png */; };
-		9706D7791561827300073678 /* DISK1.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 9706D7251561827300073678 /* DISK1.ADF */; };
 		9706D77A1561827300073678 /* EmulationView-iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9706D7271561827300073678 /* EmulationView-iPad.m */; };
 		9706D77B1561827300073678 /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9706D7281561827300073678 /* EmulationView-iPad.xib */; };
 		9706D77C1561827300073678 /* EmulationView-iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9706D72A1561827300073678 /* EmulationView-iPhone.m */; };
@@ -533,8 +531,6 @@
 		97242D3E156178CC00B6D03C /* chrome-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 97242CE9156178CB00B6D03C /* chrome-top.png */; };
 		97242D3F156178CC00B6D03C /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97242CEA156178CB00B6D03C /* chrome-top@2x.png */; };
 		97242D40156178CC00B6D03C /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 97242CEB156178CB00B6D03C /* chrome-top~ipad.png */; };
-		97242D43156178CC00B6D03C /* DISK1.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97242CEE156178CB00B6D03C /* DISK1.ADF */; };
-		97242D44156178CC00B6D03C /* DISK2.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97242CEF156178CB00B6D03C /* DISK2.ADF */; };
 		97242D45156178CC00B6D03C /* EmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97242CF1156178CB00B6D03C /* EmulationViewController.m */; };
 		97242D46156178CC00B6D03C /* EmulationView-iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 97242CF3156178CB00B6D03C /* EmulationView-iPad.m */; };
 		97242D47156178CC00B6D03C /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97242CF4156178CB00B6D03C /* EmulationView-iPad.xib */; };
@@ -923,8 +919,6 @@
 		9787FC8915618ADB00458A4A /* chrome-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 9787FC3415618ADB00458A4A /* chrome-top.png */; };
 		9787FC8A15618ADB00458A4A /* chrome-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9787FC3515618ADB00458A4A /* chrome-top@2x.png */; };
 		9787FC8B15618ADB00458A4A /* chrome-top~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9787FC3615618ADB00458A4A /* chrome-top~ipad.png */; };
-		9787FC8E15618ADB00458A4A /* DISK1.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 9787FC3915618ADB00458A4A /* DISK1.ADF */; };
-		9787FC8F15618ADB00458A4A /* DISK2.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 9787FC3A15618ADB00458A4A /* DISK2.ADF */; };
 		9787FC9015618ADB00458A4A /* EmulationView-iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9787FC3C15618ADB00458A4A /* EmulationView-iPad.m */; };
 		9787FC9115618ADB00458A4A /* EmulationView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9787FC3D15618ADB00458A4A /* EmulationView-iPad.xib */; };
 		9787FC9215618ADB00458A4A /* EmulationView-iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9787FC3F15618ADB00458A4A /* EmulationView-iPhone.m */; };
@@ -1028,8 +1022,6 @@
 		97A932021538B14B001064D7 /* functions.js in Resources */ = {isa = PBXBuildFile; fileRef = 97A931FD1538B14B001064D7 /* functions.js */; };
 		97A932041538B14B001064D7 /* iscroll4.js in Resources */ = {isa = PBXBuildFile; fileRef = 97A931FF1538B14B001064D7 /* iscroll4.js */; };
 		97A932051538B14B001064D7 /* jquery-1.4.4.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 97A932001538B14B001064D7 /* jquery-1.4.4.min.js */; };
-		97A932091538B207001064D7 /* DISK1.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97A932071538B207001064D7 /* DISK1.ADF */; };
-		97A9320A1538B207001064D7 /* DISK2.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97A932081538B207001064D7 /* DISK2.ADF */; };
 		97BE2AA115486FE600BF66CF /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BE2A9615486FE600BF66CF /* NSObject+SBJSON.m */; };
 		97BE2AA215486FE600BF66CF /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BE2A9815486FE600BF66CF /* NSString+SBJSON.m */; };
 		97BE2AA315486FE600BF66CF /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BE2A9A15486FE600BF66CF /* SBJSON.m */; };
@@ -1211,8 +1203,6 @@
 		97C875C0156E834100197738 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C1C412DFF3610040B77D /* OpenGLES.framework */; };
 		97C875C1156E834100197738 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0577C1D712DFF3910040B77D /* QuartzCore.framework */; };
 		97DC9BBA1549CDAD003CDFFF /* control-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = 97DC9BB91549CDAD003CDFFF /* control-layout.json */; };
-		97EE41621538A83B0072514D /* DISK1.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97EE415B1538A83B0072514D /* DISK1.ADF */; };
-		97EE41631538A83B0072514D /* DISK2.ADF in Resources */ = {isa = PBXBuildFile; fileRef = 97EE415C1538A83B0072514D /* DISK2.ADF */; };
 		97EF9580153876CA001C01E6 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05789FB813B1436200A72F5F /* Entitlements.plist */; };
 		97EF95BB153876CA001C01E6 /* DisaSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051B238112C98EC8000C2800 /* DisaSupport.cpp */; };
 		97EF95BC153876CA001C01E6 /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
@@ -1604,7 +1594,6 @@
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
 		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
 		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadMainController.m; sourceTree = "<group>"; };
-		7EA185FB1CBC33CF006000B9 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../../../../Volumes/Multimedia/Downloads/kick13.rom; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
@@ -1681,7 +1670,6 @@
 		9706D7201561827300073678 /* chrome-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top.png"; sourceTree = "<group>"; };
 		9706D7211561827300073678 /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top@2x.png"; sourceTree = "<group>"; };
 		9706D7221561827300073678 /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top~ipad.png"; sourceTree = "<group>"; };
-		9706D7251561827300073678 /* DISK1.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK1.ADF; sourceTree = "<group>"; };
 		9706D7261561827300073678 /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPad.h"; sourceTree = "<group>"; };
 		9706D7271561827300073678 /* EmulationView-iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPad.m"; sourceTree = "<group>"; };
 		9706D7281561827300073678 /* EmulationView-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EmulationView-iPad.xib"; sourceTree = "<group>"; };
@@ -1760,8 +1748,6 @@
 		97242CE9156178CB00B6D03C /* chrome-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top.png"; sourceTree = "<group>"; };
 		97242CEA156178CB00B6D03C /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top@2x.png"; sourceTree = "<group>"; };
 		97242CEB156178CB00B6D03C /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top~ipad.png"; sourceTree = "<group>"; };
-		97242CEE156178CB00B6D03C /* DISK1.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK1.ADF; sourceTree = "<group>"; };
-		97242CEF156178CB00B6D03C /* DISK2.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK2.ADF; sourceTree = "<group>"; };
 		97242CF0156178CB00B6D03C /* EmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulationViewController.h; sourceTree = "<group>"; };
 		97242CF1156178CB00B6D03C /* EmulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmulationViewController.m; sourceTree = "<group>"; };
 		97242CF2156178CB00B6D03C /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPad.h"; sourceTree = "<group>"; };
@@ -1944,8 +1930,6 @@
 		9787FC3415618ADB00458A4A /* chrome-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top.png"; sourceTree = "<group>"; };
 		9787FC3515618ADB00458A4A /* chrome-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top@2x.png"; sourceTree = "<group>"; };
 		9787FC3615618ADB00458A4A /* chrome-top~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome-top~ipad.png"; sourceTree = "<group>"; };
-		9787FC3915618ADB00458A4A /* DISK1.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK1.ADF; sourceTree = "<group>"; };
-		9787FC3A15618ADB00458A4A /* DISK2.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK2.ADF; sourceTree = "<group>"; };
 		9787FC3B15618ADB00458A4A /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPad.h"; sourceTree = "<group>"; };
 		9787FC3C15618ADB00458A4A /* EmulationView-iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPad.m"; sourceTree = "<group>"; };
 		9787FC3D15618ADB00458A4A /* EmulationView-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EmulationView-iPad.xib"; sourceTree = "<group>"; };
@@ -2060,8 +2044,6 @@
 		97A931FF1538B14B001064D7 /* iscroll4.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = iscroll4.js; sourceTree = "<group>"; };
 		97A932001538B14B001064D7 /* jquery-1.4.4.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.4.4.min.js"; sourceTree = "<group>"; };
 		97A932011538B14B001064D7 /* jquery-1.5.2.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.5.2.min.js"; sourceTree = "<group>"; };
-		97A932071538B207001064D7 /* DISK1.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK1.ADF; sourceTree = "<group>"; };
-		97A932081538B207001064D7 /* DISK2.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK2.ADF; sourceTree = "<group>"; };
 		97AFC8521538A4CB00227317 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		97BE2A9415486FE600BF66CF /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		97BE2A9515486FE600BF66CF /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
@@ -2119,8 +2101,6 @@
 		97BE2AE015489E6600BF66CF /* ls-joystick_rest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ls-joystick_rest.png"; sourceTree = "<group>"; };
 		97C875C6156E834100197738 /* p1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97DC9BB91549CDAD003CDFFF /* control-layout.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "control-layout.json"; path = "../control-layout.json"; sourceTree = "<group>"; };
-		97EE415B1538A83B0072514D /* DISK1.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK1.ADF; sourceTree = "<group>"; };
-		97EE415C1538A83B0072514D /* DISK2.ADF */ = {isa = PBXFileReference; lastKnownFileType = file; path = DISK2.ADF; sourceTree = "<group>"; };
 		97EF9600153876CA001C01E6 /* stooges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stooges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EF96191538771F001C01E6 /* EmulationView-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmulationView-iPad.h"; sourceTree = "<group>"; };
 		97EF961A1538771F001C01E6 /* EmulationView-iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmulationView-iPad.m"; sourceTree = "<group>"; };
@@ -2354,8 +2334,6 @@
 		053368AA13B1BD120012D55A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				97A932071538B207001064D7 /* DISK1.ADF */,
-				97A932081538B207001064D7 /* DISK2.ADF */,
 				05A435D013CAC54C00E5024F /* instructions */,
 				05A1501D13BDA843009A12B2 /* html */,
 				055FD7E813B3E8E600BB3F8B /* Chrome */,
@@ -2659,7 +2637,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7EA185FB1CBC33CF006000B9 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -3101,7 +3078,6 @@
 				9706D7201561827300073678 /* chrome-top.png */,
 				9706D7211561827300073678 /* chrome-top@2x.png */,
 				9706D7221561827300073678 /* chrome-top~ipad.png */,
-				9706D7251561827300073678 /* DISK1.ADF */,
 				9706D7261561827300073678 /* EmulationView-iPad.h */,
 				9706D7271561827300073678 /* EmulationView-iPad.m */,
 				9706D7281561827300073678 /* EmulationView-iPad.xib */,
@@ -3218,8 +3194,6 @@
 				97242CE9156178CB00B6D03C /* chrome-top.png */,
 				97242CEA156178CB00B6D03C /* chrome-top@2x.png */,
 				97242CEB156178CB00B6D03C /* chrome-top~ipad.png */,
-				97242CEE156178CB00B6D03C /* DISK1.ADF */,
-				97242CEF156178CB00B6D03C /* DISK2.ADF */,
 				97242CF0156178CB00B6D03C /* EmulationViewController.h */,
 				97242CF1156178CB00B6D03C /* EmulationViewController.m */,
 				97242CF2156178CB00B6D03C /* EmulationView-iPad.h */,
@@ -3562,8 +3536,6 @@
 				9787FC3415618ADB00458A4A /* chrome-top.png */,
 				9787FC3515618ADB00458A4A /* chrome-top@2x.png */,
 				9787FC3615618ADB00458A4A /* chrome-top~ipad.png */,
-				9787FC3915618ADB00458A4A /* DISK1.ADF */,
-				9787FC3A15618ADB00458A4A /* DISK2.ADF */,
 				9787FC3B15618ADB00458A4A /* EmulationView-iPad.h */,
 				9787FC3C15618ADB00458A4A /* EmulationView-iPad.m */,
 				9787FC3D15618ADB00458A4A /* EmulationView-iPad.xib */,
@@ -3762,8 +3734,6 @@
 				97A931C01538AFDC001064D7 /* html */,
 				97A931761538AD8A001064D7 /* instructions */,
 				97A931381538AD1B001064D7 /* Chrome */,
-				97EE415B1538A83B0072514D /* DISK1.ADF */,
-				97EE415C1538A83B0072514D /* DISK2.ADF */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -4162,8 +4132,6 @@
 				057B977413CEC7D60065278D /* intro_4.png in Resources */,
 				057B977513CEC7D60065278D /* intro_4@2x.png in Resources */,
 				057B977613CEC7D60065278D /* intro_4~ipad.png in Resources */,
-				97A932091538B207001064D7 /* DISK1.ADF in Resources */,
-				97A9320A1538B207001064D7 /* DISK2.ADF in Resources */,
 				97BE2AE215489E6600BF66CF /* firebutton-red-active.png in Resources */,
 				97BE2AE515489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				97BE2AE815489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
@@ -4192,7 +4160,6 @@
 				7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */,
-				7EA185FC1CBC33CF006000B9 /* kick13.rom in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				BE6537DA1C5F7E41007AD097 /* PKCustomKeyboard.xib in Resources */,
@@ -4315,7 +4282,6 @@
 				9706D7741561827300073678 /* chrome-top.png in Resources */,
 				9706D7751561827300073678 /* chrome-top@2x.png in Resources */,
 				9706D7761561827300073678 /* chrome-top~ipad.png in Resources */,
-				9706D7791561827300073678 /* DISK1.ADF in Resources */,
 				9706D77B1561827300073678 /* EmulationView-iPad.xib in Resources */,
 				9706D77D1561827300073678 /* EmulationView-iPhone.xib in Resources */,
 				9706D77F1561827300073678 /* about.html in Resources */,
@@ -4414,8 +4380,6 @@
 				97242D3E156178CC00B6D03C /* chrome-top.png in Resources */,
 				97242D3F156178CC00B6D03C /* chrome-top@2x.png in Resources */,
 				97242D40156178CC00B6D03C /* chrome-top~ipad.png in Resources */,
-				97242D43156178CC00B6D03C /* DISK1.ADF in Resources */,
-				97242D44156178CC00B6D03C /* DISK2.ADF in Resources */,
 				97242D47156178CC00B6D03C /* EmulationView-iPad.xib in Resources */,
 				97242D49156178CC00B6D03C /* EmulationView-iPhone.xib in Resources */,
 				97242D4A156178CC00B6D03C /* about.html in Resources */,
@@ -4553,8 +4517,6 @@
 				9787FC8915618ADB00458A4A /* chrome-top.png in Resources */,
 				9787FC8A15618ADB00458A4A /* chrome-top@2x.png in Resources */,
 				9787FC8B15618ADB00458A4A /* chrome-top~ipad.png in Resources */,
-				9787FC8E15618ADB00458A4A /* DISK1.ADF in Resources */,
-				9787FC8F15618ADB00458A4A /* DISK2.ADF in Resources */,
 				9787FC9115618ADB00458A4A /* EmulationView-iPad.xib in Resources */,
 				9787FC9315618ADB00458A4A /* EmulationView-iPhone.xib in Resources */,
 				9787FC9515618ADB00458A4A /* about.html in Resources */,
@@ -4662,8 +4624,6 @@
 				97EF968B1538771F001C01E6 /* icon-72.png in Resources */,
 				97EF968C1538771F001C01E6 /* icon.png in Resources */,
 				97EF968D1538771F001C01E6 /* icon@2x.png in Resources */,
-				97EE41621538A83B0072514D /* DISK1.ADF in Resources */,
-				97EE41631538A83B0072514D /* DISK2.ADF in Resources */,
 				97A931581538AD1B001064D7 /* bg_web.png in Resources */,
 				97A931591538AD1B001064D7 /* bg_web@2x.png in Resources */,
 				97A9315A1538AD1B001064D7 /* bg_web~ipad.png in Resources */,
