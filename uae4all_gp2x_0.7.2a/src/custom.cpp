@@ -3628,6 +3628,10 @@ void customreset (void)
     n_frames = 0;
     vsync_handler_cnt_disk_change = 0;
     
+#ifdef USE_AUTOCONFIG
+    expamem_reset ();
+#endif
+    
     DISK_reset ();
     CIA_reset ();
     if (! savestate_state)

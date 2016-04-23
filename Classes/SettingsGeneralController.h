@@ -34,6 +34,8 @@
 @property (readwrite, retain) IBOutlet UISwitch *df1Switch;
 @property (readwrite, retain) IBOutlet UISwitch *df2Switch;
 @property (readwrite, retain) IBOutlet UISwitch *df3Switch;
+@property (readwrite, retain) IBOutlet UILabel *hd0;
+@property (readwrite, retain) IBOutlet UISwitch *hd0Switch;
 @property (readwrite, retain) IBOutlet UILabel *configurationname;
 
 @property (readwrite, retain) UIImage *emulatorScreenshot;
