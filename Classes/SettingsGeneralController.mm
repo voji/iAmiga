@@ -19,13 +19,17 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "DiskDriveService.h"
+#import "HardDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
 #import "StateManagementController.h"
+#import "cfgfile.h"
+#import "filesys.h"
 
 static NSString *const kNoDiskLabel = @"Empty";
 static NSString *const kNoDiskAdfPath = @"";
-static NSString *const kSelectDiskSegue = @"SelectDisk";
+
+static NSString *const kSelectFileSegue = @"SelectFile";
 static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
 static NSString *const kKeyButtonsSegue = @"KeyButtons";
@@ -34,17 +38,18 @@ static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
 static const NSUInteger kDrivesSection = 0;
 static const NSUInteger kConfigSection = 1;
-static const NSUInteger kKeyButtonsSection = 2;
-static const NSUInteger kMiscSection = 3;
+static const NSUInteger kMiscSection = 2;
 
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
+    HardDriveService *hardDriveService;
     Settings *settings;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     diskDriveService = [[DiskDriveService alloc] init];
+    hardDriveService = [[HardDriveService alloc] init];
     settings = [[Settings alloc] init];
 }
 
@@ -57,7 +62,7 @@ static const NSUInteger kMiscSection = 3;
 }
 
 - (void)setupUIState {
-    [self setupFloppyLabels];
+    [self setupDriveLabels];
     [self setupAutoloadConfigSwitch];
     [self setupConfigurationName];
     [self setupDriveSwitches];
@@ -67,9 +72,10 @@ static const NSUInteger kMiscSection = 3;
     [_df1Switch setOn:[diskDriveService enabled:1]];
     [_df2Switch setOn:[diskDriveService enabled:2]];
     [_df3Switch setOn:[diskDriveService enabled:3]];
+    [_hd0Switch setOn:[hardDriveService mounted]];
 }
 
-- (void)setupFloppyLabels {
+- (void)setupDriveLabels {
     NSString *adfPath = [diskDriveService getInsertedDiskForDrive:0];
     [_df0 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
@@ -81,6 +87,8 @@ static const NSUInteger kMiscSection = 3;
     
     adfPath = [diskDriveService getInsertedDiskForDrive:3];
     [_df3 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    
+    [_hd0 setText:[hardDriveService mounted] ? [[hardDriveService getMountedHardfilePath] lastPathComponent] : @""];
 }
 
 - (void)setupConfigurationName {
@@ -99,7 +107,11 @@ static const NSUInteger kMiscSection = 3;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0 && [diskDriveService diskInsertedIntoDrive:indexPath.row];
+    if (indexPath.section == kDrivesSection)
+    {
+        return [diskDriveService diskInsertedIntoDrive:indexPath.row];
+    }
+    return NO;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,11 +121,14 @@ static const NSUInteger kMiscSection = 3;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [self.tableView setEditing:NO animated:YES];
-        int driveNumber = indexPath.row;
-        [self onAdfChanged:kNoDiskAdfPath inDrive:driveNumber];
-        [diskDriveService ejectDiskFromDrive:driveNumber];
-        [self setupFloppyLabels];
+        if (indexPath.section == kDrivesSection)
+        {
+            [self.tableView setEditing:NO animated:YES];
+            int driveNumber = indexPath.row;
+            [self onAdfChanged:kNoDiskAdfPath drive:driveNumber];
+            [diskDriveService ejectDiskFromDrive:driveNumber];
+            [self setupDriveLabels];
+        }
     }
 }
 
@@ -121,7 +136,8 @@ static const NSUInteger kMiscSection = 3;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == kDrivesSection)
     {
-        [self performSegueWithIdentifier:kSelectDiskSegue sender:[NSNumber numberWithInt:indexPath.row]];
+        NSNumber *driveNumber = @(indexPath.row);
+        [self performSegueWithIdentifier:kSelectFileSegue sender:driveNumber];
     }
     else if (indexPath.section == kConfigSection)
     {
@@ -134,17 +150,17 @@ static const NSUInteger kMiscSection = 3;
             [self performSegueWithIdentifier:kLoadConfigurationSegue sender:nil];
         }
     }
-    else if (indexPath.section == kKeyButtonsSection)
-    {
-        [self performSegueWithIdentifier:kKeyButtonsSegue sender:nil];
-    }
     else if (indexPath.section == kMiscSection)
     {
         if (indexPath.row == 0)
         {
-            [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
+            [self performSegueWithIdentifier:kKeyButtonsSegue sender:nil];
         }
         else if (indexPath.row == 1)
+        {
+            [self performSegueWithIdentifier:kStateManagementSegue sender:nil];
+        }
+        else if (indexPath.row == 2)
         {
             [self performSegueWithIdentifier:kConfirmResetSegue sender:nil];
         }
@@ -152,11 +168,12 @@ static const NSUInteger kMiscSection = 3;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:kSelectDiskSegue])
+    if ([segue.identifier isEqualToString:kSelectFileSegue])
     {
         EMUROMBrowserViewController *controller = segue.destinationViewController;
+        controller.extensions = @[@"adf", @"ADF"];
         controller.delegate = self;
-        controller.context = sender; // sender = driveNumber (NSNumber)
+        controller.context = sender; // drive number
     }
     else if ([segue.identifier isEqualToString:kLoadConfigurationSegue])
     {
@@ -175,19 +192,20 @@ static const NSUInteger kMiscSection = 3;
     }
 }
 
-- (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(NSNumber *)driveNSNumber {
+- (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(id)context {
     NSString *adfPath = [fileInfo path];
-    int driveNumber = [driveNSNumber integerValue];
-    [self onAdfChanged:adfPath inDrive:driveNumber];
+    int driveNumber = [context integerValue];
+    [self onAdfChanged:adfPath drive:driveNumber];
     [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
 }
 
-- (void)onAdfChanged:(NSString *)adfPath inDrive:(int)driveNumber {
+- (void)onAdfChanged:(NSString *)adfPath drive:(int)driveNumber {
     NSArray *floppyPaths = settings.insertedFloppies;
     NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
     {
-        // pad the array if a disk is inserted into a drive with a higher number, and there's nothing in the lower number drive(s) yet
+        // pad the array if a disk is inserted into a drive with a higher number, and
+        // there's nothing in the lower number drive(s) yet
         [mutableFloppyPaths addObject:kNoDiskAdfPath];
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
@@ -219,6 +237,7 @@ static const NSUInteger kMiscSection = 3;
 
 - (void)dealloc {
     [diskDriveService release];
+    [hardDriveService release];
     [settings release];
     [_df0 release];
     [_df1 release];
@@ -227,9 +246,9 @@ static const NSUInteger kMiscSection = 3;
     [_df1Switch release];
     [_df2Switch release];
     [_df3Switch release];
+    [_hd0 release];
     [_configurationname release];
     [_emulatorScreenshot release];
-    
     [super dealloc];
 }
 

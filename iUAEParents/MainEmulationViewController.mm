@@ -34,9 +34,11 @@
 #import "Settings.h"
 #import "SettingsGeneralController.h"
 #import "DiskDriveService.h"
+#import "HardDriveService.h"
 #import <GameController/GameController.h>
 #import "MultiPeerConnectivityController.h"
 #import "VPadMotionController.h"
+#import "cfgfile.h"
 
 extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
 extern void init_joystick();
@@ -46,6 +48,7 @@ extern void init_joystick();
 
 @implementation MainEmulationViewController {
     DiskDriveService *_diskDriveService;
+    HardDriveService *_hardDriveService;
     NSTimer *_menuHidingTimer;
     Settings *_settings;
     NSTimer *_checkForPausedTimer;
@@ -83,6 +86,7 @@ extern void uae_reset();
     [super viewDidLoad];
 
     _diskDriveService = [[DiskDriveService alloc] init];
+    _hardDriveService = [[HardDriveService alloc] init];
     _settings = [[Settings alloc] init];
     
     [self.view setMultipleTouchEnabled:TRUE];
@@ -95,11 +99,15 @@ extern void uae_reset();
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
     
+    [self initHardDriveMountInfo]; // Initialized early so that a hard file can be mounted below if autoload is enabled
+    
     if (_settings.autoloadConfig)
     {
-        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here - we need to delay disk drive related tasks by a little bit
+        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here;
+        // we need to delay disk drive related tasks by a little bit
         [self initDriveSetupTimer:_settings.driveState];
         [self initDiskInsertTimer:_settings.insertedFloppies];
+        [self mountHardfile:_settings.hardfilePath];
     }
     
     [self initializeControls];
@@ -147,9 +155,15 @@ extern void uae_reset();
     settingsController.resetDelegate = self;
 }
 
-- (void)didSelectReset:(DriveState *)driveState {
+- (void)didSelectReset:(DriveState *)driveState hardfilePath:(NSString *)hardfilePath {
     uae_reset();
+    if (hardfilePath) {
+        [_hardDriveService mountHardfile:hardfilePath];
+    } else {
+        [_hardDriveService unmountHardfile];
+    }
     _settings.driveState = driveState;
+    _settings.hardfilePath = hardfilePath;
     [self initDriveSetupTimer:driveState];
 }
 
@@ -316,7 +330,10 @@ extern void togglemouse (void);
                                                            selector:@selector(checkForPaused:) userInfo:nil repeats:YES] retain];
     
     _checkForPausedTimer.tolerance = 0.0020;
-    
+}
+
+- (void)initHardDriveMountInfo {
+    init_mountinfo();
 }
 
 - (void)insertConfiguredDisks:(NSTimer *)timer {
@@ -333,12 +350,20 @@ extern void togglemouse (void);
     [_diskDriveService setDriveState:driveState];
 }
 
+- (void)mountHardfile:(NSString *)hardfilePath {
+    if (hardfilePath)
+    {
+        [_hardDriveService mountHardfile:hardfilePath];
+    }    
+}
+
 - (void)dealloc
 {
     [_btnJoypad release];
     [_btnKeyboard release];
     [_btnPin release];
     [_diskDriveService release];
+    [_hardDriveService release];
     [_mouseHandler release];
     [_menuBar release];
     [_menuBarEnabler release];

@@ -1268,12 +1268,22 @@
 		BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */; };
 		BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */; };
 		BE6F9F621C4E2C420061B98C /* VPadLeftOrRight.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */; };
+		BE951AF21CA93EC0008DD94B /* fsusage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF11CA93EC0008DD94B /* fsusage.cpp */; };
+		BE951AF41CA93F27008DD94B /* native2amiga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF31CA93F27008DD94B /* native2amiga.cpp */; };
+		BE951AF71CA93F86008DD94B /* scsi-none.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF61CA93F86008DD94B /* scsi-none.cpp */; };
+		BE951AFA1CA93FB7008DD94B /* fsdb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF91CA93FB7008DD94B /* fsdb.cpp */; };
+		BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFC1CA942B1008DD94B /* expansion.cpp */; };
+		BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */; };
+		BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.m */; };
 		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
 		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
 		BEE41BD41B4784AC00CE487D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCD1B4784AC00CE487D /* unzip.c */; };
 		BEE41BD51B4784AC00CE487D /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCF1B4784AC00CE487D /* mztools.c */; };
 		BEE41BD61B4784AC00CE487D /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BD11B4784AC00CE487D /* ioapi.c */; };
+		BEF413D21CA411CF00CCC1F5 /* HardDriveService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEF413D11CA411CF00CCC1F5 /* HardDriveService.mm */; };
+		BEF413D41CA414E700CCC1F5 /* filesys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF413D31CA414E700CCC1F5 /* filesys.cpp */; };
+		BEF413D61CA414F600CCC1F5 /* cfgfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF413D51CA414F600CCC1F5 /* cfgfile.cpp */; };
 		E18F65E7154CAD470073642F /* Bazooka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E6154CAD470073642F /* Bazooka.ttf */; };
 		E18F65EB154CB6960073642F /* intro_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E8154CB6950073642F /* intro_5.png */; };
 		E18F65EC154CB6960073642F /* intro_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F65E9154CB6950073642F /* intro_5@2x.png */; };
@@ -2133,6 +2143,18 @@
 		BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfiguration.h; sourceTree = "<group>"; };
 		BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfiguration.m; sourceTree = "<group>"; };
 		BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPadLeftOrRight.m; sourceTree = "<group>"; };
+		BE951AF01CA93EB2008DD94B /* fsusage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fsusage.h; path = include/fsusage.h; sourceTree = "<group>"; };
+		BE951AF11CA93EC0008DD94B /* fsusage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsusage.cpp; sourceTree = "<group>"; };
+		BE951AF31CA93F27008DD94B /* native2amiga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = native2amiga.cpp; sourceTree = "<group>"; };
+		BE951AF51CA93F33008DD94B /* native2amiga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = native2amiga.h; path = include/native2amiga.h; sourceTree = "<group>"; };
+		BE951AF61CA93F86008DD94B /* scsi-none.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "scsi-none.cpp"; sourceTree = "<group>"; };
+		BE951AF81CA93F93008DD94B /* scsidev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scsidev.h; path = include/scsidev.h; sourceTree = "<group>"; };
+		BE951AF91CA93FB7008DD94B /* fsdb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb.cpp; sourceTree = "<group>"; };
+		BE951AFB1CA93FBF008DD94B /* fsdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fsdb.h; path = include/fsdb.h; sourceTree = "<group>"; };
+		BE951AFC1CA942B1008DD94B /* expansion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = expansion.cpp; sourceTree = "<group>"; };
+		BE951AFE1CA942E5008DD94B /* picasso96.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picasso96.h; path = include/picasso96.h; sourceTree = "<group>"; };
+		BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb_unix.cpp; sourceTree = "<group>"; };
+		BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardfile.cpp; sourceTree = "<group>"; };
 		BEE41BC11B4782D200CE487D /* AdfImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfImporter.m; sourceTree = "<group>"; };
 		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
 		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
@@ -2146,6 +2168,11 @@
 		BEE41BD01B4784AC00CE487D /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = minizip/ioapi.h; sourceTree = "<group>"; };
 		BEE41BD11B4784AC00CE487D /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = minizip/ioapi.c; sourceTree = "<group>"; };
 		BEE41BD21B4784AC00CE487D /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = minizip/crypt.h; sourceTree = "<group>"; };
+		BEF413D01CA411CF00CCC1F5 /* HardDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardDriveService.h; sourceTree = "<group>"; };
+		BEF413D11CA411CF00CCC1F5 /* HardDriveService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HardDriveService.mm; sourceTree = "<group>"; };
+		BEF413D31CA414E700CCC1F5 /* filesys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filesys.cpp; sourceTree = "<group>"; };
+		BEF413D51CA414F600CCC1F5 /* cfgfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cfgfile.cpp; sourceTree = "<group>"; };
+		BEF413D71CA4150500CCC1F5 /* cfgfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cfgfile.h; path = include/cfgfile.h; sourceTree = "<group>"; };
 		E18F65E6154CAD470073642F /* Bazooka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazooka.ttf; sourceTree = "<group>"; };
 		E18F65E8154CB6950073642F /* intro_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_5.png; sourceTree = "<group>"; };
 		E18F65E9154CB6950073642F /* intro_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_5@2x.png"; sourceTree = "<group>"; };
@@ -2396,6 +2423,22 @@
 		0542F2610FC8852A00126562 /* uae-src */ = {
 			isa = PBXGroup;
 			children = (
+				BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */,
+				BE951AFE1CA942E5008DD94B /* picasso96.h */,
+				BE951AFC1CA942B1008DD94B /* expansion.cpp */,
+				BE951AFB1CA93FBF008DD94B /* fsdb.h */,
+				BE951AF91CA93FB7008DD94B /* fsdb.cpp */,
+				BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */,
+				BE951AF81CA93F93008DD94B /* scsidev.h */,
+				BE951AF61CA93F86008DD94B /* scsi-none.cpp */,
+				BE951AF51CA93F33008DD94B /* native2amiga.h */,
+				BE951AF31CA93F27008DD94B /* native2amiga.cpp */,
+				BE951AF11CA93EC0008DD94B /* fsusage.cpp */,
+				BE951AF01CA93EB2008DD94B /* fsusage.h */,
+				BEF413D71CA4150500CCC1F5 /* cfgfile.h */,
+				BEF413D51CA414F600CCC1F5 /* cfgfile.cpp */,
+				BEF413D31CA414E700CCC1F5 /* filesys.cpp */,
+				9064AD561C7D0A8D004CAE28 /* od-joy.h */,
 				97855145153A454100580B91 /* savestate.cpp */,
 				0552BD1C0F3D797C005B30DF /* sysconfig.h */,
 				054525AF106EC5550032FC41 /* combined_modules.cpp */,
@@ -2788,6 +2831,8 @@
 				BE52EFA81B4FC9B8008E15E6 /* DriveState.m */,
 				7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */,
 				7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.m */,
+				BEF413D01CA411CF00CCC1F5 /* HardDriveService.h */,
+				BEF413D11CA411CF00CCC1F5 /* HardDriveService.mm */,
 				BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */,
 				BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */,
 				BE66229B1C3285B3009C2809 /* KeyButtonConfigurationController.h */,
@@ -4827,6 +4872,7 @@
 				BEE41BD51B4784AC00CE487D /* mztools.c in Sources */,
 				0552BD2E0F3D797C005B30DF /* gfxutil.cpp in Sources */,
 				BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */,
+				BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */,
 				0552BD410F3D797C005B30DF /* keybuf.cpp in Sources */,
 				0552BD470F3D797C005B30DF /* m68k_intrf.cpp in Sources */,
 				0552BD490F3D797C005B30DF /* uae.cpp in Sources */,
@@ -4850,6 +4896,7 @@
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
 				05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */,
+				BEF413D41CA414E700CCC1F5 /* filesys.cpp in Sources */,
 				0504155C0FCB46F000F46828 /* EmulationViewController.mm in Sources */,
 				050415610FCB475C00F46828 /* InputControllerView.mm in Sources */,
 				7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.m in Sources */,
@@ -4868,6 +4915,7 @@
 				BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */,
 				0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */,
 				0585D5621091653E00C1E4C1 /* KeyView.m in Sources */,
+				BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */,
 				050C393D12C31B24000CE512 /* Disa.c in Sources */,
 				7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */,
 				050C3A9412C33D94000CE512 /* disassembler.m in Sources */,
@@ -4877,7 +4925,9 @@
 				05D5233712E8030E007912AE /* SelectEffectController.m in Sources */,
 				7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.m in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
+				BEF413D61CA414F600CCC1F5 /* cfgfile.cpp in Sources */,
 				BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */,
+				BE951AFA1CA93FB7008DD94B /* fsdb.cpp in Sources */,
 				057B26B513B325AB006BB230 /* NSObject+Blocks.m in Sources */,
 				7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */,
 				978550C7153A3F2E00580B91 /* SDL_events.c in Sources */,
@@ -4886,6 +4936,7 @@
 				7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */,
 				978550CA153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CD153A3F2E00580B91 /* ButtonStates.m in Sources */,
+				BEF413D21CA411CF00CCC1F5 /* HardDriveService.mm in Sources */,
 				BEE41BC31B4782D200CE487D /* AdfImporter.m in Sources */,
 				978550D0153A3F2E00580B91 /* iCadeReaderView.m in Sources */,
 				BE66229A1C328442009C2809 /* KeyButtonManagementController.m in Sources */,
@@ -4898,10 +4949,13 @@
 				978550DF153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E2153A3F2E00580B91 /* SDL_error.c in Sources */,
 				BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */,
+				BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */,
+				BE951AF71CA93F86008DD94B /* scsi-none.cpp in Sources */,
 				978550E5153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
 				7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */,
 				978550E8153A3F2E00580B91 /* SDL_syscond.c in Sources */,
 				7EB017791B09164900C74B9D /* State.m in Sources */,
+				BE951AF41CA93F27008DD94B /* native2amiga.cpp in Sources */,
 				BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */,
 				9064AD631C7F7982004CAE28 /* MultiPeerConnectivityController.mm in Sources */,
 				978550EB153A3F2E00580B91 /* SDL_sysmutex.c in Sources */,
@@ -4927,6 +4981,7 @@
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
 				9785512D153A3F2E00580B91 /* SDL_UIKitVideo.m in Sources */,
+				BE951AF21CA93EC0008DD94B /* fsusage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5534,6 +5589,7 @@
 					IPHONE,
 					NDEBUG,
 					SAFE_MEMORY_ACCESS,
+					USE_AUTOCONFIG,
 				);
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
@@ -5564,6 +5620,7 @@
 					IPHONE,
 					DEBUG,
 					SAFE_MEMORY_ACCESS,
+					USE_AUTOCONFIG,
 				);
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
@@ -5591,6 +5648,7 @@
 					IPHONE,
 					NDEBUG,
 					SAFE_MEMORY_ACCESS,
+					USE_AUTOCONFIG,
 				);
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
