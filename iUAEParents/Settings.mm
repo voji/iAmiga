@@ -47,6 +47,7 @@ static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
 
 static NSString *const kControllersKey = @"_controllers";
+static NSString *const kControllersNextIDKey = @"_controllersnextidkey";
 static NSString *const kJoypadStyleKey = @"_joypadstyle";
 static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
 static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
@@ -139,6 +140,9 @@ static NSString *configurationname;
     self.dpadTouchOrMotion =        [self keyExists:kDPadTouchOrMotion]         ? self.dpadTouchOrMotion : @"Touch";
     self.gyroToggleUpDown =         [self keyExists:kGyroToggleUpDown]          ? self.gyroToggleUpDown : NO;
     self.gyroSensitivity =          [self keyExists:kGyroSensitivity]           ? self.gyroSensitivity : 0.1;
+    self.controllersnextid =        [self keyExists:kControllersNextIDKey]      ? self.controllersnextid : 1;
+    self.controllers =              [self keyExists:kControllersKey]            ? self.controllers : [NSArray arrayWithObjects:@1, nil];
+    
     
     if (![self keyExists:[NSString stringWithFormat:@"_BTN_%d", BTN_A]])
     //Set default values for JoypadKeyconfiguration
@@ -169,6 +173,10 @@ static NSString *configurationname;
         [self setKeyconfigurationname:@"Joypad" Button:BTN_DOWN];
         [self setKeyconfigurationname:@"Joypad" Button:BTN_LEFT];
         [self setKeyconfigurationname:@"Joypad" Button:BTN_RIGHT];
+    }
+    
+    if (![self controllers])
+    {
     }
 }
                           
@@ -280,12 +288,27 @@ static NSString *configurationname;
     [self setFloat:gyroSensitivity forKey:kGyroSensitivity];
 }
 
--(void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button {
-    [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTN_%d", button]];
+-(void)setKeyconfiguration:(NSString *)configuredkey forController:(int)cNumber Button:(int)button {
+    
+    //Backwardscompatibility
+    if (cNumber == 1)
+        [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTN_%d",
+                                              button]];
+    else
+        [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTN_%d_%d", cNumber, button]];
+    
+    if (cNumber == [self controllersnextid])
+    {
+        [self setcontrollersnextid:cNumber++];
+    }
 }
 
--(void)setKeyconfigurationname:(NSString *)configuredkey Button:(int)button {
-    [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d", button]];
+-(void)setKeyconfigurationname:(NSString *)configuredkey forController:(int)cNumber  Button:(int)button {
+    
+    if(cNumber == 1)
+        [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d", button]];
+    else
+        [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d%d", cNumber, button]];
 }
 
 - (BOOL)showStatusBar {
@@ -327,6 +350,14 @@ static NSString *configurationname;
 
 - (void)setControllers:(NSArray *)controllers {
     [self setObject:controllers forKey:kControllersKey];
+}
+
+- (NSUInteger)controllersnextid {
+    return [self integerForKey: kControllersNextIDKey];
+}
+
+- (void)setcontrollersnextid:(NSUInteger)controllersnextid {
+    [self setInteger: controllersnextid forKey:kControllersNextIDKey];
 }
 
 

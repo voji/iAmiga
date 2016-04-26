@@ -177,7 +177,7 @@
                     <connections>
                         <segue destination="fDF-e7-E6W" kind="relationship" relationship="viewControllers" id="Kck-hA-0lH"/>
                         <segue destination="yXc-Cp-5wh" kind="relationship" relationship="viewControllers" id="sSS-f8-t7C"/>
-                        <segue destination="Ssi-XH-6r7" kind="relationship" relationship="viewControllers" id="Eaw-1p-Aqq"/>
+                        <segue destination="FUy-qQ-IYT" kind="relationship" relationship="viewControllers" id="Z3n-pU-Mh2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InA-Ie-8Qk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTf-ki-Q8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1028" y="3481"/>
+            <point key="canvasLocation" x="-1216" y="3384"/>
         </scene>
         <!--Display-->
         <scene sceneID="pP5-g4-9BS">
@@ -812,7 +812,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VK-Vz-1xK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2267" y="2384"/>
+            <point key="canvasLocation" x="2343" y="2344"/>
         </scene>
         <!--Joystick - Key Selection-->
         <scene sceneID="9Ze-AO-zNo">
@@ -1179,7 +1179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrb-3e-5OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4735" y="3207"/>
+            <point key="canvasLocation" x="4747" y="3415"/>
         </scene>
         <!--Settings Joypad Vpad Controller-->
         <scene sceneID="ytB-vG-mPH">
@@ -1789,7 +1789,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCa-Kv-Rz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3398" y="2384"/>
+            <point key="canvasLocation" x="3490" y="2446"/>
+        </scene>
+        <!--JoypadControllerSelection-->
+        <scene sceneID="uWC-GL-TNq">
+            <objects>
+                <tableViewController id="FUy-qQ-IYT" userLabel="JoypadControllerSelection" customClass="JoypadSelectionController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uih-rA-CDN">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="f48-Ku-hdc" style="IBUITableViewCellStyleDefault" id="Djm-0x-Ugx">
+                                <rect key="frame" x="0.0" y="92" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Djm-0x-Ugx" id="y5I-ZA-5os">
+                                    <rect key="frame" x="0.0" y="0.0" width="810" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f48-Ku-hdc">
+                                            <rect key="frame" x="196" y="0.0" width="614" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ssi-XH-6r7" kind="show" identifier="segueOpencontroller" trigger="accessoryAction" id="GFZ-Tt-Axw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FUy-qQ-IYT" id="jyA-hA-9uy"/>
+                            <outlet property="delegate" destination="FUy-qQ-IYT" id="R5w-uG-x37"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Joypad" image="controller_unselected.png" id="nH8-Kc-Pbl">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedimage" value="controller_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsY-xO-amY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4338" y="1688"/>
         </scene>
         <!--Joystick-->
         <scene sceneID="X3p-7t-fXI">
@@ -1964,7 +2009,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44z-ft-pUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4735" y="2270"/>
+            <point key="canvasLocation" x="5612" y="1738"/>
         </scene>
         <!--Disk Assocation View Controller-->
         <scene sceneID="wnM-qp-wqp">
@@ -2241,7 +2286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-nG-CGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="2384"/>
+            <point key="canvasLocation" x="1028" y="2356"/>
         </scene>
         <!--Browser View Controller-->
         <scene sceneID="c11-yF-e1b">
@@ -2442,7 +2487,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wS-cv-pkQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173" y="2384"/>
+            <point key="canvasLocation" x="-91" y="3384"/>
         </scene>
         <!--Key Button Configuration Controller-->
         <scene sceneID="G6u-Nl-7Cn">
@@ -2551,7 +2596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljs-VL-kfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173" y="3397"/>
+            <point key="canvasLocation" x="-347" y="4337"/>
         </scene>
         <!--DPad Mode Scene-->
         <scene sceneID="VX3-qr-sE7">
@@ -2625,6 +2670,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="controller_selected" width="25" height="25"/>
         <image name="controller_selected.png" width="25" height="25"/>
         <image name="controller_unselected.png" width="25" height="25"/>
         <image name="gear_selected.png" width="25" height="25"/>
@@ -2636,8 +2682,8 @@
         <image name="sticky_unselected.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aiJ-xe-fVq"/>
         <segue reference="yz1-cx-vwd"/>
+        <segue reference="aiJ-xe-fVq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

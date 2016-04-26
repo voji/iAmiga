@@ -96,6 +96,17 @@ NSString* get_rom_path(NSString * directory, NSArray *romNameFilters) {
     return nil;
 }
 
+NSString* get_key_path(NSString * directory, NSArray *keyNameFilters) {
+    NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:directory];
+    NSArray *relativeFilePaths = [[direnum allObjects] pathsMatchingExtensions:@[@"key"]];
+    for (NSString *relativeFilePath in relativeFilePaths) {
+        if ([keyNameFilters containsObject:[relativeFilePath lastPathComponent]]) {
+            return [directory stringByAppendingPathComponent:relativeFilePath];
+        }
+    }
+    return nil;
+}
+
 char* get_rom_path() {
     NSArray *romNameFilters = @[@"kick.rom", @"kick13.rom"];
 	NSString *mainBundleDirectory = [[NSBundle mainBundle] bundlePath];
@@ -108,6 +119,20 @@ char* get_rom_path() {
 	static char romPathC[500];
 	[romPath getCString:romPathC maxLength:sizeof(romPathC) encoding:[NSString defaultCStringEncoding]];
     return romPathC;
+}
+
+char* get_key_path() {
+    NSArray *keynameFilters = @[@"rom.key"];
+    NSString *mainBundleDirectory = [[NSBundle mainBundle] bundlePath];
+    NSString *keyPath = get_key_path(mainBundleDirectory, keynameFilters);
+    if (!keyPath) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        keyPath = get_key_path(documentsDirectory, keynameFilters);
+    }
+    static char keyPathC[500];
+    [keyPath getCString:keyPathC maxLength:sizeof(keyPathC) encoding:[NSString defaultCStringEncoding]];
+    return keyPathC;
 }
 
 extern "C" char changed_df[1][256];;

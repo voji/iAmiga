@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#ifdef NOTDEFINED
-@interface JoypadMappingMainController : UITableViewController
+
+@interface JoypadSelectionController : UITableViewController
 
 @end
 
-#endif
+

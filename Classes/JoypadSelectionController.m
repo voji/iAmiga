@@ -6,12 +6,10 @@
 //
 //
 
-#import "JoypadMappingMainController.h"
+#import "JoypadSelectionController.h"
 #import "Settings.h"
 
-#ifdef NOTDEFINED
-
-@implementation JoypadMappingMainController {
+@implementation JoypadSelectionController {
     Settings *_settings;
     NSMutableArray *_controllers;
 }
@@ -74,28 +72,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(self.delegate)
+    
+    /*if(self.delegate)
     {
         NSString *configurationname = [configurations objectAtIndex:indexPath.row];
         
         [self.navigationController popViewControllerAnimated:YES];
         [self.delegate didSelectConfiguration:configurationname];
-    }
+    }*/
+    
 }
 
-- (void)configurationAdded:(NSString *)configurationname {
-    if(!configurations)
-    {
-        configurations = [NSMutableArray arrayWithObjects: firstoption, configurationname, nil];
-    }
-    else
-    {
-        [configurations addObject:configurationname];
-    }
-    
-    [self.navigationController popViewControllerAnimated:NO];
-    [self.delegate didSelectConfiguration:configurationname];
-    //[self dismissViewControllerAnimated:NO completion:nil];
+- (void)controllerAdded:(NSString *)configurationname {
 }
 
 
@@ -104,10 +92,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         
-        [self deleteConfiguration:indexPath];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[self deleteConfiguration:indexPath];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    //} else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
@@ -117,44 +105,20 @@
     return returnvalue;
 }
 
-- (void)deleteConfiguration:(NSIndexPath *)indexPath {
-    EMUBrowser *browser = [[EMUBrowser alloc] init];
-    NSArray *files = [browser getFileInfos];
-    NSString *configdeleted = [configurations objectAtIndex:indexPath.row];
+- (void)deleteController:(NSIndexPath *)indexPath {
     
-    [configurations removeObjectAtIndex:indexPath.row];
-    
-    NSMutableArray *configurationsforsave = [configurations mutableCopy];
-    [configurationsforsave removeObjectAtIndex:0]; //General or None is no real Configuration just a placeholder
-    
-    settings.configurations = configurationsforsave;
-    
-    for (EMUFileInfo* f in files) {
-        
-        /*Associated Configuration File*/
-        NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [f fileName]];
-        NSString *configurationfile = [settings stringForKey:settingstring] ? [settings stringForKey:settingstring] : [NSString stringWithFormat:@""];
-        if([configurationfile isEqualToString:configdeleted])
-        {
-            if(self.delegate)
-            {
-                [self.delegate didDeleteConfiguration];
-            }
-            [settings removeObjectForKey:settingstring];
-        }
-    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"addconfiguration"]) {
+    /*if([segue.identifier isEqualToString:@"addconfiguration"]) {
         AddConfigurationViewController *controller = (AddConfigurationViewController *)segue.destinationViewController;
         controller.delegate = self;
-    }
+    }*/
 }
 
 - (void) dealloc {
-    [configurations release];
-    [firstoption release];
+    [_settings release];
+    [_controllers release];
     [super dealloc];
 }
 
@@ -183,5 +147,3 @@
  */
 
 @end
-
-#endif

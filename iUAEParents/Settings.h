@@ -43,11 +43,13 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readonly, assign) BOOL DPadModeIsMotion;
 @property (nonatomic, readwrite, assign) BOOL gyroToggleUpDown;
 @property (nonatomic, readwrite, assign) float gyroSensitivity;
+@property (nonatomic, readwrite, assign) NSUInteger controllersnextid;
+@property (nonatomic, readwrite, assign) NSArray *controllers;
 
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;
 - (void)setFloppyConfiguration:(NSString *)adfPath;
-- (void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button;
+- (void)setKeyconfiguration:(NSString *)configuredkey forController:(int)cNumber Button:(int)button;
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void)setObject:(id)value forKey:(NSString *)settingitemname;

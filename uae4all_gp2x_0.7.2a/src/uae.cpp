@@ -71,6 +71,7 @@ void uae::default_prefs () {
     strcpy (romfile, ROM_PATH_PREFIX "kick.rom");
 #elif defined(IPHONE)
 	strcpy(romfile, get_rom_path());
+    strcpy(romkeyfile, get_key_path());
 #else
     strcpy (romfile, "kick.rom");
 #endif
