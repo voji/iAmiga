@@ -22,6 +22,13 @@
 
 @implementation EMUBrowser
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.extensions = @[@"ADF", @"adf"];
+    }
+    return self;
+}
+
 - (NSArray *)getFileInfos {
     return [self getFileInfosWithFileNameFilter:nil];
 }
@@ -45,7 +52,7 @@
 
 - (NSArray *)getFileInfosInDirectory:(NSString *)directory fileNameFilter:(NSString *)fileNameFilter {
     NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:directory];
-    NSArray *relativeFilePaths = [[direnum allObjects] pathsMatchingExtensions:@[@"adf", @"ADF"]];
+    NSArray *relativeFilePaths = [[direnum allObjects] pathsMatchingExtensions:_extensions];
     NSMutableArray *fileInfos = [[[NSMutableArray alloc] initWithCapacity:[relativeFilePaths count]] autorelease];
     for (NSString *relativeFilePath in relativeFilePaths) {
         NSString *filePath = [directory stringByAppendingPathComponent:relativeFilePath];
@@ -60,6 +67,11 @@
         }
     }
     return fileInfos;
+}
+
+- (void)dealloc {
+    self.extensions = nil;
+    [super dealloc];
 }
 
 @end

@@ -23,6 +23,9 @@ disks/*
 # vim
 *.swp
 
+# emacs
+*~
+
 rgetSpecific/DotC/Info-DotC.plist
 
 disks/

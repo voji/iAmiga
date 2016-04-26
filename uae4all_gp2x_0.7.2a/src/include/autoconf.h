@@ -16,7 +16,7 @@ extern uae_u32 addr (int);
 extern void db (uae_u8);
 extern void dw (uae_u16);
 extern void dl (uae_u32);
-extern uae_u32 ds (char *);
+extern uae_u32 ds (const char *);
 extern void calltrap (uae_u32);
 extern void org (uae_u32);
 extern uae_u32 here (void);
@@ -41,6 +41,31 @@ extern uaecptr ROM_filesys_diagentry;
 extern uaecptr ROM_hardfile_resname, ROM_hardfile_resid;
 extern uaecptr ROM_hardfile_init;
 extern uaecptr filesys_initcode;
+
+extern int nr_units (struct uaedev_mount_info *mountinfo);
+
+extern void hardfile_install (void);
+
+extern char *add_filesys_unit (struct uaedev_mount_info *mountinfo,
+                               char *volname, char *rootdir, int readonly,
+                               int secs, int surfaces, int reserved,
+                               int blocksize);
+
+extern struct uaedev_mount_info *alloc_mountinfo (void);
+extern struct uaedev_mount_info *dup_mountinfo (struct uaedev_mount_info *);
+extern void free_mountinfo (struct uaedev_mount_info *);
+
+extern void filesys_reset (void);
+extern void filesys_prepare_reset (void);
+extern void filesys_start_threads (void);
+
+extern void filesys_install (void);
+extern void filesys_install_code (void);
+extern void filesys_store_devinfo (uae_u8 *);
+extern void hardfile_install (void);
+extern void emulib_install (void);
+extern void expansion_init (void);
+extern void expansion_cleanup (void);
 
 #define TRAPFLAG_NO_REGSAVE 1
 #define TRAPFLAG_NO_RETVAL 2

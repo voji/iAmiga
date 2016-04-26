@@ -54,6 +54,9 @@
 	[sections addObject:[[EMUFileGroup alloc] initWithSectionName:@"#"]];
 	
 	EMUBrowser *browser = [[EMUBrowser alloc] init];
+    if (self.extensions) {
+        browser.extensions = self.extensions;
+    }
 	NSArray *files = [browser getFileInfos];
 	for (EMUFileInfo* f in files) {
 		unichar c = [[f fileName] characterAtIndex:0];
@@ -71,7 +74,6 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -118,7 +120,6 @@
 		
 	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
 	EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
-	//[self dismissModalViewControllerAnimated:YES];
 	[self.navigationController popViewControllerAnimated:YES];
     if (self.delegate) {
 		[self.delegate didSelectROM:fi withContext:context];
@@ -193,6 +194,7 @@
 	self.selectedIndexPath = nil;
 	self.context = nil;
     self.adfImporter = nil;
+    self.extensions = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }

@@ -23,7 +23,7 @@
 @interface EMUBrowser : NSObject
 
 /**
- * Returns an array of EMUFileInfo instances for all available adfs.
+ * Returns an array of EMUFileInfo instances for all available files.
  */
 - (NSArray *)getFileInfos;
 
@@ -31,5 +31,10 @@
  * Returns an EMUFileInfo instance for the specified fileName (xyz.adf), or nil if a file with that name does not exist.
  */
 - (EMUFileInfo *)getFileInfo:(NSString *)fileName;
+
+/**
+ * The extensions of the files this EMUBrowser loads.  Defaults to [adf, ADF].
+ */
+@property (nonatomic, retain) NSArray* extensions;
 
 @end

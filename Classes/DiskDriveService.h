@@ -19,6 +19,8 @@
 
 /**
  * The disk drive service handles interactions with the disk drives.
+ *
+ * Note that this class uses the emulator state as source of truth, it does not/should not read configuration.
  */
 @interface DiskDriveService : NSObject
 

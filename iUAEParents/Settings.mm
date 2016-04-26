@@ -59,6 +59,7 @@ static NSString *const kGyroSensitivity = @"_gyroSensitivity";
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
 static NSString *const kDf3EnabledKey = @"df3Enabled";
+static NSString *const kHardfilePath = @"hardfilePath";
 
 extern int mainMenu_showStatus;
 extern int mainMenu_ntsc;
@@ -373,6 +374,14 @@ static NSString *configurationname;
     [self setBool:driveState.df1Enabled forKey:kDf1EnabledKey];
     [self setBool:driveState.df2Enabled forKey:kDf2EnabledKey];
     [self setBool:driveState.df3Enabled forKey:kDf3EnabledKey];
+}
+
+- (NSString *)hardfilePath {
+    return [self stringForKey:kHardfilePath];
+}
+
+- (void)setHardfilePath:(NSString *)hardfilePath {
+    [self setObject:hardfilePath forKey:kHardfilePath];
 }
 
 - (BOOL)keyButtonsEnabled {
