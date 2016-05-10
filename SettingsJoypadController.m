@@ -44,19 +44,22 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    _CellA.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_A]];
-    _CellB.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_B]];
-    _CellX.detailTextLabel.text = [settings stringForKey: [NSString stringWithFormat: @"_BTNN_%d", BTN_X]];
-    _CellY.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_Y]];
-    _CellL1.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_L1]];
-    _CellL2.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_L2]];
-    _CellR1.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_R1]];
-    _CellR2.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_R2]];
-    _CellUp.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_UP]];
-    _CellDown.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_DOWN]];
-    _CellLeft.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_LEFT]];
-    _CellRight.detailTextLabel.text = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", BTN_RIGHT]];
-        
+    _CellA.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_A];
+    _CellB.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_B];
+    _CellX.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_X];
+    _CellY.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_Y];
+    _CellL1.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_L1];
+    _CellL2.detailTextLabel.text =  [settings keyConfigurationNameforButton:BTN_L2];
+    _CellR1.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_R1];
+    _CellR2.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_R2];
+    _CellUp.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_UP];
+    _CellDown.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_DOWN];
+    _CellLeft.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_LEFT];
+    _CellRight.detailTextLabel.text = [settings keyConfigurationNameforButton:BTN_RIGHT];
+    _Port.detailTextLabel.text = [settings keyConfigurationforButton:PORT];
+    
+    BOOL vsFlag = [[settings keyConfigurationforButton:VSWITCH] isEqualToString:@"YES"] ? 1 : 0;
+    [_vSWitch setOn:vsFlag];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,7 +74,7 @@
         controller.delegate = self;
         context = cellsender;
         
-        NSString *strbuttonconnected = [settings stringForKey:[NSString stringWithFormat: @"_BTNN_%d", context.tag]];
+        NSString *strbuttonconnected = [settings keyConfigurationNameforButton:context.tag];
         
         NSString *joypaddetailtext = [strbuttonconnected isEqualToString:@"Joypad"] ? @"Joypad" : @"";
         NSString *keydetailtext = [strbuttonconnected isEqualToString:@"Joypad"] ? @"" : strbuttonconnected;
@@ -83,26 +86,29 @@
 }
 
 - (void)didSelectJoypad {
-    
-    NSString *strConfigKey = [NSString stringWithFormat: @"_BTN_%d", context.tag];
-    [settings setObject:@"Joypad" forKey:strConfigKey];
-    
-    strConfigKey = [NSString stringWithFormat: @"_BTNN_%d", context.tag];
-    [settings setObject:@"Joypad" forKey:strConfigKey];
-    
-    //context.detailTextLabel.text = @"Joypad";
+    [settings setKeyconfiguration:@"Joypad" Button:context.tag];
+    [settings setKeyconfigurationname:@"Joypad" Button:context.tag];
 }
 
 - (void)didSelectKey:(int)asciicode keyName:(NSString *)keyName {
     
-    NSString *strConfigValue = [NSString stringWithFormat: @"KEY_%d", asciicode];
-    NSString *strConfigKey = [NSString stringWithFormat: @"_BTN_%d", context.tag];
-    [settings setObject:strConfigValue forKey:strConfigKey];
     
-    strConfigKey = [NSString stringWithFormat: @"_BTNN_%d", context.tag];
-    [settings setObject:keyName forKey:strConfigKey];
+    NSString *strConfigValue = [NSString stringWithFormat: @"KEY_%d", asciicode];
+    [settings setKeyconfiguration:strConfigValue Button:context.tag];
+    [settings setKeyconfigurationname:keyName Button:context.tag];
+}
 
-    //context.detailTextLabel.text = strConfigValue;
+- (void)didSelectPort:(int)pNumber {
+    
+    [settings setKeyconfiguration:[NSString stringWithFormat:@"%d", pNumber] Button:PORT];
+    
+}
+
+- (IBAction)togglevSwitch:(id)sender {
+    
+    NSString *vsFlag = _vSWitch.on == YES ? @"YES" : @"NO";
+    [settings setKeyconfiguration:vsFlag Button:VSWITCH];
+    
 }
 
 - (void)dealloc {
@@ -121,7 +127,11 @@
     [_CellDown release];
     [_CellLeft release];
     [_CellRight release];
+    [_Port release];
+    [_vSWitch release];
     [super dealloc];
 }
 
+- (IBAction)togglevsWitch:(id)sender {
+}
 @end

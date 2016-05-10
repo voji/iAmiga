@@ -1,4 +1,8 @@
-//  Created by Emufr3ak on 28.05.2015
+//
+//  SettingsGeneralController.h
+//  iUAE
+//
+//  Created by Emufr3ak on 24.05.15.
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -14,21 +18,20 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#define BTN_A 0
-#define BTN_B 1
-#define BTN_X 2
-#define BTN_Y 3
-#define BTN_L1 5
-#define BTN_L2 7
-#define BTN_R1 4
-#define BTN_R2 6
-#define BTN_UP 9
-#define BTN_DOWN 10
-#define BTN_LEFT 11
-#define BTN_RIGHT 12
+#import <UIKit/UIKit.h>
 
-#define PORT 20
 
-#define VSWITCH 30
+@protocol SelectPortDelegate
+- (void)didSelectPort:(int)pNumber;
+@end
 
-#define BTN_INVALID 99
+@interface SettingsSelectPortViewController : UITableViewController
+
+@property (nonatomic, assign) id<SelectPortDelegate>	delegate;
+@property (retain, nonatomic) IBOutlet UITableViewCell *P0Cell;
+@property (retain, nonatomic) IBOutlet UITableViewCell *P1Cell;
+
+- (IBAction)SelectPort0:(id)sender;
+- (IBAction)SelectPort1:(id)sender;
+
+@end

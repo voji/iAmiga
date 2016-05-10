@@ -7,7 +7,9 @@
 //
 
 #import "JoypadSelectionController.h"
+#import "JoypadMainSettingsController.h"
 #import "Settings.h"
+#import "JoypadKey.h"
 
 @implementation JoypadSelectionController {
     Settings *_settings;
@@ -41,15 +43,14 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_controllers count];
+    return [_settings keyConfigurationCount];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell;
     
-    if (_controllers)
+    if ([_settings keyConfigurationforButton:BTN_A forController:indexPath.row + 1])
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"
                                                forIndexPath:indexPath];
@@ -66,21 +67,9 @@
 
 - (UITableViewCell *)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     //NSString *configurationname = [configurations objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Controller %d", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Controller %d", indexPath.row + 1];
 
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    /*if(self.delegate)
-    {
-        NSString *configurationname = [configurations objectAtIndex:indexPath.row];
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        [self.delegate didSelectConfiguration:configurationname];
-    }*/
-    
 }
 
 - (void)controllerAdded:(NSString *)configurationname {
@@ -110,10 +99,14 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*if([segue.identifier isEqualToString:@"addconfiguration"]) {
-        AddConfigurationViewController *controller = (AddConfigurationViewController *)segue.destinationViewController;
-        controller.delegate = self;
-    }*/
+    
+    if([segue.identifier isEqualToString:@"showcontroller"]) {
+        
+        UITableViewCell *sCell = (UITableViewCell *) sender;
+        NSInteger cNumber = [[self.tableView indexPathForCell:sCell] row] + 1;
+        [_settings setCNumber:cNumber];
+        
+    }
 }
 
 - (void) dealloc {

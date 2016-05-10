@@ -193,8 +193,6 @@
 		7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18DE188B1CD70019E82B /* btn_restart~ipad.png */; };
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
-		7E529E931CCBC31A00796790 /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7E529E921CCBC31A00796790 /* rom.key */; };
-		7E529E9F1CCBCE0200796790 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E529E9E1CCBCE0200796790 /* kick13.rom */; };
 		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */; };
 		7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */; };
 		7E5AF60C1C444854000BF5CB /* sticky_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FC1C444854000BF5CB /* sticky_unselected.png */; };
@@ -212,7 +210,11 @@
 		7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF60A1C444854000BF5CB /* controller_selected.png */; };
 		7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */; };
 		7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61F1C444C83000BF5CB /* gear_unselected.png */; };
+		7E5DF8B31CE27A6A00745541 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E5DF8B21CE27A6A00745541 /* kick13.rom */; };
+		7E5DF8B51CE27A7E00745541 /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7E5DF8B41CE27A7E00745541 /* rom.key */; };
+		7E5DF8B71CE27AC600745541 /* airtaxi.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E5DF8B61CE27AC600745541 /* airtaxi.adf */; };
 		7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */; };
+		7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.m */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
@@ -1586,8 +1588,6 @@
 		7E4C6AF519DB0F7100D337D0 /* famec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = famec.cpp; sourceTree = "<group>"; };
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
-		7E529E921CCBC31A00796790 /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../../Desktop/rom.key; sourceTree = "<group>"; };
-		7E529E9E1CCBCE0200796790 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../../Desktop/kick13.rom; sourceTree = "<group>"; };
 		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MFIControllerReaderView.mm; path = "../../libraries/sdl-mini/src/joystick/iOS/MFIControllerReaderView.mm"; sourceTree = "<group>"; };
 		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFIControllerReaderView.h; path = "../../libraries/sdl-mini/src/joystick/iOS/MFIControllerReaderView.h"; sourceTree = "<group>"; };
 		7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sticky_unselected_svg.svg; sourceTree = "<group>"; };
@@ -1606,8 +1606,13 @@
 		7E5AF60A1C444854000BF5CB /* controller_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_selected.png; sourceTree = "<group>"; };
 		7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_unselected.png; sourceTree = "<group>"; };
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
+		7E5DF8B21CE27A6A00745541 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../../Desktop/kick13.rom; sourceTree = "<group>"; };
+		7E5DF8B41CE27A7E00745541 /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../../Desktop/rom.key; sourceTree = "<group>"; };
+		7E5DF8B61CE27AC600745541 /* airtaxi.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = airtaxi.adf; path = ../../../../Desktop/airtaxi.adf; sourceTree = "<group>"; };
 		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
 		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadMainController.m; sourceTree = "<group>"; };
+		7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectPortViewController.h; sourceTree = "<group>"; };
+		7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSelectPortViewController.m; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
@@ -1642,7 +1647,6 @@
 		7EB017751B09164900C74B9D /* StateFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateFileManager.h; sourceTree = "<group>"; };
 		7EB017761B09164900C74B9D /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
 		7EB017771B09164900C74B9D /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
-		7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectKeyViewController.h; sourceTree = "<group>"; };
 		7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSelectKeyViewController.m; sourceTree = "<group>"; };
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		7EC59ED01BAC52390097B87A /* SettingsJoypadStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadStyle.h; sourceTree = "<group>"; };
@@ -1651,6 +1655,7 @@
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
 		7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskAssociationViewController.mm; sourceTree = "<group>"; };
+		7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectKeyViewController.h; sourceTree = "<group>"; };
 		7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoypadMainSettingsController.h; sourceTree = "<group>"; };
 		7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoypadMainSettingsController.m; sourceTree = "<group>"; };
 		7EE0D0431AACF2090081DAA5 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = ../iUAEParents/Settings.h; sourceTree = "<group>"; };
@@ -2442,7 +2447,6 @@
 				BEF413D71CA4150500CCC1F5 /* cfgfile.h */,
 				BEF413D51CA414F600CCC1F5 /* cfgfile.cpp */,
 				BEF413D31CA414E700CCC1F5 /* filesys.cpp */,
-				9064AD561C7D0A8D004CAE28 /* od-joy.h */,
 				97855145153A454100580B91 /* savestate.cpp */,
 				0552BD1C0F3D797C005B30DF /* sysconfig.h */,
 				054525AF106EC5550032FC41 /* combined_modules.cpp */,
@@ -2684,8 +2688,8 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E529E9E1CCBCE0200796790 /* kick13.rom */,
-				7E529E921CCBC31A00796790 /* rom.key */,
+				7E5DF8B41CE27A7E00745541 /* rom.key */,
+				7E5DF8B21CE27A6A00745541 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2693,6 +2697,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7E5DF8B61CE27AC600745541 /* airtaxi.adf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2825,6 +2830,8 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
+				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.m */,
 				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
 				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
@@ -2867,7 +2874,7 @@
 				7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */,
 				7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */,
 				7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.m */,
-				7EB0177E1B0921B000C74B9D /* SettingsSelectKeyViewController.h */,
+				7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */,
 				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */,
 				7EB017771B09164900C74B9D /* State.h */,
 				7EB017761B09164900C74B9D /* State.m */,
@@ -4211,6 +4218,7 @@
 				7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */,
+				7E5DF8B31CE27A6A00745541 /* kick13.rom in Resources */,
 				05BC1B18107348E500EABC6E /* VKBD.PNG in Resources */,
 				7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */,
 				BE6537DA1C5F7E41007AD097 /* PKCustomKeyboard.xib in Resources */,
@@ -4233,6 +4241,7 @@
 				7E2665531C483AEB004250D1 /* monitor_unselected.png in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
 				7E5AF6121C444854000BF5CB /* keyboard_selected.png in Resources */,
+				7E5DF8B51CE27A7E00745541 /* rom.key in Resources */,
 				7E5AF6181C444854000BF5CB /* controller_unselected.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
@@ -4257,15 +4266,14 @@
 				7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */,
 				97BE2AE415489E6600BF66CF /* firebutton-red-active@2x.png in Resources */,
 				7E5AF6191C444854000BF5CB /* controller_selected_svg.svg in Resources */,
+				7E5DF8B71CE27AC600745541 /* airtaxi.adf in Resources */,
 				97BE2AE715489E6600BF66CF /* firebutton-red-active~ipad.png in Resources */,
 				97BE2AEA15489E6600BF66CF /* firebutton-red.png in Resources */,
-				7E529E931CCBC31A00796790 /* rom.key in Resources */,
 				7E0E9594198ACF4C0082F80F /* iOSKeyboard.png in Resources */,
 				97BE2AED15489E6600BF66CF /* firebutton-red@2x.png in Resources */,
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				BE6537DC1C5F7E59007AD097 /* PMCustomKeyboard.xib in Resources */,
-				7E529E9F1CCBCE0200796790 /* kick13.rom in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
@@ -4985,6 +4993,7 @@
 				7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.m in Sources */,
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
 				7EB017781B09164900C74B9D /* StateFileManager.m in Sources */,
+				7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.m in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
