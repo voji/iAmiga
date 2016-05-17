@@ -18,6 +18,8 @@
 #import "sysconfig.h"
 #import "sysdeps.h"
 #import "options.h"
+#import "memory.h"
+#import "zfile.h"
 #import "DiskDriveService.h"
 
 @implementation DiskDriveService
@@ -117,6 +119,17 @@
     if (NUM_DRIVES > 3) {
         [self enableDrive:3 enable:driveState.df3Enabled];
     }
+}
+
+- (NSString *)getRomPath {
+    NSString *romPath = [NSString stringWithCString:romfile encoding:[NSString defaultCStringEncoding]];
+    return [romPath length] == 0 ? nil : romPath;
+}
+
+- (void)configureRom:(NSString *)romPath {
+    [romPath getCString:romfile maxLength:sizeof(romfile) encoding:[NSString defaultCStringEncoding]];
+    bReloadKickstart = 1;
+    uae4all_rom_reinit();
 }
 
 @end

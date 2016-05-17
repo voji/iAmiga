@@ -36,7 +36,7 @@
 	id context;
 }
 
-+ (NSString *)getAdfChangedNotificationName;
++ (NSString *)getFileImportedNotificationName;
 
 @property (nonatomic, retain) NSArray *roms, *indexTitles;
 @property (nonatomic, retain) NSIndexPath *selectedIndexPath;

@@ -33,6 +33,7 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) BOOL showStatusBar;
 @property (nonatomic, readwrite, assign) NSUInteger selectedEffectIndex;
 @property (nonatomic, readwrite, assign) DriveState *driveState;
+@property (nonatomic, readwrite, assign) NSString *romPath;
 @property (nonatomic, readwrite, assign) NSString *hardfilePath;
 @property (nonatomic, readwrite, assign) NSString *joypadstyle;
 @property (nonatomic, readwrite, assign) NSString *joypadleftorright;
@@ -47,7 +48,6 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) NSUInteger controllersnextid;
 @property (nonatomic, readwrite, assign) NSArray *controllers;
 @property (nonatomic, readwrite, assign) NSInteger keyConfigurationCount;
-
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;
 - (void)setFloppyConfiguration:(NSString *)adfPath;

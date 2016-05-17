@@ -68,6 +68,9 @@ extern uae_u32 allocated_a3000mem;
 extern int ersatzkickfile;
 extern int cloanto_rom;
 
+extern int bReloadKickstart;
+
+
 extern uae_u8* baseaddr[];
 
 typedef struct {

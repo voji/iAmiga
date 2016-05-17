@@ -18,6 +18,7 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "CoreSetting.h"
 #import "DiskDriveService.h"
 #import "HardDriveService.h"
 #import "SettingsGeneralController.h"
@@ -36,13 +37,36 @@ static NSString *const kKeyButtonsSegue = @"KeyButtons";
 static NSString *const kStateManagementSegue = @"StateManagement";
 static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
-static const NSUInteger kDrivesSection = 0;
-static const NSUInteger kConfigSection = 1;
-static const NSUInteger kMiscSection = 2;
+static const NSUInteger kRomSection = 0;
+static const NSUInteger kDrivesSection = 1;
+static const NSUInteger kConfigSection = 2;
+static const NSUInteger kMiscSection = 3;
+
+@protocol FileSelectionContext <NSObject>
+@property (nonatomic, readonly) NSArray *extensions;
+@end
+
+@interface AdfSelectionContext : NSObject <FileSelectionContext>
+@property (nonatomic, assign) int driveNumber;
+@end
+@implementation AdfSelectionContext : NSObject
+- (NSArray *)extensions {
+    return @[@"ADF", @"adf"];
+}
+@end
+
+@interface RomSelectionContext : NSObject <FileSelectionContext>
+@end
+@implementation RomSelectionContext : NSObject
+- (NSArray *)extensions {
+    return @[@"rom", @"ROM"];
+}
+@end
 
 @implementation SettingsGeneralController {
     DiskDriveService *diskDriveService;
     HardDriveService *hardDriveService;
+    RomCoreSetting *romSetting;
     Settings *settings;
 }
 
@@ -50,6 +74,7 @@ static const NSUInteger kMiscSection = 2;
     [super viewDidLoad];
     diskDriveService = [[DiskDriveService alloc] init];
     hardDriveService = [[HardDriveService alloc] init];
+    romSetting = [[CoreSettings romCoreSetting] retain];
     settings = [[Settings alloc] init];
 }
 
@@ -62,6 +87,7 @@ static const NSUInteger kMiscSection = 2;
 }
 
 - (void)setupUIState {
+    [self setupRomLabel];
     [self setupDriveLabels];
     [self setupAutoloadConfigSwitch];
     [self setupConfigurationName];
@@ -89,6 +115,12 @@ static const NSUInteger kMiscSection = 2;
     [_df3 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
     [_hd0 setText:[hardDriveService mounted] ? [[hardDriveService getMountedHardfilePath] lastPathComponent] : @""];
+}
+
+- (void)setupRomLabel {
+    NSString *romPath = [diskDriveService getRomPath];
+    [_rom setText:romPath ? [romPath lastPathComponent] : @""];
+    [_romWarning setHidden:![romSetting hasUnappliedValue]];
 }
 
 - (void)setupConfigurationName {
@@ -134,10 +166,19 @@ static const NSUInteger kMiscSection = 2;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == kDrivesSection)
+    if (indexPath.section == kRomSection || indexPath.section == kDrivesSection)
     {
-        NSNumber *driveNumber = @(indexPath.row);
-        [self performSegueWithIdentifier:kSelectFileSegue sender:driveNumber];
+        id<FileSelectionContext> ctx = nil;
+        if (indexPath.section == kDrivesSection)
+        {
+            ctx = [[AdfSelectionContext alloc] init];
+            ((AdfSelectionContext *)ctx).driveNumber = indexPath.row;
+        }
+        else
+        {
+            ctx = [[RomSelectionContext alloc] init];
+        }
+        [self performSegueWithIdentifier:kSelectFileSegue sender:ctx];
     }
     else if (indexPath.section == kConfigSection)
     {
@@ -171,9 +212,10 @@ static const NSUInteger kMiscSection = 2;
     if ([segue.identifier isEqualToString:kSelectFileSegue])
     {
         EMUROMBrowserViewController *controller = segue.destinationViewController;
-        controller.extensions = @[@"adf", @"ADF"];
+        id<FileSelectionContext> ctx = sender;
+        controller.extensions = ctx.extensions;
         controller.delegate = self;
-        controller.context = sender; // drive number
+        controller.context = ctx;
     }
     else if ([segue.identifier isEqualToString:kLoadConfigurationSegue])
     {
@@ -192,16 +234,35 @@ static const NSUInteger kMiscSection = 2;
     }
 }
 
-- (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(id)context {
-    NSString *adfPath = [fileInfo path];
-    int driveNumber = [context integerValue];
-    [self onAdfChanged:adfPath drive:driveNumber];
-    [diskDriveService insertDisk:adfPath intoDrive:driveNumber];
+// SelectRomDelegate - callback when selecting an adf/rom
+- (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(id<FileSelectionContext>)ctx {
+    NSString *path = [fileInfo path];
+    if ([ctx class] == [RomSelectionContext class])
+    {
+        [self didReallySelectRom:path];
+    }
+    else
+    {
+        [self didSelectAdf:path context:ctx];
+    }
 }
 
-- (void)onAdfChanged:(NSString *)adfPath drive:(int)driveNumber {
+- (void)didReallySelectRom:(NSString *)romPath
+{
+    [romSetting toggleFromOldValue:[diskDriveService getRomPath] toNewValue:romPath];
+    [diskDriveService configureRom:romPath];
+    [self setupRomLabel];
+}
+
+- (void)didSelectAdf:(NSString *)adfPath context:(AdfSelectionContext *)ctx {
+    [self onAdfChanged:adfPath drive:ctx.driveNumber];
+    [diskDriveService insertDisk:adfPath intoDrive:ctx.driveNumber];
+}
+
+- (void)onAdfChanged:(NSString *)adfPath drive:(NSUInteger)driveNumber {
     NSArray *floppyPaths = settings.insertedFloppies;
-    NSMutableArray *mutableFloppyPaths = floppyPaths ? [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *mutableFloppyPaths = floppyPaths ?
+        [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
     {
         // pad the array if a disk is inserted into a drive with a higher number, and
@@ -238,6 +299,7 @@ static const NSUInteger kMiscSection = 2;
 - (void)dealloc {
     [diskDriveService release];
     [hardDriveService release];
+    [romSetting release];
     [settings release];
     [_df0 release];
     [_df1 release];

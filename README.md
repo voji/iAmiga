@@ -7,8 +7,8 @@ git submodule init
 git submodule update
 ```
 
-#####ROM
-Use iTunes to copy a rom to your device.  The rom file must be called kick.rom or kick13.rom.  Alternatively you can also add the rom file to the Xcode project when building iUAE.
+#####ROMs
+Use iTunes to copy rom file(s) to your device, or add the roms to the Xcode project when building iUAE.  When the emulator starts up for the first time, it will look for a rom called "kick.rom" or "kick13.rom".  If your rom file has a differnet name or if you want to switch roms, you can use the rom selector in settings;  switching roms requires resetting the emulator.
 
 #####Disk drives
 
