@@ -1269,6 +1269,8 @@
 		BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */; };
 		BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */; };
 		BE6F9F621C4E2C420061B98C /* VPadLeftOrRight.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */; };
+		BE7631921CEAA8220007E100 /* CoreSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7631911CEAA8220007E100 /* CoreSetting.m */; };
+		BE7631A81CEAB0E10007E100 /* CoreSettingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7631A61CEAA9E40007E100 /* CoreSettingTests.m */; };
 		BE951AF21CA93EC0008DD94B /* fsusage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF11CA93EC0008DD94B /* fsusage.cpp */; };
 		BE951AF41CA93F27008DD94B /* native2amiga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF31CA93F27008DD94B /* native2amiga.cpp */; };
 		BE951AF71CA93F86008DD94B /* scsi-none.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF61CA93F86008DD94B /* scsi-none.cpp */; };
@@ -1293,6 +1295,16 @@
 		E937D8AA1CB58C50008DCC27 /* VPadMotionController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E937D8A91CB58C50008DCC27 /* VPadMotionController.mm */; };
 		E937D8B01CB58CE3008DCC27 /* VPadTouchOrGyro.m in Sources */ = {isa = PBXBuildFile; fileRef = E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE76319C1CEAA9310007E100 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = iUAE;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0504155A0FCB46F000F46828 /* EmulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulationViewController.h; sourceTree = "<group>"; };
@@ -2146,6 +2158,12 @@
 		BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfiguration.h; sourceTree = "<group>"; };
 		BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfiguration.m; sourceTree = "<group>"; };
 		BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPadLeftOrRight.m; sourceTree = "<group>"; };
+		BE7631901CEAA8220007E100 /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
+		BE7631911CEAA8220007E100 /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
+		BE7631971CEAA9310007E100 /* iUAETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iUAETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7631991CEAA9310007E100 /* iUAETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iUAETests.m; sourceTree = "<group>"; };
+		BE76319B1CEAA9310007E100 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7631A61CEAA9E40007E100 /* CoreSettingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreSettingTests.m; path = iUAETests/CoreSettingTests.m; sourceTree = SOURCE_ROOT; };
 		BE951AF01CA93EB2008DD94B /* fsusage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fsusage.h; path = include/fsusage.h; sourceTree = "<group>"; };
 		BE951AF11CA93EC0008DD94B /* fsusage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsusage.cpp; sourceTree = "<group>"; };
 		BE951AF31CA93F27008DD94B /* native2amiga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = native2amiga.cpp; sourceTree = "<group>"; };
@@ -2300,6 +2318,13 @@
 				97EF95F9153876CA001C01E6 /* CFNetwork.framework in Frameworks */,
 				97EF95FA153876CA001C01E6 /* OpenGLES.framework in Frameworks */,
 				97EF95FB153876CA001C01E6 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE7631941CEAA9310007E100 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2821,14 +2846,12 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
-				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.m */,
-				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
-				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.m */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
 				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
+				BE7631901CEAA8220007E100 /* CoreSetting.h */,
+				BE7631911CEAA8220007E100 /* CoreSetting.m */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
 				BE52EFA91B4FC9B8008E15E6 /* DriveState.h */,
@@ -2867,6 +2890,8 @@
 				7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.m */,
 				7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */,
 				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.m */,
+				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
+				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.m */,
 				7EB017771B09164900C74B9D /* State.h */,
 				7EB017761B09164900C74B9D /* State.m */,
 				7EB017741B09164900C74B9D /* StateFileManager.m */,
@@ -2875,6 +2900,8 @@
 				7EB017631B09115900C74B9D /* StateManagementController.mm */,
 				7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */,
 				BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */,
+				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
+				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2927,6 +2954,7 @@
 				9787FABA1561882D00458A4A /* koc.app */,
 				9787FC2215618A5E00458A4A /* sinbad.app */,
 				97C875C6156E834100197738 /* p1.app */,
+				BE7631971CEAA9310007E100 /* iUAETests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2955,9 +2983,11 @@
 				7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */,
 				053D8B2E13B1B2C30002802F /* TargetSpecific */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				BE7631A21CEAA94C0007E100 /* TestClasses */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				059A411B12697B33003B23C7 /* Resources-iPad */,
+				BE7631981CEAA9310007E100 /* iUAETests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -3918,6 +3948,32 @@
 			path = Stooges;
 			sourceTree = "<group>";
 		};
+		BE7631981CEAA9310007E100 /* iUAETests */ = {
+			isa = PBXGroup;
+			children = (
+				BE7631991CEAA9310007E100 /* iUAETests.m */,
+				BE76319B1CEAA9310007E100 /* Info.plist */,
+			);
+			path = iUAETests;
+			sourceTree = "<group>";
+		};
+		BE7631A21CEAA94C0007E100 /* TestClasses */ = {
+			isa = PBXGroup;
+			children = (
+				BE7631A31CEAA9760007E100 /* Settings */,
+			);
+			name = TestClasses;
+			path = TargetSpecific;
+			sourceTree = "<group>";
+		};
+		BE7631A31CEAA9760007E100 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BE7631A61CEAA9E40007E100 /* CoreSettingTests.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		BEE41BC91B47849F00CE487D /* minizip */ = {
 			isa = PBXGroup;
 			children = (
@@ -4075,6 +4131,24 @@
 			productReference = 97EF9600153876CA001C01E6 /* stooges.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BE7631961CEAA9310007E100 /* iUAETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE76319E1CEAA9310007E100 /* Build configuration list for PBXNativeTarget "iUAETests" */;
+			buildPhases = (
+				BE7631931CEAA9310007E100 /* Sources */,
+				BE7631941CEAA9310007E100 /* Frameworks */,
+				BE7631951CEAA9310007E100 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE76319D1CEAA9310007E100 /* PBXTargetDependency */,
+			);
+			name = iUAETests;
+			productName = iUAETests;
+			productReference = BE7631971CEAA9310007E100 /* iUAETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -4085,6 +4159,10 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 6854WVMAT3;
+					};
+					BE7631961CEAA9310007E100 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -4107,6 +4185,7 @@
 				9787F9FF1561882D00458A4A /* koc */,
 				9787FB6115618A5E00458A4A /* sinbad */,
 				97C87500156E834100197738 /* 3s2 */,
+				BE7631961CEAA9310007E100 /* iUAETests */,
 			);
 		};
 /* End PBXProject section */
@@ -4740,6 +4819,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE7631951CEAA9310007E100 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -4985,6 +5071,7 @@
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
+				BE7631921CEAA8220007E100 /* CoreSetting.m in Sources */,
 				9785512D153A3F2E00580B91 /* SDL_UIKitVideo.m in Sources */,
 				BE951AF21CA93EC0008DD94B /* fsusage.cpp in Sources */,
 			);
@@ -5482,7 +5569,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE7631931CEAA9310007E100 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE7631A81CEAB0E10007E100 /* CoreSettingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE76319D1CEAA9310007E100 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* iUAE */;
+			targetProxy = BE76319C1CEAA9310007E100 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0533694E13B1DEE90012D55A /* Debug */ = {
@@ -5954,6 +6057,133 @@
 			};
 			name = "Ad Hoc";
 		};
+		BE76319F1CEAA9310007E100 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = iUAETests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ursschhmid.iUAETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iUAE.app/iUAE";
+			};
+			name = Debug;
+		};
+		BE7631A01CEAA9310007E100 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = iUAETests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ursschhmid.iUAETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iUAE.app/iUAE";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE7631A11CEAA9310007E100 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = iUAETests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ursschhmid.iUAETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iUAE.app/iUAE";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6142,6 +6372,15 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BE76319E1CEAA9310007E100 /* Build configuration list for PBXNativeTarget "iUAETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE76319F1CEAA9310007E100 /* Debug */,
+				BE7631A01CEAA9310007E100 /* Release */,
+				BE7631A11CEAA9310007E100 /* Ad Hoc */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iUAE" */ = {
 			isa = XCConfigurationList;

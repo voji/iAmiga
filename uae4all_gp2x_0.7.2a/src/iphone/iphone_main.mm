@@ -12,6 +12,8 @@
 #include "iphone_main.h"
 #include "debug_uae4all.h"
 #import "MPCConnectionStates.h"
+#import "Settings.h"
+#import "EMUBrowser.h"
 
 char launchDir[300];
 
@@ -85,15 +87,29 @@ void sound_default_evtime(void) {
 }
 #endif
 
-NSString* get_rom_path(NSString * directory, NSArray *romNameFilters) {
-    NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:directory];
-    NSArray *relativeFilePaths = [[direnum allObjects] pathsMatchingExtensions:@[@"rom"]];
-    for (NSString *relativeFilePath in relativeFilePaths) {
-        if ([romNameFilters containsObject:[relativeFilePath lastPathComponent]]) {
-            return [directory stringByAppendingPathComponent:relativeFilePath];
+char* get_rom_path() {
+    Settings *settings = [[[Settings alloc] init] autorelease];
+    EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
+    NSString *romPath = settings.romPath;
+    if (romPath) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:romPath]) {
+            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:[romPath lastPathComponent]];
+            romPath = fileInfo ? fileInfo.path : nil;
         }
     }
-    return nil;
+    if (!romPath) {
+        NSArray *romNameFilters = @[@"kick.rom", @"kick13.rom"];
+        for (NSString *romNameFilter in romNameFilters) {
+            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:romNameFilter];
+            if (fileInfo) {
+                romPath = fileInfo.path;
+                break;
+            }
+        }
+    }
+    static char romPathC[500];
+    [romPath getCString:romPathC maxLength:sizeof(romPathC) encoding:[NSString defaultCStringEncoding]];
+    return romPathC;
 }
 
 NSString* get_key_path(NSString * directory, NSArray *keyNameFilters) {
@@ -105,20 +121,6 @@ NSString* get_key_path(NSString * directory, NSArray *keyNameFilters) {
         }
     }
     return nil;
-}
-
-char* get_rom_path() {
-    NSArray *romNameFilters = @[@"kick.rom", @"kick13.rom"];
-	NSString *mainBundleDirectory = [[NSBundle mainBundle] bundlePath];
-    NSString *romPath = get_rom_path(mainBundleDirectory, romNameFilters);
-    if (!romPath) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        romPath = get_rom_path(documentsDirectory, romNameFilters);
-    }    
-	static char romPathC[500];
-	[romPath getCString:romPathC maxLength:sizeof(romPathC) encoding:[NSString defaultCStringEncoding]];
-    return romPathC;
 }
 
 char* get_key_path() {

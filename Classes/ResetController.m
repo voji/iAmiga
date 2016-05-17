@@ -14,9 +14,10 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+#import "CoreSetting.h"
 #import "DiskDriveService.h"
-#import "HardDriveService.h"
 #import "EMUFileInfo.h"
+#import "HardDriveService.h"
 #import "ResetController.h"
 
 static NSString *const kSelectHardfileSegue = @"SelectHardfile";
@@ -67,6 +68,7 @@ static NSString *const kNoHardfileText = @"Not Mounted";
 
 - (IBAction)onResetConfirmed {
     [self.delegate didSelectReset:_driveState hardfilePath:_selectedHardfilePath];
+    [CoreSettings onReset];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

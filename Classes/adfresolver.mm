@@ -25,8 +25,10 @@ const char* get_updated_adf_path(const char *adf_path) {
     if ([adfPath length] > 0) {
         NSString *adfFileName = [adfPath lastPathComponent];
         EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
-        EMUFileInfo *fileInfo = [browser getFileInfo:adfFileName];
-        updatedAdfPath = fileInfo.path;
+        EMUFileInfo *fileInfo = [browser getFileInfoForFileName:adfFileName];
+        if (fileInfo) {
+            updatedAdfPath = fileInfo.path;
+        }
     }
     static char adf[256];
     [updatedAdfPath getCString:adf maxLength:sizeof(adf) encoding:[NSString defaultCStringEncoding]];

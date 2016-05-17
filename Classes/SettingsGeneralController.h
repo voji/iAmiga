@@ -27,6 +27,8 @@
 @interface SettingsGeneralController : UITableViewController<SelectRomDelegate, SelectConfigurationDelegate>
 
 @property (readwrite, retain) IBOutlet UISwitch *swautoloadconfig;
+@property (readwrite, retain) IBOutlet UILabel *rom;
+@property (readwrite, retain) IBOutlet UILabel *romWarning;
 @property (readwrite, retain) IBOutlet UILabel *df0;
 @property (readwrite, retain) IBOutlet UILabel *df1;
 @property (readwrite, retain) IBOutlet UILabel *df2;
