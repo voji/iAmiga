@@ -17,6 +17,7 @@ extern CJoyStick g_touchStick;
 @implementation MultiPeerConnectivityController {
     Settings *_settings;
     double _lasttime;
+    NSMutableArray *_dMap;
 }
 
 extern MPCStateType mainMenu_servermode;
@@ -44,7 +45,21 @@ bool bConnectionToServerJustEstablished = false;
     
     _instance = self;
     
+    _dMap = [[NSMutableArray alloc] initWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null], [NSNull null], [NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(enableControllerMode:)
+                                                 name:SVProgressHUDDidTouchDownInsideNotification object:nil];
+    
     return self;
+}
+
+- (void)enableControllerMode {
+    
+    if(mainMenu_servermode == kConnectionIsOff)
+    {
+        mainMenu_servermode = kServeAsController;
+    }
 }
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl {
@@ -53,25 +68,18 @@ bool bConnectionToServerJustEstablished = false;
     _instance = self;
     _settings = [[Settings alloc] init];
     
+    
     if(mainMenu_servermode == kConnectionIsOff)
     {
-        if(advertiser!=nil)
-        {//stop server
-            [self stopServer];
-        }
-        if(session != nil )
-        {//close session connection
-            [session disconnect];
-            session = nil;
-            [self showMessage: @"closed connection" withMessage: @"to the server"];
-        }
-        //the device should go to sleep after some idle time
-        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        [self showMessage:@"Use device as Remote Controller" withMessage:@"Press this Message to use device as remote controller"];
+        [NSThread sleepForTimeInterval:2];
+        mainMenu_servermode = mainMenu_servermode == kConnectionIsOff ? kServeAsHostForIncomingJoypadSignals : mainMenu_servermode;
     }
-    else if(mainMenu_servermode == kServeAsHostForIncomingJoypadSignals)
+    
+    if(mainMenu_servermode == kServeAsHostForIncomingJoypadSignals)
     {
-        if(lastServerMode == kSendJoypadSignalsToServerOnJoystickPort0 ||
-           lastServerMode == kSendJoypadSignalsToServerOnJoystickPort1)
+        
+        if(lastServerMode == kServeAsController)
         {
             [session disconnect]; // close client session
             session = nil;
@@ -85,10 +93,7 @@ bool bConnectionToServerJustEstablished = false;
             [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
         }
     }
-    else if(
-        mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ||
-        mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1
-       )
+    else if(mainMenu_servermode == kServeAsController)
     {
         if(lastServerMode == kServeAsHostForIncomingJoypadSignals)
         {
@@ -110,10 +115,8 @@ bool bConnectionToServerJustEstablished = false;
         {
             if(!bConnectionToServerJustEstablished)
             {
-                if( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
-                    [self showMessage: @"use existing connection" withMessage: @"send to joystick port 0"];
-                else if ( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-                    [self showMessage: @"use existing connection" withMessage:  @"send to joystick port 1"];
+                if( mainMenu_servermode == kServeAsController)
+                    [self showMessage: @"use existing connection" withMessage: @"use existing connection for device controller"];
             }
             bConnectionToServerJustEstablished = false;
             [self activateJoyPad];
@@ -171,15 +174,59 @@ withDiscoveryInfo:(NSDictionary<NSString *,
        lostPeer:(MCPeerID *)peerID
 {}
 
+- (void)controllerDisconnected:(NSString *)dID {
+    NSInteger index = [_dMap indexOfObject:dID];
+    [_dMap[index] release];
+}
+
+- (void)setkeymapfordeviceID:(NSString *)dID {
+    
+    int kmNumber = [_dMap indexOfObject:dID];
+    
+    
+    if([dID isEqualToString:kVirtualPad])
+    {
+        for(kmNumber = 1;kmNumber <= [_dMap count];kmNumber++)
+        {
+            if([[_settings keyConfigurationforButton:VSWITCH forController:kmNumber] isEqualToString:@"YES"])
+            {
+                //Mapping reserved for OnScreenJoypad found load this setting an return
+                [_settings setCNumber:kmNumber];
+                return;
+            }
+            
+            //No Mapping found for OnScreenJoypad. Use first Keymap
+            [_settings setCNumber:1];
+            return;
+        }
+        
+    }
+    
+    if(kmNumber == NSNotFound)
+    {
+        
+        for(kmNumber= 0;kmNumber <= [_dMap count] -1; kmNumber++)
+        {
+            if([_dMap[kmNumber] length] == 0)
+            {
+                _dMap[kmNumber] = [[NSString stringWithString:dID] retain];
+                [self showMessage:@"New Controller Mapped" withMessage:[NSString stringWithFormat:@"Using Keympad %d for this device", kmNumber]];
+                break;
+            }
+        }
+    }
+    
+    kmNumber++;
+    [_settings setCNumber:kmNumber];
+}
+
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
 {
     [_mainEmuViewController  dismissViewControllerAnimated:YES completion:nil];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0)
-            [self showMessage: @"new connection established" withMessage: @"send to joystick port 0"];
-        else if ( mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1)
-            [self showMessage: @"new connection established" withMessage:  @"send to joystick port 1"];
+        if( mainMenu_servermode == kServeAsController)
+            [self showMessage: @"new connection established" withMessage: @"use idevice as controller"];
         
          [self activateJoyPad];
     });
@@ -188,10 +235,10 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
 {
     [_mainEmuViewController dismissViewControllerAnimated:YES completion:nil];
-    mainMenu_servermode=kConnectionIsOff; //disable client mode
+    mainMenu_servermode=kServeAsHostForIncomingJoypadSignals; //disable client mode
 }
 
-- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical jport:(int)jport
+- (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical
 {
     if(session == nil || session.connectedPeers.count == 0)
     {
@@ -199,7 +246,7 @@ withDiscoveryInfo:(NSDictionary<NSString *,
     else
     {
         
-        int aints[6]= { (unsigned int) jport,  (unsigned int)direction, (unsigned int)0, BTN_INVALID, buttontoreleasehorizontal, buttontoreleasevertical};
+        int aints[6]= {  (unsigned int)direction, (unsigned int)0, BTN_INVALID, buttontoreleasehorizontal, buttontoreleasevertical};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
         
@@ -213,7 +260,8 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         }
     }
 }
-- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate jport:(int)jport  {
+
+- (void)sendJoystickDataForButtonID:(int)buttonid buttonstate:(int)buttonstate {
  
     if(session == nil || session.connectedPeers.count == 0)
     {
@@ -221,7 +269,7 @@ withDiscoveryInfo:(NSDictionary<NSString *,
     else
     {
         
-        int aints[6]= { (unsigned int)jport,  (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
+        int aints[5]= { (unsigned int) 0, (unsigned int)buttonstate, (unsigned int) buttonid, (unsigned int) 0, (unsigned int) 0};
         
         NSData *data = [NSData dataWithBytes: &aints length: sizeof(aints)];
         
@@ -247,6 +295,9 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
+    
+    
+    
     if(state == MCSessionStateConnected)
         [self showMessage: peerID.displayName withMessage: @"connected"];
     else if(state == MCSessionStateNotConnected)
@@ -255,22 +306,21 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         [self showMessage: peerID.displayName withMessage: @"connecting..."];
     
 }
+
 /* server part */
 MCNearbyServiceAdvertiser *advertiser=nil;
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
     
-    unsigned int aJoyData[6];
+    unsigned int aJoyData[5];
     [data getBytes: &aJoyData length: sizeof(aJoyData)];
     
-    //Attenttion!! Code Ignores Port at the Moment and always uses port 1
-    int iJoystickPort = (int) aJoyData[0];  // 0 or 1
-    TouchStickDPadState joydir = (TouchStickDPadState)aJoyData[1];
-    int joybtnstat = (int) aJoyData[2];
-    int joybtn = (int) aJoyData[3];
-    int btntoreleasehor = (int) aJoyData[4];
-    int btntoreleasever = (int) aJoyData[5];
+    TouchStickDPadState joydir = (TouchStickDPadState)aJoyData[0];
+    int joybtnstat = (int) aJoyData[1];
+    int joybtn = (int) aJoyData[2];
+    int btntoreleasehor = (int) aJoyData[3];
+    int btntoreleasever = (int) aJoyData[4];
     
     if(joybtn != BTN_INVALID)
     {
@@ -281,19 +331,19 @@ MCNearbyServiceAdvertiser *advertiser=nil;
             
             dispatch_after(waittime, dispatch_get_main_queue(),
             ^void{
-                [self handleinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
+                [self handleinputbuttons:joybtn buttonstate:joybtnstat deviceid:[peerID displayName]];
             });
         }
         else
         {
-             [self handleinputbuttons:joybtn buttonstate:joybtnstat port:iJoystickPort];
+             [self handleinputbuttons:joybtn buttonstate:joybtnstat deviceid:[peerID displayName]];
         }
         
         _lasttime = CACurrentMediaTime();
     }
     else
     {
-        [self handleinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor port:iJoystickPort];
+        [self handleinputdirections:joydir buttontoreleasevertical:btntoreleasever buttontoreleasehorizontal:btntoreleasehor deviceid:[peerID displayName]];
     }
 }
 
@@ -308,7 +358,7 @@ MCNearbyServiceAdvertiser *advertiser=nil;
                                         serviceType:XXServiceType];
     advertiser.delegate = self;
     [advertiser startAdvertisingPeer];
-    [self showMessage: @"server" withMessage: @"started on this device"];
+    //[self showMessage: @"server" withMessage: @"started on this device"];
 }
 
 
@@ -318,7 +368,7 @@ MCNearbyServiceAdvertiser *advertiser=nil;
     [session disconnect];
     session = nil;
     advertiser = nil;
-    [self showMessage: @"server" withMessage: @"stopped on this device"];
+    //[self showMessage: @"server" withMessage: @"stopped on this device"];
     
 }
 
@@ -334,89 +384,25 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
     invitationHandler(YES, session);
 }
+
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName
        fromPeer:(MCPeerID *)peerID
 {
     NSLog(@"Received data over stream with name %@ from peer %@", streamName, peerID.displayName);
-    /*
-     stream.delegate = self;
-     [stream scheduleInRunLoop:[NSRunLoop mainRunLoop]
-     forMode:NSDefaultRunLoopMode];
-     [stream open];
-     */
 }
 
-- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal
+- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal deviceid:(NSString *)dID
 {
-    int port = mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ? 0 : 1;
     
-    [self handleinputdirections:hat_state buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal:buttontoreleasehorizontal port:port];
-}
-
-
-- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate
-{
-    int port = mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 ? 0 : 1;
-    
-    int returnvalue = [self handleinputbuttons:buttonid buttonstate:buttonstate port:port];
-    return returnvalue;
-}
-
-
-- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate port:(int)port {
-    
-    if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 || mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1 )
+    if(mainMenu_servermode == kServeAsController)
     {
-        [self sendJoystickDataForButtonID:buttonid buttonstate:buttonstate jport:port];
-        return !buttonstate;
-    }
-    
-    buttonstate = !buttonstate;
-    
-    NSString *configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttonid]];
-    
-    if([configuredkey  isEqual: @"Joypad"])
-    {
-        if(buttonstate) {
-            if(port == 0) theJoystick->setButtonOneStateP0(FireButtonDown);
-            else theJoystick->setButtonOneStateP1(FireButtonDown);
-        }
-        else {
-            if(port == 0) theJoystick->setButtonOneStateP0(FireButtonUp);
-             else theJoystick->setButtonOneStateP1(FireButtonUp);
-        }
-    }
-    else
-    {
-        int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
-        
-        if(buttonstate)
-        {
-            SDL_Event ed = { SDL_KEYDOWN };
-            ed.key.keysym.sym = (SDLKey) asciicode;
-            SDL_PushEvent(&ed);
-        }
-        else
-        {
-            SDL_Event eu = { SDL_KEYUP };
-            eu.key.keysym.sym = (SDLKey) asciicode;
-            SDL_PushEvent(&eu);
-        }
-    }
-    
-    return buttonstate;
-    
-}
-
-- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port:(int)port
-{
-    if(mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0 || mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1 )
-    {
-        [self sendJoystickDataForDirection:hat_state buttontoreleasehorizontal: buttontoreleasehorizontal buttontoreleasevertical:buttontoreleasevertical jport:port];
+        [self sendJoystickDataForDirection:hat_state buttontoreleasehorizontal: buttontoreleasehorizontal buttontoreleasevertical:buttontoreleasevertical];
         
         return;
     }
     
+    [self setkeymapfordeviceID:dID];
+    NSInteger pNumber = [[_settings keyConfigurationforButton:PORT] integerValue];
     
     NSString *configuredkeyhorizontal = NULL;
     NSString *configuredkeyvertical = NULL;
@@ -468,21 +454,21 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
     if(hat_state == DPadCenter)
     {
-        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        if(pNumber == 0) theJoystick->setDPadStateP0(hat_state);
         else theJoystick->setDPadStateP1(hat_state);
         return;
     }
     
     if([configuredkeyhorizontal  isEqual: @"Joypad"] && [configuredkeyvertical isEqual:@"joypad"])
     {
-        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        if(pNumber == 0) theJoystick->setDPadStateP0(hat_state);
         else theJoystick->setDPadStateP1(hat_state);
         return;
     }
     
     if([configuredkeyhorizontal isEqual: @"Joypad"])
     {
-        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        if(pNumber == 0) theJoystick->setDPadStateP0(hat_state);
         else theJoystick->setDPadStateP1(hat_state);
     }
     else if(configuredkeyhorizontal)
@@ -495,7 +481,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     
     if([configuredkeyvertical isEqual: @"Joypad"])
     {
-        if(port == 0) theJoystick->setDPadStateP0(hat_state);
+        if(pNumber == 0) theJoystick->setDPadStateP0(hat_state);
         else theJoystick->setDPadStateP1(hat_state);
     }
     else if (configuredkeyvertical)
@@ -504,6 +490,54 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
         ed.key.keysym.sym = (SDLKey) asciicodevertical;
         SDL_PushEvent(&ed);
     }
+}
+
+
+- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate deviceid:(NSString *)dID {
+    
+    if(mainMenu_servermode == kServeAsController)
+    {
+        [self sendJoystickDataForButtonID:buttonid buttonstate:buttonstate];
+        return !buttonstate;
+    }
+    buttonstate = !buttonstate;
+    
+    [self setkeymapfordeviceID:dID];
+    NSInteger pNumber = [[_settings keyConfigurationforButton:PORT] integerValue];
+    
+    NSString *configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttonid]];
+    
+    if([configuredkey  isEqual: @"Joypad"])
+    {
+        if(buttonstate) {
+            if(pNumber == 0) theJoystick->setButtonOneStateP0(FireButtonDown);
+            else theJoystick->setButtonOneStateP1(FireButtonDown);
+        }
+        else {
+            if(pNumber == 0) theJoystick->setButtonOneStateP0(FireButtonUp);
+             else theJoystick->setButtonOneStateP1(FireButtonUp);
+        }
+    }
+    else
+    {
+        int asciicode = [[configuredkey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
+        
+        if(buttonstate)
+        {
+            SDL_Event ed = { SDL_KEYDOWN };
+            ed.key.keysym.sym = (SDLKey) asciicode;
+            SDL_PushEvent(&ed);
+        }
+        else
+        {
+            SDL_Event eu = { SDL_KEYUP };
+            eu.key.keysym.sym = (SDLKey) asciicode;
+            SDL_PushEvent(&eu);
+        }
+    }
+    
+    return buttonstate;
+    
 }
 
 

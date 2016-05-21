@@ -101,6 +101,7 @@ const char *SDL_SYS_JoystickName(int index) {
 int
 SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 {
+    
     settingsforjoystick = [[Settings alloc] init];
     
     if (joystick->index == kiControlPad) {
@@ -324,7 +325,6 @@ void pushkey(UInt8 dpadstate, SDL_Joystick * joystick) {
 
 int
 Icade_JoystickUpdateButtons(SDL_Joystick * joystick) {
-    
     
     // buttons
     iCadeReaderView *view = (iCadeReaderView *)joystick->hwdata->view;

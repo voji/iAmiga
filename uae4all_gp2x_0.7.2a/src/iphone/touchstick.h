@@ -6,7 +6,7 @@
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
+ (at your option) asdfasdny later version.
  
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -19,19 +19,19 @@
 
 #include "touchstick-types.h"
 
-class CJoyStick  {
+class CJoyStick {
+    
 public:
-	TouchStickDPadState		dPadStateP0() { return _dPadStateP0; }
-	FireButtonState			buttonOneStateP0() { return _buttonOneStateP0; }
-	
-	void					setDPadStateP0(TouchStickDPadState value) { _dPadStateP0 = value; }
-    void					setButtonOneStateP0(FireButtonState value) { _buttonOneStateP0 = value; }
+    TouchStickDPadState		dPadStateP0();
+    FireButtonState			buttonOneStateP0();
+    void					setDPadStateP0(TouchStickDPadState value);
+    void					setButtonOneStateP0(FireButtonState value);
     
-    TouchStickDPadState		dPadStateP1() { return _dPadStateP1; }
-    FireButtonState			buttonOneStateP1() { return _buttonOneStateP1; }
+    TouchStickDPadState		dPadStateP1();
+    FireButtonState			buttonOneStateP1();
     
-    void					setDPadStateP1(TouchStickDPadState value) { _dPadStateP1 = value; }
-    void					setButtonOneStateP1(FireButtonState value) { _buttonOneStateP1 = value; }
+    void					setDPadStateP1(TouchStickDPadState value);
+    void					setButtonOneStateP1(FireButtonState value);
 
 private:
 	TouchStickDPadState _dPadStateP0;
@@ -40,3 +40,4 @@ private:
     FireButtonState _buttonOneStateP1;
 
 };
+

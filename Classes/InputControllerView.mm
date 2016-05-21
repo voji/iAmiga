@@ -227,7 +227,7 @@ extern MPCStateType mainMenu_servermode;
         pressedbutton = [self getButtonOne:&coordinates];
     }
     
-    [_mpcController handleinputbuttons:pressedbutton buttonstate:0];
+    [_mpcController handleinputbuttons:pressedbutton buttonstate:0 deviceid:kVirtualPad];
 }
 
 
@@ -329,7 +329,7 @@ extern MPCStateType mainMenu_servermode;
     
     int buttoncode = [self releasebutton];
     
-    [_mpcController handleinputbuttons:buttoncode buttonstate:1];
+    [_mpcController handleinputbuttons:buttoncode buttonstate:1 deviceid:kVirtualPad];
     
     _clickedscreen = YES;
     
@@ -572,7 +572,7 @@ extern MPCStateType mainMenu_servermode;
         int buttonhorizontal = [_mpcController dpadstatetojoypadkey:@"horizontal" hatstate:state];
         
 
-        [_mpcController handleinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal];
+        [_mpcController handleinputdirections:state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal deviceid:@"InputControllerView"];
 
         
         [delegate joystickStateChanged:state];

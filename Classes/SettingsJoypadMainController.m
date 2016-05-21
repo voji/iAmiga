@@ -34,35 +34,6 @@ extern MPCStateType mainMenu_servermode;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [_openServer setOn:mainMenu_servermode == kServeAsHostForIncomingJoypadSignals];
-    [_sendToPort0 setOn:mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort0];
-    [_sendToPort1 setOn:mainMenu_servermode == kSendJoypadSignalsToServerOnJoystickPort1];
-}
-
-- (IBAction)actionOpenServer:(id)sender {
-    if(_openServer.isOn)
-        mainMenu_servermode = kServeAsHostForIncomingJoypadSignals;
-    else
-        mainMenu_servermode = kConnectionIsOff;
-    
-    [_sendToPort0 setOn:false];
-    [_sendToPort1 setOn:false];
-}
-- (IBAction)actionSendToPort0:(id)sender {
-    if(_sendToPort0.isOn)
-        mainMenu_servermode = kSendJoypadSignalsToServerOnJoystickPort0;
-    else
-        mainMenu_servermode = kConnectionIsOff;
-    
-    [_openServer setOn:false];
-    [_sendToPort1 setOn:false];
-}
-- (IBAction)actionSendToPort1:(id)sender {
-    if(_sendToPort1.isOn)
-        mainMenu_servermode = kSendJoypadSignalsToServerOnJoystickPort1;
-    else
-        mainMenu_servermode = kConnectionIsOff;
-    [_openServer setOn:false];
-    [_sendToPort0 setOn:false];
 }
 
 - (void)didReceiveMemoryWarning {

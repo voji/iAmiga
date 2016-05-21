@@ -21,6 +21,9 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "MainEmulationViewController.h"
 
+static NSString *const kVirtualPad = @"VirtualPad";
+static NSString *const kiCadePad = @"iCadePad";
+
 
 @interface MultiPeerConnectivityController : NSObject<MCNearbyServiceAdvertiserDelegate, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCBrowserViewControllerDelegate> {
  }
@@ -28,11 +31,12 @@
 
 - (void)configure: (MainEmulationViewController *) mainEmuViewCtrl ;
 + (MultiPeerConnectivityController *)getinstance;
-- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal;
-- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate;
-- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal port: (int)port;
-- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate port: (int)port;
+- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal deviceid:(NSString *)dID;
+- (int)handleinputbuttons:(int)buttonid buttonstate:(int)buttonstate deviceid:(NSString *)dID;
+- (void)handleinputdirections:(TouchStickDPadState)hat_state buttontoreleasevertical:(int)buttontoreleasevertical buttontoreleasehorizontal: (int)buttontoreleasehorizontal deviceid: (NSString *)dID;
 - (int) dpadstatetojoypadkey:(NSString *)direction hatstate:(TouchStickDPadState)hat_state;
+
+- (void)controllerDisconnected:(NSString *)dID;
 
 @end
 

@@ -32,6 +32,8 @@
     int _buttontoreleasevertical;
 }
 
+
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -60,25 +62,30 @@
                                                      name:GCControllerDidConnectNotification
                                                    object:nil];
     } else {
-        [self controllerDiscovered];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(discoverController)
+                                                 selector:@selector(controllerDisconnected)
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
     }
 }
 
-- (void)handleinputbuttons:(int)buttonid
+- (void)handleinputbuttons:(int)buttonid forGamepad:(GCGamepad *) gamepad
 {
-    _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid]];
+    _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid] deviceid:[NSString stringWithFormat:@"%p", gamepad]];
     
     NSLog(@"Buttonstate: %d",_button[buttonid]);
 }
 
-- (void)controllerDiscovered {
+- (void)controllerDisconnected:(NSNotification *)disconnectedNotification {
     
-    GCController *controller = [GCController controllers][0];
+    GCController *controller = (GCController *)[disconnectedNotification object];
+    [mpcController controllerDisconnected:[NSString stringWithFormat:@"%p", [controller gamepad]]];
+}
+
+- (void)controllerDiscovered:(NSNotification *)connectedNotification {
+    
+    GCController *controller = (GCController *)[connectedNotification object];
     
     controller.controllerPausedHandler = ^(GCController *controller) {
         _paused = (_paused == 1) ? 0 : 1;
@@ -88,21 +95,21 @@
                                                *element)
     {
         if(gamepad.buttonA.isPressed != _button[BTN_A])
-            [self handleinputbuttons: BTN_A];
+            [self handleinputbuttons: BTN_A forGamepad:gamepad];
         else if(gamepad.buttonB.isPressed != _button[BTN_B])
-               [self handleinputbuttons: BTN_B];
+               [self handleinputbuttons: BTN_B forGamepad:gamepad];
         else if(gamepad.buttonX.isPressed!= _button[BTN_X])
-               [self handleinputbuttons: BTN_X];
+               [self handleinputbuttons: BTN_X forGamepad:gamepad];
         else if(gamepad.buttonY.isPressed != _button[BTN_Y])
-               [self handleinputbuttons: BTN_Y];
+               [self handleinputbuttons: BTN_Y forGamepad:gamepad];
         else if(gamepad.rightShoulder.isPressed != _button[BTN_R1])
-               [self handleinputbuttons: BTN_R1];
+               [self handleinputbuttons: BTN_R1 forGamepad:gamepad];
         else if(gamepad.leftShoulder.isPressed != _button[BTN_L1])
-                [self handleinputbuttons: BTN_L1];
+                [self handleinputbuttons: BTN_L1 forGamepad:gamepad];
         else if(gamepad.controller.extendedGamepad.rightTrigger.isPressed != _button[BTN_R2])
-                [self handleinputbuttons: BTN_R2];
+                [self handleinputbuttons: BTN_R2 forGamepad:gamepad];
         else if(gamepad.controller.extendedGamepad.leftTrigger.isPressed !=     _button[BTN_L2])
-              [self handleinputbuttons: BTN_L2];
+              [self handleinputbuttons: BTN_L2 forGamepad:gamepad];
         
         if(gamepad.dpad.left.pressed || gamepad.controller.extendedGamepad.leftThumbstick.left.pressed)
         {
@@ -153,7 +160,7 @@
             int buttonvertical = [mpcController dpadstatetojoypadkey:@"vertical" hatstate:_hat_state];
             int buttonhorizontal = [mpcController dpadstatetojoypadkey:@"horizontal" hatstate: _hat_state];
             
-            [mpcController handleinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal];
+            [mpcController handleinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal deviceid:[NSString stringWithFormat:@"%p", gamepad]];
             
             _buttontoreleasevertical = buttonvertical;
             _buttontoreleasehorizontal = buttonhorizontal;

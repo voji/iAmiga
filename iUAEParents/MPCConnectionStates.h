@@ -12,7 +12,6 @@
 typedef NS_ENUM(int, MPCStateType) {
     kConnectionIsOff = 0,
     kServeAsHostForIncomingJoypadSignals= 1,
-    kSendJoypadSignalsToServerOnJoystickPort0 = 2,
-    kSendJoypadSignalsToServerOnJoystickPort1 = 3
+    kServeAsController = 2,
 } ;
 #endif /* MPCConnectionStates_h */

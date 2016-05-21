@@ -21,6 +21,9 @@
  */
 
 #import "iCadeReaderView.h"
+#import "JoypadKey.h"
+#import "MultiPeerConnectivityController.h"
+#import <ExternalAccessory/ExternalAccessory.h>
 
 static const char *ON_STATES  = "wdxayhujikol";
 static const char *OFF_STATES = "eczqtrfnmpgv";
@@ -32,7 +35,13 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
 
 @end
 
-@implementation iCadeReaderView
+@implementation iCadeReaderView {
+    int _button[9];
+    MultiPeerConnectivityController *_mpcController;
+    Uint8 _controllerhatstate;
+    int _buttontoreleasehorizontal;
+    int _buttontoreleasevertical;
+}
 
 @synthesize iCadeState=_iCadeState, delegate=_delegate, active;
 
@@ -43,7 +52,43 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     
+    for(int i=0;i<=8;i++)
+        _button[i] = 0;
+    
+    _mpcController = [MultiPeerConnectivityController getinstance];
+    
+    [self discoverController];
+    
     return self;
+}
+
+- (void)discoverController {
+    
+    [[EAAccessoryManager sharedAccessoryManager] registerForLocalNotifications];    //we want to hear about accessories connecting and disconnecting
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerDidConnect:)
+                                                 name:EAAccessoryDidConnectNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerDidDisconnect:)
+                                                 name:EAAccessoryDidDisconnectNotification
+                                               object:nil];
+}
+
+- (void)controllerDidConnect:(NSNotification*)cNotification {
+}
+
+- (void)controllerDidDisconnect:(NSNotification*)cNotification {
+    
+    EAAccessory *cObject = [cNotification.userInfo objectForKey:EAAccessoryKey];
+    
+    NSString *mName = [cObject manufacturer];
+    
+    if([mName isEqualToString:@"iCade"])
+    {
+        [_mpcController controllerDisconnected:kiCadePad];
+    }
 }
 
 - (void)dealloc {
@@ -102,6 +147,76 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     return NO;
 }
 
+- (void)handleinputbuttons {
+    
+    for(int i=iCadeButtonFirst, btn=0; i <= iCadeButtonLast; i <<= 1, btn++) {
+        
+        int pr = ((i & _iCadeState) != 0) ? TRUE : FALSE;
+        
+        if (_button[btn] != pr)
+        {
+            int btn_pressed;
+            
+            _button[btn] = pr;
+            
+            switch (btn) {
+                case 0:
+                    btn_pressed = BTN_X;
+                    break;
+                    
+                case 1:
+                    btn_pressed = BTN_A;
+                    break;
+                    
+                case 2:
+                    btn_pressed = BTN_Y;
+                    break;
+                    
+                case 3:
+                    btn_pressed = BTN_B;
+                    break;
+                    
+                case 4:
+                    btn_pressed = BTN_L1;
+                    break;
+                    
+                case 5:
+                    btn_pressed = BTN_R1;
+                    break;
+                    
+                case 6:
+                    btn_pressed = BTN_L2;
+                    break;
+                    
+                case 7:
+                    btn_pressed = BTN_R2;
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            _button[btn] = [_mpcController handleinputbuttons:btn_pressed buttonstate:_button[btn] deviceid:kiCadePad];
+            
+        }
+        
+        Uint8 hat_state = (_iCadeState & 0x0f);
+        if (_controllerhatstate != hat_state) {
+           
+            
+            int buttonvertical = [_mpcController dpadstatetojoypadkey:@"vertical" hatstate:hat_state];
+            int buttonhorizontal = [_mpcController dpadstatetojoypadkey:@"horizontal" hatstate: hat_state];
+
+            [_mpcController handleinputdirections:hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal deviceid:kiCadePad];
+            
+            _controllerhatstate = hat_state;
+            _buttontoreleasevertical = buttonvertical;
+            _buttontoreleasehorizontal = buttonhorizontal;
+        }
+        
+    }
+}
+
 - (void)insertText:(NSString *)text {
     
     char ch = [text characterAtIndex:0];
@@ -117,6 +232,8 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
         if (_delegateFlags.buttonDown) {
             [_delegate buttonDown:(1 << index)];
         }
+        
+        [self handleinputbuttons];
     } else {
         p = strchr(OFF_STATES, ch);
         if (p) {
@@ -126,6 +243,8 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
             if (_delegateFlags.buttonUp) {
                 [_delegate buttonUp:(1 << index)];
             }
+            
+            [self handleinputbuttons];
         }
     }
 
