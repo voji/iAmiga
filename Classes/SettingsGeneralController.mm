@@ -20,12 +20,10 @@
 
 #import "CoreSetting.h"
 #import "DiskDriveService.h"
-#import "HardDriveService.h"
 #import "SettingsGeneralController.h"
 #import "Settings.h"
 #import "StateManagementController.h"
-#import "cfgfile.h"
-#import "filesys.h"
+#import "UnappliedSettingLabelHandler.h"
 
 static NSString *const kNoDiskLabel = @"Empty";
 static NSString *const kNoDiskAdfPath = @"";
@@ -35,12 +33,12 @@ static NSString *const kAssignDiskfilesSegue = @"AssignDiskfiles";
 static NSString *const kLoadConfigurationSegue = @"LoadConfiguration";
 static NSString *const kKeyButtonsSegue = @"KeyButtons";
 static NSString *const kStateManagementSegue = @"StateManagement";
-static NSString *const kConfirmResetSegue = @"ConfirmReset";
 
 static const NSUInteger kRomSection = 0;
-static const NSUInteger kDrivesSection = 1;
+static const NSUInteger kDiskDrivesSection = 1;
 static const NSUInteger kConfigSection = 2;
 static const NSUInteger kMiscSection = 3;
+static const NSUInteger kHardDrivesSection = 4;
 
 @protocol FileSelectionContext <NSObject>
 @property (nonatomic, readonly) NSArray *extensions;
@@ -63,19 +61,43 @@ static const NSUInteger kMiscSection = 3;
 }
 @end
 
+@interface HdfSelectionContext : NSObject <FileSelectionContext>
+@end
+@implementation HdfSelectionContext : NSObject
+- (NSArray *)extensions {
+    return @[@"hdf", @"HDF"];
+}
+@end
+
 @implementation SettingsGeneralController {
-    DiskDriveService *diskDriveService;
-    HardDriveService *hardDriveService;
-    RomCoreSetting *romSetting;
-    Settings *settings;
+    @private
+    DiskDriveService *_diskDriveService;
+    Settings *_settings;
+    UnappliedSettingLabelHandler *_settingLabelHandler;
+    
+    DF1EnabledCoreSetting *_df1EnabledSetting;
+    DF2EnabledCoreSetting *_df2EnabledSetting;
+    DF3EnabledCoreSetting *_df3EnabledSetting;
+    HD0PathCoreSetting *_hd0PathSetting;
+    RomCoreSetting *_romSetting;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    diskDriveService = [[DiskDriveService alloc] init];
-    hardDriveService = [[HardDriveService alloc] init];
-    romSetting = [[CoreSettings romCoreSetting] retain];
-    settings = [[Settings alloc] init];
+    _diskDriveService = [[DiskDriveService alloc] init];
+    _settings = [[Settings alloc] init];
+    _settingLabelHandler = [[UnappliedSettingLabelHandler alloc] init];
+
+    _df1EnabledSetting = [[CoreSettings df1EnabledCoreSetting] retain];
+    _df2EnabledSetting = [[CoreSettings df2EnabledCoreSetting] retain];
+    _df3EnabledSetting = [[CoreSettings df3EnabledCoreSetting] retain];
+    _hd0PathSetting = [[CoreSettings hd0PathCoreSetting] retain];
+    _romSetting = [[CoreSettings romCoreSetting] retain];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [_settingLabelHandler layoutLabels];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,91 +114,163 @@ static const NSUInteger kMiscSection = 3;
     [self setupAutoloadConfigSwitch];
     [self setupConfigurationName];
     [self setupDriveSwitches];
+    [self setupWarningLabels];
 }
 
 - (void)setupDriveSwitches {
-    [_df1Switch setOn:[diskDriveService enabled:1]];
-    [_df2Switch setOn:[diskDriveService enabled:2]];
-    [_df3Switch setOn:[diskDriveService enabled:3]];
-    [_hd0Switch setOn:[hardDriveService mounted]];
+    [_df1Switch setOn:[[_df1EnabledSetting getValue] boolValue]];
+    [_df2Switch setOn:[[_df2EnabledSetting getValue] boolValue]];
+    [_df3Switch setOn:[[_df3EnabledSetting getValue] boolValue]];
 }
 
 - (void)setupDriveLabels {
-    NSString *adfPath = [diskDriveService getInsertedDiskForDrive:0];
-    [_df0 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    NSString *adfPath = [_diskDriveService getInsertedDiskForDrive:0];
+    [_df0PathLabel setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
-    adfPath = [diskDriveService getInsertedDiskForDrive:1];
-    [_df1 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    adfPath = [_diskDriveService getInsertedDiskForDrive:1];
+    [_df1PathLabel setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
-    adfPath = [diskDriveService getInsertedDiskForDrive:2];
-    [_df2 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    adfPath = [_diskDriveService getInsertedDiskForDrive:2];
+    [_df2PathLabel setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
-    adfPath = [diskDriveService getInsertedDiskForDrive:3];
-    [_df3 setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
+    adfPath = [_diskDriveService getInsertedDiskForDrive:3];
+    [_df3PathLabel setText:adfPath ? [adfPath lastPathComponent] : kNoDiskLabel];
     
-    [_hd0 setText:[hardDriveService mounted] ? [[hardDriveService getMountedHardfilePath] lastPathComponent] : @""];
+    NSString *hdfPath = [_hd0PathSetting getValue];
+    [_hd0PathLabel setText:hdfPath ? [hdfPath lastPathComponent] : @""];
+}
+
+- (void)setupWarningLabels {
+    [_settingLabelHandler updateLabelStates];
 }
 
 - (void)setupRomLabel {
-    NSString *romPath = [diskDriveService getRomPath];
-    [_rom setText:romPath ? [romPath lastPathComponent] : @""];
-    [_romWarning setHidden:![romSetting hasUnappliedValue]];
+    NSString *romPath = [_romSetting getValue];
+    [_romPathLabel setText:romPath ? [romPath lastPathComponent] : @""];
 }
 
 - (void)setupConfigurationName {
-    if(settings.configurationName)
+    if(_settings.configurationName)
     {
-        [_configurationname setText:settings.configurationName];
+        [_configNameLabel setText:_settings.configurationName];
     }
 }
 
 - (void)setupAutoloadConfigSwitch {
-    [_swautoloadconfig setOn:settings.autoloadConfig];
+    [_configAutoloadSwitch setOn:_settings.autoloadConfig];
 }
 
-- (IBAction)toggleAutoloadconfig:(id)sender {
-    settings.autoloadConfig = !settings.autoloadConfig;
+- (IBAction)toggleAutoloadconfig {
+    _settings.autoloadConfig = !_settings.autoloadConfig;
+}
+
+- (IBAction)toggleDF1Enabled {
+    [_df1EnabledSetting setValue:[NSNumber numberWithBool:_df1Switch.on]];
+    [self setupWarningLabels];
+}
+
+- (IBAction)toogleDF2Enabled {
+    [_df2EnabledSetting setValue:[NSNumber numberWithBool:_df2Switch.on]];
+    [self setupWarningLabels];
+}
+
+- (IBAction)toggleDF3Enabled {
+    [_df3EnabledSetting setValue:[NSNumber numberWithBool:_df3Switch.on]];
+    [self setupWarningLabels];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == kDrivesSection)
+    if (indexPath.section == kDiskDrivesSection)
     {
-        return [diskDriveService diskInsertedIntoDrive:indexPath.row];
+        return [_diskDriveService diskInsertedIntoDrive:indexPath.row];
+    }
+    else if (indexPath.section == kHardDrivesSection)
+    {
+        return [_hd0PathSetting getValue] != nil;
     }
     return NO;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @"Eject";
+    return indexPath.section == kDiskDrivesSection ? @"Eject" : @"Unmount";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    CoreSetting *cellSetting = [self getSettingIfEmualatorResetIsRequiredWhenValueChanges:indexPath];
+    if (cellSetting)
+    {
+        [_settingLabelHandler addResetWarningLabelForCell:cell forSetting:cellSetting];
+    }
+    return cell;
+}
+
+- (CoreSetting *)getSettingIfEmualatorResetIsRequiredWhenValueChanges:(NSIndexPath *)indexPath {
+    if (indexPath.section == kRomSection)
+    {
+        return _romSetting;
+    }
+    else if (indexPath.section == kDiskDrivesSection)
+    {
+        int driveNumber = indexPath.row;
+        if (driveNumber == 1)
+        {
+            return _df1EnabledSetting;
+        }
+        else if (driveNumber == 2)
+        {
+            return _df2EnabledSetting;
+        }
+        else if (driveNumber == 3)
+        {
+            return _df3EnabledSetting;
+        }
+
+    }
+    else if (indexPath.section == kHardDrivesSection)
+    {
+        return  _hd0PathSetting;
+    }
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        if (indexPath.section == kDrivesSection)
+        if (indexPath.section == kDiskDrivesSection)
         {
-            [self.tableView setEditing:NO animated:YES];
             int driveNumber = indexPath.row;
             [self onAdfChanged:kNoDiskAdfPath drive:driveNumber];
-            [diskDriveService ejectDiskFromDrive:driveNumber];
-            [self setupDriveLabels];
+            [_diskDriveService ejectDiskFromDrive:driveNumber];
         }
+        else
+        {
+            [_hd0PathSetting setValue:nil];
+        }
+        [self.tableView setEditing:NO animated:YES];
+        [self setupDriveLabels];
+        [self setupWarningLabels];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == kRomSection || indexPath.section == kDrivesSection)
+    if (indexPath.section == kRomSection || indexPath.section == kDiskDrivesSection || indexPath.section == kHardDrivesSection)
     {
         id<FileSelectionContext> ctx = nil;
-        if (indexPath.section == kDrivesSection)
+        if (indexPath.section == kDiskDrivesSection)
         {
-            ctx = [[AdfSelectionContext alloc] init];
+            ctx = [[[AdfSelectionContext alloc] init] autorelease];
             ((AdfSelectionContext *)ctx).driveNumber = indexPath.row;
+        }
+        else if (indexPath.section == kHardDrivesSection)
+        {
+            ctx = [[[HdfSelectionContext alloc] init] autorelease];
         }
         else
         {
-            ctx = [[RomSelectionContext alloc] init];
+            ctx = [[[RomSelectionContext alloc] init] autorelease];
         }
         [self performSegueWithIdentifier:kSelectFileSegue sender:ctx];
     }
@@ -203,7 +297,7 @@ static const NSUInteger kMiscSection = 3;
         }
         else if (indexPath.row == 2)
         {
-            [self performSegueWithIdentifier:kConfirmResetSegue sender:nil];
+            [self showResetConfirmation];
         }
     }
 }
@@ -227,11 +321,6 @@ static const NSUInteger kMiscSection = 3;
         StateManagementController *stateController = segue.destinationViewController;
         stateController.emulatorScreenshot = _emulatorScreenshot;
     }
-    else if ([segue.identifier isEqualToString:kConfirmResetSegue])
-    {
-        ResetController *resetController = segue.destinationViewController;
-        resetController.delegate = self.resetDelegate;
-    }
 }
 
 // SelectRomDelegate - callback when selecting an adf/rom
@@ -241,26 +330,34 @@ static const NSUInteger kMiscSection = 3;
     {
         [self didReallySelectRom:path];
     }
-    else
+    else if ([ctx class] == [AdfSelectionContext class])
     {
         [self didSelectAdf:path context:ctx];
     }
+    else
+    {
+        [self didSelectHdf:path];
+    }
 }
 
-- (void)didReallySelectRom:(NSString *)romPath
-{
-    [romSetting toggleFromOldValue:[diskDriveService getRomPath] toNewValue:romPath];
-    [diskDriveService configureRom:romPath];
+- (void)didReallySelectRom:(NSString *)romPath {
+    [_romSetting setValue:romPath];
     [self setupRomLabel];
 }
 
 - (void)didSelectAdf:(NSString *)adfPath context:(AdfSelectionContext *)ctx {
     [self onAdfChanged:adfPath drive:ctx.driveNumber];
-    [diskDriveService insertDisk:adfPath intoDrive:ctx.driveNumber];
+    [_diskDriveService insertDisk:adfPath intoDrive:ctx.driveNumber];
+}
+
+- (void)didSelectHdf:(NSString *)hdfPath {
+    [_hd0PathSetting setValue:hdfPath];
+    [self setupDriveLabels];
+    [self setupWarningLabels];
 }
 
 - (void)onAdfChanged:(NSString *)adfPath drive:(NSUInteger)driveNumber {
-    NSArray *floppyPaths = settings.insertedFloppies;
+    NSArray *floppyPaths = _settings.insertedFloppies;
     NSMutableArray *mutableFloppyPaths = floppyPaths ?
         [[floppyPaths mutableCopy] autorelease] : [[[NSMutableArray alloc] init] autorelease];
     while ([mutableFloppyPaths count] <= driveNumber)
@@ -270,8 +367,8 @@ static const NSUInteger kMiscSection = 3;
         [mutableFloppyPaths addObject:kNoDiskAdfPath];
     }
     [mutableFloppyPaths replaceObjectAtIndex:driveNumber withObject:adfPath];
-    settings.insertedFloppies = mutableFloppyPaths;
-    [settings setFloppyConfiguration:adfPath];
+    _settings.insertedFloppies = mutableFloppyPaths;
+    [_settings setFloppyConfiguration:adfPath];
 }
 
 - (NSString *)getFirstOption {
@@ -279,38 +376,68 @@ static const NSUInteger kMiscSection = 3;
 }
 
 - (BOOL)isRecentConfig:(NSString *)configurationname {    
-    return [_configurationname.text isEqualToString:configurationname];
+    return [_configNameLabel.text isEqualToString:configurationname];
 }
 
 - (void)didSelectConfiguration:(NSString *)configurationName {
-    [_configurationname setText:configurationName];
-    settings.configurationName = configurationName;
+    [_configNameLabel setText:configurationName];
+    _settings.configurationName = configurationName;
 }
 
 - (void)didDeleteConfiguration {
-    NSMutableArray *configurations = [[settings.configurations mutableCopy] autorelease];
+    NSArray *configurations = _settings.configurations;
     
-    if(![configurations indexOfObject:[_configurationname text]])
+    if(![configurations indexOfObject:_configNameLabel.text])
     {
-        [_configurationname setText:@"General"];
+        [_configNameLabel setText:@"General"];
     }
 }
 
+- (void)showResetConfirmation {
+    [[[[UIAlertView alloc] initWithTitle:@"Reset"
+                                 message:@"Really reset the emulator?"
+                                delegate:self
+                       cancelButtonTitle:@"OK"
+                       otherButtonTitles:@"Cancel", nil] autorelease] show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0)
+    {
+        [_resetDelegate didSelectReset:[self getDriveState]];
+        [CoreSettings onReset];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+- (DriveState *)getDriveState {
+    DriveState *driveState = [_diskDriveService getDriveState];
+    if ([_df1EnabledSetting hasUnappliedValue])
+    {
+        driveState.df1Enabled = [[_df1EnabledSetting getValue] boolValue];
+    }
+    if ([_df2EnabledSetting hasUnappliedValue])
+    {
+        driveState.df2Enabled = [[_df2EnabledSetting getValue] boolValue];
+    }
+    if ([_df3EnabledSetting hasUnappliedValue])
+    {
+        driveState.df3Enabled = [[_df3EnabledSetting getValue] boolValue];
+    }
+    return driveState;
+}
+
 - (void)dealloc {
-    [diskDriveService release];
-    [hardDriveService release];
-    [romSetting release];
-    [settings release];
-    [_df0 release];
-    [_df1 release];
-    [_df2 release];
-    [_df3 release];
-    [_df1Switch release];
-    [_df2Switch release];
-    [_df3Switch release];
-    [_hd0 release];
-    [_configurationname release];
+    [_diskDriveService release];
+    [_settings release];
     [_emulatorScreenshot release];
+
+    [_df1EnabledSetting release];
+    [_df2EnabledSetting release];
+    [_df3EnabledSetting release];
+    [_hd0PathSetting release];
+    [_romSetting release];
+    
     [super dealloc];
 }
 

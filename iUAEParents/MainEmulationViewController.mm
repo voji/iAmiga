@@ -155,15 +155,8 @@ extern void uae_reset();
     settingsController.resetDelegate = self;
 }
 
-- (void)didSelectReset:(DriveState *)driveState hardfilePath:(NSString *)hardfilePath {
+- (void)didSelectReset:(DriveState *)driveState {
     uae_reset();
-    if (hardfilePath) {
-        [_hardDriveService mountHardfile:hardfilePath];
-    } else {
-        [_hardDriveService unmountHardfile];
-    }
-    _settings.driveState = driveState;
-    _settings.hardfilePath = hardfilePath;
     [self initDriveSetupTimer:driveState];
 }
 

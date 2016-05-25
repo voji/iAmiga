@@ -24,23 +24,40 @@
 @interface CoreSetting : NSObject <NSCopying>
 
 /**
- * Updates the value of this setting (persists the new value).
+ * Setting instances are singletons - access them using the CoreSettings class methods.
  */
-- (void)toggleFromOldValue:(NSString *)oldValue toNewValue:(NSString *)newValue;
+- (instancetype)initWithName:(NSString *)settingName;
+
+/**
+ * Updates this setting to the specified value.
+ */
+- (void)setValue:(id)value;
+/**
+ * Returns the current value of this setting:
+ *   - if an unapplied value exists, returns that
+ *   - otherwise returns the 'applied' current value
+ */
+- (id)getValue;
 
 /**
  * Returns YES if the setting has a new value, but a reset has not happened yet (ie the value has not taken effect).
  */
 - (BOOL)hasUnappliedValue;
 
-- (instancetype)init __unavailable;
+/**
+ * Returns the message to show when this setting has been modified.
+ */
+- (NSString *)getMessageForModification;
 
 @end
 
-@interface RomCoreSetting : CoreSetting
-
-@end
-
+@interface DriveServiceBasedCoreSetting : CoreSetting @end // abstract
+@interface DiskDriveEnabledCoreSetting : DriveServiceBasedCoreSetting @end // abstract
+@interface RomCoreSetting : DriveServiceBasedCoreSetting @end
+@interface DF1EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
+@interface DF2EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
+@interface DF3EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
+@interface HD0PathCoreSetting : CoreSetting @end
 
 @interface CoreSettings : NSObject
 
@@ -49,6 +66,13 @@
  */
 + (void)onReset;
 
+/**
+ * Available CoreSetting instances:
+ */
 + (RomCoreSetting *)romCoreSetting;
++ (DF1EnabledCoreSetting *)df1EnabledCoreSetting;
++ (DF2EnabledCoreSetting *)df2EnabledCoreSetting;
++ (DF3EnabledCoreSetting *)df3EnabledCoreSetting;
++ (HD0PathCoreSetting *)hd0PathCoreSetting;
 
 @end

@@ -23,7 +23,7 @@
 #import "DynamicLandscapeControls.h"
 #import "TouchHandlerViewClassic.h"
 #import "InputControllerView.h"
-#import "ResetController.h"
+#import "SettingsGeneralController.h"
 
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 

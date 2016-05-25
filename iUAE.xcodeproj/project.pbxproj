@@ -1259,7 +1259,6 @@
 		97EF96A31538771F001C01E6 /* StoogesEmulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF96571538771F001C01E6 /* StoogesEmulationViewController.m */; };
 		BE0921FF1B343D810058D9F2 /* DiskDriveService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */; };
 		BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */; };
-		BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA61B4FC9B8008E15E6 /* ResetController.m */; };
 		BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52EFA81B4FC9B8008E15E6 /* DriveState.m */; };
 		BE5DE31E1C5CCD1400FF5D1D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
 		BE6086D91C2CF5AC008E668B /* adfresolver.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE6086D81C2CF5AC008E668B /* adfresolver.mm */; };
@@ -1269,6 +1268,7 @@
 		BE66229D1C3285B3009C2809 /* KeyButtonConfigurationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */; };
 		BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */; };
 		BE6F9F621C4E2C420061B98C /* VPadLeftOrRight.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */; };
+		BE724C6C1CF5D067001712E9 /* UnappliedSettingLabelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE724C6B1CF5D067001712E9 /* UnappliedSettingLabelHandler.m */; };
 		BE7631921CEAA8220007E100 /* CoreSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7631911CEAA8220007E100 /* CoreSetting.m */; };
 		BE7631A81CEAB0E10007E100 /* CoreSettingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7631A61CEAA9E40007E100 /* CoreSettingTests.m */; };
 		BE951AF21CA93EC0008DD94B /* fsusage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF11CA93EC0008DD94B /* fsusage.cpp */; };
@@ -2142,8 +2142,6 @@
 		BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskDriveService.mm; sourceTree = "<group>"; };
 		BE2CA1E01C42219000B84C2C /* KeyButtonViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonViewHandler.h; sourceTree = "<group>"; };
 		BE2CA1E11C42219000B84C2C /* KeyButtonViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonViewHandler.m; sourceTree = "<group>"; };
-		BE52EFA61B4FC9B8008E15E6 /* ResetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetController.m; sourceTree = "<group>"; };
-		BE52EFA71B4FC9B8008E15E6 /* ResetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetController.h; sourceTree = "<group>"; };
 		BE52EFA81B4FC9B8008E15E6 /* DriveState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveState.m; sourceTree = "<group>"; };
 		BE52EFA91B4FC9B8008E15E6 /* DriveState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveState.h; sourceTree = "<group>"; };
 		BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -2158,6 +2156,8 @@
 		BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyButtonConfiguration.h; sourceTree = "<group>"; };
 		BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyButtonConfiguration.m; sourceTree = "<group>"; };
 		BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPadLeftOrRight.m; sourceTree = "<group>"; };
+		BE724C6A1CF5D067001712E9 /* UnappliedSettingLabelHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnappliedSettingLabelHandler.h; sourceTree = "<group>"; };
+		BE724C6B1CF5D067001712E9 /* UnappliedSettingLabelHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnappliedSettingLabelHandler.m; sourceTree = "<group>"; };
 		BE7631901CEAA8220007E100 /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
 		BE7631911CEAA8220007E100 /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
 		BE7631971CEAA9310007E100 /* iUAETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iUAETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2866,8 +2866,6 @@
 				BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */,
 				BE6622981C328442009C2809 /* KeyButtonManagementController.h */,
 				BE6622991C328442009C2809 /* KeyButtonManagementController.m */,
-				BE52EFA71B4FC9B8008E15E6 /* ResetController.h */,
-				BE52EFA61B4FC9B8008E15E6 /* ResetController.m */,
 				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
 				7EADD3141CB2FAA100136978 /* JoypadSelectionController.h */,
 				7EADD3151CB2FAA100136978 /* JoypadSelectionController.m */,
@@ -2898,6 +2896,8 @@
 				7EB017751B09164900C74B9D /* StateFileManager.h */,
 				7EB017641B09115900C74B9D /* StateManagementController.h */,
 				7EB017631B09115900C74B9D /* StateManagementController.mm */,
+				BE724C6A1CF5D067001712E9 /* UnappliedSettingLabelHandler.h */,
+				BE724C6B1CF5D067001712E9 /* UnappliedSettingLabelHandler.m */,
 				7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */,
 				BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.m */,
 				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
@@ -5003,6 +5003,7 @@
 				05BC1AF71073448200EABC6E /* EMUFileInfo.m in Sources */,
 				05BC1AF91073448200EABC6E /* EMUROMBrowserViewController.mm in Sources */,
 				BE52EFAB1B4FC9B8008E15E6 /* DriveState.m in Sources */,
+				BE724C6C1CF5D067001712E9 /* UnappliedSettingLabelHandler.m in Sources */,
 				0585D55F1091640900C1E4C1 /* VirtualKeyboard.m in Sources */,
 				0585D5621091653E00C1E4C1 /* KeyView.m in Sources */,
 				BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */,
@@ -5059,7 +5060,6 @@
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,
-				BE52EFAA1B4FC9B8008E15E6 /* ResetController.m in Sources */,
 				7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.m in Sources */,
 				BE6F9F621C4E2C420061B98C /* VPadLeftOrRight.m in Sources */,
 				97855100153A3F2E00580B91 /* NoEffect.m in Sources */,
@@ -6381,6 +6381,7 @@
 				BE7631A11CEAA9310007E100 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iUAE" */ = {
 			isa = XCConfigurationList;

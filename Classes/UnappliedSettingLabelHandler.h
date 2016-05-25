@@ -1,4 +1,4 @@
-//  Created by Simon Toens on 10.07.15
+//  Created by Simon Toens on 22.05.16
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -14,19 +14,24 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-
 #import <Foundation/Foundation.h>
-#import "DriveState.h"
-#import "EMUROMBrowserViewController.h"
+#import "CoreSetting.h"
 
-@protocol ResetDelegate
+@interface UnappliedSettingLabelHandler : NSObject
 
-- (void)didSelectReset:(DriveState *)driveState hardfilePath:(NSString *)hardfilePath;
+/**
+ * Adds a "emulator requires reset" label to the specified cell.  The label is associated with the given setting.
+ */
+- (void)addResetWarningLabelForCell:(UITableViewCell *)cell forSetting:(CoreSetting *)setting;
 
-@end
+/**
+ * Required to be called before the final view renders.
+ */
+- (void)layoutLabels;
 
-@interface ResetController : UIViewController<SelectRomDelegate>
-
-@property (nonatomic, assign) id<ResetDelegate> delegate;
+/**
+ * Enables/disables labels based on the state of their associated setting.
+ */
+- (void)updateLabelStates;
 
 @end
