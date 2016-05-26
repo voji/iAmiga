@@ -411,19 +411,10 @@ static const NSUInteger kHardDrivesSection = 4;
 }
 
 - (DriveState *)getDriveState {
-    DriveState *driveState = [_diskDriveService getDriveState];
-    if ([_df1EnabledSetting hasUnappliedValue])
-    {
-        driveState.df1Enabled = [[_df1EnabledSetting getValue] boolValue];
-    }
-    if ([_df2EnabledSetting hasUnappliedValue])
-    {
-        driveState.df2Enabled = [[_df2EnabledSetting getValue] boolValue];
-    }
-    if ([_df3EnabledSetting hasUnappliedValue])
-    {
-        driveState.df3Enabled = [[_df3EnabledSetting getValue] boolValue];
-    }
+    DriveState *driveState = [DriveState getAllEnabled];
+    driveState.df1Enabled = [[_df1EnabledSetting getValue] boolValue];
+    driveState.df2Enabled = [[_df2EnabledSetting getValue] boolValue];
+    driveState.df3Enabled = [[_df3EnabledSetting getValue] boolValue];
     return driveState;
 }
 
