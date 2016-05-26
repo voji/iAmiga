@@ -58,6 +58,7 @@
 @interface DF2EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface DF3EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface HD0PathCoreSetting : CoreSetting @end
+@interface NTSCEnabledCoreSetting : CoreSetting @end
 
 @interface CoreSettings : NSObject
 
@@ -74,5 +75,6 @@
 + (DF2EnabledCoreSetting *)df2EnabledCoreSetting;
 + (DF3EnabledCoreSetting *)df3EnabledCoreSetting;
 + (HD0PathCoreSetting *)hd0PathCoreSetting;
++ (NTSCEnabledCoreSetting *)ntscEnabledCoreSetting;
 
 @end

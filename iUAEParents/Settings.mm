@@ -63,7 +63,6 @@ static NSString *const kDf3EnabledKey = @"df3Enabled";
 static NSString *const kHardfilePath = @"hardfilePath";
 
 extern int mainMenu_showStatus;
-extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
 extern int joystickselected;
@@ -119,7 +118,6 @@ static int _cNumber = 1;
 - (void)initializespecificsettings {
     if(![self boolForKey:kInitializeKey])
     {
-        self.ntsc = mainMenu_ntsc;
         self.stretchScreen = mainMenu_stretchscreen;
         self.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
         self.showStatus = mainMenu_showStatus;
@@ -127,7 +125,6 @@ static int _cNumber = 1;
     }
     else
     {
-        mainMenu_ntsc = self.ntsc;
         mainMenu_stretchscreen = self.stretchScreen;
         mainMenu_AddVerticalStretchValue = self.addVerticalStretchValue;
         mainMenu_showStatus = self.showStatus;

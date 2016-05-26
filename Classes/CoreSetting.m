@@ -272,6 +272,24 @@
 
 @end
 
+extern int mainMenu_ntsc;
+
+@implementation NTSCEnabledCoreSetting
+
+- (void)hook_persistValue:(NSNumber *)enabled {
+    _settings.ntsc = [enabled boolValue];
+}
+
+- (void)hook_onReset:(NSNumber *)enabled {
+    mainMenu_ntsc = [enabled intValue];
+}
+
+- (NSNumber *)hook_getEmulatorValue {
+    return [NSNumber numberWithInt:mainMenu_ntsc];
+}
+
+@end
+
 @implementation CoreSettingsRegistry
 
 + (CoreSettingsRegistry *)sharedRegistry {
@@ -347,6 +365,15 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         setting = [[HD0PathCoreSetting alloc] initWithName:@"HD0Path"];
+    });
+    return setting;
+}
+
++ (NTSCEnabledCoreSetting *)ntscEnabledCoreSetting {
+    static NTSCEnabledCoreSetting *setting = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        setting = [[NTSCEnabledCoreSetting alloc] initWithName:@"NTSCEnabled"];
     });
     return setting;
 }
