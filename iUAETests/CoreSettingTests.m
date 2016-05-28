@@ -17,11 +17,44 @@
 #import <XCTest/XCTest.h>
 #import "CoreSetting.h"
 
+@interface TestSetting : CoreSetting
+
+@end
+
+@implementation TestSetting {
+    @public
+    NSString *persistValueArgument;
+    NSString *onResetArgument;
+    NSString *emulatorValue;
+}
+
+- (void)hook_persistValue:(NSString *)arg {
+    persistValueArgument = arg;
+}
+
+- (void)hook_onReset:(NSString *)arg {
+    onResetArgument = arg;
+}
+
+- (NSString *)hook_getEmulatorValue {
+    return emulatorValue;
+}
+
+@end
+
 @interface CoreSettingTests : XCTestCase
 
 @end
 
-@implementation CoreSettingTests
+@implementation CoreSettingTests {
+    @private
+    TestSetting *_setting;
+}
+
+- (void)setUp {
+    [super setUp];
+    _setting = [[TestSetting alloc] initWithName:@"TestSetting"];
+}
 
 - (void)tearDown {
     [CoreSettings onReset];
@@ -37,47 +70,144 @@
 }
 
 - (void)testHasUnappliedValue {
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"v1" toNewValue:@"v2"];
-    XCTAssertTrue([[CoreSettings romCoreSetting] hasUnappliedValue]);
-}
-
-- (void)testHasUnappliedValue_backToOriginalValue {
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"v1" toNewValue:@"v2"];
-    XCTAssertTrue([[CoreSettings romCoreSetting] hasUnappliedValue]);
+    XCTAssertFalse([_setting hasUnappliedValue]);
     
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"v2" toNewValue:@"v3"];
-    XCTAssertTrue([[CoreSettings romCoreSetting] hasUnappliedValue]);
+    [_setting setValue:@"v1"];
     
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"v3" toNewValue:@"v1"];
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
+    XCTAssertTrue([_setting hasUnappliedValue]);
 }
 
-- (void)testToggleSameValue {
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"v101" toNewValue:@"v101"];
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
-}
-
-- (void)testToggleSameValue_nils {
-    [[CoreSettings romCoreSetting] toggleFromOldValue:nil toNewValue:nil];
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
-}
-
-- (void)testOldValueIsNil {
-    [[CoreSettings romCoreSetting] toggleFromOldValue:nil toNewValue:@"new"];
-    XCTAssertTrue([[CoreSettings romCoreSetting] hasUnappliedValue]);
+- (void)testSetValue_backToOriginalValue {
+    _setting->emulatorValue = @"e1";
+    XCTAssertFalse([_setting hasUnappliedValue]);
     
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"new" toNewValue:nil];
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
+    [_setting setValue:@"v1"];
+    XCTAssertTrue([_setting hasUnappliedValue]);
+    
+     [_setting setValue:@"v2"];
+    XCTAssertTrue([_setting hasUnappliedValue]);
+    
+    [_setting setValue:@"e1"];
+    XCTAssertFalse([_setting hasUnappliedValue]);
 }
 
-- (void)testNewValueIsNil {
-    [[CoreSettings romCoreSetting] toggleFromOldValue:@"old" toNewValue:nil];
-    XCTAssertTrue([[CoreSettings romCoreSetting] hasUnappliedValue]);
+- (void)testSetValue_SameAsEmulatorValue {
+    _setting->emulatorValue = @"e1";
+
+    [_setting setValue:@"e1"];
     
-    [[CoreSettings romCoreSetting] toggleFromOldValue:nil toNewValue:@"old"];
-    XCTAssertFalse([[CoreSettings romCoreSetting] hasUnappliedValue]);
+    XCTAssertFalse([_setting hasUnappliedValue]);
+}
+
+- (void)testSetValue_AllNil {
+    _setting->emulatorValue = nil;
+    
+    [_setting setValue:nil];
+    
+    XCTAssertFalse([_setting hasUnappliedValue]);
+}
+
+- (void)testSetValue_Nil {
+    _setting->emulatorValue = @"e22";
+    
+    [_setting setValue:nil];
+    XCTAssertTrue([_setting hasUnappliedValue]);
+    
+    [_setting setValue:@"e22"];
+    XCTAssertFalse([_setting hasUnappliedValue]);
+}
+
+- (void)testPersistValue_CalledAfterChangingValue {
+    XCTAssertNil(_setting->persistValueArgument);
+    
+    [_setting setValue:@"new"];
+    XCTAssertEqualObjects(_setting->persistValueArgument, @"new");
+
+    [_setting setValue:@"newer"];
+    XCTAssertEqualObjects(_setting->persistValueArgument, @"newer");
+}
+
+- (void)testPersistValue_SameAsEmulatorValue_NotCalled {
+    _setting->emulatorValue = @"e23";
+    XCTAssertNil(_setting->persistValueArgument);
+    
+    [_setting setValue:@"e23"];
+    
+    XCTAssertNil(_setting->persistValueArgument);
+}
+
+- (void)testPersistValue_SameValue_NotCalled {
+    _setting->emulatorValue = @"e23";
+    XCTAssertNil(_setting->persistValueArgument);
+    
+    [_setting setValue:@"e24"];
+    XCTAssertEqualObjects(_setting->persistValueArgument, @"e24");
+    
+    _setting->persistValueArgument = nil;
+    [_setting setValue:@"e24"];
+    XCTAssertNil(_setting->persistValueArgument);
+}
+
+
+- (void)testOnReset_CalledAfterChangingValues {
+    XCTAssertNil(_setting->onResetArgument);
+    [_setting setValue:@"new"];
+    [_setting setValue:@"newer"];
+    
+    [CoreSettings onReset];
+    
+    XCTAssertEqualObjects(_setting->onResetArgument, @"newer");
+}
+
+- (void)testOnReset_NotCalledWhenValueChangedBack {
+    XCTAssertNil(_setting->onResetArgument);
+    [_setting setValue:@"new"];
+    [_setting setValue:nil]; // default emulator setting
+    
+    [CoreSettings onReset];
+    
+    XCTAssertNil(_setting->onResetArgument);
+}
+
+- (void)testOnReset_NotCalledWhenValueDidNotChange {
+    XCTAssertNil(_setting->onResetArgument);
+    
+    [CoreSettings onReset];
+    
+    XCTAssertNil(_setting->onResetArgument);
+}
+
+- (void)testOnReset_CalledWithNil {
+    _setting->onResetArgument = @"empty";
+    _setting->emulatorValue = @"foo";
+    [_setting setValue:nil];
+    
+    [CoreSettings onReset];
+    
+    XCTAssertNil(_setting->onResetArgument);
+}
+
+- (void)testGetValue_WithUnappliedValue {
+    _setting->emulatorValue = @"foo";
+    
+    [_setting setValue:@"blah"];
+    
+    XCTAssertEqualObjects([_setting getValue], @"blah");
+}
+
+- (void)testGetValue_WithoutUnappliedValue {
+    _setting->emulatorValue = @"foo";
+    
+    XCTAssertEqualObjects([_setting getValue], @"foo");
+}
+
+- (void)testGetGetValue_UnappliedValueIsNil {
+    _setting->emulatorValue = @"foo";
+    
+    [_setting setValue:nil];
+    
+    XCTAssertNil([_setting getValue]);
+    
 }
 
 @end

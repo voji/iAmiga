@@ -6,12 +6,13 @@
 //
 //
 
+#import "CoreSetting.h"
 #import "SelectEffectController.h"
 #import "SettingsDisplayController.h"
 #import "Settings.h"
+#import "UnappliedSettingLabelHandler.h"
 
 extern int mainMenu_showStatus;
-extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
 
@@ -19,6 +20,8 @@ extern int mainMenu_AddVerticalStretchValue;
     NSArray *_effectNames;
     SelectEffectController *_selectEffectController;
     Settings *_settings;
+    NTSCEnabledCoreSetting *_ntscEnabledSetting;
+    UnappliedSettingLabelHandler *_settingLabelHandler;
 }
 
 - (void)viewDidLoad {
@@ -32,16 +35,36 @@ extern int mainMenu_AddVerticalStretchValue;
     self.additionalVerticalStretchValue.delegate = self;
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_ntsc setOn:_settings.ntsc];
+    _ntscEnabledSetting = [[CoreSettings ntscEnabledCoreSetting] retain];
+    _settingLabelHandler = [[UnappliedSettingLabelHandler alloc] init];
+
+    [_ntsc setOn:[[_ntscEnabledSetting getValue] boolValue]];
     [_showstatus setOn:_settings.showStatus];
     [_stretchscreen setOn:_settings.stretchScreen];
     [_showstatusbar setOn:_settings.showStatusBar];
     [self handleSelectedEffect];
-    _additionalVerticalStretchValue.text = [[NSNumber numberWithInt:_settings.addVerticalStretchValue] stringValue];
+    [self setupWarningLabels];
+}
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [_settingLabelHandler layoutLabels];
+}
+
+- (void)setupWarningLabels {
+    [_settingLabelHandler updateLabelStates];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    if (indexPath.section == 0 && indexPath.row == 1) // ntsc
+    {
+        [_settingLabelHandler addResetWarningLabelForCell:cell forSetting:_ntscEnabledSetting];
+    }
+    return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -52,8 +75,8 @@ extern int mainMenu_AddVerticalStretchValue;
 }
 
 - (IBAction)toggleNTSC:(id)sender {
-    _settings.ntsc = _ntsc.isOn;
-    mainMenu_ntsc = _ntsc.isOn;
+    [_ntscEnabledSetting setValue:[NSNumber numberWithBool:_ntsc.isOn]];
+    [self setupWarningLabels];
 }
 
 - (IBAction)toggleShowstatus:(id)sender {
@@ -94,7 +117,8 @@ extern int mainMenu_AddVerticalStretchValue;
     [_effectNames release];
     [_selectEffectController release];
     [_settings release];
-    [_additionalVerticalStretchValue release];
+    [_ntscEnabledSetting release];
+    [_settingLabelHandler release];
     [super dealloc];
 }
 - (IBAction)setAdditionalVerticalStretch:(id)sender {

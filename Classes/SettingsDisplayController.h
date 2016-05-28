@@ -10,12 +10,12 @@
 
 @interface SettingsDisplayController : UITableViewController <UITextFieldDelegate>
 
-@property (readwrite, retain) IBOutlet UISwitch *ntsc;
-@property (readwrite, retain) IBOutlet UISwitch *stretchscreen;
-@property (readwrite, retain) IBOutlet UISwitch *showstatus;
-@property (readwrite, retain) IBOutlet UISwitch *showstatusbar;
-@property (readwrite, retain) IBOutlet UILabel *selectedEffectLabel;
+@property (nonatomic, assign) IBOutlet UISwitch *ntsc;
+@property (nonatomic, assign) IBOutlet UISwitch *stretchscreen;
+@property (nonatomic, assign) IBOutlet UISwitch *showstatus;
+@property (nonatomic, assign) IBOutlet UISwitch *showstatusbar;
+@property (nonatomic, assign) IBOutlet UILabel *selectedEffectLabel;
 
-@property (retain, nonatomic) IBOutlet UITextField *additionalVerticalStretchValue;
+@property (nonatomic, assign) IBOutlet UITextField *additionalVerticalStretchValue;
 
 @end
