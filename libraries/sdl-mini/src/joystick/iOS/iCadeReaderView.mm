@@ -23,7 +23,6 @@
 #import "iCadeReaderView.h"
 #import "JoypadKey.h"
 #import "MultiPeerConnectivityController.h"
-#import <ExternalAccessory/ExternalAccessory.h>
 
 static const char *ON_STATES  = "wdxayhujikol";
 static const char *OFF_STATES = "eczqtrfnmpgv";
@@ -50,6 +49,7 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     inputView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     for(int i=0;i<=8;i++)
@@ -57,38 +57,10 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     
     _mpcController = [MultiPeerConnectivityController getinstance];
     
-    [self discoverController];
-    
     return self;
 }
 
-- (void)discoverController {
-    
-    [[EAAccessoryManager sharedAccessoryManager] registerForLocalNotifications];    //we want to hear about accessories connecting and disconnecting
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(controllerDidConnect:)
-                                                 name:EAAccessoryDidConnectNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(controllerDidDisconnect:)
-                                                 name:EAAccessoryDidDisconnectNotification
-                                               object:nil];
-}
-
-- (void)controllerDidConnect:(NSNotification*)cNotification {
-}
-
-- (void)controllerDidDisconnect:(NSNotification*)cNotification {
-    
-    EAAccessory *cObject = [cNotification.userInfo objectForKey:EAAccessoryKey];
-    
-    NSString *mName = [cObject manufacturer];
-    
-    if([mName isEqualToString:@"iCade"])
-    {
-        [_mpcController controllerDisconnected:kiCadePad];
-    }
+- (void)disconnectController:(NSNotification *)cNotification {
 }
 
 - (void)dealloc {
@@ -203,11 +175,12 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
         Uint8 hat_state = (_iCadeState & 0x0f);
         if (_controllerhatstate != hat_state) {
            
+            TouchStickDPadState tState = [self getDpadStateFromHatState:hat_state];
             
-            int buttonvertical = [_mpcController dpadstatetojoypadkey:@"vertical" hatstate:hat_state];
-            int buttonhorizontal = [_mpcController dpadstatetojoypadkey:@"horizontal" hatstate: hat_state];
+            int buttonvertical = [_mpcController dpadstatetojoypadkey:@"vertical" hatstate:tState];
+            int buttonhorizontal = [_mpcController dpadstatetojoypadkey:@"horizontal" hatstate: tState];
 
-            [_mpcController handleinputdirections:hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal deviceid:kiCadePad];
+            [_mpcController handleinputdirections:tState buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal:_buttontoreleasehorizontal deviceid:kiCadePad];
             
             _controllerhatstate = hat_state;
             _buttontoreleasevertical = buttonvertical;
@@ -217,20 +190,48 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     }
 }
 
+- (TouchStickDPadState)getDpadStateFromHatState:(int)hat_state
+{
+    bool uFlag = !(hat_state & 0x01) == false ? true : false;
+    bool rFlag = !(hat_state & 0x02) == false ? true : false;
+    bool dFlag = !(hat_state & 0x04) == false ? true : false;
+    bool lFlag = !(hat_state & 0x08) == false ? true : false;
+    
+    if(uFlag)
+    {
+        if(rFlag)       return DPadUpRight;
+        else if(lFlag)  return DPadUpLeft;
+        else            return DPadUp;
+    }
+    else if(dFlag)
+    {
+        if(rFlag)       return DPadDownRight;
+        else if(lFlag)  return DPadDownLeft;
+        else            return DPadDown;
+    }
+    else if(rFlag)      return DPadRight;
+    else if(lFlag)      return DPadLeft;
+    
+    return DPadNone;
+}
+
 - (void)insertText:(NSString *)text {
     
     char ch = [text characterAtIndex:0];
     if (ch >= 65 && ch < 91)
         ch+=32; // lowercase
     
+    int tiState = (int) _iCadeState;
+    
     char *p = strchr(ON_STATES, ch);
     bool stateChanged = false;
     if (p) {
         int index = p-ON_STATES;
-        _iCadeState |= (1 << index);
+        tiState |= (1 << index);
+        _iCadeState = (iCadeState)tiState;
         stateChanged = true;
         if (_delegateFlags.buttonDown) {
-            [_delegate buttonDown:(1 << index)];
+            [_delegate buttonDown:_iCadeState];
         }
         
         [self handleinputbuttons];
@@ -238,10 +239,11 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
         p = strchr(OFF_STATES, ch);
         if (p) {
             int index = p-OFF_STATES;
-            _iCadeState &= ~(1 << index);
+            tiState &= ~(1 << index);
+            _iCadeState = (iCadeState)tiState;
             stateChanged = true;
             if (_delegateFlags.buttonUp) {
-                [_delegate buttonUp:(1 << index)];
+                [_delegate buttonUp:_iCadeState];
             }
             
             [self handleinputbuttons];
@@ -265,4 +267,12 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     // This space intentionally left blank to complete protocol. Woot.
 }
 
+static void HardwareKeyboardStatusChanged(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    NSLog(@"Darwin notification NAME = %@",name);
+    
+    NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
+    
+    [notCenter postNotificationName:@"HardwareKeyboardStatusChanged" object:(__bridge id)object userInfo:(__bridge id)userInfo];
+}
 @end

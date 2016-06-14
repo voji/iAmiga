@@ -42,11 +42,16 @@
 
 @end
 
-@implementation SingleWindowAppDelegate
+@implementation SingleWindowAppDelegate {
+    int _firstClick;
+}
 
 @synthesize window, mainController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+    
+    _firstClick = 1;
+    
     UINavigationController *navigationcontroller = (UINavigationController *)self.window.rootViewController;
     self.mainController = (BaseEmulationViewController *)navigationcontroller.topViewController;
     [window makeKeyAndVisible];

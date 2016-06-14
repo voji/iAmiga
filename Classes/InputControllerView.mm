@@ -28,6 +28,7 @@
 #import "MultiPeerconnectivityController.h"
 #import "MPCConnectionStates.h"
 #import "VPadMotionController.h"
+#import "Settings.h"
 
 
 InputControllerView *sharedInstance;

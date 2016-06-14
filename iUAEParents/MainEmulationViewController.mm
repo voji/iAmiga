@@ -39,6 +39,7 @@
 #import "MultiPeerConnectivityController.h"
 #import "VPadMotionController.h"
 #import "cfgfile.h"
+#import "MFIControllerReaderView.h"
 
 extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
 extern void init_joystick();
@@ -53,6 +54,7 @@ extern void init_joystick();
     Settings *_settings;
     NSTimer *_checkForPausedTimer;
     NSTimer *_checkForGControllerTimer;
+    MFIControllerReaderView *_mfiController;
 }
 
 MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init]; //Needs to be called this early and out of class context to ensure it loads first
@@ -113,7 +115,8 @@ extern void uae_reset();
     [self initializeControls];
     paused = 0;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
+     _mfiController = [[MFIControllerReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(controllerStateChange)
                                                  name:GCControllerDidConnectNotification
                                                object:nil];
@@ -121,7 +124,7 @@ extern void uae_reset();
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(controllerStateChange)
                                                  name:GCControllerDidDisconnectNotification
-                                               object:nil];
+                                               object:nil];*/
     
     // we start out with the mouse activated
     [_mouseHandler onMouseActivated];

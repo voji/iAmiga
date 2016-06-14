@@ -152,7 +152,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 		joystick->name  = accelerometerName;
 		[[SDLUIAccelerationDelegate sharedDelegate] startup];
 	}
-    else if (joystick->index == kOfficial) {
+    /*else if (joystick->index == kOfficial) {
         joystick->naxes = 0;
         joystick->nhats = 1;
         joystick->nballs = 0;
@@ -174,7 +174,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
             
         } afterDelay:0.0f];
         joystick->hwdata->view = view;
-    }
+    }*/
 	else {
 		SDL_SetError("No joystick available with that index");
 		return (-1);
@@ -472,12 +472,12 @@ SDL_SYS_JoystickClose(SDL_Joystick * joystick)
         [joystick->hwdata->view release];
         SDL_free(joystick->hwdata);
     }
-    else if (joystick->index == kOfficial)
+    /*else if (joystick->index == kOfficial)
     {
         [joystick->hwdata->view removeFromSuperview];
         [joystick->hwdata->view release];
         SDL_free(joystick->hwdata);
-    }
+    }*/
     else {
         SDL_SetError("No joystick open with that index");
     }

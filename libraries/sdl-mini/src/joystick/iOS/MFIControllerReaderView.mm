@@ -22,6 +22,7 @@
 #import "Settings.h"
 #import "SDL_events.h"
 #import "MultiPeerConnectivityController.h"
+#import <ExternalAccessory/ExternalAccessory.h>
 
 @implementation MFIControllerReaderView {
     int _button[9];
@@ -30,6 +31,7 @@
     MultiPeerConnectivityController *mpcController;
     int _buttontoreleasehorizontal;
     int _buttontoreleasevertical;
+    int _devCount;
 }
 
 
@@ -37,6 +39,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    _devCount = 0;
     _hat_state = DPadCenter;
     _buttonapressed = false;
     //_thejoystick = &g_touchStick;
@@ -46,70 +49,118 @@
     for(int i=0;i<=7;i++)
         _button[i] = 0;
     
-    [self discoverController];
-    //_settings = [[Settings alloc] init];
+    [self initNotifications];
+    [self initControllers];
     
     return self;
 }
 
-- (void)discoverController {
+- (void)initNotifications {
     
-    if ([[GCController controllers] count] == 0) {
-        [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(controllerDiscovered)
-                                                     name:GCControllerDidConnectNotification
-                                                   object:nil];
-    } else {
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(controllerDisconnected)
-                                                     name:GCControllerDidDisconnectNotification
-                                                   object:nil];
-    }
+    [[EAAccessoryManager sharedAccessoryManager] registerForLocalNotifications];
+    [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceConnected:)
+                                                 name:EAAccessoryDidConnectNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceDisconnected:)
+                                                 name:EAAccessoryDidDisconnectNotification
+                                               object:nil];
 }
 
-- (void)handleinputbuttons:(int)buttonid forGamepad:(GCGamepad *) gamepad
+
+- (void) initControllers {
+//Code to initialize already connected controllers on Startup. Causes crash of App if Controllers are connected at the moment. [[GCControllers controller] count] returns 0
+ 
+ 
+    NSArray *connControllers = [[EAAccessoryManager sharedAccessoryManager] connectedAccessories];
+    
+    for (EAAccessory *currController in connControllers) {
+    
+        dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+        
+        dispatch_after(waittime, dispatch_get_main_queue(),
+                       ^void{
+                           [self controllerDiscovered:currController];
+                       });
+    }
+    
+}
+
+- (void)deviceConnected:(NSNotification *)devNotification {
+    /* Make sure this is an MFI Controller */
+    
+    EAAccessory *btDevice = [[devNotification userInfo] objectForKey:@"EAAccessoryKey"];
+    dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+    
+    dispatch_after(waittime, dispatch_get_main_queue(),
+                   ^void{
+                           [self controllerDiscovered:btDevice];
+                   });
+}
+
+- (void)deviceDisconnected:(NSNotification *)devNotification {
+    
+    EAAccessory *btDevice = [[devNotification userInfo] objectForKey:@"EAAccessoryKey"];
+    dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+    
+    dispatch_after(waittime, dispatch_get_main_queue(),
+                   ^void{
+                           [self controllerDisconnected:btDevice];
+                   });
+
+}
+
+- (void)handleinputbuttons:(int)buttonid forDeviceid:(NSString *)devID
 {
-    _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid] deviceid:[NSString stringWithFormat:@"%p", gamepad]];
+    
+    _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid] deviceid:devID];
     
     NSLog(@"Buttonstate: %d",_button[buttonid]);
 }
 
-- (void)controllerDisconnected:(NSNotification *)disconnectedNotification {
+- (void)controllerDisconnected:(EAAccessory *)btDevice {
     
-    GCController *controller = (GCController *)[disconnectedNotification object];
-    [mpcController controllerDisconnected:[NSString stringWithFormat:@"%p", [controller gamepad]]];
+    int devCount = [[GCController controllers] count];
+    if(devCount >= _devCount) return;
+    
+    _devCount = devCount;
+    
+    NSString *devID = [NSString stringWithFormat:@"%p", btDevice];
+    [mpcController controllerDisconnected:devID];
 }
 
-- (void)controllerDiscovered:(NSNotification *)connectedNotification {
+- (void)controllerDiscovered:(EAAccessory *)btDevice {
     
-    GCController *controller = (GCController *)[connectedNotification object];
+    int devCount = [[GCController controllers] count];
+    _devCount = devCount;
     
-    controller.controllerPausedHandler = ^(GCController *controller) {
-        _paused = (_paused == 1) ? 0 : 1;
-    };
+    GCController *controller = GCController.controllers[_devCount-1];
+    NSString *devID = [NSString stringWithFormat:@"%p", btDevice];
+    //NSString *devID = @"test";
     
     controller.gamepad.valueChangedHandler = ^(GCGamepad *gamepad, GCControllerElement
                                                *element)
     {
         if(gamepad.buttonA.isPressed != _button[BTN_A])
-            [self handleinputbuttons: BTN_A forGamepad:gamepad];
+            [self handleinputbuttons: BTN_A forDeviceid:devID];
         else if(gamepad.buttonB.isPressed != _button[BTN_B])
-               [self handleinputbuttons: BTN_B forGamepad:gamepad];
+               [self handleinputbuttons: BTN_B forDeviceid:devID];
         else if(gamepad.buttonX.isPressed!= _button[BTN_X])
-               [self handleinputbuttons: BTN_X forGamepad:gamepad];
+               [self handleinputbuttons: BTN_X forDeviceid:devID];
         else if(gamepad.buttonY.isPressed != _button[BTN_Y])
-               [self handleinputbuttons: BTN_Y forGamepad:gamepad];
+               [self handleinputbuttons: BTN_Y forDeviceid:devID];
         else if(gamepad.rightShoulder.isPressed != _button[BTN_R1])
-               [self handleinputbuttons: BTN_R1 forGamepad:gamepad];
+               [self handleinputbuttons: BTN_R1 forDeviceid:devID];
         else if(gamepad.leftShoulder.isPressed != _button[BTN_L1])
-                [self handleinputbuttons: BTN_L1 forGamepad:gamepad];
+                [self handleinputbuttons: BTN_L1 forDeviceid:devID];
         else if(gamepad.controller.extendedGamepad.rightTrigger.isPressed != _button[BTN_R2])
-                [self handleinputbuttons: BTN_R2 forGamepad:gamepad];
+                [self handleinputbuttons: BTN_R2 forDeviceid:devID];
         else if(gamepad.controller.extendedGamepad.leftTrigger.isPressed !=     _button[BTN_L2])
-              [self handleinputbuttons: BTN_L2 forGamepad:gamepad];
+              [self handleinputbuttons: BTN_L2 forDeviceid:devID];
         
         if(gamepad.dpad.left.pressed || gamepad.controller.extendedGamepad.leftThumbstick.left.pressed)
         {
@@ -160,7 +211,7 @@
             int buttonvertical = [mpcController dpadstatetojoypadkey:@"vertical" hatstate:_hat_state];
             int buttonhorizontal = [mpcController dpadstatetojoypadkey:@"horizontal" hatstate: _hat_state];
             
-            [mpcController handleinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal deviceid:[NSString stringWithFormat:@"%p", gamepad]];
+            [mpcController handleinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal deviceid:devID];
             
             _buttontoreleasevertical = buttonvertical;
             _buttontoreleasehorizontal = buttonhorizontal;

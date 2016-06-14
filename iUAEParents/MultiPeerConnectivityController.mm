@@ -10,10 +10,10 @@
 #import "MPCConnectionStates.h"
 #import "SVProgressHUD.h"
 #import "JoypadKey.h"
+#import "Settings.h"
 
 static MultiPeerConnectivityController *_instance;
 extern CJoyStick g_touchStick;
-
 @implementation MultiPeerConnectivityController {
     Settings *_settings;
     double _lasttime;
@@ -47,10 +47,6 @@ bool bConnectionToServerJustEstablished = false;
     
     _dMap = [[NSMutableArray alloc] initWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null], [NSNull null], [NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(enableControllerMode:)
-                                                 name:SVProgressHUDDidTouchDownInsideNotification object:nil];
-    
     return self;
 }
 
@@ -71,10 +67,22 @@ bool bConnectionToServerJustEstablished = false;
     
     if(mainMenu_servermode == kConnectionIsOff)
     {
-        [self showMessage:@"Use device as Remote Controller" withMessage:@"Press this Message to use device as remote controller"];
-        [NSThread sleepForTimeInterval:2];
-        mainMenu_servermode = mainMenu_servermode == kConnectionIsOff ? kServeAsHostForIncomingJoypadSignals : mainMenu_servermode;
+        [self showMessage:@"Use device as Remote Controller" withMessage:@"Tab screen to use device as remote controller"];
+        
+        dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 2.00 * NSEC_PER_SEC);
+        
+        dispatch_after(waittime, dispatch_get_main_queue(),
+                       ^void{
+                           [self configureContinue:mainEmuViewCtrl];
+                       });
     }
+}
+
+
+-(void)configureContinue:(MainEmulationViewController *) mainEmuViewCtrl {
+/*Continue Configuration after Waiting time */
+    
+    mainMenu_servermode = mainMenu_servermode == kConnectionIsOff ? kServeAsHostForIncomingJoypadSignals : mainMenu_servermode;
     
     if(mainMenu_servermode == kServeAsHostForIncomingJoypadSignals)
     {
@@ -122,7 +130,6 @@ bool bConnectionToServerJustEstablished = false;
             [self activateJoyPad];
         }
     }
-    
     
     lastServerMode = mainMenu_servermode;
 }
@@ -176,7 +183,11 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 
 - (void)controllerDisconnected:(NSString *)dID {
     NSInteger index = [_dMap indexOfObject:dID];
-    [_dMap[index] release];
+    
+    if(index) {
+        [[_dMap objectAtIndex:index] release];
+        _dMap[index] = [NSNull null];
+    }
 }
 
 - (void)setkeymapfordeviceID:(NSString *)dID {
@@ -207,10 +218,10 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         
         for(kmNumber= 0;kmNumber <= [_dMap count] -1; kmNumber++)
         {
-            if([_dMap[kmNumber] length] == 0)
+            if(_dMap[kmNumber] == [NSNull null])
             {
                 _dMap[kmNumber] = [[NSString stringWithString:dID] retain];
-                [self showMessage:@"New Controller Mapped" withMessage:[NSString stringWithFormat:@"Using Keympad %d for this device", kmNumber]];
+                [self showMessage:@"New Controller Mapped" withMessage:[NSString stringWithFormat:@"Using Keymap %d for this device", kmNumber+1]];
                 break;
             }
         }
@@ -413,28 +424,30 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     NSString *configuredkeytoreleasevertical = NULL;
     int asciicodekeytoreleasevertical = NULL;
     
-    if([self dpadstatetojoypadkey: @"horizontal" hatstate:hat_state])
+    int horButton = [self dpadstatetojoypadkey: @"horizontal" hatstate:hat_state];
+    if(horButton)
     {
-        
-        configuredkeyhorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: @"horizontal" hatstate:hat_state]]];
+        configuredkeyhorizontal = [_settings keyConfigurationforButton:horButton];
         asciicodehorizontal = [[configuredkeyhorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
     }
     
-    if([self dpadstatetojoypadkey: @"vertical" hatstate:hat_state])
+    int vertButton = [self dpadstatetojoypadkey: @"vertical" hatstate:hat_state];
+    if(vertButton)
     {
-        configuredkeyvertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", [self dpadstatetojoypadkey: @"vertical" hatstate:hat_state]]];
+        configuredkeyvertical = [_settings keyConfigurationforButton:vertButton];
         asciicodevertical = [[configuredkeyvertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
     }
     
     if(buttontoreleasehorizontal)
     {
-        configuredkeytoreleasehorizontal = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttontoreleasehorizontal]];
+        configuredkeytoreleasehorizontal = [_settings keyConfigurationforButton:buttontoreleasehorizontal];
         asciicodekeytoreleasehorizontal = [[configuredkeytoreleasehorizontal stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
     }
     
     if(buttontoreleasevertical)
     {
-        configuredkeytoreleasevertical = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttontoreleasevertical]];
+        
+        configuredkeytoreleasevertical = [_settings keyConfigurationforButton:buttontoreleasevertical];
         asciicodekeytoreleasevertical = [[configuredkeytoreleasevertical stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"KEY_"]] intValue];
     }
     
@@ -505,8 +518,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     [self setkeymapfordeviceID:dID];
     NSInteger pNumber = [[_settings keyConfigurationforButton:PORT] integerValue];
     
-    NSString *configuredkey = [_settings stringForKey:[NSString stringWithFormat: @"_BTN_%d", buttonid]];
-    
+    NSString *configuredkey = [_settings keyConfigurationforButton:buttonid];
     if([configuredkey  isEqual: @"Joypad"])
     {
         if(buttonstate) {
