@@ -117,16 +117,19 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    AdfImporter *importer = [[[AdfImporter alloc] init] autorelease];
-    BOOL imported = [importer import:url.path];
-    if (imported)
-    {
-        [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
-        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Imported %@", [url.path lastPathComponent]]];
-        [[NSNotificationCenter defaultCenter] postNotificationName:[EMUROMBrowserViewController getAdfChangedNotificationName] object:nil];
+    BOOL imported = NO;
+    if ([self isAdf:url]) {
+        AdfImporter *importer = [[[AdfImporter alloc] init] autorelease];
+        imported = [importer import:url.path];
+    } else {
+        // for anything else (rom, hdf, ...?) we don't do anything special - files will be in the "Inbox" folder
+        imported = YES;
     }
-    else
-    {
+    [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+    if (imported) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:[EMUROMBrowserViewController getFileImportedNotificationName] object:nil];
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Imported %@", [url.path lastPathComponent]]];
+    } else {
         [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Failed to import %@", [url.path lastPathComponent]]];
     }
     return imported;
@@ -134,6 +137,11 @@
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskLandscape;
+}
+
+- (BOOL)isAdf:(NSURL *)url {
+    NSString *extension = url.path.pathExtension.lowercaseString;
+    return [@"adf" isEqualToString:extension] || [@"zip" isEqualToString:extension];
 }
 
 - (void)dealloc {

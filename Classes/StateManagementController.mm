@@ -19,6 +19,7 @@
 #include "options.h"
 #include "savestate.h"
 
+#import "CoreSetting.h"
 #import "State.h"
 #import "StateManagementController.h"
 #import "StateFileManager.h"
@@ -172,6 +173,7 @@ static NSString *kSaveStateAlertTitle = @"Save";
     [stateToRestore.path getCString:path maxLength:sizeof(path) encoding:[NSString defaultCStringEncoding]];
     savestate_filename = path;
     savestate_state = STATE_DORESTORE;
+    [CoreSettings onReset]; // restoring a state resets the emulator
     
     // the state restore logic, including inserting the floppy(ies) associated with the state, only runs when exiting settings.  In order to reduce confusion about what
     // floppies are inserted after the state has been restored, exit settings now

@@ -41,6 +41,7 @@
 #import "cfgfile.h"
 #import "MFIControllerReaderView.h"
 
+extern int mainMenu_ntsc;
 extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
 extern void init_joystick();
 
@@ -97,6 +98,8 @@ extern void uae_reset();
     [_btnSettings setImage:[UIImage imageNamed:@"gear_selected.png"] forState: UIControlStateHighlighted];
     [_btnKeyboard setImage:[UIImage imageNamed:@"keyboard_selected.png"] forState:UIControlStateHighlighted];
     [_btnPin setImage:[UIImage imageNamed:@"sticky_selected.png"] forState:UIControlStateSelected];
+    
+    mainMenu_ntsc = _settings.ntsc;
     
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
@@ -158,15 +161,8 @@ extern void uae_reset();
     settingsController.resetDelegate = self;
 }
 
-- (void)didSelectReset:(DriveState *)driveState hardfilePath:(NSString *)hardfilePath {
+- (void)didSelectReset:(DriveState *)driveState {
     uae_reset();
-    if (hardfilePath) {
-        [_hardDriveService mountHardfile:hardfilePath];
-    } else {
-        [_hardDriveService unmountHardfile];
-    }
-    _settings.driveState = driveState;
-    _settings.hardfilePath = hardfilePath;
     [self initDriveSetupTimer:driveState];
 }
 

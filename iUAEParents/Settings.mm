@@ -56,13 +56,13 @@ static NSString *const kDPadTouchOrMotion = @"_dpadTouchOrMotion";
 static NSString *const kGyroToggleUpDown = @"_gyroToggleUpDown";
 static NSString *const kGyroSensitivity = @"_gyroSensitivity";
 
+static NSString *const kRomPath = @"romPath";
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
 static NSString *const kDf3EnabledKey = @"df3Enabled";
 static NSString *const kHardfilePath = @"hardfilePath";
 
 extern int mainMenu_showStatus;
-extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
 extern int joystickselected;
@@ -118,7 +118,6 @@ static int _cNumber = 1;
 - (void)initializespecificsettings {
     if(![self boolForKey:kInitializeKey])
     {
-        self.ntsc = mainMenu_ntsc;
         self.stretchScreen = mainMenu_stretchscreen;
         self.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
         self.showStatus = mainMenu_showStatus;
@@ -126,7 +125,6 @@ static int _cNumber = 1;
     }
     else
     {
-        mainMenu_ntsc = self.ntsc;
         mainMenu_stretchscreen = self.stretchScreen;
         mainMenu_AddVerticalStretchValue = self.addVerticalStretchValue;
         mainMenu_showStatus = self.showStatus;
@@ -396,6 +394,13 @@ static int _cNumber = 1;
     [self setObject:controllers forKey:kControllersKey];
 }
 
+- (NSString *)romPath {
+    return [self stringForKey:kRomPath];
+}
+
+- (void)setRomPath:(NSString *)romPath {
+    [self setObject:romPath forKey:kRomPath];
+}
 
 - (DriveState *)driveState {
     DriveState *driveState = [[[DriveState alloc] init] autorelease];

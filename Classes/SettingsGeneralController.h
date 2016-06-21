@@ -19,24 +19,29 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import <UIKit/UIKit.h>
-#import "ResetController.h"
 #import "EMUROMBrowserViewController.h"
 #import "SelectConfigurationViewController.h"
+#import "DriveState.h"
 
+@protocol ResetDelegate <NSObject>
+
+- (void)didSelectReset:(DriveState *)driveState;
+
+@end
 
 @interface SettingsGeneralController : UITableViewController<SelectRomDelegate, SelectConfigurationDelegate>
 
-@property (readwrite, retain) IBOutlet UISwitch *swautoloadconfig;
-@property (readwrite, retain) IBOutlet UILabel *df0;
-@property (readwrite, retain) IBOutlet UILabel *df1;
-@property (readwrite, retain) IBOutlet UILabel *df2;
-@property (readwrite, retain) IBOutlet UILabel *df3;
-@property (readwrite, retain) IBOutlet UISwitch *df1Switch;
-@property (readwrite, retain) IBOutlet UISwitch *df2Switch;
-@property (readwrite, retain) IBOutlet UISwitch *df3Switch;
-@property (readwrite, retain) IBOutlet UILabel *hd0;
-@property (readwrite, retain) IBOutlet UISwitch *hd0Switch;
-@property (readwrite, retain) IBOutlet UILabel *configurationname;
+@property (readwrite, assign) IBOutlet UILabel *romPathLabel;
+@property (readwrite, assign) IBOutlet UILabel *df0PathLabel;
+@property (readwrite, assign) IBOutlet UILabel *df1PathLabel;
+@property (readwrite, assign) IBOutlet UISwitch *df1Switch;
+@property (readwrite, assign) IBOutlet UILabel *df2PathLabel;
+@property (readwrite, assign) IBOutlet UISwitch *df2Switch;
+@property (readwrite, assign) IBOutlet UILabel *df3PathLabel;
+@property (readwrite, assign) IBOutlet UISwitch *df3Switch;
+@property (readwrite, assign) IBOutlet UILabel *hd0PathLabel;
+@property (readwrite, assign) IBOutlet UISwitch *configAutoloadSwitch;
+@property (readwrite, assign) IBOutlet UILabel *configNameLabel;
 
 @property (readwrite, retain) UIImage *emulatorScreenshot;
 @property (readwrite, assign) id<ResetDelegate> resetDelegate;
