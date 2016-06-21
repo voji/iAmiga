@@ -1,9 +1,19 @@
 //
-//  VPadMotionController.m
+//  VPadMotionController.mm
 //  iUAE
 //
 //  Created by MrStargazer on 27.03.16.
 //
+//
+//  iUAE is free software: you may copy, redistribute
+//  and/or modify it under the terms of the GNU General Public License as
+//  published by the Free Software Foundation, either version 2 of the
+//  License, or (at your option) any later version.
+//
+//  This file is distributed in the hope that it will be useful, but
+//  WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  General Public License for more details.
 //
 
 #import "VPadMotionController.h"
@@ -13,11 +23,11 @@
 #import "SDL_events.h"
 #import "JoypadKey.h"
 #import "Settings.h"
+#import "MultiPeerConnectivityController.h"
 
 extern CJoyStick g_touchStick;
 
 @implementation VPadMotionController {
-    
 }
 
 static CMAttitude *refAttitude = nil;
@@ -26,6 +36,9 @@ static Settings *settings;
 static BOOL active = NO;
 const float motionUpdateInterval = 1.0/30.0;
 static CJoyStick *TheJoyStick;
+static MultiPeerConnectivityController *mpcController;
+static int buttontoreleasehorizontal;
+static int buttontoreleasevertical;
 
 + (BOOL) isActive{
     return active;
@@ -47,7 +60,7 @@ static CJoyStick *TheJoyStick;
         }
     }];
     
-    
+    mpcController = [MultiPeerConnectivityController getinstance];
 }
 
 // receivces frequently motion data and translate it into joystick directions
@@ -92,8 +105,13 @@ static CJoyStick *TheJoyStick;
         dpadState = DPadCenter;
     }
     
-    TheJoyStick->setDPadStateP0(dpadState);
-    TheJoyStick->setDPadStateP1(dpadState);
+    int buttonvertical = [mpcController dpadstatetojoypadkey:@"vertical" hatstate:dpadState];
+    int buttonhorizontal = [mpcController dpadstatetojoypadkey:@"horizontal" hatstate:dpadState];
+    
+    [mpcController handleinputdirections:dpadState buttontoreleasevertical:buttontoreleasevertical buttontoreleasehorizontal: buttontoreleasehorizontal deviceid:kVirtualPad];
+    
+    buttontoreleasevertical = buttonvertical;
+    buttontoreleasehorizontal = buttonhorizontal;
     
 }
 

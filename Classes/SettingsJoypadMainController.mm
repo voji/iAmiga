@@ -33,7 +33,6 @@ extern MPCStateType mainMenu_servermode;
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_openServer setOn:mainMenu_servermode == kServeAsHostForIncomingJoypadSignals];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +42,6 @@ extern MPCStateType mainMenu_servermode;
 
 - (void)dealloc {
     [_LabelDetection release];
-    [_openServer release];
-    [_sendToPort0 release];
-    [_sendToPort1 release];
     [super dealloc];
 }
 @end

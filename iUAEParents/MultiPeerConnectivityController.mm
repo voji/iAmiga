@@ -182,9 +182,10 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 {}
 
 - (void)controllerDisconnected:(NSString *)dID {
-    NSInteger index = [_dMap indexOfObject:dID];
+    NSInteger index = -1;
+    index = [_dMap indexOfObject:dID];
     
-    if(index) {
+    if(index>=0) {
         [[_dMap objectAtIndex:index] release];
         _dMap[index] = [NSNull null];
     }
@@ -247,6 +248,7 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 {
     [_mainEmuViewController dismissViewControllerAnimated:YES completion:nil];
     mainMenu_servermode=kServeAsHostForIncomingJoypadSignals; //disable client mode
+    [self showMessage: @"Controller Mode Cancelled" withMessage: @"Controller Mode Cancelled. Device will not be used as remote controller"];
 }
 
 - (void)sendJoystickDataForDirection:(int)direction buttontoreleasehorizontal:(int)buttontoreleasehorizontal buttontoreleasevertical:(int)buttontoreleasevertical
@@ -307,14 +309,10 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
     
-    
-    
-    if(state == MCSessionStateConnected)
-        [self showMessage: peerID.displayName withMessage: @"connected"];
-    else if(state == MCSessionStateNotConnected)
+    if(state == MCSessionStateNotConnected) {
         [self showMessage: peerID.displayName withMessage: @"not connected"];
-    else if(state == MCSessionStateConnecting)
-        [self showMessage: peerID.displayName withMessage: @"connecting..."];
+        [self controllerDisconnected:peerID.displayName];
+    }
     
 }
 
