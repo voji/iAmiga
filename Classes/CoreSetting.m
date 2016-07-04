@@ -258,11 +258,14 @@
     _settings.hardfilePath = hd0Path;
 }
 
-- (void)hook_onReset:(NSString *)hdfPath {
-    if (hdfPath) {
-        [_hardDriveService mountHardfile:hdfPath];
-    } else {
+- (void)hook_onReset:(NSString *)newHDFfPath {
+    NSString *currentHDFPath = [self hook_getEmulatorValue];
+    BOOL unmount = !newHDFfPath || (currentHDFPath && ![currentHDFPath isEqualToString:newHDFfPath]);
+    if (unmount) {
         [_hardDriveService unmountHardfile];
+    }
+    if (newHDFfPath) {
+        [_hardDriveService mountHardfile:newHDFfPath];
     }
 }
 
