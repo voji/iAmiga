@@ -155,7 +155,6 @@ extern void uae_reset();
     
     
     _icadeController.active = YES;
-    //Respond to keyboard Input from Icadecontroller if connected
     [_icadeController becomeFirstResponder];
     
     if (joyactive && _settings.DPadModeIsMotion){
@@ -242,7 +241,13 @@ extern void togglemouse (void);
     if (keyboardactive != keyboardactiveonstart)
     {
         [ioskeyboard toggleKeyboard];
-    }    
+    }
+    
+    if(!keyboardactive)
+    {
+        [_icadeController setActive:YES];
+        [_icadeController becomeFirstResponder];
+    }
 }
 
 - (IBAction)togglePinstatus:(id)sender {
