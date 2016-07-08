@@ -417,7 +417,7 @@ extern MPCStateType mainMenu_servermode;
 
 - (void)reloadJoypadSettings {
     [self setJoypadstyle:_settings.joypadstyle];
-    [self setLeftOrRight:_settings .joypadleftorright];
+    [self setLeftOrRight:_settings.joypadleftorright];
     [self setShowButtontouch:_settings.joypadshowbuttontouch];
     [_keyButtonViewHandler addConfiguredKeyButtonViews];
 }
@@ -464,19 +464,21 @@ extern MPCStateType mainMenu_servermode;
     
     CGSize size = self.frame.size;
     
-    BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]);
+    if ([_leftorright isEqualToString:@"Left"])
+    {
+        button.frame = CGRectMake(0, 0, size.width * _kButtonWidthLandscapePct, size.height);
+    }
+    else
+    {
+        button.frame = CGRectMake(size.width * (1.00 - _kButtonWidthLandscapePct), 0, size.width * _kButtonWidthLandscapePct, size.height);
+    }
+    
+    /*BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]);
     if (isLandscape) {
-        if ([_leftorright isEqualToString:@"Left"])
-        {
-            button.frame = CGRectMake(0, 0, size.width * _kButtonWidthLandscapePct, size.height);
-        }
-        else
-        {
-            button.frame = CGRectMake(size.width * (1.00 - _kButtonWidthLandscapePct), 0, size.width * _kButtonWidthLandscapePct, size.height);
-        }
+      
     } else {
         button.frame = CGRectMake(0, 0, size.width * _kButtonWidthPortraitPct, size.height);
-    }
+    }*/
 }
 
 - (void)didAddSubview:(UIView*)theView {

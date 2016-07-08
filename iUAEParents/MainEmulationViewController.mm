@@ -40,9 +40,12 @@
 #import "VPadMotionController.h"
 #import "cfgfile.h"
 #import "MFIControllerReaderView.h"
+#import "MPCConnectionStates.h"
+#import "Icadereaderview.h"
+#import "NSObject+Blocks.h"
 
 extern int mainMenu_ntsc;
-extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
+extern MPCStateType mainMenu_servermode;
 extern void init_joystick();
 
 @interface MainEmulationViewController()
@@ -56,7 +59,8 @@ extern void init_joystick();
     NSTimer *_checkForPausedTimer;
     NSTimer *_checkForGControllerTimer;
     MFIControllerReaderView *_mfiController;
-}
+    iCadeReaderView *_icadeController;
+ }
 
 MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init]; //Needs to be called this early and out of class context to ensure it loads first
 UIButton *btnSettings;
@@ -119,29 +123,40 @@ extern void uae_reset();
     paused = 0;
     
      _mfiController = [[MFIControllerReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-    /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(controllerStateChange)
-                                                 name:GCControllerDidConnectNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(controllerStateChange)
-                                                 name:GCControllerDidDisconnectNotification
-                                               object:nil];*/
+    [self initIcade];
     
-    // we start out with the mouse activated
     [_mouseHandler onMouseActivated];
 
+}
+
+- (void)initIcade {
+    
+    _icadeController = [[iCadeReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    
+    SDL_Surface *surface = SDL_GetVideoSurface();
+    UIView *display = (UIView *)surface->userdata;
+    
+    [display performBlock:^(void) {
+        // main thread
+        [display addSubview:_icadeController];
+        [_icadeController becomeFirstResponder];
+        
+    } afterDelay:0.0f];
+
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
-    set_joystickactive();
-
-   
+    
     [_mouseHandler reloadMouseSettings];
     [_joyController reloadJoypadSettings];
+    
+    
+    _icadeController.active = YES;
+    //Respond to keyboard Input from Icadecontroller if connected
+    [_icadeController becomeFirstResponder];
     
     if (joyactive && _settings.DPadModeIsMotion){
         [VPadMotionController setActive];
@@ -278,29 +293,11 @@ extern void togglemouse (void);
 
 -(void)checkForPaused:(NSTimer *)timer {
     
-    //As emulator is paused this methods needs to be called to check for Joypad as it wont get called by the emulator
-    if(paused) SDL_JoystickUpdate();
-    
-    int pausednew;
-    pausednew = SDL_JoystickGetPaused(uae4all_joy0);
-    
-    if(pausednew != paused )
+    if(mainMenu_servermode == kServeAsController)
     {
-        paused = pausednew;
-        
-        if(paused == 1)
-        {
-            [self pauseEmulator];
-        }
-        else
-        {
-            [self resumeEmulator];
-        }
+        uae_reset();
+        [self pauseEmulator];
     }
-}
-
--(void)controllerStateChange {
-    init_joystick();
 }
 
 - (void)initDriveSetupTimer:(DriveState *)driveState {

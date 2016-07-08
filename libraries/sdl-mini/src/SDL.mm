@@ -87,7 +87,7 @@ int SDL_Init(int initFlags) {
     
     SDL_VideoInit(NULL, initFlags);
 
-    SDL_JoystickInit();
+    //SDL_JoystickInit();
 	
 	return 0;
 }

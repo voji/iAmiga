@@ -129,8 +129,6 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
         {
             int btn_pressed;
             
-            _button[btn] = pr;
-            
             switch (btn) {
                 case 0:
                     btn_pressed = BTN_X;
@@ -169,6 +167,7 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
             }
             
             _button[btn] = [_mpcController handleinputbuttons:btn_pressed buttonstate:_button[btn] deviceid:kiCadePad];
+            _button[btn] = pr;
             
         }
         
@@ -212,7 +211,7 @@ static const char *OFF_STATES = "eczqtrfnmpgv";
     else if(rFlag)      return DPadRight;
     else if(lFlag)      return DPadLeft;
     
-    return DPadNone;
+    return DPadCenter;
 }
 
 - (void)insertText:(NSString *)text {

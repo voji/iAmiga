@@ -24,7 +24,6 @@
 #include "m68k/m68k_intrf.h"
 #include "disk.h"
 #include "xwin.h"
-#include "joystick.h"
 #include "keybuf.h"
 #include "gui.h"
 #include "zfile.h"
@@ -150,7 +149,6 @@ void uae::do_start_program (void) {
 
 void uae::do_leave_program (void) {
     graphics_leave ();
-    close_joystick ();
     close_sound ();
     dump_counts ();
     zfile_exit ();
@@ -192,7 +190,6 @@ void uae::real_main () {
 		write_log ("Sound driver unavailable: Sound output disabled\n");
 		produce_sound = 0;
     }
-    init_joystick ();
 	
 	int err = gui_init ();
 	if (err == -1) {

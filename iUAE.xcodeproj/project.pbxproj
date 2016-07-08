@@ -32,7 +32,6 @@
 		0533691413B1DEE90012D55A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		0533691513B1DEE90012D55A /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		0533691613B1DEE90012D55A /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		0533691713B1DEE90012D55A /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		0533691813B1DEE90012D55A /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		0533691913B1DEE90012D55A /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		0533691A13B1DEE90012D55A /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -74,7 +73,6 @@
 		0552BD4B0F3D797C005B30DF /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		0552BD4C0F3D797C005B30DF /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		0552BD4E0F3D797C005B30DF /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		0552BD4F0F3D797C005B30DF /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		0552BD510F3D797C005B30DF /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		0552BD540F3D797C005B30DF /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -252,6 +250,7 @@
 		7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D0441AACF2090081DAA5 /* Settings.mm */; };
 		7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
+		7EF2F7BB1D2807600019A579 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF2F7BA1D2807600019A579 /* od-joy.mm */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */; };
 		9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */; };
 		9064AD631C7F7982004CAE28 /* MultiPeerConnectivityController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */; };
@@ -297,7 +296,6 @@
 		9706D6C91561817500073678 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		9706D6CA1561817500073678 /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		9706D6CB1561817500073678 /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		9706D6CC1561817500073678 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		9706D6CD1561817500073678 /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		9706D6CE1561817500073678 /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		9706D6CF1561817500073678 /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -322,10 +320,7 @@
 		9706D6E21561817500073678 /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		9706D6E31561817500073678 /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
 		9706D6E41561817500073678 /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
-		9706D6E51561817500073678 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		9706D6E61561817500073678 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		9706D6E71561817500073678 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		9706D6E81561817500073678 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		9706D6E91561817500073678 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		9706D6EA1561817500073678 /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		9706D6EB1561817500073678 /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -463,7 +458,6 @@
 		97242C8E156177EC00B6D03C /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		97242C8F156177EC00B6D03C /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		97242C90156177EC00B6D03C /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		97242C91156177EC00B6D03C /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		97242C92156177EC00B6D03C /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		97242C93156177EC00B6D03C /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		97242C94156177EC00B6D03C /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -488,10 +482,7 @@
 		97242CAA156177EC00B6D03C /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		97242CAB156177EC00B6D03C /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
 		97242CAC156177EC00B6D03C /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
-		97242CAD156177EC00B6D03C /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		97242CAE156177EC00B6D03C /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		97242CAF156177EC00B6D03C /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		97242CB0156177EC00B6D03C /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		97242CB1156177EC00B6D03C /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		97242CB2156177EC00B6D03C /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		97242CB3156177EC00B6D03C /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -600,18 +591,9 @@
 		978550D0153A3F2E00580B91 /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
 		978550D1153A3F2E00580B91 /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
 		978550D2153A3F2E00580B91 /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
-		978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		978550D4153A3F2E00580B91 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		978550D5153A3F2E00580B91 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
-		978550D7153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
-		978550D8153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		978550D9153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
 		978550DA153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
 		978550DB153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		978550DC153A3F2E00580B91 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
-		978550DD153A3F2E00580B91 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
-		978550DE153A3F2E00580B91 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		978550DF153A3F2E00580B91 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		978550E0153A3F2E00580B91 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		978550E2153A3F2E00580B91 /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
@@ -744,7 +726,6 @@
 		9787FA751561882D00458A4A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		9787FA761561882D00458A4A /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		9787FA771561882D00458A4A /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		9787FA781561882D00458A4A /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		9787FA791561882D00458A4A /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		9787FA7A1561882D00458A4A /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		9787FA7B1561882D00458A4A /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -769,10 +750,7 @@
 		9787FA8E1561882D00458A4A /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		9787FA8F1561882D00458A4A /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
 		9787FA901561882D00458A4A /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
-		9787FA911561882D00458A4A /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		9787FA921561882D00458A4A /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		9787FA931561882D00458A4A /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		9787FA941561882D00458A4A /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		9787FA951561882D00458A4A /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		9787FA961561882D00458A4A /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		9787FA971561882D00458A4A /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -851,7 +829,6 @@
 		9787FBD815618A5E00458A4A /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		9787FBD915618A5E00458A4A /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		9787FBDA15618A5E00458A4A /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		9787FBDB15618A5E00458A4A /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		9787FBDC15618A5E00458A4A /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		9787FBDD15618A5E00458A4A /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		9787FBDE15618A5E00458A4A /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -876,10 +853,7 @@
 		9787FBF115618A5E00458A4A /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		9787FBF215618A5E00458A4A /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
 		9787FBF315618A5E00458A4A /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
-		9787FBF415618A5E00458A4A /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		9787FBF515618A5E00458A4A /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		9787FBF615618A5E00458A4A /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		9787FBF715618A5E00458A4A /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		9787FBF815618A5E00458A4A /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		9787FBF915618A5E00458A4A /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		9787FBFA15618A5E00458A4A /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -1132,7 +1106,6 @@
 		97C8756D156E834100197738 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		97C8756E156E834100197738 /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		97C8756F156E834100197738 /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		97C87570156E834100197738 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		97C87571156E834100197738 /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		97C87572156E834100197738 /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		97C87573156E834100197738 /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -1157,10 +1130,7 @@
 		97C87589156E834100197738 /* SDL_mouse_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 9785507F153A3F2E00580B91 /* SDL_mouse_c.c */; };
 		97C8758A156E834100197738 /* ButtonStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855085153A3F2E00580B91 /* ButtonStates.m */; };
 		97C8758B156E834100197738 /* iCadeReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855087153A3F2E00580B91 /* iCadeReaderView.mm */; };
-		97C8758C156E834100197738 /* iControlPadReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508A153A3F2E00580B91 /* iControlPadReaderView.m */; };
-		97C8758D156E834100197738 /* SDL_sysjoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */; };
 		97C8758E156E834100197738 /* SDLUIAccelerationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */; };
-		97C8758F156E834100197738 /* SDL_joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 9785508E153A3F2E00580B91 /* SDL_joystick.m */; };
 		97C87590156E834100197738 /* SDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97855091153A3F2E00580B91 /* SDL.mm */; };
 		97C87591156E834100197738 /* SDL_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97855092153A3F2E00580B91 /* SDL_error.c */; };
 		97C87592156E834100197738 /* SDL_NSObject+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 97855095153A3F2E00580B91 /* SDL_NSObject+Blocks.m */; };
@@ -1226,7 +1196,6 @@
 		97EF95C9153876CA001C01E6 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD0E0F3D797C005B30DF /* memory.cpp */; };
 		97EF95CA153876CA001C01E6 /* fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD100F3D797C005B30DF /* fade.cpp */; };
 		97EF95CB153876CA001C01E6 /* missing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD140F3D797C005B30DF /* missing.cpp */; };
-		97EF95CC153876CA001C01E6 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD150F3D797C005B30DF /* od-joy.mm */; };
 		97EF95CD153876CA001C01E6 /* savedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD170F3D797C005B30DF /* savedisk.cpp */; };
 		97EF95CE153876CA001C01E6 /* sdlgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD190F3D797C005B30DF /* sdlgfx.cpp */; };
 		97EF95CF153876CA001C01E6 /* vkbd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD1F0F3D797C005B30DF /* vkbd.cpp */; };
@@ -1378,7 +1347,6 @@
 		0552BCDC0F3D797C005B30DF /* gensound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gensound.h; sourceTree = "<group>"; };
 		0552BCDD0F3D797C005B30DF /* gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui.h; sourceTree = "<group>"; };
 		0552BCDF0F3D797C005B30DF /* imask_tab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imask_tab.h; sourceTree = "<group>"; };
-		0552BCE00F3D797C005B30DF /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joystick.h; sourceTree = "<group>"; };
 		0552BCE10F3D797C005B30DF /* keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		0552BCE20F3D797C005B30DF /* keybuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keybuf.h; sourceTree = "<group>"; };
 		0552BCE30F3D797C005B30DF /* maccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = maccess.h; sourceTree = "<group>"; };
@@ -1412,7 +1380,6 @@
 		0552BD120F3D797C005B30DF /* menu_load.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu_load.cpp; sourceTree = "<group>"; };
 		0552BD130F3D797C005B30DF /* msg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg.h; sourceTree = "<group>"; };
 		0552BD140F3D797C005B30DF /* missing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = missing.cpp; sourceTree = "<group>"; };
-		0552BD150F3D797C005B30DF /* od-joy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "od-joy.mm"; sourceTree = "<group>"; };
 		0552BD160F3D797C005B30DF /* save_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = save_icon.h; sourceTree = "<group>"; };
 		0552BD170F3D797C005B30DF /* savedisk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = savedisk.cpp; sourceTree = "<group>"; };
 		0552BD180F3D797C005B30DF /* savedisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = savedisk.h; sourceTree = "<group>"; };
@@ -1670,6 +1637,9 @@
 		7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPadLeftOrRight.h; sourceTree = "<group>"; };
 		7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadVpadController.h; sourceTree = "<group>"; };
 		7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsJoypadVpadController.mm; sourceTree = "<group>"; };
+		7EF2F7B91D2805D50019A579 /* SDL_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_joystick.h; sourceTree = "<group>"; };
+		7EF2F7BA1D2807600019A579 /* od-joy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "od-joy.mm"; sourceTree = "<group>"; };
+		7EF2F7BC1D2807B00019A579 /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joystick.h; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectConfigurationViewController.mm; path = ../SelectConfigurationViewController.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1845,7 +1815,6 @@
 		9785506B153A3F2E00580B91 /* SDL_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_error.h; sourceTree = "<group>"; };
 		9785506C153A3F2E00580B91 /* SDL_events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_events.h; sourceTree = "<group>"; };
 		9785506D153A3F2E00580B91 /* sdl_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdl_internal.h; sourceTree = "<group>"; };
-		9785506E153A3F2E00580B91 /* SDL_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_joystick.h; sourceTree = "<group>"; };
 		9785506F153A3F2E00580B91 /* SDL_keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_keyboard.h; sourceTree = "<group>"; };
 		97855070153A3F2E00580B91 /* SDL_keysym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_keysym.h; sourceTree = "<group>"; };
 		97855071153A3F2E00580B91 /* SDL_mouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_mouse.h; sourceTree = "<group>"; };
@@ -1868,12 +1837,8 @@
 		97855086153A3F2E00580B91 /* iCadeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeReaderView.h; sourceTree = "<group>"; };
 		97855087153A3F2E00580B91 /* iCadeReaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iCadeReaderView.mm; sourceTree = "<group>"; };
 		97855088153A3F2E00580B91 /* iCadeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeState.h; sourceTree = "<group>"; };
-		97855089153A3F2E00580B91 /* iControlPadReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iControlPadReaderView.h; sourceTree = "<group>"; };
-		9785508A153A3F2E00580B91 /* iControlPadReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iControlPadReaderView.m; sourceTree = "<group>"; };
-		9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_sysjoystick.m; sourceTree = "<group>"; };
 		9785508C153A3F2E00580B91 /* SDLUIAccelerationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLUIAccelerationDelegate.h; sourceTree = "<group>"; };
 		9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLUIAccelerationDelegate.m; sourceTree = "<group>"; };
-		9785508E153A3F2E00580B91 /* SDL_joystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_joystick.m; sourceTree = "<group>"; };
 		9785508F153A3F2E00580B91 /* SDL_joystick_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_joystick_c.h; sourceTree = "<group>"; };
 		97855090153A3F2E00580B91 /* SDL_sysjoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_sysjoystick.h; sourceTree = "<group>"; };
 		97855091153A3F2E00580B91 /* SDL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SDL.mm; sourceTree = "<group>"; };
@@ -2474,7 +2439,6 @@
 				0552BCFB0F3D797C005B30DF /* linetoscr.h */,
 				0552BD0E0F3D797C005B30DF /* memory.cpp */,
 				0552BD140F3D797C005B30DF /* missing.cpp */,
-				0552BD150F3D797C005B30DF /* od-joy.mm */,
 				0552BD160F3D797C005B30DF /* save_icon.h */,
 				0552BD180F3D797C005B30DF /* savedisk.h */,
 				0552BD170F3D797C005B30DF /* savedisk.cpp */,
@@ -2566,7 +2530,6 @@
 				0552BCDC0F3D797C005B30DF /* gensound.h */,
 				0552BCDD0F3D797C005B30DF /* gui.h */,
 				0552BCDF0F3D797C005B30DF /* imask_tab.h */,
-				0552BCE00F3D797C005B30DF /* joystick.h */,
 				0552BCE10F3D797C005B30DF /* keyboard.h */,
 				0552BCE20F3D797C005B30DF /* keybuf.h */,
 				0552BCE30F3D797C005B30DF /* maccess.h */,
@@ -3385,6 +3348,8 @@
 		97855062153A3F2E00580B91 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				7EF2F7BC1D2807B00019A579 /* joystick.h */,
+				7EF2F7B91D2805D50019A579 /* SDL_joystick.h */,
 				7E48A5941D10899200198C28 /* od-joy.h */,
 				97855063153A3F2E00580B91 /* begin_code.h */,
 				97855064153A3F2E00580B91 /* close_code.h */,
@@ -3397,7 +3362,6 @@
 				9785506B153A3F2E00580B91 /* SDL_error.h */,
 				9785506C153A3F2E00580B91 /* SDL_events.h */,
 				9785506D153A3F2E00580B91 /* sdl_internal.h */,
-				9785506E153A3F2E00580B91 /* SDL_joystick.h */,
 				9785506F153A3F2E00580B91 /* SDL_keyboard.h */,
 				97855070153A3F2E00580B91 /* SDL_keysym.h */,
 				97855071153A3F2E00580B91 /* SDL_mouse.h */,
@@ -3445,8 +3409,8 @@
 		97855082153A3F2E00580B91 /* joystick */ = {
 			isa = PBXGroup;
 			children = (
+				7EF2F7BA1D2807600019A579 /* od-joy.mm */,
 				97855083153A3F2E00580B91 /* iOS */,
-				9785508E153A3F2E00580B91 /* SDL_joystick.m */,
 				9785508F153A3F2E00580B91 /* SDL_joystick_c.h */,
 				97855090153A3F2E00580B91 /* SDL_sysjoystick.h */,
 			);
@@ -3461,9 +3425,6 @@
 				97855086153A3F2E00580B91 /* iCadeReaderView.h */,
 				97855087153A3F2E00580B91 /* iCadeReaderView.mm */,
 				97855088153A3F2E00580B91 /* iCadeState.h */,
-				97855089153A3F2E00580B91 /* iControlPadReaderView.h */,
-				9785508A153A3F2E00580B91 /* iControlPadReaderView.m */,
-				9785508B153A3F2E00580B91 /* SDL_sysjoystick.m */,
 				9785508C153A3F2E00580B91 /* SDLUIAccelerationDelegate.h */,
 				9785508D153A3F2E00580B91 /* SDLUIAccelerationDelegate.m */,
 			);
@@ -4811,7 +4772,6 @@
 				0533691413B1DEE90012D55A /* memory.cpp in Sources */,
 				0533691513B1DEE90012D55A /* fade.cpp in Sources */,
 				0533691613B1DEE90012D55A /* missing.cpp in Sources */,
-				0533691713B1DEE90012D55A /* od-joy.mm in Sources */,
 				0533691813B1DEE90012D55A /* savedisk.cpp in Sources */,
 				0533691913B1DEE90012D55A /* sdlgfx.cpp in Sources */,
 				0533691A13B1DEE90012D55A /* vkbd.cpp in Sources */,
@@ -4839,10 +4799,7 @@
 				978550CB153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CE153A3F2E00580B91 /* ButtonStates.m in Sources */,
 				978550D1153A3F2E00580B91 /* iCadeReaderView.mm in Sources */,
-				978550D4153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
-				978550D7153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550DA153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
-				978550DD153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				978550E0153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E3153A3F2E00580B91 /* SDL_error.c in Sources */,
 				978550E6153A3F2E00580B91 /* SDL_NSObject+Blocks.m in Sources */,
@@ -4905,7 +4862,6 @@
 				0552BD4E0F3D797C005B30DF /* missing.cpp in Sources */,
 				7EA4D64B1923EC9700C58BB9 /* BaseWebviewController.m in Sources */,
 				7E770D791D109BF4000E5E1A /* UnappliedSettingLabelHandler.m in Sources */,
-				0552BD4F0F3D797C005B30DF /* od-joy.mm in Sources */,
 				0552BD500F3D797C005B30DF /* savedisk.cpp in Sources */,
 				7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */,
 				7EB017801B0921B000C74B9D /* SettingsSelectKeyViewController.mm in Sources */,
@@ -4949,6 +4905,7 @@
 				0577C0F912DED4FD0040B77D /* UaeDebugger.m in Sources */,
 				05D5233712E8030E007912AE /* SelectEffectController.mm in Sources */,
 				7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.mm in Sources */,
+				7EF2F7BB1D2807600019A579 /* od-joy.mm in Sources */,
 				7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */,
 				BEF413D61CA414F600CCC1F5 /* cfgfile.cpp in Sources */,
 				BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */,
@@ -4966,11 +4923,8 @@
 				978550D0153A3F2E00580B91 /* iCadeReaderView.mm in Sources */,
 				BE66229A1C328442009C2809 /* KeyButtonManagementController.mm in Sources */,
 				7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm in Sources */,
-				978550D3153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
 				7EADD3161CB2FAA100136978 /* JoypadSelectionController.mm in Sources */,
-				978550D6153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550D9153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
-				978550DC153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				978550DF153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E2153A3F2E00580B91 /* SDL_error.c in Sources */,
 				7E2EF0DD1D004B9500CDD9B9 /* iUAEApplication.mm in Sources */,
@@ -5032,7 +4986,6 @@
 				9706D6C91561817500073678 /* memory.cpp in Sources */,
 				9706D6CA1561817500073678 /* fade.cpp in Sources */,
 				9706D6CB1561817500073678 /* missing.cpp in Sources */,
-				9706D6CC1561817500073678 /* od-joy.mm in Sources */,
 				9706D6CD1561817500073678 /* savedisk.cpp in Sources */,
 				9706D6CE1561817500073678 /* sdlgfx.cpp in Sources */,
 				9706D6CF1561817500073678 /* vkbd.cpp in Sources */,
@@ -5057,10 +5010,7 @@
 				9706D6E21561817500073678 /* SDL_mouse_c.c in Sources */,
 				9706D6E31561817500073678 /* ButtonStates.m in Sources */,
 				9706D6E41561817500073678 /* iCadeReaderView.mm in Sources */,
-				9706D6E51561817500073678 /* iControlPadReaderView.m in Sources */,
-				9706D6E61561817500073678 /* SDL_sysjoystick.m in Sources */,
 				9706D6E71561817500073678 /* SDLUIAccelerationDelegate.m in Sources */,
-				9706D6E81561817500073678 /* SDL_joystick.m in Sources */,
 				9706D6E91561817500073678 /* SDL.mm in Sources */,
 				9706D6EA1561817500073678 /* SDL_error.c in Sources */,
 				9706D6EB1561817500073678 /* SDL_NSObject+Blocks.m in Sources */,
@@ -5107,7 +5057,6 @@
 				97242C8E156177EC00B6D03C /* memory.cpp in Sources */,
 				97242C8F156177EC00B6D03C /* fade.cpp in Sources */,
 				97242C90156177EC00B6D03C /* missing.cpp in Sources */,
-				97242C91156177EC00B6D03C /* od-joy.mm in Sources */,
 				97242C92156177EC00B6D03C /* savedisk.cpp in Sources */,
 				97242C93156177EC00B6D03C /* sdlgfx.cpp in Sources */,
 				97242C94156177EC00B6D03C /* vkbd.cpp in Sources */,
@@ -5132,10 +5081,7 @@
 				97242CAA156177EC00B6D03C /* SDL_mouse_c.c in Sources */,
 				97242CAB156177EC00B6D03C /* ButtonStates.m in Sources */,
 				97242CAC156177EC00B6D03C /* iCadeReaderView.mm in Sources */,
-				97242CAD156177EC00B6D03C /* iControlPadReaderView.m in Sources */,
-				97242CAE156177EC00B6D03C /* SDL_sysjoystick.m in Sources */,
 				97242CAF156177EC00B6D03C /* SDLUIAccelerationDelegate.m in Sources */,
-				97242CB0156177EC00B6D03C /* SDL_joystick.m in Sources */,
 				97242CB1156177EC00B6D03C /* SDL.mm in Sources */,
 				97242CB2156177EC00B6D03C /* SDL_error.c in Sources */,
 				97242CB3156177EC00B6D03C /* SDL_NSObject+Blocks.m in Sources */,
@@ -5182,7 +5128,6 @@
 				9787FA751561882D00458A4A /* memory.cpp in Sources */,
 				9787FA761561882D00458A4A /* fade.cpp in Sources */,
 				9787FA771561882D00458A4A /* missing.cpp in Sources */,
-				9787FA781561882D00458A4A /* od-joy.mm in Sources */,
 				9787FA791561882D00458A4A /* savedisk.cpp in Sources */,
 				9787FA7A1561882D00458A4A /* sdlgfx.cpp in Sources */,
 				9787FA7B1561882D00458A4A /* vkbd.cpp in Sources */,
@@ -5207,10 +5152,7 @@
 				9787FA8E1561882D00458A4A /* SDL_mouse_c.c in Sources */,
 				9787FA8F1561882D00458A4A /* ButtonStates.m in Sources */,
 				9787FA901561882D00458A4A /* iCadeReaderView.mm in Sources */,
-				9787FA911561882D00458A4A /* iControlPadReaderView.m in Sources */,
-				9787FA921561882D00458A4A /* SDL_sysjoystick.m in Sources */,
 				9787FA931561882D00458A4A /* SDLUIAccelerationDelegate.m in Sources */,
-				9787FA941561882D00458A4A /* SDL_joystick.m in Sources */,
 				9787FA951561882D00458A4A /* SDL.mm in Sources */,
 				9787FA961561882D00458A4A /* SDL_error.c in Sources */,
 				9787FA971561882D00458A4A /* SDL_NSObject+Blocks.m in Sources */,
@@ -5257,7 +5199,6 @@
 				9787FBD815618A5E00458A4A /* memory.cpp in Sources */,
 				9787FBD915618A5E00458A4A /* fade.cpp in Sources */,
 				9787FBDA15618A5E00458A4A /* missing.cpp in Sources */,
-				9787FBDB15618A5E00458A4A /* od-joy.mm in Sources */,
 				9787FBDC15618A5E00458A4A /* savedisk.cpp in Sources */,
 				9787FBDD15618A5E00458A4A /* sdlgfx.cpp in Sources */,
 				9787FBDE15618A5E00458A4A /* vkbd.cpp in Sources */,
@@ -5282,10 +5223,7 @@
 				9787FBF115618A5E00458A4A /* SDL_mouse_c.c in Sources */,
 				9787FBF215618A5E00458A4A /* ButtonStates.m in Sources */,
 				9787FBF315618A5E00458A4A /* iCadeReaderView.mm in Sources */,
-				9787FBF415618A5E00458A4A /* iControlPadReaderView.m in Sources */,
-				9787FBF515618A5E00458A4A /* SDL_sysjoystick.m in Sources */,
 				9787FBF615618A5E00458A4A /* SDLUIAccelerationDelegate.m in Sources */,
-				9787FBF715618A5E00458A4A /* SDL_joystick.m in Sources */,
 				9787FBF815618A5E00458A4A /* SDL.mm in Sources */,
 				9787FBF915618A5E00458A4A /* SDL_error.c in Sources */,
 				9787FBFA15618A5E00458A4A /* SDL_NSObject+Blocks.m in Sources */,
@@ -5337,7 +5275,6 @@
 				97C8756D156E834100197738 /* memory.cpp in Sources */,
 				97C8756E156E834100197738 /* fade.cpp in Sources */,
 				97C8756F156E834100197738 /* missing.cpp in Sources */,
-				97C87570156E834100197738 /* od-joy.mm in Sources */,
 				97C87571156E834100197738 /* savedisk.cpp in Sources */,
 				97C87572156E834100197738 /* sdlgfx.cpp in Sources */,
 				97C87573156E834100197738 /* vkbd.cpp in Sources */,
@@ -5362,10 +5299,7 @@
 				97C87589156E834100197738 /* SDL_mouse_c.c in Sources */,
 				97C8758A156E834100197738 /* ButtonStates.m in Sources */,
 				97C8758B156E834100197738 /* iCadeReaderView.mm in Sources */,
-				97C8758C156E834100197738 /* iControlPadReaderView.m in Sources */,
-				97C8758D156E834100197738 /* SDL_sysjoystick.m in Sources */,
 				97C8758E156E834100197738 /* SDLUIAccelerationDelegate.m in Sources */,
-				97C8758F156E834100197738 /* SDL_joystick.m in Sources */,
 				97C87590156E834100197738 /* SDL.mm in Sources */,
 				97C87591156E834100197738 /* SDL_error.c in Sources */,
 				97C87592156E834100197738 /* SDL_NSObject+Blocks.m in Sources */,
@@ -5429,7 +5363,6 @@
 				97EF95C9153876CA001C01E6 /* memory.cpp in Sources */,
 				97EF95CA153876CA001C01E6 /* fade.cpp in Sources */,
 				97EF95CB153876CA001C01E6 /* missing.cpp in Sources */,
-				97EF95CC153876CA001C01E6 /* od-joy.mm in Sources */,
 				97EF95CD153876CA001C01E6 /* savedisk.cpp in Sources */,
 				97EF95CE153876CA001C01E6 /* sdlgfx.cpp in Sources */,
 				97EF95CF153876CA001C01E6 /* vkbd.cpp in Sources */,
@@ -5457,10 +5390,7 @@
 				978550CC153A3F2E00580B91 /* SDL_mouse_c.c in Sources */,
 				978550CF153A3F2E00580B91 /* ButtonStates.m in Sources */,
 				978550D2153A3F2E00580B91 /* iCadeReaderView.mm in Sources */,
-				978550D5153A3F2E00580B91 /* iControlPadReaderView.m in Sources */,
-				978550D8153A3F2E00580B91 /* SDL_sysjoystick.m in Sources */,
 				978550DB153A3F2E00580B91 /* SDLUIAccelerationDelegate.m in Sources */,
-				978550DE153A3F2E00580B91 /* SDL_joystick.m in Sources */,
 				97855152153A478D00580B91 /* SDL.mm in Sources */,
 				97855153153A479800580B91 /* SDL_error.c in Sources */,
 				97855154153A479C00580B91 /* SDL_NSObject+Blocks.m in Sources */,

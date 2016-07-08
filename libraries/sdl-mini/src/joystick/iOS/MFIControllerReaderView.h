@@ -20,8 +20,6 @@
 #import <UIKit/UIKit.h>
 #import <GameController/GameController.h>
 
-#include "SDL_joystick.h"
-
 @interface MFIControllerReaderView : UIView
     @property (readonly) BOOL buttonapressed;
     @property (readonly) BOOL buttonbpressed;
