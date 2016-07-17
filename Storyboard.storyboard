@@ -69,7 +69,7 @@
                                     <action selector="enableMenuBar:" destination="fEz-6J-9kJ" eventType="touchUpInside" id="o9x-ad-hgi"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqn-Rz-0og" userLabel="MenuBar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" tag="123" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqn-Rz-0og" userLabel="MenuBar">
                                 <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                                 <items>
                                     <barButtonItem title="KeyboardBarButtonItem" style="plain" id="Qx1-El-orP" userLabel="ButtonItemSettings">
