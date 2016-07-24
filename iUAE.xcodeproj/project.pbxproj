@@ -177,14 +177,9 @@
 		7E2665541C483AEB004250D1 /* monitor_selected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */; };
 		7E2665551C483AEB004250D1 /* monitor_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2665521C483AEB004250D1 /* monitor_selected.png */; };
 		7E27C39C1AA3A61900C00584 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E27C39B1AA3A61900C00584 /* display.png */; };
-<<<<<<< HEAD
-		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.m */; };
-		7E2A59B11B052C3300C802E0 /* SettingsJoypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */; };
-=======
 		7E27C39F1AA3A6D300C00584 /* SettingsDisplayController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.mm */; };
 		7E2A59B11B052C3300C802E0 /* SettingsJoypadController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A59B01B052C3300C802E0 /* SettingsJoypadController.mm */; };
 		7E2EF0DD1D004B9500CDD9B9 /* iUAEApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E2EF0DC1D004B9500CDD9B9 /* iUAEApplication.mm */; };
->>>>>>> dev
 		7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */; };
 		7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E43484E1A3B7C6100C60BF1 /* keyboard.png */; };
 		7E4B18D5188B1C720019E82B /* chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18D4188B1C720019E82B /* chrome-bottom.png */; };
@@ -248,26 +243,17 @@
 		7EB017791B09164900C74B9D /* State.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB017761B09164900C74B9D /* State.mm */; };
 		7EB017801B0921B000C74B9D /* SettingsSelectKeyViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.mm */; };
 		7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB372E91A0FC8DE001B460A /* GameController.framework */; };
-<<<<<<< HEAD
-		7EC59ED21BAC52390097B87A /* SettingsJoypadStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */; };
-=======
 		7EC59ED21BAC52390097B87A /* SettingsJoypadStyle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.mm */; };
->>>>>>> dev
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
 		7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */; };
 		7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D0441AACF2090081DAA5 /* Settings.mm */; };
 		7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
-<<<<<<< HEAD
-		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */; };
-		9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */; };
-=======
 		7EF2F7BB1D2807600019A579 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF2F7BA1D2807600019A579 /* od-joy.mm */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */; };
 		9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */; };
 		9064AD631C7F7982004CAE28 /* MultiPeerConnectivityController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */; };
->>>>>>> dev
 		9706D6571561817500073678 /* Aperture (1x2 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B3153A3F2E00580B91 /* Aperture (1x2 RB).png */; };
 		9706D6581561817500073678 /* Aperture (1x3 RB).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B4153A3F2E00580B91 /* Aperture (1x3 RB).png */; };
 		9706D6591561817500073678 /* Aperture (2x4 BG).png in Resources */ = {isa = PBXBuildFile; fileRef = 978550B5153A3F2E00580B91 /* Aperture (2x4 BG).png */; };
@@ -1554,13 +1540,9 @@
 		7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsDisplayController.h; sourceTree = "<group>"; };
 		7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsDisplayController.mm; sourceTree = "<group>"; };
 		7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadController.h; sourceTree = SOURCE_ROOT; };
-<<<<<<< HEAD
-		7E2A59B01B052C3300C802E0 /* SettingsJoypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadController.m; sourceTree = SOURCE_ROOT; };
-=======
 		7E2A59B01B052C3300C802E0 /* SettingsJoypadController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsJoypadController.mm; sourceTree = SOURCE_ROOT; };
 		7E2EF0DB1D004B9500CDD9B9 /* iUAEApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iUAEApplication.h; sourceTree = "<group>"; };
 		7E2EF0DC1D004B9500CDD9B9 /* iUAEApplication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iUAEApplication.mm; sourceTree = "<group>"; };
->>>>>>> dev
 		7E3C13E31A51F16600534164 /* SettingsGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsGeneralController.h; sourceTree = "<group>"; };
 		7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsGeneralController.mm; sourceTree = "<group>"; };
 		7E43484E1A3B7C6100C60BF1 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
@@ -1642,11 +1624,7 @@
 		7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsSelectKeyViewController.mm; sourceTree = "<group>"; };
 		7EB372E91A0FC8DE001B460A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		7EC59ED01BAC52390097B87A /* SettingsJoypadStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadStyle.h; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsJoypadStyle.m; sourceTree = "<group>"; };
-=======
 		7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsJoypadStyle.mm; sourceTree = "<group>"; };
->>>>>>> dev
 		7ECAB5CB19DB20D000B05FF3 /* famec_jumptable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = famec_jumptable.h; sourceTree = "<group>"; };
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
@@ -1663,18 +1641,12 @@
 		7EF2F7BA1D2807600019A579 /* od-joy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "od-joy.mm"; sourceTree = "<group>"; };
 		7EF2F7BC1D2807B00019A579 /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joystick.h; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectConfigurationViewController.m; path = ../SelectConfigurationViewController.m; sourceTree = "<group>"; };
-		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
-		9064AD561C7D0A8D004CAE28 /* od-joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "od-joy.h"; sourceTree = "<group>"; };
-=======
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectConfigurationViewController.mm; path = ../SelectConfigurationViewController.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiPeerConnectivityController.h; path = iUAEParents/MultiPeerConnectivityController.h; sourceTree = "<group>"; };
 		9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MultiPeerConnectivityController.mm; path = iUAEParents/MultiPeerConnectivityController.mm; sourceTree = "<group>"; };
 		9064AD621C7F7982004CAE28 /* MPCConnectionStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPCConnectionStates.h; path = iUAEParents/MPCConnectionStates.h; sourceTree = "<group>"; };
->>>>>>> dev
 		9706D70E1561817500073678 /* sdi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sdi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9706D7111561827300073678 /* bg_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_web.png; sourceTree = "<group>"; };
 		9706D7121561827300073678 /* bg_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_web@2x.png"; sourceTree = "<group>"; };
@@ -2210,11 +2182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-=======
 				7E5A77021D00370E009BF491 /* ExternalAccessory.framework in Frameworks */,
 				E937D8A71CB58BC9008DCC27 /* CoreMotion.framework in Frameworks */,
->>>>>>> dev
 				9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */,
 				7EB372EA1A0FC8DE001B460A /* GameController.framework in Frameworks */,
 				7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */,
@@ -2434,9 +2403,6 @@
 		0542F2610FC8852A00126562 /* uae-src */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				9064AD561C7D0A8D004CAE28 /* od-joy.h */,
-=======
 				BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */,
 				BE951AFE1CA942E5008DD94B /* picasso96.h */,
 				BE951AFC1CA942B1008DD94B /* expansion.cpp */,
@@ -2452,7 +2418,6 @@
 				BEF413D71CA4150500CCC1F5 /* cfgfile.h */,
 				BEF413D51CA414F600CCC1F5 /* cfgfile.cpp */,
 				BEF413D31CA414E700CCC1F5 /* filesys.cpp */,
->>>>>>> dev
 				97855145153A454100580B91 /* savestate.cpp */,
 				0552BD1C0F3D797C005B30DF /* sysconfig.h */,
 				054525AF106EC5550032FC41 /* combined_modules.cpp */,
@@ -3008,11 +2973,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				7E5A77011D00370E009BF491 /* ExternalAccessory.framework */,
 				E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */,
->>>>>>> dev
 				9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */,
 				7EB372E91A0FC8DE001B460A /* GameController.framework */,
 				976877751534B2D20077B654 /* AudioToolbox.framework */,
@@ -4772,8 +4734,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
 		};
-<<<<<<< HEAD
-=======
+
 		7E57D8A219119D9500648935 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
@@ -4787,7 +4748,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
->>>>>>> dev
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
