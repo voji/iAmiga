@@ -1,4 +1,4 @@
-//  Created by Simon Toens on 10.07.15
+//  Created by Simon Toens on 24.03.16
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -14,20 +14,22 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-
 #import <Foundation/Foundation.h>
-#import "DriveState.h"
 
-@protocol ResetDelegate
+/**
+ * The hard drive service handles interactions with the hard drives.
+ *
+ * Currently only a single mounted hard drive (.hdf file) is supported.
+ *
+ * Note that this class uses the emulator state as source of truth, it does not/should not read configuration.
+ */
+@interface HardDriveService : NSObject
 
-- (void)didSelectReset:(DriveState *)driveState;
+- (BOOL)mounted;
 
-@end
+- (void)mountHardfile:(NSString *)hardfilePath;
+- (void)unmountHardfile;
 
-@interface ResetController : UIViewController
-
-@property (nonatomic, readonly) DriveState *driveState;
-
-@property (nonatomic, assign) id<ResetDelegate> delegate;
+- (NSString *)getMountedHardfilePath;
 
 @end

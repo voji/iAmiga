@@ -1,0 +1,38 @@
+q
+
+
+# XCode noise
+build/*
+*.pbxuser
+*.mode1v3
+*.pyc 
+*~.nib/ 
+*.perspective 
+*.perspectivev3
+*.xcodeproj/project.xcworkspace/xcuserdata/*
+*.xcodeproj/project.xcworkspace/xcshareddata/*
+*.xcodeproj/xcuserdata/*
+
+# old school
+.svn
+
+# osx noise
+.DS_store
+profile
+
+# iAmiga specific
+disks/*
+
+# vim
+*.swp
+
+# emacs
+*~
+
+rgetSpecific/DotC/Info-DotC.plist
+
+disks/
+Packages/
+iUAE/
+roms/
+Submodules/

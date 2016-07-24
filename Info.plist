@@ -10,7 +10,17 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>Zipped ADFs</string>
+			<string>Amiga ROM File</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>iUAE.rom</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Zipped Amiga Disk File(s)</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
@@ -28,6 +38,16 @@
 				<string>iUAE.adf</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Amiga Hard Drive File</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>iUAE.hdf</string>
+			</array>
+		</dict>        
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
@@ -82,6 +102,19 @@
 				<string>public.data</string>
 			</array>
 			<key>UTTypeIdentifier</key>
+			<string>iUAE.rom</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>rom</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
 			<string>iUAE.zip</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
@@ -102,6 +135,19 @@
 				<string>adf</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>iUAE.hdf</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>hdf</string>
+			</dict>
+		</dict>        
 	</array>
 </dict>
 </plist>

@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "EmulationViewController.h"
 
+<<<<<<< HEAD
 @interface EmulationViewiPhone : EmulationViewController {
+=======
+@class DynamicLandscapeControls;
+
+@interface EmulationViewiPhone : EmulationViewController <UIWebViewDelegate> {
+>>>>>>> dev
     
     UIView *menuView;
     UIWebView *webView;

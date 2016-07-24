@@ -46,21 +46,29 @@ static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
 
+static NSString *const kControllersKey = @"_controllers";
+static NSString *const kControllersNextIDKey = @"_controllersnextidkey";
 static NSString *const kJoypadStyleKey = @"_joypadstyle";
 static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
 static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
+static NSString *const kDPadTouchOrMotion = @"_dpadTouchOrMotion";
 
+static NSString *const kGyroToggleUpDown = @"_gyroToggleUpDown";
+static NSString *const kGyroSensitivity = @"_gyroSensitivity";
+
+static NSString *const kRomPath = @"romPath";
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
 static NSString *const kDf3EnabledKey = @"df3Enabled";
+static NSString *const kHardfilePath = @"hardfilePath";
 
 extern int mainMenu_showStatus;
-extern int mainMenu_ntsc;
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
 extern int joystickselected;
 
 static NSString *configurationname;
+static int _cNumber = 1;
 
 @implementation Settings {
     NSUserDefaults *defaults;
@@ -110,7 +118,6 @@ static NSString *configurationname;
 - (void)initializespecificsettings {
     if(![self boolForKey:kInitializeKey])
     {
-        self.ntsc = mainMenu_ntsc;
         self.stretchScreen = mainMenu_stretchscreen;
         self.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
         self.showStatus = mainMenu_showStatus;
@@ -118,7 +125,6 @@ static NSString *configurationname;
     }
     else
     {
-        mainMenu_ntsc = self.ntsc;
         mainMenu_stretchscreen = self.stretchScreen;
         mainMenu_AddVerticalStretchValue = self.addVerticalStretchValue;
         mainMenu_showStatus = self.showStatus;
@@ -131,39 +137,61 @@ static NSString *configurationname;
     self.joypadstyle =              [self keyExists:kJoypadStyleKey]            ? self.joypadstyle          :   @"FourButton";
     self.joypadleftorright =        [self keyExists:kJoypadLeftOrRightKey]      ? self.joypadleftorright    :   @"Right";
     self.joypadshowbuttontouch =    [self keyExists:kJoypadShowButtonTouchKey]  ? self.joypadshowbuttontouch :  YES;
+    self.dpadTouchOrMotion =        [self keyExists:kDPadTouchOrMotion]         ? self.dpadTouchOrMotion : @"Touch";
+    self.gyroToggleUpDown =         [self keyExists:kGyroToggleUpDown]          ? self.gyroToggleUpDown : NO;
+    self.gyroSensitivity =          [self keyExists:kGyroSensitivity]           ? self.gyroSensitivity : 0.1;
+    self.controllersnextid =        [self keyExists:kControllersNextIDKey]      ? self.controllersnextid : 1;
+    self.controllers =              [self keyExists:kControllersKey]            ? self.controllers : [NSArray arrayWithObjects:@1, nil];
     
-    if (![self keyExists:[NSString stringWithFormat:@"_BTN_%d", BTN_A]])
-    //Set default values for JoypadKeyconfiguration
+    
+    for(int i=1;i<=8;i++)
     {
-    
-        [self setKeyconfiguration:@"Joypad" Button:BTN_A];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_B];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_X];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_Y];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_L1];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_L2];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_R1];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_R2];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_UP];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_DOWN];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_LEFT];
-        [self setKeyconfiguration:@"Joypad" Button:BTN_RIGHT];
+        if(![self keyConfigurationforButton:BTN_A forController:i])
+        {
+            [self initializekeysforController:i];
+        }
         
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_A];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_B];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_X];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_Y];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_L1];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_L2];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_R1];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_R2];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_UP];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_DOWN];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_LEFT];
-        [self setKeyconfigurationname:@"Joypad" Button:BTN_RIGHT];
+        if(![self keyConfigurationforButton:PORT forController:i])
+        {
+            [self setKeyconfiguration:@"1" forController:i Button:PORT];
+        }
+        
+        if(![self keyConfigurationforButton:VSWITCH forController:i])
+        {
+            [self setKeyconfiguration:@"NO" forController:i Button:VSWITCH];
+        }
     }
+    _keyConfigurationCount = 8;
 }
-                          
+
+- (void)initializekeysforController:(int)cNumber {
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_A];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_B];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_X];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_Y];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_L1];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_L2];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_R1];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_R2];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_UP];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_DOWN];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_LEFT];
+    [self setKeyconfiguration:@"Joypad" forController:cNumber Button:BTN_RIGHT];
+    
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_A];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_B];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_X];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_Y];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_L1];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_L2];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_R1];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_R2];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_UP];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_DOWN];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_LEFT];
+    [self setKeyconfigurationname:@"Joypad" forController:cNumber Button:BTN_RIGHT];
+}
+
 - (BOOL)keyExists: (NSString *) key {
     return [[[defaults dictionaryRepresentation] allKeys] containsObject:[self getInternalSettingKey: key]];
 }
@@ -236,16 +264,93 @@ static NSString *configurationname;
     return [self boolForKey:kJoypadShowButtonTouchKey];
 }
 
--(void)setJoypadshowbuttontouch:(BOOL)joypadshowbuttontouch {
+- (void)setJoypadshowbuttontouch:(BOOL)joypadshowbuttontouch {
     [self setBool:joypadshowbuttontouch forKey:kJoypadShowButtonTouchKey];
 }
 
+- (NSString *)dpadTouchOrMotion {
+    return [self stringForKey:kDPadTouchOrMotion];
+}
+
+- (void)setDpadTouchOrMotion:(NSString *)dpadTouchOrMotion {
+    [self setObject:dpadTouchOrMotion forKey:kDPadTouchOrMotion];
+}
+
+- (BOOL)DPadModeIsTouch {
+    return [[self stringForKey:kDPadTouchOrMotion] isEqualToString: @"Touch"];
+}
+
+- (BOOL)DPadModeIsMotion {
+    return [[self stringForKey:kDPadTouchOrMotion]  isEqualToString: @"Motion"];
+}
+
+- (BOOL)gyroToggleUpDown {
+    return [self boolForKey:kGyroToggleUpDown];
+}
+
+- (void)setGyroToggleUpDown:(BOOL)gyroToggleUpDown {
+    [self setBool:gyroToggleUpDown forKey:kGyroToggleUpDown];
+}
+
+- (float)gyroSensitivity {
+    return [self floatForKey:kGyroSensitivity];
+}
+
+- (void)setGyroSensitivity:(float)gyroSensitivity {
+    [self setFloat:gyroSensitivity forKey:kGyroSensitivity];
+}
+
+-(NSString *)keyConfigurationforButton:(int)bID forController:(int)cNumber
+{
+    if(cNumber == 1)
+        return [self stringForKey:[NSString stringWithFormat:@"_BTN_%d", bID]];
+    else
+        return [self stringForKey:[NSString stringWithFormat:@"_BTN_%d_%d", cNumber, bID]];
+}
+
+-(NSString *)keyConfigurationforButton:(int)bID
+{
+    return [self keyConfigurationforButton:bID forController:_cNumber];
+}
+
+-(void)setKeyconfiguration:(NSString *)configuredkey forController:(int)cNumber Button:(int)button {
+    
+    NSString *sKey = (cNumber == 1) ? [NSString stringWithFormat:@"_BTN_%d", button] : [NSString stringWithFormat:@"_BTN_%d_%d", cNumber, button];
+    
+    if(![self keyExists:sKey]) _keyConfigurationCount = cNumber;
+    [self setObject:configuredkey forKey:sKey];
+    
+}
+
 -(void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button {
-    [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTN_%d", button]];
+    [self setKeyconfiguration:configuredkey forController:_cNumber Button:button];
+}
+
+-(void)setCNumber:(int)cNumber {
+    _cNumber = cNumber;
+}
+
+-(NSString *)keyConfigurationNameforButton:(int)bID {
+    return [self keyConfigurationNameforButton:bID forController:_cNumber];
+}
+
+- (NSString *)keyConfigurationNameforButton:(int)bID forController:(int)cNumber {
+    if(cNumber == 1)
+        return [self stringForKey:[NSString stringWithFormat:@"_BTNN_%d", bID]];
+    else
+        return [self stringForKey:[NSString stringWithFormat:@"_BTNN_%d_%d", cNumber, bID]];
+}
+
+-(void)setKeyconfigurationname:(NSString *)configuredkey forController:(int)cNumber  Button:(int)button {
+    
+    if(cNumber == 1)
+        [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d", button]];
+    else
+        [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d_%d", cNumber, button]];
 }
 
 -(void)setKeyconfigurationname:(NSString *)configuredkey Button:(int)button {
-    [self setObject:configuredkey forKey:[NSString stringWithFormat:@"_BTNN_%d", button]];
+    [self setKeyconfigurationname:configuredkey forController:_cNumber Button:button];
 }
 
 - (BOOL)showStatusBar {
@@ -281,6 +386,22 @@ static NSString *configurationname;
     [self setObject:configurations forKey:kConfigurationsKey];
 }
 
+- (NSArray *)controllers {
+    return [self arrayForKey:kControllersKey];
+}
+
+- (void)setControllers:(NSArray *)controllers {
+    [self setObject:controllers forKey:kControllersKey];
+}
+
+- (NSString *)romPath {
+    return [self stringForKey:kRomPath];
+}
+
+- (void)setRomPath:(NSString *)romPath {
+    [self setObject:romPath forKey:kRomPath];
+}
+
 - (DriveState *)driveState {
     DriveState *driveState = [[[DriveState alloc] init] autorelease];
     driveState.df1Enabled = [self boolForKey:kDf1EnabledKey];
@@ -293,6 +414,14 @@ static NSString *configurationname;
     [self setBool:driveState.df1Enabled forKey:kDf1EnabledKey];
     [self setBool:driveState.df2Enabled forKey:kDf2EnabledKey];
     [self setBool:driveState.df3Enabled forKey:kDf3EnabledKey];
+}
+
+- (NSString *)hardfilePath {
+    return [self stringForKey:kHardfilePath];
+}
+
+- (void)setHardfilePath:(NSString *)hardfilePath {
+    [self setObject:hardfilePath forKey:kHardfilePath];
 }
 
 - (BOOL)keyButtonsEnabled {
@@ -372,6 +501,14 @@ NSString *const kEnabledAttrName = @"enabled";
 
 - (NSInteger)integerForKey:(NSString *)settingitemname {
     return [defaults integerForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (float)floatForKey:(NSString *)settingitemname {
+    return [defaults floatForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (void)setFloat:(float)value forKey:(NSString *)settingitemname {
+    [defaults setFloat:value forKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (NSArray *)arrayForKey:(NSString *)settingitemname {

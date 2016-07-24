@@ -23,7 +23,9 @@
 #import "DynamicLandscapeControls.h"
 #import "TouchHandlerViewClassic.h"
 #import "InputControllerView.h"
-#import "ResetController.h"
+#import "SettingsGeneralController.h"
+
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 @class VirtualKeyboard;
 
@@ -52,5 +54,4 @@
 - (void)initializeKeyboard:(UITextField *)p_dummy_textfield dummytextf:(UITextField *)p_dummy_textfield_f dummytexts:(UITextField *)p_dummy_textfield_s;
 - (void)initializeJoypad:(InputControllerView *)joyController;
 - (void)checkForPaused:(NSTimer*)timer;
-
 @end

@@ -24,7 +24,6 @@
 #include "m68k/m68k_intrf.h"
 #include "disk.h"
 #include "xwin.h"
-#include "joystick.h"
 #include "keybuf.h"
 #include "gui.h"
 #include "zfile.h"
@@ -71,6 +70,7 @@ void uae::default_prefs () {
     strcpy (romfile, ROM_PATH_PREFIX "kick.rom");
 #elif defined(IPHONE)
 	strcpy(romfile, get_rom_path());
+    strcpy(romkeyfile, get_key_path());
 #else
     strcpy (romfile, "kick.rom");
 #endif
@@ -126,8 +126,9 @@ void uae::uae_resume(void) {
 
 void uae::reset_all_systems (void) {
     init_eventtab ();
-
     memory_reset ();
+    filesys_reset();
+    filesys_start_threads();
 }
 
 /* Okay, this stuff looks strange, but it is here to encourage people who
@@ -148,7 +149,6 @@ void uae::do_start_program (void) {
 
 void uae::do_leave_program (void) {
     graphics_leave ();
-    close_joystick ();
     close_sound ();
     dump_counts ();
     zfile_exit ();
@@ -183,12 +183,13 @@ void uae::real_main () {
     }
 	
     rtarea_init ();
-		
+    
+    hardfile_install();
+    
     if (! setup_sound ()) {
 		write_log ("Sound driver unavailable: Sound output disabled\n");
 		produce_sound = 0;
     }
-    init_joystick ();
 	
 	int err = gui_init ();
 	if (err == -1) {
@@ -205,8 +206,14 @@ void uae::real_main () {
     rtarea_setup ();
 	
     keybuf_init (); /* Must come after init_joystick */
+    
+#ifdef USE_AUTOCONFIG
+    expansion_init ();
+#endif
 	
     memory_init ();
+    
+    filesys_install();
 	
     custom_init (); /* Must come after memory_init */
     DISK_init ();

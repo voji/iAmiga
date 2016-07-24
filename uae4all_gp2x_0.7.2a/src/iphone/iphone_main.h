@@ -10,6 +10,7 @@
 #define ROM_PATH_PREFIX
 
 extern "C" char* get_rom_path();
+extern "C" char* get_key_path();
 extern "C" char* get_df_path(int drive);
 extern "C" int getDisplayIsNTSC();
 extern "C" void setDisplayIsNTSC(int isNTSC);

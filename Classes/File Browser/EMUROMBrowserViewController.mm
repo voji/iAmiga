@@ -26,8 +26,8 @@
 
 @synthesize roms, selectedIndexPath, indexTitles, delegate, context;
 
-+ (NSString *)getAdfChangedNotificationName {
-    return @"OnAdfChanged";
++ (NSString *)getFileImportedNotificationName {
+    return @"FileImportedNotification";
 }
 
 - (void)viewDidLoad {
@@ -38,7 +38,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAdfChanged)
-                                                 name:[EMUROMBrowserViewController getAdfChangedNotificationName]
+                                                 name:[EMUROMBrowserViewController getFileImportedNotificationName]
                                                object:nil];
     
     self.indexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
@@ -57,7 +57,7 @@
 	[sections addObject:[[EMUFileGroup alloc] initWithSectionName:@"#"]];
 	
 	EMUBrowser *browser = [[EMUBrowser alloc] init];
-	NSArray *files = [browser getFileInfos];
+    NSArray *files = [browser getFileInfosForExtensions:self.extensions];
 	for (EMUFileInfo* f in files) {
 		unichar c = [[f fileName] characterAtIndex:0];
 		if (isdigit(c)) {
@@ -74,7 +74,6 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -116,12 +115,10 @@
 	cell.accessoryType = UITableViewCellAccessoryNone;
 	
 	cell = [tableView cellForRowAtIndexPath:indexPath];
-	//cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	self.selectedIndexPath = indexPath;
 		
 	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
 	EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
-	//[self dismissModalViewControllerAnimated:YES];
 	[self.navigationController popViewControllerAnimated:YES];
     if (self.delegate) {
 		[self.delegate didSelectROM:fi withContext:context];
@@ -129,21 +126,43 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
-    return [self.adfImporter isDownloadedAdf:fileInfo.path];
+    return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
-        BOOL deleteOk = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
-        if (deleteOk) {
-            [self reloadAdfs];
-            [tableView beginUpdates];
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [tableView endUpdates];
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *editActions = [NSMutableArray arrayWithCapacity:2];
+    
+    EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
+    
+    UITableViewRowAction *shareAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Share" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        NSURL *url = [NSURL fileURLWithPath:fileInfo.path];
+        NSString *string = @"iAmiga File Sharing";
+        UIActivityViewController *activityViewController =
+            [[[UIActivityViewController alloc] initWithActivityItems:@[string, url] applicationActivities:nil] autorelease];
+        if ([activityViewController respondsToSelector:@selector(popoverPresentationController)]) {
+            // iOS8: setting the sourceView is required for iPad
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            activityViewController.popoverPresentationController.sourceView = [cell.subviews firstObject]; // firstObject == cell actions
         }
+        [self presentViewController:activityViewController animated:YES completion:^{ }];
+    }];
+    shareAction.backgroundColor = [UIColor blueColor];
+    [editActions addObject:shareAction];
+    
+    BOOL okToDelete = [self.adfImporter isDownloadedAdf:fileInfo.path];
+    if (okToDelete) {
+        UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+            BOOL deleted = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
+            if (deleted) {
+                [self reloadAdfs];
+                [tableView beginUpdates];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [tableView endUpdates];
+            }
+        }];
+        [editActions addObject:deleteAction];
     }
+    return editActions;
 }
 
 #define CELL_ID @"DiskCell"
@@ -177,6 +196,7 @@
 	self.selectedIndexPath = nil;
 	self.context = nil;
     self.adfImporter = nil;
+    self.extensions = nil;
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 

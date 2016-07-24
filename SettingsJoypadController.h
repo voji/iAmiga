@@ -20,8 +20,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsSelectKeyViewController.h"
+#import "SettingsSelectPortViewController.h"
 
-@interface SettingsJoypadController : UITableViewController <SelectKeyDelegate>
+@interface SettingsJoypadController : UITableViewController <SelectKeyDelegate, SelectPortDelegate>
 
 @property (retain, nonatomic) IBOutlet UITableViewCell *CellA;
 @property (retain, nonatomic) IBOutlet UITableViewCell *CellB;
@@ -35,6 +36,11 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *CellDown;
 @property (retain, nonatomic) IBOutlet UITableViewCell *CellLeft;
 @property (retain, nonatomic) IBOutlet UITableViewCell *CellRight;
+@property (retain, nonatomic) IBOutlet UITableViewCell *Port;
+
+@property (retain, nonatomic) IBOutlet UISwitch *vSWitch;
+
+- (IBAction)togglevSwitch:(id)sender;
 
 
 @end

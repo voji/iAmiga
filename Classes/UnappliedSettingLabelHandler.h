@@ -1,4 +1,4 @@
-//  Created by Emufreak on 31.1.2016
+//  Created by Simon Toens on 22.05.16
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -14,28 +14,24 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import "SettingsJoypadMainController.h"
-#import <GameController/GameController.h>
+#import <Foundation/Foundation.h>
+#import "CoreSetting.h"
 
-@interface SettingsJoypadMainController ()
+@interface UnappliedSettingLabelHandler : NSObject
 
-@end
+/**
+ * Adds a "emulator requires reset" label to the specified cell.  The label is associated with the given setting.
+ */
+- (void)addResetWarningLabelForCell:(UITableViewCell *)cell forSetting:(CoreSetting *)setting;
 
-@implementation SettingsJoypadMainController
+/**
+ * Required to be called before the final view renders.
+ */
+- (void)layoutLabels;
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+/**
+ * Enables/disables labels based on the state of their associated setting.
+ */
+- (void)updateLabelStates;
 
-    _LabelDetection.text = [[GCController controllers] count] >=1 ? @"MFI Game Controller Detected" : @"No Controller or iCade connected";
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)dealloc {
-    [_LabelDetection release];
-    [super dealloc];
-}
 @end

@@ -21,7 +21,6 @@
 #include "options.h"
 #include "keybuf.h"
 #include "keyboard.h"
-#include "joystick.h"
 #include "custom.h"
 
 static int kpb_first, kpb_last;

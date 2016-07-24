@@ -59,20 +59,6 @@ void SDL_Lock_EventThread(void) {
 void SDL_Unlock_EventThread(void) {
 }
 
-static __inline__ SDL_bool
-SDL_ShouldPollJoystick()
-{
-#if !SDL_JOYSTICK_DISABLED
-    if (SDL_numjoysticks &&
-        (!SDL_disabled_events[SDL_JOYAXISMOTION >> 8] ||
-         SDL_JoystickEventState(SDL_QUERY))) {
-            return SDL_TRUE;
-        }
-#endif
-    return SDL_FALSE;
-
-}
-
 static int
 SDL_StartEventThread(Uint32 flags)
 {
@@ -306,14 +292,6 @@ void SDL_PumpEvents(void) {
     if (_this) {
         _this->PumpEvents(_this);
     }
-#if !SDL_JOYSTICK_DISABLED
-    /* Check for joystick state change */
-    if (SDL_ShouldPollJoystick()) {
-        SDL_JoystickUpdate();
-    }
-#endif
-    //}
-    
 }
 
 /* Public functions */

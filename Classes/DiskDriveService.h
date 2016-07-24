@@ -18,7 +18,9 @@
 #import "DriveState.h"
 
 /**
- * The disk drive service handles interactions with the disk drives.
+ * The disk drive service handles interactions with the disk drives.  Also has some rom related logic.
+ *
+ * Note that this class uses the emulator state as source of truth, it does not/should not read configuration.
  */
 @interface DiskDriveService : NSObject
 
@@ -66,5 +68,15 @@
  * Enables/disables drives as specified in the given driveState instance.
  */
 - (void)setDriveState:(DriveState *)driveState;
+
+/**
+ * Returns the path of the rom file the emulator is currently using.
+ */
+- (NSString *)getRomPath;
+
+/**
+ * Configures the emulator to use the speficied rom.
+ */
+- (void)configureRom:(NSString *)romPath;
 
 @end

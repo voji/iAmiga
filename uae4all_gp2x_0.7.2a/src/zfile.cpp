@@ -133,7 +133,7 @@ static void eliminate_file(char *filename)
 
 #define VRAM_MAX_LEN (384*1024)
 #define MAX_DISK_LEN 1024*(1024-128)
-#define MAX_ROM_LEN  (MAX_DISK_LEN-VRAM_MAX_LEN)
+#define MAX_ROM_LEN  11 + (MAX_DISK_LEN-VRAM_MAX_LEN)
 static void *uae4all_rom_memory=NULL;
 static unsigned uae4all_rom_len=0;
 static unsigned uae4all_rom_pos=0;
@@ -499,9 +499,11 @@ size_t uae4all_rom_fread(void *ptr, size_t tam, size_t nmiemb, FILE *flujo)
 		return 0;
 	if (uae4all_rom_pos>=uae4all_rom_len)
 		return 0;
-	memcpy(ptr,(void *)(((unsigned)uae4all_rom_memory)+((unsigned)uae4all_rom_pos)),tam*nmiemb);
+
+    memcpy(ptr,(void *)(((unsigned)uae4all_rom_memory)+((unsigned)uae4all_rom_pos)),tam*nmiemb);
 	uae4all_rom_pos+=tam*nmiemb;
-	return nmiemb;
+	return (uae4all_rom_len == 262155 || uae4all_rom_len == 524299) /* cloanto */ ? uae4all_rom_len - 11 : uae4all_rom_len;
+
 }
 
 

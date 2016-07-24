@@ -33,15 +33,30 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) BOOL showStatusBar;
 @property (nonatomic, readwrite, assign) NSUInteger selectedEffectIndex;
 @property (nonatomic, readwrite, assign) DriveState *driveState;
+@property (nonatomic, readwrite, assign) NSString *romPath;
+@property (nonatomic, readwrite, assign) NSString *hardfilePath;
 @property (nonatomic, readwrite, assign) NSString *joypadstyle;
 @property (nonatomic, readwrite, assign) NSString *joypadleftorright;
 @property (nonatomic, readwrite, assign) BOOL joypadshowbuttontouch;
 @property (nonatomic, readwrite, assign) BOOL keyButtonsEnabled;
 @property (nonatomic, readwrite, assign) NSArray *keyButtonConfigurations;
+@property (nonatomic, readwrite, assign) NSString *dpadTouchOrMotion;
+@property (nonatomic, readonly, assign) BOOL DPadModeIsTouch;
+@property (nonatomic, readonly, assign) BOOL DPadModeIsMotion;
+@property (nonatomic, readwrite, assign) BOOL gyroToggleUpDown;
+@property (nonatomic, readwrite, assign) float gyroSensitivity;
+@property (nonatomic, readwrite, assign) NSUInteger controllersnextid;
+@property (nonatomic, readwrite, assign) NSArray *controllers;
+@property (nonatomic, readwrite, assign) NSInteger keyConfigurationCount;
 
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;
 - (void)setFloppyConfiguration:(NSString *)adfPath;
-- (void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button;
+- (void)setKeyconfiguration:(NSString *)configuredkey forController:(int)cNumber Button:(int)button;
+-  (void)setKeyconfiguration:(NSString *)configuredkey Button:(int)button;
+- (void)setKeyconfigurationname:(NSString *)configuredkey forController:(int)cNumber Button:(int)button;
+-  (void)setKeyconfigurationname:(NSString *)configuredkey Button:(int)button;
+
+-(void)setCNumber:(int)cNumber;
 
 - (void)setBool:(BOOL)value forKey:(NSString *)settingitemname;
 - (void)setObject:(id)value forKey:(NSString *)settingitemname;
@@ -51,5 +66,12 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 - (void)removeObjectForKey:(NSString *) settingitemname;
 - (NSString *)configForDisk:(NSString *)diskName;
 - (void)setConfig:(NSString *)configName forDisk:(NSString *)diskName;
+- (NSArray *)controllers;
+- (void)setControllers:(NSArray *)controllers;
+- (NSString *)keyConfigurationNameforButton:(int)bID forController:(int)cNumber;
+- (NSString *)keyConfigurationNameforButton:(int)bID;
+- (NSString *)keyConfigurationforButton:(int)bID forController:(int)cNumber;
+- (NSString *)keyConfigurationforButton:(int)bID;
+
 
 @end

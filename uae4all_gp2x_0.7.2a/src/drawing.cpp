@@ -2248,6 +2248,7 @@ void vsync_handle_redraw (int long_frame, int lof_changed)
 #ifdef USE_FAME_CORE
             m68k_release_timeslice();
 #endif
+            filesys_prepare_reset();
 			return;
 		}
 		

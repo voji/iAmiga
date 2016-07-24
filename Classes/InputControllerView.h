@@ -20,7 +20,6 @@
 #import <UIKit/UIKit.h>
 #import "CGVector.h"
 #import "touchstick.h"
-#import "Settings.h"
 
 @protocol InputControllerChangedDelegate
 
@@ -38,7 +37,6 @@
 	CGVector2D							*_stickVector;
 	BOOL								_trackingStick;
 	CJoyStick							*TheJoyStick;
-	
 	float								_deadZone;		// represents the deadzone radius, where the DPad state will be considered DPadCenter
 }
 

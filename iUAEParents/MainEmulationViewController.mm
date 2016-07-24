@@ -34,9 +34,18 @@
 #import "Settings.h"
 #import "SettingsGeneralController.h"
 #import "DiskDriveService.h"
+#import "HardDriveService.h"
 #import <GameController/GameController.h>
+#import "MultiPeerConnectivityController.h"
+#import "VPadMotionController.h"
+#import "cfgfile.h"
+#import "MFIControllerReaderView.h"
+#import "MPCConnectionStates.h"
+#import "Icadereaderview.h"
+#import "NSObject+Blocks.h"
 
-extern SDL_Joystick *uae4all_joy0, *uae4all_joy1;
+extern int mainMenu_ntsc;
+extern MPCStateType mainMenu_servermode;
 extern void init_joystick();
 
 @interface MainEmulationViewController()
@@ -44,13 +53,16 @@ extern void init_joystick();
 
 @implementation MainEmulationViewController {
     DiskDriveService *_diskDriveService;
+    HardDriveService *_hardDriveService;
     NSTimer *_menuHidingTimer;
     Settings *_settings;
     NSTimer *_checkForPausedTimer;
     NSTimer *_checkForGControllerTimer;
-}
+    MFIControllerReaderView *_mfiController;
+    iCadeReaderView *_icadeController;
+ }
 
-
+MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init]; //Needs to be called this early and out of class context to ensure it loads first
 UIButton *btnSettings;
 IOSKeyboard *ioskeyboard;
 
@@ -81,6 +93,7 @@ extern void uae_reset();
     [super viewDidLoad];
 
     _diskDriveService = [[DiskDriveService alloc] init];
+    _hardDriveService = [[HardDriveService alloc] init];
     _settings = [[Settings alloc] init];
     
     [self.view setMultipleTouchEnabled:TRUE];
@@ -89,49 +102,70 @@ extern void uae_reset();
     [_btnSettings setImage:[UIImage imageNamed:@"gear_selected.png"] forState: UIControlStateHighlighted];
     [_btnKeyboard setImage:[UIImage imageNamed:@"keyboard_selected.png"] forState:UIControlStateHighlighted];
     [_btnPin setImage:[UIImage imageNamed:@"sticky_selected.png"] forState:UIControlStateSelected];
-    //[_btnJoypad setImage: [_btnJoypad.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                    //forState:UIControlStateNormal];
-    //[_btnJoypad setTintColor: [UIColor blackColor]];
     
-    
-    /*[_btnPin setImage: [_btnPin.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                forState:UIControlStateNormal];
-    [_btnPin setTintColor: [UIColor blackColor]];*/
+    mainMenu_ntsc = _settings.ntsc;
     
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
     
+    [self initHardDriveMountInfo]; // Initialized early so that a hard file can be mounted below if autoload is enabled
+    
     if (_settings.autoloadConfig)
     {
-        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here - we need to delay disk drive related tasks by a little bit
+        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here;
+        // we need to delay disk drive related tasks by a little bit
         [self initDriveSetupTimer:_settings.driveState];
         [self initDiskInsertTimer:_settings.insertedFloppies];
+        [self mountHardfile:_settings.hardfilePath];
     }
     
     [self initializeControls];
     paused = 0;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(controllerStateChange)
-                                                 name:GCControllerDidConnectNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(controllerStateChange)
-                                                 name:GCControllerDidDisconnectNotification
-                                               object:nil];
+     _mfiController = [[MFIControllerReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    [self initIcade];
     
-    // we start out with the mouse activated
     [_mouseHandler onMouseActivated];
 
+}
+
+- (void)initIcade {
+    
+    _icadeController = [[iCadeReaderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    
+    SDL_Surface *surface = SDL_GetVideoSurface();
+    UIView *display = (UIView *)surface->userdata;
+    
+    [display performBlock:^(void) {
+        // main thread
+        [display addSubview:_icadeController];
+        [_icadeController becomeFirstResponder];
+        
+    } afterDelay:0.0f];
+
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self applyConfiguredEffect];
-    set_joystickactive();
+    
     [_mouseHandler reloadMouseSettings];
     [_joyController reloadJoypadSettings];
+    
+    
+    _icadeController.active = YES;
+    [_icadeController becomeFirstResponder];
+    
+    if (joyactive && _settings.DPadModeIsMotion){
+        [VPadMotionController setActive];
+    }
+    
+    [mpcController configure: self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [VPadMotionController disable];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -143,7 +177,6 @@ extern void uae_reset();
 
 - (void)didSelectReset:(DriveState *)driveState {
     uae_reset();
-    _settings.driveState = driveState;
     [self initDriveSetupTimer:driveState];
 }
 
@@ -157,14 +190,19 @@ extern void uae_reset();
     /* Check if function is still needed */
     _joyController.hidden = TRUE;
     joyactive = FALSE;
+    [VPadMotionController disable];
 }
 
 - (void)initializeControls {
     joyactive = FALSE;
     _mouseHandler.hidden = FALSE;
     _joyController.hidden = TRUE;
+    [VPadMotionController disable];
 }
 
+extern  void mousehack_setdontcare_iuae ();
+extern  void mousehack_setfollow_iuae ();
+extern void togglemouse (void);
 - (IBAction)toggleControls:(UIButton *)button {
     
     bool keyboardactiveonstart = keyboardactive;
@@ -178,21 +216,38 @@ extern void uae_reset();
     //_btnJoypad.tintColor = _btnJoypad.selected ? [UIColor blueColor] : [UIColor blackColor];
     
     _joyController.hidden = !joyactive;
+
+    
+    if (joyactive && _settings.DPadModeIsMotion){
+        [VPadMotionController setActive];
+    }
+    else{
+        [VPadMotionController disable];
+    }
+    
     _mouseHandler.hidden = joyactive;
 
     if (joyactive)
     {
         [_joyController onJoypadActivated];
+         mousehack_setdontcare_iuae();
     }
     else
     {
         [_mouseHandler onMouseActivated];
+         mousehack_setfollow_iuae();
     }
     
     if (keyboardactive != keyboardactiveonstart)
     {
         [ioskeyboard toggleKeyboard];
-    }    
+    }
+    
+    if(!keyboardactive)
+    {
+        [_icadeController setActive:YES];
+        [_icadeController becomeFirstResponder];
+    }
 }
 
 - (IBAction)togglePinstatus:(id)sender {
@@ -243,29 +298,11 @@ extern void uae_reset();
 
 -(void)checkForPaused:(NSTimer *)timer {
     
-    //As emulator is paused this methods needs to be called to check for Joypad as it wont get called by the emulator
-    if(paused) SDL_JoystickUpdate();
-    
-    int pausednew;
-    pausednew = SDL_JoystickGetPaused(uae4all_joy0);
-    
-    if(pausednew != paused )
+    if(mainMenu_servermode == kServeAsController)
     {
-        paused = pausednew;
-        
-        if(paused == 1)
-        {
-            [self pauseEmulator];
-        }
-        else
-        {
-            [self resumeEmulator];
-        }
+        uae_reset();
+        [self pauseEmulator];
     }
-}
-
--(void)controllerStateChange {
-    init_joystick();
 }
 
 - (void)initDriveSetupTimer:(DriveState *)driveState {
@@ -295,7 +332,10 @@ extern void uae_reset();
                                                            selector:@selector(checkForPaused:) userInfo:nil repeats:YES] retain];
     
     _checkForPausedTimer.tolerance = 0.0020;
-    
+}
+
+- (void)initHardDriveMountInfo {
+    init_mountinfo();
 }
 
 - (void)insertConfiguredDisks:(NSTimer *)timer {
@@ -312,12 +352,20 @@ extern void uae_reset();
     [_diskDriveService setDriveState:driveState];
 }
 
+- (void)mountHardfile:(NSString *)hardfilePath {
+    if (hardfilePath)
+    {
+        [_hardDriveService mountHardfile:hardfilePath];
+    }    
+}
+
 - (void)dealloc
 {
     [_btnJoypad release];
     [_btnKeyboard release];
     [_btnPin release];
     [_diskDriveService release];
+    [_hardDriveService release];
     [_mouseHandler release];
     [_menuBar release];
     [_menuBarEnabler release];

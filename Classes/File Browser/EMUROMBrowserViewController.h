@@ -36,12 +36,13 @@
 	id context;
 }
 
-+ (NSString *)getAdfChangedNotificationName;
++ (NSString *)getFileImportedNotificationName;
 
-@property (nonatomic, retain) NSArray		*roms, *indexTitles;
-@property (nonatomic, retain) NSIndexPath	*selectedIndexPath;
+@property (nonatomic, retain) NSArray *roms, *indexTitles;
+@property (nonatomic, retain) NSIndexPath *selectedIndexPath;
 @property (nonatomic, assign) id<SelectRomDelegate>	delegate;
 @property (nonatomic, retain) id context;
 @property (nonatomic, retain) AdfImporter *adfImporter;
+@property (nonatomic, retain) NSArray *extensions; // extensions of files to show
 
 @end

@@ -139,7 +139,7 @@
 
 - (void)deleteConfiguration:(NSIndexPath *)indexPath {
     EMUBrowser *browser = [[EMUBrowser alloc] init];
-    NSArray *files = [browser getFileInfos];
+    NSArray *files = [browser getAdfFileInfos];
     NSString *configdeleted = [configurations objectAtIndex:indexPath.row];
     
     [configurations removeObjectAtIndex:indexPath.row];

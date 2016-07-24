@@ -22,6 +22,7 @@
 
 #import <UIKit/UIKit.h>
 #import "iCadeState.h"
+#import <ExternalAccessory/ExternalAccessory.h>
 
 /*
  UP ON,OFF  = w,e

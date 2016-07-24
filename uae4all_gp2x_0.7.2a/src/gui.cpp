@@ -132,7 +132,7 @@ int gui_init (void)
 #endif
     SDL_ShowCursor(SDL_DISABLE);
     SDL_JoystickEventState(SDL_ENABLE);
-    SDL_JoystickOpen(0);
+    //SDL_JoystickOpen(0);
     if (prSDLScreen!=NULL)
     {
 	emulating=0;

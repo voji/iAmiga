@@ -1,8 +1,8 @@
 //
-//  SettingsJoypadVpadController.m
+//  SettingsGeneralController.h
 //  iUAE
 //
-//  Created by Emufr3ak on 05.09.15.
+//  Created by Emufr3ak on 24.5.15.
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -18,14 +18,15 @@
 //along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#import "SettingsJoypadVpadController.h"
+#import "SettingsSelectPortViewController.h"
 #import "Settings.h"
+#import "JoypadKey.h"
 
-@interface SettingsJoypadVpadController ()
+@interface SettingsSelectPortViewController ()
 
 @end
 
-@implementation SettingsJoypadVpadController {
+@implementation SettingsSelectPortViewController {
     Settings *_settings;
 }
 
@@ -34,19 +35,19 @@
     
     _settings = [[Settings alloc] init];
     
-    [_swShowButtonTouch setOn:_settings.joypadshowbuttontouch];
-    
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    _Joypadstyle.detailTextLabel.text = [_settings stringForKey:@"_joypadstyle"];
-    _LeftorRight.detailTextLabel.text = [_settings stringForKey:@"_joypadleftorright"];
+- (void)viewWillAppear:(BOOL)animated {
+    
+    _P0Cell.accessoryType = [[_settings keyConfigurationforButton:PORT] isEqualToString:@"0"] ? UITableViewCellAccessoryCheckmark :UITableViewCellAccessoryNone;
+    
+    _P1Cell.accessoryType = [[_settings keyConfigurationforButton:PORT] isEqualToString:@"1"] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,37 +55,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didSelectVPadPosition:(NSString *)strPosition {
-    [_settings setObject:strPosition forKey:@"_joypadleftorright"];
+- (IBAction)SelectPort0:(id)sender
+{
+    [_settings setKeyconfiguration:@"0" Button:PORT];
+    [self.delegate didSelectPort:0];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didSelectVPadStyle:(NSString *)strStyle {
-    [_settings setObject:strStyle forKey:@"_joypadstyle"];
+-(IBAction)SelectPort1:(id)sender
+{
+    [_settings setKeyconfiguration:@"1" Button:PORT];
+    [self.delegate didSelectPort:1];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)toggleShowButtonTouch:(id)sender {
-    _settings.joypadshowbuttontouch = !_settings.joypadshowbuttontouch;
-}
+- (void)dealloc
+{
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"SelectLeftOrRight"]) {
-        VPadLeftOrRight *controller = segue.destinationViewController;
-        controller.delegate = self;
-    }
-    else if([segue.identifier isEqualToString:@"SelectVpadStyle"])
-    {
-        SettingsJoypadStyle *controller = segue.destinationViewController;
-        controller.delegate = self;
-    }
-}
-
-- (void)dealloc {
-    
-    [_swShowButtonTouch release];
     [_settings release];
-    [_Joypadstyle release];
-    [_LeftorRight release];
-
+    [_P0Cell release];
+    [_P1Cell release];
     [super dealloc];
 }
 
