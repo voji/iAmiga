@@ -10,6 +10,8 @@ git submodule update
 #####ROMs
 Use iTunes to copy rom file(s) to your device, or add the roms to the Xcode project when building iUAE.  When the emulator starts up for the first time, it will look for a rom called "kick.rom" or "kick13.rom".  If your rom file has a differnet name or if you want to switch roms, you can use the rom selector in settings.
 
+You can use Cloanto Amiga Forever Roms. For them to work you need to copy Cloanto Amiga Forever file (rom.key) using Itunes or iFile. This file is required to decrypt the roms.
+
 #####Disk drives
 
 df[0]-3 are supported.  Drives read .adf files - the easiest way to get them onto your device is to use iTunes to copy them.  Alternatively you can also add adf files to the Xcode project when building iUAE, however they will be read-only.  Swipe on a drive row to eject an inserted adf.
