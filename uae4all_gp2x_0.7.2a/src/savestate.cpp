@@ -1,58 +1,55 @@
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-compat-deprecated-writable-strings"
-
 /*
-  * UAE - The Un*x Amiga Emulator
-  *
-  * Save/restore emulator state
-  *
-  * (c) 1999-2001 Toni Wilen
-  *
-  * see below for ASF-structure
-  */
+ * UAE - The Un*x Amiga Emulator
+ *
+ * Save/restore emulator state
+ *
+ * (c) 1999-2001 Toni Wilen
+ *
+ * see below for ASF-structure
+ */
 
- /* Features:
-  *
-  * - full CPU state (68000/68010/68020, no FPU)
-  * - full CIA-A and CIA-B state (with all internal registers)
-  * - saves all custom registers and audio internal state but not all registers are restored yet.
-  * - only Chip-ram and Bogo-ram are saved and restored.
-  * - disk drive type, imagefile, track and motor state
-  * - Kickstart ROM version, address and size is saved. This data is not used during restore yet.
-  */
+/* Features:
+ *
+ * - full CPU state (68000/68010/68020, no FPU)
+ * - full CIA-A and CIA-B state (with all internal registers)
+ * - saves all custom registers and audio internal state but not all registers are restored yet.
+ * - only Chip-ram and Bogo-ram are saved and restored.
+ * - disk drive type, imagefile, track and motor state
+ * - Kickstart ROM version, address and size is saved. This data is not used during restore yet.
+ */
 
- /* Notes:
-  *
-  * - blitter state is not saved, blitter is forced to finish immediately if it
-  *   was active
-  * - disk DMA state is completely saved (I hope so..)
-  * - does not ask for statefile name and description. Currently uses DF0's disk
-  *   image name (".adf" is replaced with ".asf")
-  * - only Amiga state is restored, harddisk support, autoconfig, expansion boards etc..
-  *   are not saved/restored (and probably never will).
-  * - use this for saving games that can't be saved to disk
-  */
+/* Notes:
+ *
+ * - blitter state is not saved, blitter is forced to finish immediately if it
+ *   was active
+ * - disk DMA state is completely saved (I hope so..)
+ * - does not ask for statefile name and description. Currently uses DF0's disk
+ *   image name (".adf" is replaced with ".asf")
+ * - only Amiga state is restored, harddisk support, autoconfig, expansion boards etc..
+ *   are not saved/restored (and probably never will).
+ * - use this for saving games that can't be saved to disk
+ */
 
- /* Usage :
-  *
-  * save:
-  * 
-  * set savestate_state = STATE_DOSAVE, savestate_filename = "..."
-  *
-  * restore:
-  * 
-  * set savestate_state = STATE_DORESTORE, savestate_filename = "..."
-  *
-  */
+/* Usage :
+ *
+ * save:
+ *
+ * set savestate_state = STATE_DOSAVE, savestate_filename = "..."
+ *
+ * restore:
+ *
+ * set savestate_state = STATE_DORESTORE, savestate_filename = "..."
+ *
+ */
 
-#include "uae.h"
 #include "sysconfig.h"
 #include "sysdeps.h"
 
 #include "config.h"
+#include "uae.h"
 #include "gui.h"
 #include "options.h"
-#include "memory.h"
+#include "memory-uae.h"
 #include "custom.h"
 #include "sound.h"
 #include "audio.h"
@@ -66,17 +63,8 @@
 
 int savestate_state;
 
-static char savestate_filename_default[]={
-	'/', 't', 'm', 'p', '/', 'n', 'u', 'l', 'l', '.', 'a', 's', 'f', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
-	'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
+static char savestate_filename_default[255]={
+    '/', 't', 'm', 'p', '/', 'n', 'u', 'l', 'l', '.', 'a', 's', 'f', '\0'
 };
 char *savestate_filename=(char *)&savestate_filename_default[0];
 FILE *savestate_file=NULL;
@@ -106,7 +94,7 @@ void save_u8_func (uae_u8 **dstp, uae_u8 v)
     *dst++ = v;
     *dstp = dst;
 }
-void save_string_func (uae_u8 **dstp, char *from)
+void save_string_func (uae_u8 **dstp, const char *from)
 {
     uae_u8 *dst = *dstp;
     while(*from)
@@ -152,7 +140,7 @@ char *restore_string_func (uae_u8 **dstp)
         *top++ = v;
     } while(v);
     *dstp = dst;
-    return to; 
+    return to;
 }
 
 /* read and write IFF-style hunks */
@@ -183,14 +171,14 @@ static void save_chunk (FILE *f, uae_u8 *chunk, long len, const char *name)
         fwrite (zero, 1, len, f);
 }
 
-static void save_chunk_compressed (FILE *f, uae_u8 *chunk, long len, char *name)
+static void save_chunk_compressed (FILE *f, uae_u8 *chunk, long len, const char *name)
 {
     
-	void *tmp=malloc(len);
-	long outSize=len;
-	compress2((Bytef *)tmp, (uLongf *)&outSize, (const Bytef *)chunk, (uLong)len, Z_COMPRESSION_LEVEL);
-	save_chunk(f,(uae_u8*)tmp,outSize,name);
-	free(tmp);
+    void *tmp=malloc(len);
+    long outSize=len;
+    compress2((Bytef *)tmp, (uLongf *)&outSize, (const Bytef *)chunk, (uLong)len, Z_COMPRESSION_LEVEL);
+    save_chunk(f,(uae_u8*)tmp,outSize,name);
+    free(tmp);
 }
 
 static uae_u8 *restore_chunk (FILE *f, char *name, long *len, long *filepos)
@@ -307,14 +295,14 @@ void restore_state (char *filename)
             restore_fram (len, filepos);
             continue;
         } else if (!strcmp (name, "ZRAM")) {
+#if !( defined(PANDORA) || defined(ANDROIDSDL) )
             restore_zram (len, filepos);
+#endif
             continue;
         }
         
         if (!strcmp (name, "CPU "))
-        {
             end = restore_cpu (chunk);
-        }
         else if (!strcmp (name, "AGAC"))
             end = restore_custom_agacolors (chunk);
         else if (!strcmp (name, "SPR0"))
@@ -373,9 +361,6 @@ void restore_state (char *filename)
     puts("-->OK");fflush(stdout);
     printf("RESTORED state=%X, flags=%X, PC=%X\n",savestate_state,_68k_spcflags,_68k_getpc());fflush(stdout);
 #endif
-#ifdef AUTO_SAVESTATE
-	DEBUG_AHORA=1;
-#endif
     return;
     
 error:
@@ -398,9 +383,6 @@ void savestate_restore_finish (void)
     printf("-->savestate_restore_finish state=%X, flags=%X, PC=%X\n",savestate_state,_68k_spcflags,_68k_getpc());fflush(stdout);
 #endif
     fclose (savestate_file);
-#ifdef DINGOO
-    sync();
-#endif
     resume_sound();
     update_audio();
     savestate_file = 0;
@@ -412,10 +394,10 @@ void savestate_restore_finish (void)
 
 /* Save all subsystems  */
 
-void save_state (char *filename, char *description)
+void save_state (char *filename, const char *description)
 {
-    uae_u8 header[1000];
-    char tmp[100];
+    uae_u8 header[256];
+    char tmp[32];
     uae_u8 *dst;
     FILE *f;
     int len,i;
@@ -435,7 +417,7 @@ void save_state (char *filename, char *description)
     dst = header;
     save_u32 (0);
     save_string("UAE");
-    sprintf (tmp, "%d.%d.%d", UAEMAJOR, UAEMINOR, UAESUBREV);
+    snprintf (tmp, 32, "%d.%d.%d", UAEMAJOR, UAEMINOR, UAESUBREV);
     save_string (tmp);
     save_string (description);
     save_chunk (f, header, dst-header, "ASF ");
@@ -519,14 +501,19 @@ void save_state (char *filename, char *description)
 #endif
     dst = save_expansion (&len);
     save_chunk (f, dst, len, "EXPA");
+    free (dst);
     dst = save_cram (&len);
     save_chunk_compressed (f, dst, len, "CRAM");
     dst = save_bram (&len);
     save_chunk (f, dst, len, "BRAM");
     dst = save_fram (&len);
     save_chunk (f, dst, len, "FRAM");
+#if !( defined(PANDORA) || defined(ANDROIDSDL) )
     dst = save_zram (&len);
     save_chunk (f, dst, len, "ZRAM");
+#else
+    save_chunk (f, 0, 0, "ZRAM");
+#endif
     
     gui_show_window_bar(8, 10, 0);
 #ifdef DEBUG_SAVESTATE
@@ -548,271 +535,190 @@ void save_state (char *filename, char *description)
     fwrite ("\0\0\0\08", 1, 4, f);
     write_log ("Save of '%s' complete\n", filename);
     fclose (f);
-#ifdef DINGOO
-    sync();
-#endif
+    
     gui_show_window_bar(10, 10, 0);
     notice_screen_contents_lost();
 #ifdef DEBUG_SAVESTATE
     printf("SAVED state=%X, flags=%X, PC=%X\n",savestate_state,_68k_spcflags,_68k_getpc());fflush(stdout);
 #endif
-#ifdef START_DEBUG_SAVESTATE
-	DEBUG_AHORA=1;
-#endif
 }
 
 /*
-
-My (Toni Wilen <twilen@arabuusimiehet.com>)
-proposal for Amiga-emulators' state-save format
-
-Feel free to comment...
-
-This is very similar to IFF-fileformat
-Every hunk must end to 4 byte boundary,
-fill with zero bytes if needed
-
-version 0.7
-
-HUNK HEADER (beginning of every hunk)
-
-        hunk name (4 ascii-characters)
-        hunk size (including header)
-        hunk flags             
-
-        bit 0 = chunk contents are compressed with zlib (maybe RAM chunks only?)
-
-HEADER
-
-        "ASF " (AmigaStateFile)
-        
+ My (Toni Wilen <twilen@arabuusimiehet.com>)
+ proposal for Amiga-emulators' state-save format
+ Feel free to comment...
+ This is very similar to IFF-fileformat
+ Every hunk must end to 4 byte boundary,
+ fill with zero bytes if needed
+ version 0.7
+ HUNK HEADER (beginning of every hunk)
+ hunk name (4 ascii-characters)
+ hunk size (including header)
+ hunk flags
+ bit 0 = chunk contents are compressed with zlib (maybe RAM chunks only?)
+ HEADER
+ "ASF " (AmigaStateFile)
+ 
 	statefile version
-        emulator name ("uae", "fellow" etc..)
-        emulator version string (example: "0.8.15")
-        free user writable comment string
-
-CPU
-
-         "CPU "
-
-        CPU model               4 (68000,68010 etc..)
-        CPU typeflags           bit 0=EC-model or not
-        D0-D7                   8*4=32
-        A0-A6                   7*4=32
-        PC                      4
-        prefetch address        4
-        prefetch data           4
-        USP                     4
-        ISP                     4
-        SR/CCR                  2
-        flags                   4 (bit 0=CPU was HALTed)
-
-        CPU specific registers
-
-        68000: SR/CCR is last saved register
-        68010: save also DFC,SFC and VBR
-        68020: all 68010 registers and CAAR,CACR and MSP
-        etc..
-
-        DFC                     4 (010+)
-        SFC                     4 (010+)
-        VBR                     4 (010+)
-
-        CAAR                    4 (020-030)
-        CACR                    4 (020+)
-        MSP                     4 (020+)
-
-MMU (when and if MMU is supported in future..)
-
-        MMU model               4 (68851,68030,68040)
-
-        // 68040 fields
-
-        ITT0                    4
-        ITT1                    4
-        DTT0                    4
-        DTT1                    4
-        URP                     4
-        SRP                     4
-        MMUSR                   4
-        TC                      2
-
-		
-FPU (only if used)
-
+ emulator name ("uae", "fellow" etc..)
+ emulator version string (example: "0.8.15")
+ free user writable comment string
+ CPU
+ "CPU "
+ CPU model               4 (68000,68010 etc..)
+ CPU typeflags           bit 0=EC-model or not
+ D0-D7                   8*4=32
+ A0-A6                   7*4=32
+ PC                      4
+ prefetch address        4
+ prefetch data           4
+ USP                     4
+ ISP                     4
+ SR/CCR                  2
+ flags                   4 (bit 0=CPU was HALTed)
+ CPU specific registers
+ 68000: SR/CCR is last saved register
+ 68010: save also DFC,SFC and VBR
+ 68020: all 68010 registers and CAAR,CACR and MSP
+ etc..
+ DFC                     4 (010+)
+ SFC                     4 (010+)
+ VBR                     4 (010+)
+ CAAR                    4 (020-030)
+ CACR                    4 (020+)
+ MSP                     4 (020+)
+ MMU (when and if MMU is supported in future..)
+ MMU model               4 (68851,68030,68040)
+ // 68040 fields
+ ITT0                    4
+ ITT1                    4
+ DTT0                    4
+ DTT1                    4
+ URP                     4
+ SRP                     4
+ MMUSR                   4
+ TC                      2
+ 
+ FPU (only if used)
 	"FPU "
-
-        FPU model               4 (68881 or 68882)
-        FPU typeflags           4 (keep zero)
-
-        FP0-FP7                 4+2 (80 bits)
-        FPCR                    4
-        FPSR                    4
-        FPIAR                   4
-
-CUSTOM CHIPS
-
-        "CHIP"
-
-        chipset flags   4      OCS=0,ECSAGNUS=1,ECSDENISE=2,AGA=4
-                               ECSAGNUS and ECSDENISE can be combined
-
-        DFF000-DFF1FF   352    (0x120 - 0x17f and 0x0a0 - 0xdf excluded)
-
-        sprite registers (0x120 - 0x17f) saved with SPRx chunks
-        audio registers (0x0a0 - 0xdf) saved with AUDx chunks
-
-AGA COLORS
-
-        "AGAC"
-
-        AGA color               8 banks * 32 registers *
-        registers               LONG (XRGB) = 1024
-
-SPRITE
-
-        "SPR0" - "SPR7"
-
-
-        SPRxPT                  4
-        SPRxPOS                 2
-        SPRxCTL                 2
-        SPRxDATA                2
-        SPRxDATB                2
-        AGA sprite DATA/DATB    3 * 2 * 2
-        sprite "armed" status   1
-
-        sprites maybe armed in non-DMA mode
-        use bit 0 only, other bits are reserved
-
-
-AUDIO
-        "AUD0" "AUD1" "AUD2" "AUD3"
-
-        audio state             1
-        machine mode
-        AUDxVOL                 1
+ FPU model               4 (68881 or 68882)
+ FPU typeflags           4 (keep zero)
+ FP0-FP7                 4+2 (80 bits)
+ FPCR                    4
+ FPSR                    4
+ FPIAR                   4
+ CUSTOM CHIPS
+ "CHIP"
+ chipset flags   4      OCS=0,ECSAGNUS=1,ECSDENISE=2,AGA=4
+ ECSAGNUS and ECSDENISE can be combined
+ DFF000-DFF1FF   352    (0x120 - 0x17f and 0x0a0 - 0xdf excluded)
+ sprite registers (0x120 - 0x17f) saved with SPRx chunks
+ audio registers (0x0a0 - 0xdf) saved with AUDx chunks
+ AGA COLORS
+ "AGAC"
+ AGA color               8 banks * 32 registers *
+ registers               LONG (XRGB) = 1024
+ SPRITE
+ "SPR0" - "SPR7"
+ SPRxPT                  4
+ SPRxPOS                 2
+ SPRxCTL                 2
+ SPRxDATA                2
+ SPRxDATB                2
+ AGA sprite DATA/DATB    3 * 2 * 2
+ sprite "armed" status   1
+ sprites maybe armed in non-DMA mode
+ use bit 0 only, other bits are reserved
+ AUDIO
+ "AUD0" "AUD1" "AUD2" "AUD3"
+ audio state             1
+ machine mode
+ AUDxVOL                 1
 	irq?                    1
 	data_written?           1
-        internal AUDxLEN        2
-        AUDxLEN                 2
+ internal AUDxLEN        2
+ AUDxLEN                 2
 	internal AUDxPER        2
 	AUDxPER                 2
-        internal AUDxLC         4
+ internal AUDxLC         4
 	AUDxLC                  4
 	evtime?                 4
-
-BLITTER
-
-        "BLIT"
-
-        internal blitter state
-
-        blitter running         1
-        anything else?
-
-CIA
-
-        "CIAA" and "CIAB"
-
-        BFE001-BFEF01   16*1 (CIAA)
-        BFD000-BFDF00   16*1 (CIAB)
-
-        internal registers
-
-        IRQ mask (ICR)  1 BYTE
-        timer latches   2 timers * 2 BYTES (LO/HI)
-        latched tod     3 BYTES (LO/MED/HI)
-        alarm           3 BYTES (LO/MED/HI)
-        flags           1 BYTE
-                        bit 0=tod latched (read)
-                        bit 1=tod stopped (write)
+ BLITTER
+ "BLIT"
+ internal blitter state
+ blitter running         1
+ anything else?
+ CIA
+ "CIAA" and "CIAB"
+ BFE001-BFEF01   16*1 (CIAA)
+ BFD000-BFDF00   16*1 (CIAB)
+ internal registers
+ IRQ mask (ICR)  1 BYTE
+ timer latches   2 timers * 2 BYTES (LO/HI)
+ latched tod     3 BYTES (LO/MED/HI)
+ alarm           3 BYTES (LO/MED/HI)
+ flags           1 BYTE
+ bit 0=tod latched (read)
+ bit 1=tod stopped (write)
 	div10 counter	1 BYTE
-
-FLOPPY DRIVES
-
-        "DSK0" "DSK1" "DSK2" "DSK3"
-
-        drive state
-
-        drive ID-word           4
-        state                   1 (bit 0: motor on, bit 1: drive disabled)
-        rw-head track           1
-        dskready                1
-        id-mode                 1 (ID mode bit number 0-31)
-        floppy information
-
-        bits from               4
-        beginning of track
-        CRC of disk-image       4 (used during restore to check if image
-                                  is correct)
-        disk-image              null-terminated
-        file name
-
-INTERNAL FLOPPY CONTROLLER STATUS
-
-        "DISK"
-
-        current DMA word        2
-        DMA word bit offset     1
-        WORDSYNC found          1 (no=0,yes=1)
-        hpos of next bit        1
-        DSKLENGTH status        0=off,1=written once,2=written twice
-
-RAM SPACE 
-
-        "xRAM" (CRAM = chip, BRAM = bogo, FRAM = fast, ZFRAM = Z3)
-
-        start address           4 ("bank"=chip/slow/fast etc..)
-        of RAM "bank"
-        RAM "bank" size         4
-        RAM flags               4
-        RAM "bank" contents
-
-ROM SPACE
-
-        "ROM "
-
-        ROM start               4
-        address
-        size of ROM             4
-        ROM type                4 KICK=0
-        ROM flags               4
-        ROM version             2
-        ROM revision            2
-        ROM CRC                 4 see below
-        ROM-image               null terminated, see below
-        ID-string
-        ROM contents            (Not mandatory, use hunk size to check if
-                                this hunk contains ROM data or not)
-
-        Kickstart ROM:
-         ID-string is "Kickstart x.x"
-         ROM version: version in high word and revision in low word
-         Kickstart ROM version and revision can be found from ROM start
-         + 12 (version) and +14 (revision)
-
-        ROM version and CRC is only meant for emulator to automatically
-        find correct image from its ROM-directory during state restore.
-
-        Usually saving ROM contents is not good idea.
-
-
-END
-        hunk "END " ends, remember hunk size 8!
-
-
-EMULATOR SPECIFIC HUNKS
-
-Read only if "emulator name" in header is same as used emulator.
-Maybe useful for configuration?
-
-misc:
-
-- save only at position 0,0 before triggering VBLANK interrupt
-- all data must be saved in bigendian format
-- should we strip all paths from image file names?
-
-*/
-
-#pragma clang diagnostic pop
+ FLOPPY DRIVES
+ "DSK0" "DSK1" "DSK2" "DSK3"
+ drive state
+ drive ID-word           4
+ state                   1 (bit 0: motor on, bit 1: drive disabled)
+ rw-head track           1
+ dskready                1
+ id-mode                 1 (ID mode bit number 0-31)
+ floppy information
+ bits from               4
+ beginning of track
+ CRC of disk-image       4 (used during restore to check if image
+ is correct)
+ disk-image              null-terminated
+ file name
+ INTERNAL FLOPPY CONTROLLER STATUS
+ "DISK"
+ current DMA word        2
+ DMA word bit offset     1
+ WORDSYNC found          1 (no=0,yes=1)
+ hpos of next bit        1
+ DSKLENGTH status        0=off,1=written once,2=written twice
+ RAM SPACE
+ "xRAM" (CRAM = chip, BRAM = bogo, FRAM = fast, ZFRAM = Z3)
+ start address           4 ("bank"=chip/slow/fast etc..)
+ of RAM "bank"
+ RAM "bank" size         4
+ RAM flags               4
+ RAM "bank" contents
+ ROM SPACE
+ "ROM "
+ ROM start               4
+ address
+ size of ROM             4
+ ROM type                4 KICK=0
+ ROM flags               4
+ ROM version             2
+ ROM revision            2
+ ROM CRC                 4 see below
+ ROM-image               null terminated, see below
+ ID-string
+ ROM contents            (Not mandatory, use hunk size to check if
+ this hunk contains ROM data or not)
+ Kickstart ROM:
+ ID-string is "Kickstart x.x"
+ ROM version: version in high word and revision in low word
+ Kickstart ROM version and revision can be found from ROM start
+ + 12 (version) and +14 (revision)
+ ROM version and CRC is only meant for emulator to automatically
+ find correct image from its ROM-directory during state restore.
+ Usually saving ROM contents is not good idea.
+ END
+ hunk "END " ends, remember hunk size 8!
+ EMULATOR SPECIFIC HUNKS
+ Read only if "emulator name" in header is same as used emulator.
+ Maybe useful for configuration?
+ misc:
+ - save only at position 0,0 before triggering VBLANK interrupt
+ - all data must be saved in bigendian format
+ - should we strip all paths from image file names?
+ */
