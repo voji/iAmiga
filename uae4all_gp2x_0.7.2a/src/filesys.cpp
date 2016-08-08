@@ -2923,8 +2923,8 @@ static int handle_packet (Unit *unit, dpacket pck)
      case ACTION_FIND_WRITE: action_find_write (unit, pck); break;
      case ACTION_FIND_OUTPUT: action_find_output (unit, pck); break;
      case ACTION_END: action_end (unit, pck); break;
-     case ACTION_READ: action_read (unit, pck); break; //gui_data.hdled = HDLED_READ; break; // stoens: missing hd led support
-     case ACTION_WRITE: action_write (unit, pck); break; //gui_data.hdled = HDLED_WRITE; break;
+     case ACTION_READ: action_read (unit, pck); gui_data.hdled = HDLED_READ; break;
+    case ACTION_WRITE: action_write (unit, pck); gui_data.hdled = HDLED_WRITE; break;
      case ACTION_SEEK: action_seek (unit, pck); break;
      case ACTION_SET_PROTECT: action_set_protect (unit, pck); break;
      case ACTION_SET_COMMENT: action_set_comment (unit, pck); break;

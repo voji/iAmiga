@@ -42,7 +42,7 @@ int ersatzkickfile = 0;
 uae_u32 allocated_chipmem=0;
 uae_u32 allocated_fastmem=0;
 uae_u32 allocated_bogomem=0;
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
 uae_u32 allocated_gfxmem=0;
 uae_u32 allocated_z3fastmem=0;
 uae_u32 allocated_a3000mem=0;
@@ -103,7 +103,7 @@ int REGPARAM2 dummy_check (uaecptr addr, uae_u32 size)
     return 0;
 }
 
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
 /* A3000 "motherboard resources" bank.  */
 static uae_u32 mbres_lget (uaecptr) REGPARAM;
 static uae_u32 mbres_wget (uaecptr) REGPARAM;
@@ -341,7 +341,7 @@ uae_u8 REGPARAM2 *bogomem_xlate (uaecptr addr)
     return bogomemory + addr;
 }
 
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
 /* A3000 motherboard fast memory */
 
 /*static uae_u8 *a3000memory;
@@ -681,7 +681,7 @@ addrbank dummy_bank = {
     
 };
 
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
 addrbank mbres_bank = {
     mbres_lget, mbres_wget, mbres_bget,
     mbres_lput, mbres_wput, mbres_bput,
@@ -704,7 +704,7 @@ addrbank bogomem_bank = {
     
 };
 
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
 /*addrbank a3000mem_bank = {
     a3000mem_lget, a3000mem_wget, a3000mem_bget,
     a3000mem_lput, a3000mem_wput, a3000mem_bput,
@@ -1076,7 +1076,7 @@ void memory_reset (void)
     
     map_banks (&clock_bank, 0xDC, 1, 0);
     
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
     /*if (a3000memory != 0)
     {
         map_banks (&a3000mem_bank, a3000mem_start >> 16, allocated_a3000mem >> 16, allocated_a3000mem);
@@ -1122,7 +1122,7 @@ void memory_init (void)
 {
     allocated_chipmem = 0;
     allocated_bogomem = 0;
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
     allocated_a3000mem = 0;
     //a3000memory = 0;
 #endif
@@ -1145,7 +1145,7 @@ void memory_init (void)
 
 void memory_cleanup (void)
 {
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
     /*if (a3000memory)
         mapped_free (a3000memory);*/
 #endif
@@ -1158,7 +1158,7 @@ void memory_cleanup (void)
     if (chipmemory)
         mapped_free (chipmemory);
     
-#if !( defined(PANDORA) || defined(ANDROIDSDL) )
+#if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
     //a3000memory = 0;
 #endif
     bogomemory = 0;

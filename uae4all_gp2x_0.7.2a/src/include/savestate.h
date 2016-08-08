@@ -1,10 +1,10 @@
- /*
-  * UAE - The Un*x Amiga Emulator
-  *
-  * Save/restore emulator state
-  *
-  * (c) 1999-2001 Toni Wilen
-  */
+/*
+ * UAE - The Un*x Amiga Emulator
+ *
+ * Save/restore emulator state
+ *
+ * (c) 1999-2001 Toni Wilen
+ */
 
 
 /* functions to save byte,word or long word
@@ -22,7 +22,7 @@ extern uae_u16 restore_u16_func (uae_u8 **);
 extern uae_u32 restore_u32_func (uae_u8 **);
 extern uae_u8 restore_u8_func (uae_u8 **);
 
-extern void save_string_func (uae_u8 **, char*);
+extern void save_string_func (uae_u8 **, const char*);
 extern char *restore_string_func (uae_u8 **);
 
 #define save_u16(x) save_u16_func (&dst, (x))
@@ -40,10 +40,8 @@ void savestate_restore_finish (void);
 
 /* save, restore and initialize routines for Amiga's subsystems */
 
-#ifndef CYCLONE
-extern uae_u8 *restore_cpu (uae_u8 *);
-extern uae_u8 *save_cpu (int *);
-#endif
+uae_u8 *restore_cpu (uae_u8 *);
+uae_u8 *save_cpu (int *);
 
 extern uae_u8 *restore_fpu (uae_u8 *);
 extern uae_u8 *save_fpu (int *);
@@ -78,8 +76,8 @@ extern uae_u8 *save_expansion (int *);
 
 extern void restore_cram (int, long);
 extern void restore_bram (int, long);
-extern void restore_fram (int, long);
-extern void restore_zram (int, long);
+extern void restore_fram (uae_u32, size_t);
+extern void restore_zram (uae_u32, size_t);
 extern uae_u8 *save_cram (int *);
 extern uae_u8 *save_bram (int *);
 extern uae_u8 *save_fram (int *);
@@ -88,7 +86,7 @@ extern uae_u8 *save_zram (int *);
 extern uae_u8 *restore_rom (uae_u8 *);
 extern uae_u8 *save_rom (int, int *);
 
-extern void save_state (char *filename, char *description);
+extern void save_state (char *filename, const char *description);
 extern void restore_state (char *filename);
 
 extern void custom_save_state (void);

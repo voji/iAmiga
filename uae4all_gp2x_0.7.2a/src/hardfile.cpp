@@ -72,7 +72,7 @@ static uae_u32 hardfile_beginio (void)
 	/*    put_byte (tmp1 + 30, get_byte (tmp1 + 30) & ~1);*/
 	switch (tmp2) {
 		case CMD_READ:
-			//gui_data.hdled = HDLED_READ; // stoens: missing hd led support
+			gui_data.hdled = HDLED_READ;
             
 			dataptr = get_long (tmp1 + 40);
 			if (dataptr & 1)
@@ -101,8 +101,8 @@ static uae_u32 hardfile_beginio (void)
 			
 		case CMD_WRITE:
 		case 11: /* Format */
-			//gui_data.hdled = HDLED_WRITE; // stoens: missing hd led support
-			
+			gui_data.hdled = HDLED_WRITE;
+            
 			dataptr = get_long (tmp1 + 40);
 			if (dataptr & 1)
 				goto bad_command;

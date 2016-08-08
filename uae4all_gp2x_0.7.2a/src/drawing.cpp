@@ -2049,52 +2049,81 @@ static _INLINE_ void draw_status_line (int line)
     uae_u8 *buf;
     
     if (td_pos & TD_RIGHT)
-        x = GFXVIDINFO_WIDTH - TD_PADX - 5*TD_WIDTH;
+        x = GFXVIDINFO_WIDTH - TD_PADX - 6 *TD_WIDTH;
     else
         x = TD_PADX;
 	
     y = line - (GFXVIDINFO_HEIGHT - TD_TOTAL_HEIGHT);
     xlinebuffer = row_map[line];
-	
-    uae4all_memclr(xlinebuffer, GFXVIDINFO_WIDTH * GFXVIDINFO_PIXBYTES);
-	
+    
     x+=100 - (TD_WIDTH*(NUM_DRIVES-1));
-	
-    for (led = 0; led < (NUM_DRIVES+1); led++) {
-		int track;
-		if (led > 0) {
-			track = gui_data.drive_track[led-1];
-			on = gui_data.drive_motor[led-1];
-			on_rgb = 0x0f0;
-			off_rgb = 0x040;
-		} else {
-			track = -1;
-			on = gui_data.powerled;
-			on_rgb = 0xf00;
-			off_rgb = 0x400;
-		}
-		c = xcolors[on ? on_rgb : off_rgb];
-		
-		for (j = 0; j < TD_LED_WIDTH; j++) 
-			putpixel (x + j, c);
-		
-		if (y >= TD_PADY && y - TD_PADY < TD_NUM_HEIGHT) {
-			if (track >= 0) {
-				int offs = (TD_WIDTH - 2 * TD_NUM_WIDTH) / 2;
-				write_tdnumber (x + offs, y - TD_PADY, track / 10);
-				write_tdnumber (x + offs + TD_NUM_WIDTH, y - TD_PADY, track % 10);
-			}
-		}
-		x += TD_WIDTH;
+    
+    uae4all_memclr(xlinebuffer, GFXVIDINFO_WIDTH * GFXVIDINFO_PIXBYTES);
+    
+    for (led = -1; led < (NUM_DRIVES+1); led++) {
+        int track;
+        if (led > 0) {
+            /* Floppy */
+            track = gui_data.drive_track[led-1];
+            on = gui_data.drive_motor[led-1];
+            on_rgb = 0x0f0;
+            off_rgb = 0x040;
+        } else if (led < 0) {
+            /* Power */
+            track = gui_data.fps;
+            on = gui_data.powerled;
+            on_rgb = 0xf00;
+            off_rgb = 0x400;
+        } else {
+            /* Hard disk */
+            track = -2;
+            
+            switch (gui_data.hdled) {
+                case HDLED_OFF:
+                    on = 0;
+                    off_rgb = 0x004;
+                    
+                    break;
+                case HDLED_READ:
+                    on = 1;
+                    on_rgb = 0x00f;
+                    off_rgb = 0x004;
+               
+                    break;
+                case HDLED_WRITE:
+                    on = 1;
+                    on_rgb = 0xf00;
+                    off_rgb = 0x400;
+                    
+                    break;
+            }
+        }
+        c = xcolors[on ? on_rgb : off_rgb];
+        
+        for (j = 0; j < TD_LED_WIDTH; j++)
+            putpixel (x + j, c);
+        
+        if (y >= TD_PADY && y - TD_PADY < TD_NUM_HEIGHT) {
+            if (track >= 0) {
+                int tn = track >= 100 ? 3 : 2;
+                int offs = (TD_LED_WIDTH - tn * TD_NUM_WIDTH) / 2;
+                if(track >= 100)
+                {
+                    write_tdnumber (x + offs, y - TD_PADY, track / 100);
+                    offs += TD_NUM_WIDTH;
+                }
+                write_tdnumber (x + offs, y - TD_PADY, (track / 10) % 10);
+                write_tdnumber (x + offs + TD_NUM_WIDTH, y - TD_PADY, track % 10);
+            }
+            /*else if (nr_units(currprefs.mountinfo) > 0) {
+                int offs = (TD_LED_WIDTH - 2 * TD_NUM_WIDTH) / 2;
+                write_tdletter(x + offs, y - TD_PADY, 'H');
+                write_tdletter(x + offs + TD_NUM_WIDTH, y - TD_PADY, 'D');
+            }* Emufreak: Currently only one HD Supported */
+        }
+        x += TD_WIDTH;
     }
-	
-	x = GFXVIDINFO_WIDTH - TD_PADX - 5*TD_WIDTH;
-	x+=100 - (TD_WIDTH*(NUM_DRIVES-1));
-	if (y >= TD_PADY && y - TD_PADY < TD_NUM_HEIGHT) {
-	    int offs = (TD_WIDTH - 2 * TD_NUM_WIDTH) / 2;
-	    write_tdnumber (x + offs, y - TD_PADY, fps_counter / 10);
-	    write_tdnumber (x + offs + TD_NUM_WIDTH, y - TD_PADY, fps_counter % 10);
-	}
+    
 }
 
 void check_all_prefs(void)
@@ -2167,29 +2196,31 @@ static _INLINE_ void finish_drawing_frame (void)
 #if defined (GP2X) || defined (PSP) || defined (GIZMONDO) || defined (IPHONE)
 	if (mainMenu_showStatus)
 	{
+        /* HD LED off delay */
+        static int countdown = HDLED_TIMEOUT;
+        if (gui_data.hdled != HDLED_OFF)
+        {
+            if (countdown-- <= 0) {
+                gui_data.hdled = HDLED_OFF;
+                countdown = HDLED_TIMEOUT;
+            }
+        } else {
+            countdown = HDLED_TIMEOUT;
+        }
+        
+        for (i = 0; i < TD_TOTAL_HEIGHT; i++) {
+            int line = GFXVIDINFO_HEIGHT - TD_TOTAL_HEIGHT + i;
+            draw_status_line (line);
+        }
 #endif
-		if (   (frame_redraw_necessary) || fps_counter_changed
-			|| (back_drive_track0!=gui_data.drive_track[0])
-			|| (back_drive_motor0!=gui_data.drive_motor[0])
+		
 #if NUM_DRIVES > 1
-			|| (back_drive_track1!=gui_data.drive_track[1])
-			|| (back_drive_motor1!=gui_data.drive_motor[1])
+			
 #endif
-			|| (back_powerled!=gui_data.powerled)	)
-		{
-			back_drive_track0=gui_data.drive_track[0];
-			back_drive_motor0=gui_data.drive_motor[0];
+		
 #if NUM_DRIVES > 1
-			back_drive_track1=gui_data.drive_track[1];
-			back_drive_motor1=gui_data.drive_motor[1];
-#endif
-			back_powerled=gui_data.powerled;
-			for (i = 0; i < TD_TOTAL_HEIGHT; i++) {
-				int line = GFXVIDINFO_HEIGHT - TD_TOTAL_HEIGHT + i;
-				draw_status_line (line);
-				do_flush_line (line);
-			}
-		}
+		#endif
+			
 #if defined (GP2X) || defined (PSP) || defined (GIZMONDO) || defined (IPHONE)
 	}
 #endif
