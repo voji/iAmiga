@@ -21,27 +21,35 @@
 #import "EMUBrowser.h"
 #import "EMUFileInfo.h"
 #import "EMUFileGroup.h"
+#import "ScrollToRowHandler.h"
 
-@implementation EMUROMBrowserViewController
-
-@synthesize roms, selectedIndexPath, indexTitles, delegate, context;
+@implementation EMUROMBrowserViewController {
+    @private
+    AdfImporter *_adfImporter;
+    NSArray *_indexTitles;
+    NSArray *_roms;
+    ScrollToRowHandler *_scrollToRowHandler;
+}
 
 + (NSString *)getFileImportedNotificationName {
     return @"FileImportedNotification";
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
 	self.title = @"Browser";
-    self.adfImporter = [[AdfImporter alloc] init];
-    [self reloadAdfs];
+    _adfImporter = [[AdfImporter alloc] init];
+    _indexTitles = [@[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
+                      @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
+                      @"W", @"X", @"Y", @"Z", @"#"] retain];
+    _scrollToRowHandler = [[ScrollToRowHandler alloc] initWithTableView:self.tableView identity:[_extensions description]];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAdfChanged)
                                                  name:[EMUROMBrowserViewController getFileImportedNotificationName]
                                                object:nil];
-    
-    self.indexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
-                        @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
-                        @"W", @"X", @"Y", @"Z", @"#"];
+    [self reloadAdfs];
+    [_scrollToRowHandler scrollToRow];
 }
 
 - (void)reloadAdfs {
@@ -53,7 +61,7 @@
 	}
 	[sections addObject:[[EMUFileGroup alloc] initWithSectionName:@"#"]];
 	
-	EMUBrowser *browser = [[EMUBrowser alloc] init];
+	EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
     NSArray *files = [browser getFileInfosForExtensions:self.extensions];
 	for (EMUFileInfo* f in files) {
 		unichar c = [[f fileName] characterAtIndex:0];
@@ -66,8 +74,8 @@
 			[g.files addObject:f];
 		}
 	}
-	[browser release];
-	self.roms = sections;
+    [_roms release];
+    _roms = [sections retain];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -75,22 +83,23 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return self.roms.count;
+	return _roms.count;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return indexTitles;
+    return _indexTitles;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:section];
+	EMUFileGroup *g = (EMUFileGroup*)[_roms objectAtIndex:section];
 	return g.sectionName;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     unichar c = [title characterAtIndex:0];
-	if (c > 64 && c < 91)
+    if (c > 64 && c < 91) {
 		return c - 65;
+    }
 	
     return 26;
 }
@@ -101,25 +110,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
-	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:section];
+    EMUFileGroup *g = (EMUFileGroup*)[_roms objectAtIndex:section];
     return g.files.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath == selectedIndexPath)
-		return;
-	UITableViewCell *cell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-	cell.accessoryType = UITableViewCellAccessoryNone;
-	
-	cell = [tableView cellForRowAtIndexPath:indexPath];
-	self.selectedIndexPath = indexPath;
-		
-	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
-	EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
-	[self.navigationController popViewControllerAnimated:YES];
-    if (self.delegate) {
-		[self.delegate didSelectROM:fi withContext:context];
-	}
+    EMUFileGroup *g = (EMUFileGroup*)[_roms objectAtIndex:indexPath.section];
+    EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate didSelectROM:fi withContext:self.context];
+    [_scrollToRowHandler setRow:indexPath];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,7 +146,7 @@
     shareAction.backgroundColor = [UIColor blueColor];
     [editActions addObject:shareAction];
     
-    BOOL okToDelete = [self.adfImporter isDownloadedAdf:fileInfo.path];
+    BOOL okToDelete = [_adfImporter isDownloadedAdf:fileInfo.path];
     if (okToDelete) {
         UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
             BOOL deleted = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
@@ -167,15 +167,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
-    if (cell == nil)
+    if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_ID] autorelease];
+    }
 	
     cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	if ([indexPath compare:self.selectedIndexPath] == NSOrderedSame)
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-	else
-		cell.accessoryType = UITableViewCellAccessoryNone;
-	
     EMUFileInfo *fileInfo = [self getFileInfoForIndexPath:indexPath];
     cell.textLabel.text = [fileInfo fileName];
 	
@@ -183,17 +179,17 @@
 }
 
 - (EMUFileInfo *)getFileInfoForIndexPath:(NSIndexPath *)indexPath {
-    EMUFileGroup *group = [self.roms objectAtIndex:indexPath.section];
+    EMUFileGroup *group = [_roms objectAtIndex:indexPath.section];
     return [group.files objectAtIndex:indexPath.row];
 }
 
 - (void)dealloc {
-	self.roms = nil;
-	self.indexTitles = nil;
-	self.selectedIndexPath = nil;
-	self.context = nil;
-    self.adfImporter = nil;
+    self.context = nil;
     self.extensions = nil;
+    [_roms release];
+    [_indexTitles release];
+    [_adfImporter release];
+    [_scrollToRowHandler release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }

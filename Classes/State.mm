@@ -60,6 +60,20 @@
     }
 }
 
+- (BOOL)isEqual:(id)other {
+    if (other == self) {
+        return YES;
+    }
+    if (![other isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return [_name isEqualToString:((State *)other)->_name];
+}
+
+- (NSUInteger)hash {
+    return [_name hash];
+}
+
 - (NSString *)modificationDate {
     if (!_formattedModificationDate) {
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
