@@ -105,6 +105,7 @@
 }
 
 - (void)onAdfChanged {
+    [_scrollToRowHandler clearRow];
     [self reloadAdfs];
     [self.tableView reloadData];
 }
