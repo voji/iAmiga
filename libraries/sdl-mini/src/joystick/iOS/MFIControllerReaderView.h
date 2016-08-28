@@ -31,9 +31,8 @@
     @property (readonly) BOOL buttonr1pressed;
     @property (readonly) BOOL buttonr2pressed;
 
-    
-
     @property (readonly) int paused;
 
+-(void)moveMouse:(NSTimer *)timer;
 
 @end

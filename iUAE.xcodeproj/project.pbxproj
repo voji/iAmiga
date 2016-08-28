@@ -211,6 +211,7 @@
 		7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */; };
 		7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61F1C444C83000BF5CB /* gear_unselected.png */; };
 		7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.mm */; };
+		7E6BCCDB1D591DA900826CBD /* SettingsMouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */; };
 		7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */; };
 		7E770D791D109BF4000E5E1A /* UnappliedSettingLabelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */; };
 		7E770D7C1D109DEC000E5E1A /* CoreSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D7B1D109DEC000E5E1A /* CoreSetting.m */; };
@@ -1584,6 +1585,8 @@
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
 		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
 		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsJoypadMainController.mm; sourceTree = "<group>"; };
+		7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMouseController.h; sourceTree = "<group>"; };
+		7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMouseController.m; sourceTree = "<group>"; };
 		7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectPortViewController.h; sourceTree = "<group>"; };
 		7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsSelectPortViewController.mm; sourceTree = "<group>"; };
 		7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnappliedSettingLabelHandler.h; sourceTree = "<group>"; };
@@ -2809,6 +2812,8 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */,
+				7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */,
 				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
 				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
 				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
@@ -4944,6 +4949,7 @@
 				978550DF153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E2153A3F2E00580B91 /* SDL_error.c in Sources */,
 				7E2EF0DD1D004B9500CDD9B9 /* iUAEApplication.mm in Sources */,
+				7E6BCCDB1D591DA900826CBD /* SettingsMouseController.m in Sources */,
 				BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */,
 				BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */,
 				BE951AF71CA93F86008DD94B /* scsi-none.cpp in Sources */,

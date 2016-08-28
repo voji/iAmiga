@@ -2652,7 +2652,7 @@ static _INLINE_ uae_u16 JOY0DAT (void)
     
     if(bDontCareMouseIUAE)  //mithrendil
         return joy0dir;
-  
+    
     return ((uae_u8)mouse_x) + ((uae_u16)mouse_y << 8) + joy0dir;
 }
 

@@ -521,6 +521,7 @@ void save_state (char *filename, const char *description)
 #endif
     dst = save_rom (1, &len);
     do {
+        
         if (!dst)
             break;
         save_chunk (f, dst, len, "ROM ");

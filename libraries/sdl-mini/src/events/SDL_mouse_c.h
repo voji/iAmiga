@@ -13,6 +13,8 @@
 #define SDL_MOTIONABSOLUTE	0
 #define SDL_MOTIONRELATIVE	1
 
+
+
 /* Send a mouse motion event */
 extern int SDL_SendMouseMotion(SDL_Window * window, int relative, int x, int y);
 
