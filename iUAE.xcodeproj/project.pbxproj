@@ -2803,16 +2803,6 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */,
-				7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */,
-				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
-				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
-				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
-				7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */,
-				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
-				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */,
-				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
-				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
@@ -2855,6 +2845,8 @@
 				7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.mm */,
 				7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */,
 				7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */,
+				7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */,
+				7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */,
 				7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */,
 				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.mm */,
 				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
