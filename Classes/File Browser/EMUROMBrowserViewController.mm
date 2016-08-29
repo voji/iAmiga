@@ -152,6 +152,7 @@
         UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
             BOOL deleted = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
             if (deleted) {
+                [_scrollToRowHandler clearRow];
                 [self reloadAdfs];
                 [tableView beginUpdates];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
