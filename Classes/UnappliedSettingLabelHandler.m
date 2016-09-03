@@ -16,29 +16,48 @@
 
 #import "UnappliedSettingLabelHandler.h"
 
+/**
+ * So that UILabel can be used as key.
+ */
+@interface LabelWrapper : NSObject <NSCopying>
+
+- (instancetype)initWithLabel:(UILabel *)label;
+
+@property (nonatomic, retain) UILabel *label;
+
+@end
+
 @implementation UnappliedSettingLabelHandler {
     @private
-    NSMutableDictionary *_settingToLabel;
+    NSMutableDictionary *_labelToSettingsArray;
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        _settingToLabel = [[NSMutableDictionary alloc] init];
+        _labelToSettingsArray = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
 - (void)addResetWarningLabelForCell:(UITableViewCell *)cell forSetting:(CoreSetting *)setting {
+    [self addResetWarningLabelForCell:cell forSettings:@[setting]];
+}
+
+- (void)addResetWarningLabelForCell:(UITableViewCell *)cell forSettings:(NSArray *)settings {
+    if ([settings count] == 0) {
+        return;
+    }
     UILabel *label = [self newWarningLabel];
-    [self updateLabelState:label forSetting:setting];
+    [self updateLabelState:label forSettings:settings];
     [cell addSubview:label];
-    [cell bringSubviewToFront:label];    
-    [_settingToLabel setObject:label forKey:setting];
+    [cell bringSubviewToFront:label];
+    LabelWrapper *labelWrapper = [[[LabelWrapper alloc] initWithLabel:label] autorelease];
+    [_labelToSettingsArray setObject:settings forKey:labelWrapper];
 }
 
 - (void)layoutLabels {
-    for (UILabel *label in [_settingToLabel objectEnumerator]) {
-        [self addConstraintsTo:label];
+    for (LabelWrapper *labelWrapper in [_labelToSettingsArray keyEnumerator]) {
+        [self addConstraintsTo:labelWrapper.label];
     }
 }
 
@@ -62,15 +81,32 @@
 }
 
 - (void)updateLabelStates {
-    for (CoreSetting *setting in [_settingToLabel keyEnumerator]) {
-        UILabel *label = [_settingToLabel objectForKey:setting];
-        [self updateLabelState:label forSetting:setting];
+    for (LabelWrapper *labelWrapper in [_labelToSettingsArray allKeys]) {
+        NSArray *settings = [_labelToSettingsArray objectForKey:labelWrapper];
+        [self updateLabelState:labelWrapper.label forSettings:settings];
     }
+}
+
+- (void)updateLabelState:(UILabel *)label forSettings:(NSArray *)settings {
+    CoreSetting *setting = [self getFistSettingWithUnappliedValue:settings];
+    if (!setting) {
+        setting = [settings objectAtIndex:0];
+    }
+    [self updateLabelState:label forSetting:setting];
+}
+
+- (CoreSetting *)getFistSettingWithUnappliedValue:(NSArray *)settings {
+    for (CoreSetting *setting in settings) {
+        if ([setting hasUnappliedValue]) {
+            return setting;
+        }
+    }
+    return nil;
 }
 
 - (void)updateLabelState:(UILabel *)label forSetting:(CoreSetting *)setting {
     [label setHidden:![setting hasUnappliedValue]];
-    label.text = [setting getMessageForModification];
+    label.text = [setting getModificationDescription];
 }
 
 - (UILabel *)newWarningLabel {
@@ -82,7 +118,30 @@
 }
 
 - (void)dealloc {
-    [_settingToLabel release];
+    [_labelToSettingsArray release];
+    [super dealloc];
+}
+
+@end
+
+@implementation LabelWrapper {
+    @private
+    UILabel *_label;
+}
+
+- (instancetype)initWithLabel:(UILabel *)label {
+    if (self = [super init]) {
+        self.label = label;
+    }
+    return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [self retain];
+}
+
+- (void)dealloc {
+    self.label = nil;
     [super dealloc];
 }
 

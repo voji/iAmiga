@@ -40,6 +40,7 @@
 @property (readwrite, assign) IBOutlet UILabel *df3PathLabel;
 @property (readwrite, assign) IBOutlet UISwitch *df3Switch;
 @property (readwrite, assign) IBOutlet UILabel *hd0PathLabel;
+@property (readwrite, assign) IBOutlet UISegmentedControl *hd0ReadOnlySegmentedControl;
 @property (readwrite, assign) IBOutlet UISwitch *configAutoloadSwitch;
 @property (readwrite, assign) IBOutlet UILabel *configNameLabel;
 

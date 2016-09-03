@@ -15,15 +15,28 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import "CoreSetting.h"
+#import "CoreSettingGroup.h"
 #import "DiskDriveService.h"
 #import "HardDriveService.h"
+#import "MultiDictionary.h"
 #import "Settings.h"
 
 @interface CoreSettingsRegistry : NSObject
 
 + (CoreSettingsRegistry *)sharedRegistry;
 
+// CoreSetting instance -> the current value associated with that setting instance
 @property (nonatomic, readonly) NSMutableDictionary *settingToCurrentValue;
+
+// CoreSetting instance -> the CoreSettingGroup instance that setting is associated with
+// only has an entry if the CoreSetting conforms to the CoreSettingGroupMember protocol
+@property (nonatomic, readonly) NSMutableDictionary *settingToGroup;
+
+// The class name of a CoreSettingGroup -> the single instance of that CoreSettingGroup
+@property (nonnull, readonly) NSMutableDictionary *groupClassNameToGroup;
+
+// The CoreSettingGroup instance -> all CoreSetting instances that are part of it
+@property (nonnull, readonly) MultiDictionary *groupToSettings;
 
 @end
 
@@ -55,6 +68,23 @@
 }
 
 /**
+ * The NSString returned here is prepended to the message that describes the configuration change made by
+ * changing this CoreSetting's value.  
+ *
+ * For example: 
+ *    [Changing the ROM] requires resetting the emulator to take effect.
+ *
+ * or:
+ *    [Disabling a drive] requires resetting the emulator to take effect.
+ *
+ * Subclasses must implement.
+ */
+- (NSString *)hook_getActionDescription {
+    [NSException raise:@"Subclasses must implement" format:@"%@", NSStringFromSelector(_cmd)];
+    return nil;
+}
+
+/**
  * Callback where subclasses can run custom logic when the emulator is reset.  Subclasses may implement.
  *
  * This method is only called if hasUnappliedValue returns YES for this setting instance.
@@ -68,8 +98,24 @@
         _registry = [CoreSettingsRegistry sharedRegistry];
         _settings = [[Settings alloc] init];
         _settingName = [settingName retain];
+        
+        if ([[self class] conformsToProtocol:@protocol(CoreSettingGroupMember)]) {
+            [self initializeGroup];
+        }
     }
     return self;
+}
+
+- (void)initializeGroup {
+    Class groupClass = [((id<CoreSettingGroupMember>)self) getGroup];
+    NSString *groupClassName = NSStringFromClass(groupClass);
+    id<CoreSettingGroup> group = [_registry.groupClassNameToGroup objectForKey:groupClassName];
+    if (!group) {
+        group = [[[groupClass alloc] init] autorelease];
+        [_registry.groupClassNameToGroup setObject:group forKey:groupClassName];
+    }
+    [_registry.settingToGroup setObject:group forKey:self];
+    [_registry.groupToSettings setObject:self forKey:group];
 }
 
 - (void)setValue:(id)value {
@@ -106,8 +152,8 @@
     return [self getUnappliedValue] != nil;
 }
 
-- (NSString *)getMessageForModification {
-    return @"Requires reset to take effect";
+- (NSString *)getModificationDescription {
+    return [NSString stringWithFormat:@"%@ requires resetting the emulator to take effect", [self hook_getActionDescription]];
 }
 
 - (id)copyWithZone:(nullable NSZone *)zone {
@@ -119,7 +165,7 @@
 }
 
 - (BOOL)eq:(id)thing1 to:(id)thing2 {
-    if (!thing1 && !thing2) return YES;
+    if (thing1 == thing2) return YES;
     if (!thing1 && thing2 == [NSNull null]) return YES;
     if (thing1 == [NSNull null] && !thing2) return YES;
     return [thing1 isEqual:thing2];
@@ -158,6 +204,10 @@
 
 @implementation RomCoreSetting
 
+- (NSString *)hook_getActionDescription {
+    return @"Change";
+}
+
 - (void)hook_persistValue:(NSString *)romPath {
     _settings.romPath = romPath;
 }
@@ -174,9 +224,9 @@
 
 @implementation DiskDriveEnabledCoreSetting
 
-- (NSString *)getMessageForModification {
-    BOOL enabled = [[self getUnappliedValue] boolValue];
-    return [NSString stringWithFormat:@"%@ drive: requires reset to take effect", enabled ? @"Enabled" : @"Disabled"];
+- (NSString *)hook_getActionDescription {
+    BOOL enabled = [[self getValue] boolValue];
+    return enabled ? @"Enabling" : @"Disabling";
 }
 
 - (void)hook_persistValue:(NSNumber *)enabled {
@@ -237,8 +287,8 @@
 
 @end
 
-@implementation HD0PathCoreSetting {
-    @private
+@implementation HardDriveBasedCoreSetting {
+    @protected
     HardDriveService *_hardDriveService;
 }
 
@@ -254,23 +304,81 @@
     [super dealloc];
 }
 
+@end
+
+@implementation HD0PathCoreSetting
+
 - (void)hook_persistValue:(NSString *)hd0Path {
     _settings.hardfilePath = hd0Path;
 }
 
-- (void)hook_onReset:(NSString *)newHDFfPath {
-    NSString *currentHDFPath = [self hook_getEmulatorValue];
-    BOOL unmount = !newHDFfPath || (currentHDFPath && ![currentHDFPath isEqualToString:newHDFfPath]);
-    if (unmount) {
+- (NSString *)hook_getEmulatorValue {
+    return [_hardDriveService getMountedHardfilePath];
+}
+
+- (NSString *)hook_getActionDescription {
+    NSString *hdfpath = [self getValue];
+    return hdfpath ? @"Mounting" : @"Unmounting";
+}
+
+- (Class)getGroup {
+    return HD0SettingGroup.self;
+}
+
+@end
+
+@implementation HD0ReadOnlyCoreSetting
+
+- (void)hook_persistValue:(NSNumber *)hd0ReadOnly {
+    _settings.hardfileReadOnly = [hd0ReadOnly boolValue];
+}
+
+- (NSNumber *)hook_getEmulatorValue {
+    BOOL readOnly = [_hardDriveService readOnly];
+    return [NSNumber numberWithBool:readOnly];
+}
+
+- (NSString *)hook_getActionDescription {
+    BOOL readOnly = [[self getValue] boolValue];
+    return [NSString stringWithFormat:@"Mounting as %@", readOnly ? @"read-only" : @"read-write"];
+}
+
+- (Class)getGroup {
+    return HD0SettingGroup.self;
+}
+
+@end
+
+@implementation HD0SettingGroup {
+    @private
+    HardDriveService *_hardDriveService;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _hardDriveService = [[HardDriveService alloc] init];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [_hardDriveService release];
+    [super dealloc];
+}
+
+- (void)onResetAfterMembers:(NSSet *)groupMembers {
+    NSString *hd0Path = [[CoreSettings hd0PathCoreSetting] getValue];
+    if ([_hardDriveService mounted]) {
         [_hardDriveService unmountHardfile];
     }
-    if (newHDFfPath) {
-        [_hardDriveService mountHardfile:newHDFfPath];
+    if (hd0Path) {
+        BOOL readOnly = [[[CoreSettings hd0ReadOnlyCoreSetting] getValue] boolValue];
+        [_hardDriveService mountHardfile:hd0Path asReadOnly:readOnly];
     }
 }
 
-- (NSString *)hook_getEmulatorValue {
-    return [_hardDriveService getMountedHardfilePath];
+- (id)copyWithZone:(nullable NSZone *)zone {
+    return self;
 }
 
 @end
@@ -278,6 +386,11 @@
 extern int mainMenu_ntsc;
 
 @implementation NTSCEnabledCoreSetting
+
+- (NSString *)hook_getActionDescription {
+    BOOL enabled = [[self getValue] boolValue];
+    return [NSString stringWithFormat:@"%@ NTSC", enabled ? @"Enabling" : @"Disabling"];
+}
 
 - (void)hook_persistValue:(NSNumber *)enabled {
     _settings.ntsc = [enabled boolValue];
@@ -307,6 +420,9 @@ extern int mainMenu_ntsc;
 - (instancetype)init {
     if (self = [super init]) {
         _settingToCurrentValue = [[NSMutableDictionary alloc] init];
+        _settingToGroup = [[NSMutableDictionary alloc] init];
+        _groupClassNameToGroup = [[NSMutableDictionary alloc] init];
+        _groupToSettings = [[MultiDictionary alloc] init];
     }
     return self;
 }
@@ -316,13 +432,28 @@ extern int mainMenu_ntsc;
 @implementation CoreSettings
 
 + (void)onReset {
-    NSMutableDictionary *sToV = [CoreSettingsRegistry sharedRegistry].settingToCurrentValue;
+    CoreSettingsRegistry *reg = [CoreSettingsRegistry sharedRegistry];
+    NSMutableDictionary *sToV = reg.settingToCurrentValue;
+    NSMutableSet *settingsBeingReset = [NSMutableSet setWithCapacity:[sToV count]];
     for (CoreSetting *setting in sToV.keyEnumerator) {
         id unappliedValue = [sToV objectForKey:setting];
         if (unappliedValue) {
             [setting hook_onReset:unappliedValue == [NSNull null] ? nil : unappliedValue];
         }
+        [settingsBeingReset addObject:setting];
     }
+    
+    NSMutableSet *handledGroups = [[[NSMutableSet alloc] init] autorelease];    
+    for (CoreSetting *setting in sToV.keyEnumerator) {
+        id<CoreSettingGroup> group = [reg.settingToGroup objectForKey:setting];
+        if (group && ![handledGroups containsObject:group]) {
+            [handledGroups addObject:group];
+            NSMutableSet *groupedSettings = [NSMutableSet setWithSet:[reg.groupToSettings objectsForKey:group]];
+            [groupedSettings intersectSet:settingsBeingReset];
+            [group onResetAfterMembers:groupedSettings];
+        }
+    }
+
     [sToV removeAllObjects];
 }
 
@@ -368,6 +499,15 @@ extern int mainMenu_ntsc;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         setting = [[HD0PathCoreSetting alloc] initWithName:@"HD0Path"];
+    });
+    return setting;
+}
+
++ (HD0ReadOnlyCoreSetting *)hd0ReadOnlyCoreSetting {
+    static HD0ReadOnlyCoreSetting *setting = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        setting = [[HD0ReadOnlyCoreSetting alloc] initWithName:@"HD0ReadOnlyWrite"];
     });
     return setting;
 }

@@ -79,6 +79,7 @@ static const NSUInteger kHardDrivesSection = 4;
     DF2EnabledCoreSetting *_df2EnabledSetting;
     DF3EnabledCoreSetting *_df3EnabledSetting;
     HD0PathCoreSetting *_hd0PathSetting;
+    HD0ReadOnlyCoreSetting *_hd0ReadOnlySetting;
     RomCoreSetting *_romSetting;
 }
 
@@ -92,6 +93,7 @@ static const NSUInteger kHardDrivesSection = 4;
     _df2EnabledSetting = [[CoreSettings df2EnabledCoreSetting] retain];
     _df3EnabledSetting = [[CoreSettings df3EnabledCoreSetting] retain];
     _hd0PathSetting = [[CoreSettings hd0PathCoreSetting] retain];
+    _hd0ReadOnlySetting = [[CoreSettings hd0ReadOnlyCoreSetting] retain];
     _romSetting = [[CoreSettings romCoreSetting] retain];
 }
 
@@ -113,11 +115,12 @@ static const NSUInteger kHardDrivesSection = 4;
     [self setupDriveLabels];
     [self setupAutoloadConfigSwitch];
     [self setupConfigurationName];
-    [self setupDriveSwitches];
+    [self setupDriveEnabledSwitches];
+    [self setupDriveReadOnlySwitches];
     [self setupWarningLabels];
 }
 
-- (void)setupDriveSwitches {
+- (void)setupDriveEnabledSwitches {
     [_df1Switch setOn:[[_df1EnabledSetting getValue] boolValue]];
     [_df2Switch setOn:[[_df2EnabledSetting getValue] boolValue]];
     [_df3Switch setOn:[[_df3EnabledSetting getValue] boolValue]];
@@ -138,6 +141,12 @@ static const NSUInteger kHardDrivesSection = 4;
     
     NSString *hdfPath = [_hd0PathSetting getValue];
     [_hd0PathLabel setText:hdfPath ? [hdfPath lastPathComponent] : @""];
+}
+
+- (void)setupDriveReadOnlySwitches {
+    NSUInteger selectedSegment = [[_hd0ReadOnlySetting getValue] boolValue] ? 0 : 1;
+    [_hd0ReadOnlySegmentedControl setSelectedSegmentIndex:selectedSegment];
+    _hd0ReadOnlySegmentedControl.userInteractionEnabled = [_hd0PathSetting getValue] != nil;
 }
 
 - (void)setupWarningLabels {
@@ -179,6 +188,11 @@ static const NSUInteger kHardDrivesSection = 4;
     [self setupWarningLabels];
 }
 
+- (IBAction)toggleHD0ReadOnly {
+    [_hd0ReadOnlySetting setValue:[NSNumber numberWithBool:_hd0ReadOnlySegmentedControl.selectedSegmentIndex == 0 ? YES : NO]];
+    [self setupWarningLabels];
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kDiskDrivesSection)
     {
@@ -198,41 +212,38 @@ static const NSUInteger kHardDrivesSection = 4;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [super tableView:self.tableView cellForRowAtIndexPath:indexPath];
-    CoreSetting *cellSetting = [self getSettingIfEmualatorResetIsRequiredWhenValueChanges:indexPath];
-    if (cellSetting)
-    {
-        [_settingLabelHandler addResetWarningLabelForCell:cell forSetting:cellSetting];
-    }
+    NSArray *settings = [self getSettingsForIndexPath:indexPath];
+    [_settingLabelHandler addResetWarningLabelForCell:cell forSettings:settings];
     return cell;
 }
 
-- (CoreSetting *)getSettingIfEmualatorResetIsRequiredWhenValueChanges:(NSIndexPath *)indexPath {
+- (NSArray *)getSettingsForIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kRomSection)
     {
-        return _romSetting;
+        return @[_romSetting];
     }
     else if (indexPath.section == kDiskDrivesSection)
     {
         int driveNumber = indexPath.row;
         if (driveNumber == 1)
         {
-            return _df1EnabledSetting;
+            return @[_df1EnabledSetting];
         }
         else if (driveNumber == 2)
         {
-            return _df2EnabledSetting;
+            return @[_df2EnabledSetting];
         }
         else if (driveNumber == 3)
         {
-            return _df3EnabledSetting;
+            return @[_df3EnabledSetting];
         }
 
     }
     else if (indexPath.section == kHardDrivesSection)
     {
-        return  _hd0PathSetting;
+        return @[_hd0PathSetting, _hd0ReadOnlySetting];
     }
-    return nil;
+    return @[];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -247,6 +258,8 @@ static const NSUInteger kHardDrivesSection = 4;
         else
         {
             [_hd0PathSetting setValue:nil];
+            [_hd0ReadOnlySetting setValue:[NSNumber numberWithBool:YES]];
+            [self setupDriveReadOnlySwitches];
         }
         [self.tableView setEditing:NO animated:YES];
         [self setupDriveLabels];
@@ -323,7 +336,7 @@ static const NSUInteger kHardDrivesSection = 4;
     }
 }
 
-// SelectRomDelegate - callback when selecting an adf/rom
+// SelectRomDelegate - callback when selecting an adf/rom/hdf
 - (void)didSelectROM:(EMUFileInfo *)fileInfo withContext:(id<FileSelectionContext>)ctx {
     NSString *path = [fileInfo path];
     if ([ctx class] == [RomSelectionContext class])
@@ -422,11 +435,13 @@ static const NSUInteger kHardDrivesSection = 4;
     [_diskDriveService release];
     [_settings release];
     [_emulatorScreenshot release];
+    [_settingLabelHandler release];
 
     [_df1EnabledSetting release];
     [_df2EnabledSetting release];
     [_df3EnabledSetting release];
     [_hd0PathSetting release];
+    [_hd0ReadOnlySetting release];
     [_romSetting release];
     
     [super dealloc];

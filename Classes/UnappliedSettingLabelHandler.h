@@ -20,9 +20,16 @@
 @interface UnappliedSettingLabelHandler : NSObject
 
 /**
- * Adds a "emulator requires reset" label to the specified cell.  The label is associated with the given setting.
+ * Adds a label to the specified cell; the label is associated with the given setting and shows a "requires emulator reset" type
+ * message when the setting has an unapplied value.
  */
 - (void)addResetWarningLabelForCell:(UITableViewCell *)cell forSetting:(CoreSetting *)setting;
+
+/**
+ * Adds a label to the specified cell; the label is associated with the given settings and shows a "requires emulator reset" type
+ * message when the first setting found in the array has an unapplied value.
+ */
+- (void)addResetWarningLabelForCell:(UITableViewCell *)cell forSettings:(NSArray *)settings;
 
 /**
  * Required to be called before the final view renders.
