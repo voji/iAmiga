@@ -56,6 +56,14 @@ static NSString *const kDPadTouchOrMotion = @"_dpadTouchOrMotion";
 static NSString *const kGyroToggleUpDown = @"_gyroToggleUpDown";
 static NSString *const kGyroSensitivity = @"_gyroSensitivity";
 
+<<<<<<< HEAD
+=======
+static NSString *const kRstickmouseFlag = @"_rstickmouseflag";
+static NSString *const kLstickmouseFlag = @"_lstickmouseflag";
+static NSString *const kL2mouseFlag = @"_L2mouseFlag";
+static NSString *const kR2mouseFlag = @"_R2mouseFlag";
+
+>>>>>>> dev
 static NSString *const kRomPath = @"romPath";
 static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
@@ -142,8 +150,16 @@ static int _cNumber = 1;
     self.gyroSensitivity =          [self keyExists:kGyroSensitivity]           ? self.gyroSensitivity : 0.1;
     self.controllersnextid =        [self keyExists:kControllersNextIDKey]      ? self.controllersnextid : 1;
     self.controllers =              [self keyExists:kControllersKey]            ? self.controllers : [NSArray arrayWithObjects:@1, nil];
+<<<<<<< HEAD
     
     
+=======
+    self.LStickAnalogIsMouse =      [self keyExists:kLstickmouseFlag]           ? self.LStickAnalogIsMouse : NO;
+    self.RStickAnalogIsMouse =      [self keyExists:kRstickmouseFlag]           ? self.RStickAnalogIsMouse : NO;
+    self.useL2forMouseButton =      [self keyExists:kL2mouseFlag]               ? self.useL2forMouseButton : NO;
+    self.useR2forRightMouseButton = [self keyExists:kR2mouseFlag]               ? self.useR2forRightMouseButton : NO;
+    
+>>>>>>> dev
     for(int i=1;i<=8;i++)
     {
         if(![self keyConfigurationforButton:BTN_A forController:i])
@@ -300,6 +316,44 @@ static int _cNumber = 1;
     [self setFloat:gyroSensitivity forKey:kGyroSensitivity];
 }
 
+<<<<<<< HEAD
+=======
+- (BOOL)RStickAnalogIsMouse {
+    return [self boolForKey:kRstickmouseFlag];
+}
+
+- (BOOL)LStickAnalogIsMouse {
+    return [self boolForKey:kLstickmouseFlag];
+}
+
+- (BOOL) useL2forMouseButton {
+    return [self boolForKey:kL2mouseFlag];
+}
+
+- (BOOL) useR2forRightMouseButton {
+    return [self boolForKey:kR2mouseFlag];
+}
+
+- (void) setUseL2forMouseButton:(BOOL)L2mouseFlag {
+    [self setBool:L2mouseFlag forKey:kL2mouseFlag];
+}
+
+- (void) setUseR2forRightMouseButton:(BOOL)R2mouseFlag {
+    [self setBool:R2mouseFlag forKey:kR2mouseFlag];
+}
+
+
+- (void)setRStickAnalogIsMouse:(BOOL)rstickmouseFlag
+{
+    [self setBool:rstickmouseFlag forKey:kRstickmouseFlag];
+}
+
+- (void)setLStickAnalogIsMouse:(BOOL)lstickmouseFlag
+{
+    [self setBool:lstickmouseFlag forKey:kLstickmouseFlag];
+}
+
+>>>>>>> dev
 -(NSString *)keyConfigurationforButton:(int)bID forController:(int)cNumber
 {
     if(cNumber == 1)

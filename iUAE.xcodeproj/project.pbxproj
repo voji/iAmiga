@@ -211,6 +211,10 @@
 		7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61D1C444C65000BF5CB /* keyboard_unselected.png */; };
 		7E5AF6201C444C83000BF5CB /* gear_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF61F1C444C83000BF5CB /* gear_unselected.png */; };
 		7E66C1C21C5E1E89008B34D0 /* SettingsJoypadMainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.mm */; };
+<<<<<<< HEAD
+=======
+		7E6BCCDB1D591DA900826CBD /* SettingsMouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */; };
+>>>>>>> dev
 		7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */; };
 		7E770D791D109BF4000E5E1A /* UnappliedSettingLabelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */; };
 		7E770D7C1D109DEC000E5E1A /* CoreSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D7B1D109DEC000E5E1A /* CoreSetting.m */; };
@@ -218,6 +222,10 @@
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
 		7E922A801CF0AD6000D8006F /* touchstick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E922A7F1CF0AD6000D8006F /* touchstick.mm */; };
+<<<<<<< HEAD
+=======
+		7E98D5751D4E1241002EFBE0 /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
+>>>>>>> dev
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
@@ -229,7 +237,6 @@
 		7EA4D65A1923ECC100C58BB9 /* TouchHandlerViewClassic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D6561923ECC100C58BB9 /* TouchHandlerViewClassic.m */; };
 		7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */; };
 		7EA5E7891AED732500FCE311 /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA5E7881AED732500FCE311 /* sticky.png */; };
-		7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
 		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.mm */; };
@@ -1249,6 +1256,10 @@
 		BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFC1CA942B1008DD94B /* expansion.cpp */; };
 		BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */; };
 		BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */; };
+<<<<<<< HEAD
+=======
+		BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */; };
+>>>>>>> dev
 		BEE41BC31B4782D200CE487D /* AdfImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.mm */; };
 		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
 		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
@@ -1580,6 +1591,11 @@
 		7E5AF61F1C444C83000BF5CB /* gear_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unselected.png; sourceTree = "<group>"; };
 		7E66C1C01C5E1E89008B34D0 /* SettingsJoypadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadMainController.h; sourceTree = "<group>"; };
 		7E66C1C11C5E1E89008B34D0 /* SettingsJoypadMainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsJoypadMainController.mm; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMouseController.h; sourceTree = "<group>"; };
+		7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMouseController.m; sourceTree = "<group>"; };
+>>>>>>> dev
 		7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectPortViewController.h; sourceTree = "<group>"; };
 		7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsSelectPortViewController.mm; sourceTree = "<group>"; };
 		7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnappliedSettingLabelHandler.h; sourceTree = "<group>"; };
@@ -2134,6 +2150,11 @@
 		BE951AFE1CA942E5008DD94B /* picasso96.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picasso96.h; path = include/picasso96.h; sourceTree = "<group>"; };
 		BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb_unix.cpp; sourceTree = "<group>"; };
 		BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardfile.cpp; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollToRowHandler.h; sourceTree = "<group>"; };
+		BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollToRowHandler.m; sourceTree = "<group>"; };
+>>>>>>> dev
 		BEE41BC11B4782D200CE487D /* AdfImporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdfImporter.mm; sourceTree = "<group>"; };
 		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
 		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
@@ -2809,23 +2830,38 @@
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
 				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
+				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
+				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
 				BE52EFA91B4FC9B8008E15E6 /* DriveState.h */,
 				BE52EFA81B4FC9B8008E15E6 /* DriveState.m */,
-				7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */,
-				7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */,
 				BEF413D01CA411CF00CCC1F5 /* HardDriveService.h */,
 				BEF413D11CA411CF00CCC1F5 /* HardDriveService.mm */,
+				7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */,
+				7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */,
+<<<<<<< HEAD
+				BEF413D01CA411CF00CCC1F5 /* HardDriveService.h */,
+				BEF413D11CA411CF00CCC1F5 /* HardDriveService.mm */,
+=======
+				7EADD3141CB2FAA100136978 /* JoypadSelectionController.h */,
+				7EADD3151CB2FAA100136978 /* JoypadSelectionController.mm */,
+>>>>>>> dev
 				BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */,
 				BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */,
 				BE66229B1C3285B3009C2809 /* KeyButtonConfigurationController.h */,
 				BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */,
 				BE6622981C328442009C2809 /* KeyButtonManagementController.h */,
 				BE6622991C328442009C2809 /* KeyButtonManagementController.mm */,
+<<<<<<< HEAD
 				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
 				7EADD3141CB2FAA100136978 /* JoypadSelectionController.h */,
 				7EADD3151CB2FAA100136978 /* JoypadSelectionController.mm */,
+=======
+				BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */,
+				BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */,
+				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
+>>>>>>> dev
 				7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
 				05D5233512E8030E007912AE /* SelectEffectController.mm */,
@@ -2843,16 +2879,32 @@
 				7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.mm */,
 				7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */,
 				7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */,
+<<<<<<< HEAD
 				7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */,
 				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.mm */,
+=======
+				7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */,
+				7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */,
+				7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */,
+				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.mm */,
+				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
+				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */,
+>>>>>>> dev
 				7EB017771B09164900C74B9D /* State.h */,
 				7EB017761B09164900C74B9D /* State.mm */,
 				7EB017741B09164900C74B9D /* StateFileManager.mm */,
 				7EB017751B09164900C74B9D /* StateFileManager.h */,
 				7EB017641B09115900C74B9D /* StateManagementController.h */,
 				7EB017631B09115900C74B9D /* StateManagementController.mm */,
+				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
+				7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */,
 				7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */,
 				BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.mm */,
+<<<<<<< HEAD
+=======
+				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
+				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
+>>>>>>> dev
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4829,12 +4881,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+=======
+				7E98D5751D4E1241002EFBE0 /* savestate.cpp in Sources */,
+>>>>>>> dev
 				7E4D0FBF1CF4E8F600758750 /* VirtualKeyboard.mm in Sources */,
 				7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */,
 				7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */,
 				7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */,
 				7EC59ED21BAC52390097B87A /* SettingsJoypadStyle.mm in Sources */,
+<<<<<<< HEAD
 				7EA7D6F0187B47AE0092FC2F /* savestate.cpp in Sources */,
+=======
+>>>>>>> dev
 				7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */,
 				7EB017711B09143000C74B9D /* SVProgressHUD.m in Sources */,
 				051B23B012C994BB000C2800 /* DisaSupport.cpp in Sources */,
@@ -4927,6 +4986,10 @@
 				978550DF153A3F2E00580B91 /* SDL.mm in Sources */,
 				978550E2153A3F2E00580B91 /* SDL_error.c in Sources */,
 				7E2EF0DD1D004B9500CDD9B9 /* iUAEApplication.mm in Sources */,
+<<<<<<< HEAD
+=======
+				7E6BCCDB1D591DA900826CBD /* SettingsMouseController.m in Sources */,
+>>>>>>> dev
 				BE2CA1E21C42219000B84C2C /* KeyButtonViewHandler.m in Sources */,
 				BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */,
 				BE951AF71CA93F86008DD94B /* scsi-none.cpp in Sources */,
@@ -4946,6 +5009,7 @@
 				BEE41BD41B4784AC00CE487D /* unzip.c in Sources */,
 				BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
+				BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */,
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,

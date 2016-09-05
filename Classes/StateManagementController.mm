@@ -20,15 +20,20 @@
 #include "savestate.h"
 
 #import "CoreSetting.h"
+<<<<<<< HEAD
+=======
+#import "ScrollToRowHandler.h"
+>>>>>>> dev
 #import "State.h"
 #import "StateManagementController.h"
 #import "StateFileManager.h"
 #import "SVProgressHUD.h"
 
-static NSString *kSaveStateAlertTitle = @"Save";
+static NSString *const kSaveStateAlertTitle = @"Save";
 
 @implementation StateManagementController {
     @private
+    ScrollToRowHandler *_scrollToRowHandler;
     StateFileManager *_stateFileManager;
     NSArray *_states;
     UIBarButtonItem *_saveButton;
@@ -38,6 +43,7 @@ static NSString *kSaveStateAlertTitle = @"Save";
 # pragma mark - init/dealloc
 
 - (void)dealloc {
+    [_scrollToRowHandler release];
     [_stateFileManager release];
     [_states release];
     [_saveButton release];
@@ -51,11 +57,14 @@ static NSString *kSaveStateAlertTitle = @"Save";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initNavigationBarButtons];
+    _scrollToRowHandler = [[ScrollToRowHandler alloc] initWithTableView:self.statesTableView identity:@"states"];
     _stateFileManager = [[StateFileManager alloc] init];
     [_stateNameTextField addTarget:self action:@selector(onStateNameTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
     [self reloadStates];
     [self configureForDevice];
+    [self setStateNameTextFieldForSelectedState];
     [self updateUIState];
+    [_scrollToRowHandler scrollToRow];
 }
 
 #pragma mark - UITableViewDelegate methods
@@ -71,7 +80,7 @@ static NSString *kSaveStateAlertTitle = @"Save";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     State *selectedState = [_states objectAtIndex:indexPath.row];
-    _stateNameTextField.text = selectedState.name;
+    [self updateStateNameTextField:selectedState];
     _selectedStateScreenshot.image = selectedState.image;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self updateUIState];
@@ -90,6 +99,7 @@ static NSString *kSaveStateAlertTitle = @"Save";
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView endUpdates];
         [self clearSelectedStateScreenshotImage];
+        [_scrollToRowHandler clearRow];
         [self updateUIState];
     }
 }
@@ -175,8 +185,13 @@ static NSString *kSaveStateAlertTitle = @"Save";
     savestate_state = STATE_DORESTORE;
     [CoreSettings onReset]; // restoring a state resets the emulator
     
-    // the state restore logic, including inserting the floppy(ies) associated with the state, only runs when exiting settings.  In order to reduce confusion about what
-    // floppies are inserted after the state has been restored, exit settings now
+    // set the selected state to the one that is being restored
+    NSUInteger index = [_states indexOfObject:stateToRestore];
+    [_scrollToRowHandler setRow:[NSIndexPath indexPathForRow:index inSection:0]];
+    
+    // the state restore logic, including inserting the floppy(ies) associated with the state,
+    // only runs after exiting settings - in order to reduce confusion about what floppies are
+    // inserted after a state has been selected to be restored, exit settings now
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -198,6 +213,11 @@ static NSString *kSaveStateAlertTitle = @"Save";
     [self dismissKeyboard];
     [self updateUIState];
     [self showStatusHUD:[NSString stringWithFormat:@"Saved state %@", stateName]];
+    
+    // set the selected state to the one that was just saved, and scroll to it
+    NSUInteger index = [_states indexOfObject:state];
+    [_scrollToRowHandler setRow:[NSIndexPath indexPathForRow:index inSection:0]];
+    [_scrollToRowHandler scrollToRow];
 }
 
 - (void)clearSelectedStateScreenshotImage {
@@ -217,6 +237,17 @@ static NSString *kSaveStateAlertTitle = @"Save";
 
 - (void)updateNavigationBarTitle {
     self.navigationItem.title = [_states count] == 0 ? @"No saved states" : [NSString stringWithFormat:@"Saved states: %i", [_states count]];
+}
+
+- (void)setStateNameTextFieldForSelectedState {
+    NSIndexPath *indexPath = [_scrollToRowHandler getRow];
+    if (indexPath) {
+        [self updateStateNameTextField:[_states objectAtIndex:indexPath.row]];
+    }
+}
+
+- (void)updateStateNameTextField:(State *)state {
+    _stateNameTextField.text = state.name;
 }
 
 - (void)initNavigationBarButtons {

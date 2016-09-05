@@ -1,4 +1,8 @@
 //  Created by Emufr3ak on 29.05.14.
+<<<<<<< HEAD
+=======
+//  Changed By Emufr3ak on 21.08.16
+>>>>>>> dev
 //
 //  iUAE is free software: you may copy, redistribute
 //  and/or modify it under the terms of the GNU General Public License as
@@ -22,16 +26,53 @@
 #import "Settings.h"
 #import "SDL_events.h"
 #import "MultiPeerConnectivityController.h"
+<<<<<<< HEAD
 #import <ExternalAccessory/ExternalAccessory.h>
 
+=======
+extern "C" {
+    #import "SDL_events.h"
+    #import "SDL_mouse_c.h"
+}
+    
+#import <ExternalAccessory/ExternalAccessory.h>
+
+#define MOUSESPEED 3.00
+
+#define DIGSTICK 1
+#define LANSTICK 2
+#define RANSTICK 3
+
+static NSString *const kdigStick = @"digStick";
+static NSString *const klanalogStick = @"lanalogStick";
+static NSString *const kranalogStick = @"ranalogStick";
+
+
+>>>>>>> dev
 @implementation MFIControllerReaderView {
     int _button[9];
     TouchStickDPadState _hat_statelast;
     TouchStickDPadState _hat_state;
+<<<<<<< HEAD
     MultiPeerConnectivityController *mpcController;
     int _buttontoreleasehorizontal;
     int _buttontoreleasevertical;
     int _devCount;
+=======
+    TouchStickDPadState _mlastHatstate;
+    TouchStickDPadState _mHatstate;
+    
+    MultiPeerConnectivityController *mpcController;
+    int _buttontoreleasehorizontal;
+    int _buttontoreleasevertical;
+    int _mrelvertButton;
+    int _mrelhorButton;
+    int _devCount;
+    Settings *_settings;
+    int _mouseX;
+    int _mouseY;
+    NSTimer *_mouseTimer;
+>>>>>>> dev
 }
 
 
@@ -42,7 +83,10 @@
     _devCount = 0;
     _hat_state = DPadCenter;
     _buttonapressed = false;
+<<<<<<< HEAD
     //_thejoystick = &g_touchStick;
+=======
+>>>>>>> dev
     _hat_statelast = DPadCenter;
     mpcController = [MultiPeerConnectivityController getinstance];
     
@@ -52,7 +96,23 @@
     [self initNotifications];
     [self initControllers];
     
+<<<<<<< HEAD
     return self;
+=======
+    _settings = [[Settings alloc] init];
+
+    if(_settings.LStickAnalogIsMouse || _settings.RStickAnalogIsMouse) {
+        if (_mouseTimer) {
+            [_mouseTimer release];
+        }
+        _mouseTimer = [[NSTimer scheduledTimerWithTimeInterval:0.020 target:self
+                                                       selector:@selector(moveMouse:) userInfo:nil repeats:YES] retain];
+        _mouseTimer.tolerance = 0.0020;
+    }
+    
+    return self;
+    
+>>>>>>> dev
 }
 
 - (void)initNotifications {
@@ -90,6 +150,13 @@
     
 }
 
+<<<<<<< HEAD
+=======
+-(void)moveMouse:(NSTimer *)timer {
+    SDL_SendMouseMotion(NULL, SDL_MOTIONRELATIVE, _mouseX, _mouseY);
+}
+
+>>>>>>> dev
 - (void)deviceConnected:(NSNotification *)devNotification {
     /* Make sure this is an MFI Controller */
     
@@ -116,10 +183,77 @@
 
 - (void)handleinputbuttons:(int)buttonid forDeviceid:(NSString *)devID
 {
+<<<<<<< HEAD
     
     _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid] deviceid:devID];
     
     NSLog(@"Buttonstate: %d",_button[buttonid]);
+=======
+    if((buttonid == BTN_L2 && _settings.useL2forMouseButton == true) ||
+       (buttonid == BTN_R2 && _settings.useR2forRightMouseButton == true))
+        [self handleminputbuttons:(int)buttonid];
+    else
+        _button[buttonid] = [mpcController handleinputbuttons:buttonid buttonstate:_button[buttonid] deviceid:devID];
+}
+
+- (void)handleminputbuttons:(int)buttonid {
+    _button[buttonid] = !_button[buttonid];
+    
+    int mbtnID = buttonid == BTN_L2 ? SDL_BUTTON_LEFT : SDL_BUTTON_RIGHT;
+    
+    if(_button[buttonid]) SDL_SendMouseButton(NULL, SDL_PRESSED, mbtnID);
+    else SDL_SendMouseButton(NULL, SDL_RELEASED, mbtnID);
+}   
+
+- (void) handlehatstate:(float)xAxis yAxis:(float)yAxis forDeviceid:(NSString *)devID forStick:(int)stickType; {
+    
+   
+    
+    if((stickType == LANSTICK && _settings.LStickAnalogIsMouse) ||
+       (stickType == RANSTICK && _settings.RStickAnalogIsMouse)) {
+        [self handlemhatstate:xAxis yAxis:yAxis];
+    }
+    else {
+        if(xAxis < 0) {
+            if(yAxis > 0)                       [self handlejhatstate:DPadUpLeft forDeviceid:devID];
+            else if(yAxis < 0)                  [self handlejhatstate:DPadDownLeft forDeviceid:devID];
+            else                                [self handlejhatstate:DPadLeft forDeviceid:devID ];
+        }
+        else if(xAxis > 0)
+        {
+            if(yAxis > 0)                       [self handlejhatstate:DPadUpRight forDeviceid:devID];
+            else if(yAxis < 0)                  [self handlejhatstate:DPadDownRight forDeviceid:devID];
+            else                                [self handlejhatstate:DPadRight forDeviceid:devID];
+        }
+        else if(yAxis > 0)                      [self handlejhatstate:DPadUp forDeviceid:devID];
+        else if(yAxis < 0)                      [self handlejhatstate:DPadDown forDeviceid:devID];
+    }
+}
+
+- (void) handlejhatstate:(TouchStickDPadState)hatState forDeviceid:(NSString *)devID {
+    
+    _hat_state = hatState;
+    
+    if (_hat_state != _hat_statelast) {
+        _hat_statelast = _hat_state;
+        
+        int buttonvertical = [mpcController dpadstatetojoypadkey:@"vertical" hatstate:_hat_state];
+        int buttonhorizontal = [mpcController dpadstatetojoypadkey:@"horizontal" hatstate: _hat_state];
+        
+        [mpcController handleinputdirections:_hat_state buttontoreleasevertical:_buttontoreleasevertical buttontoreleasehorizontal: _buttontoreleasehorizontal deviceid:devID];
+        
+        _buttontoreleasehorizontal = buttonhorizontal;
+        _buttontoreleasevertical = buttonvertical;
+    }
+
+}
+
+- (void) handlemhatstate:(float)xAxis yAxis:(float)yAxis {
+    
+    _mouseX = (int) (xAxis * MOUSESPEED);
+    _mouseY = (int) (yAxis * MOUSESPEED) * -1;
+    
+>>>>>>> dev
 }
 
 - (void)controllerDisconnected:(EAAccessory *)btDevice {
@@ -162,6 +296,7 @@
         else if(gamepad.controller.extendedGamepad.leftTrigger.isPressed !=     _button[BTN_L2])
               [self handleinputbuttons: BTN_L2 forDeviceid:devID];
         
+<<<<<<< HEAD
         if(gamepad.dpad.left.pressed || gamepad.controller.extendedGamepad.leftThumbstick.left.pressed)
         {
             if(gamepad.dpad.up.pressed)
@@ -217,6 +352,25 @@
             _buttontoreleasehorizontal = buttonhorizontal;
         }
 
+=======
+        float dxValue = gamepad.dpad.xAxis.value;
+        float dyValue = gamepad.dpad.yAxis.value;
+        float alxValue = gamepad.controller.extendedGamepad.leftThumbstick.xAxis.value;
+        float alyValue = gamepad.controller.extendedGamepad.leftThumbstick.yAxis.value;
+        float arxValue = gamepad.controller.extendedGamepad.rightThumbstick.xAxis.value;
+        float aryValue = gamepad.controller.extendedGamepad.rightThumbstick.yAxis.value;
+        
+        if(dxValue != 0 || dyValue != 0)
+            [self handlehatstate:dxValue yAxis:dyValue forDeviceid:devID forStick:DIGSTICK];
+        else if(alxValue != 0 || alyValue != 0)
+            [self handlehatstate:alxValue yAxis:alyValue forDeviceid:devID forStick:LANSTICK];
+        else if(arxValue != 0 || aryValue != 0)
+            [self handlehatstate:arxValue yAxis:aryValue forDeviceid:devID forStick:RANSTICK];
+        else {
+            [self handlejhatstate:DPadCenter forDeviceid:devID];
+            [self handlemhatstate:0.00 yAxis:0.00];
+        }
+>>>>>>> dev
     };
     
     GCControllerDirectionPad *dpad = controller.gamepad.dpad;
@@ -233,6 +387,13 @@
 
 -(void)dealloc
 {
+<<<<<<< HEAD
+=======
+    if (_mouseTimer) {
+        [_mouseTimer release];
+    }
+    
+>>>>>>> dev
     [super dealloc];
 }
 

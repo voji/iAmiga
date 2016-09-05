@@ -26,16 +26,11 @@
 - (void)didSelectROM:(EMUFileInfo*)fileInfo withContext:(id)context;
 @end
 
+@interface EMUROMBrowserViewController : UITableViewController
 
-@interface EMUROMBrowserViewController : UITableViewController {
-	NSArray *roms;
-	int selectedRow;
-	NSArray *indexTitles;
-	NSIndexPath *selectedIndexPath;
-	id<SelectRomDelegate> delegate;
-	id context;
-}
++ (NSString *)getFileImportedNotificationName;
 
+<<<<<<< HEAD
 + (NSString *)getFileImportedNotificationName;
 
 @property (nonatomic, retain) NSArray *roms, *indexTitles;
@@ -43,6 +38,10 @@
 @property (nonatomic, assign) id<SelectRomDelegate>	delegate;
 @property (nonatomic, retain) id context;
 @property (nonatomic, retain) AdfImporter *adfImporter;
+=======
+@property (nonatomic, assign) id<SelectRomDelegate>	delegate;
+@property (nonatomic, retain) id context;
+>>>>>>> dev
 @property (nonatomic, retain) NSArray *extensions; // extensions of files to show
 
 @end

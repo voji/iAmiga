@@ -45,6 +45,13 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readonly, assign) BOOL DPadModeIsMotion;
 @property (nonatomic, readwrite, assign) BOOL gyroToggleUpDown;
 @property (nonatomic, readwrite, assign) float gyroSensitivity;
+<<<<<<< HEAD
+=======
+@property (nonatomic, readwrite, assign) BOOL LStickAnalogIsMouse;
+@property (nonatomic, readwrite, assign) BOOL RStickAnalogIsMouse;
+@property (nonatomic, readwrite, assign) BOOL useL2forMouseButton;
+@property (nonatomic, readwrite, assign) BOOL useR2forRightMouseButton;
+>>>>>>> dev
 @property (nonatomic, readwrite, assign) NSUInteger controllersnextid;
 @property (nonatomic, readwrite, assign) NSArray *controllers;
 @property (nonatomic, readwrite, assign) NSInteger keyConfigurationCount;
