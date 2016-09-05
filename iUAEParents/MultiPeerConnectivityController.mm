@@ -569,11 +569,8 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
     }
     else if(hat_state == DPadUpRight)
     {
-<<<<<<< HEAD
-        if([direction isEqual:@"horizontal"])
-=======
         if([direction isEqual:@"vertical"])
->>>>>>> dev
+
             return BTN_UP;
         else
             return BTN_RIGHT;

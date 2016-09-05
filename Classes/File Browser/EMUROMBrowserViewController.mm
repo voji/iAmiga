@@ -38,19 +38,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Browser";
-<<<<<<< HEAD
-    self.adfImporter = [[AdfImporter alloc] init];
-    [self reloadAdfs];
-
-
-=======
     _adfImporter = [[AdfImporter alloc] init];
     _indexTitles = [@[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
                       @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V",
                       @"W", @"X", @"Y", @"Z", @"#"] retain];
     _scrollToRowHandler = [[ScrollToRowHandler alloc] initWithTableView:self.tableView identity:[_extensions description]];
     
->>>>>>> dev
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onAdfChanged)
                                                  name:[EMUROMBrowserViewController getFileImportedNotificationName]
@@ -69,11 +63,8 @@
 	}
 	[sections addObject:[[EMUFileGroup alloc] initWithSectionName:@"#"]];
 	
-<<<<<<< HEAD
-	EMUBrowser *browser = [[EMUBrowser alloc] init];
-=======
 	EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
->>>>>>> dev
+
     NSArray *files = [browser getFileInfosForExtensions:self.extensions];
 	for (EMUFileInfo* f in files) {
 		unichar c = [[f fileName] characterAtIndex:0];
@@ -128,28 +119,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-<<<<<<< HEAD
-	if (indexPath == selectedIndexPath)
-		return;
-	UITableViewCell *cell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-	cell.accessoryType = UITableViewCellAccessoryNone;
-	
-	cell = [tableView cellForRowAtIndexPath:indexPath];
-	self.selectedIndexPath = indexPath;
-		
-	EMUFileGroup *g = (EMUFileGroup*)[self.roms objectAtIndex:indexPath.section];
-	EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
-	[self.navigationController popViewControllerAnimated:YES];
-    if (self.delegate) {
-		[self.delegate didSelectROM:fi withContext:context];
-	}
-=======
     EMUFileGroup *g = (EMUFileGroup*)[_roms objectAtIndex:indexPath.section];
     EMUFileInfo *fi = [g.files objectAtIndex:indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
     [self.delegate didSelectROM:fi withContext:self.context];
     [_scrollToRowHandler setRow:indexPath];
->>>>>>> dev
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -176,19 +150,13 @@
     shareAction.backgroundColor = [UIColor blueColor];
     [editActions addObject:shareAction];
     
-<<<<<<< HEAD
-    BOOL okToDelete = [self.adfImporter isDownloadedAdf:fileInfo.path];
-=======
     BOOL okToDelete = [_adfImporter isDownloadedAdf:fileInfo.path];
->>>>>>> dev
+
     if (okToDelete) {
         UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
             BOOL deleted = [[NSFileManager defaultManager] removeItemAtPath:fileInfo.path error:NULL];
             if (deleted) {
-<<<<<<< HEAD
-=======
                 [_scrollToRowHandler clearRow];
->>>>>>> dev
                 [self reloadAdfs];
                 [tableView beginUpdates];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -222,22 +190,14 @@
 }
 
 - (void)dealloc {
-<<<<<<< HEAD
-	self.roms = nil;
-	self.indexTitles = nil;
-	self.selectedIndexPath = nil;
-	self.context = nil;
-    self.adfImporter = nil;
-    self.extensions = nil;
 
-=======
     self.context = nil;
     self.extensions = nil;
     [_roms release];
     [_indexTitles release];
     [_adfImporter release];
     [_scrollToRowHandler release];
->>>>>>> dev
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 	[super dealloc];

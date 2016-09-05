@@ -20,10 +20,7 @@
 #include "savestate.h"
 
 #import "CoreSetting.h"
-<<<<<<< HEAD
-=======
 #import "ScrollToRowHandler.h"
->>>>>>> dev
 #import "State.h"
 #import "StateManagementController.h"
 #import "StateFileManager.h"
