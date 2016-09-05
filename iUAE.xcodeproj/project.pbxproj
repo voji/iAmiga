@@ -223,10 +223,6 @@
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
 		7EA2BCA2188B0EFF003DCE10 /* BaseEmulationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B613B1CC980012D55A /* BaseEmulationViewController.mm */; };
 		7EA2BCA3188B0F02003DCE10 /* AnimatedImageSequenceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 055FD7F813B45AAA00BB3F8B /* AnimatedImageSequenceView.mm */; };
-		7EA2FBC51D4E32FC00394C7C /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2FBC41D4E32FC00394C7C /* kick13.rom */; };
-		7EA2FBC71D4E330100394C7C /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2FBC61D4E330100394C7C /* rom.key */; };
-		7EA2FBC91D4E3B4900394C7C /* MI2.hdf in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2FBC81D4E3B4900394C7C /* MI2.hdf */; };
-		7EA2FBCB1D4E3BE700394C7C /* wb13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2FBCA1D4E3BE700394C7C /* wb13.adf */; };
 		7EA4D64B1923EC9700C58BB9 /* BaseWebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */; };
 		7EA4D6501923ECB400C58BB9 /* IOSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D64F1923ECB400C58BB9 /* IOSKeyboard.m */; };
 		7EA4D6571923ECC100C58BB9 /* EmulationView-iPad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D6511923ECC100C58BB9 /* EmulationView-iPad.mm */; };
@@ -1254,6 +1250,7 @@
 		BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFC1CA942B1008DD94B /* expansion.cpp */; };
 		BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */; };
 		BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */; };
+		BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.mm */; };
 		BEE41BC61B47836D00CE487D /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC41B47836D00CE487D /* ZipArchive.mm */; };
 		BEE41BD31B4784AC00CE487D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BCB1B4784AC00CE487D /* zip.c */; };
@@ -1594,10 +1591,6 @@
 		7E770D7A1D109DEC000E5E1A /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
 		7E770D7B1D109DEC000E5E1A /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
 		7E922A7F1CF0AD6000D8006F /* touchstick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = touchstick.mm; sourceTree = "<group>"; };
-		7EA2FBC41D4E32FC00394C7C /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
-		7EA2FBC61D4E330100394C7C /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../Desktop/rom.key; sourceTree = "<group>"; };
-		7EA2FBC81D4E3B4900394C7C /* MI2.hdf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MI2.hdf; path = ../../../../../Volumes/Multimedia/Downloads/MI2.hdf; sourceTree = "<group>"; };
-		7EA2FBCA1D4E3BE700394C7C /* wb13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wb13.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Programme/wb13.adf; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
 		7EA4D64E1923ECB400C58BB9 /* IOSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSKeyboard.h; path = iUAEParents/IOSKeyboard.h; sourceTree = "<group>"; };
@@ -2145,6 +2138,8 @@
 		BE951AFE1CA942E5008DD94B /* picasso96.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picasso96.h; path = include/picasso96.h; sourceTree = "<group>"; };
 		BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb_unix.cpp; sourceTree = "<group>"; };
 		BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardfile.cpp; sourceTree = "<group>"; };
+		BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollToRowHandler.h; sourceTree = "<group>"; };
+		BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollToRowHandler.m; sourceTree = "<group>"; };
 		BEE41BC11B4782D200CE487D /* AdfImporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdfImporter.mm; sourceTree = "<group>"; };
 		BEE41BC21B4782D200CE487D /* AdfImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfImporter.h; sourceTree = "<group>"; };
 		BEE41BC41B47836D00CE487D /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
@@ -2669,8 +2664,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7EA2FBC61D4E330100394C7C /* rom.key */,
-				7EA2FBC41D4E32FC00394C7C /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2678,8 +2671,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7EA2FBCA1D4E3BE700394C7C /* wb13.adf */,
-				7EA2FBC81D4E3B4900394C7C /* MI2.hdf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2812,37 +2803,31 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */,
-				7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */,
-				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
-				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
-				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
-				7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */,
-				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
-				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */,
-				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
-				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
 				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
+				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
+				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
 				BE0921FD1B343D810058D9F2 /* DiskDriveService.h */,
 				BE0921FE1B343D810058D9F2 /* DiskDriveService.mm */,
 				BE52EFA91B4FC9B8008E15E6 /* DriveState.h */,
 				BE52EFA81B4FC9B8008E15E6 /* DriveState.m */,
-				7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */,
-				7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */,
 				BEF413D01CA411CF00CCC1F5 /* HardDriveService.h */,
 				BEF413D11CA411CF00CCC1F5 /* HardDriveService.mm */,
+				7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */,
+				7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */,
+				7EADD3141CB2FAA100136978 /* JoypadSelectionController.h */,
+				7EADD3151CB2FAA100136978 /* JoypadSelectionController.mm */,
 				BE66229E1C32861C009C2809 /* KeyButtonConfiguration.h */,
 				BE66229F1C32861C009C2809 /* KeyButtonConfiguration.m */,
 				BE66229B1C3285B3009C2809 /* KeyButtonConfigurationController.h */,
 				BE66229C1C3285B3009C2809 /* KeyButtonConfigurationController.m */,
 				BE6622981C328442009C2809 /* KeyButtonManagementController.h */,
 				BE6622991C328442009C2809 /* KeyButtonManagementController.mm */,
+				BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */,
+				BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */,
 				7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */,
-				7EADD3141CB2FAA100136978 /* JoypadSelectionController.h */,
-				7EADD3151CB2FAA100136978 /* JoypadSelectionController.mm */,
 				7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */,
 				05D5233412E8030E007912AE /* SelectEffectController.h */,
 				05D5233512E8030E007912AE /* SelectEffectController.mm */,
@@ -2860,16 +2845,24 @@
 				7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.mm */,
 				7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */,
 				7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */,
+				7E6BCCD91D591DA900826CBD /* SettingsMouseController.h */,
+				7E6BCCDA1D591DA900826CBD /* SettingsMouseController.m */,
 				7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */,
 				7EB0177F1B0921B000C74B9D /* SettingsSelectKeyViewController.mm */,
+				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
+				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */,
 				7EB017771B09164900C74B9D /* State.h */,
 				7EB017761B09164900C74B9D /* State.mm */,
 				7EB017741B09164900C74B9D /* StateFileManager.mm */,
 				7EB017751B09164900C74B9D /* StateFileManager.h */,
 				7EB017641B09115900C74B9D /* StateManagementController.h */,
 				7EB017631B09115900C74B9D /* StateManagementController.mm */,
+				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
+				7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */,
 				7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */,
 				BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.mm */,
+				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
+				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4215,7 +4208,6 @@
 				7E5AF6171C444854000BF5CB /* controller_unselected_svg.svg in Resources */,
 				BE5DE31E1C5CCD1400FF5D1D /* Default-568h@2x.png in Resources */,
 				05D6044C12AF2D620048E478 /* Icon@2x.png in Resources */,
-				7EA2FBC91D4E3B4900394C7C /* MI2.hdf in Resources */,
 				05E8A04612B2C884005532AF /* amiga-beige-dark-center.png in Resources */,
 				7E43484F1A3B7C6100C60BF1 /* keyboard.png in Resources */,
 				05E8A04712B2C884005532AF /* amiga-beige-dark-left.png in Resources */,
@@ -4241,11 +4233,9 @@
 				7E2665551C483AEB004250D1 /* monitor_selected.png in Resources */,
 				7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */,
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
-				7EA2FBCB1D4E3BE700394C7C /* wb13.adf in Resources */,
 				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */,
-				7EA2FBC71D4E330100394C7C /* rom.key in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
@@ -4262,7 +4252,6 @@
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				BE6537DC1C5F7E59007AD097 /* PMCustomKeyboard.xib in Resources */,
-				7EA2FBC51D4E32FC00394C7C /* kick13.rom in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
@@ -4969,6 +4958,7 @@
 				BEE41BD41B4784AC00CE487D /* unzip.c in Sources */,
 				BE6622A01C32861C009C2809 /* KeyButtonConfiguration.m in Sources */,
 				978550F4153A3F2E00580B91 /* SDL_thread.c in Sources */,
+				BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */,
 				978550F7153A3F2E00580B91 /* SDL_video.c in Sources */,
 				978550FA153A3F2E00580B91 /* DisplayView.m in Sources */,
 				978550FD153A3F2E00580B91 /* ImageUtils.m in Sources */,
