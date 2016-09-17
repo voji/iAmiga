@@ -232,6 +232,9 @@
 		7EA5AC5C18AAC5920072820E /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */; };
 		7EA5E7891AED732500FCE311 /* sticky.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA5E7881AED732500FCE311 /* sticky.png */; };
 		7EA7D6F1187B480C0092FC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976877751534B2D20077B654 /* AudioToolbox.framework */; };
+		7EAA532E1D8D7F0C007EC293 /* MI2.hdf in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA532D1D8D7F0C007EC293 /* MI2.hdf */; };
+		7EAA53301D8D7F58007EC293 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA532F1D8D7F58007EC293 /* kick13.rom */; };
+		7EAA53321D8D7F5F007EC293 /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA53311D8D7F5F007EC293 /* rom.key */; };
 		7EAA9DB7192541D400541BE1 /* Specialkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */; };
 		7EAA9DBF192541D400541BE1 /* PKCustomKeyboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.mm */; };
 		7EAA9DCC192541D400541BE1 /* PMCustomKeyboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA9DB5192541D400541BE1 /* PMCustomKeyboard.mm */; };
@@ -1606,6 +1609,9 @@
 		7EA5AC5A18AAC5920072820E /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		7EA5AC5B18AAC5920072820E /* BaseNavigationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
 		7EA5E7881AED732500FCE311 /* sticky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticky.png; sourceTree = "<group>"; };
+		7EAA532D1D8D7F0C007EC293 /* MI2.hdf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MI2.hdf; path = ../../../Desktop/MI2.hdf; sourceTree = "<group>"; };
+		7EAA532F1D8D7F58007EC293 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
+		7EAA53311D8D7F5F007EC293 /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../Desktop/rom.key; sourceTree = "<group>"; };
 		7EAA9D9C192541D400541BE1 /* Specialkeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Specialkeyboard.png; sourceTree = "<group>"; };
 		7EAA9DA4192541D400541BE1 /* PKCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCustomKeyboard.h; sourceTree = "<group>"; };
 		7EAA9DA5192541D400541BE1 /* PKCustomKeyboard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PKCustomKeyboard.mm; sourceTree = "<group>"; };
@@ -1646,7 +1652,6 @@
 		7EF2F7BC1D2807B00019A579 /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joystick.h; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectConfigurationViewController.mm; path = ../SelectConfigurationViewController.mm; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiPeerConnectivityController.h; path = iUAEParents/MultiPeerConnectivityController.h; sourceTree = "<group>"; };
 		9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MultiPeerConnectivityController.mm; path = iUAEParents/MultiPeerConnectivityController.mm; sourceTree = "<group>"; };
@@ -2664,6 +2669,8 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7EAA53311D8D7F5F007EC293 /* rom.key */,
+				7EAA532F1D8D7F58007EC293 /* kick13.rom */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2671,6 +2678,7 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
+				7EAA532D1D8D7F0C007EC293 /* MI2.hdf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -2803,14 +2811,6 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
-				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
-				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
-				7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */,
-				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
-				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */,
-				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
-				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
@@ -3959,6 +3959,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				7E7589F61D7E0B68004F34AA /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -4220,6 +4221,7 @@
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7E5AF6151C444854000BF5CB /* gear_selected_svg.svg in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
+				7EAA532E1D8D7F0C007EC293 /* MI2.hdf in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
@@ -4242,6 +4244,7 @@
 				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
 				7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */,
+				7EAA53321D8D7F5F007EC293 /* rom.key in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				7E4B18D8188B1CAB0019E82B /* chrome-top@2x.png in Resources */,
@@ -4258,6 +4261,7 @@
 				7E1B8C3D19FADFD400B6136B /* modejoy.png in Resources */,
 				97BE2AF015489E6600BF66CF /* firebutton-red~ipad.png in Resources */,
 				BE6537DC1C5F7E59007AD097 /* PMCustomKeyboard.xib in Resources */,
+				7EAA53301D8D7F58007EC293 /* kick13.rom in Resources */,
 				7E1B8C3F19FADFD400B6136B /* modejoypressed.png in Resources */,
 				97BE2AF315489E6600BF66CF /* joystick.png in Resources */,
 				7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */,
@@ -4752,19 +4756,19 @@
 			shellPath = /bin/sh;
 			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
 		};
-
-		7E57D8A219119D9500648935 /* ShellScript */ = {
+		7E7589F61D7E0B68004F34AA /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/opt/iOSOpenDev/bin/iosod --xcbp";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5547,7 +5551,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
-				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevDevice = 192.168.1.23;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
@@ -5557,7 +5561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
@@ -5583,9 +5587,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevDevice = 192.168.1.23;
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5595,7 +5599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5627,9 +5631,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevDevice = 192.168.1.23;
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -5639,7 +5643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5669,9 +5673,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.0.11;
-				iOSOpenDevInstallOnAnyBuild = NO;
-				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevDevice = 192.168.1.23;
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = NO;
 			};
@@ -6009,7 +6013,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
-				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevDevice = 192.168.1.23;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
@@ -6061,7 +6065,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
-				iOSOpenDevDevice = 192.168.0.11;
+				iOSOpenDevDevice = 192.168.1.23;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevPath = "iOSOpenDevPath: /opt/iOSOpenDev";
 			};
