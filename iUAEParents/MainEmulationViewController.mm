@@ -116,7 +116,7 @@ extern void uae_reset();
         // we need to delay disk drive related tasks by a little bit
         [self initDriveSetupTimer:_settings.driveState];
         [self initDiskInsertTimer:_settings.insertedFloppies];
-        [self mountHardfile:_settings.hardfilePath];
+        [self mountHardfile:_settings.hardfilePath asReadOnly:_settings.hardfileReadOnly];
     }
     
     [self initializeControls];
@@ -351,10 +351,10 @@ extern void togglemouse (void);
     [_diskDriveService setDriveState:driveState];
 }
 
-- (void)mountHardfile:(NSString *)hardfilePath {
+- (void)mountHardfile:(NSString *)hardfilePath asReadOnly:(BOOL)readOnly {
     if (hardfilePath)
     {
-        [_hardDriveService mountHardfile:hardfilePath];
+        [_hardDriveService mountHardfile:hardfilePath asReadOnly:readOnly];
     }    
 }
 

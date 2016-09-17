@@ -24,33 +24,37 @@
     return nr_units(currprefs_mountinfo) == 1;
 }
 
+- (BOOL)readOnly {
+    return [self mounted] ? [self readOnlyInternal] : YES;
+}
+
 - (NSString *)getMountedHardfilePath {
     return [self mounted] ? [self getMountedHardfilePathInternal] : nil;
 }
 
-- (void)mountHardfile:(NSString *)hardfilePath {
+- (void)mountHardfile:(NSString *)hardfilePath asReadOnly:(BOOL)readOnly {
     if (![self mounted]) {
         [hardfilePath getCString:uae4all_hard_file maxLength:sizeof(uae4all_hard_file) encoding:[NSString defaultCStringEncoding]];
-        NSString *spec = [self getHardfileSpec:hardfilePath];
-        char specC[256];
-        [spec getCString:specC maxLength:sizeof(specC) encoding:[NSString defaultCStringEncoding]];
-        parse_hardfile_spec(specC);
+        
+        int readOnlyInt = readOnly ? 1 : 0;
+
+        // hardcoded values are defaults from uae4all2 cfg file:
+        // harddir: dir1:hd/dir1
+        // hardfile: 32:1:2:512:/data/data/pandora.uae4all.sdl/files/blankdisks/empty.hdf
+        static int secspertrack = 32;
+        static int surfaces = 1;
+        static int reserved = 2;
+        static int blocksize = 512;
+        
+        add_filesys_unit(currprefs_mountinfo, 0, uae4all_hard_file, readOnlyInt, secspertrack, surfaces, reserved, blocksize);
     }
 }
 
 - (void)unmountHardfile {
     if ([self mounted]) {
         kill_filesys_unit(currprefs_mountinfo, 0);
+        uae4all_hard_file[0] = '\0';
     }
-}
-
-- (NSString *)getHardfileSpec:(NSString *)hardfilePath {
-    // the hardfile spec string is static, so we'll just build it here intead of persisting it in Settings
-    //
-    // from uae4all2 cfg file:
-    // harddir: dir1:hd/dir1
-    // hardfile: 32:1:2:512:/data/data/pandora.uae4all.sdl/files/blankdisks/empty.hdf
-    return [NSString stringWithFormat:@"32:1:2:512:%@", hardfilePath];
 }
 
 - (NSString *)getMountedHardfilePathInternal {
@@ -70,6 +74,25 @@
                      &size,
                      &blocksize);
     return [NSString stringWithCString:rootdir encoding:[NSString defaultCStringEncoding]];
+}
+
+- (BOOL)readOnlyInternal {
+    int readonly; // the one we care about
+    char *rootdir, *volname;
+    int track, surfaces, reserved, cylinders, size, blocksize;
+    static int nr = 0;
+    get_filesys_unit(currprefs_mountinfo,
+                     nr,
+                     &volname,
+                     &rootdir,
+                     &readonly,
+                     &track,
+                     &surfaces,
+                     &reserved,
+                     &cylinders,
+                     &size,
+                     &blocksize);
+    return readonly == 1 ? YES : NO;
 }
 
 @end

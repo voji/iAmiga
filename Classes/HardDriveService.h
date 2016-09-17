@@ -25,9 +25,24 @@
  */
 @interface HardDriveService : NSObject
 
+/**
+ * Whether the hard file is mounted.
+ */
 - (BOOL)mounted;
 
-- (void)mountHardfile:(NSString *)hardfilePath;
+/**
+ * Whether the hard file is mounted as read-only.  Always returns YES if nothing is mounted.
+ */
+- (BOOL)readOnly;
+
+/**
+ * Mounts the specified .hdf file, either as read-only or as read/write.
+ */
+- (void)mountHardfile:(NSString *)hardfilePath asReadOnly:(BOOL)readOnly;
+
+/**
+ * Unmounts the currently mounted .hdf file.  This is a noop if nothing is mounted.
+ */
 - (void)unmountHardfile;
 
 - (NSString *)getMountedHardfilePath;

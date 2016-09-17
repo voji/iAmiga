@@ -1,3 +1,6 @@
 [submodule "Submodules/SVProgressHUD"]
 	path = Submodules/SVProgressHUD
 	url = https://github.com/TransitApp/SVProgressHUD.git
+[submodule "Submodules/STObjCToolbelt"]
+	path = Submodules/STObjCToolbelt
+	url = https://github.com/simontoens/STObjCToolbelt

@@ -15,6 +15,7 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #import <Foundation/Foundation.h>
+#import "CoreSettingGroup.h"
 
 /**
  * A special setting (property/switch/toggle) that requires an emulator reset to take effect.  For example, the rom being used.
@@ -47,7 +48,7 @@
 /**
  * Returns the message to show when this setting has been modified.
  */
-- (NSString *)getMessageForModification;
+- (NSString *)getModificationDescription;
 
 @end
 
@@ -57,9 +58,16 @@
 @interface DF1EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface DF2EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface DF3EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
-@interface HD0PathCoreSetting : CoreSetting @end
+@interface HardDriveBasedCoreSetting : CoreSetting @end // abstract
+@interface HD0PathCoreSetting : HardDriveBasedCoreSetting <CoreSettingGroupMember> @end
+@interface HD0ReadOnlyCoreSetting : HardDriveBasedCoreSetting <CoreSettingGroupMember> @end
+@interface HD0SettingGroup : NSObject <CoreSettingGroup> @end
 @interface NTSCEnabledCoreSetting : CoreSetting @end
 
+
+/**
+ * Exposes all CoreSetting singletons, and is the entry point for the reset flow.
+ */
 @interface CoreSettings : NSObject
 
 /**
@@ -75,6 +83,7 @@
 + (DF2EnabledCoreSetting *)df2EnabledCoreSetting;
 + (DF3EnabledCoreSetting *)df3EnabledCoreSetting;
 + (HD0PathCoreSetting *)hd0PathCoreSetting;
++ (HD0ReadOnlyCoreSetting *)hd0ReadOnlyCoreSetting;
 + (NTSCEnabledCoreSetting *)ntscEnabledCoreSetting;
 
 @end
