@@ -66,6 +66,7 @@ static NSString *const kDf1EnabledKey = @"df1Enabled";
 static NSString *const kDf2EnabledKey = @"df2Enabled";
 static NSString *const kDf3EnabledKey = @"df3Enabled";
 static NSString *const kHardfilePath = @"hardfilePath";
+static NSString *const kHardfileReadOnly = @"hardfileReadOnly";
 
 extern int mainMenu_showStatus;
 extern int mainMenu_stretchscreen;
@@ -466,6 +467,14 @@ static int _cNumber = 1;
 
 - (void)setHardfilePath:(NSString *)hardfilePath {
     [self setObject:hardfilePath forKey:kHardfilePath];
+}
+
+- (BOOL)hardfileReadOnly {
+    return [self boolForKey:kHardfileReadOnly];
+}
+
+- (void)setHardfileReadOnly:(BOOL)hardfileReadOnly {
+    [self setBool:hardfileReadOnly forKey:kHardfileReadOnly];
 }
 
 - (BOOL)keyButtonsEnabled {

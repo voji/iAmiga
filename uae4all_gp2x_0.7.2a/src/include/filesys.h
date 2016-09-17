@@ -37,5 +37,9 @@ extern char *get_filesys_unit (struct uaedev_mount_info *mountinfo, int nr,
                         char **volname, char **rootdir, int *readonly,
                         int *secspertrack, int *surfaces, int *reserved,
                         int *cylinders, int *size, int *blocksize);
+extern char *add_filesys_unit (struct uaedev_mount_info *mountinfo,
+                        char *volname, char *rootdir, int readonly,
+                        int secspertrack, int surfaces, int reserved,
+                        int blocksize);
 
 #endif

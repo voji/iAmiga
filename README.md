@@ -1,6 +1,6 @@
 #####Project setup
 
-This project uses git submodules.  Before building for the first time, you must run:
+This project uses git submodules.  Before building for the first time, and if building fails because of missing files, you must run:
 
 ```
 git submodule init
@@ -10,7 +10,7 @@ git submodule update
 #####ROMs
 Use iTunes to copy rom file(s) to your device, or add the roms to the Xcode project when building iUAE.  When the emulator starts up for the first time, it will look for a rom called "kick.rom" or "kick13.rom".  If your rom file has a differnet name or if you want to switch roms, you can use the rom selector in settings.
 
-You can use Cloanto Amiga Forever Roms. For them to work you need to copy Cloanto Amiga Forever file (rom.key) using Itunes or iFile. This file is required to decrypt the roms.
+You can use Cloanto Amiga Forever Roms. For them to work you need to copy Cloanto Amiga Forever file (rom.key) using iTunes or iFile. This file is required to decrypt the roms.
 
 #####Disk drives
 
