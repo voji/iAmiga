@@ -75,7 +75,7 @@ static NSString *const kranalogStick = @"ranalogStick";
         _button[i] = 0;
     
     [self initNotifications];
-    [self initControllers];
+    //[self initControllers];
     
     _settings = [[Settings alloc] init];
 
@@ -97,62 +97,24 @@ static NSString *const kranalogStick = @"ranalogStick";
     [[EAAccessoryManager sharedAccessoryManager] registerForLocalNotifications];
     [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(deviceConnected:)
-                                                 name:EAAccessoryDidConnectNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(deviceDisconnected:)
                                                  name:EAAccessoryDidDisconnectNotification
+                                               object:nil];*/
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerDiscovered:)
+                                                 name:GCControllerDidConnectNotification
                                                object:nil];
-}
-
-
-- (void) initControllers {
-//Code to initialize already connected controllers on Startup. Causes crash of App if Controllers are connected at the moment. [[GCControllers controller] count] returns 0
- 
- 
-    NSArray *connControllers = [[EAAccessoryManager sharedAccessoryManager] connectedAccessories];
     
-    for (EAAccessory *currController in connControllers) {
-    
-        dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
-        
-        dispatch_after(waittime, dispatch_get_main_queue(),
-                       ^void{
-                           [self controllerDiscovered:currController];
-                       });
-    }
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controllerDisconnected:)
+                                                 name:GCControllerDidDisconnectNotification
+                                               object:nil];
 }
 
 -(void)moveMouse:(NSTimer *)timer {
     SDL_SendMouseMotion(NULL, SDL_MOTIONRELATIVE, _mouseX, _mouseY);
-}
-
-- (void)deviceConnected:(NSNotification *)devNotification {
-    /* Make sure this is an MFI Controller */
-    
-    EAAccessory *btDevice = [[devNotification userInfo] objectForKey:@"EAAccessoryKey"];
-    dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
-    
-    dispatch_after(waittime, dispatch_get_main_queue(),
-                   ^void{
-                           [self controllerDiscovered:btDevice];
-                   });
-}
-
-- (void)deviceDisconnected:(NSNotification *)devNotification {
-    
-    EAAccessory *btDevice = [[devNotification userInfo] objectForKey:@"EAAccessoryKey"];
-    dispatch_time_t waittime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
-    
-    dispatch_after(waittime, dispatch_get_main_queue(),
-                   ^void{
-                           [self controllerDisconnected:btDevice];
-                   });
-
 }
 
 - (void)handleinputbuttons:(int)buttonid forDeviceid:(NSString *)devID
@@ -223,24 +185,22 @@ static NSString *const kranalogStick = @"ranalogStick";
     
 }
 
-- (void)controllerDisconnected:(EAAccessory *)btDevice {
+- (void)controllerDisconnected:(NSNotification *) btDevice {
     
     int devCount = [[GCController controllers] count];
     if(devCount >= _devCount) return;
-    
-    _devCount = devCount;
-    
+
     NSString *devID = [NSString stringWithFormat:@"%p", btDevice];
     [mpcController controllerDisconnected:devID];
 }
 
-- (void)controllerDiscovered:(EAAccessory *)btDevice {
+- (void)controllerDiscovered:(NSNotification *)connectedNotification {
     
     int devCount = [[GCController controllers] count];
     _devCount = devCount;
-    
+     
     GCController *controller = GCController.controllers[_devCount-1];
-    NSString *devID = [NSString stringWithFormat:@"%p", btDevice];
+    NSString *devID = [NSString stringWithFormat:@"%p", controller];
     //NSString *devID = @"test";
     
     controller.gamepad.valueChangedHandler = ^(GCGamepad *gamepad, GCControllerElement
