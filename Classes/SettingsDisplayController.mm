@@ -6,6 +6,12 @@
 //
 //
 
+#include "sysconfig.h"
+#include "sysdeps.h"
+#include "options.h"
+#include "fame.h"
+#include "audio.h"
+
 #import "CoreSetting.h"
 #import "SelectEffectController.h"
 #import "SettingsDisplayController.h"
@@ -44,6 +50,7 @@ extern int mainMenu_AddVerticalStretchValue;
     [_showstatus setOn:_settings.showStatus];
     [_stretchscreen setOn:_settings.stretchScreen];
     [_showstatusbar setOn:_settings.showStatusBar];
+    _volumeSlider.value = _settings.volume;
     [self handleSelectedEffect];
     [self setupWarningLabels];
 }
@@ -124,6 +131,11 @@ extern int mainMenu_AddVerticalStretchValue;
 - (IBAction)setAdditionalVerticalStretch:(id)sender {
     mainMenu_AddVerticalStretchValue = (int)[_additionalVerticalStretchValue.text doubleValue];
     _settings.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
+}
+
+- (IBAction)onVolumeChanged {
+    set_audio_volume(_volumeSlider.value);
+    _settings.volume = _volumeSlider.value;
 }
 
 -(BOOL) textFieldShouldReturn: (UITextField *) textField {

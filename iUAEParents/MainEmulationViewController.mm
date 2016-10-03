@@ -28,6 +28,8 @@
 #import "sysconfig.h"
 #import "sysdeps.h"
 #import "options.h"
+#import "fame.h"
+#import "audio.h"
 #import "SDL.h"
 #import "UIKitDisplayView.h"
 #import "savestate.h"
@@ -108,12 +110,14 @@ extern void uae_reset();
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
     
+    [self initVolumeTimer:_settings.volume];
+    
     [self initHardDriveMountInfo]; // Initialized early so that a hard file can be mounted below if autoload is enabled
     
     if (_settings.autoloadConfig)
     {
-        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here;
-        // we need to delay disk drive related tasks by a little bit
+        // enabling things here uses timers because the the emulator isn't initialized yet right here;
+        // we need to delay some tasks by a little bit
         [self initDriveSetupTimer:_settings.driveState];
         [self initDiskInsertTimer:_settings.insertedFloppies];
         [self mountHardfile:_settings.hardfilePath asReadOnly:_settings.hardfileReadOnly];
@@ -356,6 +360,15 @@ extern void togglemouse (void);
     {
         [_hardDriveService mountHardfile:hardfilePath asReadOnly:readOnly];
     }    
+}
+
+- (void)initVolumeTimer:(float)volume {
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initVolume:) userInfo:[NSNumber numberWithFloat:volume] repeats:NO];
+}
+
+- (void)initVolume:(NSTimer *)timer {
+    NSNumber *volume = timer.userInfo;
+    set_audio_volume([volume floatValue]);
 }
 
 - (void)dealloc

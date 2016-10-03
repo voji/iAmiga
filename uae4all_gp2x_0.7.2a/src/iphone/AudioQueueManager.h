@@ -49,6 +49,8 @@ public:
 	
 	short*					getNextBuffer();
 	void					queueBuffer(short* buffer);
+    
+    void                    setVolume(float volume);
 
 	
 private:

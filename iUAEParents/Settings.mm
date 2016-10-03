@@ -45,6 +45,7 @@ static NSString *const kAddVerticalStretchKey = @"_addverticalstretchvalue";
 static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
+static NSString *const kVolume = @"volume";
 
 static NSString *const kControllersKey = @"_controllers";
 static NSString *const kControllersNextIDKey = @"_controllersnextidkey";
@@ -251,6 +252,15 @@ static int _cNumber = 1;
 
 - (void)setShowStatus:(BOOL)showStatus {
     [self setBool:showStatus forKey:kShowStatusKey];
+}
+
+- (void)setVolume:(float)volume {
+    [self setObject:[NSNumber numberWithFloat:volume] forKey:kVolume];
+}
+
+- (float)volume {
+    NSNumber *volume = [self objectForKey:kVolume];
+    return volume ? [volume floatValue] : /* was never saved, default to max: */ 1;
 }
 
 - (NSString *)joypadstyle {
@@ -565,6 +575,10 @@ NSString *const kEnabledAttrName = @"enabled";
 
 - (NSArray *)arrayForKey:(NSString *)settingitemname {
     return [defaults arrayForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (id)objectForKey:(NSString *)settingitemname {
+    return [defaults objectForKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (void)removeObjectForKey:(NSString *) settingitemname {
