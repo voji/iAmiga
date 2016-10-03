@@ -1251,6 +1251,7 @@
 		BE951AFA1CA93FB7008DD94B /* fsdb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF91CA93FB7008DD94B /* fsdb.cpp */; };
 		BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFC1CA942B1008DD94B /* expansion.cpp */; };
 		BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */; };
+		BEC5372C1DA144C9002C3793 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC5372B1DA144C9002C3793 /* AVFoundation.framework */; };
 		BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */; };
 		BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.mm */; };
@@ -2155,6 +2156,7 @@
 		BE951AFC1CA942B1008DD94B /* expansion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = expansion.cpp; sourceTree = "<group>"; };
 		BE951AFE1CA942E5008DD94B /* picasso96.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picasso96.h; path = include/picasso96.h; sourceTree = "<group>"; };
 		BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb_unix.cpp; sourceTree = "<group>"; };
+		BEC5372B1DA144C9002C3793 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardfile.cpp; sourceTree = "<group>"; };
 		BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollToRowHandler.h; sourceTree = "<group>"; };
 		BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollToRowHandler.m; sourceTree = "<group>"; };
@@ -2208,6 +2210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC5372C1DA144C9002C3793 /* AVFoundation.framework in Frameworks */,
 				7E5A77021D00370E009BF491 /* ExternalAccessory.framework in Frameworks */,
 				E937D8A71CB58BC9008DCC27 /* CoreMotion.framework in Frameworks */,
 				9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */,
@@ -3015,6 +3018,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEC5372B1DA144C9002C3793 /* AVFoundation.framework */,
 				7E5A77011D00370E009BF491 /* ExternalAccessory.framework */,
 				E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */,
 				9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */,
