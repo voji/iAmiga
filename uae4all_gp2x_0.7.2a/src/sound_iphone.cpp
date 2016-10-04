@@ -277,7 +277,9 @@ void resume_sound (void)
 
 void set_sound_volume(float volume)
 {
-    g_audioQueue->setVolume(volume);
+    if (have_sound) {
+        g_audioQueue->setVolume(volume);
+    }
 }
 
 float get_sound_volume(void)
