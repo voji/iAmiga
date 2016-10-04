@@ -1057,6 +1057,11 @@ void set_audio_volume(float volume)
     set_sound_volume(volume);
 }
 
+float get_audio_volume(void)
+{
+    return get_sound_volume();
+}
+
 #define CHECK_DMA_AUDIO(AUDIOCH); \
 	cdp = &audio_channel[AUDIOCH]; \
 	chan_ena = (dmacon & 0x200) && (dmacon & (1<<AUDIOCH)); \

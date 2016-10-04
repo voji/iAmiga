@@ -280,6 +280,11 @@ void set_sound_volume(float volume)
     g_audioQueue->setVolume(volume);
 }
 
+float get_sound_volume(void)
+{
+    return g_audioQueue->getVolume();
+}
+
 void uae4all_init_sound(void)
 {
 #ifdef DEBUG_SOUND

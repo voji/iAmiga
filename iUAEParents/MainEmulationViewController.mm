@@ -28,11 +28,10 @@
 #import "sysconfig.h"
 #import "sysdeps.h"
 #import "options.h"
-#import "fame.h"
-#import "audio.h"
 #import "SDL.h"
 #import "UIKitDisplayView.h"
 #import "savestate.h"
+#import "AudioService.h"
 #import "Settings.h"
 #import "SettingsGeneralController.h"
 #import "DiskDriveService.h"
@@ -54,6 +53,7 @@ extern void init_joystick();
 @end
 
 @implementation MainEmulationViewController {
+    AudioService *_audioService;
     DiskDriveService *_diskDriveService;
     HardDriveService *_hardDriveService;
     NSTimer *_menuHidingTimer;
@@ -94,6 +94,7 @@ extern void uae_reset();
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _audioService = [[AudioService alloc] init];
     _diskDriveService = [[DiskDriveService alloc] init];
     _hardDriveService = [[HardDriveService alloc] init];
     _settings = [[Settings alloc] init];
@@ -368,11 +369,12 @@ extern void togglemouse (void);
 
 - (void)initVolume:(NSTimer *)timer {
     NSNumber *volume = timer.userInfo;
-    set_audio_volume([volume floatValue]);
+    [_audioService setVolume:[volume floatValue]];
 }
 
 - (void)dealloc
 {
+    [_audioService release];
     [_btnJoypad release];
     [_btnKeyboard release];
     [_btnPin release];

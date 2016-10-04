@@ -70,5 +70,4 @@ extern void check_dma_audio(void);
 extern void fetch_audio(void);
 extern void update_adkmasks (void);
 extern void set_audio_volume(float volume);
-
-
+extern float get_audio_volume(void);

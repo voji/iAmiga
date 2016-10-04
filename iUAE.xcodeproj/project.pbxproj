@@ -1252,6 +1252,7 @@
 		BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFC1CA942B1008DD94B /* expansion.cpp */; };
 		BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */; };
 		BEC5372C1DA144C9002C3793 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC5372B1DA144C9002C3793 /* AVFoundation.framework */; };
+		BECB5E221DA393B6000E5C2C /* AudioService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BECB5E211DA393B6000E5C2C /* AudioService.mm */; };
 		BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */; };
 		BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.mm */; };
@@ -2157,6 +2158,8 @@
 		BE951AFE1CA942E5008DD94B /* picasso96.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picasso96.h; path = include/picasso96.h; sourceTree = "<group>"; };
 		BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb_unix.cpp; sourceTree = "<group>"; };
 		BEC5372B1DA144C9002C3793 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BECB5E201DA393B6000E5C2C /* AudioService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioService.h; sourceTree = "<group>"; };
+		BECB5E211DA393B6000E5C2C /* AudioService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioService.mm; sourceTree = "<group>"; };
 		BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardfile.cpp; sourceTree = "<group>"; };
 		BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollToRowHandler.h; sourceTree = "<group>"; };
 		BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollToRowHandler.m; sourceTree = "<group>"; };
@@ -2837,6 +2840,8 @@
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
 				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
+				BECB5E201DA393B6000E5C2C /* AudioService.h */,
+				BECB5E211DA393B6000E5C2C /* AudioService.mm */,
 				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
 				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
 				BE17E1101D6C2E2800221E7F /* CoreSettingGroup.h */,
@@ -5055,6 +5060,7 @@
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
 				7EB017781B09164900C74B9D /* StateFileManager.mm in Sources */,
 				7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.mm in Sources */,
+				BECB5E221DA393B6000E5C2C /* AudioService.mm in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
