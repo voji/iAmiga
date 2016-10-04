@@ -24,12 +24,12 @@
 @interface AudioService : NSObject
 
 /**
- * @param volume  0 = min, 1 = max
+ * Sets the emulator volume: 0 = min, 1 = max.
  */
 - (void)setVolume:(float)volume;
 
 /**
- * @param volume  0 = min, 1 = max
+ * Returns the emulator volume: 0 = min, 1 = max.
  */
 - (float)getVolume;
 
