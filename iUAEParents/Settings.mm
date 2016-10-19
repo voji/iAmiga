@@ -45,7 +45,7 @@ static NSString *const kAddVerticalStretchKey = @"_addverticalstretchvalue";
 static NSString *const kShowStatusKey = @"_showstatus";
 static NSString *const kShowStatusBarKey = @"_showstatusbar";
 static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
-static NSString *const kVolume = @"volume";
+static NSString *const kVolume = @"_volume";
 
 static NSString *const kControllersKey = @"_controllers";
 static NSString *const kControllersNextIDKey = @"_controllersnextidkey";
