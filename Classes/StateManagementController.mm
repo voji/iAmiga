@@ -77,8 +77,7 @@ static NSString *const kSaveStateAlertTitle = @"Save";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     State *selectedState = [_states objectAtIndex:indexPath.row];
-    [self updateStateNameTextField:selectedState];
-    _selectedStateScreenshot.image = selectedState.image;
+    [self updateStateNameAndImage:selectedState];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self updateUIState];
 }
@@ -239,12 +238,14 @@ static NSString *const kSaveStateAlertTitle = @"Save";
 - (void)setStateNameTextFieldForSelectedState {
     NSIndexPath *indexPath = [_scrollToRowHandler getRow];
     if (indexPath) {
-        [self updateStateNameTextField:[_states objectAtIndex:indexPath.row]];
+        State *state = [_states objectAtIndex:indexPath.row];
+        [self updateStateNameAndImage:state];
     }
 }
 
-- (void)updateStateNameTextField:(State *)state {
+- (void)updateStateNameAndImage:(State *)state {
     _stateNameTextField.text = state.name;
+    _selectedStateScreenshot.image = state.image;
 }
 
 - (void)initNavigationBarButtons {
