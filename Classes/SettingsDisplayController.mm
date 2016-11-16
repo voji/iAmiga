@@ -33,12 +33,12 @@ extern int mainMenu_AddVerticalStretchValue;
                       @"Aperture 1x2 RB", @"Aperture 1x3 RB",
                       @"Aperture 2x4 RB", @"Aperture 2x4 BG"] retain];
     self.additionalVerticalStretchValue.delegate = self;
+    _settingLabelHandler = [[UnappliedSettingLabelHandler alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _ntscEnabledSetting = [[CoreSettings ntscEnabledCoreSetting] retain];
-    _settingLabelHandler = [[UnappliedSettingLabelHandler alloc] init];
 
     [_ntsc setOn:[[_ntscEnabledSetting getValue] boolValue]];
     [_showstatus setOn:_settings.showStatus];

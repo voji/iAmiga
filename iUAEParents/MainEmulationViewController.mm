@@ -33,6 +33,7 @@
 #import "savestate.h"
 #import "Settings.h"
 #import "SettingsGeneralController.h"
+#import "CoreSetting.h"
 #import "DiskDriveService.h"
 #import "HardDriveService.h"
 #import <GameController/GameController.h>
@@ -63,6 +64,9 @@ extern void init_joystick();
  }
 
 MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init]; //Needs to be called this early and out of class context to ensure it loads first
+RomCoreSetting *romSetting = [[RomCoreSetting alloc] initWithName:@"ROM"];
+HD0PathCoreSetting *hdpathSetting = [[HD0PathCoreSetting alloc] initWithName:@"HD0Path"];
+
 UIButton *btnSettings;
 IOSKeyboard *ioskeyboard;
 

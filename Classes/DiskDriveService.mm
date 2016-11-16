@@ -27,6 +27,7 @@
 - (NSString *)getInsertedDiskForDrive:(int)driveNumber {
     if (driveNumber < NUM_DRIVES)
     {
+        
         NSString *adfPath = [NSString stringWithCString:changed_df[driveNumber] encoding:[NSString defaultCStringEncoding]];
         return [adfPath length] == 0 ? nil : adfPath;
     }

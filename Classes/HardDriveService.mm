@@ -21,6 +21,7 @@
 @implementation HardDriveService
 
 - (BOOL)mounted {
+    if(!currprefs_mountinfo) return 0;
     return nr_units(currprefs_mountinfo) == 1;
 }
 

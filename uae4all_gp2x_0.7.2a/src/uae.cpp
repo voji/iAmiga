@@ -6,6 +6,7 @@
   * Copyright 1995 Ed Hanway
   * Copyright 1995, 1996, 1997 Bernd Schmidt
   */
+
 #include "sysconfig.h"
 #include "sysdeps.h"
 #include <assert.h>
@@ -69,6 +70,8 @@ void uae::default_prefs () {
 #if defined(DREAMCAST)
     strcpy (romfile, ROM_PATH_PREFIX "kick.rom");
 #elif defined(IPHONE)
+    
+    
 	strcpy(romfile, get_rom_path());
     strcpy(romkeyfile, get_key_path());
 #else

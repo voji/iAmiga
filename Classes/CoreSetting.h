@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 #import "CoreSettingGroup.h"
 
+//Wrapper Methods for C++ calls
 /**
  * A special setting (property/switch/toggle) that requires an emulator reset to take effect.  For example, the rom being used.
  *
@@ -54,12 +55,18 @@
 
 @interface DriveServiceBasedCoreSetting : CoreSetting @end // abstract
 @interface DiskDriveEnabledCoreSetting : DriveServiceBasedCoreSetting @end // abstract
-@interface RomCoreSetting : DriveServiceBasedCoreSetting @end
+
+@interface RomCoreSetting : DriveServiceBasedCoreSetting
++ (RomCoreSetting *)getInstance;
+@end
+
 @interface DF1EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface DF2EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface DF3EnabledCoreSetting : DiskDriveEnabledCoreSetting @end
 @interface HardDriveBasedCoreSetting : CoreSetting @end // abstract
-@interface HD0PathCoreSetting : HardDriveBasedCoreSetting <CoreSettingGroupMember> @end
+@interface HD0PathCoreSetting : HardDriveBasedCoreSetting <CoreSettingGroupMember>
++ (HD0PathCoreSetting *)getInstance;
+@end
 @interface HD0ReadOnlyCoreSetting : HardDriveBasedCoreSetting <CoreSettingGroupMember> @end
 @interface HD0SettingGroup : NSObject <CoreSettingGroup> @end
 @interface NTSCEnabledCoreSetting : CoreSetting @end
@@ -87,3 +94,5 @@
 + (NTSCEnabledCoreSetting *)ntscEnabledCoreSetting;
 
 @end
+
+

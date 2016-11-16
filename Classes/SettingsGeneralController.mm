@@ -81,6 +81,7 @@ static const NSUInteger kHardDrivesSection = 4;
     HD0PathCoreSetting *_hd0PathSetting;
     HD0ReadOnlyCoreSetting *_hd0ReadOnlySetting;
     RomCoreSetting *_romSetting;
+    NTSCEnabledCoreSetting *_ntscEnabledSetting;
 }
 
 - (void)viewDidLoad {
@@ -92,9 +93,10 @@ static const NSUInteger kHardDrivesSection = 4;
     _df1EnabledSetting = [[CoreSettings df1EnabledCoreSetting] retain];
     _df2EnabledSetting = [[CoreSettings df2EnabledCoreSetting] retain];
     _df3EnabledSetting = [[CoreSettings df3EnabledCoreSetting] retain];
-    _hd0PathSetting = [[CoreSettings hd0PathCoreSetting] retain];
+    _hd0PathSetting = [HD0PathCoreSetting getInstance];
     _hd0ReadOnlySetting = [[CoreSettings hd0ReadOnlyCoreSetting] retain];
-    _romSetting = [[CoreSettings romCoreSetting] retain];
+    _romSetting = [RomCoreSetting getInstance];
+    _ntscEnabledSetting = [[CoreSettings ntscEnabledCoreSetting] retain];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -395,6 +397,11 @@ static const NSUInteger kHardDrivesSection = 4;
 - (void)didSelectConfiguration:(NSString *)configurationName {
     [_configNameLabel setText:configurationName];
     _settings.configurationName = configurationName;
+    [_ntscEnabledSetting setValue:[NSNumber numberWithBool:_settings.ntsc]];
+    [_romSetting setValue: [_romSetting getValue]];
+    [_hd0PathSetting setValue:[_hd0PathSetting getValue]];
+    [_hd0ReadOnlySetting setValue:[_hd0ReadOnlySetting getValue]];
+    [self setupUIState];
 }
 
 - (void)didDeleteConfiguration {
@@ -440,9 +447,7 @@ static const NSUInteger kHardDrivesSection = 4;
     [_df1EnabledSetting release];
     [_df2EnabledSetting release];
     [_df3EnabledSetting release];
-    [_hd0PathSetting release];
     [_hd0ReadOnlySetting release];
-    [_romSetting release];
     
     [super dealloc];
 }

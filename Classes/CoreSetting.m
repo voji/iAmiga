@@ -20,6 +20,12 @@
 #import "HardDriveService.h"
 #import "MultiDictionary.h"
 #import "Settings.h"
+#import "constSettings.h"
+#import "EMUFileInfo.h"
+#import "EMUBrowser.h"
+
+static RomCoreSetting *_romInstance;
+static HD0PathCoreSetting *_hdpathInstance;
 
 @interface CoreSettingsRegistry : NSObject
 
@@ -44,7 +50,7 @@
  * Method names starting with "hook_" are meant to be implemented by subclasses.
  */
 @implementation CoreSetting {
-    @private
+    @protected
     CoreSettingsRegistry *_registry;
     NSString *_settingName;
     
@@ -126,15 +132,10 @@
         [_registry.settingToCurrentValue removeObjectForKey:self];
         valueIsDifferentFromPreviousValue = unappliedValue != nil;
     } else {
-        if (unappliedValue) {
-            valueIsDifferentFromPreviousValue = ![self eq:unappliedValue to:value];
-        } else {
-            valueIsDifferentFromPreviousValue = YES;
-        }
-        if (valueIsDifferentFromPreviousValue) {
-            [_registry.settingToCurrentValue setObject:value ? value : [NSNull null] forKey:self];
-        }
+        valueIsDifferentFromPreviousValue = YES;
+        [_registry.settingToCurrentValue setObject:value ? value : [NSNull null] forKey:self];
     }
+    
     if (valueIsDifferentFromPreviousValue) {
         [self hook_persistValue:value];
     }
@@ -149,6 +150,7 @@
 }
 
 - (BOOL)hasUnappliedValue {
+    
     return [self getUnappliedValue] != nil;
 }
 
@@ -172,7 +174,8 @@
 }
 
 - (NSString *)getUnappliedValue {
-    return [_registry.settingToCurrentValue objectForKey:self];
+    [NSException raise:@"Subclasses must implement" format:@"%@", NSStringFromSelector(_cmd)];
+    return nil;
 }
 
 - (void)dealloc {
@@ -204,6 +207,42 @@
 
 @implementation RomCoreSetting
 
++ (RomCoreSetting *)getInstance {
+    return _romInstance;
+}
+
+- (instancetype)initWithName:(NSString *)settingName {
+    self = [super initWithName:settingName];
+    
+    [self initromPath];
+    _romInstance = self;
+    return self;
+}
+
+- (void)initromPath {
+    Settings *settings = [[[Settings alloc] init] autorelease];
+    EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
+    NSString *romPath = settings.romPath;
+    if (romPath) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:romPath]) {
+            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:[romPath lastPathComponent]];
+            romPath = fileInfo ? fileInfo.path : nil;
+        }
+    }
+    if (!romPath) {
+        NSArray *romNameFilters = @[@"kick.rom", @"kick13.rom"];
+        for (NSString *romNameFilter in romNameFilters) {
+            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:romNameFilter];
+            if (fileInfo) {
+                romPath = fileInfo.path;
+                break;
+            }
+        }
+    }
+    
+    settings.romPath = romPath;
+}
+
 - (NSString *)hook_getActionDescription {
     return @"Change";
 }
@@ -217,7 +256,32 @@
 }
 
 - (NSString *)hook_getEmulatorValue {
-    return [_diskDriveService getRomPath];
+    
+    NSString *romPath = [[NSString alloc] initWithString:[_diskDriveService getRomPath]];
+    
+    return romPath;
+}
+
+- (NSString *)getUnappliedValue {
+    
+    if(!_settings.romPath) [self initromPath];
+    
+    NSString *curRompath = _settings.romPath;
+    
+    NSString *actRompath = [self hook_getEmulatorValue];
+    
+    NSString *curRomfile = [[curRompath lastPathComponent] stringByDeletingPathExtension];
+    NSString *actRomfile = [[actRompath lastPathComponent] stringByDeletingPathExtension];
+    
+    if([curRomfile isEqualToString:actRomfile]) {
+        return nil;
+    }
+    else {
+        [self initromPath];
+        NSString *fixedPath = [[NSString alloc] initWithString:_settings.romPath];
+        return fixedPath;
+    }
+    
 }
 
 @end
@@ -249,6 +313,10 @@
     [NSException raise:@"Subclasses must implement" format:@"%@", NSStringFromSelector(_cmd)];
 }
 
+- (NSString *)getUnappliedValue {
+    return [_registry.settingToCurrentValue objectForKey:self];
+}
+
 @end
 
 @implementation DF1EnabledCoreSetting
@@ -259,6 +327,10 @@
 
 - (void)hook_setEnabled:(BOOL)enabled onDriveState:(DriveState *)driveState {
     [driveState setDf1Enabled:enabled];
+}
+
+- (NSString *)getUnappliedValue {
+    return [_registry.settingToCurrentValue objectForKey:self];
 }
 
 @end
@@ -273,6 +345,10 @@
     [driveState setDf2Enabled:enabled];
 }
 
+- (NSString *)getUnappliedValue {
+    return [_registry.settingToCurrentValue objectForKey:self];
+}
+
 @end
 
 @implementation DF3EnabledCoreSetting
@@ -283,6 +359,10 @@
 
 - (void)hook_setEnabled:(BOOL)enabled onDriveState:(DriveState *)driveState {
     [driveState setDf3Enabled:enabled];
+}
+
+- (NSString *)getUnappliedValue {
+    return [_registry.settingToCurrentValue objectForKey:self];
 }
 
 @end
@@ -308,6 +388,33 @@
 
 @implementation HD0PathCoreSetting
 
++ (HD0PathCoreSetting *)getInstance {
+    return _hdpathInstance;
+}
+
+- (instancetype)initWithName:(NSString *)settingName {
+    self = [super initWithName:settingName];
+    
+    [self initHD0Path];
+    _hdpathInstance = self;
+    return self;
+}
+
+- (void)initHD0Path {
+    Settings *settings = [[[Settings alloc] init] autorelease];
+    EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
+    NSString *hdPath = settings.hardfilePath;
+    if (hdPath) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:hdPath]) {
+            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:[hdPath lastPathComponent]];
+            hdPath = fileInfo ? fileInfo.path : nil;
+        }
+    }
+    
+    settings.hardfilePath = hdPath;
+    [_hardDriveService unmountHardfile];
+}
+
 - (void)hook_persistValue:(NSString *)hd0Path {
     _settings.hardfilePath = hd0Path;
 }
@@ -319,6 +426,22 @@
 - (NSString *)hook_getActionDescription {
     NSString *hdfpath = [self getValue];
     return hdfpath ? @"Mounting" : @"Unmounting";
+}
+
+- (NSString *)getUnappliedValue {
+    
+    NSString *curHD0Path = _settings.hardfilePath;
+    NSString *actHD0path = [self hook_getEmulatorValue];
+    
+    if([curHD0Path isEqualToString:actHD0path]) {
+        return nil;
+    }
+    else {
+        [self initHD0Path];
+        curHD0Path = _settings.hardfilePath;
+        return curHD0Path;
+    }
+    
 }
 
 - (Class)getGroup {
@@ -341,6 +464,29 @@
 - (NSString *)hook_getActionDescription {
     BOOL readOnly = [[self getValue] boolValue];
     return [NSString stringWithFormat:@"Mounting as %@", readOnly ? @"read-only" : @"read-write"];
+}
+
+- (NSString *)getUnappliedValue {
+    
+    //No HD File Selected means this setting is irrelevant
+    if(![_hdpathInstance getValue])
+    {
+        return nil;
+    }
+    
+    BOOL bcurValue = _settings.hardfileReadOnly;
+    NSNumber *nactValue = [self hook_getEmulatorValue];
+    BOOL bactValue = [nactValue boolValue];
+    
+    if(bcurValue == bactValue) {
+        return nil;
+    }
+    else {
+        NSString *scurValue = [NSString stringWithFormat:@"%i", bcurValue];
+        return scurValue;
+    }
+    
+    return [_registry.settingToCurrentValue objectForKey:self];
 }
 
 - (Class)getGroup {
@@ -367,7 +513,7 @@
 }
 
 - (void)onResetAfterMembers:(NSSet *)groupMembers {
-    NSString *hd0Path = [[CoreSettings hd0PathCoreSetting] getValue];
+    NSString *hd0Path = [[HD0PathCoreSetting getInstance] getValue];
     if ([_hardDriveService mounted]) {
         [_hardDriveService unmountHardfile];
     }
@@ -402,6 +548,22 @@ extern int mainMenu_ntsc;
 
 - (NSNumber *)hook_getEmulatorValue {
     return [NSNumber numberWithInt:mainMenu_ntsc];
+}
+
+- (NSString *)getUnappliedValue {
+    
+    BOOL bcurNtsc = _settings.ntsc;
+    NSNumber *ncurNtsc = [self hook_getEmulatorValue];
+    BOOL bactNtsc = [ncurNtsc boolValue];
+    
+    if(bcurNtsc == bactNtsc) {
+        return nil;
+    }
+    else {
+        NSString *scurNTSC = [NSString stringWithFormat:@"%i", bcurNtsc];
+        return scurNTSC;
+    }
+   
 }
 
 @end
@@ -457,15 +619,6 @@ extern int mainMenu_ntsc;
     [sToV removeAllObjects];
 }
 
-+ (RomCoreSetting *)romCoreSetting {
-    static RomCoreSetting *setting = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        setting = [[RomCoreSetting alloc] initWithName:@"ROM"];
-    });
-    return setting;
-}
-
 + (DF1EnabledCoreSetting *)df1EnabledCoreSetting {
     static DF1EnabledCoreSetting *setting = nil;
     static dispatch_once_t onceToken;
@@ -489,16 +642,6 @@ extern int mainMenu_ntsc;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         setting = [[DF3EnabledCoreSetting alloc] initWithName:@"DF3Enabled"];
-    });
-    return setting;
-}
-
-
-+ (HD0PathCoreSetting *)hd0PathCoreSetting {
-    static HD0PathCoreSetting *setting = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        setting = [[HD0PathCoreSetting alloc] initWithName:@"HD0Path"];
     });
     return setting;
 }
