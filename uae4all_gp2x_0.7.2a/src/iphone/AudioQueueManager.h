@@ -50,6 +50,9 @@ public:
 	short*					getNextBuffer();
 	void					queueBuffer(short* buffer);
 
+    float                   getVolume();
+    void                    setVolume(float volume);
+
 	
 private:
 	static void				HandleOutputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBufferRef outBuffer);

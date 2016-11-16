@@ -24,7 +24,7 @@
 #import "AdfImporter.h"
 #import "SingleWindowAppDelegate.h"
 #import "BaseEmulationViewController.h"
-#import <AudioToolbox/AudioServices.h>
+#import <AVFoundation/AVFoundation.h>
 #import "SDL.h"
 #import "UIKitDisplayView.h"
 #import "SVProgressHUD.h"
@@ -60,6 +60,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidConnect:) name:UIScreenDidConnectNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenDidDisconnect:) name:UIScreenDidDisconnectNotification object:nil];
     [self configureScreens];
+
+    // set sound as ambient so that iAmiga does not monopolize the sound output
+    NSError *error;
+    if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error]) {
+        NSLog(@"Failed to set ambient audio session: %@", error);
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -76,7 +82,6 @@
 
 - (void)screenDidDisconnect:(NSNotification*)aNotification {
 	[self configureScreens];
-	
 }
 
 - (void)configureScreens {

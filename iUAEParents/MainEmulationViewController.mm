@@ -31,6 +31,7 @@
 #import "SDL.h"
 #import "UIKitDisplayView.h"
 #import "savestate.h"
+#import "AudioService.h"
 #import "Settings.h"
 #import "SettingsGeneralController.h"
 #import "CoreSetting.h"
@@ -53,6 +54,7 @@ extern void init_joystick();
 @end
 
 @implementation MainEmulationViewController {
+    AudioService *_audioService;
     DiskDriveService *_diskDriveService;
     HardDriveService *_hardDriveService;
     NSTimer *_menuHidingTimer;
@@ -96,6 +98,7 @@ extern void uae_reset();
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _audioService = [[AudioService alloc] init];
     _diskDriveService = [[DiskDriveService alloc] init];
     _hardDriveService = [[HardDriveService alloc] init];
     _settings = [[Settings alloc] init];
@@ -112,12 +115,14 @@ extern void uae_reset();
     [self initMenuBarHidingTimer];
     [self initCheckForPausedTimer];
     
+    [self initVolumeTimer:_settings.volume];
+    
     [self initHardDriveMountInfo]; // Initialized early so that a hard file can be mounted below if autoload is enabled
     
     if (_settings.autoloadConfig)
     {
-        // enabling things here uses timers because the disk subsystem of the emulator isn't initialized yet right here;
-        // we need to delay disk drive related tasks by a little bit
+        // enabling things here uses timers because the the emulator isn't initialized yet right here;
+        // we need to delay some tasks by a little bit
         [self initDriveSetupTimer:_settings.driveState];
         [self initDiskInsertTimer:_settings.insertedFloppies];
         [self mountHardfile:_settings.hardfilePath asReadOnly:_settings.hardfileReadOnly];
@@ -362,8 +367,18 @@ extern void togglemouse (void);
     }    
 }
 
+- (void)initVolumeTimer:(float)volume {
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initVolume:) userInfo:[NSNumber numberWithFloat:volume] repeats:NO];
+}
+
+- (void)initVolume:(NSTimer *)timer {
+    NSNumber *volume = timer.userInfo;
+    [_audioService setVolume:[volume floatValue]];
+}
+
 - (void)dealloc
 {
+    [_audioService release];
     [_btnJoypad release];
     [_btnKeyboard release];
     [_btnPin release];

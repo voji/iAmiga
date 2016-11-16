@@ -217,6 +217,15 @@ static int _cNumber = 1;
     [self setBool:showStatus forKey:kShowStatusKey];
 }
 
+- (void)setVolume:(float)volume {
+    [self setObject:[NSNumber numberWithFloat:volume] forKey:kVolume];
+}
+
+- (float)volume {
+    NSNumber *volume = [self objectForKey:kVolume];
+    return volume ? [volume floatValue] : /* was never saved, default to max: */ 1;
+}
+
 - (NSString *)joypadstyle {
     return [self stringForKey:kJoypadStyleKey];
 }
@@ -530,6 +539,10 @@ NSString *const kEnabledAttrName = @"enabled";
 
 - (NSArray *)arrayForKey:(NSString *)settingitemname {
     return [defaults arrayForKey:[self getInternalSettingKey:settingitemname]];
+}
+
+- (id)objectForKey:(NSString *)settingitemname {
+    return [defaults objectForKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (void)removeObjectForKey:(NSString *) settingitemname {
