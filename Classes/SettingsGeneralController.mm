@@ -24,6 +24,7 @@
 #import "Settings.h"
 #import "StateManagementController.h"
 #import "UnappliedSettingLabelHandler.h"
+#import "AudioService.h"
 
 static NSString *const kNoDiskLabel = @"Empty";
 static NSString *const kNoDiskAdfPath = @"";
@@ -82,6 +83,7 @@ static const NSUInteger kHardDrivesSection = 4;
     HD0ReadOnlyCoreSetting *_hd0ReadOnlySetting;
     RomCoreSetting *_romSetting;
     NTSCEnabledCoreSetting *_ntscEnabledSetting;
+    AudioService *_audioService;
 }
 
 - (void)viewDidLoad {
@@ -97,6 +99,7 @@ static const NSUInteger kHardDrivesSection = 4;
     _hd0ReadOnlySetting = [[CoreSettings hd0ReadOnlyCoreSetting] retain];
     _romSetting = [RomCoreSetting getInstance];
     _ntscEnabledSetting = [[CoreSettings ntscEnabledCoreSetting] retain];
+    _audioService = [[AudioService alloc] init];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -402,6 +405,7 @@ static const NSUInteger kHardDrivesSection = 4;
     [_hd0PathSetting setValue:[_hd0PathSetting getValue]];
     [_hd0ReadOnlySetting setValue:[_hd0ReadOnlySetting getValue]];
     [self setupUIState];
+    [_audioService setVolume:_settings.volume];
 }
 
 - (void)didDeleteConfiguration {

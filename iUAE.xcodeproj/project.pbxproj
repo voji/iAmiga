@@ -192,7 +192,6 @@
 		7E4B18EB188B1E8D0019E82B /* chrome-bottom~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B18EA188B1E8D0019E82B /* chrome-bottom~ipad.png */; };
 		7E4C6AF719DB0F7100D337D0 /* famec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C6AF519DB0F7100D337D0 /* famec.cpp */; };
 		7E4D0FBF1CF4E8F600758750 /* VirtualKeyboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D0FBE1CF4E8F600758750 /* VirtualKeyboard.mm */; };
-		7E52A9AE1DA588B400A2618C /* kick31.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E52A9AD1DA588B400A2618C /* kick31.rom */; };
 		7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */; };
 		7E5A77021D00370E009BF491 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5A77011D00370E009BF491 /* ExternalAccessory.framework */; };
 		7E5AF60B1C444854000BF5CB /* sticky_unselected_svg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5AF5FB1C444854000BF5CB /* sticky_unselected_svg.svg */; };
@@ -217,9 +216,6 @@
 		7E770D791D109BF4000E5E1A /* UnappliedSettingLabelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */; };
 		7E770D7C1D109DEC000E5E1A /* CoreSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D7B1D109DEC000E5E1A /* CoreSetting.m */; };
 		7E7936911D9CF0CE003274B4 /* MI2.hdf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7936901D9CF0CE003274B4 /* MI2.hdf */; };
-		7E7936931D9CF0DB003274B4 /* wb13.adf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7936921D9CF0DB003274B4 /* wb13.adf */; };
-		7E7936961D9CF110003274B4 /* kick13.rom in Resources */ = {isa = PBXBuildFile; fileRef = 7E7936941D9CF110003274B4 /* kick13.rom */; };
-		7E7936971D9CF110003274B4 /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7E7936951D9CF110003274B4 /* rom.key */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
@@ -4295,7 +4291,6 @@
 				7E2665541C483AEB004250D1 /* monitor_selected_svg.svg in Resources */,
 				7E1B8C4519FADFD400B6136B /* options.png in Resources */,
 				7E4B18DF188B1CD70019E82B /* btn_restart.png in Resources */,
-				7E7936971D9CF110003274B4 /* rom.key in Resources */,
 				7E5AF6161C444854000BF5CB /* gear_selected.png in Resources */,
 				05BC1B17107348E500EABC6E /* keys.png in Resources */,
 				7E5AF60F1C444854000BF5CB /* keyboard_unselected_svg.svg in Resources */,
@@ -4318,7 +4313,6 @@
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
-				7E52A9AE1DA588B400A2618C /* kick31.rom in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
 				7E2665531C483AEB004250D1 /* monitor_unselected.png in Resources */,
 				7E4B18E1188B1CD70019E82B /* btn_restart~ipad.png in Resources */,
@@ -4370,10 +4364,8 @@
 				97BE2B0B15489E6600BF66CF /* ls-joystick_active.png in Resources */,
 				7E5AF60E1C444854000BF5CB /* sticky_selected.png in Resources */,
 				7E4B18D9188B1CAB0019E82B /* chrome-top~ipad.png in Resources */,
-				7E7936961D9CF110003274B4 /* kick13.rom in Resources */,
 				7E5AF60C1C444854000BF5CB /* sticky_unselected.png in Resources */,
 				97BE2B0E15489E6600BF66CF /* ls-joystick_rest.png in Resources */,
-				7E7936931D9CF0DB003274B4 /* wb13.adf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
