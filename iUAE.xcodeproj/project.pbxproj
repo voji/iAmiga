@@ -215,7 +215,6 @@
 		7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */; };
 		7E770D791D109BF4000E5E1A /* UnappliedSettingLabelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */; };
 		7E770D7C1D109DEC000E5E1A /* CoreSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E770D7B1D109DEC000E5E1A /* CoreSetting.m */; };
-		7E7936911D9CF0CE003274B4 /* MI2.hdf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7936901D9CF0CE003274B4 /* MI2.hdf */; };
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
@@ -4309,7 +4308,6 @@
 				05E8A04812B2C884005532AF /* amiga-beige-dark-right.png in Resources */,
 				7E5AF6151C444854000BF5CB /* gear_selected_svg.svg in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
-				7E7936911D9CF0CE003274B4 /* MI2.hdf in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
 				7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
