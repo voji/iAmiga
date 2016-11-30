@@ -1576,7 +1576,6 @@
 		7E4C6AF619DB0F7100D337D0 /* famec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = famec.h; sourceTree = "<group>"; };
 		7E4C6AF819DB116B00D337D0 /* memory-uae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memory-uae.h"; sourceTree = "<group>"; };
 		7E4D0FBE1CF4E8F600758750 /* VirtualKeyboard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VirtualKeyboard.mm; sourceTree = "<group>"; };
-		7E52A9AD1DA588B400A2618C /* kick31.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick31.rom; path = ../../../Desktop/kick31.rom; sourceTree = "<group>"; };
 		7E54BB1E1AA3362E0054F6B2 /* MFIControllerReaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MFIControllerReaderView.mm; path = "../../libraries/sdl-mini/src/joystick/iOS/MFIControllerReaderView.mm"; sourceTree = "<group>"; };
 		7E54BB1F1AA3362E0054F6B2 /* MFIControllerReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFIControllerReaderView.h; path = "../../libraries/sdl-mini/src/joystick/iOS/MFIControllerReaderView.h"; sourceTree = "<group>"; };
 		7E5A77011D00370E009BF491 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
@@ -1606,10 +1605,6 @@
 		7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnappliedSettingLabelHandler.m; sourceTree = "<group>"; };
 		7E770D7A1D109DEC000E5E1A /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
 		7E770D7B1D109DEC000E5E1A /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
-		7E7936901D9CF0CE003274B4 /* MI2.hdf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MI2.hdf; path = ../../../Desktop/MI2.hdf; sourceTree = "<group>"; };
-		7E7936921D9CF0DB003274B4 /* wb13.adf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wb13.adf; path = ../../../../../Volumes/Multimedia/emus/amiga/Programme/wb13.adf; sourceTree = "<group>"; };
-		7E7936941D9CF110003274B4 /* kick13.rom */ = {isa = PBXFileReference; lastKnownFileType = file; name = kick13.rom; path = ../../../Desktop/kick13.rom; sourceTree = "<group>"; };
-		7E7936951D9CF110003274B4 /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../Desktop/rom.key; sourceTree = "<group>"; };
 		7E7936981D9D5FC5003274B4 /* constSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constSettings.h; sourceTree = "<group>"; };
 		7E922A7F1CF0AD6000D8006F /* touchstick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = touchstick.mm; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
@@ -2703,9 +2698,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E52A9AD1DA588B400A2618C /* kick31.rom */,
-				7E7936941D9CF110003274B4 /* kick13.rom */,
-				7E7936951D9CF110003274B4 /* rom.key */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2713,8 +2705,6 @@
 		057443530FC3CA04003BE251 /* disks */ = {
 			isa = PBXGroup;
 			children = (
-				7E7936921D9CF0DB003274B4 /* wb13.adf */,
-				7E7936901D9CF0CE003274B4 /* MI2.hdf */,
 			);
 			path = disks;
 			sourceTree = "<group>";
@@ -5617,8 +5607,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
@@ -6216,8 +6206,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -6268,7 +6258,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
