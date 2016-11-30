@@ -63,9 +63,21 @@
 
 - (void)addConstraintsTo:(UILabel *)label {
 
-    [label.leadingAnchor constraintEqualToAnchor:label.superview.leadingAnchor constant:13].active = true;
+    [NSLayoutConstraint constraintWithItem:label
+                                 attribute:NSLayoutAttributeLeading
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:label.superview
+                                 attribute:NSLayoutAttributeLeading
+                                multiplier:1
+                                  constant:13].active = true;
     
-    [label.topAnchor constraintEqualToAnchor:label.superview.topAnchor constant:28].active = true;
+    [NSLayoutConstraint constraintWithItem:label
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:label.superview
+                                 attribute:NSLayoutAttributeTop
+                                multiplier:1
+                                  constant:28].active = true;
     
 }
 

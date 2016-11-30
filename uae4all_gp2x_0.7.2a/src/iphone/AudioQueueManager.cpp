@@ -109,6 +109,16 @@ void CAudioQueueManager::setupQueue() {
 	_isInitialized = true;
 }
 
+void CAudioQueueManager::setVolume(float volume) {
+    AudioQueueSetParameter(_queue, kAudioQueueParam_Volume, volume);
+}
+
+float CAudioQueueManager::getVolume() {
+    float volume;
+    AudioQueueGetParameter(_queue, kAudioQueueParam_Volume, &volume);
+    return volume;
+}
+
 void CAudioQueueManager::shutdownQueue() {
 	if (_isRunning) {
 		_isRunning = false;

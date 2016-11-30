@@ -113,6 +113,9 @@
         [configurations addObject:configurationname];
     }
     
+    //Initialize default value for new configuration before loading
+    [settings initializespecificsettings];
+    
     [self.navigationController popViewControllerAnimated:NO];
     [self.delegate didSelectConfiguration:configurationname];
     //[self dismissViewControllerAnimated:NO completion:nil];

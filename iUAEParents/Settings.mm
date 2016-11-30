@@ -29,51 +29,14 @@
 
 #import "Settings.h"
 #import "KeyButtonConfiguration.h"
-
-static NSString *const kAppSettingsInitializedKey = @"appvariableinitialized";
-static NSString *const kInitializeKey = @"_initialize";
-static NSString *const kConfigurationNameKey = @"configurationname";
-static NSString *const kConfigurationsKey = @"configurations";
-static NSString *const kAutoloadConfigKey = @"autoloadconfig";
-static NSString *const kInsertedFloppiesKey = @"insertedfloppies";
-static NSString *const kKeyButtonsEnabledKey = @"keyButtonsEnabled";
-static NSString *const kKeyButtonConfigurationsKey = @"keyButtonConfigurations";
-
-static NSString *const kNtscKey = @"_ntsc";
-static NSString *const kStretchScreenKey = @"_stretchscreen";
-static NSString *const kAddVerticalStretchKey = @"_addverticalstretchvalue";
-static NSString *const kShowStatusKey = @"_showstatus";
-static NSString *const kShowStatusBarKey = @"_showstatusbar";
-static NSString *const kSelectedEffectIndexKey = @"_selectedeffectindex";
-
-static NSString *const kControllersKey = @"_controllers";
-static NSString *const kControllersNextIDKey = @"_controllersnextidkey";
-static NSString *const kJoypadStyleKey = @"_joypadstyle";
-static NSString *const kJoypadLeftOrRightKey = @"_joypadleftorright";
-static NSString *const kJoypadShowButtonTouchKey = @"_joypadshowbuttontouch";
-static NSString *const kDPadTouchOrMotion = @"_dpadTouchOrMotion";
-
-static NSString *const kGyroToggleUpDown = @"_gyroToggleUpDown";
-static NSString *const kGyroSensitivity = @"_gyroSensitivity";
-
-static NSString *const kRstickmouseFlag = @"_rstickmouseflag";
-static NSString *const kLstickmouseFlag = @"_lstickmouseflag";
-static NSString *const kL2mouseFlag = @"_L2mouseFlag";
-static NSString *const kR2mouseFlag = @"_R2mouseFlag";
-
-static NSString *const kRomPath = @"romPath";
-static NSString *const kDf1EnabledKey = @"df1Enabled";
-static NSString *const kDf2EnabledKey = @"df2Enabled";
-static NSString *const kDf3EnabledKey = @"df3Enabled";
-static NSString *const kHardfilePath = @"hardfilePath";
-static NSString *const kHardfileReadOnly = @"hardfileReadOnly";
+#import "constSettings.h"
 
 extern int mainMenu_showStatus;
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
 extern int joystickselected;
 
-static NSString *configurationname;
+static NSString *_configurationname;
 static int _cNumber = 1;
 
 @implementation Settings {
@@ -91,7 +54,7 @@ static int _cNumber = 1;
 
 - (void)initializeCommonSettings {
     
-    configurationname = [[defaults stringForKey:kConfigurationNameKey] retain];
+    _configurationname = [[defaults stringForKey:kConfigurationNameKey] retain];
     
     BOOL isFirstInitialization = ![defaults boolForKey:kAppSettingsInitializedKey];
     
@@ -115,9 +78,9 @@ static int _cNumber = 1;
     NSString *settingstring = [NSString stringWithFormat:@"cnf%@", [adfPath lastPathComponent]];
     if ([defaults stringForKey:settingstring] && self.autoloadConfig )
     {
-        [configurationname release];
-        configurationname = [[defaults stringForKey:settingstring] retain];
-        [defaults setObject:configurationname forKey:kConfigurationNameKey];
+        [_configurationname release];
+        _configurationname = [[defaults stringForKey:settingstring] retain];
+        [defaults setObject:_configurationname forKey:kConfigurationNameKey];
     }
 }
 
@@ -152,6 +115,7 @@ static int _cNumber = 1;
     self.RStickAnalogIsMouse =      [self keyExists:kRstickmouseFlag]           ? self.RStickAnalogIsMouse : NO;
     self.useL2forMouseButton =      [self keyExists:kL2mouseFlag]               ? self.useL2forMouseButton : NO;
     self.useR2forRightMouseButton = [self keyExists:kR2mouseFlag]               ? self.useR2forRightMouseButton : NO;
+   
     
     for(int i=1;i<=8;i++)
     {
@@ -251,6 +215,15 @@ static int _cNumber = 1;
 
 - (void)setShowStatus:(BOOL)showStatus {
     [self setBool:showStatus forKey:kShowStatusKey];
+}
+
+- (void)setVolume:(float)volume {
+    [self setObject:[NSNumber numberWithFloat:volume] forKey:kVolume];
+}
+
+- (float)volume {
+    NSNumber *volume = [self objectForKey:kVolume];
+    return volume ? [volume floatValue] : /* was never saved, default to max: */ 1;
 }
 
 - (NSString *)joypadstyle {
@@ -420,6 +393,7 @@ static int _cNumber = 1;
 
 - (void)setConfigurationName:(NSString *)configurationName {
     [self setObject:configurationName forKey:kConfigurationNameKey];
+    [self initializeCommonSettings];
     [self initializespecificsettings];
 }
 
@@ -568,13 +542,17 @@ NSString *const kEnabledAttrName = @"enabled";
     return [defaults arrayForKey:[self getInternalSettingKey:settingitemname]];
 }
 
+- (id)objectForKey:(NSString *)settingitemname {
+    return [defaults objectForKey:[self getInternalSettingKey:settingitemname]];
+}
+
 - (void)removeObjectForKey:(NSString *) settingitemname {
     [defaults removeObjectForKey:[self getInternalSettingKey:settingitemname]];
 }
 
 - (NSString *)getInternalSettingKey:(NSString *)name {
     // if name starts with '_', the setting is stored in its own configuration
-    return [name hasPrefix:@"_"] ? [NSString stringWithFormat:@"%@%@", configurationname, name] : name;
+    return [name hasPrefix:@"_"] ? [NSString stringWithFormat:@"%@%@", _configurationname, name] : name;
 }
 
 - (NSString *)configForDisk:(NSString *)diskName {

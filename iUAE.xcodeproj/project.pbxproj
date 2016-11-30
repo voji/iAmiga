@@ -1251,6 +1251,8 @@
 		BE951AFA1CA93FB7008DD94B /* fsdb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AF91CA93FB7008DD94B /* fsdb.cpp */; };
 		BE951AFD1CA942B1008DD94B /* expansion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFC1CA942B1008DD94B /* expansion.cpp */; };
 		BE951B001CA9442A008DD94B /* fsdb_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */; };
+		BEC5372C1DA144C9002C3793 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC5372B1DA144C9002C3793 /* AVFoundation.framework */; };
+		BECB5E221DA393B6000E5C2C /* AudioService.mm in Sources */ = {isa = PBXBuildFile; fileRef = BECB5E211DA393B6000E5C2C /* AudioService.mm */; };
 		BECE7E0C1CB3E12600EBFB40 /* hardfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */; };
 		BEE4172E1D6AA35E00E3ED45 /* ScrollToRowHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */; };
 		BEE41BC31B4782D200CE487D /* AdfImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BEE41BC11B4782D200CE487D /* AdfImporter.mm */; };
@@ -1603,6 +1605,7 @@
 		7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnappliedSettingLabelHandler.m; sourceTree = "<group>"; };
 		7E770D7A1D109DEC000E5E1A /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
 		7E770D7B1D109DEC000E5E1A /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
+		7E7936981D9D5FC5003274B4 /* constSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constSettings.h; sourceTree = "<group>"; };
 		7E922A7F1CF0AD6000D8006F /* touchstick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = touchstick.mm; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
@@ -2155,6 +2158,9 @@
 		BE951AFC1CA942B1008DD94B /* expansion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = expansion.cpp; sourceTree = "<group>"; };
 		BE951AFE1CA942E5008DD94B /* picasso96.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picasso96.h; path = include/picasso96.h; sourceTree = "<group>"; };
 		BE951AFF1CA9442A008DD94B /* fsdb_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsdb_unix.cpp; sourceTree = "<group>"; };
+		BEC5372B1DA144C9002C3793 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BECB5E201DA393B6000E5C2C /* AudioService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioService.h; sourceTree = "<group>"; };
+		BECB5E211DA393B6000E5C2C /* AudioService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioService.mm; sourceTree = "<group>"; };
 		BECE7E0B1CB3E12600EBFB40 /* hardfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardfile.cpp; sourceTree = "<group>"; };
 		BEE4172C1D6AA35E00E3ED45 /* ScrollToRowHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollToRowHandler.h; sourceTree = "<group>"; };
 		BEE4172D1D6AA35E00E3ED45 /* ScrollToRowHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollToRowHandler.m; sourceTree = "<group>"; };
@@ -2208,6 +2214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC5372C1DA144C9002C3793 /* AVFoundation.framework in Frameworks */,
 				7E5A77021D00370E009BF491 /* ExternalAccessory.framework in Frameworks */,
 				E937D8A71CB58BC9008DCC27 /* CoreMotion.framework in Frameworks */,
 				9064AD551C7D09FA004CAE28 /* MultipeerConnectivity.framework in Frameworks */,
@@ -2842,6 +2849,8 @@
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
 				BE6086D81C2CF5AC008E668B /* adfresolver.mm */,
+				BECB5E201DA393B6000E5C2C /* AudioService.h */,
+				BECB5E211DA393B6000E5C2C /* AudioService.mm */,
 				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
 				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
 				BE17E1101D6C2E2800221E7F /* CoreSettingGroup.h */,
@@ -2899,6 +2908,7 @@
 				BE6F9F611C4E2C420061B98C /* VPadLeftOrRight.mm */,
 				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
 				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
+				7E7936981D9D5FC5003274B4 /* constSettings.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3022,6 +3032,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEC5372B1DA144C9002C3793 /* AVFoundation.framework */,
 				7E5A77011D00370E009BF491 /* ExternalAccessory.framework */,
 				E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */,
 				9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */,
@@ -5058,6 +5069,7 @@
 				97855106153A3F2E00580B91 /* OGLShaderProgram.m in Sources */,
 				7EB017781B09164900C74B9D /* StateFileManager.mm in Sources */,
 				7E6F37791CDB4E58005BA173 /* SettingsSelectPortViewController.mm in Sources */,
+				BECB5E221DA393B6000E5C2C /* AudioService.mm in Sources */,
 				7E3C13E51A51F16600534164 /* SettingsGeneralController.mm in Sources */,
 				97855127153A3F2E00580B91 /* TexturedCRTEffect.m in Sources */,
 				9785512A153A3F2E00580B91 /* SDL_UIKitEvents.m in Sources */,
@@ -5602,8 +5614,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
@@ -6201,8 +6213,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -6253,7 +6265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;

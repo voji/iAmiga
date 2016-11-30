@@ -6,6 +6,7 @@
 //
 //
 
+#import "AudioService.h"
 #import "CoreSetting.h"
 #import "SelectEffectController.h"
 #import "SettingsDisplayController.h"
@@ -17,33 +18,37 @@ extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
 
 @implementation SettingsDisplayController {
+    @private
+    AudioService *_audioService;
     NSArray *_effectNames;
+    NTSCEnabledCoreSetting *_ntscEnabledSetting;
     SelectEffectController *_selectEffectController;
     Settings *_settings;
-    NTSCEnabledCoreSetting *_ntscEnabledSetting;
     UnappliedSettingLabelHandler *_settingLabelHandler;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    _audioService = [[AudioService alloc] init];
     _settings = [[Settings alloc] init];
     _effectNames = [@[@"None",
                       @"Scanline (50%)", @"Scanline (100%)",
                       @"Aperture 1x2 RB", @"Aperture 1x3 RB",
                       @"Aperture 2x4 RB", @"Aperture 2x4 BG"] retain];
     self.additionalVerticalStretchValue.delegate = self;
+    _settingLabelHandler = [[UnappliedSettingLabelHandler alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _ntscEnabledSetting = [[CoreSettings ntscEnabledCoreSetting] retain];
-    _settingLabelHandler = [[UnappliedSettingLabelHandler alloc] init];
 
     [_ntsc setOn:[[_ntscEnabledSetting getValue] boolValue]];
     [_showstatus setOn:_settings.showStatus];
     [_stretchscreen setOn:_settings.stretchScreen];
     [_showstatusbar setOn:_settings.showStatusBar];
+    _volumeSlider.value = [_audioService getVolume];
     [self handleSelectedEffect];
     [self setupWarningLabels];
 }
@@ -113,7 +118,23 @@ extern int mainMenu_AddVerticalStretchValue;
     [self populateEffectLabel:effectIndex];
 }
 
+- (IBAction)setAdditionalVerticalStretch:(id)sender {
+    mainMenu_AddVerticalStretchValue = (int)[_additionalVerticalStretchValue.text doubleValue];
+    _settings.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
+}
+
+- (IBAction)onVolumeChanged {
+    [_audioService setVolume:_volumeSlider.value];
+    _settings.volume = _volumeSlider.value;
+}
+
+- (BOOL)textFieldShouldReturn: (UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (void)dealloc {
+    [_audioService release];
     [_effectNames release];
     [_selectEffectController release];
     [_settings release];
@@ -121,15 +142,5 @@ extern int mainMenu_AddVerticalStretchValue;
     [_settingLabelHandler release];
     [super dealloc];
 }
-- (IBAction)setAdditionalVerticalStretch:(id)sender {
-    mainMenu_AddVerticalStretchValue = (int)[_additionalVerticalStretchValue.text doubleValue];
-    _settings.addVerticalStretchValue = mainMenu_AddVerticalStretchValue;
-}
-
--(BOOL) textFieldShouldReturn: (UITextField *) textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-
 
 @end

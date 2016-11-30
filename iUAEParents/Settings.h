@@ -32,6 +32,7 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) BOOL showStatus;
 @property (nonatomic, readwrite, assign) BOOL showStatusBar;
 @property (nonatomic, readwrite, assign) NSUInteger selectedEffectIndex;
+@property (nonatomic, readwrite, assign) float volume;
 @property (nonatomic, readwrite, assign) DriveState *driveState;
 @property (nonatomic, readwrite, assign) NSString *romPath;
 @property (nonatomic, readwrite, assign) NSString *hardfilePath;
@@ -54,6 +55,7 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) NSArray *controllers;
 @property (nonatomic, readwrite, assign) NSInteger keyConfigurationCount;
 
+- (void)initializespecificsettings;
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;
 - (void)setFloppyConfiguration:(NSString *)adfPath;
 - (void)setKeyconfiguration:(NSString *)configuredkey forController:(int)cNumber Button:(int)button;

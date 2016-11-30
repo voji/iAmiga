@@ -88,10 +88,13 @@ void sound_default_evtime(void) {
 #endif
 
 char* get_rom_path() {
+    
+    
     Settings *settings = [[[Settings alloc] init] autorelease];
     EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
     NSString *romPath = settings.romPath;
-    if (romPath) {
+    
+    /*if (romPath) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:romPath]) {
             EMUFileInfo *fileInfo = [browser getFileInfoForFileName:[romPath lastPathComponent]];
             romPath = fileInfo ? fileInfo.path : nil;
@@ -106,7 +109,7 @@ char* get_rom_path() {
                 break;
             }
         }
-    }
+    }*/
     static char romPathC[500];
     [romPath getCString:romPathC maxLength:sizeof(romPathC) encoding:[NSString defaultCStringEncoding]];
     return romPathC;

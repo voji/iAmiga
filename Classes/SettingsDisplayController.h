@@ -15,7 +15,7 @@
 @property (nonatomic, assign) IBOutlet UISwitch *showstatus;
 @property (nonatomic, assign) IBOutlet UISwitch *showstatusbar;
 @property (nonatomic, assign) IBOutlet UILabel *selectedEffectLabel;
-
 @property (nonatomic, assign) IBOutlet UITextField *additionalVerticalStretchValue;
+@property (nonatomic, assign) IBOutlet UISlider *volumeSlider;
 
 @end
