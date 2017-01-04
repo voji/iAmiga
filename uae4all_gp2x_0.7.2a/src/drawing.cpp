@@ -68,11 +68,11 @@ static int fps_counter = 0, fps_counter_changed = 0;
 
 
 #define GFXVIDINFO_PIXBYTES 2
-#define GFXVIDINFO_WIDTH 320
+#define GFXVIDINFO_WIDTH 640    //mithrendal hires fix. before was 320
 #define GFXVIDINFO_HEIGHT 240
 #define MAXBLOCKLINES 240
 #define VISIBLE_LEFT_BORDER 72
-#define VISIBLE_RIGHT_BORDER 392
+#define VISIBLE_RIGHT_BORDER 640+72  ////mithrendal hires fix. before was 392
 #define LINETOSCR_X_ADJUST_BYTES 144
 /*
  #define VISIBLE_LEFT_BORDER 64
@@ -397,37 +397,41 @@ static int src_pixel;
 static int unpainted;
 
 #define LNAME linetoscr_16
-#define SRC_INC 1
 #include "linetoscr.h"
-#undef SRC_INC
 #undef LNAME
 
-#define LNAME linetoscr_16_shrink1
-#define SRC_INC 2
+#define LNAME linetoscr_16_double
+#define HDOUBLE 1
 #include "linetoscr.h"
-#undef SRC_INC
 #undef LNAME
 
 static void pfiled_do_linetoscr_1(int start, int stop)
 {
-	src_pixel = linetoscr_16_shrink1 (src_pixel, start, stop);
+    src_pixel = linetoscr_16 (src_pixel, start, VISIBLE_LEFT_BORDER+(stop-VISIBLE_LEFT_BORDER)*2);  //mithrendal hires fix.
 }
 
 static void pfiled_do_linetoscr_0(int start, int stop)
 {
-	src_pixel = linetoscr_16 (src_pixel, start, stop);
+    src_pixel = linetoscr_16_double(src_pixel, start, stop); //mithrendal stretching of lores fix
 }
 
 static line_draw_func *pfield_do_linetoscr=(line_draw_func *)pfiled_do_linetoscr_0;
 
+
 static void pfield_do_fill_line(int start, int stop)
 {
-    register uae_u16 *b = &(((uae_u16 *)xlinebuffer)[start]);
+    //with center fix for 640pixel output. mithrendal
+    register uae_u16 *b = &(((uae_u16 *)xlinebuffer)[VISIBLE_LEFT_BORDER+(start-VISIBLE_LEFT_BORDER)*2]);
     register xcolnr col = colors_for_drawing.acolors[0];
     register int i;
     register int max=(stop-start);
-    for (i = 0; i < max; i++,b++)
-		*b = col;
+    for (i = 0; i < max; i++)
+    {
+        *b = col;
+        b++;
+        *b = col;
+        b++;
+    }
 }
 
 /* Initialize the variables necessary for drawing a line.

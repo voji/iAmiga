@@ -30,7 +30,7 @@
 #import "iAmigaAppDelegate.h"
 #import "Settings.h"
 
-#define kDisplayWidth							320.0f
+#define kDisplayWidth							640.0f  //mithrendal hires fix before was 320.0f
 #define kDisplayHeight							240.0f
 
 extern int mainMenu_stretchscreen;
