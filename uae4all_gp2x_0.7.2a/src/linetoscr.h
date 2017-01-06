@@ -2,18 +2,20 @@
 static __inline__ int LNAME (int spix, int dpix, int stoppos)
 {
 	/* CASO DUAL */
-	
     unsigned short * __restrict__ buf = ((unsigned short *)xlinebuffer);
 	
     if (bpldualpf) {
-	    // OCS/ECS Dual playfield 
+		long int * __restrict__ acolors = (long int *)&colors_for_drawing.acolors;
+		uae_u8* __restrict__ apixels = (uae_u8 *)&pixdata.apixels;
+
+	    // OCS/ECS Dual playfield
 	    int *lookup = bpldualpfpri ? dblpf_ind2 : dblpf_ind1;
 		int n = (stoppos-dpix);
     
         //center fix mithrendal
         dpix = (dpix-VISIBLE_LEFT_BORDER)*2 + VISIBLE_LEFT_BORDER;
 	    while (n--) {
-			register unsigned short d = colors_for_drawing.acolors[lookup[pixdata.apixels[spix]]];
+			register unsigned short d = acolors[lookup[apixels[spix]]];
 			buf[dpix++] = d;
             buf[dpix++] = d;
             spix ++;
@@ -33,30 +35,17 @@ static __inline__ int LNAME (int spix, int dpix, int stoppos)
         
 		// SGC: optimizations using the __restrict__ keyword
 		long int * __restrict__ acolors = (long int *)&colors_for_drawing.acolors;
-		uae_u8 * __restrict__ apixels = (uae_u8 *)&pixdata.apixels;
+		uae_u8* __restrict__ apixels = (uae_u8 *)&pixdata.apixels;
 		int n = (stoppos-dpix);
         
         //center fix mithrendal
         dpix = (dpix-VISIBLE_LEFT_BORDER)*2 + VISIBLE_LEFT_BORDER;
-
-        
 		while (n--) {
             register unsigned short val = (acolors[apixels[spix]]);
 			buf[dpix++] = val;
-            buf[dpix++] = val;
-            
-            spix ++;
+			buf[dpix++] = val;
+			spix ++;
 		}
- /* mithrendal I have found this in a newer core. maybe its performance is better and we should take this in future...
-        int n = (stoppos-dpix);
-        while (n--) {
-            uae_u32 spix_val;
-            
-            spix_val = pixdata.apixels[spix++];
-            *((uae_u32 *)&buf[dpix]) = colors_for_drawing.acolors[spix_val];
-            dpix += 2;
-        }
-*/
 		
 #elif COPY_TYPE == 1
 		long int* __restrict__ acolors = (long int *)&colors_for_drawing.acolors;
