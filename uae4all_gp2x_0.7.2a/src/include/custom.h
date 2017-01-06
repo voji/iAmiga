@@ -123,8 +123,7 @@ extern unsigned long frametime, timeframes;
 /* 100 words give you 1600 horizontal pixels. Should be more than enough for
  * superhires. Don't forget to update the definition in genp2c.c as well.
  * needs to be larger for superhires support */
-//#define MAX_WORDS_PER_LINE 100
-#define MAX_WORDS_PER_LINE 40
+#define MAX_WORDS_PER_LINE 100
 
 extern uae_u32 hirestab_h[256][2];
 extern uae_u32 lorestab_h[256][4];
