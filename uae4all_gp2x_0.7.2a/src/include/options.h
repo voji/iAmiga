@@ -42,7 +42,7 @@ extern uae_u8 disabled;
 
 
 #define PREFS_GFX_WIDTH 640  // mithrendal hires patch
-#define PREFS_GFX_HEIGHT 240
+#define PREFS_GFX_HEIGHT 258
 
 extern void check_prefs_changed_custom (void);
 extern void check_prefs_changed_cpu (void);

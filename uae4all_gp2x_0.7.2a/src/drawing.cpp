@@ -69,8 +69,8 @@ static int fps_counter = 0, fps_counter_changed = 0;
 
 #define GFXVIDINFO_PIXBYTES 2
 #define GFXVIDINFO_WIDTH 640    //mithrendal hires fix. before was 320
-#define GFXVIDINFO_HEIGHT 240
-#define MAXBLOCKLINES 240
+#define GFXVIDINFO_HEIGHT 258   //258 for PAL
+#define MAXBLOCKLINES 258		//258 for PAL
 #define VISIBLE_LEFT_BORDER 72
 #define VISIBLE_RIGHT_BORDER 640+72  ////mithrendal hires fix. before was 392
 #define LINETOSCR_X_ADJUST_BYTES 144

@@ -95,10 +95,10 @@ uae_u16 __inline__ INTREQR (void) {
 #define MAXVPOS_NTSC 262
 //#define MINFIRSTLINE_PAL 21
 #define MINFIRSTLINE_PAL 42
-#define MINFIRSTLINE_NTSC 34//18
+#define MINFIRSTLINE_NTSC 42 //18
 //#define VBLANK_ENDLINE_PAL 29
-#define VBLANK_ENDLINE_PAL 32
-#define VBLANK_ENDLINE_NTSC 24
+#define VBLANK_ENDLINE_PAL 26		//26 on newer core
+#define VBLANK_ENDLINE_NTSC 21		//21 on newer core
 #define VBLANK_HZ_PAL 50
 #define VBLANK_HZ_NTSC 60
 

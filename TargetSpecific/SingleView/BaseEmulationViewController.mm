@@ -31,10 +31,11 @@
 #import "Settings.h"
 
 #define kDisplayWidth							640.0f  //mithrendal hires fix before was 320.0f
-#define kDisplayHeight							240.0f
+#define kDisplayHeight							258.0f
 
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
+extern int mainMenu_ntsc;
 @interface BaseEmulationViewController()
 
 @property (nonatomic, retain) UIView<DisplayViewSurface>	*displayView;
@@ -163,13 +164,24 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	
 	// full-screen, landscape mode
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-        
-        int height = self.view.frame.size.height - self.displayTop + mainMenu_AddVerticalStretchValue;
+		
+		
+        int height = self.view.frame.size.height - self.displayTop;
+
+		//This is a quick hack for now to scale the amiga screen to the entire height of the iOS device.
+		//A more automatic way like that in fs-uae would be much better. It seems that FS-UAE has a way to automatically scale to the last y position of the last amiga viewport on the bottom of the screen.
+		height += mainMenu_AddVerticalStretchValue;
+		if(mainMenu_ntsc == 1 && mainMenu_AddVerticalStretchValue==0)
+		{
+			//make that the smaller height 200 pixel of the NTSC output is stretched over the 256 pixel PAL height display as default if no additional vertical stretch is given.
+			height += 60;
+		}
+		
         
         //Stretch or keep 3/4 aspect radio for width
         int width = mainMenu_stretchscreen ? self.view.frame.size.width : height / 3 * 4;
         
-        //Center if aspect radio is stretched
+        //Center if aspect radio is not stretched
         int xpos = mainMenu_stretchscreen ? 0 : (self.view.frame.size.width - width) / 2;
         
         return CGRectMake(xpos, self.displayTop, width, height);
