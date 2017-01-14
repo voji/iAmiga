@@ -1744,14 +1744,17 @@ static _INLINE_ void init_aspect_maps (void)
     for (i = 0; i < maxl; i++) {
 		//int v = (int) ((i - min_ypos_for_screen) * native_lines_per_amiga_line);
 		int v = (int) (i - min_ypos_for_screen);
-		if (v >= GFXVIDINFO_HEIGHT && max_drawn_amiga_line == -1)
-			max_drawn_amiga_line = i - min_ypos_for_screen;
+		if (v >= GFXVIDINFO_HEIGHT && max_drawn_amiga_line < 0)
+			max_drawn_amiga_line = v;
 		if (i < min_ypos_for_screen || v >= GFXVIDINFO_HEIGHT)
 			v = -1;
 		amiga2aspect_line_map[i] = v;
     }
 	
-    for (i = GFXVIDINFO_HEIGHT; i--;)
+	if (max_drawn_amiga_line < 0)
+		max_drawn_amiga_line = maxl - min_ypos_for_screen;
+	
+	for (i = 0; i < GFXVIDINFO_HEIGHT; i++)
 		native2amiga_line_map[i] = -1;
 	/*
 	 if (native_lines_per_amiga_line < 1) {
@@ -1894,6 +1897,7 @@ static __inline__ void pfield_expand_dp_bplcon (void)
     sbasecol[1] = ((dp_for_drawing->bplcon4 >> 0) & 15) << 4;
 }
 
+int bottom_border_start=-1, lastdrawnline=-1; //remember the bottom position of the screen for adaptive vertical stretching. (mithrendal)
 static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_ypos)
 {
     int border = 0;
@@ -1908,6 +1912,7 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
     xlinebuffer -= LINETOSCR_X_ADJUST_BYTES;
     
     if (!border) {
+		lastdrawnline=gfx_ypos;
 		pfield_expand_dp_bplcon ();
 		
 		pfield_init_linetoscr ();
@@ -1925,6 +1930,8 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		do_color_changes (pfield_do_fill_line, (void (*)(int, int))pfield_do_linetoscr);
 		do_flush_line (gfx_ypos);
     } else {
+		bottom_border_start= lastdrawnline;
+		
 		adjust_drawing_colors (dp_for_drawing->ctable);
 		
 		if (dip_for_drawing->nr_color_changes == 0) {

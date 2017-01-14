@@ -168,16 +168,6 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 		
         int height = self.view.frame.size.height - self.displayTop;
 
-		//This is a quick hack for now to scale the amiga screen to the entire height of the iOS device.
-		//A more automatic way like that in fs-uae would be much better. It seems that FS-UAE has a way to automatically scale to the last y position of the last amiga viewport on the bottom of the screen.
-		height += mainMenu_AddVerticalStretchValue;
-		if(mainMenu_ntsc == 1 && mainMenu_AddVerticalStretchValue==0)
-		{
-			//make that the smaller height 200 pixel of the NTSC output is stretched over the 256 pixel PAL height display as default if no additional vertical stretch is given.
-			height += 60;
-		}
-		
-        
         //Stretch or keep 3/4 aspect radio for width
         int width = mainMenu_stretchscreen ? self.view.frame.size.width : height / 3 * 4;
         

@@ -265,8 +265,35 @@ const GLushort Indices[] = {
 	[self resizeView:CGSizeMake(_displaySize[0], _displaySize[1])];
 }
 
+extern int mainMenu_stretchscreen;
+extern int bottom_border_start;
+int last_bottom_start = -1;
 - (void)drawView {
 	if (newFrame) {
+
+		if(!mainMenu_stretchscreen)
+		{
+			bottom_border_start =_displaySize[1];  //display the full amiga height
+		}
+		
+		if(bottom_border_start>0 && bottom_border_start != last_bottom_start)
+		{//we need to change the scaling here because the amiga changed its viewports
+			CGSize size = CGSizeMake(_displaySize[0], bottom_border_start +1 /* just 1 Pixel more */);
+			
+			if(size.height < _displaySize[1])
+			{//adaptive stretching
+				[self glOrthoScaleAndCenter:0 right:size.width bottom:0 top:size.height near:-1 far:1];
+			}
+			else
+			{
+				[self glOrthoScaleAndCenter:0 right:size.width bottom:0 top:_displaySize[1] near:-1 far:1];
+			}
+			
+			[self setModelView];
+			
+			last_bottom_start = bottom_border_start;
+		}
+
 		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, _displaySize[0], _displaySize[1], GL_RGB, GL_UNSIGNED_SHORT_5_6_5, _pixels);
 		newFrame = NO;
 	}
@@ -281,6 +308,28 @@ const GLushort Indices[] = {
 - (void)drawView:(CADisplayLink*)displayLink; {
 	[self drawView];
 }
+
+//this method is new for adaptive stretching
+- (void)glOrthoScaleAndCenter:(float)left right:(float)right bottom:(float)bottom top:(float)top near:(float)near far:(float)far {
+	float a = 2.0f / (right - left);
+	float b = 2.0f / (top - bottom);
+	float c = -2.0f / (far - near);
+	
+	float tx = -(right + left) / (right - left);
+	float ty = -(_displaySize[1] + bottom + (_displaySize[1]-top)) / (top - bottom);  //move down to center. mithrendal
+	float tz = -(far + near) / (far - near);
+	
+	float ortho[16] = {
+		a, 0,  0, 0,
+		0, b,  0, 0,
+		0, 0,  c, 0,
+		tx, ty,tz, 1
+	};
+	
+	glUniformMatrix4fv(_shaderEffect.projection, 1, GL_FALSE, &ortho[0]);
+}
+
+
 
 - (void)glOrthoLeft:(float)left right:(float)right bottom:(float)bottom top:(float)top near:(float)near far:(float)far {
     float a = 2.0f / (right - left);
