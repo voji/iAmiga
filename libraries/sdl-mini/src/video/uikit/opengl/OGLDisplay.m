@@ -265,6 +265,7 @@ const GLushort Indices[] = {
 	[self resizeView:CGSizeMake(_displaySize[0], _displaySize[1])];
 }
 
+extern int mainMenu_showStatus;
 extern int mainMenu_stretchscreen;
 extern int bottom_border_start;
 int last_scaled_bottom_border_start = -1;
@@ -277,7 +278,17 @@ int sameheight_frame_count=-1;
 		{
 			bottom_border_start =_displaySize[1];  //display the full amiga height
 		}
-		
+		if(mainMenu_showStatus && mainMenu_stretchscreen)
+		{	//when it comes with both enabled showStatus and stretchscreen and if is 256 PAL viewport then recompute the real height
+			//because the setting showStatus has led to a reduced and incorrect bottom_border_start
+			//otherwise it would try to stretch a full 256 heigth screen which MUST not be stretched
+			if(bottom_border_start >= 258 - 12)
+				bottom_border_start += 12; //add the height of the STATUS_LEDs
+		}
+		if(bottom_border_start >0 && bottom_border_start<200)
+		{
+			bottom_border_start = 200; //some limits is always safer. Everything under 200 height scale as if it is a 200 NTSC height screen.
+		}
 		
 		if (last_frame_bottom_border_start>0 && bottom_border_start != last_frame_bottom_border_start)
 		{//when last frames border not like this border then reset count

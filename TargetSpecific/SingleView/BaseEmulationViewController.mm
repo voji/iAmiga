@@ -35,7 +35,6 @@
 
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
-extern int mainMenu_ntsc;
 @interface BaseEmulationViewController()
 
 @property (nonatomic, retain) UIView<DisplayViewSurface>	*displayView;
