@@ -267,7 +267,9 @@ const GLushort Indices[] = {
 
 extern int mainMenu_stretchscreen;
 extern int bottom_border_start;
-int last_bottom_start = -1;
+int last_scaled_bottom_border_start = -1;
+int last_frame_bottom_border_start = -1;
+int sameheight_frame_count=-1;
 - (void)drawView {
 	if (newFrame) {
 
@@ -276,7 +278,18 @@ int last_bottom_start = -1;
 			bottom_border_start =_displaySize[1];  //display the full amiga height
 		}
 		
-		if(bottom_border_start>0 && bottom_border_start != last_bottom_start)
+		
+		if (last_frame_bottom_border_start>0 && bottom_border_start != last_frame_bottom_border_start)
+		{//when last frames border not like this border then reset count
+			sameheight_frame_count=-1;
+		}
+		if(sameheight_frame_count<50)
+		{//when more than 50 frames with same border counted then dont count anymore it's enough
+			sameheight_frame_count++;
+		}
+		last_frame_bottom_border_start = bottom_border_start;
+		
+		if(bottom_border_start>0 && bottom_border_start != last_scaled_bottom_border_start && sameheight_frame_count>5)
 		{//we need to change the scaling here because the amiga changed its viewports
 			CGSize size = CGSizeMake(_displaySize[0], bottom_border_start +1 /* just 1 Pixel more */);
 			
@@ -290,10 +303,11 @@ int last_bottom_start = -1;
 			}
 			
 			[self setModelView];
-			
-			last_bottom_start = bottom_border_start;
+			last_scaled_bottom_border_start = bottom_border_start;
 		}
+		
 
+		
 		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, _displaySize[0], _displaySize[1], GL_RGB, GL_UNSIGNED_SHORT_5_6_5, _pixels);
 		newFrame = NO;
 	}
