@@ -1779,12 +1779,8 @@ static _INLINE_ void init_aspect_maps (void)
  * A raster line has been built in the graphics buffer. Tell the graphics code
  * to do anything necessary to display it.
  */
-static _INLINE_ void do_flush_line (int lineno)
+static _INLINE_ void do_flush_line_base (int lineno)
 {
-    if (lineno < first_drawn_line)
-		first_drawn_line = lineno;
-    if (lineno > last_drawn_line)
-		last_drawn_line = lineno;
 	
 	if ((last_block_line+1) != lineno) {
 	    if (first_block_line != -2)
@@ -1796,6 +1792,19 @@ static _INLINE_ void do_flush_line (int lineno)
 	    flush_block (first_block_line, last_block_line);
 	    first_block_line = last_block_line = -2;
 	}
+}
+static _INLINE_ void do_flush_line (int lineno)
+{
+	if (lineno < first_drawn_line)
+		first_drawn_line = lineno;
+	if (lineno > last_drawn_line)
+		last_drawn_line = lineno;
+	do_flush_line_base(lineno);
+}
+
+static _INLINE_ void do_flush_line_border (int lineno)
+{
+	do_flush_line_base(lineno);
 }
 
 /*
@@ -1897,7 +1906,7 @@ static __inline__ void pfield_expand_dp_bplcon (void)
     sbasecol[1] = ((dp_for_drawing->bplcon4 >> 0) & 15) << 4;
 }
 
-int bottom_border_start=-1, lastdrawnline=-1; //remember the bottom position of the screen for adaptive vertical stretching. (mithrendal)
+int top_border_end=0, bottom_border_start=-1; //remember the min. top and max. bottom drawn line of the screen for adaptive vertical stretching. (mithrendal)
 static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_ypos)
 {
     int border = 0;
@@ -1912,7 +1921,6 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
     xlinebuffer -= LINETOSCR_X_ADJUST_BYTES;
     
     if (!border) {
-		lastdrawnline=gfx_ypos;
 		pfield_expand_dp_bplcon ();
 		
 		pfield_init_linetoscr ();
@@ -1930,13 +1938,16 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		do_color_changes (pfield_do_fill_line, (void (*)(int, int))pfield_do_linetoscr);
 		do_flush_line (gfx_ypos);
     } else {
-		bottom_border_start= lastdrawnline;
+		bottom_border_start= last_drawn_line+1;
+		if(first_drawn_line < 258)
+			top_border_end=first_drawn_line-1;
+		
 		
 		adjust_drawing_colors (dp_for_drawing->ctable);
 		
 		if (dip_for_drawing->nr_color_changes == 0) {
 			fill_line ();
-			do_flush_line (gfx_ypos);
+			do_flush_line_border (gfx_ypos);
 			return;
 		}
 		
@@ -1944,7 +1955,7 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		playfield_end = VISIBLE_RIGHT_BORDER;
 		
 		do_color_changes (pfield_do_fill_line, pfield_do_fill_line);
-		do_flush_line (gfx_ypos);
+		do_flush_line_border (gfx_ypos);
     }
 }
 
