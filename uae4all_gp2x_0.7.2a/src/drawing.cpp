@@ -1937,12 +1937,10 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		}
 		do_color_changes (pfield_do_fill_line, (void (*)(int, int))pfield_do_linetoscr);
 		do_flush_line (gfx_ypos);
-    } else {
 		bottom_border_start= last_drawn_line+1;
 		if(first_drawn_line < 258)
 			top_border_end=first_drawn_line-1;
-		
-		
+    } else {
 		adjust_drawing_colors (dp_for_drawing->ctable);
 		
 		if (dip_for_drawing->nr_color_changes == 0) {

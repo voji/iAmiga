@@ -283,6 +283,7 @@ float effectiveHeightUsedByAmiga=0.0;
 		if(!mainMenu_stretchscreen)
 		{
 			bottom_border_start =_displaySize[1];  //display the full amiga height
+			top_border_end=0;
 		}
 		if(mainMenu_showStatus && mainMenu_stretchscreen)
 		{	//when it comes with both enabled showStatus and stretchscreen and if is 256 PAL viewport then recompute the real height
