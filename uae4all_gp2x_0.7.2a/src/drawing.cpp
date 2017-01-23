@@ -1907,6 +1907,7 @@ static __inline__ void pfield_expand_dp_bplcon (void)
 }
 
 int top_border_end=0, bottom_border_start=-1; //remember the min. top and max. bottom drawn line of the screen for adaptive vertical stretching. (mithrendal)
+int top_border_end_of_previous_frame=0, bottom_border_start_of_previous_frame=-1;
 static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_ypos)
 {
     int border = 0;
@@ -1937,9 +1938,10 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		}
 		do_color_changes (pfield_do_fill_line, (void (*)(int, int))pfield_do_linetoscr);
 		do_flush_line (gfx_ypos);
-		bottom_border_start= last_drawn_line+1;
+		
+		bottom_border_start_of_previous_frame= last_drawn_line+1;
 		if(first_drawn_line < 258)
-			top_border_end=first_drawn_line-1;
+			top_border_end_of_previous_frame=first_drawn_line-1;
     } else {
 		adjust_drawing_colors (dp_for_drawing->ctable);
 		
@@ -2193,6 +2195,10 @@ static _INLINE_ void finish_drawing_frame (void)
 		return;
     }
 #endif
+	
+	//do take the border positions of last frame, because the positions of current frame are not determined yet. (mithrendal)
+	bottom_border_start= bottom_border_start_of_previous_frame;
+	top_border_end=top_border_end_of_previous_frame;
 	
     for (i = 0; i < max_ypos_thisframe; i++) {
 		int where,i1;
