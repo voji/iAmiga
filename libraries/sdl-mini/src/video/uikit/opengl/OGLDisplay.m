@@ -292,6 +292,10 @@ float effectiveHeightUsedByAmiga=0.0;
 			if(bottom_border_start >= 258 - 12)
 				bottom_border_start += 12; //add the height of the STATUS_LEDs
 		}
+		if(top_border_end > 40)
+		{
+			top_border_end = 40; //some limits is always safer. Everything that starts over 50 ypos treat it as if it starts at 50 .
+		}
 		if(bottom_border_start >0 && bottom_border_start<200)
 		{
 			bottom_border_start = 200; //some limits is always safer. Everything under 200 height scale as if it is a 200 NTSC height screen.
@@ -311,7 +315,7 @@ float effectiveHeightUsedByAmiga=0.0;
 		
 		if(bottom_border_start>0 &&
 		   (bottom_border_start != last_scaled_bottom_border_start || top_border_end != last_scaled_top_border_end)
-		   && sameheight_frame_count>5)
+		   && sameheight_frame_count>20)
 		{//we need to change the scaling here because the amiga changed its viewports
 			CGSize size = CGSizeMake(_displaySize[0], bottom_border_start -top_border_end);
 			
