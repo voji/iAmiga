@@ -1906,8 +1906,7 @@ static __inline__ void pfield_expand_dp_bplcon (void)
     sbasecol[1] = ((dp_for_drawing->bplcon4 >> 0) & 15) << 4;
 }
 
-int top_border_end=0, bottom_border_start=-1; //remember the min. top and max. bottom drawn line of the screen for adaptive vertical stretching. (mithrendal)
-int top_border_end_of_previous_frame=0, bottom_border_start_of_previous_frame=-1;
+
 static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_ypos)
 {
     int border = 0;
@@ -1939,10 +1938,7 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		do_color_changes (pfield_do_fill_line, (void (*)(int, int))pfield_do_linetoscr);
 		do_flush_line (gfx_ypos);
 		
-		bottom_border_start_of_previous_frame= last_drawn_line+1;
-		if(first_drawn_line < 258)
-			top_border_end_of_previous_frame=first_drawn_line-1;
-    } else {
+   } else {
 		adjust_drawing_colors (dp_for_drawing->ctable);
 		
 		if (dip_for_drawing->nr_color_changes == 0) {
@@ -1959,6 +1955,7 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
     }
 }
 
+int top_border_end=0, bottom_border_start=-1; //remember the min. top and max. bottom drawn line of the screen for adaptive vertical stretching. (mithrendal)
 static _INLINE_ void init_drawing_frame (void)
 {
     init_hardware_for_drawing_frame ();
@@ -1970,6 +1967,10 @@ static _INLINE_ void init_drawing_frame (void)
 		for(i=0;i<max;i++,ptr++)
 			*ptr=0x01010101;
     }
+	
+	//remember the vertical border positions of last frame, because the positions of current frame are not determined yet. (mithrendal)
+	top_border_end=first_drawn_line-1;
+	bottom_border_start= last_drawn_line+1;
 	
     last_drawn_line = 0;
     first_drawn_line = 32767;
@@ -2196,10 +2197,6 @@ static _INLINE_ void finish_drawing_frame (void)
     }
 #endif
 	
-	//do take the border positions of last frame, because the positions of current frame are not determined yet. (mithrendal)
-	bottom_border_start= bottom_border_start_of_previous_frame;
-	top_border_end=top_border_end_of_previous_frame;
-	
     for (i = 0; i < max_ypos_thisframe; i++) {
 		int where,i1;
 		int line = i + thisframe_y_adjust_real;
@@ -2344,6 +2341,8 @@ void reset_drawing (void)
     for (i = 0; i < sizeof linestate / sizeof *linestate; i++)
 		linestate[i] = LINE_UNDECIDED;
 	
+
+	uae4all_memclr(gfx_mem, GFXVIDINFO_HEIGHT * GFXVIDINFO_WIDTH * GFXVIDINFO_PIXBYTES);	//clear complete gfx_mem on reset to clear potential left overs (56 lines ) when switching from PAL 256 to NTSC 200. mithrendal
     xlinebuffer = gfx_mem;
 	
     init_aspect_maps ();
