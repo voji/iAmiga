@@ -75,7 +75,13 @@ const GLushort Indices[] = {
 	_displaySize[0] = displaySize.width;
 	_displaySize[1] = displaySize.height;
 	effectiveHeightUsedByAmiga=displaySize.height;
+	mainScreenSize =[UIScreen mainScreen].nativeBounds.size;
+	mainScreenSize = CGSizeMake(
+			mainScreenSize.width>mainScreenSize.height? mainScreenSize.width: mainScreenSize.height,
+								mainScreenSize.height<mainScreenSize.width? mainScreenSize.height: mainScreenSize.width);
+
 	
+
 	_pixels = malloc(displaySize.width * displaySize.height * 2);	// RGB565, 2 bytes
 	
 	CAEAGLLayer* eaglLayer = (CAEAGLLayer*) super.layer;
@@ -277,6 +283,7 @@ int last_frame_top_border_end=-1;
 int sameheight_frame_count=-1;
 
 float effectiveHeightUsedByAmiga=0.0;
+CGSize mainScreenSize;
 - (void)drawView {
 	if (newFrame) {
 
@@ -295,6 +302,17 @@ float effectiveHeightUsedByAmiga=0.0;
 		if(top_border_end > 40)
 		{
 			top_border_end = 40; //some limits is always safer. Everything that starts over 50 ypos treat it as if it starts at 50 .
+		}
+		if(mainMenu_stretchscreen)
+		{	//iPad cosmetics:
+			//never let vertical scaling be higher than horizonal scaling. It is not good looking. Keep aspect ratio instead.
+			//(the other way around e.g. higher horizontal than vertical scaling is quite acceptable)
+			float vertScaling = mainScreenSize.height / (float)(bottom_border_start-top_border_end);
+			float horiScaling = mainScreenSize.width / _displaySize[0] * 2.0;
+			if(vertScaling>horiScaling)
+			{//this should be only the case on iPads because it has an 4:3 display, all other ios devices are much wider 16:9, ...
+				bottom_border_start = mainScreenSize.height / horiScaling;
+			}
 		}
 		if(bottom_border_start >0 && bottom_border_start<200)
 		{
