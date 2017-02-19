@@ -95,10 +95,10 @@ uae_u16 __inline__ INTREQR (void) {
 #define MAXVPOS_NTSC 262
 //#define MINFIRSTLINE_PAL 21
 #define MINFIRSTLINE_PAL 42
-#define MINFIRSTLINE_NTSC 34//18
+#define MINFIRSTLINE_NTSC 42 //18
 //#define VBLANK_ENDLINE_PAL 29
-#define VBLANK_ENDLINE_PAL 32
-#define VBLANK_ENDLINE_NTSC 24
+#define VBLANK_ENDLINE_PAL 26		//26 on newer core
+#define VBLANK_ENDLINE_NTSC 21		//21 on newer core
 #define VBLANK_HZ_PAL 50
 #define VBLANK_HZ_NTSC 60
 
@@ -123,8 +123,7 @@ extern unsigned long frametime, timeframes;
 /* 100 words give you 1600 horizontal pixels. Should be more than enough for
  * superhires. Don't forget to update the definition in genp2c.c as well.
  * needs to be larger for superhires support */
-//#define MAX_WORDS_PER_LINE 100
-#define MAX_WORDS_PER_LINE 40
+#define MAX_WORDS_PER_LINE 100
 
 extern uae_u32 hirestab_h[256][2];
 extern uae_u32 lorestab_h[256][4];

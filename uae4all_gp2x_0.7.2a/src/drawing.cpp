@@ -68,11 +68,11 @@ static int fps_counter = 0, fps_counter_changed = 0;
 
 
 #define GFXVIDINFO_PIXBYTES 2
-#define GFXVIDINFO_WIDTH 320
-#define GFXVIDINFO_HEIGHT 240
-#define MAXBLOCKLINES 240
+#define GFXVIDINFO_WIDTH 640    //mithrendal hires fix. before was 320
+#define GFXVIDINFO_HEIGHT 258   //258 for PAL
+#define MAXBLOCKLINES 258		//258 for PAL
 #define VISIBLE_LEFT_BORDER 72
-#define VISIBLE_RIGHT_BORDER 392
+#define VISIBLE_RIGHT_BORDER 640+72  ////mithrendal hires fix. before was 392
 #define LINETOSCR_X_ADJUST_BYTES 144
 /*
  #define VISIBLE_LEFT_BORDER 64
@@ -397,37 +397,41 @@ static int src_pixel;
 static int unpainted;
 
 #define LNAME linetoscr_16
-#define SRC_INC 1
 #include "linetoscr.h"
-#undef SRC_INC
 #undef LNAME
 
-#define LNAME linetoscr_16_shrink1
-#define SRC_INC 2
+#define LNAME linetoscr_16_double
+#define HDOUBLE 1
 #include "linetoscr.h"
-#undef SRC_INC
 #undef LNAME
 
 static void pfiled_do_linetoscr_1(int start, int stop)
 {
-	src_pixel = linetoscr_16_shrink1 (src_pixel, start, stop);
+    src_pixel = linetoscr_16 (src_pixel, start, VISIBLE_LEFT_BORDER+(stop-VISIBLE_LEFT_BORDER)*2);  //mithrendal hires fix.
 }
 
 static void pfiled_do_linetoscr_0(int start, int stop)
 {
-	src_pixel = linetoscr_16 (src_pixel, start, stop);
+    src_pixel = linetoscr_16_double(src_pixel, start, stop); //mithrendal stretching of lores fix
 }
 
 static line_draw_func *pfield_do_linetoscr=(line_draw_func *)pfiled_do_linetoscr_0;
 
+
 static void pfield_do_fill_line(int start, int stop)
 {
-    register uae_u16 *b = &(((uae_u16 *)xlinebuffer)[start]);
+    //with center fix for 640pixel output. mithrendal
+    register uae_u16 *b = &(((uae_u16 *)xlinebuffer)[VISIBLE_LEFT_BORDER+(start-VISIBLE_LEFT_BORDER)*2]);
     register xcolnr col = colors_for_drawing.acolors[0];
     register int i;
     register int max=(stop-start);
-    for (i = 0; i < max; i++,b++)
-		*b = col;
+    for (i = 0; i < max; i++)
+    {
+        *b = col;
+        b++;
+        *b = col;
+        b++;
+    }
 }
 
 /* Initialize the variables necessary for drawing a line.
@@ -1740,14 +1744,17 @@ static _INLINE_ void init_aspect_maps (void)
     for (i = 0; i < maxl; i++) {
 		//int v = (int) ((i - min_ypos_for_screen) * native_lines_per_amiga_line);
 		int v = (int) (i - min_ypos_for_screen);
-		if (v >= GFXVIDINFO_HEIGHT && max_drawn_amiga_line == -1)
-			max_drawn_amiga_line = i - min_ypos_for_screen;
+		if (v >= GFXVIDINFO_HEIGHT && max_drawn_amiga_line < 0)
+			max_drawn_amiga_line = v;
 		if (i < min_ypos_for_screen || v >= GFXVIDINFO_HEIGHT)
 			v = -1;
 		amiga2aspect_line_map[i] = v;
     }
 	
-    for (i = GFXVIDINFO_HEIGHT; i--;)
+	if (max_drawn_amiga_line < 0)
+		max_drawn_amiga_line = maxl - min_ypos_for_screen;
+	
+	for (i = 0; i < GFXVIDINFO_HEIGHT; i++)
 		native2amiga_line_map[i] = -1;
 	/*
 	 if (native_lines_per_amiga_line < 1) {
@@ -1772,12 +1779,8 @@ static _INLINE_ void init_aspect_maps (void)
  * A raster line has been built in the graphics buffer. Tell the graphics code
  * to do anything necessary to display it.
  */
-static _INLINE_ void do_flush_line (int lineno)
+static _INLINE_ void do_flush_line_base (int lineno)
 {
-    if (lineno < first_drawn_line)
-		first_drawn_line = lineno;
-    if (lineno > last_drawn_line)
-		last_drawn_line = lineno;
 	
 	if ((last_block_line+1) != lineno) {
 	    if (first_block_line != -2)
@@ -1789,6 +1792,19 @@ static _INLINE_ void do_flush_line (int lineno)
 	    flush_block (first_block_line, last_block_line);
 	    first_block_line = last_block_line = -2;
 	}
+}
+static _INLINE_ void do_flush_line (int lineno)
+{
+	if (lineno < first_drawn_line)
+		first_drawn_line = lineno;
+	if (lineno > last_drawn_line)
+		last_drawn_line = lineno;
+	do_flush_line_base(lineno);
+}
+
+static _INLINE_ void do_flush_line_border (int lineno)
+{
+	do_flush_line_base(lineno);
 }
 
 /*
@@ -1890,6 +1906,7 @@ static __inline__ void pfield_expand_dp_bplcon (void)
     sbasecol[1] = ((dp_for_drawing->bplcon4 >> 0) & 15) << 4;
 }
 
+
 static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_ypos)
 {
     int border = 0;
@@ -1920,12 +1937,13 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		}
 		do_color_changes (pfield_do_fill_line, (void (*)(int, int))pfield_do_linetoscr);
 		do_flush_line (gfx_ypos);
-    } else {
+		
+   } else {
 		adjust_drawing_colors (dp_for_drawing->ctable);
 		
 		if (dip_for_drawing->nr_color_changes == 0) {
 			fill_line ();
-			do_flush_line (gfx_ypos);
+			do_flush_line_border (gfx_ypos);
 			return;
 		}
 		
@@ -1933,10 +1951,11 @@ static __inline__ void pfield_draw_line (int lineno, int gfx_ypos, int follow_yp
 		playfield_end = VISIBLE_RIGHT_BORDER;
 		
 		do_color_changes (pfield_do_fill_line, pfield_do_fill_line);
-		do_flush_line (gfx_ypos);
+		do_flush_line_border (gfx_ypos);
     }
 }
 
+int top_border_end=0, bottom_border_start=-1; //remember the min. top and max. bottom drawn line of the screen for adaptive vertical stretching. (mithrendal)
 static _INLINE_ void init_drawing_frame (void)
 {
     init_hardware_for_drawing_frame ();
@@ -1948,6 +1967,10 @@ static _INLINE_ void init_drawing_frame (void)
 		for(i=0;i<max;i++,ptr++)
 			*ptr=0x01010101;
     }
+	
+	//remember the vertical border positions of last frame, because the positions of current frame are not determined yet. (mithrendal)
+	top_border_end=first_drawn_line-1;
+	bottom_border_start= last_drawn_line+1;
 	
     last_drawn_line = 0;
     first_drawn_line = 32767;
@@ -2318,6 +2341,8 @@ void reset_drawing (void)
     for (i = 0; i < sizeof linestate / sizeof *linestate; i++)
 		linestate[i] = LINE_UNDECIDED;
 	
+
+	uae4all_memclr(gfx_mem, GFXVIDINFO_HEIGHT * GFXVIDINFO_WIDTH * GFXVIDINFO_PIXBYTES);	//clear complete gfx_mem on reset to clear potential left overs (56 lines ) when switching from PAL 256 to NTSC 200. mithrendal
     xlinebuffer = gfx_mem;
 	
     init_aspect_maps ();
