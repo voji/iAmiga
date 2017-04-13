@@ -87,6 +87,16 @@ void sound_default_evtime(void) {
 }
 #endif
 
+unsigned get_chipmem_size() {
+    Settings *settings = [[[Settings alloc] init] autorelease];
+    return settings.CMem * 1024;
+}
+
+unsigned get_fastmem_size() {
+    Settings *settings = [[[Settings alloc] init] autorelease];
+    return settings.FMem * 1024 * 1024;
+}
+
 char* get_rom_path() {
     
     
@@ -94,22 +104,7 @@ char* get_rom_path() {
     EMUBrowser *browser = [[[EMUBrowser alloc] init] autorelease];
     NSString *romPath = settings.romPath;
     
-    /*if (romPath) {
-        if (![[NSFileManager defaultManager] fileExistsAtPath:romPath]) {
-            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:[romPath lastPathComponent]];
-            romPath = fileInfo ? fileInfo.path : nil;
-        }
-    }
-    if (!romPath) {
-        NSArray *romNameFilters = @[@"kick.rom", @"kick13.rom"];
-        for (NSString *romNameFilter in romNameFilters) {
-            EMUFileInfo *fileInfo = [browser getFileInfoForFileName:romNameFilter];
-            if (fileInfo) {
-                romPath = fileInfo.path;
-                break;
-            }
-        }
-    }*/
+
     static char romPathC[500];
     [romPath getCString:romPathC maxLength:sizeof(romPathC) encoding:[NSString defaultCStringEncoding]];
     return romPathC;

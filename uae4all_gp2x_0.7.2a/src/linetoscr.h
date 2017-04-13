@@ -2,36 +2,49 @@
 static __inline__ int LNAME (int spix, int dpix, int stoppos)
 {
 	/* CASO DUAL */
-	
     unsigned short * __restrict__ buf = ((unsigned short *)xlinebuffer);
 	
     if (bpldualpf) {
-	    // OCS/ECS Dual playfield 
+		long int * __restrict__ acolors = (long int *)&colors_for_drawing.acolors;
+		uae_u8* __restrict__ apixels = (uae_u8 *)&pixdata.apixels;
+
+	    // OCS/ECS Dual playfield
 	    int *lookup = bpldualpfpri ? dblpf_ind2 : dblpf_ind1;
-		
-	    while (dpix < stoppos) {
-			register unsigned short d = colors_for_drawing.acolors[lookup[pixdata.apixels[spix]]];
+		int n = (stoppos-dpix);
+    
+        //center fix mithrendal
+        dpix = (dpix-VISIBLE_LEFT_BORDER)*2 + VISIBLE_LEFT_BORDER;
+	    while (n--) {
+			register unsigned short d = acolors[lookup[apixels[spix]]];
 			buf[dpix++] = d;
-			spix += SRC_INC;
+            buf[dpix++] = d;
+            spix ++;
 	    }
 		
     } else {
 	
-#if SRC_INC == 1
-#define COPY_TYPE 1
-#else
+#ifdef HDOUBLE
 #define COPY_TYPE 0
+#else
+#define COPY_TYPE 1
 #endif
 			
 #if COPY_TYPE == 0
 		
+        
+        
 		// SGC: optimizations using the __restrict__ keyword
 		long int * __restrict__ acolors = (long int *)&colors_for_drawing.acolors;
-		uae_u8 * __restrict__ apixels = (uae_u8 *)&pixdata.apixels;
+		uae_u8* __restrict__ apixels = (uae_u8 *)&pixdata.apixels;
 		int n = (stoppos-dpix);
+        
+        //center fix mithrendal
+        dpix = (dpix-VISIBLE_LEFT_BORDER)*2 + VISIBLE_LEFT_BORDER;
 		while (n--) {
-			buf[dpix++] = (acolors[apixels[spix]]);
-			spix += SRC_INC;
+            register unsigned short val = (acolors[apixels[spix]]);
+			buf[dpix++] = val;
+			buf[dpix++] = val;
+			spix ++;
 		}
 		
 #elif COPY_TYPE == 1
@@ -41,7 +54,6 @@ static __inline__ int LNAME (int spix, int dpix, int stoppos)
 		// load up 64 pixels into the data cache (we hope)
 		asm volatile("pld [%0]" : : "r" (lpixels));
 #endif
-		
 		int n = (stoppos-dpix);
 		int m = n & 0x3;
 		n >>= 2;

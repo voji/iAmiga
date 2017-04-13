@@ -54,6 +54,8 @@ static NSString *const kJoyStyleFourButton = @"FourButton";
 @property (nonatomic, readwrite, assign) NSUInteger controllersnextid;
 @property (nonatomic, readwrite, assign) NSArray *controllers;
 @property (nonatomic, readwrite, assign) NSInteger keyConfigurationCount;
+@property (nonatomic, readwrite, assign) NSInteger CMem;
+@property (nonatomic, readwrite, assign) NSInteger FMem;
 
 - (void)initializespecificsettings;
 - (void)setFloppyConfigurations:(NSArray *)adfPaths;

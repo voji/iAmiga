@@ -33,6 +33,7 @@ int bReloadKickstart = 0;
 #include "zfile.h"
 
 unsigned prefs_chipmem_size;
+unsigned prefs_fastmem_size;
 unsigned prefs_bogomem_size;
 
 void clear_fame_mem_dummy(void);

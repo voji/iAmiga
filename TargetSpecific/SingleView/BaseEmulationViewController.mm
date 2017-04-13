@@ -30,8 +30,8 @@
 #import "iAmigaAppDelegate.h"
 #import "Settings.h"
 
-#define kDisplayWidth							320.0f
-#define kDisplayHeight							240.0f
+#define kDisplayWidth							640.0f  //mithrendal hires fix before was 320.0f
+#define kDisplayHeight							258.0f
 
 extern int mainMenu_stretchscreen;
 extern int mainMenu_AddVerticalStretchValue;
@@ -163,13 +163,14 @@ static CGRect CreateIntegralScaledView(CGRect aFrame, BOOL top) {
 	
 	// full-screen, landscape mode
 	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-        
-        int height = self.view.frame.size.height - self.displayTop + mainMenu_AddVerticalStretchValue;
-        
+		
+		
+        int height = self.view.frame.size.height - self.displayTop;
+
         //Stretch or keep 3/4 aspect radio for width
         int width = mainMenu_stretchscreen ? self.view.frame.size.width : height / 3 * 4;
         
-        //Center if aspect radio is stretched
+        //Center if aspect radio is not stretched
         int xpos = mainMenu_stretchscreen ? 0 : (self.view.frame.size.width - width) / 2;
         
         return CGRectMake(xpos, self.displayTop, width, height);

@@ -74,6 +74,7 @@ const GLushort Indices[] = {
 	
 	_displaySize[0] = displaySize.width;
 	_displaySize[1] = displaySize.height;
+	effectiveHeightUsedByAmiga=displaySize.height;
 	
 	_pixels = malloc(displaySize.width * displaySize.height * 2);	// RGB565, 2 bytes
 	
@@ -182,7 +183,7 @@ const GLushort Indices[] = {
 	
 	// Initialize the projection matrix.
 	CGSize size = CGSizeMake(_displaySize[0], _displaySize[1]);
-	[self glOrthoLeft:0 right:size.width bottom:0 top:size.height near:-1 far:1];
+	[self glOrthoLeft:0 right:size.width bottom:0 top:effectiveHeightUsedByAmiga near:-1 far:1];
 	[self setModelView];
 	
 	// bind textures
@@ -247,7 +248,7 @@ const GLushort Indices[] = {
 	[_shaderEffect useProgram];
 
 	CGSize size = CGSizeMake(_displaySize[0], _displaySize[1]);
-	[self glOrthoLeft:0 right:size.width bottom:0 top:size.height near:-1 far:1];
+	[self glOrthoLeft:0 right:size.width bottom:0 top:effectiveHeightUsedByAmiga near:-1 far:1];
 	[self setModelView];
 	
 	glEnableVertexAttribArray(_shaderEffect.position);
@@ -265,8 +266,67 @@ const GLushort Indices[] = {
 	[self resizeView:CGSizeMake(_displaySize[0], _displaySize[1])];
 }
 
+extern int mainMenu_showStatus;
+extern int mainMenu_stretchscreen;
+extern int bottom_border_start;
+extern int top_border_end;
+int last_scaled_bottom_border_start = -1;
+int last_scaled_top_border_end=-1;
+int last_frame_bottom_border_start = -1;
+int last_frame_top_border_end=-1;
+int sameheight_frame_count=-1;
+
+float effectiveHeightUsedByAmiga=0.0;
 - (void)drawView {
 	if (newFrame) {
+
+		if(!mainMenu_stretchscreen)
+		{
+			bottom_border_start =_displaySize[1];  //display the full amiga height
+			top_border_end=0;
+		}
+		if(mainMenu_showStatus && mainMenu_stretchscreen)
+		{	//when it comes with both enabled showStatus and stretchscreen and if is 256 PAL viewport then recompute the real height
+			//because the setting showStatus has led to a reduced and incorrect bottom_border_start
+			//otherwise it would try to stretch a full 256 heigth screen which MUST not be stretched
+			if(bottom_border_start >= 258 - 12)
+				bottom_border_start += 12; //add the height of the STATUS_LEDs
+		}
+		if(top_border_end > 40)
+		{
+			top_border_end = 40; //some limits is always safer. Everything that starts over 50 ypos treat it as if it starts at 50 .
+		}
+		if(bottom_border_start >0 && bottom_border_start<200)
+		{
+			bottom_border_start = 200; //some limits is always safer. Everything under 200 height scale as if it is a 200 NTSC height screen.
+		}
+		
+		if (last_frame_bottom_border_start>0 &&
+			(bottom_border_start != last_frame_bottom_border_start || top_border_end != last_frame_top_border_end ))
+		{//when last frames border not like this border then reset count
+			sameheight_frame_count=-1;
+		}
+		if(sameheight_frame_count<50)
+		{//when more than 50 frames with same border counted then dont count anymore it's enough
+			sameheight_frame_count++;
+		}
+		last_frame_bottom_border_start = bottom_border_start;
+		last_frame_top_border_end = top_border_end;
+		
+		if(bottom_border_start>0 &&
+		   (bottom_border_start != last_scaled_bottom_border_start || top_border_end != last_scaled_top_border_end)
+		   && sameheight_frame_count>5)
+		{//we need to change the scaling here because the amiga changed its viewports
+			CGSize size = CGSizeMake(_displaySize[0], bottom_border_start -top_border_end);
+			
+			effectiveHeightUsedByAmiga = size.height;
+			[self glOrthoLeft:0 right:size.width bottom:0 top:size.height near:-1 far:1];
+			
+			[self setModelView];
+			last_scaled_top_border_end = top_border_end;
+			last_scaled_bottom_border_start = bottom_border_start;
+		}
+		
 		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, _displaySize[0], _displaySize[1], GL_RGB, GL_UNSIGNED_SHORT_5_6_5, _pixels);
 		newFrame = NO;
 	}
@@ -282,23 +342,24 @@ const GLushort Indices[] = {
 	[self drawView];
 }
 
+
 - (void)glOrthoLeft:(float)left right:(float)right bottom:(float)bottom top:(float)top near:(float)near far:(float)far {
-    float a = 2.0f / (right - left);
-    float b = 2.0f / (top - bottom);
+	float a = 2.0f / (right - left);
+	float b = 2.0f / (top - bottom);
 	float c = -2.0f / (far - near);
 	
 	float tx = -(right + left) / (right - left);
-	float ty = -(top + bottom) / (top - bottom);
+	float ty = -(_displaySize[1] + bottom + (_displaySize[1]-top -top_border_end*2)) / (top - bottom);  //do center vertical. mithrendal
 	float tz = -(far + near) / (far - near);
 	
-    float ortho[16] = {
-        a, 0,  0, 0,
-        0, b,  0, 0,
-        0, 0,  c, 0,
-        tx, ty,tz, 1
-    };
-
-    glUniformMatrix4fv(_shaderEffect.projection, 1, GL_FALSE, &ortho[0]);
+	float ortho[16] = {
+		a, 0,  0, 0,
+		0, b,  0, 0,
+		0, 0,  c, 0,
+		tx, ty,tz, 1
+	};
+	
+	glUniformMatrix4fv(_shaderEffect.projection, 1, GL_FALSE, &ortho[0]);
 }
 
 - (void)setModelView {
