@@ -70,7 +70,12 @@
 @interface HD0ReadOnlyCoreSetting : HardDriveBasedCoreSetting <CoreSettingGroupMember> @end
 @interface HD0SettingGroup : NSObject <CoreSettingGroup> @end
 @interface NTSCEnabledCoreSetting : CoreSetting @end
-
+@interface CMemCoreSetting : CoreSetting
++ (CMemCoreSetting *) getInstance;
+@end
+@interface FMemCoreSetting : CoreSetting
++ (FMemCoreSetting *) getInstance;
+@end
 
 /**
  * Exposes all CoreSetting singletons, and is the entry point for the reset flow.
@@ -92,6 +97,7 @@
 + (HD0PathCoreSetting *)hd0PathCoreSetting;
 + (HD0ReadOnlyCoreSetting *)hd0ReadOnlyCoreSetting;
 + (NTSCEnabledCoreSetting *)ntscEnabledCoreSetting;
++ (CMemCoreSetting *)cmemCoreSetting;
 
 @end
 

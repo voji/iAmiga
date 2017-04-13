@@ -47,5 +47,7 @@ static NSString *const kDf3EnabledKey = @"df3Enabled";
 static NSString *const kHardfilePath = @"_hardfilePath";
 static NSString *const kHardfileReadOnly = @"_hardfileReadOnly";
 static NSString *const kVolume = @"_volume";
+static NSString *const kCmem = @"_cmem";
+static NSString *const kFmem = @"_fmem";
 
 #endif /* constSettings_h */
