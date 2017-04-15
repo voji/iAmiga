@@ -83,6 +83,8 @@ static const NSUInteger kHardDrivesSection = 4;
     HD0ReadOnlyCoreSetting *_hd0ReadOnlySetting;
     RomCoreSetting *_romSetting;
     NTSCEnabledCoreSetting *_ntscEnabledSetting;
+    CMemCoreSetting *_cmemSetting;
+    FMemCoreSetting *_fmemSetting;
     AudioService *_audioService;
 }
 
@@ -100,6 +102,8 @@ static const NSUInteger kHardDrivesSection = 4;
     _romSetting = [RomCoreSetting getInstance];
     _ntscEnabledSetting = [[CoreSettings ntscEnabledCoreSetting] retain];
     _audioService = [[AudioService alloc] init];
+    _cmemSetting = [CMemCoreSetting getInstance];
+    _fmemSetting = [FMemCoreSetting getInstance];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -404,6 +408,8 @@ static const NSUInteger kHardDrivesSection = 4;
     [_romSetting setValue: [_romSetting getValue]];
     [_hd0PathSetting setValue:[_hd0PathSetting getValue]];
     [_hd0ReadOnlySetting setValue:[_hd0ReadOnlySetting getValue]];
+    [_cmemSetting setValue:[NSNumber numberWithInteger:_settings.CMem]];
+    [_fmemSetting setValue:[NSNumber numberWithInteger:_settings.FMem]];
     [self setupUIState];
     [_audioService setVolume:_settings.volume];
 }
