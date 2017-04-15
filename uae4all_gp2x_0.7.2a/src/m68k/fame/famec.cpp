@@ -224,7 +224,7 @@ return (A);
 #define M68K_PPL (m68kcontext.sr >> 8) & 7
 
 #define GET_PC                  \
-(u32)PC - BasePC;
+(uintptr_t) PC - (uintptr_t) BasePC;
 
 #define SET_PC(A)               \
 BasePC = Fetch[((A) >> M68K_FETCHSFT) & M68K_FETCHMASK];    \
@@ -453,7 +453,7 @@ RET(CYCLES)                                      \
 }
 
 
-void famec_SetBank(u32 low_addr, u32 high_addr, u32 fetch, void *rb, void *rw, void *wb, void *ww, void *data)
+void famec_SetBank(u32 low_addr, u32 high_addr, uintptr_t fetch, void *rb, void *rw, void *wb, void *ww, void *data)
 {
     u32 i, j;
     
@@ -509,7 +509,7 @@ static __attribute__ ((noinline)) u8 Read_Byte(u32 addr)
 	if (mem_handlerRB[i])
 		val = ((u8 (*)(s32))mem_handlerRB[i])(addr);
 	else {
-		val = *((u8 *)(((u32)mem_data[i]) + (addr^1)));
+		val = *((u8 *)(((uintptr_t)mem_data[i]) + (addr^1)));
 	}
     
 	return val;
@@ -535,14 +535,14 @@ static __attribute__ ((noinline)) u16 Read_Word(u32 addr)
              *    - read word from 0x00000001 : 0xee11     (unswabbed data)
              */
             register u32 b;
-            b = *((u32 *)(((u32)mem_data[i]) + (addr ^ 1)));
+            b = *((u32 *)(((uintptr_t)mem_data[i]) + (addr ^ 1)));
             val = (b << 8) | (b >> 24);
             //         u8 *pdata = (u8 *)((u32)DataWW[i].data + addr);
             //         val  = *(pdata - 1) << 8;
             //         val |= *(pdata + 2);
         }
         else {
-            val = *((u16 *)(((u32)mem_data[i]) + addr));
+            val = *((u16 *)(((uintptr_t)mem_data[i]) + addr));
         }
 	}
     
@@ -565,7 +565,7 @@ static __attribute__ ((noinline)) void Write_Byte(u32 addr, u8 data)
 	if (mem_handlerWB[i] != NULL)
 		((void (*)(s32, s32))mem_handlerWB[i])(addr,data);
 	else {
-        *((u8 *)(((u32)mem_data[i]) + (addr^1))) = data;
+        *((u8 *)(((uintptr_t)mem_data[i]) + (addr^1))) = data;
 	}
 }
 
@@ -583,7 +583,7 @@ static __attribute__ ((noinline)) void Write_Word(u32 addr, u16 data)
     }
     else {
         if (unlikely(addr & 1)) {
-            u8 *pdata = (u8 *)((u32)mem_data[i] + addr);
+            u8 *pdata = (u8 *)((uintptr_t)mem_data[i] + addr);
             
             /* Example:
              *    - memory loc.     0x00000000 : 0xeeff0011 (word-swabbed data)
@@ -593,7 +593,7 @@ static __attribute__ ((noinline)) void Write_Word(u32 addr, u16 data)
             *(pdata + 2) = data;
         }
         else {
-            *((u16 *)(((u32)mem_data[i]) + addr)) = data;
+            *((u16 *)(((uintptr_t)mem_data[i]) + addr)) = data;
         }
     }
 }
@@ -695,9 +695,9 @@ M68K_CONTEXT *m68k_get_context(void)
 /* No recibe parametros                                                     */
 /* Retorna 68k PC                                                           */
 /****************************************************************************/
-u32 m68k_get_pc(void)
+uintptr_t m68k_get_pc(void)
 {
-	return (m68kcontext.execinfo & M68K_RUNNING)?(u32)PC-BasePC:m68kcontext.pc;
+	return (m68kcontext.execinfo & M68K_RUNNING)?(uintptr_t)PC-BasePC:m68kcontext.pc;
 }
 
 /***********************************************************************/
@@ -775,7 +775,7 @@ s32 m68k_set_register(m68k_register reg, u32 value)
 s32 m68k_fetch(u32 addr)
 {
 	s32 val;
-    u32 Base;
+    uintptr_t Base;
     u16 *ptr;
     
     Base = Fetch[(addr >> M68K_FETCHSFT) & M68K_FETCHMASK];
@@ -859,7 +859,7 @@ static FAMEC_EXTRA_INLINE s32 interrupt_chk__(M68K_CONTEXT &m68kcontext)
 void process_exception(unsigned int vect)
 {
     u32 newPC;
-    u32 oldPC = (u32)(PC) - BasePC;
+    u32 oldPC = (uintptr_t)(PC) - BasePC;
     u32 oldSR = GET_SR;
     
     // TomB 02.12.2013: 68000 reference manual says, trace-flag is always cleared

@@ -72,7 +72,7 @@ FILE *savestate_file=NULL;
 /* functions for reading/writing bytes, shorts and longs in big-endian
  * format independent of host machine's endianess */
 
-void save_u32_func (uae_u8 **dstp, uae_u32 v)
+void save_u32_func (uae_u8 **dstp, uintptr_t v)
 {
     uae_u8 *dst = *dstp;
     *dst++ = (uae_u8)(v >> 24);
@@ -129,7 +129,7 @@ uae_u8 restore_u8_func (uae_u8 **dstp)
 }
 char *restore_string_func (uae_u8 **dstp)
 {
-    int len;
+    uintptr_t len;
     uae_u8 v;
     uae_u8 *dst = *dstp;
     char *top, *to;
@@ -157,7 +157,7 @@ static void save_chunk (FILE *f, uae_u8 *chunk, long len, const char *name)
     fwrite (name, 1, 4, f);
     /* chunk size */
     dst = &tmp[0];
-    save_u32 (len + 4 + 4 + 4);
+    save_u32 ((uae_u32)len + 4 + 4 + 4);
     fwrite (&tmp[0], 1, 4, f);
     /* chunk flags */
     dst = &tmp[0];
@@ -285,14 +285,14 @@ void restore_state (char *filename)
                 i++;
         }
         if (!strcmp (name, "CRAM")) {
-            restore_cram (len, filepos);
+            restore_cram ((int) len, filepos);
             continue;
         }
         else if (!strcmp (name, "BRAM")) {
-            restore_bram (len, filepos);
+            restore_bram ((int) len, filepos);
             continue;
         } else if (!strcmp (name, "FRAM")) {
-            restore_fram (len, filepos);
+            restore_fram ((int) len, filepos);
             continue;
         } else if (!strcmp (name, "ZRAM")) {
 #if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )

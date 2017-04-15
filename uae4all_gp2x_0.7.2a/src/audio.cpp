@@ -94,7 +94,7 @@ typedef uae_s8 sample8_t;
 
 #define CHECK_SOUND_BUFFERS() \
 { \
-    if ((unsigned)sndbufpt - (unsigned)render_sndbuff >= SNDBUFFER_LEN) { \
+    if ((uintptr_t)sndbufpt - (uintptr_t)render_sndbuff >= SNDBUFFER_LEN) { \
 		finish_sound_buffer (); \
     } \
 }
@@ -647,6 +647,8 @@ void audio_reset (void)
 #endif
     next_sample_evtime = scaled_sample_evtime;
 
+    last_cycles = 0;
+    
     schedule_audio ();
 }
 

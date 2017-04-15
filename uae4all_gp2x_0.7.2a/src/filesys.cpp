@@ -2114,15 +2114,15 @@ action_read (Unit *unit, dpacket packet)
 		 * If realpt is at odd address, we have to swab the first word.
 		 * That word will be re-swabbed after data has been read.
 		 */
-		if (((int)realpt & 1) > 0)
-			swab_memory ((unsigned char *)((int)realpt & ~1), 2);
+		if (((uintptr_t)realpt & 1) > 0)
+			swab_memory ((unsigned char *)((uintptr_t)realpt & ~1), 2);
 		
 		actual = read(k->fd, (char *)realpt, size);
 		
 	    /* If realpt is at odd address, we also have to swab the
 	     * word in which the last byte has been written.
 	     */
-		swab_memory((unsigned char *)((int)realpt & ~1), (((actual + 1) & ~1) + ((int)realpt & 1)) & ~1);
+		swab_memory((unsigned char *)((uintptr_t)realpt & ~1), (((actual + 1) & ~1) + ((uintptr_t)realpt & 1)) & ~1);
 #else
 		actual = read(k->fd, (char *) realpt, size);
 #endif

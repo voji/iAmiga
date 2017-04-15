@@ -930,9 +930,12 @@ void mapped_free (uae_u8 *p)
 
 static void init_mem_banks (void)
 {
-    int i;
+    unsigned int i;
+    unsigned int z;
     for (i = 0; i < 65536; i++)
+    {
         put_mem_bank (i << 16, &dummy_bank);
+    }
     if (!savestate_state)
         init_memmaps(&dummy_bank);
 }
