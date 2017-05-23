@@ -989,7 +989,7 @@ static void allocate_memory (void)
         fseek (savestate_file, chip_filepos, SEEK_SET);
         
         void *tmp=malloc(compressed_size);
-		uLong outSize=allocated_chipmem;
+        uLong outSize=allocated_chipmem;
         uLong inSize=compressed_size;
         int res;
         fread (tmp, 1, compressed_size, savestate_file);
