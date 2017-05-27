@@ -203,9 +203,10 @@ static NSString *const kranalogStick = @"ranalogStick";
     NSString *devID = [NSString stringWithFormat:@"%p", controller];
     //NSString *devID = @"test";
     
-    controller.gamepad.valueChangedHandler = ^(GCGamepad *gamepad, GCControllerElement
+    controller.extendedGamepad.valueChangedHandler = ^(GCExtendedGamepad *gamepad, GCControllerElement
                                                *element)
     {
+        
         if(gamepad.buttonA.isPressed != _button[BTN_A])
             [self handleinputbuttons: BTN_A forDeviceid:devID];
         else if(gamepad.buttonB.isPressed != _button[BTN_B])

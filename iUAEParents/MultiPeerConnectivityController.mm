@@ -214,7 +214,8 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         
     }
     
-    if(kmNumber == NSNotFound)
+    if
+        (kmNumber == NSNotFound)
     {
         
         for(kmNumber= 0;kmNumber <= [_dMap count] -1; kmNumber++)
