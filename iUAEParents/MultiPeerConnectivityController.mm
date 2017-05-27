@@ -193,8 +193,7 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 
 - (void)setkeymapfordeviceID:(NSString *)dID {
     
-    long kmNumber = [_dMap indexOfObject:dID];
-    
+    NSUInteger kmNumber = [_dMap indexOfObject:dID];
     
     if([dID isEqualToString:kVirtualPad])
     {
