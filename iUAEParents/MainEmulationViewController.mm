@@ -68,6 +68,8 @@ extern void init_joystick();
 MultiPeerConnectivityController *mpcController = [[MultiPeerConnectivityController alloc] init]; //Needs to be called this early and out of class context to ensure it loads first
 RomCoreSetting *romSetting = [[RomCoreSetting alloc] initWithName:@"ROM"];
 HD0PathCoreSetting *hdpathSetting = [[HD0PathCoreSetting alloc] initWithName:@"HD0Path"];
+CMemCoreSetting *cmemsetting = [[CMemCoreSetting alloc] initWithName:@"Chipmem"];
+FMemCoreSetting *fmemsetting = [[FMemCoreSetting alloc] initWithName:@"Fastmem"];
 
 UIButton *btnSettings;
 IOSKeyboard *ioskeyboard;

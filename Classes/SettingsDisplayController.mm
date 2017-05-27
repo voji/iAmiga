@@ -27,6 +27,8 @@ extern int mainMenu_AddVerticalStretchValue;
     UnappliedSettingLabelHandler *_settingLabelHandler;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;

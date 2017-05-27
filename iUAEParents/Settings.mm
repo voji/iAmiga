@@ -115,7 +115,8 @@ static int _cNumber = 1;
     self.RStickAnalogIsMouse =      [self keyExists:kRstickmouseFlag]           ? self.RStickAnalogIsMouse : NO;
     self.useL2forMouseButton =      [self keyExists:kL2mouseFlag]               ? self.useL2forMouseButton : NO;
     self.useR2forRightMouseButton = [self keyExists:kR2mouseFlag]               ? self.useR2forRightMouseButton : NO;
-   
+    self.CMem =                     [self keyExists:kCmem]                      ? self.CMem : 1024;
+    self.FMem =                     [self keyExists:kFmem]                      ? self.FMem : 0;
     
     for(int i=1;i<=8;i++)
     {
@@ -203,6 +204,22 @@ static int _cNumber = 1;
 
 - (NSUInteger)addVerticalStretchValue {
     return [self integerForKey:kAddVerticalStretchKey];
+}
+
+- (NSInteger)CMem {
+    return [self integerForKey:kCmem];
+}
+
+- (void)setCMem:(NSInteger)cmem {
+    [self setInteger:cmem forKey:kCmem];
+}
+
+- (NSInteger)FMem {
+    return [self integerForKey:kFmem];
+}
+
+- (void)setFMem:(NSInteger)cmem {
+    [self setInteger:cmem forKey:kFmem];
 }
 
 - (void)setAddVerticalStretchValue:(NSUInteger)addVerticalStretchVal {

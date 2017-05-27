@@ -218,6 +218,7 @@
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
+		7E8C24F21EA0E31300673701 /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7E8C24F11EA0E31300673701 /* rom.key */; };
 		7E922A801CF0AD6000D8006F /* touchstick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E922A7F1CF0AD6000D8006F /* touchstick.mm */; };
 		7E98D5751D4E1241002EFBE0 /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
@@ -247,9 +248,12 @@
 		7EC59ED21BAC52390097B87A /* SettingsJoypadStyle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EC59ED11BAC52390097B87A /* SettingsJoypadStyle.mm */; };
 		7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */; };
 		7ED69CFC1A6D9DAF00059F7D /* DiskAssociationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */; };
+		7ED7ACAC1E92C9760041C2A4 /* SettingHardwareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7ACAB1E92C9760041C2A4 /* SettingHardwareController.m */; };
 		7EDCD04F1C3C59420006EB50 /* JoypadMainSettingsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */; };
 		7EE0D0451AACF2090081DAA5 /* Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D0441AACF2090081DAA5 /* Settings.mm */; };
 		7EF076641B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */; };
+		7EF0C8D31E89ADBD00531AE3 /* Ram_Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF0C8D11E89ADBD00531AE3 /* Ram_Unselected.png */; };
+		7EF0C8D41E89ADBD00531AE3 /* Ram-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF0C8D21E89ADBD00531AE3 /* Ram-Selected.png */; };
 		7EF1681719030597001C8C8F /* TouchHandlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583DE5712D1A3AC000E97CE /* TouchHandlerView.m */; };
 		7EF2F7BB1D2807600019A579 /* od-joy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF2F7BA1D2807600019A579 /* od-joy.mm */; };
 		7EF97ABD1A7586E7002CC332 /* SelectConfigurationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */; };
@@ -1606,6 +1610,7 @@
 		7E770D7A1D109DEC000E5E1A /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
 		7E770D7B1D109DEC000E5E1A /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
 		7E7936981D9D5FC5003274B4 /* constSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constSettings.h; sourceTree = "<group>"; };
+		7E8C24F11EA0E31300673701 /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../Desktop/rom.key; sourceTree = "<group>"; };
 		7E922A7F1CF0AD6000D8006F /* touchstick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = touchstick.mm; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
@@ -1649,6 +1654,8 @@
 		7ED40F1D1A3E1C9300E0E1F8 /* gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepad.png; sourceTree = "<group>"; };
 		7ED69CFA1A6D9D9B00059F7D /* DiskAssociationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskAssociationViewController.h; sourceTree = "<group>"; };
 		7ED69CFB1A6D9DAF00059F7D /* DiskAssociationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiskAssociationViewController.mm; sourceTree = "<group>"; };
+		7ED7ACAA1E92C9760041C2A4 /* SettingHardwareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingHardwareController.h; sourceTree = "<group>"; };
+		7ED7ACAB1E92C9760041C2A4 /* SettingHardwareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingHardwareController.m; sourceTree = "<group>"; };
 		7EDA12161CDB39640002B670 /* SettingsSelectKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSelectKeyViewController.h; sourceTree = "<group>"; };
 		7EDCD04D1C3C59420006EB50 /* JoypadMainSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoypadMainSettingsController.h; sourceTree = "<group>"; };
 		7EDCD04E1C3C59420006EB50 /* JoypadMainSettingsController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JoypadMainSettingsController.mm; sourceTree = "<group>"; };
@@ -1657,6 +1664,8 @@
 		7EEFD2901BAC3DE300C7F247 /* VPadLeftOrRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPadLeftOrRight.h; sourceTree = "<group>"; };
 		7EF076621B9B2C7A00224DF0 /* SettingsJoypadVpadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsJoypadVpadController.h; sourceTree = "<group>"; };
 		7EF076631B9B2C7A00224DF0 /* SettingsJoypadVpadController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsJoypadVpadController.mm; sourceTree = "<group>"; };
+		7EF0C8D11E89ADBD00531AE3 /* Ram_Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ram_Unselected.png; sourceTree = "<group>"; };
+		7EF0C8D21E89ADBD00531AE3 /* Ram-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ram-Selected.png"; sourceTree = "<group>"; };
 		7EF2F7B91D2805D50019A579 /* SDL_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_joystick.h; sourceTree = "<group>"; };
 		7EF2F7BA1D2807600019A579 /* od-joy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "od-joy.mm"; sourceTree = "<group>"; };
 		7EF2F7BC1D2807B00019A579 /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joystick.h; sourceTree = "<group>"; };
@@ -2698,6 +2707,7 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
+				7E8C24F11EA0E31300673701 /* rom.key */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2880,6 +2890,8 @@
 				7EE0D0441AACF2090081DAA5 /* Settings.mm */,
 				7E27C39D1AA3A6D300C00584 /* SettingsDisplayController.h */,
 				7E27C39E1AA3A6D300C00584 /* SettingsDisplayController.mm */,
+				7ED7ACAA1E92C9760041C2A4 /* SettingHardwareController.h */,
+				7ED7ACAB1E92C9760041C2A4 /* SettingHardwareController.m */,
 				7E3C13E31A51F16600534164 /* SettingsGeneralController.h */,
 				7E3C13E41A51F16600534164 /* SettingsGeneralController.mm */,
 				7E2A59AF1B052C3300C802E0 /* SettingsJoypadController.h */,
@@ -3112,6 +3124,8 @@
 		7EB5FBBC19F942AA0030920E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7EF0C8D11E89ADBD00531AE3 /* Ram_Unselected.png */,
+				7EF0C8D21E89ADBD00531AE3 /* Ram-Selected.png */,
 				7E2665501C483AEB004250D1 /* monitor_unselected.png */,
 				7E2665511C483AEB004250D1 /* monitor_selected_svg.svg */,
 				7E2665521C483AEB004250D1 /* monitor_selected.png */,
@@ -4305,6 +4319,7 @@
 				7E5AF6151C444854000BF5CB /* gear_selected_svg.svg in Resources */,
 				7E1B8C4319FADFD400B6136B /* modekeyon.png in Resources */,
 				05E8A04A12B2C8E9005532AF /* amiga-beige-dark.png in Resources */,
+				7EF0C8D31E89ADBD00531AE3 /* Ram_Unselected.png in Resources */,
 				7E5AF61E1C444C65000BF5CB /* keyboard_unselected.png in Resources */,
 				7E10738B1A34E85E000D7269 /* Storyboard.storyboard in Resources */,
 				7ED40F1E1A3E1C9300E0E1F8 /* gamepad.png in Resources */,
@@ -4314,6 +4329,7 @@
 				7E5AF6181C444854000BF5CB /* controller_unselected.png in Resources */,
 				058063D013B06DD800E00B04 /* Icon-72.png in Resources */,
 				05789FB913B1436200A72F5F /* Entitlements.plist in Resources */,
+				7EF0C8D41E89ADBD00531AE3 /* Ram-Selected.png in Resources */,
 				7E4B18E0188B1CD70019E82B /* btn_restart@2x.png in Resources */,
 				7EA5E7891AED732500FCE311 /* sticky.png in Resources */,
 				97855109153A3F2E00580B91 /* Aperture (1x2 RB).png in Resources */,
@@ -4325,6 +4341,7 @@
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
 				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
+				7E8C24F21EA0E31300673701 /* rom.key in Resources */,
 				7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
@@ -4984,6 +5001,7 @@
 				7E54BB201AA3362E0054F6B2 /* MFIControllerReaderView.mm in Sources */,
 				7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */,
 				0552BD560F3D797C005B30DF /* zfile.cpp in Sources */,
+				7ED7ACAC1E92C9760041C2A4 /* SettingHardwareController.m in Sources */,
 				05743FC50FC293FD003BE251 /* iphone_main.mm in Sources */,
 				05FE7F280FC3EDBF00DBFECF /* AudioQueueManager.cpp in Sources */,
 				BEF413D41CA414E700CCC1F5 /* filesys.cpp in Sources */,
@@ -5613,7 +5631,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -5687,10 +5705,12 @@
 					"$(PROJECT_DIR)",
 					"/**",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
 				PRODUCT_NAME = iUAE;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
@@ -5732,9 +5752,11 @@
 					"$(PROJECT_DIR)",
 					"/**",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
@@ -5774,9 +5796,11 @@
 					"$(PROJECT_DIR)",
 					"/**",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.0.11;
@@ -6212,7 +6236,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;

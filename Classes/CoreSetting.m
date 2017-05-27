@@ -24,8 +24,13 @@
 #import "EMUFileInfo.h"
 #import "EMUBrowser.h"
 
+extern unsigned prefs_chipmem_size;
+extern unsigned prefs_fastmem_size;
+
 static RomCoreSetting *_romInstance;
 static HD0PathCoreSetting *_hdpathInstance;
+static CMemCoreSetting *_cmeminstance;
+static FMemCoreSetting *_fmeminstance;
 
 @interface CoreSettingsRegistry : NSObject
 
@@ -257,9 +262,15 @@ static HD0PathCoreSetting *_hdpathInstance;
 
 - (NSString *)hook_getEmulatorValue {
     
-    NSString *romPath = [[NSString alloc] initWithString:[_diskDriveService getRomPath]];
-    
-    return romPath;
+    if([_diskDriveService getRomPath])
+    {
+        NSString *romPath = [[NSString alloc] initWithString:[_diskDriveService getRomPath]];
+        return romPath;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 - (NSString *)getUnappliedValue {
@@ -273,13 +284,118 @@ static HD0PathCoreSetting *_hdpathInstance;
     NSString *curRomfile = [[curRompath lastPathComponent] stringByDeletingPathExtension];
     NSString *actRomfile = [[actRompath lastPathComponent] stringByDeletingPathExtension];
     
-    if([curRomfile isEqualToString:actRomfile]) {
+    if([curRomfile isEqualToString:actRomfile] || !(curRomfile)) {
         return nil;
     }
     else {
         [self initromPath];
         NSString *fixedPath = [[NSString alloc] initWithString:_settings.romPath];
         return fixedPath;
+    }
+    
+}
+
+@end
+
+@implementation CMemCoreSetting {
+    int _actcmem;
+}
+
++ (CMemCoreSetting *)getInstance {
+    return _cmeminstance;
+}
+
+- (instancetype)initWithName:(NSString *)settingName {
+    self = [super initWithName:settingName];
+    
+    _cmeminstance = self;
+    _actcmem = _settings.CMem;
+    
+    return self;
+}
+
+- (NSString *)hook_getActionDescription {
+    return @"Change";
+}
+
+- (void)hook_persistValue:(NSNumber *)cmem {
+    //Round to multiple of 512
+    
+    _settings.CMem = [cmem integerValue];
+}
+
+- (void)hook_onReset:(NSNumber *)cmem {
+    prefs_chipmem_size = _settings.CMem * 1024;
+    _actcmem = _settings.CMem;
+}
+
+- (NSNumber *)hook_getEmulatorValue {
+    return [NSNumber numberWithInt:_actcmem];
+}
+
+- (NSString *)getUnappliedValue {
+    
+    int curcmem = _settings.CMem;
+    int actcmem = [[self hook_getEmulatorValue] integerValue];
+    
+    if(curcmem == actcmem) {
+        return nil;
+    }
+    else {
+        NSString *scurcmem = [NSString stringWithFormat:@"%i", curcmem];
+        return scurcmem;
+    }
+    
+}
+
+@end
+
+@implementation FMemCoreSetting {
+    int _actfmem;
+}
+
++ (FMemCoreSetting *)getInstance {
+    return _fmeminstance;
+}
+
+- (instancetype)initWithName:(NSString *)settingName {
+    
+    self = [super initWithName:settingName];
+    _actfmem = _settings.FMem;
+    
+    _fmeminstance = self;
+    
+    return self;
+}
+
+- (NSString *)hook_getActionDescription {
+    return @"Change";
+}
+
+- (void)hook_persistValue:(NSNumber *)fmem {
+    _settings.FMem = [fmem integerValue];
+}
+
+- (void)hook_onReset:(NSNumber *)cmem {
+    prefs_fastmem_size = _settings.FMem * 1024 * 1024;
+    _actfmem = _settings.FMem;
+}
+
+- (NSNumber *)hook_getEmulatorValue {
+    return [NSNumber numberWithInt:_actfmem];
+}
+
+- (NSString *)getUnappliedValue {
+    
+    int curfmem = _settings.FMem;
+    int actfmem = [[self hook_getEmulatorValue] integerValue];
+    
+    if(curfmem == actfmem) {
+        return nil;
+    }
+    else {
+        NSString *scurfmem = [NSString stringWithFormat:@"%i", curfmem];
+        return scurfmem;
     }
     
 }

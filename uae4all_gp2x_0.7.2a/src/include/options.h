@@ -35,14 +35,15 @@ extern int real_changed_df[NUM_DRIVES];
 extern char romfile[256];
 extern char romkeyfile[256];
 extern unsigned prefs_chipmem_size;
+extern unsigned prefs_fastmem_size;
 extern int prefs_gfx_framerate, changed_gfx_framerate;
 extern int m68k_speed;
 
 extern uae_u8 disabled;
 
 
-#define PREFS_GFX_WIDTH 320
-#define PREFS_GFX_HEIGHT 240
+#define PREFS_GFX_WIDTH 640  // mithrendal hires patch
+#define PREFS_GFX_HEIGHT 258
 
 extern void check_prefs_changed_custom (void);
 extern void check_prefs_changed_cpu (void);

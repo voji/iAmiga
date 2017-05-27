@@ -154,9 +154,9 @@ typedef struct
 {
 	famec_union32   dreg[8];
 	famec_union32   areg[8];
-	u32 *icust_handler;
+	uintptr_t *icust_handler;
 	u32 usp;
-	u32 pc;
+	uintptr_t pc;
 	u32 cycles_counter;
 	u8  interrupts[8];
 	u16 sr;
@@ -177,8 +177,8 @@ typedef struct
     u32 flag_m;
     u32 flag_t;
     u16 *_pc;
-    u32 basepc;
-    u32 fetch[256];
+    uintptr_t basepc;
+    uintptr_t fetch[256];
     s32 more_cycles_to_do;
     s32 cycles_not_done;
     s32 io_cycle_counter;
@@ -196,12 +196,12 @@ extern "C" {
     void     m68k_init(int force_table);
     unsigned m68k_reset(void);
     unsigned m68k_emulate(int n);
-    unsigned m68k_get_pc(void);
+    uintptr_t m68k_get_pc(void);
     int      m68k_fetch(unsigned address);
     
     /* CPU context handling functions */
     M68K_CONTEXT *m68k_get_context(void);
-    void famec_SetBank(u32 low_addr, u32 high_addr, u32 fetch, void *rb, void *rw, void *wb, void *ww, void *data);
+    void famec_SetBank(u32 low_addr, u32 high_addr, uintptr_t fetch, void *rb, void *rw, void *wb, void *ww, void *data);
     int  m68k_set_register(m68k_register reg, unsigned value);
     
     /* Timing functions */

@@ -797,7 +797,7 @@ static long fast_filepos;
 static void allocate_expamem (void)
 {
     //currprefs.fastmem_size = changed_prefs.fastmem_size; stoens: commented out when adding hd support
-    static int fastmem_size = 0; // currprefs.fastmem_size stoens: commented out when adding hd support
+     int fastmem_size = prefs_fastmem_size; // currprefs.fastmem_size stoens: commented out when adding hd support
 #if !( defined(PANDORA) || defined(ANDROIDSDL) || defined(IPHONE) )
     currprefs.z3fastmem_size = changed_prefs.z3fastmem_size;
     currprefs.gfxmem_size = changed_prefs.gfxmem_size;

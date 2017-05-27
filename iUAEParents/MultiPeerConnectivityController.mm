@@ -193,8 +193,7 @@ withDiscoveryInfo:(NSDictionary<NSString *,
 
 - (void)setkeymapfordeviceID:(NSString *)dID {
     
-    int kmNumber = [_dMap indexOfObject:dID];
-    
+    NSUInteger kmNumber = [_dMap indexOfObject:dID];
     
     if([dID isEqualToString:kVirtualPad])
     {
@@ -214,7 +213,8 @@ withDiscoveryInfo:(NSDictionary<NSString *,
         
     }
     
-    if(kmNumber == NSNotFound)
+    if
+        (kmNumber == NSNotFound)
     {
         
         for(kmNumber= 0;kmNumber <= [_dMap count] -1; kmNumber++)

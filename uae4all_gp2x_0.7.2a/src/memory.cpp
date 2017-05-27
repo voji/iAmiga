@@ -33,6 +33,7 @@ int bReloadKickstart = 0;
 #include "zfile.h"
 
 unsigned prefs_chipmem_size;
+unsigned prefs_fastmem_size;
 unsigned prefs_bogomem_size;
 
 void clear_fame_mem_dummy(void);
@@ -929,9 +930,12 @@ void mapped_free (uae_u8 *p)
 
 static void init_mem_banks (void)
 {
-    int i;
+    unsigned int i;
+    unsigned int z;
     for (i = 0; i < 65536; i++)
+    {
         put_mem_bank (i << 16, &dummy_bank);
+    }
     if (!savestate_state)
         init_memmaps(&dummy_bank);
 }
@@ -985,8 +989,8 @@ static void allocate_memory (void)
         fseek (savestate_file, chip_filepos, SEEK_SET);
         
         void *tmp=malloc(compressed_size);
-        int outSize=allocated_chipmem;
-        int inSize=compressed_size;
+        uLong outSize=allocated_chipmem;
+        uLong inSize=compressed_size;
         int res;
         fread (tmp, 1, compressed_size, savestate_file);
         res=uncompress((Bytef *)chipmemory, (uLongf *)&outSize, (const Bytef *)tmp, (uLong) inSize);

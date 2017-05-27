@@ -77,8 +77,11 @@ void uae::default_prefs () {
 #else
     strcpy (romfile, "kick.rom");
 #endif
-
-    prefs_chipmem_size=0x00100000;
+    
+    prefs_chipmem_size = get_chipmem_size();
+    prefs_fastmem_size = get_fastmem_size();
+    
+    //prefs_chipmem_size=0x00200000;
 	//prefs_chipmem_size=0x00080000;		// 512kb
 	
 	// emu bias -> system clock | sync threshold
