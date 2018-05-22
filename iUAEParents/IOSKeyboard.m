@@ -757,8 +757,8 @@
 -(UIView *)createkeyboardToolBar:(NSString *)lastoptionname {
     /* This function was provided by freerdp at https://github.com/FreeRDP/FreeRDP/. Many thanks */
     
-    UIToolbar* keyboard_toolbar = [[[UIToolbar alloc] initWithFrame:CGRectNull] autorelease];
-    /*[keyboard_toolbar setBarStyle:UIBarStyleBlackOpaque];*/
+    UIToolbar* keyboard_toolbar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0,0,0,50)] autorelease];
+    /*[keyboard_toolbar setBarStyle:UIBarStyleBlackTranslucent];*/
     
     UIButton *esc_btnd = [self createKeyboardButton:@"Esc" action:@selector(toggleEscKey:)];
     UIButton *ctrl_btnd = [self createKeyboardButton:@"Ctrl" action:@selector(toggleCtrlKey:)];

@@ -14,7 +14,7 @@
 #include "../../events/SDL_events_c.h"
 
 #include "SDL_UIKitVideo.h"
-#include "SDL_uikitevents.h"
+#include "SDL_UIKitEvents.h"
 
 #define UIKITVID_DRIVER_NAME "uikit"
 

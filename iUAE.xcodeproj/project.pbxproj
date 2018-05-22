@@ -218,7 +218,6 @@
 		7E82CBF319E1C0A70014AC6D /* m68k_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059E3A2610636CBA0056A577 /* m68k_interface.cpp */; };
 		7E82CBF419E1C0BA0014AC6D /* m68k_intrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0552BD010F3D797C005B30DF /* m68k_intrf.cpp */; };
 		7E82CBF719E1CFE10014AC6D /* combined_modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054525AF106EC5550032FC41 /* combined_modules.cpp */; };
-		7E8C24F21EA0E31300673701 /* rom.key in Resources */ = {isa = PBXBuildFile; fileRef = 7E8C24F11EA0E31300673701 /* rom.key */; };
 		7E922A801CF0AD6000D8006F /* touchstick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E922A7F1CF0AD6000D8006F /* touchstick.mm */; };
 		7E98D5751D4E1241002EFBE0 /* savestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97855145153A454100580B91 /* savestate.cpp */; };
 		7EA2BCA1188B0EF6003DCE10 /* SingleWindowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 053368B113B1BDD60012D55A /* SingleWindowAppDelegate.mm */; };
@@ -1276,6 +1275,13 @@
 		E937D8A71CB58BC9008DCC27 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E937D8A61CB58BC9008DCC27 /* CoreMotion.framework */; };
 		E937D8AA1CB58C50008DCC27 /* VPadMotionController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E937D8A91CB58C50008DCC27 /* VPadMotionController.mm */; };
 		E937D8B01CB58CE3008DCC27 /* VPadTouchOrGyro.mm in Sources */ = {isa = PBXBuildFile; fileRef = E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */; };
+		F48C2ACD20AD7D99002490CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48C2ACC20AD7D99002490CB /* Images.xcassets */; };
+		F48C2ACE20AD7E9F002490CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
+		F48C2ACF20AD7EA8002490CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
+		F48C2AD020AD7EAF002490CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
+		F48C2AD120AD7EC0002490CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
+		F48C2AD220AD7EC8002490CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
+		F48C2AD320AD7ED0002490CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5DE31D1C5CCD1400FF5D1D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1610,7 +1616,6 @@
 		7E770D7A1D109DEC000E5E1A /* CoreSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSetting.h; sourceTree = "<group>"; };
 		7E770D7B1D109DEC000E5E1A /* CoreSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSetting.m; sourceTree = "<group>"; };
 		7E7936981D9D5FC5003274B4 /* constSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constSettings.h; sourceTree = "<group>"; };
-		7E8C24F11EA0E31300673701 /* rom.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rom.key; path = ../../../Desktop/rom.key; sourceTree = "<group>"; };
 		7E922A7F1CF0AD6000D8006F /* touchstick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = touchstick.mm; sourceTree = "<group>"; };
 		7EA4D6491923EC9700C58BB9 /* BaseWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWebviewController.h; path = iUAEParents/BaseWebviewController.h; sourceTree = "<group>"; };
 		7EA4D64A1923EC9700C58BB9 /* BaseWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWebviewController.m; path = iUAEParents/BaseWebviewController.m; sourceTree = "<group>"; };
@@ -1671,7 +1676,6 @@
 		7EF2F7BC1D2807B00019A579 /* joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joystick.h; sourceTree = "<group>"; };
 		7EF97ABB1A7586E7002CC332 /* SelectConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectConfigurationViewController.h; path = ../SelectConfigurationViewController.h; sourceTree = "<group>"; };
 		7EF97ABC1A7586E7002CC332 /* SelectConfigurationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectConfigurationViewController.mm; path = ../SelectConfigurationViewController.mm; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064AD541C7D09FA004CAE28 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		9064AD601C7F7982004CAE28 /* MultiPeerConnectivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiPeerConnectivityController.h; path = iUAEParents/MultiPeerConnectivityController.h; sourceTree = "<group>"; };
 		9064AD611C7F7982004CAE28 /* MultiPeerConnectivityController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MultiPeerConnectivityController.mm; path = iUAEParents/MultiPeerConnectivityController.mm; sourceTree = "<group>"; };
@@ -2202,6 +2206,7 @@
 		E937D8A91CB58C50008DCC27 /* VPadMotionController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = VPadMotionController.mm; path = iUAEParents/VPadMotionController.mm; sourceTree = "<group>"; };
 		E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPadTouchOrGyro.h; sourceTree = "<group>"; };
 		E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VPadTouchOrGyro.mm; sourceTree = "<group>"; };
+		F48C2ACC20AD7D99002490CB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = lrs/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2707,7 +2712,6 @@
 		057440D40FC2A4A7003BE251 /* roms */ = {
 			isa = PBXGroup;
 			children = (
-				7E8C24F11EA0E31300673701 /* rom.key */,
 			);
 			path = roms;
 			sourceTree = "<group>";
@@ -2847,14 +2851,6 @@
 		05BC1B1910734C0700EABC6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7E770D7A1D109DEC000E5E1A /* CoreSetting.h */,
-				7E770D7B1D109DEC000E5E1A /* CoreSetting.m */,
-				7E770D771D109BF4000E5E1A /* UnappliedSettingLabelHandler.h */,
-				7E770D781D109BF4000E5E1A /* UnappliedSettingLabelHandler.m */,
-				7E6F37771CDB4E58005BA173 /* SettingsSelectPortViewController.h */,
-				7E6F37781CDB4E58005BA173 /* SettingsSelectPortViewController.mm */,
-				E937D8AE1CB58CE3008DCC27 /* VPadTouchOrGyro.h */,
-				E937D8AF1CB58CE3008DCC27 /* VPadTouchOrGyro.mm */,
 				7E079CBF1A81594B00EC0DE4 /* AddConfigurationViewController.h */,
 				7E079CC01A81594B00EC0DE4 /* AddConfigurationViewController.mm */,
 				BE6086D71C2CF5AC008E668B /* adfresolver.h */,
@@ -3031,6 +3027,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F48C2ACC20AD7D99002490CB /* Images.xcassets */,
 				05D6044912AF2D620048E478 /* Icon.png */,
 				05D6044A12AF2D620048E478 /* Icon@2x.png */,
 				057443530FC3CA04003BE251 /* disks */,
@@ -4170,10 +4167,18 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0930;
 				TargetAttributes = {
+					053368C013B1DEE90012D55A = {
+						DevelopmentTeam = GHH8S3UPXY;
+						ProvisioningStyle = Automatic;
+					};
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 6854WVMAT3;
+						DevelopmentTeam = GHH8S3UPXY;
+					};
+					97242C25156177EC00B6D03C = {
+						DevelopmentTeam = GHH8S3UPXY;
+						ProvisioningStyle = Automatic;
 					};
 					BE17E1141D6C2E8200221E7F = {
 						CreatedOnToolsVersion = 7.3;
@@ -4221,6 +4226,7 @@
 				97855131153A3FB200580B91 /* CRT.frag in Resources */,
 				9785511C153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
 				9785511F153A3F2E00580B91 /* Scanlines (50%).png in Resources */,
+				F48C2AD120AD7EC0002490CB /* Default-568h@2x.png in Resources */,
 				97855132153A3FB200580B91 /* Simple.frag in Resources */,
 				97855133153A3FB200580B91 /* Simple.vert in Resources */,
 				0533690113B1DEE90012D55A /* Entitlements.plist in Resources */,
@@ -4341,7 +4347,6 @@
 				7E1B8C4D19FAE04700B6136B /* unsticky.png in Resources */,
 				7E5AF6111C444854000BF5CB /* keyboard_selected_svg.svg in Resources */,
 				97855112153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
-				7E8C24F21EA0E31300673701 /* rom.key in Resources */,
 				7E5AF61A1C444854000BF5CB /* controller_selected.png in Resources */,
 				97855115153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				9785511B153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
@@ -4401,6 +4406,7 @@
 				9706D6671561817500073678 /* firebutton-red.png in Resources */,
 				9706D6681561817500073678 /* firebutton-red@2x.png in Resources */,
 				9706D6691561817500073678 /* firebutton-red~ipad.png in Resources */,
+				F48C2AD020AD7EAF002490CB /* Default-568h@2x.png in Resources */,
 				9706D66A1561817500073678 /* joystick.png in Resources */,
 				9706D66C1561817500073678 /* mouse.png in Resources */,
 				9706D66D1561817500073678 /* ls-fullscreen_bottomBtn.png in Resources */,
@@ -4483,6 +4489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97242C2D156177EC00B6D03C /* Aperture (1x2 RB).png in Resources */,
+				F48C2ACD20AD7D99002490CB /* Images.xcassets in Resources */,
 				97242C2E156177EC00B6D03C /* Aperture (1x3 RB).png in Resources */,
 				97242C2F156177EC00B6D03C /* Aperture (2x4 BG).png in Resources */,
 				97242C30156177EC00B6D03C /* Aperture (2x4 RB).png in Resources */,
@@ -4603,6 +4610,7 @@
 				9787FA1B1561882D00458A4A /* ls-instructions_overlay.png in Resources */,
 				9787FA1C1561882D00458A4A /* ls-overlay-skin.png in Resources */,
 				9787FA1D1561882D00458A4A /* ls-bgimage.png in Resources */,
+				F48C2ACF20AD7EA8002490CB /* Default-568h@2x.png in Resources */,
 				9787FA1E1561882D00458A4A /* ls-fire.png in Resources */,
 				9787FA1F1561882D00458A4A /* ls-joystick_active.png in Resources */,
 				9787FA201561882D00458A4A /* ls-joystick_rest.png in Resources */,
@@ -4636,6 +4644,7 @@
 				9787FB7615618A5E00458A4A /* firebutton-red.png in Resources */,
 				9787FB7715618A5E00458A4A /* firebutton-red@2x.png in Resources */,
 				9787FB7815618A5E00458A4A /* firebutton-red~ipad.png in Resources */,
+				F48C2AD320AD7ED0002490CB /* Default-568h@2x.png in Resources */,
 				9787FB7915618A5E00458A4A /* joystick.png in Resources */,
 				9787FB7B15618A5E00458A4A /* mouse.png in Resources */,
 				9787FB7C15618A5E00458A4A /* ls-fullscreen_bottomBtn.png in Resources */,
@@ -4728,6 +4737,7 @@
 				97C87511156E834100197738 /* Simple.frag in Resources */,
 				97C87512156E834100197738 /* Simple.vert in Resources */,
 				97C87513156E834100197738 /* Entitlements.plist in Resources */,
+				F48C2AD220AD7EC8002490CB /* Default-568h@2x.png in Resources */,
 				97C8754A156E834100197738 /* firebutton-red-active.png in Resources */,
 				97C8754B156E834100197738 /* firebutton-red-active@2x.png in Resources */,
 				97C8754C156E834100197738 /* firebutton-red-active~ipad.png in Resources */,
@@ -4758,6 +4768,7 @@
 				9785510E153A3F2E00580B91 /* Aperture (1x3 RB).png in Resources */,
 				97855111153A3F2E00580B91 /* Aperture (2x4 BG).png in Resources */,
 				97855114153A3F2E00580B91 /* Aperture (2x4 RB).png in Resources */,
+				F48C2ACE20AD7E9F002490CB /* Default-568h@2x.png in Resources */,
 				97855117153A3F2E00580B91 /* Aperture (4x6).png in Resources */,
 				97855134153A3FBE00580B91 /* CRT.frag in Resources */,
 				9785511D153A3F2E00580B91 /* Scanlines (100%).png in Resources */,
@@ -4859,20 +4870,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
-		};
-
-		7E57D8A219119D9500648935 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5588,13 +5585,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "o.anoAmiga.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DotC;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -5603,11 +5606,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "o.anoAmiga.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DotC;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -5616,13 +5625,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "o.anoAmiga.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DotC;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5631,15 +5646,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_FAST_MATH = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_INPUT_FILETYPE = automatic;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IPHONE,
@@ -5650,9 +5683,12 @@
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -5662,7 +5698,8 @@
 				);
 				INFOPLIST_FILE = "TargetSpecific/$(PRODUCT_NAME)/info.plist";
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_NO_PIE = YES;
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-mno-thumb";
@@ -5685,8 +5722,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUAE_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5701,12 +5741,15 @@
 					uae4all_gp2x_0.7.2a/src/iphone,
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_NO_PIE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"/**",
+					/,
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.voji.iUAE;
 				PRODUCT_NAME = iUAE;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5725,13 +5768,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5748,12 +5794,15 @@
 					uae4all_gp2x_0.7.2a/src/iphone,
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_NO_PIE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"/**",
+					/,
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.voji.iUAE;
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -5771,8 +5820,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5792,12 +5844,15 @@
 					uae4all_gp2x_0.7.2a/src/iphone,
 				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_NO_PIE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"/**",
+					/,
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ursschhmid.iUAE;
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.voji.iUAE;
 				PRODUCT_NAME = iUAE;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -5815,7 +5870,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5830,7 +5887,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
@@ -5843,8 +5902,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
@@ -5858,13 +5919,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = lrs;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -5873,11 +5942,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = lrs;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -5886,13 +5963,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = GHH8S3UPXY;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = lrs;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
@@ -5901,7 +5986,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5916,7 +6003,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
@@ -5929,8 +6018,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
@@ -5944,8 +6035,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
+				ENABLE_BITCODE = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
@@ -5959,7 +6052,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
@@ -5972,8 +6067,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cinemaware.${PRODUCT_NAME:identifier}";
@@ -5987,7 +6084,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6006,7 +6105,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -6023,8 +6124,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -6042,6 +6145,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -6062,6 +6166,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iAmiga_Prefix.pch;
@@ -6080,6 +6185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6236,17 +6342,35 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_FAST_MATH = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_INPUT_FILETYPE = automatic;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IPHONE,
@@ -6256,9 +6380,12 @@
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_UNROLL_LOOPS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -6268,7 +6395,8 @@
 				);
 				INFOPLIST_FILE = "TargetSpecific/$(PRODUCT_NAME)/info.plist";
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_NO_PIE = YES;
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -6289,14 +6417,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_FAST_MATH = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_INPUT_FILETYPE = automatic;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IPHONE,
@@ -6307,9 +6454,12 @@
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_UNROLL_LOOPS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -6319,7 +6469,8 @@
 				);
 				INFOPLIST_FILE = "TargetSpecific/$(PRODUCT_NAME)/info.plist";
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_NO_PIE = YES;
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "-mno-thumb";

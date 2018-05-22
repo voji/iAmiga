@@ -8,13 +8,6 @@
 	<string>Lords Of The Rising Sun</string>
 	<key>CFBundleExecutable</key>
 	<string>lrs</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon</string>
-		<string>icon.png</string>
-		<string>icon@2x.png</string>
-		<string>icon-72.png</string>
-	</array>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
